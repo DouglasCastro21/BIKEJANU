@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">BIKE JANU</string>
+    <string name="btn_Indice">CONSULTAR ÍNDICES</string>
+    <string name="btn_Cadastro">CONSULTAR BIKE</string>
+    <string name="btn_Login">ENTRAR</string>
+    <string name="txt_Bike_Janu">Bike Janu</string>
+    <string name="txt_Boas_Vindas">Junte-se a nós e faça desta família!</string>
+    <string name="btn_Entrar">ENTRAR</string>
+    <string name="text_boasVindas">Junte-se a nós e faça parte desta família!</string>
+    <string name="btn_Consultar_Bike">CONSULTAR BIKE</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_cadastre">CADASTRE-SE</string>
+    <string name="textBikeJanu">Bike Janu</string>
+    <string name="title_activity_cadastro_usuario">CadastroUsuario</string>
+    <string name="title_activity_entrar">Entrar</string>
+    <string name="tab_text_1">ENTRAR</string>
+    <string name="tab_text_2">CADASTRE-SE</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="btnlogar">LOGAR</string>
+    <string name="btnCadastro">CADASTRAR</string>
+    <string name="campoDigiteSeuNome">Digite Seu Nome</string>
+    <string name="title_activity_consultar__bike">Consultar_Bike</string>
+    <string name="tab_text_3">Tab 3</string>
+
+
+</resources>
