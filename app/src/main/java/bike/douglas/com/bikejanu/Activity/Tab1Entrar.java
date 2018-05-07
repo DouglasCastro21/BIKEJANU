@@ -30,7 +30,7 @@ public class Tab1Entrar extends Fragment {
 
         return rootView;
 
-        //edtEmail = findViewById(R.id.EmailID);
+       // edtEmail = findViewById(R.id.EmailID);
 
     }
 

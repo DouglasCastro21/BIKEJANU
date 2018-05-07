@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "834563023179",
+    "firebase_url": "https://bikejanu-62aa9.firebaseio.com",
+    "project_id": "bikejanu-62aa9",
+    "storage_bucket": "bikejanu-62aa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834563023179:android:dcdc4559617c98f6",
+        "android_client_info": {
+          "package_name": "bike.douglas.com.bikejanu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834563023179-3autfplk1asj7eil8u1r43dn6m69ogk7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bike.douglas.com.bikejanu",
+            "certificate_hash": "fb43d46ee4c4f930441837df53553fbd6fe49be4"
+          }
+        },
+        {
+          "client_id": "834563023179-k9m8kh2fshmujj0r0nenjnsl41kju0o7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_fYNqch8u4tzp8HfCCPxNNUY3o0TxRSA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834563023179-k9m8kh2fshmujj0r0nenjnsl41kju0o7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -76,10 +76,10 @@ public class Consultar_Bike extends AppCompatActivity {
                         Tab1Codigo tab1C = new Tab1Codigo();
                         return tab1C;
                     case 1:
-                        Consultar_Indice.Tab2Data tab2 = new Consultar_Indice.Tab2Data();
+                        Tab2Data tab2 = new Tab2Data();
                         return tab2;
                     case 2:
-                        Consultar_Indice.Tab3Cor tab3 = new Consultar_Indice.Tab3Cor();
+                        Tab3Cor tab3 = new Tab3Cor();
                         return tab3;
                     default:
                         return null;
