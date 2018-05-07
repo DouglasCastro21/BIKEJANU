@@ -1,22 +1,18 @@
-package bike.douglas.com.bikejanu;
+package bike.douglas.com.bikejanu.Activity;
 
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.TextView;
+import bike.douglas.com.bikejanu.R;
 
-    public class Consultar_Bike extends AppCompatActivity {
+public class Consultar_Bike extends AppCompatActivity {
 
         /**
          * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -77,13 +73,13 @@ import android.widget.TextView;
                 switch (position){
 
                     case 0:
-                        tab1Codigo  tab1C = new  tab1Codigo();
+                        Tab1Codigo tab1C = new Tab1Codigo();
                         return tab1C;
                     case 1:
-                        tab2Data tab2 = new tab2Data();
+                        Consultar_Indice.Tab2Data tab2 = new Consultar_Indice.Tab2Data();
                         return tab2;
                     case 2:
-                        tab3Cor tab3 = new tab3Cor();
+                        Consultar_Indice.Tab3Cor tab3 = new Consultar_Indice.Tab3Cor();
                         return tab3;
                     default:
                         return null;
