@@ -1,4 +1,4 @@
-package bike.douglas.com.bikejanu.Activity;
+package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.os.Bundle;
@@ -10,13 +10,14 @@ import android.view.ViewGroup;
 import bike.douglas.com.bikejanu.R;
 
 
-public class Tab3Cor extends Fragment {
+public class Tab1Codigo extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tab3cor, container, false);
+        View rootView = inflater.inflate(R.layout.tab1codigo, container, false);
 
         return rootView;
     }
 }
+

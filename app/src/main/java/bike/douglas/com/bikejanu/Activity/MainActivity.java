@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
+import bike.douglas.com.bikejanu.Fragments.Entrar;
 import bike.douglas.com.bikejanu.R;
 
 

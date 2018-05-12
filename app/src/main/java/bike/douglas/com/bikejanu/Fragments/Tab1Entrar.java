@@ -1,13 +1,10 @@
-package bike.douglas.com.bikejanu.Activity;
+package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.content.Intent;
-import android.content.IntentSender;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import bike.douglas.com.bikejanu.Activity.TelaCadastro;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.R;
@@ -105,7 +103,7 @@ public class Tab1Entrar extends Fragment  {
 
     public void abrirTElaPrincipal(){
 
-        Intent intent = new Intent(getActivity(), TelaCadastro.class);
+        Intent intent = new Intent(getActivity(), AreaUsuario.class);
         startActivity(intent);
 
       //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,TelaCadastro.class);

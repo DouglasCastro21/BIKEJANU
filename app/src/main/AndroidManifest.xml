@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_icone"
@@ -20,14 +25,18 @@
         </activity>
         <activity android:name=".Activity.Consultar_Indice" />
         <activity
-            android:name=".Activity.Entrar"
+            android:name=".Fragments.Entrar"
             android:label="@string/title_activity_entrar"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activity.Consultar_Bike"
+            android:name=".Fragments.Consultar_Bike"
             android:label="@string/title_activity_consultar__bike"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.TelaCadastro"></activity>
+        <activity android:name=".Activity.TelaCadastro" />
+        <activity
+            android:name=".Fragments.AreaUsuario"
+            android:label="@string/title_activity_area_usuario"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

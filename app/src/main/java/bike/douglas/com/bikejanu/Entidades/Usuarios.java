@@ -1,6 +1,13 @@
 package bike.douglas.com.bikejanu.Entidades;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+
 import java.lang.reflect.ParameterizedType;
+import java.util.HashMap;
+import java.util.Map;
+
+import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 
 public class Usuarios {
 
@@ -11,10 +18,39 @@ public class Usuarios {
     private String telefone;
     private String nascimento;
 
+
+
+
+
+
     public Usuarios() {
+
+    }
+
+// salvar usuarios
+    public void Salvar(){
+
+        DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
+        referenciaFirebase.child("usuario").child(String.valueOf(getId())).setValue(this);
 
 
     }
+
+    @Exclude
+    public Map<String , Object> toMap() {
+        HashMap <String , Object> hashMapUsuario = new HashMap<>();
+
+        hashMapUsuario.put("id",getId());
+        hashMapUsuario.put("nome",getNome());
+        hashMapUsuario.put("email",getEmail());
+        hashMapUsuario.put("senha",getSenha());
+        hashMapUsuario.put("telefone",getSenha());
+        hashMapUsuario.put("nascimento",getNascimento());
+
+        return hashMapUsuario;
+
+    }
+
 
     public String getId() {
         return id;
@@ -64,4 +100,7 @@ public class Usuarios {
     public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
+
+
+
 }

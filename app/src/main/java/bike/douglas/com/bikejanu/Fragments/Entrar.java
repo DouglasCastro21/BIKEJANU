@@ -1,4 +1,4 @@
-package bike.douglas.com.bikejanu.Activity;
+package bike.douglas.com.bikejanu.Fragments;
 
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;

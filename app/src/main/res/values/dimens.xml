@@ -12,5 +12,7 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="tamnahobutton">324dp</dimen>
     <dimen name="tamanhoCampos">324dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
 
 </resources>

@@ -1,4 +1,4 @@
-package bike.douglas.com.bikejanu.Activity;
+package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.os.Bundle;
