@@ -28,10 +28,14 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     private FirebaseAuth usuarioFirebase;
     private ImageButton btnmais;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_usuario);
+
+        usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -108,11 +112,23 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
         } else if (id == R.id.nav_sair) {
+            deslogarUsuario();
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    public void deslogarUsuario(){
+
+        usuarioFirebase.signOut();
+        Intent intent = new Intent(AreaUsuario.this ,MainActivity.class);
+        startActivity(intent);
+        finish();
+
+
     }
 }
