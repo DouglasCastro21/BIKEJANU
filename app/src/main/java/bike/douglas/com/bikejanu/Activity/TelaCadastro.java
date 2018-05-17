@@ -4,28 +4,24 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.Exclude;
-
-import java.util.prefs.PreferenceChangeEvent;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
-import bike.douglas.com.bikejanu.Fragments.Tab1Entrar;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
@@ -51,7 +47,10 @@ public class TelaCadastro extends AppCompatActivity {
         setContentView(R.layout.activity_tela_cadastro);
 
 
-        nome = (EditText)findViewById(R.id.nomeID);
+       // verificarUsuarioLogado();  inserir em entrar
+
+
+        nome = (EditText)findViewById(R.id.numeroSerieID);
         email = (EditText)findViewById(R.id.EmailtextID);
         confirmaremail = (EditText)findViewById(R.id.verificarEmailID);
         senha = (EditText)findViewById(R.id.senhaID);
@@ -60,6 +59,14 @@ public class TelaCadastro extends AppCompatActivity {
         nascimento = (EditText)findViewById(R.id.dataID);
         botaocadastrar = (Button) findViewById(R.id.btnCadastrarID);
 
+
+        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)-N-NNNNNNNN");
+        MaskTextWatcher  maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
+        telefone.addTextChangedListener(maskTelefone);
+
+        SimpleMaskFormatter simpleMaskNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher  maskNascimento = new MaskTextWatcher(nascimento, simpleMaskNascimento);
+        nascimento.addTextChangedListener(maskNascimento);
 
 
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +97,8 @@ public class TelaCadastro extends AppCompatActivity {
     }
 
 
+
+
     private void cadastrarUsuario(){
 
         autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
@@ -101,6 +110,9 @@ public class TelaCadastro extends AppCompatActivity {
         ).addOnCompleteListener(TelaCadastro.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
+
+
 
                 if (task.isSuccessful()){
 
@@ -129,7 +141,7 @@ public class TelaCadastro extends AppCompatActivity {
                     }catch (Exception e){
 
                         erroExcecao = "Erro ao efetuar o cadastro";
-                        e.printStackTrace();;
+                        e.printStackTrace();
                     } Toast.makeText(TelaCadastro.this,"Erro" + erroExcecao,Toast.LENGTH_LONG ).show();
 
                 }

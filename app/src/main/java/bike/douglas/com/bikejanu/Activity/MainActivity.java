@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
 import bike.douglas.com.bikejanu.Fragments.Entrar;
 import bike.douglas.com.bikejanu.R;
@@ -16,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_Entrar;
     private Button btn_consultar_Indice;
     private Button btn_Consultar_Bike;
+
 
 
     @Override
@@ -55,4 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 }

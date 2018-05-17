@@ -32,6 +32,14 @@ public class Preferencias {
         editor.commit();
     }
 
+
+    public  void salvarBikePreferencias(String identificadorBike, String nomeBike){
+        editor.putString(CHAVE_IDENTIFICADOR,identificadorBike);
+        editor.putString(CHAVE_NOME, nomeBike);
+        editor.commit();
+    }
+
+
     public String getIdentificador(){
 
         return  preferences.getString(CHAVE_IDENTIFICADOR, null);

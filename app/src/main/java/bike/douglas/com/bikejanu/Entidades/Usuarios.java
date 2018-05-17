@@ -17,6 +17,7 @@ public class Usuarios {
     private String senha;
     private String telefone;
     private String nascimento;
+    private Bike bike;
 
 
 
@@ -33,7 +34,6 @@ public class Usuarios {
         DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
         referenciaFirebase.child("usuario").child(String.valueOf(getId())).setValue(this);
 
-
     }
 
     @Exclude
@@ -46,6 +46,7 @@ public class Usuarios {
         hashMapUsuario.put("senha",getSenha());
         hashMapUsuario.put("telefone",getSenha());
         hashMapUsuario.put("nascimento",getNascimento());
+
 
         return hashMapUsuario;
 

@@ -38,6 +38,8 @@ public class Tab1Entrar extends Fragment  {
         View rootView = inflater.inflate(R.layout.tab1entrar, container, false);
 
 
+        verificarUsuarioLogado();
+
         final TextView edtEmail = (TextView) rootView.findViewById(R.id.EmailID);
         final TextView edtSenha = (TextView) rootView.findViewById(R.id.SenhaID);
         Button btnLogar = (Button) rootView.findViewById(R.id.LogarID);
@@ -79,6 +81,7 @@ public class Tab1Entrar extends Fragment  {
         @Override
         public void onComplete(@NonNull Task<AuthResult> task) {
 
+
             if (task.isSuccessful()){
 
                 abrirTElaPrincipal();
@@ -110,5 +113,18 @@ public class Tab1Entrar extends Fragment  {
 //startActivity(intentabrirTElaPrincipal);
 
     }
+
+
+
+    private  void verificarUsuarioLogado() {
+        autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
+        if (autenticacao.getCurrentUser() != null) {
+
+            abrirTElaPrincipal();
+        }
+    }
+
+
+
 }
 
