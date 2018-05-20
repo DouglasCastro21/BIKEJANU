@@ -19,14 +19,13 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
 
-public class TelaCadastro extends AppCompatActivity {
+public class CadastroUsuario extends AppCompatActivity {
 
 
 
@@ -44,7 +43,7 @@ public class TelaCadastro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_cadastro);
+        setContentView(R.layout.activity_cadastro_usuario);
 
 
        // verificarUsuarioLogado();  inserir em entrar
@@ -88,7 +87,7 @@ public class TelaCadastro extends AppCompatActivity {
 
                 } else {
 
-                    Toast.makeText(TelaCadastro.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastroUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -107,7 +106,7 @@ public class TelaCadastro extends AppCompatActivity {
                 usuarios.getSenha()
 
 
-        ).addOnCompleteListener(TelaCadastro.this, new OnCompleteListener<AuthResult>() {
+        ).addOnCompleteListener(CadastroUsuario.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -116,14 +115,14 @@ public class TelaCadastro extends AppCompatActivity {
 
                 if (task.isSuccessful()){
 
-                    Toast.makeText(TelaCadastro.this,"Usuário cadastrado com sucesso!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(CadastroUsuario.this,"Usuário cadastrado com sucesso!",Toast.LENGTH_LONG).show();
 
                     String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
                     FirebaseUser usuarioFirebase = task.getResult().getUser();
                     usuarios.setId(identificadorUsuario);
                     usuarios.Salvar();
 
-                    Preferencias preferencias = new Preferencias(TelaCadastro.this);
+                    Preferencias preferencias = new Preferencias(CadastroUsuario.this);
                     preferencias.salvarUsuarioPreferencias(identificadorUsuario,usuarios.getNome());
 
 
@@ -142,7 +141,7 @@ public class TelaCadastro extends AppCompatActivity {
 
                         erroExcecao = "Erro ao efetuar o cadastro";
                         e.printStackTrace();
-                    } Toast.makeText(TelaCadastro.this,"Erro" + erroExcecao,Toast.LENGTH_LONG ).show();
+                    } Toast.makeText(CadastroUsuario.this,"Erro" + erroExcecao,Toast.LENGTH_LONG ).show();
 
                 }
             }
@@ -155,7 +154,7 @@ public class TelaCadastro extends AppCompatActivity {
     public void AbrirUsuarioLogin(){
 
 
-        Intent intent = new Intent(TelaCadastro.this ,AreaUsuario.class);
+        Intent intent = new Intent(CadastroUsuario.this ,AreaUsuario.class);
         startActivity(intent);
         finish();
     }

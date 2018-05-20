@@ -15,11 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
-
-import bike.douglas.com.bikejanu.Activity.TelaCadastro;
+import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.R;
 
 public class Tab2Cadastrar extends Fragment {
@@ -85,10 +81,10 @@ public class Tab2Cadastrar extends Fragment {
 
     public void abrirTElaPrincipal(){
 
-        Intent intent = new Intent(getActivity(),TelaCadastro.class);
+        Intent intent = new Intent(getActivity(),CadastroUsuario.class);
         startActivity(intent);
 
-        //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,TelaCadastro.class);
+        //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,CadastroUsuario.class);
 //startActivity(intentabrirTElaPrincipal);
 
     }

@@ -18,7 +18,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import bike.douglas.com.bikejanu.Activity.TelaCadastro;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.R;
@@ -109,7 +108,7 @@ public class Tab1Entrar extends Fragment  {
         Intent intent = new Intent(getActivity(), AreaUsuario.class);
         startActivity(intent);
 
-      //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,TelaCadastro.class);
+      //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,CadastroUsuario.class);
 //startActivity(intentabrirTElaPrincipal);
 
     }

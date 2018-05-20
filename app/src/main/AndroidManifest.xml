@@ -32,7 +32,7 @@
             android:name=".Fragments.Consultar_Bike"
             android:label="@string/title_activity_consultar__bike"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.TelaCadastro" />
+        <activity android:name=".Activity.CadastroUsuario" />
         <activity
             android:name=".Fragments.AreaUsuario"
             android:label="@string/title_activity_area_usuario"
