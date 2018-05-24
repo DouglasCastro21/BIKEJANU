@@ -49,7 +49,7 @@ public class CadastroUsuario extends AppCompatActivity {
        // verificarUsuarioLogado();  inserir em entrar
 
 
-        nome = (EditText)findViewById(R.id.numeroSerieID);
+        nome = (EditText)findViewById(R.id.NomeID);
         email = (EditText)findViewById(R.id.EmailtextID);
         confirmaremail = (EditText)findViewById(R.id.verificarEmailID);
         senha = (EditText)findViewById(R.id.senhaID);

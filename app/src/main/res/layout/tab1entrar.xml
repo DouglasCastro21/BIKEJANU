@@ -10,12 +10,14 @@
     <EditText
         android:id="@+id/EmailID"
         android:layout_width="0dp"
-        android:layout_height="42dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="85dp"
+
+        android:drawableLeft="@drawable/ic_action_gmail"
         android:ems="10"
         android:hint="Digite seu E-mail"
         android:inputType="textEmailAddress"
@@ -32,6 +34,7 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"
         tools:layout_constraintLeft_creator="1"
@@ -47,19 +50,24 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="300dp"
         android:text="@string/btnlogar"
+        android:background="@drawable/background_interno"
+        android:drawableLeft="@drawable/ic_action_verde_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
         android:id="@+id/SenhaID"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="136dp"
+
+        android:drawableLeft="@drawable/ic_cinza_key"
         android:ems="10"
         android:hint="Digite sua Senha"
         android:inputType="textPassword"

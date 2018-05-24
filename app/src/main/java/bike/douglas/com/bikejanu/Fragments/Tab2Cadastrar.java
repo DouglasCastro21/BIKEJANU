@@ -4,6 +4,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,7 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
+import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
 public class Tab2Cadastrar extends Fragment {
@@ -25,7 +33,11 @@ public class Tab2Cadastrar extends Fragment {
 
 
     private EditText edtEmail;
+    private EditText edtSenha;
     private Button btnCadastrar;
+    private FirebaseAuth autenticacao;
+    private Usuarios usuarios;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,12 +58,15 @@ public class Tab2Cadastrar extends Fragment {
         public void onClick (View v) {
 
 
-                if (!edtEmail.getText().toString().equals("")) {
-
-                    abrirTElaPrincipal();
+            if (!edtEmail.getText().toString().equals("")) {
 
 
-                } else {
+                      abrirCadastroUsuario();
+
+            } else {
+
+
+                Toast.makeText(Tab2Cadastrar.super.getActivity(),"Preencha com     E-mail", Toast.LENGTH_SHORT).show();
 
                     String erroExcecao = "";
 
@@ -79,7 +94,7 @@ public class Tab2Cadastrar extends Fragment {
         return rootView;
 }
 
-    public void abrirTElaPrincipal(){
+    public void abrirCadastroUsuario(){
 
         Intent intent = new Intent(getActivity(),CadastroUsuario.class);
         startActivity(intent);
@@ -88,5 +103,8 @@ public class Tab2Cadastrar extends Fragment {
 //startActivity(intentabrirTElaPrincipal);
 
     }
+
+
+
 
 }

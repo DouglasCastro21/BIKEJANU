@@ -33,6 +33,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="85dp"
         android:ems="10"
+        android:drawableLeft="@drawable/ic_action_gmail"
         android:hint="Digite seu melhor E-mail"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +51,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="300dp"
         android:text="@string/btnCadastro"
+        android:background="@drawable/background_interno"
+        android:drawableLeft="@drawable/ic_action_verde_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

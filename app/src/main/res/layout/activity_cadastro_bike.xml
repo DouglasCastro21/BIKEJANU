@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numeroSerieID" />
+        app:layout_constraintTop_toBottomOf="@+id/NomeID" />
 
     <TextView
         android:id="@+id/textView11"
@@ -81,32 +81,35 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <EditText
-        android:id="@+id/numeroSerieID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/NomeID"
+        android:layout_width="285dp"
+        android:layout_height="32dp"
         android:layout_marginEnd="137dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="137dp"
         android:layout_marginStart="32dp"
+        android:background="@drawable/background_interno"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Número de Série"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
         android:id="@+id/marcaID"
-        android:layout_width="wrap_content"
+        android:layout_width="318dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="137dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="137dp"
         android:layout_marginStart="32dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Marca"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -163,24 +166,27 @@
         android:layout_marginTop="1dp"
         android:ems="10"
         android:hint="Modelo"
+        android:background="@drawable/background_interno"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
 
-
     <Button
         android:id="@+id/finalizarID"
-        android:layout_width="wrap_content"
+        android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
-        android:layout_marginLeft="190dp"
+        android:layout_marginLeft="150dp"
         android:layout_marginRight="25dp"
-        android:layout_marginStart="190dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/background_interno"
+        android:drawableLeft="@drawable/ic_action_verde_right"
         android:text="Finalizar Cadastro"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/modeloID" />
 

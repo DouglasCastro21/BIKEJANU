@@ -1,6 +1,5 @@
 package bike.douglas.com.bikejanu.Activity;
 
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,18 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
-import bike.douglas.com.bikejanu.Helper.Base64Custom;
-import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
 
 public class CadastroBike extends AppCompatActivity {
@@ -40,7 +31,7 @@ public class CadastroBike extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_bike);
 
 
-        numero_serie = (EditText) findViewById(R.id.numeroSerieID);
+        numero_serie = (EditText) findViewById(R.id.NomeID);
         marca = (EditText) findViewById(R.id.marcaID);
         modelo = (EditText) findViewById(R.id.modeloID);
         cor = (EditText) findViewById(R.id.corID);
@@ -52,7 +43,7 @@ public class CadastroBike extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
+              
                     bike = new Bike();
                     bike.setNumero_serie(numero_serie.getText().toString());
                     bike.setMarca(marca.getText().toString());
@@ -61,9 +52,6 @@ public class CadastroBike extends AppCompatActivity {
 
 
                     CadastrarBike(bike);
-
-
-
 
             }
 
@@ -76,14 +64,12 @@ public class CadastroBike extends AppCompatActivity {
 
         try {
 
-            firebase = Configuracao_Firebase.getFirebase().child("usuario");
+            firebase = Configuracao_Firebase.getFirebase().child("usuario").child("Bike Usuario");
             firebase.child(bike.getMarca()).setValue(bike);
             Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
 
 
-
             return true;
-
 
         } catch (Exception e) {
 
