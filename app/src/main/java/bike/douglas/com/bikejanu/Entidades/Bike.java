@@ -8,7 +8,7 @@ import java.util.Map;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 
-public class Bike {
+public class Bike extends Usuarios{
 
 
     private String id;
@@ -16,7 +16,7 @@ public class Bike {
     private String marca;
     private String modelo;
     private String cor;
-
+    public Usuarios usuarios;
 
 
 
@@ -30,7 +30,7 @@ public class Bike {
     public void SalvarBike(){
 
         DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
-        referenciaFirebase.child("usuario").child(String.valueOf(getId())).setValue(this);
+        referenciaFirebase.child(getIdUsuario()).child(String.valueOf(getId())).setValue(this);
 
 
     }

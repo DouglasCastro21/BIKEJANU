@@ -10,13 +10,13 @@ import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 
 public class Usuarios {
 
-    private String id;
+    private String idUsuario;
     private String nome;
     private String email;
     private String senha;
     private String telefone;
     private String nascimento;
-    private Bike bike;
+
 
 
 
@@ -31,7 +31,7 @@ public class Usuarios {
     public void Salvar(){
 
         DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
-        referenciaFirebase.child("usuario").child(String.valueOf(getId())).setValue(this);
+        referenciaFirebase.child("Usuarios").child(String.valueOf(getIdUsuario())).setValue(this);
 
     }
 
@@ -39,7 +39,7 @@ public class Usuarios {
     public Map<String , Object> toMap() {
         HashMap <String , Object> hashMapUsuario = new HashMap<>();
 
-        hashMapUsuario.put("id",getId());
+        hashMapUsuario.put("id",getIdUsuario());
         hashMapUsuario.put("nome",getNome());
         hashMapUsuario.put("email",getEmail());
         hashMapUsuario.put("senha",getSenha());
@@ -52,12 +52,12 @@ public class Usuarios {
     }
 
 
-    public String getId() {
-        return id;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {

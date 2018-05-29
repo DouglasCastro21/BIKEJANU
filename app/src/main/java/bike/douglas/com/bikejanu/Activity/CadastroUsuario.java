@@ -46,7 +46,6 @@ public class CadastroUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_usuario);
 
 
-       // verificarUsuarioLogado();  inserir em entrar
 
 
         nome = (EditText)findViewById(R.id.NomeID);
@@ -119,7 +118,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
                     String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
                     FirebaseUser usuarioFirebase = task.getResult().getUser();
-                    usuarios.setId(identificadorUsuario);
+                    usuarios.setIdUsuario(identificadorUsuario);
                     usuarios.Salvar();
 
                     Preferencias preferencias = new Preferencias(CadastroUsuario.this);

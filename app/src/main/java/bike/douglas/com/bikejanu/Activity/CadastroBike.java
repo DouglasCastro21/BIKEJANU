@@ -1,5 +1,6 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,13 +8,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
+import bike.douglas.com.bikejanu.Entidades.Usuarios;
+import bike.douglas.com.bikejanu.Helper.Base64Custom;
+import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
 
-public class CadastroBike extends AppCompatActivity {
+public class CadastroBike extends AppCompatActivity  {
 
 
     private EditText numero_serie;
@@ -22,8 +32,9 @@ public class CadastroBike extends AppCompatActivity {
     private EditText cor;
     private Button botaocadastrar;
     private Bike bike;
-   private DatabaseReference firebase;
-
+    private DatabaseReference firebase;
+    public Usuarios usuarios;
+    private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +62,7 @@ public class CadastroBike extends AppCompatActivity {
                     bike.setCor(cor.getText().toString());
 
 
-                    CadastrarBike(bike);
+                    CadastrarBike();
 
             }
 
@@ -60,12 +71,14 @@ public class CadastroBike extends AppCompatActivity {
 
     }
 
-    private boolean CadastrarBike(Bike bike) {
+    private boolean CadastrarBike() {
 
         try {
 
-            firebase = Configuracao_Firebase.getFirebase().child("usuario").child("Bike Usuario");
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bike Usuario");
             firebase.child(bike.getMarca()).setValue(bike);
+
             Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
 
 
@@ -84,5 +97,4 @@ public class CadastroBike extends AppCompatActivity {
 
 
 
-
-}
+    }
