@@ -17,12 +17,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +35,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     private FirebaseAuth usuarioFirebase;
     private ImageButton btnmais;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +44,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -63,6 +68,10 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             }
         });
     }
+
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -108,10 +117,13 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         } else if (id == R.id.nav_bike) {
 
+
+
         } else if (id == R.id.nav_indices) {
 
         } else if (id == R.id.nav_configuracao) {
 
+recuperarDadosUsuarioConectado();
 
         } else if (id == R.id.nav_sair) {
             caixaDialogoSair();
@@ -170,4 +182,32 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         alertaDialog.create();
         alertaDialog.show();
     }
-}
+
+
+    private void recuperarDadosUsuarioConectado(){
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            boolean emailVerified = user.isEmailVerified();
+            String uid = user.getUid();
+
+
+            Toast.makeText(AreaUsuario.this, "nome  : "+name, Toast.LENGTH_LONG).show();
+            Toast.makeText(AreaUsuario.this, "id  : "+uid, Toast.LENGTH_LONG).show();
+            Toast.makeText(AreaUsuario.this, "email  : "+email, Toast.LENGTH_LONG).show();
+
+
+            };
+        }
+
+
+
+    }
+
+
+
+
+

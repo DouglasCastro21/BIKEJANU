@@ -20,10 +20,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.concurrent.Executor;
 
 import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
+import bike.douglas.com.bikejanu.Helper.Base64Custom;
+import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
 
 public class Tab2Cadastrar extends Fragment {
@@ -33,12 +41,13 @@ public class Tab2Cadastrar extends Fragment {
 
 
     private EditText edtEmail;
-    private EditText edtSenha;
+
     private Button btnCadastrar;
     private FirebaseAuth autenticacao;
     private Usuarios usuarios;
 
 
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,10 +57,7 @@ public class Tab2Cadastrar extends Fragment {
         Button btnCadastrar = (Button) rootView.findViewById(R.id.btnCadastrarID);
 
 
-
-
-
- btnCadastrar.setOnClickListener(new View.OnClickListener()
+        btnCadastrar.setOnClickListener(new View.OnClickListener()
 
     {
         @Override
@@ -61,25 +67,13 @@ public class Tab2Cadastrar extends Fragment {
             if (!edtEmail.getText().toString().equals("")) {
 
 
-                      abrirCadastroUsuario();
+                abrirCadastroUsuario();
+
 
             } else {
 
 
-                Toast.makeText(Tab2Cadastrar.super.getActivity(),"Preencha com     E-mail", Toast.LENGTH_SHORT).show();
-
-                    String erroExcecao = "";
-
-                    try {
-
-                    } catch (Exception e) {
-
-                        erroExcecao = "Erro ao efetuar o cadastro";
-                        e.printStackTrace();
-
-
-                    }
-                    Toast.makeText(Tab2Cadastrar.super.getActivity(), "Erro" + erroExcecao, Toast.LENGTH_LONG).show();
+                Toast.makeText(Tab2Cadastrar.super.getActivity(),"Preencha com E-mail valido", Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -103,8 +97,5 @@ public class Tab2Cadastrar extends Fragment {
 //startActivity(intentabrirTElaPrincipal);
 
     }
-
-
-
 
 }

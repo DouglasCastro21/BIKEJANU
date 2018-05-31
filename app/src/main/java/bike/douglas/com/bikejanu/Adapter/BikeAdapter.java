@@ -17,8 +17,6 @@ import bike.douglas.com.bikejanu.Entidades.Bike;
 
 public class BikeAdapter extends ArrayAdapter<Bike> {
 
-
-
     private ArrayList<Bike> bike;
     private Context context;
 

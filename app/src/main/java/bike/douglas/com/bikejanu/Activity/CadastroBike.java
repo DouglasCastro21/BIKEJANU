@@ -54,15 +54,8 @@ public class CadastroBike extends AppCompatActivity  {
             public void onClick(View v) {
 
 
-              
-                    bike = new Bike();
-                    bike.setNumero_serie(numero_serie.getText().toString());
-                    bike.setMarca(marca.getText().toString());
-                    bike.setModelo(modelo.getText().toString());
-                    bike.setCor(cor.getText().toString());
-
-
-                    CadastrarBike();
+                inicializarElementos();
+                cadastrarBike();
 
             }
 
@@ -71,17 +64,32 @@ public class CadastroBike extends AppCompatActivity  {
 
     }
 
-    private boolean CadastrarBike() {
 
+
+
+
+
+
+
+
+
+    private void inicializarElementos(){
+
+         bike = new Bike();
+         bike.setNumero_serie(numero_serie.getText().toString());
+         bike.setMarca(marca.getText().toString());
+         bike.setModelo(modelo.getText().toString());
+         bike.setCor(cor.getText().toString());
+}
+
+
+    private boolean cadastrarBike() {
         try {
-
 
             firebase = Configuracao_Firebase.getFirebase().child("Bike Usuario");
             firebase.child(bike.getMarca()).setValue(bike);
 
             Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
-
-
             return true;
 
         } catch (Exception e) {
@@ -89,9 +97,7 @@ public class CadastroBike extends AppCompatActivity  {
             e.printStackTrace();
 
             return false;
-
         }
-
 
     }
 

@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -58,35 +60,37 @@ public class CadastroUsuario extends AppCompatActivity {
         botaocadastrar = (Button) findViewById(R.id.btnCadastrarID);
 
 
-        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)-N-NNNNNNNN");
-        MaskTextWatcher  maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
-        telefone.addTextChangedListener(maskTelefone);
 
-        SimpleMaskFormatter simpleMaskNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
-        MaskTextWatcher  maskNascimento = new MaskTextWatcher(nascimento, simpleMaskNascimento);
-        nascimento.addTextChangedListener(maskNascimento);
-
+        mascaras();
 
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
+                        !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
+                        !confirmaremail.getText().toString().equals("") && !telefone.getText().toString().equals("")
+                        && !nascimento.getText().toString().equals("")){
 
-                if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
+                    if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
 
-                    usuarios = new Usuarios();
-                    usuarios.setNome(nome.getText().toString());
-                    usuarios.setEmail(email.getText().toString());
-                    usuarios.setSenha(senha.getText().toString());
-                    usuarios.setTelefone(telefone.getText().toString());
-                    usuarios.setNascimento(nascimento.getText().toString());
-
-                    cadastrarUsuario();
+                        inicializarElementos();
+                        cadastrarUsuario();
 
 
-                } else {
+                    } else {
 
-                    Toast.makeText(CadastroUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
+
+                        Toast.makeText(CadastroUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
+                        senha.requestFocus();
+                    }
+
+            }else {
+
+
+                    Toast.makeText(CadastroUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
+
+
 
                 }
             }
@@ -95,6 +99,31 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 
 
+
+
+    private void mascaras() {
+
+        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)-N-NNNNNNNN");
+        MaskTextWatcher maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
+        telefone.addTextChangedListener(maskTelefone);
+
+        SimpleMaskFormatter simpleMaskNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher maskNascimento = new MaskTextWatcher(nascimento, simpleMaskNascimento);
+        nascimento.addTextChangedListener(maskNascimento);
+    }
+
+
+
+   private void inicializarElementos(){
+
+        usuarios = new Usuarios();
+        usuarios.setNome(nome.getText().toString());
+        usuarios.setEmail(email.getText().toString());
+        usuarios.setSenha(senha.getText().toString());
+        usuarios.setTelefone(telefone.getText().toString());
+        usuarios.setNascimento(nascimento.getText().toString());
+
+    }
 
 
     private void cadastrarUsuario(){
@@ -112,7 +141,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-                if (task.isSuccessful()){
+                    if (task.isSuccessful()){
 
                     Toast.makeText(CadastroUsuario.this,"Usuário cadastrado com sucesso!",Toast.LENGTH_LONG).show();
 
@@ -135,12 +164,26 @@ public class CadastroUsuario extends AppCompatActivity {
                     } catch (FirebaseAuthWeakPasswordException e){
 
                         erroExcecao = "Digite uma senha contendo no mínimo 8 caracteres entre letras e numeros";
+                        senha.requestFocus();
+                    }catch (FirebaseAuthUserCollisionException e){
 
-                    }catch (Exception e){
+                        erroExcecao = "Email já cadastrado   ";
+                        email.requestFocus();
+                    }catch (FirebaseAuthInvalidCredentialsException e){
 
+                        erroExcecao = "O campo de email está mal formado  ";
+                        email.requestFocus();
+
+                    } catch (Exception e){
                         erroExcecao = "Erro ao efetuar o cadastro";
                         e.printStackTrace();
-                    } Toast.makeText(CadastroUsuario.this,"Erro" + erroExcecao,Toast.LENGTH_LONG ).show();
+
+                    }
+
+
+
+
+                    Toast.makeText(CadastroUsuario.this,"Erro : " + erroExcecao,Toast.LENGTH_LONG ).show();
 
                 }
             }
@@ -150,7 +193,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
     }
 
-    public void AbrirUsuarioLogin(){
+    private void AbrirUsuarioLogin(){
 
 
         Intent intent = new Intent(CadastroUsuario.this ,AreaUsuario.class);
