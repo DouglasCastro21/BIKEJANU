@@ -183,7 +183,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/background_interno"
         android:drawableLeft="@drawable/ic_action_verde_right"
         android:text="Finalizar Cadastro"

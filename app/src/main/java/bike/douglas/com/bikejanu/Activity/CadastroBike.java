@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
+import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
@@ -54,8 +55,54 @@ public class CadastroBike extends AppCompatActivity  {
             public void onClick(View v) {
 
 
-                inicializarElementos();
-                cadastrarBike();
+
+                if (!numero_serie.getText().toString().equals("")  && !marca.getText().toString().equals("") &&
+                        !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")) {
+
+                        inicializarElementos();
+                        recuperarDadosUsuarioConectado();
+
+
+               }else{
+
+
+                    Toast.makeText(CadastroBike.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
+
+                    if(numero_serie.getText().toString().equals("")){
+
+                        numero_serie.requestFocus();
+
+                    }else {
+
+                        if(marca.getText().toString().equals("")){
+
+                            marca.requestFocus();
+
+                    }else {
+                            if(modelo.getText().toString().equals("")){
+
+                                modelo.requestFocus();
+
+
+
+                        }else {
+                                if(cor.getText().toString().equals("")){
+
+                                    cor.requestFocus();
+
+                            }
+                            }
+
+
+
+                        }
+
+                    }
+
+
+                    }
+
+
 
             }
 
@@ -63,9 +110,6 @@ public class CadastroBike extends AppCompatActivity  {
         });
 
     }
-
-
-
 
 
 
@@ -101,6 +145,31 @@ public class CadastroBike extends AppCompatActivity  {
 
     }
 
+    private void recuperarDadosUsuarioConectado(){
 
+        // recupera autenticão do usuario local
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            boolean emailVerified = user.isEmailVerified();
+            String uid = user.getUid();
+
+            // converte o email pra base 64
+            String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+            // cadastra a bike no nó indicado
+
+            firebase = Configuracao_Firebase.getFirebase().child("Usuarios").child(identificadorUsuario);
+            firebase.child("Bikes").child(bike.getMarca()).setValue(bike);
+
+            Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+
+        };
+    }
 
     }

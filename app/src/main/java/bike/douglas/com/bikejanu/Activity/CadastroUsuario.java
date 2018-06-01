@@ -69,8 +69,8 @@ public class CadastroUsuario extends AppCompatActivity {
 
                 if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
                         !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
-                        !confirmaremail.getText().toString().equals("") && !telefone.getText().toString().equals("")
-                        && !nascimento.getText().toString().equals("")){
+                        !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")
+                                && !nascimento.getText().toString().equals("")){
 
                     if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
 
@@ -92,8 +92,11 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-                }
-            }
+                                        }
+                                    }
+
+
+
         });
 
     }

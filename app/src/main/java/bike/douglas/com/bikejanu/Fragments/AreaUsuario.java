@@ -22,11 +22,13 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DatabaseReference;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
+import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
 
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,7 +36,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     private FirebaseAuth usuarioFirebase;
     private ImageButton btnmais;
-
+    public String indentificadorUsuario;
+    private DatabaseReference reference;
 
 
     @Override
@@ -194,7 +197,7 @@ recuperarDadosUsuarioConectado();
             boolean emailVerified = user.isEmailVerified();
             String uid = user.getUid();
 
-
+            String identificadorUsuario= Base64Custom.codificarBase64(name);
             Toast.makeText(AreaUsuario.this, "nome  : "+name, Toast.LENGTH_LONG).show();
             Toast.makeText(AreaUsuario.this, "id  : "+uid, Toast.LENGTH_LONG).show();
             Toast.makeText(AreaUsuario.this, "email  : "+email, Toast.LENGTH_LONG).show();
@@ -202,8 +205,6 @@ recuperarDadosUsuarioConectado();
 
             };
         }
-
-
 
     }
 
