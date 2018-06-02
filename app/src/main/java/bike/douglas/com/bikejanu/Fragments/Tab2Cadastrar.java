@@ -40,7 +40,7 @@ public class Tab2Cadastrar extends Fragment {
 
 
 
-    private EditText edtEmail;
+    public EditText edtEmail;
 
     private Button btnCadastrar;
     private FirebaseAuth autenticacao;

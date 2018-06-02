@@ -38,6 +38,7 @@ public class CadastroUsuario extends AppCompatActivity {
     private EditText  confirmarsenha;
     private EditText  telefone;
     private EditText  nascimento;
+
     private Button botaocadastrar;
     private Usuarios usuarios;
     private FirebaseAuth autenticacao;
@@ -57,7 +58,9 @@ public class CadastroUsuario extends AppCompatActivity {
         confirmarsenha = (EditText)findViewById(R.id.confirmarSenhaID);
         telefone = (EditText)findViewById(R.id.telefoneID);
         nascimento = (EditText)findViewById(R.id.dataID);
+
         botaocadastrar = (Button) findViewById(R.id.btnCadastrarID);
+
 
 
 
@@ -126,6 +129,7 @@ public class CadastroUsuario extends AppCompatActivity {
         usuarios.setTelefone(telefone.getText().toString());
         usuarios.setNascimento(nascimento.getText().toString());
 
+
     }
 
 
@@ -157,7 +161,8 @@ public class CadastroUsuario extends AppCompatActivity {
                     preferencias.salvarUsuarioPreferencias(identificadorUsuario,usuarios.getNome());
 
 
-                    AbrirUsuarioLogin();
+                    abrirAreaUsuario();
+
                 }else{
 
                     String erroExcecao = "";
@@ -196,7 +201,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
     }
 
-    private void AbrirUsuarioLogin(){
+    private void abrirAreaUsuario(){
 
 
         Intent intent = new Intent(CadastroUsuario.this ,AreaUsuario.class);

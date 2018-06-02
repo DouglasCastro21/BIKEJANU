@@ -20,11 +20,11 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="96dp"
-        android:layout_height="64dp"
+        android:layout_width="95dp"
+        android:layout_height="49dp"
         android:layout_marginEnd="76dp"
         android:layout_marginRight="76dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
@@ -32,8 +32,8 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="96dp"
-        android:layout_height="62dp"
+        android:layout_width="95dp"
+        android:layout_height="49dp"
         android:layout_marginEnd="76dp"
         android:layout_marginRight="76dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,11 +43,11 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="172dp"
-        android:layout_height="128dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="156dp"
+        android:layout_height="95dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
         app:srcCompat="@android:drawable/ic_menu_report_image" />
@@ -73,8 +73,8 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="250dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
-        android:text="Número de Série"
+        android:layout_marginTop="2dp"
+        android:text="Número de Série *"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -121,7 +121,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="332dp"
         android:layout_marginStart="50dp"
-        android:text="Cor"
+        android:text="Cor *"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/marcaID" />
@@ -151,7 +151,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="307dp"
         android:layout_marginStart="50dp"
-        android:text="Modelo"
+        android:text="Modelo *"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/corID" />
@@ -183,10 +183,40 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="6dp"
         android:background="@drawable/background_interno"
         android:drawableLeft="@drawable/ic_action_verde_right"
         android:text="Finalizar Cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoID" />
+
+    <EditText
+        android:id="@+id/descricaoID"
+        android:layout_width="314dp"
+        android:layout_height="84dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:hint="Faça uma descrição da bike ( Garfo, rodas, guidão, sistema  de machas )"
+        android:inputType="textMultiLine"
+        android:textColorLink="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="263dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="263dp"
+        android:layout_marginStart="50dp"
+        android:text="Observações"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/modeloID" />

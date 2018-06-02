@@ -1,5 +1,6 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText modelo;
     private EditText cor;
     private Button botaocadastrar;
+    private EditText descricao;
     private Bike bike;
     private DatabaseReference firebase;
     public Usuarios usuarios;
@@ -47,6 +49,7 @@ public class CadastroBike extends AppCompatActivity  {
         marca = (EditText) findViewById(R.id.marcaID);
         modelo = (EditText) findViewById(R.id.modeloID);
         cor = (EditText) findViewById(R.id.corID);
+        descricao = (EditText)findViewById(R.id.descricaoID);
 
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
 
@@ -124,26 +127,19 @@ public class CadastroBike extends AppCompatActivity  {
          bike.setMarca(marca.getText().toString());
          bike.setModelo(modelo.getText().toString());
          bike.setCor(cor.getText().toString());
+         bike.setDescricao(descricao.getText().toString());
+
 }
 
+// volta pra tela usuario
+    private void abrirAreaUsuario(){
 
-    private boolean cadastrarBike() {
-        try {
 
-            firebase = Configuracao_Firebase.getFirebase().child("Bike Usuario");
-            firebase.child(bike.getMarca()).setValue(bike);
-
-            Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
-            return true;
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-            return false;
-        }
-
+        Intent intent = new Intent(CadastroBike.this ,AreaUsuario.class);
+        startActivity(intent);
+        finish();
     }
+
 
     private void recuperarDadosUsuarioConectado(){
 
@@ -168,6 +164,10 @@ public class CadastroBike extends AppCompatActivity  {
             firebase.child("Bikes").child(bike.getMarca()).setValue(bike);
 
             Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+
+           // retorna a tela usuario
+
+           abrirAreaUsuario();
 
         };
     }
