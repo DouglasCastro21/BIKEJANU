@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
@@ -49,11 +50,24 @@ public class CadastroUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_usuario);
 
 
+        // rebece o email passada pela rela cadastro
+        Intent intent = getIntent();
+
+        if(intent !=null){
+            Bundle params = intent.getExtras();
+            if (params !=null){
+
+                String email = params.getString("email");
+                TextView emailText = (TextView) findViewById(R.id.EmailtextID);
+                emailText.setText(email);
+
+            }
+        }
 
 
         nome = (EditText)findViewById(R.id.NomeID);
         email = (EditText)findViewById(R.id.EmailtextID);
-        confirmaremail = (EditText)findViewById(R.id.verificarEmailID);
+        confirmaremail = (EditText)findViewById(R.id.confirmarEmailID);
         senha = (EditText)findViewById(R.id.senhaID);
         confirmarsenha = (EditText)findViewById(R.id.confirmarSenhaID);
         telefone = (EditText)findViewById(R.id.telefoneID);
@@ -65,6 +79,10 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
         mascaras();
+
+
+
+
 
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +121,7 @@ public class CadastroUsuario extends AppCompatActivity {
         });
 
     }
+
 
 
 

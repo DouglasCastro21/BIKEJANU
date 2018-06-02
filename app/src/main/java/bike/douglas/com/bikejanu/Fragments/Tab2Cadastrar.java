@@ -4,6 +4,8 @@ package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -27,6 +29,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.concurrent.Executor;
 
+import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
@@ -40,7 +43,6 @@ public class Tab2Cadastrar extends Fragment {
 
 
 
-    public EditText edtEmail;
 
     private Button btnCadastrar;
     private FirebaseAuth autenticacao;
@@ -53,8 +55,9 @@ public class Tab2Cadastrar extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab2cadastrar, container, false);
 
-        final TextView edtEmail = (TextView) rootView.findViewById(R.id.verificarEmailID);
+        final TextView edtEmail = (TextView) rootView.findViewById(R.id.verificarID);
         Button btnCadastrar = (Button) rootView.findViewById(R.id.btnCadastrarID);
+       final EditText emailEnviar = (EditText) rootView.findViewById(R.id.verificarID);
 
 
         btnCadastrar.setOnClickListener(new View.OnClickListener()
@@ -68,6 +71,20 @@ public class Tab2Cadastrar extends Fragment {
 
 
                 abrirCadastroUsuario();
+
+                // recebe o email para passar para a tela cadastro usuario
+
+                Bundle params = new Bundle();
+                params.putString("email", emailEnviar.getText().toString());
+
+
+                Intent intent = new Intent(Tab2Cadastrar.super.getContext(), CadastroUsuario.class);
+                intent.putExtras(params);
+
+                startActivity(intent);
+
+                //// até aq
+
 
 
             } else {
@@ -87,6 +104,7 @@ public class Tab2Cadastrar extends Fragment {
 
         return rootView;
 }
+
 
     public void abrirCadastroUsuario(){
 
