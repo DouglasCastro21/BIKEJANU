@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.auth.FirebaseAuth;
-
-import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
+import bike.douglas.com.bikejanu.Fragments.Consultar_Indice;
 import bike.douglas.com.bikejanu.Fragments.Entrar;
 import bike.douglas.com.bikejanu.R;
 

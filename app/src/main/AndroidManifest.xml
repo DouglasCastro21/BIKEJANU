@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.Consultar_Indice" />
+        <activity android:name=".Fragments.Consultar_Indice" />
         <activity
             android:name=".Fragments.Entrar"
             android:label="@string/title_activity_entrar"

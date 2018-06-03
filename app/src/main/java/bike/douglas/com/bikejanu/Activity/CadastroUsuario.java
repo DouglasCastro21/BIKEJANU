@@ -93,11 +93,18 @@ public class CadastroUsuario extends AppCompatActivity {
                         !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")
                                 && !nascimento.getText().toString().equals("")){
 
+
                     if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
+                     if (email.getText().toString().equals(confirmaremail.getText().toString())) {
+                            inicializarElementos();
+                            cadastrarUsuario();
+                        }else{
 
-                        inicializarElementos();
-                        cadastrarUsuario();
+                            Toast.makeText(CadastroUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
+                            email.requestFocus();
 
+
+                        }
 
                     } else {
 
@@ -115,8 +122,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
                                         }
                                     }
-
-
 
         });
 
@@ -147,7 +152,6 @@ public class CadastroUsuario extends AppCompatActivity {
         usuarios.setSenha(senha.getText().toString());
         usuarios.setTelefone(telefone.getText().toString());
         usuarios.setNascimento(nascimento.getText().toString());
-
 
     }
 
@@ -193,16 +197,14 @@ public class CadastroUsuario extends AppCompatActivity {
                         erroExcecao = "Digite uma senha contendo no mínimo 8 caracteres entre letras e numeros";
                         senha.requestFocus();
                     }catch (FirebaseAuthUserCollisionException e){
-
                         erroExcecao = "Email já cadastrado   ";
                         email.requestFocus();
                     }catch (FirebaseAuthInvalidCredentialsException e){
-
                         erroExcecao = "O campo de email está mal formado  ";
                         email.requestFocus();
 
                     } catch (Exception e){
-                        erroExcecao = "Erro ao efetuar o cadastro";
+                        erroExcecao = "Erro ao efetuar cadastro, verifique os campos";
                         e.printStackTrace();
 
                     }
