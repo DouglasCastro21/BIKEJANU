@@ -100,8 +100,11 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             }
         });
 
-// lista todas as bikes do usuario
-       listaBikes();
+        // lista todas as bikes do usuario
+        listaBikes();
+
+
+
     }
 
 
@@ -275,11 +278,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
             }
         });
-
-
-
-
-
 
     }
 

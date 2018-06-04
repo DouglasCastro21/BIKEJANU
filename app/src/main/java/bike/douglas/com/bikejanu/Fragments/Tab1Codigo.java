@@ -102,11 +102,11 @@ public class Tab1Codigo extends Fragment {
 
         if (palavra.equals("")) {
 
-            query = databaseReference.child("Bikes").orderByChild("marca");
+            query = databaseReference.child("Usuarios").orderByChild("nome");
         }else{
 
-            query = databaseReference.child("Bikes")
-                    .orderByChild("marca").startAt(palavra).endAt(palavra+"\uf8ff");
+            query = databaseReference.child("Usuarios")
+                    .orderByChild("nome").startAt(palavra).endAt(palavra+"\uf8ff");
         }
 
 
@@ -129,8 +129,6 @@ public class Tab1Codigo extends Fragment {
             arrayAdapterBike = new ArrayAdapter<Bike>(Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1,listBikes);
 
              listPesquisa.setAdapter(arrayAdapterBike);
-
-
             }
 
             @Override
