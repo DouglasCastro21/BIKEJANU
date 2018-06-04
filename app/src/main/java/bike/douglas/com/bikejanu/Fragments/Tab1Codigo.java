@@ -45,9 +45,6 @@ public class Tab1Codigo extends Fragment {
     private List<Bike> listBikes = new ArrayList<Bike>();
     private ArrayAdapter<Bike> arrayAdapterBike;
 
-    public Tab1Codigo() {
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +52,7 @@ public class Tab1Codigo extends Fragment {
         View rootView = inflater.inflate(R.layout.tab1codigo, container, false);
 
 
-         editPalavra = (EditText) rootView.findViewById(R.id.pesquisaCodigoID);
+         editPalavra = (EditText)  rootView.findViewById(R.id.pesquisaCodigoID);
          listPesquisa = (ListView) rootView.findViewById(R.id.listabikeCodigoID);
 
          inicializarFirebase();
@@ -132,6 +129,8 @@ public class Tab1Codigo extends Fragment {
             arrayAdapterBike = new ArrayAdapter<Bike>(Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1,listBikes);
 
              listPesquisa.setAdapter(arrayAdapterBike);
+
+
             }
 
             @Override
