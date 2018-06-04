@@ -17,7 +17,6 @@ public class Bike extends Usuarios{
     private String modelo;
     private String cor;
     private String descricao;
-    public Usuarios usuarios;
 
 
 
@@ -31,7 +30,7 @@ public class Bike extends Usuarios{
     public void SalvarBike(){
 
         DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
-        referenciaFirebase.child(getIdUsuario()).child(String.valueOf(getId())).setValue(this);
+        referenciaFirebase.child("Bikes").child(String.valueOf(getId())).setValue(this);
 
 
     }

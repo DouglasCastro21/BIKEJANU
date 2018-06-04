@@ -39,6 +39,7 @@ public class CadastroBike extends AppCompatActivity  {
     public Usuarios usuarios;
     private FirebaseAuth autenticacao;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,9 @@ public class CadastroBike extends AppCompatActivity  {
         descricao = (EditText)findViewById(R.id.descricaoID);
 
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
+
+
+
 
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,13 +138,24 @@ public class CadastroBike extends AppCompatActivity  {
 // volta pra tela usuario
     private void abrirAreaUsuario(){
 
-
         Intent intent = new Intent(CadastroBike.this ,AreaUsuario.class);
         startActivity(intent);
         finish();
     }
 
 
+
+    // ficou assim
+
+
+    // Bikes
+    // +chave  usuario 1234  // isso significa q a bike addd nesse nó é do propietario de chave 1234
+    //  +chave bike 321
+    //    +dados bike
+
+    // Usuarios
+    //   +chave  usuario 1234
+    //       +dados usuario
     private void recuperarDadosUsuarioConectado(){
 
         // recupera autenticão do usuario local
@@ -151,17 +166,19 @@ public class CadastroBike extends AppCompatActivity  {
 
             String name = user.getDisplayName();
             String email = user.getEmail();
-            boolean emailVerified = user.isEmailVerified();
-            String uid = user.getUid();
 
             // converte o email pra base 64
             String identificadorUsuario= Base64Custom.codificarBase64(email);
 
+            //
+
+            // o numero de serie virou id
+          String identificadorContato = Base64Custom.codificarBase64(bike.getNumero_serie());
 
             // cadastra a bike no nó indicado
 
-            firebase = Configuracao_Firebase.getFirebase().child("Usuarios").child(identificadorUsuario);
-            firebase.child("Bikes").child(bike.getMarca()).setValue(bike);
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(identificadorContato).setValue(bike);
 
             Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
 

@@ -27,15 +27,19 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
@@ -51,14 +55,14 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     private FirebaseAuth usuarioFirebase;
     private ImageButton btnmais;
-    public String indentificadorUsuario;
-    private DatabaseReference reference;
+
+
+
 
     private ListView listView;
     private ArrayAdapter adapter;
-    private ArrayList<String> bikes;
+    private ArrayList<String> contatos;
     private DatabaseReference firebase;
-    private Activity activity;
 
 
     @Override
@@ -74,6 +78,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -94,6 +99,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                 startActivity(new Intent(AreaUsuario.this,CadastroBike.class));
             }
         });
+
+// lista todas as bikes do usuario
+       listaBikes();
     }
 
 
@@ -148,7 +156,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         } else if (id == R.id.nav_configuracao) {
 
-recuperarDadosUsuarioConectado();
+
 
         } else if (id == R.id.nav_sair) {
             caixaDialogoSair();
@@ -210,24 +218,70 @@ recuperarDadosUsuarioConectado();
     }
 
 
-    private void recuperarDadosUsuarioConectado(){
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
+    //lista todas as bikes dos usuarios
 
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            boolean emailVerified = user.isEmailVerified();
-            String uid = user.getUid();
-
-            String identificadorUsuario= Base64Custom.codificarBase64(name);
-            Toast.makeText(AreaUsuario.this, "nome  : "+name, Toast.LENGTH_LONG).show();
-            Toast.makeText(AreaUsuario.this, "id  : "+uid, Toast.LENGTH_LONG).show();
-            Toast.makeText(AreaUsuario.this, "email  : "+email, Toast.LENGTH_LONG).show();
+    public void listaBikes(){
 
 
-            };
-        }
+        //Instânciar objetos
+        contatos = new ArrayList<>();
+
+        // Inflate the layout for this fragment
+
+
+        //Monta listview e adapter
+        listView = (ListView) findViewById(R.id.listaBikesID);
+
+        adapter = new ArrayAdapter(
+                AreaUsuario.this,android.R.layout.simple_list_item_1,
+                contatos
+        );
+
+        listView.setAdapter(adapter);
+
+        //Recuperar contatos do firebase
+        Preferencias preferencias = new Preferencias(AreaUsuario.this);
+        String identificadorUsuarioLogado = preferencias.getIdentificador();
+
+        firebase = Configuracao_Firebase.getFirebase()
+                .child("Bikes")
+                .child( identificadorUsuarioLogado );
+
+        //Listener para recuperar contatos
+        firebase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //Limpar lista
+
+                contatos.clear();
+
+                //Listar contatos
+                for (DataSnapshot dados: dataSnapshot.getChildren() ){
+
+                    Bike contato = dados.getValue( Bike.class );
+                    contatos.add( contato.getMarca() );
+
+
+                }
+
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+    }
 
     }
 
