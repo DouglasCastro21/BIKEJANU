@@ -245,11 +245,23 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         //Recuperar contatos do firebase
         Preferencias preferencias = new Preferencias(AreaUsuario.this);
-        String identificadorUsuarioLogado = preferencias.getIdentificador();
 
-        firebase = Configuracao_Firebase.getFirebase()
-                .child("Bikes")
-                .child( identificadorUsuarioLogado );
+// recupera usuario pelo email
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+
+            // converte o email pra base 64
+            String identificadorUsuario = Base64Custom.codificarBase64(email);
+
+// escolhe os nós que vão ser listados
+            firebase = Configuracao_Firebase.getFirebase()
+                    .child("Bikes")
+                    .child(identificadorUsuario);
+        }
 
         //Listener para recuperar contatos
         firebase.addValueEventListener(new ValueEventListener() {
@@ -280,6 +292,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         });
 
     }
+
 
     }
 
