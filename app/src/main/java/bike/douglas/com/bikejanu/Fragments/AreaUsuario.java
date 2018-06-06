@@ -43,6 +43,7 @@ import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
@@ -61,7 +62,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     private ListView listView;
     private ArrayAdapter adapter;
-    private ArrayList<String> contatos;
+    private ArrayList<Bike> contatos;
     private DatabaseReference firebase;
 
 
@@ -236,11 +237,17 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         //Monta listview e adapter
         listView = (ListView) findViewById(R.id.listaBikesID);
 
+        ////////////////////////////////////////////////////////////////////
+
+/*
         adapter = new ArrayAdapter(
                 AreaUsuario.this,android.R.layout.simple_list_item_1,
                 contatos
         );
+*/
 
+        ////////////////////////////////////////////
+        adapter = new BikeAdapter(AreaUsuario.this,contatos);
         listView.setAdapter(adapter);
 
         //Recuperar contatos do firebase
@@ -276,7 +283,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                 for (DataSnapshot dados: dataSnapshot.getChildren() ){
 
                     Bike contato = dados.getValue( Bike.class );
-                    contatos.add( contato.getMarca() );
+                    contatos.add( contato );
 
 
                 }

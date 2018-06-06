@@ -24,8 +24,8 @@ public class BikeAdapter extends ArrayAdapter<Bike> {
     public BikeAdapter( Context c, ArrayList<Bike> objects) {
         super(c, 0,objects);
 
-    this.context = c;
-    this.bike = objects;
+        this.context = c;
+        this.bike = objects;
 
 
     }
@@ -37,23 +37,27 @@ public class BikeAdapter extends ArrayAdapter<Bike> {
 
         View view = null;
 
+
+        // verifica se a lista está vazia
         if(bike!=null){
+
+            // inicializa objetos para a montagem da view
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view =inflater.inflate(R.layout.lista_bikes,parent ,false);
 
             TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             TextView txtViewMarca = (TextView) view.findViewById(R.id.txtViewMarca);
-            TextView txtViewModelo = (TextView) view.findViewById(R.id.txtViewModelo);
-            TextView txtViewCor = (TextView) view.findViewById(R.id.txtViewCor);
+            TextView txtViewDescricao = (TextView) view.findViewById(R.id.txtViewDescricaoID);
+
 
 
             Bike bike1 = bike.get(position);
 
             txtViewNumeroSerie.setText(bike1.getNumero_serie());
             txtViewMarca.setText(bike1.getMarca());
-            txtViewModelo.setText(bike1.getModelo());
-            txtViewCor.setText(bike1.getCor().toString());
+            txtViewDescricao.setText(bike1.getDescricao());
+
 
         }
         return view;
