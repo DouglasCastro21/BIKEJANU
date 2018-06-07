@@ -9,7 +9,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.ViewGroupOverlay;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -64,6 +67,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     private ArrayAdapter adapter;
     private ArrayList<Bike> contatos;
     private DatabaseReference firebase;
+
 
 
     @Override
@@ -132,6 +136,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -250,6 +257,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         adapter = new BikeAdapter(AreaUsuario.this,contatos);
         listView.setAdapter(adapter);
 
+        registerForContextMenu(listView);
+
+
         //Recuperar contatos do firebase
         Preferencias preferencias = new Preferencias(AreaUsuario.this);
 
@@ -301,7 +311,45 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     }
 
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_lista_bike,menu);
     }
+
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        AdapterView.AdapterContextMenuInfo  info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+            switch (item.getItemId()){
+
+
+
+                case R.id.statusBikeID:
+
+                case R.id.editarBikeID:
+
+                case R.id.excluirBikeID:
+
+
+
+
+
+                    return true;
+                    default:
+                        return super.onContextItemSelected(item);
+
+            }
+
+
+       // return super.onContextItemSelected(item);
+
+    }
+}
 
 
 

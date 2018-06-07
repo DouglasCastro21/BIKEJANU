@@ -7,8 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import bike.douglas.com.bikejanu.Activity.CadastroBike;
+import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.R;
 
 import java.util.ArrayList;
@@ -49,7 +53,7 @@ public class BikeAdapter extends ArrayAdapter<Bike> {
             TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             TextView txtViewMarca = (TextView) view.findViewById(R.id.txtViewMarca);
             TextView txtViewDescricao = (TextView) view.findViewById(R.id.txtViewDescricaoID);
-
+            ImageView imagem =(ImageView) view.findViewById(R.id.imagemListaID);
 
 
             Bike bike1 = bike.get(position);
@@ -59,8 +63,36 @@ public class BikeAdapter extends ArrayAdapter<Bike> {
             txtViewDescricao.setText(bike1.getDescricao());
 
 
+
+            imagem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(BikeAdapter.super.getContext(), "VC clicou na imagem!", Toast.LENGTH_LONG).show();
+
+
+
+                }
+            });
+
+            txtViewDescricao.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(BikeAdapter.super.getContext(), "VC clicou no textoo!", Toast.LENGTH_LONG).show();
+
+
+
+                }
+            });
+
+
+
+
+
         }
         return view;
     }
+
 
 }

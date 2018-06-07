@@ -6,19 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/txtViewNumeroSerie"
         android:layout_width="116dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
         android:layout_marginTop="5dp"
         android:text="Número  de série"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txtViewMarca"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imagemListaID"
         android:layout_width="76dp"
         android:layout_height="64dp"
         android:layout_marginEnd="8dp"
@@ -51,16 +48,15 @@
         android:id="@+id/txtViewDescricaoID"
         android:layout_width="278dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginLeft="9dp"
-        android:layout_marginRight="84dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="88dp"
         android:ems="10"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewMarca" />
+
 
 </android.support.constraint.ConstraintLayout>

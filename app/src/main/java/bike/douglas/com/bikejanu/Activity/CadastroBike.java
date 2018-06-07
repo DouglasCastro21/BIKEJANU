@@ -36,8 +36,6 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText descricao;
     private Bike bike;
     private DatabaseReference firebase;
-    public Usuarios usuarios;
-    private FirebaseAuth autenticacao;
 
 
     @Override
