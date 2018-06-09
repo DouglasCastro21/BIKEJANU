@@ -1,12 +1,14 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
@@ -31,6 +34,18 @@ import bike.douglas.com.bikejanu.R;
 public class CadastroUsuario extends AppCompatActivity {
 
 
+private  static final int PICK_IMAGE_REQUEST = 1;
+
+    private Button botaoBuscarImagem;
+    private ImageView imagemPerfil;
+    private Uri uriImagem;
+
+
+
+
+
+
+
 
     private EditText  nome;
     private EditText  email;
@@ -39,8 +54,9 @@ public class CadastroUsuario extends AppCompatActivity {
     private EditText  confirmarsenha;
     private EditText  telefone;
     private EditText  nascimento;
-
     private Button botaocadastrar;
+
+
     private Usuarios usuarios;
     private FirebaseAuth autenticacao;
 
@@ -72,8 +88,11 @@ public class CadastroUsuario extends AppCompatActivity {
         confirmarsenha = (EditText)findViewById(R.id.confirmarSenhaID);
         telefone = (EditText)findViewById(R.id.telefoneID);
         nascimento = (EditText)findViewById(R.id.dataID);
+        imagemPerfil = (ImageView) findViewById(R.id.imagemPerfilID);
+
 
         botaocadastrar = (Button) findViewById(R.id.btnCadastrarID);
+        botaoBuscarImagem = (Button) findViewById(R.id.btnBuscarImagemID);
 
 
 
@@ -125,7 +144,25 @@ public class CadastroUsuario extends AppCompatActivity {
 
         });
 
+
+
+
+
+
+        botaoBuscarImagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                    abrirFotos();
+
+            }
+        });
+
     }
+
+
+
 
 
 
@@ -228,5 +265,36 @@ public class CadastroUsuario extends AppCompatActivity {
         Intent intent = new Intent(CadastroUsuario.this ,AreaUsuario.class);
         startActivity(intent);
         finish();
+    }
+
+
+
+    private void abrirFotos(){
+
+       Intent intent = new Intent();
+       intent.setType("image/*");
+       intent.setAction(Intent.ACTION_GET_CONTENT);
+       startActivityForResult(intent,PICK_IMAGE_REQUEST);
+
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!=null){
+
+
+            uriImagem = data.getData();
+
+            Picasso.with(this).load(uriImagem).into(imagemPerfil);
+            imagemPerfil.setImageURI(uriImagem);
+
+
+
+        }
     }
 }

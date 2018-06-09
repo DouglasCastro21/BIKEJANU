@@ -166,17 +166,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/senhaID" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="53dp"
-        android:layout_height="39dp"
+    <Button
+        android:id="@+id/btnBuscarImagemID"
+        android:layout_width="40dp"
+        android:layout_height="38dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/camera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintHorizontal_bias="0.621"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/camera" />

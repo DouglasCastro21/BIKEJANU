@@ -38,7 +38,8 @@
             android:label="@string/title_activity_area_usuario"
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.CadastroBike" />
-        <activity android:name=".Activity.DadosBike"></activity>
+        <activity android:name=".Activity.DadosBike" />
+        <activity android:name=".Activity.ImagemBike"></activity>
     </application>
 
 </manifest>
