@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -39,7 +42,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.CadastroBike" />
         <activity android:name=".Activity.DadosBike" />
-        <activity android:name=".Activity.ImagemBike"></activity>
+        <activity android:name=".Activity.ImagemBike" />
+        <activity android:name=".Activity.Dialogo_Personalizado"></activity>
     </application>
 
 </manifest>

@@ -26,15 +26,6 @@ public class Bike extends Usuarios{
     }
 
 
-    // salvar Bike
-    public void SalvarBike(){
-
-        DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
-        referenciaFirebase.child("Bikes").child(String.valueOf(getId())).setValue(this);
-
-
-    }
-
     @Exclude
     public Map<String , Object> toMap() {
         HashMap<String , Object> hashMapBike = new HashMap<>();

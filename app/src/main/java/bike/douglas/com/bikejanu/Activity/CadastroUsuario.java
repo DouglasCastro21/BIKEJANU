@@ -1,13 +1,16 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +18,8 @@ import android.widget.Toast;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,7 +27,15 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.net.URI;
+import java.security.PrivateKey;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
@@ -34,17 +47,13 @@ import bike.douglas.com.bikejanu.R;
 public class CadastroUsuario extends AppCompatActivity {
 
 
-private  static final int PICK_IMAGE_REQUEST = 1;
 
+
+
+    private  static final int PICK_IMAGE_REQUEST = 1;
     private Button botaoBuscarImagem;
     private ImageView imagemPerfil;
     private Uri uriImagem;
-
-
-
-
-
-
 
 
     private EditText  nome;
@@ -53,12 +62,17 @@ private  static final int PICK_IMAGE_REQUEST = 1;
     private EditText  senha;
     private EditText  confirmarsenha;
     private EditText  telefone;
+    private String imagem;
     private EditText  nascimento;
     private Button botaocadastrar;
 
 
     private Usuarios usuarios;
+
+
     private FirebaseAuth autenticacao;
+    private StorageReference storageReference;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +80,12 @@ private  static final int PICK_IMAGE_REQUEST = 1;
         setContentView(R.layout.activity_cadastro_usuario);
 
 
-        // rebece o email passada pela rela cadastro
+        // rebece o email passada pela tela cadastro
         Intent intent = getIntent();
 
         if(intent !=null){
             Bundle params = intent.getExtras();
+
             if (params !=null){
 
                 String email = params.getString("email");
@@ -79,6 +94,16 @@ private  static final int PICK_IMAGE_REQUEST = 1;
 
             }
         }
+
+
+
+
+    /// da imagem
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+
+     //  databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
 
 
         nome = (EditText)findViewById(R.id.NomeID);
@@ -95,12 +120,7 @@ private  static final int PICK_IMAGE_REQUEST = 1;
         botaoBuscarImagem = (Button) findViewById(R.id.btnBuscarImagemID);
 
 
-
-
         mascaras();
-
-
-
 
 
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
@@ -115,8 +135,14 @@ private  static final int PICK_IMAGE_REQUEST = 1;
 
                     if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
                      if (email.getText().toString().equals(confirmaremail.getText().toString())) {
+
+
+                            addImagem();
                             inicializarElementos();
                             cadastrarUsuario();
+
+
+
                         }else{
 
                             Toast.makeText(CadastroUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
@@ -144,11 +170,6 @@ private  static final int PICK_IMAGE_REQUEST = 1;
 
         });
 
-
-
-
-
-
         botaoBuscarImagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,13 +181,6 @@ private  static final int PICK_IMAGE_REQUEST = 1;
         });
 
     }
-
-
-
-
-
-
-
 
     private void mascaras() {
 
@@ -189,6 +203,7 @@ private  static final int PICK_IMAGE_REQUEST = 1;
         usuarios.setSenha(senha.getText().toString());
         usuarios.setTelefone(telefone.getText().toString());
         usuarios.setNascimento(nascimento.getText().toString());
+        usuarios.setImagem(imagemPerfil.getScaleType().toString());
 
     }
 
@@ -268,33 +283,79 @@ private  static final int PICK_IMAGE_REQUEST = 1;
     }
 
 
-
+// buscar as fotos no celular
     private void abrirFotos(){
 
-       Intent intent = new Intent();
+       Intent intent = new Intent(Intent.ACTION_PICK);
        intent.setType("image/*");
        intent.setAction(Intent.ACTION_GET_CONTENT);
        startActivityForResult(intent,PICK_IMAGE_REQUEST);
 
-
     }
 
+// codigo da imagem
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!=null){
 
 
-            uriImagem = data.getData();
+            uriImagem   = data.getData();
+
+            StorageReference filePath = storageReference.child("fotosPerfil").child(uriImagem.getLastPathSegment());
 
             Picasso.with(this).load(uriImagem).into(imagemPerfil);
             imagemPerfil.setImageURI(uriImagem);
 
+        }
+    }
+
+
+    private String getExtension(Uri uri){
+
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+
+
+        return mime.getExtensionFromMimeType(cr.getType(uri));
+
+
+    }
+
+    public void addImagem(){
+
+        if(uriImagem != null){
+
+            StorageReference fileRederencia  = storageReference.child( System.currentTimeMillis()+ "." + getExtension(uriImagem));
+
+
+        fileRederencia.putFile(uriImagem).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                Toast.makeText(CadastroUsuario.this, "sucesso imagem", Toast.LENGTH_LONG).show();
+
+                Upload upload = new Upload();
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+
+
+        }else {
+
+            Toast.makeText(CadastroUsuario.this, "Arquivo de foto não selecionado", Toast.LENGTH_LONG).show();
+
 
 
         }
+
+
     }
 }

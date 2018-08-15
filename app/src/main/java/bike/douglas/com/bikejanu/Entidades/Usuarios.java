@@ -6,6 +6,7 @@ import com.google.firebase.database.Exclude;
 import java.util.HashMap;
 import java.util.Map;
 
+import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 
 public class Usuarios {
@@ -16,9 +17,7 @@ public class Usuarios {
     private String senha;
     private String telefone;
     private String nascimento;
-
-
-
+    private String imagem;
 
 
 
@@ -45,6 +44,7 @@ public class Usuarios {
         hashMapUsuario.put("senha",getSenha());
         hashMapUsuario.put("telefone",getSenha());
         hashMapUsuario.put("nascimento",getNascimento());
+        hashMapUsuario.put("fotoUsuario",getImagem());
 
 
         return hashMapUsuario;
@@ -101,6 +101,11 @@ public class Usuarios {
         this.nascimento = nascimento;
     }
 
+    public String getImagem() {
+        return imagem;
+    }
 
-
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 }

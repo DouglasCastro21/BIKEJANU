@@ -57,7 +57,7 @@ public class Tab2Cadastrar extends Fragment {
 
         final TextView edtEmail = (TextView) rootView.findViewById(R.id.verificarID);
         Button btnCadastrar = (Button) rootView.findViewById(R.id.btnCadastrarID);
-       final EditText emailEnviar = (EditText) rootView.findViewById(R.id.verificarID);
+        final EditText emailEnviar = (EditText) rootView.findViewById(R.id.verificarID);
 
 
         btnCadastrar.setOnClickListener(new View.OnClickListener()

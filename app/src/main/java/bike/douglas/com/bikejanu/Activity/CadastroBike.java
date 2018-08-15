@@ -28,13 +28,13 @@ import bike.douglas.com.bikejanu.R;
 public class CadastroBike extends AppCompatActivity  {
 
 
-    private EditText numero_serie;
+    public EditText numero_serie;
     private EditText marca;
     private EditText modelo;
     private EditText cor;
     private Button botaocadastrar;
     private EditText descricao;
-    private Bike bike;
+    public Bike bike;
     private DatabaseReference firebase;
 
 
@@ -171,12 +171,12 @@ public class CadastroBike extends AppCompatActivity  {
             //
 
             // o numero de serie virou id
-          String identificadorContato = Base64Custom.codificarBase64(bike.getNumero_serie());
+          //  String identificadorBike = Base64Custom.codificarBase64(bike.getNumero_serie());
 
             // cadastra a bike no nó indicado
 
             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-            firebase.child(identificadorUsuario).child(identificadorContato).setValue(bike);
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 
             Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
 
