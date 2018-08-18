@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/txtViewNumeroSerie"
         android:layout_width="116dp"
-        android:layout_height="0dp"
+        android:layout_height="22dp"
         android:layout_marginLeft="26dp"
         android:layout_marginStart="26dp"
         android:layout_marginTop="5dp"
@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/txtViewMarca"
-        android:layout_width="135dp"
+        android:layout_width="143dp"
         android:layout_height="0dp"
         android:layout_marginLeft="84dp"
         android:layout_marginStart="84dp"
@@ -45,16 +45,35 @@
         app:srcCompat="@drawable/bike1" />
 
     <TextView
-        android:id="@+id/txtViewDescricaoID"
-        android:layout_width="278dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="88dp"
+        android:id="@+id/txtCaixaSelecaoID"
+        android:layout_width="301dp"
+        android:layout_height="74dp"
+
+
+        android:layout_marginEnd="4dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagemListaID"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewModeloID"
+        android:layout_width="141dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="20dp"
+        android:text="Modelo"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewMarca" />
 

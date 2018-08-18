@@ -70,8 +70,6 @@ public class Tab2Cadastrar extends Fragment {
             if (!edtEmail.getText().toString().equals("")) {
 
 
-                abrirCadastroUsuario();
-
                 // recebe o email para passar para a tela cadastro usuario
 
                 Bundle params = new Bundle();
@@ -111,9 +109,9 @@ public class Tab2Cadastrar extends Fragment {
         Intent intent = new Intent(getActivity(),CadastroUsuario.class);
         startActivity(intent);
 
-        //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,CadastroUsuario.class);
-//startActivity(intentabrirTElaPrincipal);
 
     }
+
+
 
 }

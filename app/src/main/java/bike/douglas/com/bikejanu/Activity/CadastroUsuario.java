@@ -81,7 +81,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
         // rebece o email passada pela tela cadastro
-        Intent intent = getIntent();
+            Intent intent = getIntent();
 
         if(intent !=null){
             Bundle params = intent.getExtras();

@@ -1,23 +1,12 @@
 package bike.douglas.com.bikejanu.Fragments;
 
-import android.app.Activity;
-import android.content.ContentResolver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.nfc.Tag;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v7.app.AlertDialog;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -29,13 +18,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.view.ViewGroupOverlay;
-import android.webkit.MimeTypeMap;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -43,33 +27,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
-import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.ConnectionEvent;
-
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
-import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
+import bike.douglas.com.bikejanu.Activity.Dialogo_Personalizado;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
-import bike.douglas.com.bikejanu.Activity.Upload;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
@@ -77,8 +50,6 @@ import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
-
-import static bike.douglas.com.bikejanu.R.id.recebeNumeroSerieID;
 
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -109,7 +80,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     private AlertDialog alerta;
 
-    Bike bikeSelecionada,b;
 
 
 
@@ -158,7 +128,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
-
         btnmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,18 +157,12 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         }
 
-
-
-
-
     }
 
 
 
 
-
-
-    @Override
+        @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -217,7 +180,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         getMenuInflater().inflate(R.menu.area_usuario, menu);
         return true;
     }
-
 
 
 
@@ -285,6 +247,10 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
+
+
+
     private void caixaDialogoSair(){
 
         AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AreaUsuario.this);
@@ -328,6 +294,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     //lista todas as bikes dos usuarios
 
     public void listaBikes(){
+
+
 
 
         //Instânciar objetos
@@ -413,86 +381,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     }
 
-
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-
-
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_lista_bike,menu);
-   }
-
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-
-        AdapterView.AdapterContextMenuInfo  info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
-        int id = item.getItemId();
-
-        listViewDados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                bikeSelecionada = (Bike) arrayAdapterBike.getItem(position);
-                Toast.makeText(AreaUsuario.this,"está recuperando posição", Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-                if (id == R.id.statusBikeID) {
-
-                    Toast.makeText(AreaUsuario.this,  "voce clivou em status", Toast.LENGTH_LONG).show();
-
-                } else if (id== R.id.editarBikeID) {
-                             Toast.makeText(AreaUsuario.this, "voce clivou em editar!", Toast.LENGTH_LONG).show();
-
-
-                }else if (id == R.id.excluirBikeID) {
-
-
-
-
-
-                    // recupera usuario pelo email
-                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-
-                        String email = user.getEmail();
-
-                        // converte o email pra base 64
-                        String identificadorUsuario = Base64Custom.codificarBase64(email);
-
-
-
-
-                      //  b = new Bike();
-                   //     b.setNumero_serie(bikeSelecionada.getNumero_serie());
-
-                        databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
-
-
-                      //  databaseReference.child().removeValue();
-                    //
-                    //
-                    // databaseReference.child("Bikes").child(identificadorUsuario).child("Y3VmdWY=").removeValue();
-
-
-                        listabikes.clear();
-
-
-                }
-
-                return super.onContextItemSelected(item);
-
-
-
-    }
-
-
-
+    
 
     public void excluirUsuario() {
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,7 +29,7 @@ import bike.douglas.com.bikejanu.R;
 public class CadastroBike extends AppCompatActivity  {
 
 
-    public EditText numero_serie;
+    public  EditText numero_serie;
     private EditText marca;
     private EditText modelo;
     private EditText cor;
@@ -51,6 +52,25 @@ public class CadastroBike extends AppCompatActivity  {
         descricao = (EditText)findViewById(R.id.descricaoID);
 
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
+
+
+
+
+        // rebece o email passada pela tela cadastro
+        Intent intent = getIntent();
+
+        if(intent !=null){
+            Bundle params = intent.getExtras();
+
+            if (params !=null){
+
+                String modelo = params.getString("modelo");
+                TextView modeloText = (TextView) findViewById(R.id.modeloID);
+                modeloText.setText(modelo);
+
+            }
+        }
+
 
 
 
