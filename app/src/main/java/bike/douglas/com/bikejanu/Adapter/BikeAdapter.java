@@ -34,6 +34,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import bike.douglas.com.bikejanu.Activity.AlertarFurtoRoubo;
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.DadosBike;
 
@@ -98,16 +99,17 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view =inflater.inflate(R.layout.lista_bikes,parent ,false);
 
-            TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
+
+
+            final TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             final TextView txtViewMarca = (TextView) view.findViewById(R.id.txtViewMarca);
-            TextView txtViewCaixaSelecao   = (TextView) view.findViewById(R.id.txtCaixaSelecaoID);
+            TextView txtViewCaixaDescricao   = (TextView) view.findViewById(R.id.txtCaixaDescricaoID);
             final ImageView imagem =      (ImageView) view.findViewById(R.id.imagemListaID);
-            TextView txtViewModelo   = (TextView) view.findViewById(R.id.textViewModeloID);
+            final TextView txtViewModelo   = (TextView) view.findViewById(R.id.textViewModeloID);
+            final TextView txtViewCor   = (TextView) view.findViewById(R.id.textViewCorID);
 
 
 
-
-            final Bike bike1 = listabikes.get(position);
 
 
             firebaseDatabase = FirebaseDatabase.getInstance();
@@ -115,10 +117,14 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             databaseReference = firebaseDatabase.getReference();
 
 
+            final Bike bike1 = listabikes.get(position);
+
             txtViewNumeroSerie.setText(bike1.getNumero_serie());
             txtViewMarca.setText(bike1.getMarca());
-            //txtViewCaixaSelecao.setText(bike1.getDescricao());
+            txtViewCaixaDescricao.setText(bike1.getDescricao());
             txtViewModelo.setText(bike1.getModelo());
+            txtViewCor.setText(bike1.getCor());
+
 
 
 
@@ -126,8 +132,38 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                 @Override
                 public void onClick(View v) {
 
-                    Intent intent = new Intent(BikeAdapter.super.getContext(),DadosBike.class);
+                    Bike b = new Bike();
+
+                    // recupera posição da bike
+
+
+                    Bike bikeselecao = new Bike();
+                    bikeselecao = listabikes.get(position);
+
+                    // passa dados  para a tela dados usuarios e Cadastro Bike
+
+                    Bundle params = new Bundle();
+                    params.putString("dadosmodelo",bikeselecao.getModelo());
+                    params.putString("dadosmarca",bikeselecao.getMarca());
+                    params.putString("dadosnumero_serie",bikeselecao.getNumero_serie());
+                    params.putString("dadosdescricao",bikeselecao.getDescricao());
+                    params.putString("dadoscor",bikeselecao.getCor());
+
+
+                    Intent intent = new Intent(BikeAdapter.super.getContext(), DadosBike.class);
+                    intent.putExtras(params);
+
                     context.startActivity(intent);
+
+                    //Editar campos
+
+                    b.setNumero_serie(bikeselecao.getNumero_serie());
+                    b.setModelo(txtViewModelo.getText().toString().trim());
+                    b.setMarca(txtViewMarca.getText().toString().trim());
+                    b.setCor(txtViewCor.getText().toString().trim());
+                    b.setNumero_serie(txtViewNumeroSerie.getText().toString().trim());
+
+
 
                 }
             });
@@ -138,12 +174,12 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-            txtViewCaixaSelecao.setOnClickListener(new View.OnClickListener() {
+            txtViewCaixaDescricao.setOnClickListener(new View.OnClickListener() {
                @Override
                 public void onClick(View v) {
 
 
-                   final CharSequence [] opcoes ={"Mudar Status","Editar","Remover"};
+                   final CharSequence [] opcoes ={"Alertar Furto/Roubo","Editar","Remover"};
 
                    AlertDialog.Builder builder = new AlertDialog.Builder(BikeAdapter.super.getContext());
                    builder.setTitle("");
@@ -151,8 +187,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                @Override
                                public void onClick(DialogInterface dialog, int i) {
 
-
                                    Bike b = new Bike();
+
                                    // recupera posição da bike
 
 
@@ -170,11 +206,13 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-                            if (opcoes[i].equals("Mudar Status")){
+                            if (opcoes[i].equals("Alertar Furto/Roubo")){
 
+                                Bundle params = new Bundle();
+                                Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
+                                intent.putExtras(params);
 
-                                Toast.makeText(BikeAdapter.super.getContext(), " voce me clicou Status ", Toast.LENGTH_LONG).show();
-
+                                context.startActivity(intent);
 
 
                             }else if (opcoes[i].equals("Editar")){
@@ -182,10 +220,14 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-                                // recebe o email para passar para a tela cadastro usuario
+                                // passa dados  para a tela dados usuarios e Cadastro Bike
 
                                 Bundle params = new Bundle();
                                 params.putString("modelo",bikeselecao.getModelo());
+                                params.putString("marca",bikeselecao.getMarca());
+                                params.putString("numero_serie",bikeselecao.getNumero_serie());
+                                params.putString("descricao",bikeselecao.getDescricao());
+                                params.putString("cor",bikeselecao.getCor());
 
 
                                 Intent intent = new Intent(BikeAdapter.super.getContext(), CadastroBike.class);
@@ -193,11 +235,21 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                 context.startActivity(intent);
 
+                                //Editar campos
+
+                                b.setNumero_serie(bikeselecao.getNumero_serie());
+                                b.setModelo(txtViewModelo.getText().toString().trim());
+                                b.setMarca(txtViewMarca.getText().toString().trim());
+                                b.setCor(txtViewCor.getText().toString().trim());
+                                b.setNumero_serie(txtViewNumeroSerie.getText().toString().trim());
+
+
+
+                                databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
+                                databaseReference.child(b.getNumero_serie()).setValue(b);
+
+
                                 //// até aq
-
-
-
-
 
 
 

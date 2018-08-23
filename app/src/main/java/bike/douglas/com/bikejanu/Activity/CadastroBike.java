@@ -1,7 +1,6 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
@@ -23,7 +18,6 @@ import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
-import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
 
 public class CadastroBike extends AppCompatActivity  {
@@ -35,8 +29,9 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText cor;
     private Button botaocadastrar;
     private EditText descricao;
-    public Bike bike;
+    public  Bike bike;
     private DatabaseReference firebase;
+    Usuarios usuarios;
 
 
     @Override
@@ -45,7 +40,7 @@ public class CadastroBike extends AppCompatActivity  {
         setContentView(R.layout.activity_cadastro_bike);
 
 
-        numero_serie = (EditText) findViewById(R.id.NomeID);
+        numero_serie = (EditText) findViewById(R.id.NumeroID);
         marca = (EditText) findViewById(R.id.marcaID);
         modelo = (EditText) findViewById(R.id.modeloID);
         cor = (EditText) findViewById(R.id.corID);
@@ -56,17 +51,42 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-        // rebece o email passada pela tela cadastro
+        // rebece o dados do Bike Adapter por parametro passada pela tela cadastro
         Intent intent = getIntent();
 
         if(intent !=null){
+
             Bundle params = intent.getExtras();
 
             if (params !=null){
 
+                //dados do modelo
                 String modelo = params.getString("modelo");
                 TextView modeloText = (TextView) findViewById(R.id.modeloID);
                 modeloText.setText(modelo);
+
+                //dados da marca
+                String marca = params.getString("marca");
+                TextView marcaText = (TextView) findViewById(R.id.marcaID);
+                marcaText.setText(marca);
+
+                // dados do numero serie
+                String numero_serie = params.getString("numero_serie");
+                TextView numero_serieText = (TextView) findViewById(R.id.NumeroID);
+                numero_serieText.setText(numero_serie);
+
+
+                // dados da cor
+                String cor = params.getString("cor");
+                TextView corText = (TextView) findViewById(R.id.corID);
+                corText.setText(cor);
+
+                // dados do numero serie
+                String descricao = params.getString("descricao");
+                TextView descricaoText = (TextView) findViewById(R.id.descricaoID);
+                descricaoText.setText(descricao);
+
+
 
             }
         }
@@ -81,48 +101,47 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-                if (!numero_serie.getText().toString().equals("")  && !marca.getText().toString().equals("") &&
-                        !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")) {
+
+                    if (!numero_serie.getText().toString().equals("") && !marca.getText().toString().equals("") &&
+                            !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")) {
 
                         inicializarElementos();
                         recuperarDadosUsuarioConectado();
 
 
-               }else{
+                    } else {
 
 
-                    Toast.makeText(CadastroBike.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(CadastroBike.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
 
-                    if(numero_serie.getText().toString().equals("")){
+                        if (numero_serie.getText().toString().equals("")) {
 
-                        numero_serie.requestFocus();
+                            numero_serie.requestFocus();
 
-                    }else {
+                        } else {
 
-                        if(marca.getText().toString().equals("")){
+                            if (marca.getText().toString().equals("")) {
 
-                            marca.requestFocus();
+                                marca.requestFocus();
 
-                    }else {
-                            if(modelo.getText().toString().equals("")){
+                            } else {
+                                if (modelo.getText().toString().equals("")) {
 
-                                modelo.requestFocus();
+                                    modelo.requestFocus();
 
 
+                                } else {
+                                    if (cor.getText().toString().equals("")) {
 
-                        }else {
-                                if(cor.getText().toString().equals("")){
+                                        cor.requestFocus();
 
-                                    cor.requestFocus();
+                                    }
+                                }
+
 
                             }
-                            }
-
-
 
                         }
-
-                    }
 
 
                     }
@@ -130,7 +149,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
             }
-
 
         });
 
@@ -191,14 +209,14 @@ public class CadastroBike extends AppCompatActivity  {
             //
 
             // o numero de serie virou id
-          //  String identificadorBike = Base64Custom.codificarBase64(bike.getNumero_serie());
+           //String identificadorBike = Base64Custom.codificarBase64(bike.getNumero_serie());
 
             // cadastra a bike no nó indicado
 
             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
             firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 
-            Toast.makeText(CadastroBike.this, "Bicicleta cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+            Toast.makeText(CadastroBike.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
 
            // retorna a tela usuario
 

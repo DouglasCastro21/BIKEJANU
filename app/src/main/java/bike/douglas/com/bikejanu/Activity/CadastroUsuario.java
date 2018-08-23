@@ -10,7 +10,6 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,14 +27,10 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-
-import java.net.URI;
-import java.security.PrivateKey;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
@@ -83,7 +78,7 @@ public class CadastroUsuario extends AppCompatActivity {
         // rebece o email passada pela tela cadastro
             Intent intent = getIntent();
 
-        if(intent !=null){
+            if(intent !=null){
             Bundle params = intent.getExtras();
 
             if (params !=null){
@@ -106,7 +101,7 @@ public class CadastroUsuario extends AppCompatActivity {
      //  databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
 
 
-        nome = (EditText)findViewById(R.id.NomeID);
+        nome = (EditText)findViewById(R.id.NumeroID);
         email = (EditText)findViewById(R.id.EmailtextID);
         confirmaremail = (EditText)findViewById(R.id.confirmarEmailID);
         senha = (EditText)findViewById(R.id.senhaID);

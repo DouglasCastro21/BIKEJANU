@@ -57,7 +57,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     private FirebaseAuth usuarioFirebase;
     private FirebaseUser user;
     private ImageButton btnmais;
-    private TextView recebeEmail;
     private ImageView ImagemUsuario;
     private  static final int PICK_IMAGE_REQUEST = 1;
 
@@ -96,6 +95,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         databaseReference = firebaseDatabase.getReference();
 
 
+
        //Recuperar bikes do firebase
 
         Preferencias preferencias = new Preferencias(AreaUsuario.this);
@@ -103,8 +103,10 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
-        TextView recebeEmail = (TextView)findViewById(R.id.emailUsuarioID);
+      //  TextView recebeEmail = (TextView)findViewById(R.id.emailUsuarioID);
         ImagemUsuario = (ImageView) findViewById(R.id.ImagemUsuarioID);
+
+
 
 
 
@@ -144,7 +146,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             String name = user.getDisplayName();
             String email = user.getEmail();
 
+
             Toast.makeText(AreaUsuario.this, "EMAIL  :"+email, Toast.LENGTH_LONG).show();
+
 
             String identificadorUsuario = Base64Custom.codificarBase64(email);
 

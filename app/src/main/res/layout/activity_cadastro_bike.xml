@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/titulo"
+        app:title="Nova Bike"
         app:titleTextColor="@color/common_google_signin_btn_text_dark_default" />
 
     <ImageView
@@ -57,19 +57,6 @@
         app:srcCompat="@android:drawable/ic_menu_report_image" />
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="306dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="306dp"
-        android:layout_marginStart="50dp"
-        android:hint="Marca *"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NomeID" />
-
-    <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,12 +66,13 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="2dp"
         android:text="Número de Série *"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <EditText
-        android:id="@+id/NomeID"
+        android:id="@+id/NumeroID"
         android:layout_width="314dp"
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
@@ -125,14 +113,16 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="332dp"
         android:layout_marginStart="50dp"
-        android:text="Cor *"
+        android:text=" Cor Predominante *"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/marcaID" />
 
     <EditText
         android:id="@+id/corID"
-        android:layout_width="324dp"
+        android:layout_width="314dp"
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -156,6 +146,7 @@
         android:layout_marginRight="307dp"
         android:layout_marginStart="50dp"
         android:text="Modelo *"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/corID" />
@@ -169,9 +160,9 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/background_campos"
+        android:drawableLeft="@drawable/ic_action_minus"
         android:ems="10"
         android:hint="Modelo"
-        android:drawableLeft="@drawable/ic_action_minus"
 
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -190,7 +181,7 @@
         android:layout_marginTop="6dp"
         android:background="@drawable/background_interno"
         android:drawableLeft="@drawable/ic_action_verde_right"
-        android:text="Finalizar Cadastro"
+        android:text="Finalizar "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descricaoID" />
@@ -205,7 +196,7 @@
         android:layout_marginStart="8dp"
         android:background="@android:drawable/editbox_background_normal"
         android:ems="10"
-        android:hint="Faça uma descrição da bike ( Garfo, rodas, guidão, sistema  de machas )"
+        android:hint="Faça uma descrição da bike ( Garfo, rodas, guidão e sistema  de machas )"
         android:inputType="textMultiLine"
         android:textColorLink="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -214,15 +205,33 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="17dp"
         android:layout_marginEnd="263dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="263dp"
         android:layout_marginStart="50dp"
         android:text="Observações"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/modeloID" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="300dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="300dp"
+        android:layout_marginStart="50dp"
+        android:text="Marca *"
+
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NumeroID" />
 
 </android.support.constraint.ConstraintLayout>

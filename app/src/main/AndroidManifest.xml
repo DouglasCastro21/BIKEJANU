@@ -43,7 +43,8 @@
         <activity android:name=".Activity.CadastroBike" />
         <activity android:name=".Activity.DadosBike" />
         <activity android:name=".Activity.ImagemBike" />
-        <activity android:name=".Activity.Dialogo_Personalizado"></activity>
+        <activity android:name=".Activity.Dialogo_Personalizado" />
+        <activity android:name=".Activity.AlertarFurtoRoubo"></activity>
     </application>
 
 </manifest>

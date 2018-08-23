@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/usuario" />
 
     <EditText
-        android:id="@+id/NomeID"
+        android:id="@+id/NumeroID"
         android:layout_width="314dp"
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
@@ -55,7 +55,7 @@
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NomeID" />
+        app:layout_constraintTop_toBottomOf="@+id/NumeroID" />
 
     <EditText
         android:id="@+id/EmailtextID"

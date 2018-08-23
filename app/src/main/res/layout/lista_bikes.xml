@@ -45,7 +45,7 @@
         app:srcCompat="@drawable/bike1" />
 
     <TextView
-        android:id="@+id/txtCaixaSelecaoID"
+        android:id="@+id/txtCaixaDescricaoID"
         android:layout_width="301dp"
         android:layout_height="74dp"
 
@@ -54,9 +54,11 @@
         android:layout_marginLeft="3dp"
         android:layout_marginRight="4dp"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
+        android:textColor="@color/cardview_shadow_end_color"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imagemListaID"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,6 +78,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewMarca" />
+
+    <TextView
+        android:id="@+id/textViewCorID"
+        android:layout_width="116dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        app:layout_constraintStart_toEndOf="@+id/textViewModeloID"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewNumeroSerie" />
 
 
 </android.support.constraint.ConstraintLayout>
