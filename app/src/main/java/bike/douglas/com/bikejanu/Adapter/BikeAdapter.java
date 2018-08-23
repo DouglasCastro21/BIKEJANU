@@ -155,15 +155,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                     context.startActivity(intent);
 
-                    //Editar campos
-
-                    b.setNumero_serie(bikeselecao.getNumero_serie());
-                    b.setModelo(txtViewModelo.getText().toString().trim());
-                    b.setMarca(txtViewMarca.getText().toString().trim());
-                    b.setCor(txtViewCor.getText().toString().trim());
-                    b.setNumero_serie(txtViewNumeroSerie.getText().toString().trim());
-
-
 
                 }
             });

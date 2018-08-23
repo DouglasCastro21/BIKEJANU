@@ -45,10 +45,21 @@ public class DadosBike extends AppCompatActivity {
                 numero_serieText.setText(numero_serie);
 
 
-                // dados do numero serie
+                // dados da descriçaõ
                 String descricao = params.getString("dadosdescricao");
                 TextView descricaoText = (TextView) findViewById(R.id.dadosDescricaoID);
                 descricaoText.setText(descricao);
+
+
+                // dados do modelo
+                String modelo = params.getString("dadosmodelo");
+                TextView modeloText = (TextView) findViewById(R.id.dadosModeloID);
+                modeloText.setText(modelo);
+
+                // dados da cor
+                String cor = params.getString("dadoscor");
+                TextView corText = (TextView) findViewById(R.id.dadosCorID);
+                corText.setText(cor);
 
 
             }

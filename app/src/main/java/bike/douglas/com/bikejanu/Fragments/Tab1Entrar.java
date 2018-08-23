@@ -37,7 +37,7 @@ public class Tab1Entrar extends Fragment  {
         View rootView = inflater.inflate(R.layout.tab1entrar, container, false);
 
 
-        verificarUsuarioLogado();
+       // verificarUsuarioLogado();
 
         final TextView edtEmail = (TextView) rootView.findViewById(R.id.EmailID);
         final TextView edtSenha = (TextView) rootView.findViewById(R.id.SenhaID);
