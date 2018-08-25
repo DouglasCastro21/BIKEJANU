@@ -37,9 +37,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
     }
 
-
-
-
     private void mascaras() {
 
         SimpleMaskFormatter simpleMaskHora = new SimpleMaskFormatter("NN:NN");
