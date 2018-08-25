@@ -20,19 +20,157 @@
         app:title="Alerta de Furto/Roubo"
         app:titleTextColor="@color/common_google_signin_btn_text_dark_default" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="297dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="36dp"
+
+
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="97dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Furto"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/alertaRuaID"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton2"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="97dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:text="Roubo"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView22"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <EditText
+        android:id="@+id/alertaRuaID"
+        android:layout_width="138dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="156dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/alertaNumeroID"
+        android:layout_width="64dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginStart="63dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/alertaBairoID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintStart_toEndOf="@+id/alertaRuaID" />
+
+
+    <EditText
+        android:id="@+id/alertaBairoID"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/dataHoraID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/alertaDataID"
+        android:layout_width="118dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:hint="00/00/0000"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/alertaHoraID"
+        android:layout_width="77dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginRight="61dp"
+        android:layout_marginStart="49dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:hint="00:00"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/alertaDataID" />
+
+
+    <EditText
+        android:id="@+id/alertaBoletimID"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+
+        android:id="@+id/AlertaObservaçãoID"
+        android:layout_width="309dp"
+        android:layout_height="81dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:background="@android:drawable/editbox_background_normal"
+        android:hint="Descreva detalhes do Furto/Roubo"
+        android:inputType="textMultiLine"
+        android:textColorLink="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
     <TextView
         android:id="@+id/textView13"
@@ -46,7 +184,7 @@
         android:text="Observações"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintBottom_toTopOf="@+id/AlertaObservaçãoID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -71,13 +209,16 @@
         android:id="@+id/imageView"
         android:layout_width="45dp"
         android:layout_height="39dp"
+        android:layout_marginBottom="9dp"
         android:layout_marginLeft="31dp"
         android:layout_marginStart="31dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView20"
         app:layout_constraintEnd_toStartOf="@+id/textView14"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_action_warning" />
 
     <TextView
@@ -94,4 +235,92 @@
         app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="298dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Boletim de Ocorrência"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/alertaBoletimID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+
+
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="48dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginRight="139dp"
+        android:layout_marginStart="43dp"
+        android:text="Rua "
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/alertaRuaID"
+        app:layout_constraintEnd_toStartOf="@+id/textView22"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="160dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginRight="160dp"
+        android:layout_marginStart="43dp"
+        android:text="Bairro"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/alertaBairoID"
+        app:layout_constraintEnd_toStartOf="@+id/alertaNumeroID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/dataHoraID"
+        android:layout_width="298dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text=" Data e Hora do Furto/Roubo"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/alertaDataID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Número"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/alertaNumeroID"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 </android.support.constraint.ConstraintLayout>

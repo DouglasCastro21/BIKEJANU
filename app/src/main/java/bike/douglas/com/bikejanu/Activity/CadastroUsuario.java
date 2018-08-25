@@ -42,9 +42,6 @@ import bike.douglas.com.bikejanu.R;
 public class CadastroUsuario extends AppCompatActivity {
 
 
-
-
-
     private  static final int PICK_IMAGE_REQUEST = 1;
     private Button botaoBuscarImagem;
     private ImageView imagemPerfil;
@@ -57,7 +54,7 @@ public class CadastroUsuario extends AppCompatActivity {
     private EditText  senha;
     private EditText  confirmarsenha;
     private EditText  telefone;
-    private String imagem;
+    private String    imagem;
     private EditText  nascimento;
     private Button botaocadastrar;
 
@@ -128,7 +125,7 @@ public class CadastroUsuario extends AppCompatActivity {
                                 && !nascimento.getText().toString().equals("")){
 
 
-                    if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
+                     if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
                      if (email.getText().toString().equals(confirmaremail.getText().toString())) {
 
 
@@ -269,12 +266,14 @@ public class CadastroUsuario extends AppCompatActivity {
 
     }
 
-    private void abrirAreaUsuario(){
+    private void abrirAreaUsuario() {
 
 
         Intent intent = new Intent(CadastroUsuario.this ,AreaUsuario.class);
         startActivity(intent);
         finish();
+
+
     }
 
 
