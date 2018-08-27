@@ -31,7 +31,8 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText descricao;
     public  Bike bike;
     private DatabaseReference firebase;
-    Usuarios usuarios;
+
+
 
 
     @Override
@@ -211,8 +212,11 @@ public class CadastroBike extends AppCompatActivity  {
             // o numero de serie virou id
            //String identificadorBike = Base64Custom.codificarBase64(bike.getNumero_serie());
 
-            // cadastra a bike no nó indicado
+            // cadastra a bike no nó todas as bikes
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
 
+            // cadastra no nó usuario logado
             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
             firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 

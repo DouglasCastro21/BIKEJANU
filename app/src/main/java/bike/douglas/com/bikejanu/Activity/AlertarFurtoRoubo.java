@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
@@ -21,6 +23,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
     private EditText  alertaData;
     private EditText  alertaHora;
+    private Button btnAlertaFurtoRoubo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +33,21 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
           alertaData = (EditText) findViewById(R.id.alertaDataID);
           alertaHora = (EditText) findViewById(R.id.alertaHoraID);
+          btnAlertaFurtoRoubo = (Button) findViewById(R.id.btnAlertaFurtoRouboID);
 
 
          mascaras();
+
+
+         btnAlertaFurtoRoubo.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+
+
+                 Toast.makeText(AlertarFurtoRoubo.this, "A bike foi registrada como furtada", Toast.LENGTH_LONG).show();
+
+             }
+         });
 
 
 

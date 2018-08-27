@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
@@ -44,6 +45,8 @@ public class Tab1Codigo extends Fragment {
 
     private List<Bike> listBikes = new ArrayList<Bike>();
     private ArrayAdapter<Bike> arrayAdapterBike;
+
+
 
 
     @Override
@@ -100,24 +103,26 @@ public class Tab1Codigo extends Fragment {
 
         Query query;
 
+
+        //Instânciar objetos
+        listBikes = new ArrayList<>();
+
         if (palavra.equals("")) {
 
-            query = databaseReference.child("Usuarios").orderByChild("nome");
+            query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
         }else{
 
-            query = databaseReference.child("Usuarios")
-                    .orderByChild("nome").startAt(palavra).endAt(palavra+"\uf8ff");
+            query = databaseReference.child("TodasBikes")
+                    .orderByChild("numero_serie").startAt(palavra).endAt(palavra+"\uf8ff");
         }
-
-
-        listBikes.clear();
-
 
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
 
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                listBikes.clear();
 
             for (DataSnapshot objSnapshot:dataSnapshot.getChildren()){
             Bike b = objSnapshot.getValue(Bike.class);
@@ -126,9 +131,20 @@ public class Tab1Codigo extends Fragment {
 
             }
 
-            arrayAdapterBike = new ArrayAdapter<Bike>(Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1,listBikes);
 
-             listPesquisa.setAdapter(arrayAdapterBike);
+                // verificar se precisa tirar ...nao sei pra uqe isso
+                arrayAdapterBike = new ArrayAdapter(
+                        Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1,
+                        listBikes  );
+
+                arrayAdapterBike = new BikeAdapter(Tab1Codigo.super.getContext(), (ArrayList<Bike>) listBikes);
+                listPesquisa.setAdapter(arrayAdapterBike);
+
+
+
+                // arrayAdapterBike = new ArrayAdapter<Bike>(Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1,listaBikes);
+
+          //   listPesquisa.setAdapter(arrayAdapterBike);
             }
 
             @Override
@@ -138,6 +154,8 @@ public class Tab1Codigo extends Fragment {
 
             }
         });
+
+
 
     }
 

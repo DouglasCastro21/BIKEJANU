@@ -92,24 +92,20 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
         // verifica se a lista está vazia
-        if(listabikes!=null){
+        if(listabikes!=null) {
 
             // inicializa objetos para a montagem da view
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            view =inflater.inflate(R.layout.lista_bikes,parent ,false);
-
+            view = inflater.inflate(R.layout.lista_bikes, parent, false);
 
 
             final TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             final TextView txtViewMarca = (TextView) view.findViewById(R.id.txtViewMarca);
-            TextView txtViewCaixaDescricao   = (TextView) view.findViewById(R.id.txtCaixaDescricaoID);
-            final ImageView imagem =      (ImageView) view.findViewById(R.id.imagemListaID);
-            final TextView txtViewModelo   = (TextView) view.findViewById(R.id.textViewModeloID);
-            final TextView txtViewCor   = (TextView) view.findViewById(R.id.textViewCorID);
-
-
-
+            TextView txtViewCaixaDescricao = (TextView) view.findViewById(R.id.txtCaixaDescricaoID);
+            final ImageView imagem = (ImageView) view.findViewById(R.id.imagemListaID);
+            final TextView txtViewModelo = (TextView) view.findViewById(R.id.textViewModeloID);
+            final TextView txtViewCor = (TextView) view.findViewById(R.id.textViewCorID);
 
 
             firebaseDatabase = FirebaseDatabase.getInstance();
@@ -124,8 +120,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             txtViewCaixaDescricao.setText(bike1.getDescricao());
             txtViewModelo.setText(bike1.getModelo());
             txtViewCor.setText(bike1.getCor());
-
-
 
 
             imagem.setOnClickListener(new OnClickListener() {
@@ -143,11 +137,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     // passa dados  para a tela dados usuarios e Cadastro Bike
 
                     Bundle params = new Bundle();
-                    params.putString("dadosmodelo",bikeselecao.getModelo());
-                    params.putString("dadosmarca",bikeselecao.getMarca());
-                    params.putString("dadosnumero_serie",bikeselecao.getNumero_serie());
-                    params.putString("dadosdescricao",bikeselecao.getDescricao());
-                    params.putString("dadoscor",bikeselecao.getCor());
+                    params.putString("dadosmodelo", bikeselecao.getModelo());
+                    params.putString("dadosmarca", bikeselecao.getMarca());
+                    params.putString("dadosnumero_serie", bikeselecao.getNumero_serie());
+                    params.putString("dadosdescricao", bikeselecao.getDescricao());
+                    params.putString("dadoscor", bikeselecao.getCor());
 
 
                     Intent intent = new Intent(BikeAdapter.super.getContext(), DadosBike.class);
@@ -160,114 +154,118 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             });
 
 
+            // recupera usuario
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+            if (user !=null){ /// se o usuario não estiver logado .. não aparece isso nas opçoes da listagem das bikes
+                // no inicio do app
+                // o usuario logado não podera voltar sem está desconetado
 
 
+                txtViewCaixaDescricao.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
 
+                        final CharSequence[] opcoes = {"Alertar Furto/Roubo", "Editar", "Remover"};
 
-            txtViewCaixaDescricao.setOnClickListener(new View.OnClickListener() {
-               @Override
-                public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(BikeAdapter.super.getContext());
+                        builder.setTitle("");
+                        builder.setItems(opcoes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int i) {
 
+                                Bike b = new Bike();
 
-                   final CharSequence [] opcoes ={"Alertar Furto/Roubo","Editar","Remover"};
-
-                   AlertDialog.Builder builder = new AlertDialog.Builder(BikeAdapter.super.getContext());
-                   builder.setTitle("");
-                   builder.setItems(opcoes, new DialogInterface.OnClickListener() {
-                               @Override
-                               public void onClick(DialogInterface dialog, int i) {
-
-                                   Bike b = new Bike();
-
-                                   // recupera posição da bike
+                                // recupera posição da bike
 
 
-                                   Bike bikeselecao = new Bike();
-                                   bikeselecao = listabikes.get(position);
+                                Bike bikeselecao = new Bike();
+                                bikeselecao = listabikes.get(position);
 
-                                   // recupera usuario pelo email
-                                   FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                   String email = user.getEmail();
-
-
-                                   // converte o email pra base 64
-                                   String identificadorUsuario = Base64Custom.codificarBase64(email);
+                                // recupera usuario pelo email
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                String email = user.getEmail();
 
 
+                                // converte o email pra base 64
+                                String identificadorUsuario = Base64Custom.codificarBase64(email);
 
 
-                            if (opcoes[i].equals("Alertar Furto/Roubo")){
+                                if (opcoes[i].equals("Alertar Furto/Roubo")) {
 
-                                Bundle params = new Bundle();
-                                Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
-                                intent.putExtras(params);
+                                    Bundle params = new Bundle();
+                                    Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
+                                    intent.putExtras(params);
 
-                                context.startActivity(intent);
-
-
-                            }else if (opcoes[i].equals("Editar")){
+                                    context.startActivity(intent);
 
 
+                                } else if (opcoes[i].equals("Editar")) {
 
 
-                                // passa dados  para a tela dados usuarios e Cadastro Bike
+                                    // passa dados  para a tela dados usuarios e Cadastro Bike
 
-                                Bundle params = new Bundle();
-                                params.putString("modelo",bikeselecao.getModelo());
-                                params.putString("marca",bikeselecao.getMarca());
-                                params.putString("numero_serie",bikeselecao.getNumero_serie());
-                                params.putString("descricao",bikeselecao.getDescricao());
-                                params.putString("cor",bikeselecao.getCor());
-
-
-                                Intent intent = new Intent(BikeAdapter.super.getContext(), CadastroBike.class);
-                                intent.putExtras(params);
-
-                                context.startActivity(intent);
-
-                                //Editar campos
-
-                                b.setNumero_serie(bikeselecao.getNumero_serie());
-                                b.setModelo(txtViewModelo.getText().toString().trim());
-                                b.setMarca(txtViewMarca.getText().toString().trim());
-                                b.setCor(txtViewCor.getText().toString().trim());
-                                b.setNumero_serie(txtViewNumeroSerie.getText().toString().trim());
+                                    Bundle params = new Bundle();
+                                    params.putString("modelo", bikeselecao.getModelo());
+                                    params.putString("marca", bikeselecao.getMarca());
+                                    params.putString("numero_serie", bikeselecao.getNumero_serie());
+                                    params.putString("descricao", bikeselecao.getDescricao());
+                                    params.putString("cor", bikeselecao.getCor());
 
 
+                                    Intent intent = new Intent(BikeAdapter.super.getContext(), CadastroBike.class);
+                                    intent.putExtras(params);
 
-                                databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
-                                databaseReference.child(b.getNumero_serie()).setValue(b);
+                                    context.startActivity(intent);
+
+                                    //Editar campos
+
+                                    b.setNumero_serie(bikeselecao.getNumero_serie());
+                                    b.setModelo(txtViewModelo.getText().toString().trim());
+                                    b.setMarca(txtViewMarca.getText().toString().trim());
+                                    b.setCor(txtViewCor.getText().toString().trim());
+                                    b.setNumero_serie(txtViewNumeroSerie.getText().toString().trim());
 
 
-                                //// até aq
+                                    // edita a bike no nó todas as bikes
+                                    databaseReference = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                                    databaseReference.child(b.getNumero_serie()).setValue(b);
 
 
+                                    databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
+                                    databaseReference.child(b.getNumero_serie()).setValue(b);
 
 
+                                    //// até aq
 
 
-                             //   Toast.makeText(BikeAdapter.super.getContext(), "As alterações foram salvas", Toast.LENGTH_LONG).show();
+                                    //   Toast.makeText(BikeAdapter.super.getContext(), "As alterações foram salvas", Toast.LENGTH_LONG).show();
 
 
-                            } else if (opcoes[i].equals("Remover")){
+                                } else if (opcoes[i].equals("Remover")) {
 
-                                //EXCLUI A BIKE
-                                  databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
-                                  databaseReference.child(bikeselecao.getNumero_serie()).removeValue();
 
-                                Toast.makeText(BikeAdapter.super.getContext(), " Sua Bicicleta foi Exluida", Toast.LENGTH_LONG).show();
+                                    // Remove a bike no nó todas as bikes
+                                    databaseReference = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                                    databaseReference.child(bikeselecao.getNumero_serie()).removeValue();
+
+                                    //EXCLUI A BIKE
+                                    databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
+                                    databaseReference.child(bikeselecao.getNumero_serie()).removeValue();
+
+                                    Toast.makeText(BikeAdapter.super.getContext(), " Sua Bicicleta foi Exluida", Toast.LENGTH_LONG).show();
+
+                                }
 
                             }
+                        });
+                        builder.show();
 
-                            }
-                           });
-                           builder.show();
+                    }
+                });
 
-               }
-            });
-
-
+        }
         }
         return view;
     }

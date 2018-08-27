@@ -247,10 +247,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         Intent intent = new Intent(AreaUsuario.this ,MainActivity.class);
         startActivity(intent);
         finish();
+
     }
-
-
-
 
 
 
@@ -268,14 +266,12 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         alertaDialog.setCancelable(false);
 
 
-        // conf botões
-
+        //conf botões
         alertaDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
                 deslogarUsuario();
-
 
             }
         });
