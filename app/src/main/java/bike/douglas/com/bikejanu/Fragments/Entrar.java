@@ -10,8 +10,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.R;
+
+
 
 public class Entrar extends AppCompatActivity {
 
@@ -24,6 +31,10 @@ public class Entrar extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    private FirebaseAuth autenticacao;
+
+
+
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -34,6 +45,9 @@ public class Entrar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrar);
+
+
+
 
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -50,9 +64,7 @@ public class Entrar extends AppCompatActivity {
 
 
 
-
     }
-
 
 
     /**
@@ -72,6 +84,7 @@ public class Entrar extends AppCompatActivity {
 
                 case 0:
                   Tab1Entrar tab1 = new Tab1Entrar();
+
                     return tab1;
                 case 1:
                     Tab2Cadastrar tab2 = new Tab2Cadastrar();
@@ -79,6 +92,8 @@ public class Entrar extends AppCompatActivity {
                 default:
                     return null;
             }
+
+
         }
 
         @Override
@@ -101,6 +116,17 @@ public class Entrar extends AppCompatActivity {
 
             }
             return null;
+
+
         }
+
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+    }
+
+
+
 }

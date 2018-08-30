@@ -82,9 +82,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -161,12 +158,14 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         }
 
+
+
     }
 
 
 
 
-        @Override
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -454,7 +453,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         startActivityForResult(intent,PICK_IMAGE_REQUEST);
 
     }
-
 
 }
 

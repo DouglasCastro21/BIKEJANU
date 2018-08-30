@@ -106,7 +106,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final ImageView imagem = (ImageView) view.findViewById(R.id.imagemListaID);
             final TextView txtViewModelo = (TextView) view.findViewById(R.id.textViewModeloID);
             final TextView txtViewCor = (TextView) view.findViewById(R.id.textViewCorID);
-
+            final TextView alertaNumero = (TextView) view.findViewById(R.id.alertaNumeroID);
 
             firebaseDatabase = FirebaseDatabase.getInstance();
 //          firebaseDatabase.setPersistenceEnabled(true);
@@ -120,6 +120,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             txtViewCaixaDescricao.setText(bike1.getDescricao());
             txtViewModelo.setText(bike1.getModelo());
             txtViewCor.setText(bike1.getCor());
+         ///  alertaNumero.setText(bike1.getAlertaNumero());
 
 
             imagem.setOnClickListener(new OnClickListener() {
@@ -194,11 +195,23 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                 if (opcoes[i].equals("Alertar Furto/Roubo")) {
 
+
+                                    // passa dados  para a tela dados usuarios e Cadastro Bike
+
                                     Bundle params = new Bundle();
+                                    params.putString("Alertamodelo", bikeselecao.getAlertaNumero());
+                                   // params.putString("marca", bikeselecao.getMarca());
+                                    //params.putString("numero_serie", bikeselecao.getNumero_serie());
+                                  //  params.putString("descricao", bikeselecao.getDescricao());
+                                  //  params.putString("cor", bikeselecao.getCor());
+
+
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
                                     intent.putExtras(params);
 
                                     context.startActivity(intent);
+
+
 
 
                                 } else if (opcoes[i].equals("Editar")) {
@@ -232,7 +245,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     databaseReference = Configuracao_Firebase.getFirebase().child("TodasBikes");
                                     databaseReference.child(b.getNumero_serie()).setValue(b);
 
-
+                                    // edita a bike no nó Bikes
                                     databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
                                     databaseReference.child(b.getNumero_serie()).setValue(b);
 

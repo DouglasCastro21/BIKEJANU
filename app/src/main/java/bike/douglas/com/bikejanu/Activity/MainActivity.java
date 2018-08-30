@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
@@ -32,14 +33,19 @@ public class MainActivity extends AppCompatActivity {
 
         verificarUsuarioLogado();
 
-        btn_Entrar = (Button) findViewById(R.id.btn_loginID);
-        btn_Entrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                startActivity(new Intent(MainActivity.this,Entrar.class));
-            }
-        });
+
+        btn_Entrar = (Button) findViewById(R.id.btn_loginID);
+
+
+
+            btn_Entrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    startActivity(new Intent(MainActivity.this, Entrar.class));
+                }
+            });
 
         btn_consultar_Indice = (Button) findViewById(R.id.btn_IndicesID);
         btn_consultar_Indice.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                startActivity(new Intent(MainActivity.this,Consultar_Indice.class));
+                startActivity(new Intent(MainActivity.this, Consultar_Indice.class));
             }
         });
 
@@ -56,20 +62,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(MainActivity.this,Consultar_Bike.class));
+                startActivity(new Intent(MainActivity.this, Consultar_Bike.class));
             }
         });
+
 
 
 
     }
 
 
-
-    public void abrirTElaPrincipal(){
+    public void abrirTElaPrincipal() {
 
         Intent intent = new Intent(MainActivity.this, AreaUsuario.class);
         startActivity(intent);
+
+
 
         //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,CadastroUsuario.class);
 //startActivity(intentabrirTElaPrincipal);
@@ -77,16 +85,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    private  void verificarUsuarioLogado() {
+    private void verificarUsuarioLogado() {
         autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
         if (autenticacao.getCurrentUser() != null) {
 
             abrirTElaPrincipal();
+
+           finish();
+
         }
     }
 
-
-
-
+    @Override
+    public void finish() {
+        super.finish();
+    }
 }

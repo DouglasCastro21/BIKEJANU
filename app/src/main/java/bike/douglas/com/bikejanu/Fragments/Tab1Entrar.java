@@ -1,6 +1,8 @@
 package bike.douglas.com.bikejanu.Fragments;
 
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -31,13 +33,14 @@ public class Tab1Entrar extends Fragment  {
     private Button btnLogar;
     private FirebaseAuth autenticacao;
     private Usuarios usuarios;
+    private Entrar.SectionsPagerAdapter entrar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab1entrar, container, false);
 
 
-       // verificarUsuarioLogado();
+        verificarUsuarioLogado();
 
         final TextView edtEmail = (TextView) rootView.findViewById(R.id.EmailID);
         final TextView edtSenha = (TextView) rootView.findViewById(R.id.SenhaID);
@@ -62,7 +65,6 @@ public class Tab1Entrar extends Fragment  {
 
                 }
 
-
             }
 
 
@@ -82,11 +84,12 @@ public class Tab1Entrar extends Fragment  {
 
 
             if (task.isSuccessful()){
-
+                Tab1Entrar.super.getActivity().finish();
                 abrirTElaPrincipal();
 
 
                 Toast.makeText(Tab1Entrar.super.getActivity(),"Login Efetuado com Sucesso", Toast.LENGTH_SHORT).show();
+
 
             }else {
 
@@ -99,7 +102,6 @@ public class Tab1Entrar extends Fragment  {
     });
 
 
-
     }
 
 
@@ -107,6 +109,8 @@ public class Tab1Entrar extends Fragment  {
 
         Intent intent = new Intent(getActivity(), AreaUsuario.class);
         startActivity(intent);
+
+
 
       //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,CadastroUsuario.class);
 //startActivity(intentabrirTElaPrincipal);
@@ -120,6 +124,9 @@ public class Tab1Entrar extends Fragment  {
         if (autenticacao.getCurrentUser() != null) {
 
             abrirTElaPrincipal();
+
+
+
         }
     }
 

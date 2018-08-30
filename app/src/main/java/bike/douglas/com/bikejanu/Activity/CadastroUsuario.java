@@ -35,6 +35,8 @@ import com.squareup.picasso.Picasso;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
+import bike.douglas.com.bikejanu.Fragments.Tab1Entrar;
+import bike.douglas.com.bikejanu.Fragments.Tab2Cadastrar;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;

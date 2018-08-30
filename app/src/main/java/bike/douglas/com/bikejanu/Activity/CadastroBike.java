@@ -29,6 +29,9 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText cor;
     private Button botaocadastrar;
     private EditText descricao;
+
+    private  EditText alertaNumero;
+
     public  Bike bike;
     private DatabaseReference firebase;
 
@@ -46,6 +49,8 @@ public class CadastroBike extends AppCompatActivity  {
         modelo = (EditText) findViewById(R.id.modeloID);
         cor = (EditText) findViewById(R.id.corID);
         descricao = (EditText)findViewById(R.id.descricaoID);
+        alertaNumero= (EditText)findViewById(R.id.alertaNumeroID);
+
 
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
 
@@ -107,7 +112,7 @@ public class CadastroBike extends AppCompatActivity  {
                             !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")) {
 
                         inicializarElementos();
-                        recuperarDadosUsuarioConectado();
+                        recuperarDadosUsuarioConectadoECadastra();
 
 
                     } else {
@@ -169,6 +174,7 @@ public class CadastroBike extends AppCompatActivity  {
          bike.setModelo(modelo.getText().toString());
          bike.setCor(cor.getText().toString());
          bike.setDescricao(descricao.getText().toString());
+        // bike.setAlertaNumero(alertaNumero.getText().toString();
 
 }
 
@@ -193,7 +199,7 @@ public class CadastroBike extends AppCompatActivity  {
     // Usuarios
     //   +chave  usuario 1234
     //       +dados usuario
-    private void recuperarDadosUsuarioConectado(){
+    private void recuperarDadosUsuarioConectadoECadastra(){
 
         // recupera autenticão do usuario local
 
@@ -209,8 +215,6 @@ public class CadastroBike extends AppCompatActivity  {
 
             //
 
-            // o numero de serie virou id
-           //String identificadorBike = Base64Custom.codificarBase64(bike.getNumero_serie());
 
             // cadastra a bike no nó todas as bikes
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");

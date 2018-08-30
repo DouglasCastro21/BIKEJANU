@@ -76,12 +76,15 @@ public class Tab2Cadastrar extends Fragment {
                 params.putString("email", emailEnviar.getText().toString());
 
 
+
+                Tab2Cadastrar.super.getActivity().finish();
                 Intent intent = new Intent(Tab2Cadastrar.super.getContext(), CadastroUsuario.class);
                 intent.putExtras(params);
 
                 startActivity(intent);
 
                 //// até aq
+
 
 
 
@@ -111,7 +114,6 @@ public class Tab2Cadastrar extends Fragment {
 
 
     }
-
 
 
 }

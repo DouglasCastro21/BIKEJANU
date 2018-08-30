@@ -17,6 +17,7 @@ public class Bike extends Usuarios{
     private String modelo;
     private String cor;
     private String descricao;
+    private String alertaNumero;
 
 
 
@@ -36,6 +37,7 @@ public class Bike extends Usuarios{
         hashMapBike.put("modelo",getModelo());
         hashMapBike.put("cor",getCor());
         hashMapBike.put("descricao",getDescricao());
+        hashMapBike.put("alertaNumero",getAlertaNumero());
 
 
         return hashMapBike;
@@ -88,5 +90,13 @@ public class Bike extends Usuarios{
     }
 
     public void setDescricao(String descricao) { this.descricao = descricao;
+    }
+
+    public String getAlertaNumero() {
+        return alertaNumero;
+    }
+
+    public void setAlertaNumero(String alertaNumero) {
+        this.alertaNumero = alertaNumero;
     }
 }
