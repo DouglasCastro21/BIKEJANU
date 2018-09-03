@@ -27,7 +27,7 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText marca;
     private EditText modelo;
     private EditText cor;
-    private Button botaocadastrar;
+    private Button   botaocadastrar;
     private EditText descricao;
 
     private  EditText alertaNumero;
@@ -49,7 +49,7 @@ public class CadastroBike extends AppCompatActivity  {
         modelo = (EditText) findViewById(R.id.modeloID);
         cor = (EditText) findViewById(R.id.corID);
         descricao = (EditText)findViewById(R.id.descricaoID);
-        alertaNumero= (EditText)findViewById(R.id.alertaNumeroID);
+     //   alertaNumero= (EditText)findViewById(R.id.alertaNumeroID);
 
 
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
@@ -159,11 +159,6 @@ public class CadastroBike extends AppCompatActivity  {
         });
 
     }
-
-
-
-
-
 
 
     private void inicializarElementos(){

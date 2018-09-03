@@ -106,7 +106,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final ImageView imagem = (ImageView) view.findViewById(R.id.imagemListaID);
             final TextView txtViewModelo = (TextView) view.findViewById(R.id.textViewModeloID);
             final TextView txtViewCor = (TextView) view.findViewById(R.id.textViewCorID);
-            final TextView alertaNumero = (TextView) view.findViewById(R.id.alertaNumeroID);
+           // final TextView alertaNumero = (TextView) view.findViewById(R.id.alertaNumeroID);
 
             firebaseDatabase = FirebaseDatabase.getInstance();
 //          firebaseDatabase.setPersistenceEnabled(true);
@@ -199,7 +199,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     // passa dados  para a tela dados usuarios e Cadastro Bike
 
                                     Bundle params = new Bundle();
-                                    params.putString("Alertamodelo", bikeselecao.getAlertaNumero());
+                                  //  params.putString("Alertamodelo", bikeselecao.getAlertaNumero());
                                    // params.putString("marca", bikeselecao.getMarca());
                                     //params.putString("numero_serie", bikeselecao.getNumero_serie());
                                   //  params.putString("descricao", bikeselecao.getDescricao());
