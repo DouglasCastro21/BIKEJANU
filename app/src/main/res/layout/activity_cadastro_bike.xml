@@ -91,7 +91,7 @@
             <EditText
                 android:id="@+id/NumeroID"
                 android:layout_width="305dp"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
@@ -104,7 +104,7 @@
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="49dp"
+                android:layout_width="66dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginLeft="24dp"
@@ -113,6 +113,7 @@
                 android:layout_marginTop="4dp"
                 android:text="Marca *"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/marcaID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.055"
@@ -167,7 +168,7 @@
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_width="57dp"
+                android:layout_width="74dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginLeft="32dp"
@@ -175,6 +176,7 @@
                 android:layout_marginStart="32dp"
                 android:text="Modelo *"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.033"
                 app:layout_constraintStart_toStartOf="parent"
@@ -204,6 +206,7 @@
                 android:layout_marginStart="32dp"
                 android:text="Observações "
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.037"
                 app:layout_constraintStart_toStartOf="parent"
@@ -212,7 +215,7 @@
             <EditText
                 android:id="@+id/descricaoID"
                 android:layout_width="305dp"
-                android:layout_height="63dp"
+                android:layout_height="83dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
@@ -259,9 +262,9 @@
                 android:id="@+id/radioButton"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="44dp"
                 android:text="Nada Consta"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
@@ -272,7 +275,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="44dp"
                 android:text="Furtada"
                 app:layout_constraintStart_toEndOf="@+id/radioButton"
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
@@ -285,31 +288,32 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="37dp"
+                android:layout_marginTop="44dp"
                 android:text="Roubada"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/radioButton2"
-                app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="43dp"
                 android:layout_height="25dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="36dp"
                 android:text="Rua"
                 android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioButton" />
 
             <EditText
-                android:id="@+id/textView25"
+                android:id="@+id/alertaRuaID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:hint="Rua"
                 app:layout_constraintStart_toStartOf="parent"
@@ -319,23 +323,24 @@
                 android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="72dp"
-                android:layout_marginRight="72dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="36dp"
                 android:text="Número"
                 android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
 
             <EditText
-                android:id="@+id/textView27"
+                android:id="@+id/alertaNumeroID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="168dp"
                 android:layout_marginStart="168dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:hint="Número"
-                app:layout_constraintStart_toEndOf="@+id/textView25"
+                app:layout_constraintStart_toEndOf="@+id/alertaRuaID"
                 app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
             <TextView
@@ -343,18 +348,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginLeft="32dp"
+                android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="24dp"
                 android:text="Bairro"
                 android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.027"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                app:layout_constraintTop_toBottomOf="@+id/alertaRuaID" />
 
             <EditText
-                android:id="@+id/textView29"
+                android:id="@+id/alertaBairroID"
                 android:layout_width="305dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="24dp"
@@ -364,12 +370,13 @@
                 android:background="@android:drawable/editbox_background_normal"
                 android:hint="Bairro"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
             <TextView
                 android:id="@+id/textView31"
-                android:layout_width="wrap_content"
+                android:layout_width="228dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="194dp"
                 android:layout_marginLeft="24dp"
@@ -378,40 +385,43 @@
                 android:layout_marginTop="4dp"
                 android:text="Data e Hora do Furto/Roubo"
                 android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+                app:layout_constraintTop_toBottomOf="@+id/alertaBairroID" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/alertaDataID"
                 android:layout_width="145dp"
-                android:layout_height="44dp"
+                android:layout_height="0dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="4dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
+                android:hint="00/00/0000"
                 android:inputType="date"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
             <EditText
-                android:id="@+id/editText5"
-                android:layout_width="120dp"
-                android:layout_height="47dp"
+                android:id="@+id/alertaHoraID"
+                android:layout_width="113dp"
+                android:layout_height="0dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginLeft="52dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="52dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="4dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
+                android:hint="00:00"
                 android:inputType="time"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/editText4"
-                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+                app:layout_constraintStart_toEndOf="@+id/alertaDataID"
+                app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -422,45 +432,52 @@
                 android:layout_marginTop="4dp"
                 android:text="Boletim de Ocorrência"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText4" />
+                app:layout_constraintTop_toBottomOf="@+id/alertaDataID" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/BoletimID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
+                android:hint="xxxxxxxxxx"
                 android:inputType="number"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <EditText
-                android:id="@+id/editText6"
-                android:layout_width="344dp"
+                android:id="@+id/alertaDescricaoID"
+                android:layout_width="303dp"
                 android:layout_height="63dp"
+                android:layout_marginEnd="24dp"
                 android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="Descreva detalhes do Furto/Roubo"
                 android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
             <TextView
                 android:id="@+id/textView21"
-                android:layout_width="wrap_content"
+                android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="4dp"
                 android:text="Observações"
                 android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintTop_toBottomOf="@+id/BoletimID" />
 
             <Button
                 android:id="@+id/finalizarID"
@@ -477,8 +494,10 @@
                 android:text="Finalizar Cadastro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText6" />
+                app:layout_constraintTop_toBottomOf="@+id/alertaDescricaoID"
+                app:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

@@ -1,10 +1,15 @@
 package bike.douglas.com.bikejanu.Entidades;
 
+import android.net.NetworkInfo;
+import android.provider.ContactsContract;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 
@@ -17,7 +22,14 @@ public class Bike extends Usuarios{
     private String modelo;
     private String cor;
     private String descricao;
+
     private String alertaNumero;
+    private String alertaRua;
+    private String alertaBairro;
+    private String alertaDate;
+    private String alertaHora;
+    private String Boletim;
+    private String alertaDescricao;
 
 
 
@@ -37,7 +49,16 @@ public class Bike extends Usuarios{
         hashMapBike.put("modelo",getModelo());
         hashMapBike.put("cor",getCor());
         hashMapBike.put("descricao",getDescricao());
+
+
         hashMapBike.put("alertaNumero",getAlertaNumero());
+        hashMapBike.put("alertaRua",getAlertaRua());
+        hashMapBike.put("alertaBairro",getAlertaBairro());
+        hashMapBike.put("alertaDate",getAlertaDate());
+        hashMapBike.put("alertaHora",getAlertaHora());
+        hashMapBike.put("Boletim",getBoletim());
+        hashMapBike.put("alertaDescricao",getAlertaDescricao());
+
 
 
         return hashMapBike;
@@ -98,5 +119,54 @@ public class Bike extends Usuarios{
 
     public void setAlertaNumero(String alertaNumero) {
         this.alertaNumero = alertaNumero;
+    }
+
+
+    public String getAlertaRua() {
+        return alertaRua;
+    }
+
+    public void setAlertaRua(String alertaRua) {
+        this.alertaRua = alertaRua;
+    }
+
+    public String getAlertaBairro() {
+        return alertaBairro;
+    }
+
+    public void setAlertaBairro(String alertaBairro) {
+        this.alertaBairro = alertaBairro;
+    }
+
+    public String getAlertaDate() {
+        return alertaDate;
+    }
+
+    public void setAlertaDate(String alertaDate) {
+        this.alertaDate = alertaDate;
+    }
+
+    public String getAlertaHora() {
+        return alertaHora;
+    }
+
+    public void setAlertaHora(String alertaHora) {
+        this.alertaHora = alertaHora;
+    }
+
+    public String getBoletim() {
+        return Boletim;
+    }
+
+    public void setBoletim(String boletim) {
+        Boletim = boletim;
+    }
+
+    public String getAlertaDescricao() {
+        return alertaDescricao;
+    }
+
+    public void setAlertaDescricao(String alertaDescricao) {
+        this.alertaDescricao = alertaDescricao;
     }
 }

@@ -13,6 +13,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.Date;
+import java.util.Timer;
+
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
@@ -30,7 +33,16 @@ public class CadastroBike extends AppCompatActivity  {
     private Button   botaocadastrar;
     private EditText descricao;
 
-    private  EditText alertaNumero;
+
+    private EditText alertaNumero;
+    private EditText alertaRua;
+    private EditText alertaBairro;
+    private EditText alertaDate;
+    private EditText alertaHora;
+    private EditText Boletim;
+    private EditText alertaDescricao;
+
+
 
     public  Bike bike;
     private DatabaseReference firebase;
@@ -44,12 +56,21 @@ public class CadastroBike extends AppCompatActivity  {
         setContentView(R.layout.activity_cadastro_bike);
 
 
-        numero_serie = (EditText) findViewById(R.id.NumeroID);
-        marca = (EditText) findViewById(R.id.marcaID);
-        modelo = (EditText) findViewById(R.id.modeloID);
-        cor = (EditText) findViewById(R.id.corID);
-        descricao = (EditText)findViewById(R.id.descricaoID);
-     //   alertaNumero= (EditText)findViewById(R.id.alertaNumeroID);
+        numero_serie    = (EditText) findViewById(R.id.NumeroID);
+        marca           = (EditText) findViewById(R.id.marcaID);
+        modelo          = (EditText) findViewById(R.id.modeloID);
+        cor             = (EditText) findViewById(R.id.corID);
+        descricao       = (EditText)findViewById(R.id.descricaoID);
+
+        alertaNumero    = (EditText)findViewById(R.id.alertaNumeroID);
+        alertaRua       = (EditText)findViewById(R.id.alertaRuaID);
+        alertaBairro    = (EditText)findViewById(R.id.alertaBairroID);
+        alertaDate      = (EditText)findViewById(R.id.alertaDataID);
+        alertaHora      = (EditText)findViewById(R.id.alertaHoraID);
+        Boletim         = (EditText)findViewById(R.id.BoletimID);
+        alertaDescricao = (EditText)findViewById(R.id.alertaDescricaoID);
+
+
 
 
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
@@ -169,7 +190,15 @@ public class CadastroBike extends AppCompatActivity  {
          bike.setModelo(modelo.getText().toString());
          bike.setCor(cor.getText().toString());
          bike.setDescricao(descricao.getText().toString());
-        // bike.setAlertaNumero(alertaNumero.getText().toString();
+
+
+         bike.setAlertaNumero(alertaNumero.getText().toString());
+         bike.setAlertaRua(alertaRua.getText().toString());
+         bike.setAlertaBairro(alertaBairro.getText().toString());
+         bike.setAlertaDate(alertaDate.getText().toString());
+         bike.setAlertaHora(alertaHora.getText().toString());
+         bike.setBoletim(Boletim.getText().toString());
+         bike.setAlertaDescricao(alertaDescricao.getText().toString());
 
 }
 
@@ -208,7 +237,6 @@ public class CadastroBike extends AppCompatActivity  {
             // converte o email pra base 64
             String identificadorUsuario= Base64Custom.codificarBase64(email);
 
-            //
 
 
             // cadastra a bike no nó todas as bikes

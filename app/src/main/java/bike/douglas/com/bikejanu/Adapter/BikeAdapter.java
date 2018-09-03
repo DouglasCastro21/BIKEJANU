@@ -67,7 +67,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
     DatabaseReference databaseReference;
-    FirebaseDatabase firebaseDatabase;
+    FirebaseDatabase  firebaseDatabase;
 
 
 

@@ -16,11 +16,11 @@ public class DadosBike extends AppCompatActivity {
         setContentView(R.layout.activity_dados_bike);
 
 
-      //  TextView dadosNumero_serie = (TextView) findViewById(R.id.dadosNumeroSerieID);
-    //    TextView dadosMarca = (TextView) findViewById(R.id.dadosMarcaID);
-        //   EditText dadosModelo = (EditText) findViewById(R.id.modeloID);
-        //   EditText dadosDor = (EditText) findViewById(R.id.corID);
-      //   TextView dadosDescricao = (TextView) findViewById(R.id.dadosDescricaoID);
+        TextView dadosNumero_serie = (TextView) findViewById(R.id.dadosNumeroSerieID);
+        TextView dadosMarca = (TextView) findViewById(R.id.dadosMarcaID);
+        EditText dadosModelo = (EditText) findViewById(R.id.modeloID);
+        EditText dadosDor = (EditText) findViewById(R.id.corID);
+        TextView dadosDescricao = (TextView) findViewById(R.id.dadosDescricaoID);
 
 
         // rebece o dados do Bike Adapter por parametro passada pela tela cadastro
@@ -34,32 +34,32 @@ public class DadosBike extends AppCompatActivity {
 
 
 
-                //dados da marca
+              //  dados da marca
                 String marca = params.getString("dadosmarca");
-              //  TextView marcaText = (TextView) findViewById(R.id.dadosMarcaID);
-             //   marcaText.setText(marca);
+                TextView marcaText = (TextView) findViewById(R.id.dadosMarcaID);
+                marcaText.setText(marca);
 
                 // dados do numero serie
                 String numero_serie = params.getString("dadosnumero_serie");
-             //   TextView numero_serieText = (TextView) findViewById(R.id.dadosNumeroSerieID);
-            //    numero_serieText.setText(numero_serie);
+                TextView numero_serieText = (TextView) findViewById(R.id.dadosNumeroSerieID);
+                numero_serieText.setText(numero_serie);
 
 
                 // dados da descriçaõ
                 String descricao = params.getString("dadosdescricao");
-             //   TextView descricaoText = (TextView) findViewById(R.id.dadosDescricaoID);
-             ///   descricaoText.setText(descricao);
+                TextView descricaoText = (TextView) findViewById(R.id.dadosDescricaoID);
+                descricaoText.setText(descricao);
 
 
                 // dados do modelo
                 String modelo = params.getString("dadosmodelo");
-             //   TextView modeloText = (TextView) findViewById(R.id.dadosModeloID);
-             //   modeloText.setText(modelo);
+                TextView modeloText = (TextView) findViewById(R.id.dadosModeloID);
+                modeloText.setText(modelo);
 
                 // dados da cor
                 String cor = params.getString("dadoscor");
-             //   TextView corText = (TextView) findViewById(R.id.dadosCorID);
-             //   corText.setText(cor);
+                TextView corText = (TextView) findViewById(R.id.dadosCorID);
+                corText.setText(cor);
 
 
             }
