@@ -137,7 +137,7 @@
             <EditText
                 android:id="@+id/alertaRuaID"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
@@ -162,9 +162,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
 
             <EditText
-                android:id="@+id/textView27"
+                android:id="@+id/alertaNumeroID"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginLeft="172dp"
                 android:layout_marginStart="172dp"
                 android:layout_marginTop="4dp"
@@ -191,7 +191,7 @@
             <EditText
                 android:id="@+id/alertaBairroID"
                 android:layout_width="259dp"
-                android:layout_height="0dp"
+                android:layout_height="46dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
@@ -214,7 +214,7 @@
             <EditText
                 android:id="@+id/alertaDataID"
                 android:layout_width="145dp"
-                android:layout_height="0dp"
+                android:layout_height="46dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="4dp"
@@ -226,9 +226,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/alertaHoraID"
                 android:layout_width="109dp"
-                android:layout_height="0dp"
+                android:layout_height="46dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginLeft="52dp"
                 android:layout_marginRight="16dp"
@@ -258,7 +258,7 @@
             <EditText
                 android:id="@+id/BoletimID"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"

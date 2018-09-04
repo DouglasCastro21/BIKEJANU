@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -120,7 +122,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-
+        mascaras();
 
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -254,6 +256,19 @@ public class CadastroBike extends AppCompatActivity  {
            abrirAreaUsuario();
 
         };
+    }
+
+
+
+    public void mascaras() {
+
+        SimpleMaskFormatter simpleMaskData = new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher maskData = new MaskTextWatcher(alertaDate, simpleMaskData);
+        alertaDate.addTextChangedListener(maskData);
+
+        SimpleMaskFormatter simpleMaskHora = new SimpleMaskFormatter("NN:NN");
+        MaskTextWatcher maskHora = new MaskTextWatcher(alertaHora, simpleMaskHora);
+        alertaHora.addTextChangedListener(maskHora);
     }
 
     }

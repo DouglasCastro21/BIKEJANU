@@ -199,11 +199,14 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     // passa dados  para a tela dados usuarios e Cadastro Bike
 
                                     Bundle params = new Bundle();
-                                  //  params.putString("Alertamodelo", bikeselecao.getAlertaNumero());
-                                   // params.putString("marca", bikeselecao.getMarca());
-                                    //params.putString("numero_serie", bikeselecao.getNumero_serie());
-                                  //  params.putString("descricao", bikeselecao.getDescricao());
-                                  //  params.putString("cor", bikeselecao.getCor());
+                                    params.putString("alertaRua", bikeselecao.getAlertaRua());
+                                    params.putString("alertaNumero", bikeselecao.getAlertaNumero());
+                                    params.putString("alertaBairro", bikeselecao.getAlertaBairro());
+                                    params.putString("alertaData", bikeselecao.getAlertaDate());
+                                    params.putString("alertaHora", bikeselecao.getAlertaHora());
+                                    params.putString("alertaBoletim", bikeselecao.getBoletim());
+                                    params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
+
 
 
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
