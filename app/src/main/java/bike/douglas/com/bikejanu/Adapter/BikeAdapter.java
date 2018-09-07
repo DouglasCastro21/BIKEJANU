@@ -101,12 +101,26 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
             final TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
-            final TextView txtViewMarca = (TextView) view.findViewById(R.id.txtViewMarca);
-            TextView txtViewCaixaDescricao = (TextView) view.findViewById(R.id.txtCaixaDescricaoID);
-            final ImageView imagem = (ImageView) view.findViewById(R.id.imagemListaID);
-            final TextView txtViewModelo = (TextView) view.findViewById(R.id.textViewModeloID);
-            final TextView txtViewCor = (TextView) view.findViewById(R.id.textViewCorID);
-           // final TextView alertaNumero = (TextView) view.findViewById(R.id.alertaNumeroID);
+            final TextView txtViewMarca       = (TextView) view.findViewById(R.id.txtViewMarca);
+            TextView txtViewCaixaDescricao    = (TextView) view.findViewById(R.id.txtCaixaDescricaoID);
+            final ImageView imagem            = (ImageView) view.findViewById(R.id.imagemListaID);
+            final TextView txtViewModelo      = (TextView) view.findViewById(R.id.textViewModeloID);
+            final TextView txtViewCor         = (TextView) view.findViewById(R.id.textViewCorID);
+
+
+
+
+            final TextView txtViewAlertaRua       = (TextView) view.findViewById(R.id.alertaRuaID);
+            final TextView txtViewAlertaNumero    = (TextView) view.findViewById(R.id.alertaNumeroID);
+            final TextView txtViewAlertaBairro    = (TextView) view.findViewById(R.id.alertaBairroID);
+            final TextView txtViewAlertaData      = (TextView) view.findViewById(R.id.alertaDataID);
+            final TextView txtViewAlertaHora      = (TextView) view.findViewById(R.id.alertaHoraID);
+            final TextView txtViewAlertaBoletim   = (TextView) view.findViewById(R.id.BoletimID);
+            final TextView txtViewAlertaDescricao = (TextView) view.findViewById(R.id.alertaDescricaoID);
+
+
+
+
 
             firebaseDatabase = FirebaseDatabase.getInstance();
 //          firebaseDatabase.setPersistenceEnabled(true);
@@ -120,7 +134,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             txtViewCaixaDescricao.setText(bike1.getDescricao());
             txtViewModelo.setText(bike1.getModelo());
             txtViewCor.setText(bike1.getCor());
-         ///  alertaNumero.setText(bike1.getAlertaNumero());
+           // txtViewAlertaNumero.setText(bike1.getModelo());
 
 
             imagem.setOnClickListener(new OnClickListener() {
@@ -143,6 +157,16 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     params.putString("dadosnumero_serie", bikeselecao.getNumero_serie());
                     params.putString("dadosdescricao", bikeselecao.getDescricao());
                     params.putString("dadoscor", bikeselecao.getCor());
+
+
+
+                    params.putString("alertaRua", bikeselecao.getAlertaRua());
+                    params.putString("alertaNumero", bikeselecao.getAlertaNumero());
+                   params.putString("alertaBairro", bikeselecao.getAlertaBairro());
+                    params.putString("alertaData", bikeselecao.getAlertaDate());
+                   params.putString("alertaHora", bikeselecao.getAlertaHora());
+                   params.putString("alertaBoletim", bikeselecao.getBoletim());
+                    params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
 
 
                     Intent intent = new Intent(BikeAdapter.super.getContext(), DadosBike.class);
@@ -180,9 +204,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                 // recupera posição da bike
 
-
                                 Bike bikeselecao = new Bike();
-                                bikeselecao = listabikes.get(position);
+                                 bikeselecao = listabikes.get(position);
 
                                 // recupera usuario pelo email
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -202,11 +225,10 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("alertaRua", bikeselecao.getAlertaRua());
                                     params.putString("alertaNumero", bikeselecao.getAlertaNumero());
                                     params.putString("alertaBairro", bikeselecao.getAlertaBairro());
-                                    params.putString("alertaData", bikeselecao.getAlertaDate());
                                     params.putString("alertaHora", bikeselecao.getAlertaHora());
+                                    params.putString("alertaData", bikeselecao.getAlertaDate());
                                     params.putString("alertaBoletim", bikeselecao.getBoletim());
                                     params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
-
 
 
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
@@ -214,6 +236,30 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                     context.startActivity(intent);
 
+
+//Editar campos
+
+                                     // b.setNumero_serie(bikeselecao.getNumero_serie());
+                                    //  b.setAlertaRua(txtViewAlertaRua.getText().toString().trim());
+                                   //   b.setAlertaNumero(txtViewAlertaNumero.getText().toString().trim());
+                                   //   b.setAlertaBairro(txtViewAlertaBairro.getText().toString().trim());
+                                  //    b.setAlertaDate(txtViewAlertaData.getText().toString().trim());
+                                  //    b.setAlertaHora(txtViewAlertaHora.getText().toString().trim());
+                                    //  b.setBoletim(txtViewAlertaBoletim.getText().toString().trim());
+                                 //     b.setAlertaDescricao(txtViewAlertaDescricao.getText().toString().trim());
+
+
+
+                                    // edita a bike no nó todas as bikes
+                                //    databaseReference = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                                  //  databaseReference.child(b.getNumero_serie()).setValue(b);
+
+                                    // edita a bike no nó Bikes
+                                   // databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
+                                   // databaseReference.child(b.getNumero_serie()).setValue(b);
+
+
+                                    //// até aq
 
 
 

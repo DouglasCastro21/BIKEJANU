@@ -95,12 +95,12 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="62dp"
                 android:text="Nada Consta"
-                app:layout_constraintBottom_toTopOf="@+id/textView24"
+                app:layout_constraintBottom_toTopOf="@+id/txtRuaID"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/alertaFurtadaID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="37dp"
@@ -108,13 +108,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="62dp"
                 android:text="Furtada"
-                app:layout_constraintBottom_toTopOf="@+id/textView24"
+                app:layout_constraintBottom_toTopOf="@+id/txtRuaID"
                 app:layout_constraintStart_toEndOf="@+id/radioButton"
                 app:layout_constraintTop_toBottomOf="@+id/textView16"
                 app:layout_constraintVertical_bias="0.0" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioButtonRoubadaID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="37dp"
@@ -124,15 +124,15 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="62dp"
                 android:text="Roubada"
-                app:layout_constraintBottom_toTopOf="@+id/textView24"
+                app:layout_constraintBottom_toTopOf="@+id/txtRuaID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.029"
-                app:layout_constraintStart_toEndOf="@+id/radioButton2"
+                app:layout_constraintStart_toEndOf="@+id/alertaFurtadaID"
                 app:layout_constraintTop_toBottomOf="@+id/textView16"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/txtRuaID"
                 android:layout_width="43dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="24dp"
@@ -146,7 +146,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/radioButton" />
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/txtNumeroID"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_marginEnd="44dp"
@@ -157,11 +157,11 @@
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/alertaNumeroID"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioButton3"
+                app:layout_constraintTop_toBottomOf="@+id/radioButtonRoubadaID"
                 app:layout_constraintVertical_bias="0.976" />
 
             <TextView
-                android:id="@+id/textView28"
+                android:id="@+id/txtBairroID"
                 android:layout_width="59dp"
                 android:layout_height="25dp"
                 android:layout_marginEnd="323dp"
@@ -179,7 +179,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/alertaRuaID" />
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/txtDataHoraID"
                 android:layout_width="249dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="24dp"
@@ -203,9 +203,9 @@
                 android:ems="10"
                 android:hint="00/00/0000"
                 android:inputType="date"
-                app:layout_constraintBottom_toTopOf="@+id/textView10"
+                app:layout_constraintBottom_toTopOf="@+id/txtBoletimID"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+                app:layout_constraintTop_toBottomOf="@+id/txtDataHoraID" />
 
             <EditText
                 android:id="@+id/alertaHoraID"
@@ -221,14 +221,14 @@
                 android:ems="10"
                 android:hint="00:00"
                 android:inputType="time"
-                app:layout_constraintBottom_toTopOf="@+id/textView10"
+                app:layout_constraintBottom_toTopOf="@+id/txtBoletimID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/alertaDataID"
-                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+                app:layout_constraintTop_toBottomOf="@+id/txtDataHoraID" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/txtBoletimID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
@@ -251,9 +251,9 @@
                 android:ems="10"
                 android:hint="xxxxxxxxxxxxx"
                 android:inputType="number"
-                app:layout_constraintBottom_toTopOf="@+id/textView21"
+                app:layout_constraintBottom_toTopOf="@+id/txtObservacaoID"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                app:layout_constraintTop_toBottomOf="@+id/txtBoletimID" />
 
             <EditText
                 android:id="@+id/alertaDescricaoID"
@@ -272,10 +272,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                app:layout_constraintTop_toBottomOf="@+id/txtObservacaoID" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/txtObservacaoID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
@@ -318,11 +318,11 @@
                 android:ems="10"
                 android:hint="Bairro"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/textView31"
+                app:layout_constraintBottom_toTopOf="@+id/txtDataHoraID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+                app:layout_constraintTop_toBottomOf="@+id/txtBairroID" />
 
             <EditText
                 android:id="@+id/alertaRuaID"
@@ -334,9 +334,9 @@
                 android:ems="10"
                 android:hint="Rua"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/textView28"
+                app:layout_constraintBottom_toTopOf="@+id/txtBairroID"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                app:layout_constraintTop_toBottomOf="@+id/txtRuaID" />
 
             <EditText
                 android:id="@+id/alertaNumeroID"

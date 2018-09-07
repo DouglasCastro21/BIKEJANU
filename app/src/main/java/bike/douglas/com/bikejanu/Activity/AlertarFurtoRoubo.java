@@ -85,32 +85,51 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 alertaBairroText.setText(alertaBairro);
 
 
+                // dados do alertaBairro
+                String alertaDescricao = params.getString("alertadescricao");
+                TextView alertaDescricaoText = (TextView) findViewById(R.id.alertaDescricaoID);
+                alertaDescricaoText.setText(alertaDescricao);
+
                 // dados do alertaDate
-                String alertaDate = params.getString("alertaDate");
+                String alertaDate = params.getString("alertaData");
                 TextView alertaDateText = (TextView) findViewById(R.id.alertaDataID);
                 alertaDateText.setText(alertaDate);
+
+
+
 
                 // dados do alertaHora
                 String alertaHora = params.getString("alertaHora");
                 TextView alertaHoraText = (TextView) findViewById(R.id.alertaHoraID);
                 alertaHoraText.setText(alertaHora);
 
-                // dados do Boletim
-                String Boletim = params.getString("Boletim");
-                TextView BoletimText = (TextView) findViewById(R.id.BoletimID);
-                BoletimText.setText(Boletim);
+                // dados do alertaHora
+                String alertaBoletim = params.getString("alertaBoletim");
+                TextView alertaBoletimText = (TextView) findViewById(R.id.BoletimID);
+                alertaBoletimText.setText(alertaBoletim);
 
-                // dados alerta descrição
-                String alertaDescricao = params.getString("alertaDescricao");
-                TextView alertadescricaoText = (TextView) findViewById(R.id.alertaDescricaoID);
-                alertadescricaoText.setText(alertaDescricao);
 
 
             }
         }
 
                 mascaras();
+
+        finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                inicializarElementos();
+                recuperarDadosUsuarioConectadoECadastra();
+
+            }
+        });
+
     }
+
+
+
 
     public void mascaras() {
 
@@ -121,5 +140,65 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         SimpleMaskFormatter simpleMaskHora = new SimpleMaskFormatter("NN:NN");
         MaskTextWatcher maskHora = new MaskTextWatcher(alertaHora, simpleMaskHora);
         alertaHora.addTextChangedListener(maskHora);
+    }
+
+
+    private void inicializarElementos(){
+
+
+
+
+        bike.setAlertaNumero(alertaNumero.getText().toString());
+        bike.setAlertaRua(alertaRua.getText().toString());
+        bike.setAlertaBairro(alertaBairro.getText().toString());
+        bike.setAlertaDate(alertaDate.getText().toString());
+        bike.setAlertaHora(alertaHora.getText().toString());
+        bike.setBoletim(Boletim.getText().toString());
+        bike.setAlertaDescricao(alertaDescricao.getText().toString());
+
+
+
+
+    }
+
+    private void abrirAreaUsuario(){
+
+        Intent intent = new Intent(AlertarFurtoRoubo.this ,AreaUsuario.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    private void recuperarDadosUsuarioConectadoECadastra(){
+
+        // recupera autenticão do usuario local
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+
+            // converte o email pra base 64
+            String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+            // cadastra a bike no nó todas as bikes
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+            // cadastra no nó usuario logado
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+            Toast.makeText(AlertarFurtoRoubo.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
+
+            // retorna a tela usuario
+
+            abrirAreaUsuario();
+
+        };
     }
 }

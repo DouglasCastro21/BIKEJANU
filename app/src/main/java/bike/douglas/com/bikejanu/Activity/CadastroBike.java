@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +34,6 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText marca;
     private EditText modelo;
     private EditText cor;
-    private Button   botaocadastrar;
     private EditText descricao;
 
 
@@ -43,6 +44,19 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText alertaHora;
     private EditText Boletim;
     private EditText alertaDescricao;
+
+
+    private TextView txtRua;
+    private TextView txtDataHora;
+    private TextView txtBairro;
+    private TextView txtNumero;
+    private TextView txtObservacao;
+    private TextView txtBoletim;
+    private RadioButton radioButtonFurtada;
+    private RadioButton radioButtonRoubada;
+
+
+    private Button   botaocadastrar;
 
 
 
@@ -72,10 +86,28 @@ public class CadastroBike extends AppCompatActivity  {
         Boletim         = (EditText)findViewById(R.id.BoletimID);
         alertaDescricao = (EditText)findViewById(R.id.alertaDescricaoID);
 
+        // campos txt
+
+        txtRua           = (TextView)findViewById(R.id.txtRuaID) ;
+        txtBairro        = (TextView)findViewById(R.id.txtBairroID);
+        txtBoletim       = (TextView)findViewById(R.id.txtBoletimID);
+        txtDataHora      = (TextView)findViewById(R.id.txtDataHoraID);
+        txtNumero        = (TextView)findViewById(R.id.txtNumeroID);
+        txtObservacao    = (TextView)findViewById(R.id.txtObservacaoID);
+
+
+        radioButtonFurtada =(RadioButton)findViewById(R.id.radioButtonFurtadaID);
+        radioButtonRoubada =(RadioButton)findViewById(R.id.radioButtonRoubadaID);
+
+
 
 
 
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
+        final CheckBox  checkBox = (CheckBox) findViewById(R.id.checkBoxID);
+
+
+
 
 
 
@@ -124,11 +156,72 @@ public class CadastroBike extends AppCompatActivity  {
 
         mascaras();
 
-        botaocadastrar.setOnClickListener(new View.OnClickListener() {
+// faz aparecer e desaparecer os campos na tela de cadastro de bikes
+        checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+               if(checkBox.isChecked()){
 
+                   alertaNumero.setVisibility(View.VISIBLE);
+                   alertaRua.setVisibility(View.VISIBLE);
+                   alertaBairro.setVisibility(View.VISIBLE);
+                   alertaDescricao.setVisibility(View.VISIBLE);
+                   alertaDate.setVisibility(View.VISIBLE);
+                   alertaHora.setVisibility(View.VISIBLE);
+                   Boletim.setVisibility(View.VISIBLE);
+
+                   // campos txt
+                   txtRua.setVisibility(View.VISIBLE);
+                   txtBairro.setVisibility(View.VISIBLE);
+                   txtNumero.setVisibility(View.VISIBLE);
+                   txtDataHora.setVisibility(View.VISIBLE);
+                   txtBoletim.setVisibility(View.VISIBLE);
+                   txtObservacao.setVisibility(View.VISIBLE);
+
+
+
+
+
+               }else{
+
+                   alertaNumero.setVisibility(View.GONE);
+                   alertaRua.setVisibility(View.GONE);
+                   alertaBairro.setVisibility(View.GONE);
+                   alertaDescricao.setVisibility(View.GONE);
+                   alertaDate.setVisibility(View.GONE);
+                   alertaHora.setVisibility(View.GONE);
+                   Boletim.setVisibility(View.GONE);
+
+                   //campos txt
+
+                   txtRua.setVisibility(View.GONE);
+                   txtBairro.setVisibility(View.GONE);
+                   txtNumero.setVisibility(View.GONE);
+                   txtDataHora.setVisibility(View.GONE);
+                   txtBoletim.setVisibility(View.GONE);
+                   txtObservacao.setVisibility(View.GONE);
+
+
+
+               }
+
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+        botaocadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
                     if (!numero_serie.getText().toString().equals("") && !marca.getText().toString().equals("") &&
@@ -180,6 +273,9 @@ public class CadastroBike extends AppCompatActivity  {
             }
 
         });
+
+
+
 
     }
 
@@ -256,6 +352,9 @@ public class CadastroBike extends AppCompatActivity  {
            abrirAreaUsuario();
 
         };
+
+
+
     }
 
 
@@ -270,5 +369,8 @@ public class CadastroBike extends AppCompatActivity  {
         MaskTextWatcher maskHora = new MaskTextWatcher(alertaHora, simpleMaskHora);
         alertaHora.addTextChangedListener(maskHora);
     }
+
+
+
 
     }
