@@ -185,7 +185,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
             <TextView
-                android:id="@+id/mensagem1ID"
+                android:id="@+id/txtmensagem1ID"
                 android:layout_width="300dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="51dp"
@@ -196,14 +196,14 @@
                 android:text="Os campos abaixo devem ser ultilizados apenas"
                 android:textColor="@android:color/holo_red_dark"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/mensagem2ID"
+                app:layout_constraintBottom_toTopOf="@+id/txtmensagem2ID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxID" />
 
             <TextView
-                android:id="@+id/mensagem2ID"
+                android:id="@+id/txtmensagem2ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="44dp"
@@ -217,42 +217,42 @@
                 app:layout_constraintBottom_toTopOf="@+id/radioButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mensagem1ID" />
+                app:layout_constraintTop_toBottomOf="@+id/txtmensagem1ID" />
 
             <RadioButton
                 android:id="@+id/radioButtonFurtadaID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="35dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginLeft="106dp"
+                android:layout_marginLeft="80dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginStart="106dp"
-                android:layout_marginTop="64dp"
-                android:text="Furtada"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="50dp"
+                android:text="Furto"
                 android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@+id/txtDataHoraID"
                 app:layout_constraintEnd_toStartOf="@+id/radioButtonRoubadaID"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mensagem2ID" />
+                app:layout_constraintTop_toBottomOf="@+id/txtmensagem2ID" />
 
             <RadioButton
                 android:id="@+id/radioButtonRoubadaID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="35dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginEnd="84dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="84dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="64dp"
-                android:text="Roubada"
+                android:layout_marginTop="50dp"
+                android:text="Roubo"
                 android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@+id/txtDataHoraID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/alertaFurtadaID"
-                app:layout_constraintTop_toBottomOf="@+id/mensagem2ID"
+                app:layout_constraintTop_toBottomOf="@+id/txtmensagem2ID"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
@@ -577,7 +577,7 @@
                 android:layout_marginStart="134dp"
                 android:layout_marginTop="17dp"
                 android:text="Bicicleta Furtada/Roubada"
-                app:layout_constraintBottom_toTopOf="@+id/mensagem1ID"
+                app:layout_constraintBottom_toTopOf="@+id/txtmensagem1ID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.462"
                 android:clickable="true"

@@ -17,12 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
-import java.util.Date;
-import java.util.Timer;
-
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
-import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
@@ -46,6 +42,8 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText alertaDescricao;
 
 
+    private TextView txtmensagem1;
+    private TextView txtmensagem2;
     private TextView txtRua;
     private TextView txtDataHora;
     private TextView txtBairro;
@@ -54,6 +52,8 @@ public class CadastroBike extends AppCompatActivity  {
     private TextView txtBoletim;
     private RadioButton radioButtonFurtada;
     private RadioButton radioButtonRoubada;
+
+
 
 
     private Button   botaocadastrar;
@@ -94,6 +94,9 @@ public class CadastroBike extends AppCompatActivity  {
         txtDataHora      = (TextView)findViewById(R.id.txtDataHoraID);
         txtNumero        = (TextView)findViewById(R.id.txtNumeroID);
         txtObservacao    = (TextView)findViewById(R.id.txtObservacaoID);
+        txtmensagem1     = (TextView)findViewById(R.id.txtmensagem1ID);
+        txtmensagem2     = (TextView)findViewById(R.id.txtmensagem2ID);
+
 
 
         radioButtonFurtada =(RadioButton)findViewById(R.id.radioButtonFurtadaID);
@@ -171,6 +174,11 @@ public class CadastroBike extends AppCompatActivity  {
                    alertaHora.setVisibility(View.VISIBLE);
                    Boletim.setVisibility(View.VISIBLE);
 
+
+
+                   radioButtonFurtada.setVisibility(View.VISIBLE);
+                   radioButtonRoubada.setVisibility(View.VISIBLE);
+
                    // campos txt
                    txtRua.setVisibility(View.VISIBLE);
                    txtBairro.setVisibility(View.VISIBLE);
@@ -178,6 +186,8 @@ public class CadastroBike extends AppCompatActivity  {
                    txtDataHora.setVisibility(View.VISIBLE);
                    txtBoletim.setVisibility(View.VISIBLE);
                    txtObservacao.setVisibility(View.VISIBLE);
+                   txtmensagem1.setVisibility(View.VISIBLE);
+                   txtmensagem2.setVisibility(View.VISIBLE);
 
 
 
@@ -193,6 +203,10 @@ public class CadastroBike extends AppCompatActivity  {
                    alertaHora.setVisibility(View.GONE);
                    Boletim.setVisibility(View.GONE);
 
+
+                   radioButtonFurtada.setVisibility(View.GONE);
+                   radioButtonRoubada.setVisibility(View.GONE);
+
                    //campos txt
 
                    txtRua.setVisibility(View.GONE);
@@ -201,6 +215,8 @@ public class CadastroBike extends AppCompatActivity  {
                    txtDataHora.setVisibility(View.GONE);
                    txtBoletim.setVisibility(View.GONE);
                    txtObservacao.setVisibility(View.GONE);
+                   txtmensagem1.setVisibility(View.GONE);
+                   txtmensagem2.setVisibility(View.GONE);
 
 
 
