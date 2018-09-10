@@ -290,6 +290,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
         AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
 
+
         // configurando dialogo
 
         alertaDialog.setTitle("Definição");
