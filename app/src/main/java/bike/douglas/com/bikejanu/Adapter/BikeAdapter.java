@@ -308,15 +308,61 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                 } else if (opcoes[i].equals("Remover")) {
 
 
-                                    // Remove a bike no nó todas as bikes
-                                    databaseReference = Configuracao_Firebase.getFirebase().child("TodasBikes");
-                                    databaseReference.child(bikeselecao.getNumero_serie()).removeValue();
+                                    AlertDialog.Builder alertaDialog = new AlertDialog.Builder(BikeAdapter.super.getContext());
 
-                                    //EXCLUI A BIKE
-                                    databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
-                                    databaseReference.child(bikeselecao.getNumero_serie()).removeValue();
+                                    // configurando dialogo
 
-                                    Toast.makeText(BikeAdapter.super.getContext(), " Sua Bicicleta foi Exluida", Toast.LENGTH_LONG).show();
+                                    alertaDialog.setTitle("Excluir");
+
+
+                                    alertaDialog.setMessage("Deseja Realmente Excluir a Bike ?");
+                                    // alertaDialog.setCancelable(false);
+
+
+                                    //conf botões
+                                    alertaDialog.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+
+                                            Bike bikeselecao = new Bike();
+                                            bikeselecao = listabikes.get(position);
+
+                                            // recupera usuario pelo email
+                                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                            String email = user.getEmail();
+
+
+                                            // converte o email pra base 64
+                                            String identificadorUsuario = Base64Custom.codificarBase64(email);
+
+                                            // Remove a bike no nó todas as bikes
+                                            databaseReference = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                                            databaseReference.child(bikeselecao.getNumero_serie()).removeValue();
+
+                                            //EXCLUI A BIKE
+                                            databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
+                                            databaseReference.child(bikeselecao.getNumero_serie()).removeValue();
+
+                                            Toast.makeText(BikeAdapter.super.getContext(), " Sua Bicicleta foi Exluida", Toast.LENGTH_LONG).show();
+
+
+                                        }
+                                    });
+
+                                    alertaDialog.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                            Toast.makeText(BikeAdapter.super.getContext(), " Operação Cancelada", Toast.LENGTH_LONG).show();
+
+                                        }
+                                    });
+
+                                    alertaDialog.create();
+                                    alertaDialog.show();
+
+
 
                                 }
 
@@ -330,6 +376,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
         }
         }
         return view;
+
+
     }
 
 
