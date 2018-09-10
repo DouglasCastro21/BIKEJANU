@@ -1,6 +1,8 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +55,7 @@ public class CadastroBike extends AppCompatActivity  {
     private TextView txtBoletim;
     private RadioButton radioButtonFurtada;
     private RadioButton radioButtonRoubada;
+    private RadioGroup radioGroup;
 
 
 
@@ -100,7 +104,8 @@ public class CadastroBike extends AppCompatActivity  {
 
 
         radioButtonFurtada =(RadioButton)findViewById(R.id.radioButtonFurtadaID);
-        radioButtonRoubada =(RadioButton)findViewById(R.id.radioButtonRoubadaID);
+        radioButtonRoubada =(RadioButton)findViewById(R.id.alertaRoubadaID);
+        radioGroup        = (RadioGroup)findViewById(R.id.radioGroupID);
 
 
 
@@ -178,6 +183,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                    radioButtonFurtada.setVisibility(View.VISIBLE);
                    radioButtonRoubada.setVisibility(View.VISIBLE);
+                   radioGroup.setVisibility(View.VISIBLE);
 
                    // campos txt
                    txtRua.setVisibility(View.VISIBLE);
@@ -206,6 +212,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                    radioButtonFurtada.setVisibility(View.GONE);
                    radioButtonRoubada.setVisibility(View.GONE);
+                   radioGroup.setVisibility(View.GONE);
 
                    //campos txt
 
@@ -228,7 +235,29 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
+        radioButtonFurtada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+                caixaDialogoFurtada();
+
+
+            }
+        });
+
+
+
+        radioButtonRoubada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                caixaDialogoRoubada();
+
+
+            }
+        });
 
 
 
@@ -386,6 +415,76 @@ public class CadastroBike extends AppCompatActivity  {
         alertaHora.addTextChangedListener(maskHora);
     }
 
+
+    private void caixaDialogoRoubada(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(CadastroBike.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("Definição");
+
+
+        alertaDialog.setMessage("Artigo 157 do código penal(1940) : O roubo pressupõe o emprego de violência ou grave ameaça à pessoa.");
+        // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
+
+
+
+    private void caixaDialogoFurtada(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(CadastroBike.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("Definição");
+
+
+        alertaDialog.setMessage("Artigo 155 do código penal(1940) :  Furto é a subtração pura e simples de coisa móvel alheia, sem violência contra a pessoa.");
+        // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
 
 
 

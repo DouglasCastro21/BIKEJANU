@@ -1,12 +1,15 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +18,8 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+
+import java.time.Duration;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
@@ -35,7 +40,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
     private EditText alertaHora;
     private EditText Boletim;
     private EditText alertaDescricao;
-    private Button   finalizar;
+
 
 
     public  Bike bike;
@@ -47,8 +52,16 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alertar_furto_roubo);
 
+// botoes
+
+       RadioButton  radioButtonFurtada    =(RadioButton)findViewById(R.id.alertaFurtadaID);
+       RadioButton radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
+       RadioButton radioButtonNadaConsta  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
+       Button  finalizar                  = (Button)  findViewById(R.id.finalizarID);
 
 
+
+       //
         alertaNumero    = (EditText)findViewById(R.id.alertaNumeroID);
         alertaRua       = (EditText)findViewById(R.id.alertaRuaID);
         alertaBairro    = (EditText)findViewById(R.id.alertaBairroID);
@@ -56,7 +69,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         alertaHora      = (EditText)findViewById(R.id.alertaHoraID);
         Boletim         = (EditText)findViewById(R.id.BoletimID);
         alertaDescricao = (EditText)findViewById(R.id.alertaDescricaoID);
-        finalizar       = (Button)  findViewById(R.id.finalizarID);
+
+
 
 
 
@@ -96,8 +110,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 alertaDateText.setText(alertaDate);
 
 
-
-
                 // dados do alertaHora
                 String alertaHora = params.getString("alertaHora");
                 TextView alertaHoraText = (TextView) findViewById(R.id.alertaHoraID);
@@ -108,12 +120,47 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 TextView alertaBoletimText = (TextView) findViewById(R.id.BoletimID);
                 alertaBoletimText.setText(alertaBoletim);
 
-
-
             }
         }
 
                 mascaras();
+
+        radioButtonNadaConsta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            caixaDialogoNadaConsta();
+
+            }
+        });
+
+
+        radioButtonFurtada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                caixaDialogoFurtada();
+
+
+            }
+        });
+
+
+
+        radioButtonRoubada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                caixaDialogoRoubada();
+
+
+            }
+        });
+
+
+
 
         finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,4 +248,111 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
         };
     }
+
+
+    private void caixaDialogoRoubada(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("Definição");
+
+
+        alertaDialog.setMessage("Artigo 157 do código penal(1940) : O roubo pressupõe o emprego de violência ou grave ameaça à pessoa.");
+       // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
+
+
+
+    private void caixaDialogoFurtada(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("Definição");
+
+
+        alertaDialog.setMessage("Artigo 155 do código penal(1940) :  Furto é a subtração pura e simples de coisa móvel alheia, sem violência contra a pessoa.");
+        // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
+
+
+    private void caixaDialogoNadaConsta(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("Definição");
+
+
+        alertaDialog.setMessage("Que possui ausência de regras, limitações ou imposições. Liberdade Total.");
+        // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
+
 }

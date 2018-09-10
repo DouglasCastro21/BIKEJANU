@@ -29,10 +29,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar4"
-        app:layout_constraintVertical_bias="0.166">
+        app:layout_constraintVertical_bias="0.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -85,51 +85,51 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_action_warning" />
 
-
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="37dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="62dp"
-                android:text="Nada Consta"
-                app:layout_constraintBottom_toTopOf="@+id/txtRuaID"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-            <RadioButton
-                android:id="@+id/alertaFurtadaID"
+            <RadioGroup
+                android:id="@+id/radioGroupID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="37dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="62dp"
-                android:text="Furtada"
-                app:layout_constraintBottom_toTopOf="@+id/txtRuaID"
-                app:layout_constraintStart_toEndOf="@+id/radioButton"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <RadioButton
-                android:id="@+id/radioButtonRoubadaID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="37dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="24dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="62dp"
-                android:text="Roubada"
-                app:layout_constraintBottom_toTopOf="@+id/txtRuaID"
+                android:layout_marginEnd="128dp"
+                android:layout_marginLeft="129dp"
+                android:layout_marginRight="128dp"
+                android:layout_marginStart="129dp"
+                android:layout_marginTop="24dp"
+                android:requiresFadingEdge="none"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.029"
-                app:layout_constraintStart_toEndOf="@+id/alertaFurtadaID"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+                <RadioButton
+                    android:id="@+id/alertaNadaConstaID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sem Restrições"
+                    tools:layout_editor_absoluteX="32dp"
+                    tools:layout_editor_absoluteY="150dp" />
+
+                <RadioButton
+                    android:id="@+id/alertaFurtadaID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Furtada"
+                    tools:layout_editor_absoluteX="160dp"
+                    tools:layout_editor_absoluteY="150dp" />
+
+                <RadioButton
+                    android:id="@+id/alertaRoubadaID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_weight="1"
+                    android:fadingEdge="vertical"
+                    android:text="Roubada"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:layout_editor_absoluteY="150dp" />
+
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/txtRuaID"
@@ -137,28 +137,27 @@
                 android:layout_height="25dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="37dp"
+                android:layout_marginTop="4dp"
                 android:text="Rua"
                 android:textColor="@android:color/background_dark"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/alertaRuaID"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioButton" />
+                app:layout_constraintTop_toBottomOf="@+id/alertaDataID" />
 
             <TextView
                 android:id="@+id/txtNumeroID"
                 android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_marginEnd="44dp"
-                android:layout_marginRight="44dp"
-                android:layout_marginTop="32dp"
+                android:layout_height="26dp"
+                android:layout_marginLeft="183dp"
+                android:layout_marginStart="183dp"
+                android:layout_marginTop="4dp"
                 android:text="Número"
                 android:textColor="@android:color/background_dark"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/alertaNumeroID"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioButtonRoubadaID"
-                app:layout_constraintVertical_bias="0.976" />
+                app:layout_constraintStart_toEndOf="@+id/txtRuaID"
+                app:layout_constraintTop_toBottomOf="@+id/alertaHoraID" />
 
             <TextView
                 android:id="@+id/txtBairroID"
@@ -184,46 +183,38 @@
                 android:layout_height="25dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="24dp"
                 android:text="Data e Hora do Furto/Roubo"
                 android:textColor="@android:color/background_dark"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/alertaDataID"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alertaBairroID" />
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupID" />
 
             <EditText
                 android:id="@+id/alertaDataID"
-                android:layout_width="145dp"
+                android:layout_width="122dp"
                 android:layout_height="46dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="00/00/0000"
                 android:inputType="date"
-                app:layout_constraintBottom_toTopOf="@+id/txtBoletimID"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtDataHoraID" />
 
             <EditText
                 android:id="@+id/alertaHoraID"
-                android:layout_width="109dp"
+                android:layout_width="71dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="52dp"
-                android:layout_marginRight="16dp"
 
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginStart="22dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="00:00"
                 android:inputType="time"
-                app:layout_constraintBottom_toTopOf="@+id/txtBoletimID"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/alertaDataID"
                 app:layout_constraintTop_toBottomOf="@+id/txtDataHoraID" />
 
@@ -234,12 +225,12 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="4dp"
-                android:text="Boletim de Ocorrência"
+                android:text="Boletim de Ocorrência(Opcional)"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/BoletimID"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alertaDataID" />
+                app:layout_constraintTop_toBottomOf="@+id/alertaBairroID" />
 
             <EditText
                 android:id="@+id/BoletimID"
@@ -257,8 +248,8 @@
 
             <EditText
                 android:id="@+id/alertaDescricaoID"
-                android:layout_width="310dp"
-                android:layout_height="78dp"
+                android:layout_width="306dp"
+                android:layout_height="88dp"
                 android:layout_marginBottom="31dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginLeft="24dp"
@@ -310,15 +301,16 @@
                 android:id="@+id/alertaBairroID"
                 android:layout_width="306dp"
                 android:layout_height="46dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="60dp"
                 android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
+                android:layout_marginRight="60dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="Bairro"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/txtDataHoraID"
+                app:layout_constraintBottom_toTopOf="@+id/txtBoletimID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -328,6 +320,7 @@
                 android:id="@+id/alertaRuaID"
                 android:layout_width="210dp"
                 android:layout_height="46dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
@@ -342,15 +335,14 @@
                 android:id="@+id/alertaNumeroID"
                 android:layout_width="84dp"
                 android:layout_height="46dp"
-                android:layout_marginBottom="28dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="Número"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/alertaBairroID"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/alertaRuaID"
+                app:layout_constraintTop_toBottomOf="@+id/txtNumeroID" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
