@@ -19,7 +19,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +44,8 @@
         <activity android:name=".Activity.DadosBike" />
         <activity android:name=".Activity.ImagemBike" />
         <activity android:name=".Activity.Dialogo_Personalizado" />
-        <activity android:name=".Activity.AlertarFurtoRoubo"></activity>
+        <activity android:name=".Activity.AlertarFurtoRoubo" />
+        <activity android:name=".Activity.EditarBike"></activity>
     </application>
 
 </manifest>

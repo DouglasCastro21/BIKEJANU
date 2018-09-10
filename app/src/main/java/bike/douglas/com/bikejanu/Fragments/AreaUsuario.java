@@ -144,7 +144,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             String email = user.getEmail();
 
 
-            Toast.makeText(AreaUsuario.this, "EMAIL  :"+email, Toast.LENGTH_LONG).show();
+            Toast.makeText(AreaUsuario.this, "Bem Vindo!  :"+email, Toast.LENGTH_LONG).show();
 
 
             String identificadorUsuario = Base64Custom.codificarBase64(email);

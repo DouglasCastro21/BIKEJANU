@@ -39,6 +39,7 @@ import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.DadosBike;
 
 import bike.douglas.com.bikejanu.Activity.Dialogo_Personalizado;
+import bike.douglas.com.bikejanu.Activity.EditarBike;
 import bike.douglas.com.bikejanu.Activity.ImagemBike;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
@@ -192,7 +193,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     public void onClick(View v) {
 
 
-                        final CharSequence[] opcoes = {"Alertar Furto/Roubo", "Editar", "Remover"};
+                        final CharSequence[] opcoes = {"Mudar status da bike", "Editar", "Remover"};
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(BikeAdapter.super.getContext());
                         builder.setTitle("");
@@ -216,7 +217,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                 String identificadorUsuario = Base64Custom.codificarBase64(email);
 
 
-                                if (opcoes[i].equals("Alertar Furto/Roubo")) {
+                                if (opcoes[i].equals("Mudar status da bike")) {
 
 
                                     // passa dados  para a tela dados usuarios e Cadastro Bike
@@ -276,7 +277,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("cor", bikeselecao.getCor());
 
 
-                                    Intent intent = new Intent(BikeAdapter.super.getContext(), CadastroBike.class);
+                                    Intent intent = new Intent(BikeAdapter.super.getContext(), EditarBike.class);
                                     intent.putExtras(params);
 
                                     context.startActivity(intent);
