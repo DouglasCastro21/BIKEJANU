@@ -31,19 +31,38 @@ public class EditarBike extends AppCompatActivity {
     private EditText cor;
     private EditText descricao;
 
+    // se não repetir os dados da tela cadastro os dados são exluidos
+    private TextView alertaNumero;
+    private TextView alertaRua;
+    private TextView alertaBairro;
+    private TextView alertaDate;
+    private TextView alertaHora;
+    private TextView alertaBoletim;
+    private TextView alertaDescricao;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_bike);
 
 
-      btnEditar = (Button) findViewById(R.id.finalizarID);
+    btnEditar = (Button) findViewById(R.id.finalizarID);
 
-        numero_serie    = (TextView) findViewById(R.id.NumeroID);
-        marca           = (EditText) findViewById(R.id.marcaID);
-        modelo          = (EditText) findViewById(R.id.modeloID);
-        cor             = (EditText) findViewById(R.id.corID);
-        descricao       = (EditText)findViewById(R.id.descricaoID);
+    numero_serie     =  (TextView) findViewById(R.id.NumeroID);
+    marca            =  (EditText) findViewById(R.id.marcaID);
+    modelo           =  (EditText) findViewById(R.id.modeloID);
+    cor              =  (EditText) findViewById(R.id.corID);
+    descricao        =  (EditText) findViewById(R.id.descricaoID);
+        // se não repetir os dados da tela cadastro os dados são exluidos
+    alertaNumero     =  (TextView) findViewById(R.id.teste1ID);
+    alertaRua        =  (TextView) findViewById(R.id.teste2ID);
+    alertaBairro     =  (TextView) findViewById(R.id.teste3ID);
+    alertaDate       =  (TextView) findViewById(R.id.teste4ID);
+    alertaHora       =  (TextView) findViewById(R.id.teste5ID);
+    alertaBoletim    =  (TextView) findViewById(R.id.teste6ID);
+    alertaDescricao  =  (TextView) findViewById(R.id.teste7ID);
 
 
 
@@ -97,6 +116,51 @@ public class EditarBike extends AppCompatActivity {
 
 
 
+                /// DADOS QUE NÃO vão ficar envisiveis na tela editar
+
+
+                //dados do alertaNumero
+                String alertaNumero = params.getString("alertaNumero");
+                TextView alertaNumeroText = (TextView) findViewById(R.id.teste1ID);
+                alertaNumeroText.setText(alertaNumero);
+
+
+                //dados do alertaRua
+                String alertaRua = params.getString("alertaRua");
+                TextView alertaRuaText = (TextView) findViewById(R.id.teste2ID);
+                alertaRuaText.setText(alertaRua);
+
+
+
+                // dados do alertaBairro
+                String alertaBairro = params.getString("alertaBairro");
+                TextView alertaBairroText = (TextView) findViewById(R.id.teste3ID);
+                alertaBairroText.setText(alertaBairro);
+
+
+
+                // dados do alertaDate
+                String alertaDate = params.getString("alertaData");
+                TextView alertaDateText = (TextView) findViewById(R.id.teste4ID);
+                alertaDateText.setText(alertaDate);
+
+
+                // dados do alertaHora
+                String alertaHora = params.getString("alertaHora");
+                TextView alertaHoraText = (TextView) findViewById(R.id.teste5ID);
+                alertaHoraText.setText(alertaHora);
+
+                // dados do alertaHora
+                String alertaBoletim = params.getString("alertaBoletim");
+                TextView alertaBoletimText = (TextView) findViewById(R.id.teste6ID);
+                alertaBoletimText.setText(alertaBoletim);
+
+
+                // dados do alertaBairro
+                String alertaDescricao = params.getString("alertadescricao");
+                TextView alertaDescricaoText = (TextView) findViewById(R.id.teste7ID);
+                alertaDescricaoText.setText(alertaDescricao);
+
             }
         }
 
@@ -111,8 +175,13 @@ public class EditarBike extends AppCompatActivity {
         bike.setModelo(modelo.getText().toString());
         bike.setCor(cor.getText().toString());
         bike.setDescricao(descricao.getText().toString());
-
-
+        bike.setAlertaNumero(alertaNumero.getText().toString());
+        bike.setAlertaRua(alertaRua.getText().toString());
+        bike.setAlertaBairro(alertaBairro.getText().toString());
+        bike.setAlertaDate(alertaDate.getText().toString());
+        bike.setAlertaHora(alertaHora.getText().toString());
+        bike.setBoletim(alertaBoletim.getText().toString());
+        bike.setAlertaDescricao(alertaDescricao.getText().toString());
     }
 
     // volta pra tela usuario
@@ -145,8 +214,8 @@ public class EditarBike extends AppCompatActivity {
             firebase.child(bike.getNumero_serie()).setValue(bike);
 
             // cadastra no nó usuario logado
-            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+             firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 
             Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
 

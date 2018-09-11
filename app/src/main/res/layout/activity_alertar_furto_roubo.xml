@@ -362,6 +362,86 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtBoletimID" />
 
+            <TextView
+                android:id="@+id/test1ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="111dp"
+                android:layout_marginEnd="303dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginRight="303dp"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alertaDescricaoID" />
+
+            <TextView
+                android:id="@+id/test2ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="217dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="217dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="11dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/finalizarID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/test1ID"
+                app:layout_constraintTop_toBottomOf="@+id/alertaDescricaoID" />
+
+            <TextView
+                android:id="@+id/test3ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="135dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="135dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="11dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/finalizarID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/test2ID"
+                app:layout_constraintTop_toBottomOf="@+id/alertaDescricaoID" />
+
+            <TextView
+                android:id="@+id/test4ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="76dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="76dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="11dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/finalizarID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/test3ID"
+                app:layout_constraintTop_toBottomOf="@+id/alertaDescricaoID" />
+
+            <TextView
+                android:id="@+id/test5ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="11dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/finalizarID"
+                app:layout_constraintEnd_toStartOf="@+id/test3ID"
+                app:layout_constraintStart_toEndOf="@+id/test2ID"
+                app:layout_constraintTop_toBottomOf="@+id/test2ID" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

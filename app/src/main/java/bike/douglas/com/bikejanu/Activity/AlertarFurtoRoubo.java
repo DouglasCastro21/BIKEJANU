@@ -41,6 +41,14 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
     private EditText Boletim;
     private EditText alertaDescricao;
 
+// se não repetir os dados da tela cadastro os dados são exluidos
+
+    public  TextView numero_serie;
+    private TextView marca;
+    private TextView modelo;
+    private TextView cor;
+    private TextView descricao;
+
 
 
     public  Bike bike;
@@ -61,7 +69,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 
 
-       //
+
+
         alertaNumero    = (EditText)findViewById(R.id.alertaNumeroID);
         alertaRua       = (EditText)findViewById(R.id.alertaRuaID);
         alertaBairro    = (EditText)findViewById(R.id.alertaBairroID);
@@ -70,6 +79,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         Boletim         = (EditText)findViewById(R.id.BoletimID);
         alertaDescricao = (EditText)findViewById(R.id.alertaDescricaoID);
 
+
+        numero_serie     =  (TextView) findViewById(R.id.test1ID);
+        marca            =  (TextView) findViewById(R.id.test2ID);
+        modelo           =  (TextView) findViewById(R.id.test3ID);
+        cor              =  (TextView) findViewById(R.id.test4ID);
+        descricao        =  (TextView) findViewById(R.id.test5ID);
 
 
 
@@ -119,6 +134,39 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 String alertaBoletim = params.getString("alertaBoletim");
                 TextView alertaBoletimText = (TextView) findViewById(R.id.BoletimID);
                 alertaBoletimText.setText(alertaBoletim);
+
+
+
+                /// DADOS QUE NÃO vão ficar envisiveis na tela Alerta furto e roubo
+
+                // dados do numero serie
+                String numero_serie = params.getString("numero_serie");
+                TextView numero_serieText = (TextView) findViewById(R.id.test1ID);
+                numero_serieText.setText(numero_serie);
+
+
+                //dados da marca
+                String marca = params.getString("marca");
+                TextView marcaText = (TextView) findViewById(R.id.test2ID);
+                marcaText.setText(marca);
+
+
+
+                //dados do modelo
+                String modelo = params.getString("modelo");
+                TextView modeloText = (TextView) findViewById(R.id.test3ID);
+                modeloText.setText(modelo);
+
+
+                // dados da cor
+                String cor = params.getString("cor");
+                TextView corText = (TextView) findViewById(R.id.test4ID);
+                corText.setText(cor);
+
+                // dados do numero serie
+                String descricao = params.getString("descricao");
+                TextView descricaoText = (TextView) findViewById(R.id.test5ID);
+                descricaoText.setText(descricao);
 
             }
         }
@@ -193,8 +241,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
     private void inicializarElementos(){
 
 
-
-
+        bike = new Bike();
         bike.setAlertaNumero(alertaNumero.getText().toString());
         bike.setAlertaRua(alertaRua.getText().toString());
         bike.setAlertaBairro(alertaBairro.getText().toString());
@@ -203,9 +250,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         bike.setBoletim(Boletim.getText().toString());
         bike.setAlertaDescricao(alertaDescricao.getText().toString());
 
-
-
-
+////
+        bike.setNumero_serie(numero_serie.getText().toString());
+        bike.setMarca(marca.getText().toString());
+        bike.setModelo(modelo.getText().toString());
+        bike.setCor(cor.getText().toString());
+        bike.setDescricao(descricao.getText().toString());
     }
 
     private void abrirAreaUsuario(){

@@ -103,7 +103,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
             final TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             final TextView txtViewMarca       = (TextView) view.findViewById(R.id.txtViewMarca);
-            TextView txtViewCaixaDescricao    = (TextView) view.findViewById(R.id.txtCaixaDescricaoID);
+            final TextView txtViewCaixaDescricao    = (TextView) view.findViewById(R.id.txtCaixaDescricaoID);
             final ImageView imagem            = (ImageView) view.findViewById(R.id.imagemListaID);
             final TextView txtViewModelo      = (TextView) view.findViewById(R.id.textViewModeloID);
             final TextView txtViewCor         = (TextView) view.findViewById(R.id.textViewCorID);
@@ -135,8 +135,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             txtViewCaixaDescricao.setText(bike1.getDescricao());
             txtViewModelo.setText(bike1.getModelo());
             txtViewCor.setText(bike1.getCor());
-           // txtViewAlertaNumero.setText(bike1.getModelo());
-
 
             imagem.setOnClickListener(new OnClickListener() {
                 @Override
@@ -231,36 +229,20 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("alertaBoletim", bikeselecao.getBoletim());
                                     params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
 
+                                    /// DADOS QUE NÃO vão ficar envisiveis na tela Alerta furto e roubo
+
+                                    params.putString("modelo", bikeselecao.getModelo());
+                                    params.putString("marca", bikeselecao.getMarca());
+                                    params.putString("numero_serie", bikeselecao.getNumero_serie());
+                                    params.putString("descricao", bikeselecao.getDescricao());
+                                    params.putString("cor", bikeselecao.getCor());
+
 
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
                                     intent.putExtras(params);
 
                                     context.startActivity(intent);
 
-
-//Editar campos
-
-                                     // b.setNumero_serie(bikeselecao.getNumero_serie());
-                                    //  b.setAlertaRua(txtViewAlertaRua.getText().toString().trim());
-                                   //   b.setAlertaNumero(txtViewAlertaNumero.getText().toString().trim());
-                                   //   b.setAlertaBairro(txtViewAlertaBairro.getText().toString().trim());
-                                  //    b.setAlertaDate(txtViewAlertaData.getText().toString().trim());
-                                  //    b.setAlertaHora(txtViewAlertaHora.getText().toString().trim());
-                                    //  b.setBoletim(txtViewAlertaBoletim.getText().toString().trim());
-                                 //     b.setAlertaDescricao(txtViewAlertaDescricao.getText().toString().trim());
-
-
-
-                                    // edita a bike no nó todas as bikes
-                                //    databaseReference = Configuracao_Firebase.getFirebase().child("TodasBikes");
-                                  //  databaseReference.child(b.getNumero_serie()).setValue(b);
-
-                                    // edita a bike no nó Bikes
-                                   // databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
-                                   // databaseReference.child(b.getNumero_serie()).setValue(b);
-
-
-                                    //// até aq
 
 
 
@@ -277,34 +259,21 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("cor", bikeselecao.getCor());
 
 
+                                    ///// DADOS QUE NÃO vão ficar envisiveis na tela editar
+                                    params.putString("alertaRua", bikeselecao.getAlertaRua());
+                                    params.putString("alertaNumero", bikeselecao.getAlertaNumero());
+                                    params.putString("alertaBairro", bikeselecao.getAlertaBairro());
+                                    params.putString("alertaHora", bikeselecao.getAlertaHora());
+                                    params.putString("alertaData", bikeselecao.getAlertaDate());
+                                    params.putString("alertaBoletim", bikeselecao.getBoletim());
+                                    params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
+
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), EditarBike.class);
                                     intent.putExtras(params);
 
                                     context.startActivity(intent);
 
-                                    //Editar campos
 
-                                    b.setNumero_serie(bikeselecao.getNumero_serie());
-                                    b.setModelo(txtViewModelo.getText().toString().trim());
-                                    b.setMarca(txtViewMarca.getText().toString().trim());
-                                    b.setCor(txtViewCor.getText().toString().trim());
-                                    b.setNumero_serie(txtViewNumeroSerie.getText().toString().trim());
-
-
-                                    // edita a bike no nó todas as bikes
-                                    databaseReference = Configuracao_Firebase.getFirebase().child("TodasBikes");
-                                    databaseReference.child(b.getNumero_serie()).setValue(b);
-
-                                    // edita a bike no nó Bikes
-                                    databaseReference = Configuracao_Firebase.getFirebase().child("Bikes").child(identificadorUsuario);
-                                    databaseReference.child(b.getNumero_serie()).setValue(b);
-
-
-                                    //// até aq
-
-
-
-                                    //   Toast.makeText(BikeAdapter.super.getContext(), "As alterações foram salvas", Toast.LENGTH_LONG).show();
 
 
                                 } else if (opcoes[i].equals("Remover")) {
