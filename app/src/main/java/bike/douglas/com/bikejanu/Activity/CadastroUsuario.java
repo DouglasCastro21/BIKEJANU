@@ -57,7 +57,7 @@ public class CadastroUsuario extends AppCompatActivity {
     private EditText  confirmarsenha;
     private EditText  telefone;
     private String    imagem;
-    private EditText  nascimento;
+  //  private EditText  nascimento;
     private Button botaocadastrar;
 
 
@@ -106,7 +106,7 @@ public class CadastroUsuario extends AppCompatActivity {
         senha = (EditText)findViewById(R.id.senhaID);
         confirmarsenha = (EditText)findViewById(R.id.confirmarSenhaID);
         telefone = (EditText)findViewById(R.id.telefoneID);
-        nascimento = (EditText)findViewById(R.id.dataID);
+      //  nascimento = (EditText)findViewById(R.id.dataID);
         imagemPerfil = (ImageView) findViewById(R.id.imagemPerfilID);
 
 
@@ -123,8 +123,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
                 if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
                         !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
-                        !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")
-                                && !nascimento.getText().toString().equals("")){
+                        !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")){
 
 
                      if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
@@ -182,9 +181,9 @@ public class CadastroUsuario extends AppCompatActivity {
         MaskTextWatcher maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
         telefone.addTextChangedListener(maskTelefone);
 
-        SimpleMaskFormatter simpleMaskNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
-        MaskTextWatcher maskNascimento = new MaskTextWatcher(nascimento, simpleMaskNascimento);
-        nascimento.addTextChangedListener(maskNascimento);
+       // SimpleMaskFormatter simpleMaskNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
+     //   MaskTextWatcher maskNascimento = new MaskTextWatcher(nascimento, simpleMaskNascimento);
+      //  nascimento.addTextChangedListener(maskNascimento);
     }
 
 
@@ -196,7 +195,7 @@ public class CadastroUsuario extends AppCompatActivity {
         usuarios.setEmail(email.getText().toString());
         usuarios.setSenha(senha.getText().toString());
         usuarios.setTelefone(telefone.getText().toString());
-        usuarios.setNascimento(nascimento.getText().toString());
+     //   usuarios.setNascimento(nascimento.getText().toString());
         usuarios.setImagem(imagemPerfil.getScaleType().toString());
 
     }
