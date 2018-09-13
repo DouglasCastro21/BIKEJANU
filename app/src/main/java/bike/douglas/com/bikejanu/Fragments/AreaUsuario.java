@@ -342,6 +342,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             String identificadorUsuario = Base64Custom.codificarBase64(email);
 
 
+
+
             // escolhe os nós que vão ser listados
             databaseReference = Configuracao_Firebase.getFirebase()
                     .child("Bikes")
@@ -369,7 +371,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                 }
 
                 arrayAdapterBike.notifyDataSetChanged();
-
             }
 
             @Override

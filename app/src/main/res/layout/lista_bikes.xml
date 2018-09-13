@@ -8,6 +8,21 @@
 
 
     <TextView
+        android:id="@+id/CaixaDescricaoID"
+        android:layout_width="301dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:textColor="@color/cardview_shadow_end_color"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imagemListaID"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/txtViewNumeroSerie"
         android:layout_width="116dp"
         android:layout_height="22dp"
@@ -44,23 +59,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bike1" />
 
-    <TextView
-        android:id="@+id/txtCaixaDescricaoID"
-        android:layout_width="301dp"
-        android:layout_height="74dp"
 
-
-        android:layout_marginEnd="4dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:textColor="@color/cardview_shadow_end_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imagemListaID"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewModeloID"

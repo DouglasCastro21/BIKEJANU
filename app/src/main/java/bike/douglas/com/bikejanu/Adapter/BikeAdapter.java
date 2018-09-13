@@ -6,6 +6,7 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.support.design.internal.NavigationMenuItemView;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -101,9 +103,16 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             view = inflater.inflate(R.layout.lista_bikes, parent, false);
 
 
+            if(position % 2 ==0){
+
+               view.setBackgroundColor(Color.YELLOW);
+
+            }
+
+
             final TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             final TextView txtViewMarca       = (TextView) view.findViewById(R.id.txtViewMarca);
-            final TextView txtViewCaixaDescricao    = (TextView) view.findViewById(R.id.txtCaixaDescricaoID);
+            final TextView txtViewCaixaDescricao    = (TextView) view.findViewById(R.id.CaixaDescricaoID);
             final ImageView imagem            = (ImageView) view.findViewById(R.id.imagemListaID);
             final TextView txtViewModelo      = (TextView) view.findViewById(R.id.textViewModeloID);
             final TextView txtViewCor         = (TextView) view.findViewById(R.id.textViewCorID);

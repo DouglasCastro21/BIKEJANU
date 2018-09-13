@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,6 +49,7 @@ public class CadastroUsuario extends AppCompatActivity {
     private Button botaoBuscarImagem;
     private ImageView imagemPerfil;
     private Uri uriImagem;
+    private CheckBox checkBox;
 
 
     private EditText  nome;
@@ -57,6 +59,9 @@ public class CadastroUsuario extends AppCompatActivity {
     private EditText  confirmarsenha;
     private EditText  telefone;
     private String    imagem;
+    private TextView txtNumeroPm;
+    private  EditText numeroPm;
+
   //  private EditText  nascimento;
     private Button botaocadastrar;
 
@@ -92,6 +97,19 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     /// da imagem
 
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -109,12 +127,44 @@ public class CadastroUsuario extends AppCompatActivity {
       //  nascimento = (EditText)findViewById(R.id.dataID);
         imagemPerfil = (ImageView) findViewById(R.id.imagemPerfilID);
 
+        numeroPm = (EditText)findViewById(R.id.numeroPmID);
+        txtNumeroPm =   (TextView) findViewById(R.id.txtNumeroPmID);
+
 
         botaocadastrar = (Button) findViewById(R.id.btnCadastrarID);
         botaoBuscarImagem = (Button) findViewById(R.id.btnBuscarImagemID);
+        checkBox = (CheckBox) findViewById(R.id.checkBoxMilitarID);
 
 
         mascaras();
+
+
+
+
+        // faz aparecer e desaparecer os campos na tela de cadastro de bikes
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(checkBox.isChecked()){
+
+                    txtNumeroPm.setVisibility(View.VISIBLE);
+                    numeroPm.setVisibility(View.VISIBLE);
+
+
+                }else{
+
+
+                    txtNumeroPm.setVisibility(View.GONE);
+                    numeroPm.setVisibility(View.GONE);
+
+
+
+                }
+
+
+            }
+        });
 
 
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
