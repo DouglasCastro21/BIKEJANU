@@ -100,7 +100,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
-      //  TextView recebeEmail = (TextView)findViewById(R.id.emailUsuarioID);
+        TextView receceNome = (TextView) findViewById(R.id.nomeUsuarioID);
         ImagemUsuario = (ImageView) findViewById(R.id.ImagemUsuarioID);
 
 
@@ -127,6 +127,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
         btnmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,13 +139,21 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
         if (user != null) {
+
+
 
             String name = user.getDisplayName();
             String email = user.getEmail();
 
 
-            Toast.makeText(AreaUsuario.this, "Bem Vindo!  :"+email, Toast.LENGTH_LONG).show();
+
+
+
+
+
+            Toast.makeText(AreaUsuario.this, "Bem Vindo!  :"+receceNome, Toast.LENGTH_LONG).show();
 
 
             String identificadorUsuario = Base64Custom.codificarBase64(email);

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class CadastroUsuario extends AppCompatActivity {
     private ImageView imagemPerfil;
     private Uri uriImagem;
     private CheckBox checkBox;
+
 
 
     private EditText  nome;
@@ -93,17 +95,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
+import java.security.acl.Group;
 import java.time.Duration;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
@@ -40,6 +42,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
     private EditText alertaHora;
     private EditText Boletim;
     private EditText alertaDescricao;
+    private  RadioButton radioButtonFurtada;
+    private RadioButton   status;
+
+
 
 // se não repetir os dados da tela cadastro os dados são exluidos
 
@@ -62,11 +68,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 // botoes
 
-       RadioButton  radioButtonFurtada    =(RadioButton)findViewById(R.id.alertaFurtadaID);
+        radioButtonFurtada    =(RadioButton)findViewById(R.id.alertaFurtadaID);
        RadioButton radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
        RadioButton radioButtonNadaConsta  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
        Button  finalizar                  = (Button)  findViewById(R.id.finalizarID);
-
 
 
 
@@ -80,11 +85,13 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         alertaDescricao = (EditText)findViewById(R.id.alertaDescricaoID);
 
 
+
         numero_serie     =  (TextView) findViewById(R.id.test1ID);
         marca            =  (TextView) findViewById(R.id.test2ID);
         modelo           =  (TextView) findViewById(R.id.test3ID);
         cor              =  (TextView) findViewById(R.id.test4ID);
         descricao        =  (TextView) findViewById(R.id.test5ID);
+
 
 
 
@@ -168,16 +175,36 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 TextView descricaoText = (TextView) findViewById(R.id.test5ID);
                 descricaoText.setText(descricao);
 
+
+
+
             }
         }
 
                 mascaras();
+
+
+
+
+                radioButtonNadaConsta.toggle();
+
+
+
+
+
+
+
+
+
+
 
         radioButtonNadaConsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             caixaDialogoNadaConsta();
+                status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
+
 
             }
         });
@@ -189,6 +216,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 
                 caixaDialogoFurtada();
+                status = (RadioButton)findViewById(R.id.alertaFurtadaID);
 
 
             }
@@ -202,6 +230,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 
                 caixaDialogoRoubada();
+                status = (RadioButton)findViewById(R.id.alertaRoubadaID);
 
 
             }
@@ -214,9 +243,17 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (!alertaNumero.getText().toString().equals("") && !alertaBairro.getText().toString().equals("")&& !alertaRua.getText().toString().equals("")
+                        && !alertaDate.getText().toString().equals("")&& !alertaHora.getText().toString().equals("")){
+
 
                 inicializarElementos();
-                recuperarDadosUsuarioConectadoECadastra();
+
+
+                caixaDialogoConfirmarFurtoRoubo();
+
+
+            }
 
             }
         });
@@ -249,6 +286,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         bike.setAlertaHora(alertaHora.getText().toString());
         bike.setBoletim(Boletim.getText().toString());
         bike.setAlertaDescricao(alertaDescricao.getText().toString());
+        bike.setStatus(status.getText().toString());
+
 
 ////
         bike.setNumero_serie(numero_serie.getText().toString());
@@ -256,6 +295,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         bike.setModelo(modelo.getText().toString());
         bike.setCor(cor.getText().toString());
         bike.setDescricao(descricao.getText().toString());
+
     }
 
     private void abrirAreaUsuario(){
@@ -266,38 +306,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
     }
 
 
-    private void recuperarDadosUsuarioConectadoECadastra(){
 
-        // recupera autenticão do usuario local
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null) {
-
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-
-            // converte o email pra base 64
-            String identificadorUsuario= Base64Custom.codificarBase64(email);
-
-
-
-            // cadastra a bike no nó todas as bikes
-            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-            firebase.child(bike.getNumero_serie()).setValue(bike);
-
-            // cadastra no nó usuario logado
-            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
-            Toast.makeText(AlertarFurtoRoubo.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
-
-            // retorna a tela usuario
-
-            abrirAreaUsuario();
-
-        };
-    }
 
 
     private void caixaDialogoRoubada(){
@@ -396,6 +405,75 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         });
 
         alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
+
+
+
+
+    private void caixaDialogoConfirmarFurtoRoubo(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("");
+
+
+        alertaDialog.setMessage("Sua Bike será dada como " + bike.getStatus()+ ".Deseja continuar?");
+        // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+
+                    // recupera autenticão do usuario local
+
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    if (user != null) {
+
+                        String name = user.getDisplayName();
+                        String email = user.getEmail();
+
+                        // converte o email pra base 64
+                        String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+                        // cadastra a bike no nó todas as bikes
+                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                        firebase.child(bike.getNumero_serie()).setValue(bike);
+
+                        // cadastra no nó usuario logado
+                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+                        Toast.makeText(AlertarFurtoRoubo.this, "A bike foi marcada como : position!", Toast.LENGTH_LONG).show();
+
+                        // retorna a tela usuario
+
+                        abrirAreaUsuario();
+
+                    };
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 

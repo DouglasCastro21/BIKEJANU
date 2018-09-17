@@ -30,6 +30,7 @@ public class Bike extends Usuarios{
     private String alertaHora;
     private String Boletim;
     private String alertaDescricao;
+    private String status;
 
 
 
@@ -51,6 +52,7 @@ public class Bike extends Usuarios{
         hashMapBike.put("descricao",getDescricao());
 
 
+
         hashMapBike.put("alertaNumero",getAlertaNumero());
         hashMapBike.put("alertaRua",getAlertaRua());
         hashMapBike.put("alertaBairro",getAlertaBairro());
@@ -58,6 +60,9 @@ public class Bike extends Usuarios{
         hashMapBike.put("alertaHora",getAlertaHora());
         hashMapBike.put("Boletim",getBoletim());
         hashMapBike.put("alertaDescricao",getAlertaDescricao());
+        hashMapBike.put("status",getStatus());
+
+
 
 
 
@@ -168,5 +173,13 @@ public class Bike extends Usuarios{
 
     public void setAlertaDescricao(String alertaDescricao) {
         this.alertaDescricao = alertaDescricao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

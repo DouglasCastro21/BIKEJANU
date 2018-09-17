@@ -67,6 +67,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
     private Context context;
     private List<Bike> listabikes = new ArrayList<Bike>();
+    Integer cont=0;
+
 
 
     DatabaseReference databaseReference;
@@ -99,15 +101,19 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
             // inicializa objetos para a montagem da view
 
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+            final LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.lista_bikes, parent, false);
 
 
-            if(position % 2 ==0){
+           if(position % 2 ==0){
 
                view.setBackgroundColor(Color.YELLOW);
 
-            }
+
+
+           }
+
+
 
 
             final TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
@@ -129,6 +135,20 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final TextView txtViewAlertaDescricao = (TextView) view.findViewById(R.id.alertaDescricaoID);
 
 
+
+
+            Bike bikeRoubadaFurtada;
+            bikeRoubadaFurtada = listabikes.get(position);
+
+
+                 if( bikeRoubadaFurtada.getMarca().equals("1")){
+
+                  //     cont=cont+1;
+                       view.setBackgroundColor(Color.RED);
+
+                   //  Toast.makeText(BikeAdapter.super.getContext(), "Quantidade de Bikes Roubadas   " +cont, Toast.LENGTH_LONG).show();
+
+             }
 
 
 
@@ -212,8 +232,9 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                 // recupera posição da bike
 
-                                Bike bikeselecao = new Bike();
+                                 Bike bikeselecao = new Bike();
                                  bikeselecao = listabikes.get(position);
+
 
                                 // recupera usuario pelo email
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -238,13 +259,16 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("alertaBoletim", bikeselecao.getBoletim());
                                     params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
 
-                                    /// DADOS QUE NÃO vão ficar envisiveis na tela Alerta furto e roubo
+
+                                    /// DADOS QUE NÃO vão ficar visiveis na tela Alerta furto e roubo
 
                                     params.putString("modelo", bikeselecao.getModelo());
                                     params.putString("marca", bikeselecao.getMarca());
                                     params.putString("numero_serie", bikeselecao.getNumero_serie());
                                     params.putString("descricao", bikeselecao.getDescricao());
                                     params.putString("cor", bikeselecao.getCor());
+
+
 
 
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);

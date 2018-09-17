@@ -56,6 +56,7 @@ public class CadastroBike extends AppCompatActivity  {
     private RadioButton radioButtonFurtada;
     private RadioButton radioButtonRoubada;
     private RadioGroup radioGroup;
+    private RadioButton status;
 
 
 
@@ -110,12 +111,8 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
         final CheckBox  checkBox = (CheckBox) findViewById(R.id.checkBoxID);
-
-
-
 
 
 
@@ -178,9 +175,6 @@ public class CadastroBike extends AppCompatActivity  {
                    alertaDate.setVisibility(View.VISIBLE);
                    alertaHora.setVisibility(View.VISIBLE);
                    Boletim.setVisibility(View.VISIBLE);
-
-
-
                    radioButtonFurtada.setVisibility(View.VISIBLE);
                    radioButtonRoubada.setVisibility(View.VISIBLE);
                    radioGroup.setVisibility(View.VISIBLE);
@@ -241,6 +235,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
                 caixaDialogoFurtada();
+                status = (RadioButton)findViewById(R.id.alertaFurtadaID);
 
 
             }
@@ -255,6 +250,8 @@ public class CadastroBike extends AppCompatActivity  {
 
                 caixaDialogoRoubada();
 
+                status = (RadioButton)findViewById(R.id.alertaRoubadaID);
+
 
             }
         });
@@ -267,6 +264,61 @@ public class CadastroBike extends AppCompatActivity  {
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                if(checkBox.isChecked()) {
+
+
+
+                    if (!numero_serie.getText().toString().equals("") && !marca.getText().toString().equals("") &&
+                            !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")&& !alertaBairro.getText().toString().equals("")
+                            && !alertaNumero.getText().toString().equals("")&& !alertaRua.getText().toString().equals("")
+                            && !alertaDate.getText().toString().equals("")&& !alertaHora.getText().toString().equals("")) {
+
+                        inicializarElementos();
+                        recuperarDadosUsuarioConectadoECadastra();
+
+
+                    } else {
+
+
+                        Toast.makeText(CadastroBike.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
+
+                        if (numero_serie.getText().toString().equals("")) {
+
+                            numero_serie.requestFocus();
+
+                        } else {
+
+                            if (marca.getText().toString().equals("")) {
+
+                                marca.requestFocus();
+
+                            } else {
+                                if (modelo.getText().toString().equals("")) {
+
+                                    modelo.requestFocus();
+
+
+                                } else {
+                                    if (cor.getText().toString().equals("")) {
+
+                                        cor.requestFocus();
+
+                                    }
+                                }
+
+
+                            }
+
+                        }
+
+
+                    }
+
+
+
+                }else{
 
 
                     if (!numero_serie.getText().toString().equals("") && !marca.getText().toString().equals("") &&
@@ -314,6 +366,10 @@ public class CadastroBike extends AppCompatActivity  {
                     }
 
 
+                }
+
+
+
 
             }
 
@@ -342,8 +398,10 @@ public class CadastroBike extends AppCompatActivity  {
          bike.setAlertaHora(alertaHora.getText().toString());
          bike.setBoletim(Boletim.getText().toString());
          bike.setAlertaDescricao(alertaDescricao.getText().toString());
+        bike.setStatus(status.getText().toString());
 
-}
+
+    }
 
 // volta pra tela usuario
     private void abrirAreaUsuario(){
