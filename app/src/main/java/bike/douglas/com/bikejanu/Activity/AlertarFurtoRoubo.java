@@ -2,6 +2,7 @@ package bike.douglas.com.bikejanu.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,7 +70,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 // botoes
 
+
         radioButtonFurtada    =(RadioButton)findViewById(R.id.alertaFurtadaID);
+
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupID);
        RadioButton radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
        RadioButton radioButtonNadaConsta  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
        Button  finalizar                  = (Button)  findViewById(R.id.finalizarID);
@@ -181,16 +186,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
             }
         }
 
-                mascaras();
+
+
+  //  radioButtonNadaConsta.toggle();
 
 
 
 
-                radioButtonNadaConsta.toggle();
 
-
-
-
+            mascaras();
 
 
 
@@ -461,7 +465,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                         firebase = Configuracao_Firebase.getFirebase().child("Bikes");
                         firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 
-                        Toast.makeText(AlertarFurtoRoubo.this, "A bike foi marcada como : position!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AlertarFurtoRoubo.this, "A bike foi marcada como :" +bike.getStatus(), Toast.LENGTH_LONG).show();
 
                         // retorna a tela usuario
 

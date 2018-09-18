@@ -4,8 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +44,15 @@ public class EditarBike extends AppCompatActivity {
     private TextView alertaHora;
     private TextView alertaBoletim;
     private TextView alertaDescricao;
+    private ImageView spinnerImagem;
+
+
+
+
+
+
+    private String marcasBike[] = new String[] {"CALOY","MONARK","MALAGRA","GALO","EXTREME","HOUSTON","OUTRA"};
+    private Spinner spinner;
 
 
 
@@ -51,7 +65,7 @@ public class EditarBike extends AppCompatActivity {
     btnEditar = (Button) findViewById(R.id.finalizarID);
 
     numero_serie     =  (TextView) findViewById(R.id.NumeroID);
-    marca            =  (EditText) findViewById(R.id.marcaID);
+   // marca            =  (EditText) findViewById(R.id.spinnerMarcaID);
     modelo           =  (EditText) findViewById(R.id.modeloID);
     cor              =  (EditText) findViewById(R.id.corID);
     descricao        =  (EditText) findViewById(R.id.descricaoID);
@@ -63,6 +77,35 @@ public class EditarBike extends AppCompatActivity {
     alertaHora       =  (TextView) findViewById(R.id.teste5ID);
     alertaBoletim    =  (TextView) findViewById(R.id.teste6ID);
     alertaDescricao  =  (TextView) findViewById(R.id.teste7ID);
+
+
+
+
+
+        //carrega os spinner
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(EditarBike.this, android.R.layout.simple_spinner_dropdown_item, marcasBike);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnerImagem = (ImageView) findViewById(R.id.spinerButtonID);
+
+
+        spinner = (Spinner) findViewById(R.id.spinnerMarcaID);
+        spinner.setAdapter(arrayAdapter);
+
+
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
 
@@ -95,8 +138,11 @@ public class EditarBike extends AppCompatActivity {
 
                 //dados da marca
                 String marca = params.getString("marca");
-                TextView marcaText = (TextView) findViewById(R.id.marcaID);
-                marcaText.setText(marca);
+                Spinner marcaText = (Spinner) findViewById(R.id.spinnerMarcaID);
+
+
+                    marcaText.getItemAtPosition(0);
+
 
                 // dados do numero serie
                 String numero_serie = params.getString("numero_serie");
@@ -171,7 +217,7 @@ public class EditarBike extends AppCompatActivity {
 
         bike = new Bike();
         bike.setNumero_serie(numero_serie.getText().toString());
-        bike.setMarca(marca.getText().toString());
+        bike.setMarca(spinner.getSelectedItem().toString());
         bike.setModelo(modelo.getText().toString());
         bike.setCor(cor.getText().toString());
         bike.setDescricao(descricao.getText().toString());
@@ -226,6 +272,16 @@ public class EditarBike extends AppCompatActivity {
         };
 
 
+
+    }
+
+
+    public void ShowElemento(View view){
+
+
+        String nome = (String)spinner.getSelectedItem();
+        long id = spinner.getSelectedItemId();
+        int posicao = spinner.getSelectedItemPosition();
 
     }
 }

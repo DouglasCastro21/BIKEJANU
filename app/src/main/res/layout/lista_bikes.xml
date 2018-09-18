@@ -90,5 +90,17 @@
         app:layout_constraintStart_toEndOf="@+id/textViewModeloID"
         app:layout_constraintTop_toBottomOf="@+id/txtViewNumeroSerie" />
 
+    <TextView
+        android:id="@+id/textStatusID"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCorID"
+        app:layout_constraintEnd_toEndOf="@+id/CaixaDescricaoID"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewNumeroSerie" />
+
 
 </android.support.constraint.ConstraintLayout>

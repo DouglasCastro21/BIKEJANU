@@ -1,16 +1,21 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,7 +66,9 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
+
     private Button   botaocadastrar;
+    private ImageView   spinnerImagem;
 
 
 
@@ -71,48 +78,77 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
+    private String marcasBike[] = new String[] {"CALOY","MONARK","MALAGRA","GALO","EXTREME","HOUSTON","OUTRA"};
+    private Spinner spinner;
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_bike);
 
 
-        numero_serie    = (EditText) findViewById(R.id.NumeroID);
-        marca           = (EditText) findViewById(R.id.marcaID);
-        modelo          = (EditText) findViewById(R.id.modeloID);
-        cor             = (EditText) findViewById(R.id.corID);
-        descricao       = (EditText)findViewById(R.id.descricaoID);
+        numero_serie = (EditText) findViewById(R.id.NumeroID);
+      //  marca           = (EditText) findViewById(R.id.spinnerMarcaID);
+        modelo = (EditText) findViewById(R.id.modeloID);
+        cor = (EditText) findViewById(R.id.corID);
+        descricao = (EditText) findViewById(R.id.descricaoID);
 
-        alertaNumero    = (EditText)findViewById(R.id.alertaNumeroID);
-        alertaRua       = (EditText)findViewById(R.id.alertaRuaID);
-        alertaBairro    = (EditText)findViewById(R.id.alertaBairroID);
-        alertaDate      = (EditText)findViewById(R.id.alertaDataID);
-        alertaHora      = (EditText)findViewById(R.id.alertaHoraID);
-        Boletim         = (EditText)findViewById(R.id.BoletimID);
-        alertaDescricao = (EditText)findViewById(R.id.alertaDescricaoID);
+        alertaNumero = (EditText) findViewById(R.id.alertaNumeroID);
+        alertaRua = (EditText) findViewById(R.id.alertaRuaID);
+        alertaBairro = (EditText) findViewById(R.id.alertaBairroID);
+        alertaDate = (EditText) findViewById(R.id.alertaDataID);
+        alertaHora = (EditText) findViewById(R.id.alertaHoraID);
+        Boletim = (EditText) findViewById(R.id.BoletimID);
+        alertaDescricao = (EditText) findViewById(R.id.alertaDescricaoID);
 
         // campos txt
 
-        txtRua           = (TextView)findViewById(R.id.txtRuaID) ;
-        txtBairro        = (TextView)findViewById(R.id.txtBairroID);
-        txtBoletim       = (TextView)findViewById(R.id.txtBoletimID);
-        txtDataHora      = (TextView)findViewById(R.id.txtDataHoraID);
-        txtNumero        = (TextView)findViewById(R.id.txtNumeroID);
-        txtObservacao    = (TextView)findViewById(R.id.txtObservacaoID);
-        txtmensagem1     = (TextView)findViewById(R.id.txtmensagem1ID);
-        txtmensagem2     = (TextView)findViewById(R.id.txtmensagem2ID);
+        txtRua = (TextView) findViewById(R.id.txtRuaID);
+        txtBairro = (TextView) findViewById(R.id.txtBairroID);
+        txtBoletim = (TextView) findViewById(R.id.txtBoletimID);
+        txtDataHora = (TextView) findViewById(R.id.txtDataHoraID);
+        txtNumero = (TextView) findViewById(R.id.txtNumeroID);
+        txtObservacao = (TextView) findViewById(R.id.txtObservacaoID);
+        txtmensagem1 = (TextView) findViewById(R.id.txtmensagem1ID);
+        txtmensagem2 = (TextView) findViewById(R.id.txtmensagem2ID);
 
 
-
-        radioButtonFurtada =(RadioButton)findViewById(R.id.radioButtonFurtadaID);
-        radioButtonRoubada =(RadioButton)findViewById(R.id.alertaRoubadaID);
-        radioGroup        = (RadioGroup)findViewById(R.id.radioGroupID);
-
+        radioButtonFurtada = (RadioButton) findViewById(R.id.radioButtonFurtadaID);
+        radioButtonRoubada = (RadioButton) findViewById(R.id.alertaRoubadaID);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroupID);
 
 
 
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
-        final CheckBox  checkBox = (CheckBox) findViewById(R.id.checkBoxID);
+        final CheckBox checkBox = (CheckBox) findViewById(R.id.checkBoxID);
+
+
+        //carrega os spinner
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CadastroBike.this, android.R.layout.simple_spinner_dropdown_item, marcasBike);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnerImagem = (ImageView) findViewById(R.id.spinerImagID);
+
+
+        spinner = (Spinner) findViewById(R.id.spinnerMarcaID);
+        spinner.setAdapter(arrayAdapter);
+
+
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
 
 
@@ -133,7 +169,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                 //dados da marca
                 String marca = params.getString("marca");
-                TextView marcaText = (TextView) findViewById(R.id.marcaID);
+                TextView marcaText = (TextView) findViewById(R.id.spinnerMarcaID);
                 marcaText.setText(marca);
 
                 // dados do numero serie
@@ -156,6 +192,12 @@ public class CadastroBike extends AppCompatActivity  {
 
             }
         }
+
+
+
+        status = (RadioButton)findViewById(R.id.radioButtonNadaConstaID);
+
+
 
 
 
@@ -235,7 +277,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
                 caixaDialogoFurtada();
-                status = (RadioButton)findViewById(R.id.alertaFurtadaID);
+                status = (RadioButton)findViewById(R.id.radioButtonFurtadaID);
 
 
             }
@@ -270,7 +312,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-                    if (!numero_serie.getText().toString().equals("") && !marca.getText().toString().equals("") &&
+                    if (!numero_serie.getText().toString().equals("")  &&
                             !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")&& !alertaBairro.getText().toString().equals("")
                             && !alertaNumero.getText().toString().equals("")&& !alertaRua.getText().toString().equals("")
                             && !alertaDate.getText().toString().equals("")&& !alertaHora.getText().toString().equals("")) {
@@ -289,12 +331,6 @@ public class CadastroBike extends AppCompatActivity  {
                             numero_serie.requestFocus();
 
                         } else {
-
-                            if (marca.getText().toString().equals("")) {
-
-                                marca.requestFocus();
-
-                            } else {
                                 if (modelo.getText().toString().equals("")) {
 
                                     modelo.requestFocus();
@@ -311,7 +347,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                             }
 
-                        }
+
 
 
                     }
@@ -321,7 +357,7 @@ public class CadastroBike extends AppCompatActivity  {
                 }else{
 
 
-                    if (!numero_serie.getText().toString().equals("") && !marca.getText().toString().equals("") &&
+                    if (!numero_serie.getText().toString().equals("")  &&
                             !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")) {
 
                         inicializarElementos();
@@ -337,11 +373,11 @@ public class CadastroBike extends AppCompatActivity  {
 
                             numero_serie.requestFocus();
 
-                        } else {
 
-                            if (marca.getText().toString().equals("")) {
 
-                                marca.requestFocus();
+                           // if (marca.getText().toString().equals("")) {
+
+                           //     marca.requestFocus();
 
                             } else {
                                 if (modelo.getText().toString().equals("")) {
@@ -371,7 +407,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-            }
+
 
         });
 
@@ -385,7 +421,7 @@ public class CadastroBike extends AppCompatActivity  {
 
          bike = new Bike();
          bike.setNumero_serie(numero_serie.getText().toString());
-         bike.setMarca(marca.getText().toString());
+         bike.setMarca(spinner.getSelectedItem().toString());
          bike.setModelo(modelo.getText().toString());
          bike.setCor(cor.getText().toString());
          bike.setDescricao(descricao.getText().toString());
@@ -398,7 +434,7 @@ public class CadastroBike extends AppCompatActivity  {
          bike.setAlertaHora(alertaHora.getText().toString());
          bike.setBoletim(Boletim.getText().toString());
          bike.setAlertaDescricao(alertaDescricao.getText().toString());
-        bike.setStatus(status.getText().toString());
+         bike.setStatus(status.getText().toString());
 
 
     }
@@ -544,6 +580,16 @@ public class CadastroBike extends AppCompatActivity  {
         alertaDialog.create();
         alertaDialog.show();
     }
+
+    public void ShowElemento(View view){
+
+
+        String nome = (String)spinner.getSelectedItem();
+        long id = spinner.getSelectedItemId();
+        int posicao = spinner.getSelectedItemPosition();
+
+    }
+
 
 
 

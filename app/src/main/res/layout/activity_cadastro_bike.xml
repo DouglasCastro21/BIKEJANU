@@ -42,10 +42,10 @@
         android:layout_height="513dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.719">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -123,7 +123,7 @@
                 android:text="Marca *"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/marcaID"
+                app:layout_constraintBottom_toTopOf="@+id/spinnerMarcaID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.03"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +144,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/marcaID" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerMarcaID" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -256,7 +256,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Furto"
+                    android:text="Furtada"
                     android:textSize="18sp"
                     android:visibility="visible"
                     tools:layout_editor_absoluteX="108dp"
@@ -267,11 +267,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Roubo"
+                    android:text="Roubada"
                     android:textSize="18sp"
                     android:visibility="visible"
                     tools:layout_editor_absoluteX="107dp"
                     tools:layout_editor_absoluteY="833dp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonNadaConstaID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sem Restrição"
+                    android:visibility="gone" />
             </RadioGroup>
 
             <TextView
@@ -489,8 +497,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-            <EditText
-                android:id="@+id/marcaID"
+            <Spinner
+                android:id="@+id/spinnerMarcaID"
                 android:layout_width="306dp"
                 android:layout_height="46dp"
                 android:layout_marginBottom="4dp"
@@ -499,9 +507,6 @@
                 android:layout_marginRight="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
-                android:ems="10"
-                android:hint="Marca"
-                android:inputType="textPersonName"
                 app:layout_constraintBottom_toTopOf="@+id/textView11"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -614,6 +619,22 @@
                 app:layout_constraintHorizontal_bias="0.462"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/descricaoID" />
+
+            <ImageView
+                android:id="@+id/spinerButtonID"
+                android:layout_width="35dp"
+                android:layout_height="47dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/corID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/spinnerMarcaID"
+                app:layout_constraintTop_toBottomOf="@+id/NumeroID"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_expand_more" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

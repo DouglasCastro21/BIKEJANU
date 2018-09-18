@@ -122,7 +122,7 @@
                 android:text="Marca *"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/marcaID"
+                app:layout_constraintBottom_toTopOf="@+id/spinnerMarcaID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.03"
                 app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +143,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/marcaID" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerMarcaID" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -239,8 +239,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-            <EditText
-                android:id="@+id/marcaID"
+            <Spinner
+                android:id="@+id/spinnerMarcaID"
                 android:layout_width="306dp"
                 android:layout_height="46dp"
                 android:layout_marginBottom="4dp"
@@ -249,9 +249,6 @@
                 android:layout_marginRight="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
-                android:ems="10"
-                android:hint="Marca"
-                android:inputType="textPersonName"
                 app:layout_constraintBottom_toTopOf="@+id/textView11"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -392,6 +389,19 @@
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/spinerImagID"
+                android:layout_width="35dp"
+                android:layout_height="47dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/spinnerMarcaID"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerMarcaID"
+                app:layout_constraintTop_toTopOf="@+id/spinnerMarcaID"
+                app:srcCompat="@drawable/ic_expand_more" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

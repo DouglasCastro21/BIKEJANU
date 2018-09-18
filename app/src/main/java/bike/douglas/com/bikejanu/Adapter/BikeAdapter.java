@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.app.AppCompatDialogFragment;
@@ -73,6 +74,9 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
     DatabaseReference databaseReference;
     FirebaseDatabase  firebaseDatabase;
+    RadioGroup radioGroup;
+
+
 
 
 
@@ -96,6 +100,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
         View view = null;
 
 
+
+
         // verifica se a lista está vazia
         if(listabikes!=null) {
 
@@ -105,13 +111,13 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             view = inflater.inflate(R.layout.lista_bikes, parent, false);
 
 
-           if(position % 2 ==0){
+          // if(position % 2 ==0){
 
-               view.setBackgroundColor(Color.YELLOW);
+             //  view.setBackgroundColor(Color.YELLOW);
 
 
 
-           }
+         //  }
 
 
 
@@ -122,6 +128,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final ImageView imagem            = (ImageView) view.findViewById(R.id.imagemListaID);
             final TextView txtViewModelo      = (TextView) view.findViewById(R.id.textViewModeloID);
             final TextView txtViewCor         = (TextView) view.findViewById(R.id.textViewCorID);
+            final TextView txtViewStatus         = (TextView) view.findViewById(R.id.textStatusID);
 
 
 
@@ -141,14 +148,20 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             bikeRoubadaFurtada = listabikes.get(position);
 
 
-                 if( bikeRoubadaFurtada.getMarca().equals("1")){
+                if( bikeRoubadaFurtada.getStatus().equals("Furtada") || bikeRoubadaFurtada.getStatus().equals("Roubada")){
 
-                  //     cont=cont+1;
                        view.setBackgroundColor(Color.RED);
+
+
 
                    //  Toast.makeText(BikeAdapter.super.getContext(), "Quantidade de Bikes Roubadas   " +cont, Toast.LENGTH_LONG).show();
 
-             }
+
+
+            }
+
+
+
 
 
 
@@ -164,6 +177,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             txtViewCaixaDescricao.setText(bike1.getDescricao());
             txtViewModelo.setText(bike1.getModelo());
             txtViewCor.setText(bike1.getCor());
+            txtViewStatus.setText(bike1.getStatus());
 
             imagem.setOnClickListener(new OnClickListener() {
                 @Override
@@ -190,11 +204,13 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                     params.putString("alertaRua", bikeselecao.getAlertaRua());
                     params.putString("alertaNumero", bikeselecao.getAlertaNumero());
-                   params.putString("alertaBairro", bikeselecao.getAlertaBairro());
+                    params.putString("alertaBairro", bikeselecao.getAlertaBairro());
                     params.putString("alertaData", bikeselecao.getAlertaDate());
-                   params.putString("alertaHora", bikeselecao.getAlertaHora());
-                   params.putString("alertaBoletim", bikeselecao.getBoletim());
+                    params.putString("alertaHora", bikeselecao.getAlertaHora());
+                    params.putString("alertaBoletim", bikeselecao.getBoletim());
                     params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
+                    params.putString("status", bikeselecao.getStatus());
+
 
 
                     Intent intent = new Intent(BikeAdapter.super.getContext(), DadosBike.class);
