@@ -144,6 +144,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
+
             Bike bikeRoubadaFurtada;
             bikeRoubadaFurtada = listabikes.get(position);
 
@@ -158,7 +159,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-            }
+              }
+
+
+
+
 
 
 
@@ -191,7 +196,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     Bike bikeselecao = new Bike();
                     bikeselecao = listabikes.get(position);
 
-                    // passa dados  para a tela dados usuarios e Cadastro Bike
+                    // passa dados  para a tela dados BIKE e Cadastro Bike
 
                     Bundle params = new Bundle();
                     params.putString("dadosmodelo", bikeselecao.getModelo());
@@ -283,6 +288,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("numero_serie", bikeselecao.getNumero_serie());
                                     params.putString("descricao", bikeselecao.getDescricao());
                                     params.putString("cor", bikeselecao.getCor());
+                                    params.putString("status", bikeselecao.getStatus());
 
 
 
@@ -316,6 +322,9 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("alertaData", bikeselecao.getAlertaDate());
                                     params.putString("alertaBoletim", bikeselecao.getBoletim());
                                     params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
+                                    params.putString("status", bikeselecao.getStatus());
+
+
 
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), EditarBike.class);
                                     intent.putExtras(params);

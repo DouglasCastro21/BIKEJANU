@@ -442,6 +442,20 @@
                 app:layout_constraintStart_toEndOf="@+id/test2ID"
                 app:layout_constraintTop_toBottomOf="@+id/test2ID" />
 
+            <TextView
+                android:id="@+id/statusSituacaoID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="168dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginRight="168dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="8dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtBairroID"
+                app:layout_constraintTop_toBottomOf="@+id/alertaRuaID" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -45,6 +46,10 @@ public class EditarBike extends AppCompatActivity {
     private TextView alertaBoletim;
     private TextView alertaDescricao;
     private ImageView spinnerImagem;
+    private RadioButton status;
+    private TextView txtStatus;
+    String statusBike;
+
 
 
 
@@ -69,6 +74,8 @@ public class EditarBike extends AppCompatActivity {
     modelo           =  (EditText) findViewById(R.id.modeloID);
     cor              =  (EditText) findViewById(R.id.corID);
     descricao        =  (EditText) findViewById(R.id.descricaoID);
+
+
         // se não repetir os dados da tela cadastro os dados são exluidos
     alertaNumero     =  (TextView) findViewById(R.id.teste1ID);
     alertaRua        =  (TextView) findViewById(R.id.teste2ID);
@@ -77,6 +84,8 @@ public class EditarBike extends AppCompatActivity {
     alertaHora       =  (TextView) findViewById(R.id.teste5ID);
     alertaBoletim    =  (TextView) findViewById(R.id.teste6ID);
     alertaDescricao  =  (TextView) findViewById(R.id.teste7ID);
+    txtStatus       =   (TextView) findViewById(R.id.statusID);
+
 
 
 
@@ -89,6 +98,8 @@ public class EditarBike extends AppCompatActivity {
         spinnerImagem = (ImageView) findViewById(R.id.spinerButtonID);
 
 
+
+        status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
         spinner = (Spinner) findViewById(R.id.spinnerMarcaID);
         spinner.setAdapter(arrayAdapter);
 
@@ -119,6 +130,7 @@ public class EditarBike extends AppCompatActivity {
                 recuperarDadosUsuarioConectadoECadastra();
           }
       });
+
 
 
 
@@ -207,10 +219,24 @@ public class EditarBike extends AppCompatActivity {
                 TextView alertaDescricaoText = (TextView) findViewById(R.id.teste7ID);
                 alertaDescricaoText.setText(alertaDescricao);
 
+
+                String statuss = params.getString("status");
+                TextView statussText = (TextView) findViewById(R.id.statusID);
+                statussText.setText(statuss);
+
+
+                statusBike = statuss;
+
+
+
+
+
             }
         }
 
     }
+
+
 
 
     private void inicializarElementos(){
@@ -218,6 +244,7 @@ public class EditarBike extends AppCompatActivity {
         bike = new Bike();
         bike.setNumero_serie(numero_serie.getText().toString());
         bike.setMarca(spinner.getSelectedItem().toString());
+
         bike.setModelo(modelo.getText().toString());
         bike.setCor(cor.getText().toString());
         bike.setDescricao(descricao.getText().toString());
@@ -228,6 +255,7 @@ public class EditarBike extends AppCompatActivity {
         bike.setAlertaHora(alertaHora.getText().toString());
         bike.setBoletim(alertaBoletim.getText().toString());
         bike.setAlertaDescricao(alertaDescricao.getText().toString());
+        bike.setStatus(statusBike);
     }
 
     // volta pra tela usuario
@@ -236,6 +264,8 @@ public class EditarBike extends AppCompatActivity {
         Intent intent = new Intent(EditarBike.this ,AreaUsuario.class);
         startActivity(intent);
         finish();
+
+
     }
 
 

@@ -229,6 +229,7 @@
                 android:text="Informações sobre o Furto/Roubo"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="20sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.45"
                 app:layout_constraintStart_toStartOf="parent"
@@ -286,8 +287,10 @@
                 android:background="@android:drawable/editbox_background_normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInformacoesAuxiarID" />
+                app:layout_constraintTop_toBottomOf="@+id/textInformacoesAuxiarID"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textRuaID"
@@ -299,6 +302,7 @@
                 android:text="Rua"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
+                android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dadoDiaID" />
 
@@ -318,9 +322,8 @@
                 android:id="@+id/textNumeroID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="123dp"
-                android:layout_marginStart="123dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginStart="110dp"
                 android:text="Número"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
@@ -419,14 +422,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="123dp"
-                android:layout_marginLeft="148dp"
+                android:layout_marginLeft="140dp"
                 android:layout_marginRight="123dp"
-                android:layout_marginStart="148dp"
-                android:layout_marginTop="24dp"
-                android:text="Tipo do Crime"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="32dp"
+                android:text="Situação da Bike"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInformacaoID" />
 
@@ -438,13 +442,48 @@
                 android:layout_marginLeft="163dp"
                 android:layout_marginRight="143dp"
                 android:layout_marginStart="163dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="1dp"
                 android:background="@android:drawable/editbox_background_normal"
-                android:text="TextView"
                 android:textColor="?attr/colorError"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.42"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTipoCrimeID" />
+
+            <TextView
+                android:id="@+id/textCasoVerifiqueID"
+                android:layout_width="298dp"
+                android:layout_height="53dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginLeft="56dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="4dp"
+                android:text="Caso verifique que está bicicleta é Furtada ou  Roubada ,ligue:"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dadosInformacaoID" />
+
+            <TextView
+                android:id="@+id/text190ID"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="177dp"
+                android:layout_marginLeft="177dp"
+                android:layout_marginRight="177dp"
+                android:layout_marginStart="177dp"
+                android:layout_marginTop="4dp"
+                android:text="190  Polícia Militar"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textCasoVerifiqueID"
+                app:layout_constraintVertical_bias="0.0" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

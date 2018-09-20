@@ -56,7 +56,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
     private TextView modelo;
     private TextView cor;
     private TextView descricao;
-
+    private String statusBike;
+    private TextView txtStatus;
 
 
     public  Bike bike;
@@ -96,6 +97,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         modelo           =  (TextView) findViewById(R.id.test3ID);
         cor              =  (TextView) findViewById(R.id.test4ID);
         descricao        =  (TextView) findViewById(R.id.test5ID);
+        txtStatus       =   (TextView) findViewById(R.id.statusSituacaoID);
 
 
 
@@ -180,7 +182,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 TextView descricaoText = (TextView) findViewById(R.id.test5ID);
                 descricaoText.setText(descricao);
 
+                String statuss = params.getString("status");
+                TextView statussText = (TextView) findViewById(R.id.statusSituacaoID);
+                statussText.setText(statuss);
 
+
+                statusBike = statuss;
 
 
             }
@@ -199,6 +206,28 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 
 
+
+       if(statusBike.equals("Furtada")){
+
+           radioButtonFurtada.toggle();
+           status = (RadioButton)findViewById(R.id.alertaFurtadaID);
+
+       }
+
+       if(statusBike.equals("Roubada")){
+
+           radioButtonRoubada.toggle();
+           status = (RadioButton)findViewById(R.id.alertaRoubadaID);
+
+
+       }
+
+       if(statusBike.equals("Sem Restrições")){
+
+           radioButtonNadaConsta.toggle();
+           status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
+
+       }
 
 
 
