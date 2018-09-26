@@ -270,6 +270,7 @@ public class CadastroUsuario extends AppCompatActivity {
                     preferencias.salvarUsuarioPreferencias(identificadorUsuario,usuarios.getNome());
 
 
+
                     abrirAreaUsuario();
 
                 }else{

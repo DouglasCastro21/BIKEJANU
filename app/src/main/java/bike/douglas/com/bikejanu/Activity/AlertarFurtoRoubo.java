@@ -60,6 +60,19 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
     private TextView txtStatus;
 
 
+
+    // campos texto
+
+    private TextView txtmensagem1;
+    private TextView txtmensagem2;
+    private TextView txtRua;
+    private TextView txtDataHora;
+    private TextView txtBairro;
+    private TextView txtNumero;
+    private TextView txtObservacao;
+    private TextView txtBoletim;
+
+
     public  Bike bike;
     private DatabaseReference firebase;
 
@@ -97,9 +110,20 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         modelo           =  (TextView) findViewById(R.id.test3ID);
         cor              =  (TextView) findViewById(R.id.test4ID);
         descricao        =  (TextView) findViewById(R.id.test5ID);
-        txtStatus       =   (TextView) findViewById(R.id.statusSituacaoID);
+        txtStatus        =   (TextView) findViewById(R.id.statusSituacaoID);
 
 
+
+        // campos txt
+
+        txtRua           = (TextView) findViewById(R.id.txtRuaID);
+        txtBairro        = (TextView) findViewById(R.id.txtBairroID);
+        txtBoletim       = (TextView) findViewById(R.id.txtBoletimID);
+        txtDataHora      = (TextView) findViewById(R.id.txtDataHoraID);
+        txtNumero        = (TextView) findViewById(R.id.txtNumeroID);
+        txtObservacao    = (TextView) findViewById(R.id.txtObservacaoID);
+        txtmensagem1     = (TextView) findViewById(R.id.casoID);
+      //  txtmensagem2     = (TextView) findViewById(R.id.txtmensagem2ID);
 
 
 
@@ -212,12 +236,55 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
            radioButtonFurtada.toggle();
            status = (RadioButton)findViewById(R.id.alertaFurtadaID);
 
+
+           alertaNumero.setVisibility(View.VISIBLE);
+           alertaRua.setVisibility(View.VISIBLE);
+           alertaBairro.setVisibility(View.VISIBLE);
+           alertaDescricao.setVisibility(View.VISIBLE);
+           alertaDate.setVisibility(View.VISIBLE);
+           alertaHora.setVisibility(View.VISIBLE);
+           Boletim.setVisibility(View.VISIBLE);
+
+
+
+           // campos txt
+           txtRua.setVisibility(View.VISIBLE);
+           txtBairro.setVisibility(View.VISIBLE);
+           txtNumero.setVisibility(View.VISIBLE);
+           txtDataHora.setVisibility(View.VISIBLE);
+           txtBoletim.setVisibility(View.VISIBLE);
+           txtObservacao.setVisibility(View.VISIBLE);
+           txtmensagem1.setVisibility(View.VISIBLE);
+
+
        }
 
        if(statusBike.equals("Roubada")){
 
            radioButtonRoubada.toggle();
            status = (RadioButton)findViewById(R.id.alertaRoubadaID);
+
+
+
+
+           alertaNumero.setVisibility(View.VISIBLE);
+           alertaRua.setVisibility(View.VISIBLE);
+           alertaBairro.setVisibility(View.VISIBLE);
+           alertaDescricao.setVisibility(View.VISIBLE);
+           alertaDate.setVisibility(View.VISIBLE);
+           alertaHora.setVisibility(View.VISIBLE);
+           Boletim.setVisibility(View.VISIBLE);
+
+
+
+           // campos txt
+           txtRua.setVisibility(View.VISIBLE);
+           txtBairro.setVisibility(View.VISIBLE);
+           txtNumero.setVisibility(View.VISIBLE);
+           txtDataHora.setVisibility(View.VISIBLE);
+           txtBoletim.setVisibility(View.VISIBLE);
+           txtObservacao.setVisibility(View.VISIBLE);
+           txtmensagem1.setVisibility(View.VISIBLE);
 
 
        }
@@ -227,7 +294,29 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
            radioButtonNadaConsta.toggle();
            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
 
+           alertaNumero.setVisibility(View.GONE);
+           alertaRua.setVisibility(View.GONE);
+           alertaBairro.setVisibility(View.GONE);
+           alertaDescricao.setVisibility(View.GONE);
+           alertaDate.setVisibility(View.GONE);
+           alertaHora.setVisibility(View.GONE);
+           Boletim.setVisibility(View.GONE);
+
+           txtRua.setVisibility(View.GONE);
+           txtBairro.setVisibility(View.GONE);
+           txtNumero.setVisibility(View.GONE);
+           txtDataHora.setVisibility(View.GONE);
+           txtBoletim.setVisibility(View.GONE);
+           txtObservacao.setVisibility(View.GONE);
+           txtmensagem1.setVisibility(View.GONE);
+
+
+
        }
+
+
+
+
 
 
 
@@ -237,6 +326,23 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
             caixaDialogoNadaConsta();
                 status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
+
+
+                alertaNumero.setVisibility(View.GONE);
+                alertaRua.setVisibility(View.GONE);
+                alertaBairro.setVisibility(View.GONE);
+                alertaDescricao.setVisibility(View.GONE);
+                alertaDate.setVisibility(View.GONE);
+                alertaHora.setVisibility(View.GONE);
+                Boletim.setVisibility(View.GONE);
+
+                txtRua.setVisibility(View.GONE);
+                txtBairro.setVisibility(View.GONE);
+                txtNumero.setVisibility(View.GONE);
+                txtDataHora.setVisibility(View.GONE);
+                txtBoletim.setVisibility(View.GONE);
+                txtObservacao.setVisibility(View.GONE);
+                txtmensagem1.setVisibility(View.GONE);
 
 
             }
@@ -250,6 +356,27 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
                 caixaDialogoFurtada();
                 status = (RadioButton)findViewById(R.id.alertaFurtadaID);
+
+
+
+                alertaNumero.setVisibility(View.VISIBLE);
+                alertaRua.setVisibility(View.VISIBLE);
+                alertaBairro.setVisibility(View.VISIBLE);
+                alertaDescricao.setVisibility(View.VISIBLE);
+                alertaDate.setVisibility(View.VISIBLE);
+                alertaHora.setVisibility(View.VISIBLE);
+                Boletim.setVisibility(View.VISIBLE);
+
+
+
+                // campos txt
+                txtRua.setVisibility(View.VISIBLE);
+                txtBairro.setVisibility(View.VISIBLE);
+                txtNumero.setVisibility(View.VISIBLE);
+                txtDataHora.setVisibility(View.VISIBLE);
+                txtBoletim.setVisibility(View.VISIBLE);
+                txtObservacao.setVisibility(View.VISIBLE);
+                txtmensagem1.setVisibility(View.VISIBLE);
 
 
             }
@@ -266,6 +393,27 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 status = (RadioButton)findViewById(R.id.alertaRoubadaID);
 
 
+
+                alertaNumero.setVisibility(View.VISIBLE);
+                alertaRua.setVisibility(View.VISIBLE);
+                alertaBairro.setVisibility(View.VISIBLE);
+                alertaDescricao.setVisibility(View.VISIBLE);
+                alertaDate.setVisibility(View.VISIBLE);
+                alertaHora.setVisibility(View.VISIBLE);
+                Boletim.setVisibility(View.VISIBLE);
+
+
+
+                // campos txt
+                txtRua.setVisibility(View.VISIBLE);
+                txtBairro.setVisibility(View.VISIBLE);
+                txtNumero.setVisibility(View.VISIBLE);
+                txtDataHora.setVisibility(View.VISIBLE);
+                txtBoletim.setVisibility(View.VISIBLE);
+                txtObservacao.setVisibility(View.VISIBLE);
+                txtmensagem1.setVisibility(View.VISIBLE);
+
+
             }
         });
 
@@ -276,17 +424,13 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (!alertaNumero.getText().toString().equals("") && !alertaBairro.getText().toString().equals("")&& !alertaRua.getText().toString().equals("")
-                        && !alertaDate.getText().toString().equals("")&& !alertaHora.getText().toString().equals("")){
 
 
                 inicializarElementos();
-
-
                 caixaDialogoConfirmarFurtoRoubo();
 
 
-            }
+
 
             }
         });

@@ -66,9 +66,9 @@ import static android.view.View.*;
 public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
-    private Context context;
-    private List<Bike> listabikes = new ArrayList<Bike>();
-    Integer cont=0;
+    public Context context;
+    public List<Bike> listabikes = new ArrayList<Bike>();
+    int cont=0;
 
 
 
@@ -78,20 +78,38 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-
-
-
     public BikeAdapter( Context c, ArrayList<Bike> objects) {
         super(c, 0,objects);
 
         this.context = c;
-       this.listabikes = objects;
+        this.listabikes = objects;
 
     }
 
 
 
 
+    @Override
+    public int getCount() {
+
+        return super.getCount();
+
+
+    }
+
+
+
+
+    @Nullable
+    @Override
+    public Bike getItem(int position) {
+        return super.getItem(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
+    }
 
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
@@ -99,8 +117,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
         View view = null;
 
-
-
+        int quantidadeBikes = getCount();
 
         // verifica se a lista está vazia
         if(listabikes!=null) {
@@ -155,7 +172,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-                   //  Toast.makeText(BikeAdapter.super.getContext(), "Quantidade de Bikes Roubadas   " +cont, Toast.LENGTH_LONG).show();
+                 //   Toast.makeText(BikeAdapter.super.getContext(), "Quantidade   " +getCount(), Toast.LENGTH_LONG).show();
 
 
 

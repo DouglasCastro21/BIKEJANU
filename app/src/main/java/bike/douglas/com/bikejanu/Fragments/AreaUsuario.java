@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -28,8 +29,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.auth.api.model.GetTokenResponse;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
+import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.Activity.Dialogo_Personalizado;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
@@ -55,7 +60,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
     private FirebaseAuth usuarioFirebase;
-    private FirebaseUser user;
+    private FirebaseUser usuario;
     private ImageButton btnmais;
     private ImageView ImagemUsuario;
     private  static final int PICK_IMAGE_REQUEST = 1;
@@ -87,20 +92,20 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_usuario);
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-//        firebaseDatabase.setPersistenceEnabled(true);
-        databaseReference = firebaseDatabase.getReference();
+         firebaseDatabase = FirebaseDatabase.getInstance();
+        // firebaseDatabase.setPersistenceEnabled(true);
+         databaseReference = firebaseDatabase.getReference();
 
 
 
        //Recuperar bikes do firebase
 
         Preferencias preferencias = new Preferencias(AreaUsuario.this);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
-        TextView receceNome = (TextView) findViewById(R.id.nomeUsuarioID);
+        final TextView receceNome = (TextView) findViewById(R.id.nomeUsuarioID);
         ImagemUsuario = (ImageView) findViewById(R.id.ImagemUsuarioID);
 
 
@@ -140,23 +145,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
-        if (user != null) {
 
 
 
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-
-
-
-
-
-
-
-            Toast.makeText(AreaUsuario.this, "Bem Vindo!  :"+receceNome, Toast.LENGTH_LONG).show();
-
-
-            String identificadorUsuario = Base64Custom.codificarBase64(email);
 
 
 
@@ -165,7 +156,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             listaBikes();
 
 
-        }
+
 
 
 
@@ -229,7 +220,12 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         } else if (id == R.id.nav_bike) {
 
 
+           // startActivity(new Intent(AreaUsuario.this, Consultar_Bike.class));
+
+
         } else if (id == R.id.nav_indices) {
+
+         //   startActivity(new Intent(AreaUsuario.this, Consultar_Indice.class));
 
         } else if (id == R.id.nav_configuracao) {
 
@@ -320,10 +316,10 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
             // verificar se precisa tirar ...nao sei pra uqe isso
-        arrayAdapterBike = new ArrayAdapter(
-                AreaUsuario.this,android.R.layout.simple_list_item_1,
-                listabikes
-        );
+    //    arrayAdapterBike = new ArrayAdapter(
+     //           AreaUsuario.this,android.R.layout.simple_list_item_1,
+       //         listabikes
+     //   );
 
 
          ////////////////////////////////////////////
@@ -336,7 +332,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
         //Recuperar contatos do firebase
-        Preferencias preferencias = new Preferencias(AreaUsuario.this);
+      //  Preferencias preferencias = new Preferencias(AreaUsuario.this);
+
 
         // recupera usuario pelo email
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -351,12 +348,18 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             String identificadorUsuario = Base64Custom.codificarBase64(email);
 
 
+            Toast.makeText(AreaUsuario.this, "Bem Vindo!  :", Toast.LENGTH_LONG).show();
+
 
 
             // escolhe os nós que vão ser listados
             databaseReference = Configuracao_Firebase.getFirebase()
                     .child("Bikes")
                     .child(identificadorUsuario);
+
+
+
+
 
         }
 

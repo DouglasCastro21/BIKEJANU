@@ -11,10 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,25 +25,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
-import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
-import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
 
 
 
 public class Tab1Codigo extends Fragment {
 
+
     private EditText editPalavra;
-    private ListView listPesquisa;
+    private static ListView listPesquisa;
 
 
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
+    private static DatabaseReference databaseReference;
+    static int quantidadeBikes;
 
 
-    private List<Bike> listBikes = new ArrayList<Bike>();
-    private ArrayAdapter<Bike> arrayAdapterBike;
+    public static List<Bike> listBikes = new ArrayList<Bike>();
+    public static ArrayAdapter<Bike> arrayAdapterBike;
 
 
 
@@ -60,6 +59,7 @@ public class Tab1Codigo extends Fragment {
 
          inicializarFirebase();
          eventEdit();
+
 
 
         return rootView;
@@ -99,17 +99,21 @@ public class Tab1Codigo extends Fragment {
 
     }
 
+
+
+
     private void pesquisarPalavra(String palavra) {
 
         Query query;
 
 
-        //Instânciar objetos
-        listBikes = new ArrayList<>();
+          //Instânciar objetos
+          listBikes = new ArrayList<>();
 
         if (palavra.equals("")) {
 
             query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+
         }else{
 
             query = databaseReference.child("TodasBikes")
@@ -122,23 +126,31 @@ public class Tab1Codigo extends Fragment {
 
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                listBikes.clear();
+                listBikes.clear();  // verificar depois o caso da area trabaljo
 
-            for (DataSnapshot objSnapshot:dataSnapshot.getChildren()){
+
+
+                for (DataSnapshot objSnapshot:dataSnapshot.getChildren()){
             Bike b = objSnapshot.getValue(Bike.class);
                   listBikes.add(b);
 
 
             }
 
-
                 // verificar se precisa tirar ...nao sei pra uqe isso
-                arrayAdapterBike = new ArrayAdapter(
-                        Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1,
-                        listBikes  );
+               // arrayAdapterBike = new ArrayAdapter(
+                   //     Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1, listBikes  );
 
                 arrayAdapterBike = new BikeAdapter(Tab1Codigo.super.getContext(), (ArrayList<Bike>) listBikes);
                 listPesquisa.setAdapter(arrayAdapterBike);
+
+                 int  quantidadeB = arrayAdapterBike.getCount();
+
+                 quantidadeBikes = quantidadeB;
+
+
+              //  Toast.makeText(Tab1Codigo.super.getContext(), "Quantidade   " +quantidadeBikes, Toast.LENGTH_LONG).show();
+
 
 
 
@@ -147,17 +159,22 @@ public class Tab1Codigo extends Fragment {
           //   listPesquisa.setAdapter(arrayAdapterBike);
             }
 
+
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
 
 
-            }
-        });
+             }
+             });
+
 
 
 
     }
+
+
 
     @Override
     public void onResume() {
@@ -165,5 +182,18 @@ public class Tab1Codigo extends Fragment {
 
         pesquisarPalavra("");
     }
+
+
+
+    public int retornaQuantidadeBikes() {
+
+    //    Toast.makeText(Tab1Codigo.super.getContext(), "Qade   " +quantidadeBikes, Toast.LENGTH_LONG).show();
+
+
+
+        return 13;
+    }
+
+
 }
 
