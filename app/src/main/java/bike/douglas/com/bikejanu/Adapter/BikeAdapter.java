@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.internal.NavigationMenuItemView;
@@ -46,9 +47,11 @@ import bike.douglas.com.bikejanu.Activity.EditarBike;
 import bike.douglas.com.bikejanu.Activity.ImagemBike;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Fragments.Entrar;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
+import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
 
 import java.lang.reflect.Array;
@@ -74,7 +77,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
     DatabaseReference databaseReference;
     FirebaseDatabase  firebaseDatabase;
-    RadioGroup radioGroup;
+
 
 
 
@@ -117,7 +120,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
         View view = null;
 
-        int quantidadeBikes = getCount();
+
 
         // verifica se a lista está vazia
         if(listabikes!=null) {
@@ -182,17 +185,13 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-
-
-
-
-
-            firebaseDatabase = FirebaseDatabase.getInstance();
-//          firebaseDatabase.setPersistenceEnabled(true);
+                 firebaseDatabase = FirebaseDatabase.getInstance();
+                   // firebaseDatabase.setPersistenceEnabled(true);
             databaseReference = firebaseDatabase.getReference();
 
 
             final Bike bike1 = listabikes.get(position);
+
 
             txtViewNumeroSerie.setText(bike1.getNumero_serie());
             txtViewMarca.setText(bike1.getMarca());

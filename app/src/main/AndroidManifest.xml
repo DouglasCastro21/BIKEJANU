@@ -45,7 +45,9 @@
         <activity android:name=".Activity.ImagemBike" />
         <activity android:name=".Activity.Dialogo_Personalizado" />
         <activity android:name=".Activity.AlertarFurtoRoubo" />
-        <activity android:name=".Activity.EditarBike"></activity>
+        <activity android:name=".Activity.EditarBike" />
     </application>
+
+
 
 </manifest>

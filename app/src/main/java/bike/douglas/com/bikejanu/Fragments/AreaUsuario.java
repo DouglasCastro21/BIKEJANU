@@ -80,9 +80,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     private List<Bike> listabikes = new ArrayList<Bike>();
     private ArrayAdapter <Bike> arrayAdapterBike;
 
-    private Usuarios usuarios;
+   // private Usuarios usuarios;
 
-    private AlertDialog alerta;
+  //  private AlertDialog alerta;
 
 
 
@@ -92,22 +92,21 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_usuario);
 
-         firebaseDatabase = FirebaseDatabase.getInstance();
-        // firebaseDatabase.setPersistenceEnabled(true);
-         databaseReference = firebaseDatabase.getReference();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+    //  firebaseDatabase.setPersistenceEnabled(true);
+       databaseReference = firebaseDatabase.getReference();
 
 
 
        //Recuperar bikes do firebase
 
-        Preferencias preferencias = new Preferencias(AreaUsuario.this);
+        final  Preferencias preferencias = new Preferencias(AreaUsuario.this);
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
         final TextView receceNome = (TextView) findViewById(R.id.nomeUsuarioID);
         ImagemUsuario = (ImageView) findViewById(R.id.ImagemUsuarioID);
-
 
 
 
@@ -130,9 +129,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
-
-
-
         btnmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,19 +140,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
-
-
-
-
-
-
-
-            // lista todas as bikes do usuario
+        // lista todas as bikes do usuario
 
             listaBikes();
-
-
-
 
 
 
@@ -174,6 +160,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             super.onBackPressed();
         }
     }
+
+
 
 
 
@@ -247,12 +235,14 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     public void deslogarUsuario(){
 
-        usuarioFirebase.signOut();
-        Intent intent = new Intent(AreaUsuario.this ,MainActivity.class);
-        startActivity(intent);
-        finish();
 
-    }
+
+        usuarioFirebase.signOut();
+      Intent intent = new Intent(AreaUsuario.this ,MainActivity.class);
+      startActivity(intent);
+       finish();
+
+  }
 
 
 
@@ -275,7 +265,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                deslogarUsuario();
+               deslogarUsuario();
+
+
 
             }
         });
@@ -289,8 +281,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         alertaDialog.create();
         alertaDialog.show();
-    }
 
+    }
 
 
 
@@ -304,6 +296,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
         //Instânciar objetos
         listabikes = new ArrayList<>();
+
 
         // Inflate the layout for this fragment
 
@@ -358,10 +351,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                     .child(identificadorUsuario);
 
 
+             }
 
-
-
-        }
 
 
         //Listener para recuperar bikes
@@ -371,7 +362,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
                 //Limpar lista
 
-                listabikes.clear();
+                   listabikes.clear();
 
                 //Listar bikes
                 for (DataSnapshot dados: dataSnapshot.getChildren() ){
@@ -426,7 +417,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
 
-                                        deslogarUsuario();
+                                       deslogarUsuario();
 
                                     }
                                 }

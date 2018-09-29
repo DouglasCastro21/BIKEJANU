@@ -9,6 +9,9 @@ public class Configuracao_Firebase {
 
     private  static DatabaseReference referenciaFirebase;
     private static FirebaseAuth autenticacao;
+   private  static FirebaseDatabase firebaseDatabase;
+
+
 
 
 
@@ -16,10 +19,32 @@ public class Configuracao_Firebase {
 
         if (referenciaFirebase == null) {
             referenciaFirebase = FirebaseDatabase.getInstance().getReference();
+
+
         }
 
         return referenciaFirebase;
     }
+
+
+
+
+    //persistencia
+
+    public static  FirebaseDatabase getFireb(){
+
+        if(firebaseDatabase ==null){
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            firebaseDatabase.setPersistenceEnabled(true);
+
+
+        }
+
+        return firebaseDatabase;
+
+
+    }
+
 
 
     public static FirebaseAuth getFirebaseAutenticacao(){
@@ -30,6 +55,8 @@ public class Configuracao_Firebase {
        }
         return autenticacao;
     }
+
+
 
 
 }

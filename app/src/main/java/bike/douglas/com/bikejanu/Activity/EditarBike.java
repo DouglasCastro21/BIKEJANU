@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
@@ -49,9 +50,6 @@ public class EditarBike extends AppCompatActivity {
     private RadioButton status;
     private TextView txtStatus;
     String statusBike;
-
-
-
 
 
 
@@ -240,6 +238,7 @@ public class EditarBike extends AppCompatActivity {
 
 
     private void inicializarElementos(){
+
 
         bike = new Bike();
         bike.setNumero_serie(numero_serie.getText().toString());

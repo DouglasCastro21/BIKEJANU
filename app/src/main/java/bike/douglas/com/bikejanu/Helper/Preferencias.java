@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.EditText;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Preferencias {
 
     private Context context;
@@ -17,13 +19,19 @@ public class Preferencias {
     private final String CHAVE_NOME = "nomeUsuarioLogado";
 
 
+
+
     public Preferencias(Context context) {
         this.context = context;
 
         preferences = context.getSharedPreferences(NOME_ARQUIVO,MODE);
 
         editor = preferences.edit();
+
+
     }
+
+
 
 
     public  void salvarUsuarioPreferencias(String identificadorUsuario, String nomeUsuario){
