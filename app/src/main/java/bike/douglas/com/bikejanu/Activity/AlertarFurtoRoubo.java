@@ -1,5 +1,7 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,11 +11,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
@@ -24,17 +28,19 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.security.acl.Group;
 import java.time.Duration;
+import java.util.Calendar;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
+import bike.douglas.com.bikejanu.Fragments.Tab2Data;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
 
 
 
 
-public class AlertarFurtoRoubo extends AppCompatActivity {
+public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClickListener {
 
 
     private EditText alertaNumero;
@@ -75,6 +81,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
     public  Bike bike;
     private DatabaseReference firebase;
+    private int dia,mes,ano,hora,minuto;
 
 
     @Override
@@ -124,6 +131,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         txtObservacao    = (TextView) findViewById(R.id.txtObservacaoID);
         txtmensagem1     = (TextView) findViewById(R.id.casoID);
       //  txtmensagem2     = (TextView) findViewById(R.id.txtmensagem2ID);
+
+
+        alertaDate.setOnClickListener(AlertarFurtoRoubo.this);
+        alertaHora.setOnClickListener(AlertarFurtoRoubo.this);
+
+
 
 
 
@@ -224,13 +237,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 
 
-
-            mascaras();
-
-
-
-
-
        if(statusBike.equals("Furtada")){
 
            radioButtonFurtada.toggle();
@@ -317,9 +323,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 
 
-
-
-
         radioButtonNadaConsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -378,6 +381,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 txtObservacao.setVisibility(View.VISIBLE);
                 txtmensagem1.setVisibility(View.VISIBLE);
 
+                alertaDate.requestFocus();
+
+
 
             }
         });
@@ -413,6 +419,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
                 txtObservacao.setVisibility(View.VISIBLE);
                 txtmensagem1.setVisibility(View.VISIBLE);
 
+                alertaDate.requestFocus();
+
 
             }
         });
@@ -440,16 +448,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
 
 
 
-    public void mascaras() {
-
-        SimpleMaskFormatter simpleMaskData = new SimpleMaskFormatter("NN/NN/NNNN");
-        MaskTextWatcher maskData = new MaskTextWatcher(alertaDate, simpleMaskData);
-        alertaDate.addTextChangedListener(maskData);
-
-        SimpleMaskFormatter simpleMaskHora = new SimpleMaskFormatter("NN:NN");
-        MaskTextWatcher maskHora = new MaskTextWatcher(alertaHora, simpleMaskHora);
-        alertaHora.addTextChangedListener(maskHora);
-    }
 
 
     private void inicializarElementos(){
@@ -472,6 +470,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         bike.setModelo(modelo.getText().toString());
         bike.setCor(cor.getText().toString());
         bike.setDescricao(descricao.getText().toString());
+
 
     }
 
@@ -660,5 +659,64 @@ public class AlertarFurtoRoubo extends AppCompatActivity {
         alertaDialog.create();
         alertaDialog.show();
     }
+
+
+    public void onClick(View v) {
+
+        if(v==alertaDate){
+
+            final Calendar calendar = Calendar.getInstance();
+
+            dia = calendar.get(Calendar.DAY_OF_MONTH);
+            mes = calendar.get(Calendar.MONTH);
+            ano = calendar.get(Calendar.YEAR);
+
+
+            final DatePickerDialog datePickerDialog = new  DatePickerDialog(AlertarFurtoRoubo.this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                    alertaDate.setText(dayOfMonth +"/"+(month+1)+"/"+year);
+
+
+                }
+            }
+
+                    ,ano,mes,dia);
+            datePickerDialog.show();
+            alertaHora.requestFocus();
+
+        }
+        if(v==alertaHora){
+
+            final Calendar calendar = Calendar.getInstance();
+            hora = calendar.get(Calendar.HOUR_OF_DAY);
+            minuto = calendar.get(Calendar.MINUTE);
+
+            final TimePickerDialog timePickerDialog= new TimePickerDialog(AlertarFurtoRoubo.this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+
+                    alertaHora.setText(hourOfDay +":"+minute);
+
+                }
+            },hora,minuto,false);
+            timePickerDialog.show();
+
+
+
+            }
+
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+
+
+
 
 }

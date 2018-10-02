@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +52,9 @@ public class CadastroUsuario extends AppCompatActivity {
     private ImageView imagemPerfil;
     private Uri uriImagem;
     private CheckBox checkBox;
+    private ProgressBar progressBar;
+    private ImageView fundo;
+    private  TextView criando;
 
 
 
@@ -126,6 +130,10 @@ public class CadastroUsuario extends AppCompatActivity {
         botaoBuscarImagem = (Button) findViewById(R.id.btnBuscarImagemID);
         checkBox = (CheckBox) findViewById(R.id.checkBoxMilitarID);
 
+        progressBar = (ProgressBar)findViewById(R.id.progressBarCdastroID);
+        fundo       = (ImageView)findViewById(R.id.fundoID);
+        criando     = (TextView) findViewById(R.id.criandoID);
+
 
         mascaras();
 
@@ -162,6 +170,10 @@ public class CadastroUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                progressBar.setVisibility(View.VISIBLE);
+                fundo.setVisibility(View.VISIBLE);
+                criando.setVisibility(View.VISIBLE);
+
                 if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
                         !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
                         !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")){
@@ -181,6 +193,9 @@ public class CadastroUsuario extends AppCompatActivity {
 
                             Toast.makeText(CadastroUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
                             email.requestFocus();
+                       progressBar.setVisibility(View.GONE);
+                         fundo.setVisibility(View.GONE);
+                         criando.setVisibility(View.GONE);
 
 
                         }
@@ -190,16 +205,23 @@ public class CadastroUsuario extends AppCompatActivity {
 
                         Toast.makeText(CadastroUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
                         senha.requestFocus();
-                    }
+                        progressBar.setVisibility(View.GONE);
+                         fundo.setVisibility(View.GONE);
+                         criando.setVisibility(View.GONE);
+
+                     }
 
             }else {
 
 
                     Toast.makeText(CadastroUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
+                    progressBar.setVisibility(View.GONE);
+                    fundo.setVisibility(View.GONE);
+                    criando.setVisibility(View.GONE);
 
 
-                                        }
+                }
                                     }
 
         });
@@ -259,7 +281,11 @@ public class CadastroUsuario extends AppCompatActivity {
 
                     if (task.isSuccessful()){
 
-                    Toast.makeText(CadastroUsuario.this,"Usuário cadastrado com sucesso!",Toast.LENGTH_LONG).show();
+                        progressBar.setVisibility(View.GONE);
+                        fundo.setVisibility(View.GONE);
+                        criando.setVisibility(View.GONE);
+
+                        Toast.makeText(CadastroUsuario.this,"Usuário cadastrado com sucesso!",Toast.LENGTH_LONG).show();
 
                     String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
                     FirebaseUser usuarioFirebase = task.getResult().getUser();
@@ -274,7 +300,7 @@ public class CadastroUsuario extends AppCompatActivity {
                     abrirAreaUsuario();
 
                 }else{
-
+                        progressBar.setVisibility(View.GONE);
                     String erroExcecao = "";
 
                     try {
@@ -291,7 +317,7 @@ public class CadastroUsuario extends AppCompatActivity {
                         email.requestFocus();
 
                     } catch (Exception e){
-                        erroExcecao = "Erro ao efetuar cadastro, verifique os campos";
+                        erroExcecao = "Erro ao efetuar cadastro,verifique a Conexão com a internet";
                         e.printStackTrace();
 
                     }

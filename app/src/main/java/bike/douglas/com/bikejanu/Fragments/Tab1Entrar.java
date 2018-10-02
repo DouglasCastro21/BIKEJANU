@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +29,12 @@ import bike.douglas.com.bikejanu.R;
 public class Tab1Entrar extends Fragment  {
 
 
-    private EditText edtEmail;
-    private EditText edtSenha;
-    private Button btnLogar;
+
+
     private FirebaseAuth autenticacao;
     private Usuarios usuarios;
     private Entrar.SectionsPagerAdapter entrar;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,7 +45,9 @@ public class Tab1Entrar extends Fragment  {
 
         final TextView edtEmail = (TextView) rootView.findViewById(R.id.EmailID);
         final TextView edtSenha = (TextView) rootView.findViewById(R.id.SenhaID);
+        progressBar = (ProgressBar)rootView.findViewById(R.id.progressBarEntrarID);
         Button btnLogar = (Button) rootView.findViewById(R.id.LogarID);
+
 
         btnLogar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,12 +60,13 @@ public class Tab1Entrar extends Fragment  {
                     usuarios.setEmail(edtEmail.getText().toString());
                     usuarios.setSenha(edtSenha.getText().toString());
 
+                    progressBar.setVisibility(View.VISIBLE);
                     validarLogin();
 
                 } else {
 
                     Toast.makeText(Tab1Entrar.super.getActivity(), "Preencha os campos de E-mail e senha", Toast.LENGTH_SHORT).show();
-
+                    progressBar.setVisibility(View.GONE);
                 }
 
             }
@@ -85,6 +89,7 @@ public class Tab1Entrar extends Fragment  {
 
             if (task.isSuccessful()){
                 Tab1Entrar.super.getActivity().finish();
+
                 abrirTElaPrincipal();
 
 
@@ -94,8 +99,7 @@ public class Tab1Entrar extends Fragment  {
             }else {
 
                 Toast.makeText(Tab1Entrar.super.getActivity(), "Usuário ou senha invalidos", Toast.LENGTH_SHORT).show();
-
-
+                progressBar.setVisibility(View.GONE);
             }
 
         }

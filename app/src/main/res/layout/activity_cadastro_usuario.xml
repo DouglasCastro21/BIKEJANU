@@ -23,20 +23,22 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@mipmap/ic_launcher_background_andando" />
 
+
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
 
             <ImageView
                 android:id="@+id/imagemPerfilID"
@@ -358,7 +360,56 @@
                 app:layout_constraintHorizontal_bias="0.079"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/senhaID" />
+
+            <ImageView
+                android:id="@+id/fundoID"
+                android:layout_width="312dp"
+                android:layout_height="328dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginStart="36dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/NumeroID"
+                app:srcCompat="@android:drawable/screen_background_light_transparent" />
+
+            <ProgressBar
+                android:id="@+id/progressBarCdastroID"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="119dp"
+                android:layout_height="118dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="22dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/telefoneID" />
+
+            <TextView
+                android:id="@+id/criandoID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:text="Criando Perfil ..."
+                android:textColor="#9bf330"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarCdastroID" />
+
         </android.support.constraint.ConstraintLayout>
+
+
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

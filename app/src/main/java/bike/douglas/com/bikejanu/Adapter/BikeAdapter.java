@@ -28,6 +28,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,7 +73,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     public Context context;
     public List<Bike> listabikes = new ArrayList<Bike>();
     int cont=0;
-
+    private ProgressBar progressBar;
 
 
     DatabaseReference databaseReference;
@@ -164,10 +165,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final TextView txtViewAlertaHora      = (TextView) view.findViewById(R.id.alertaHoraID);
             final TextView txtViewAlertaBoletim   = (TextView) view.findViewById(R.id.BoletimID);
             final TextView txtViewAlertaDescricao = (TextView) view.findViewById(R.id.alertaDescricaoID);
-
-
-
-
 
             Bike bikeRoubadaFurtada;
             bikeRoubadaFurtada = listabikes.get(position);

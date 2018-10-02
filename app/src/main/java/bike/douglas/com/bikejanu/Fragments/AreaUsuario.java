@@ -24,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +73,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
     private ListView listViewDados;
@@ -111,6 +113,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -145,10 +148,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             listaBikes();
 
 
-
     }
-
-
 
 
     @Override
@@ -236,11 +236,10 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     public void deslogarUsuario(){
 
 
-
-        usuarioFirebase.signOut();
+      usuarioFirebase.signOut();
       Intent intent = new Intent(AreaUsuario.this ,MainActivity.class);
       startActivity(intent);
-       finish();
+      finish();
 
   }
 
@@ -268,7 +267,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                deslogarUsuario();
 
 
-
             }
         });
 
@@ -292,36 +290,15 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     public void listaBikes(){
 
 
-
-
         //Instânciar objetos
         listabikes = new ArrayList<>();
-
-
-        // Inflate the layout for this fragment
-
-
-        //Monta listview e adapter
-      //  listView = (ListView) findViewById(R.id.listaBikesID);
-
-        ////////////////////////////////////////////////////////////////////
-
-
-
-            // verificar se precisa tirar ...nao sei pra uqe isso
-    //    arrayAdapterBike = new ArrayAdapter(
-     //           AreaUsuario.this,android.R.layout.simple_list_item_1,
-       //         listabikes
-     //   );
-
-
-         ////////////////////////////////////////////
-
 
         arrayAdapterBike = new BikeAdapter(AreaUsuario.this, (ArrayList<Bike>) listabikes);
         listViewDados.setAdapter(arrayAdapterBike);
 
         registerForContextMenu(listViewDados);
+
+
 
 
         //Recuperar contatos do firebase
@@ -342,7 +319,6 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
             Toast.makeText(AreaUsuario.this, "Bem Vindo!  :", Toast.LENGTH_LONG).show();
-
 
 
             // escolhe os nós que vão ser listados
@@ -384,10 +360,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     }
 
-    
+
 
     public void excluirUsuario() {
-
 
 
             AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AreaUsuario.this);
