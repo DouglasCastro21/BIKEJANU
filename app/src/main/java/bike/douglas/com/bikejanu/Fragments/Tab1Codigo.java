@@ -65,6 +65,10 @@ public class Tab1Codigo extends Fragment {
         return rootView;
     }
 
+
+
+
+
     private void inicializarFirebase() {
 
         FirebaseApp.initializeApp(Tab1Codigo.super.getContext());
@@ -144,19 +148,7 @@ public class Tab1Codigo extends Fragment {
                 arrayAdapterBike = new BikeAdapter(Tab1Codigo.super.getContext(), (ArrayList<Bike>) listBikes);
                 listPesquisa.setAdapter(arrayAdapterBike);
 
-                 int  quantidadeB = arrayAdapterBike.getCount();
 
-                 quantidadeBikes = quantidadeB;
-
-
-              //  Toast.makeText(Tab1Codigo.super.getContext(), "Quantidade   " +quantidadeBikes, Toast.LENGTH_LONG).show();
-
-
-
-
-                // arrayAdapterBike = new ArrayAdapter<Bike>(Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1,listaBikes);
-
-          //   listPesquisa.setAdapter(arrayAdapterBike);
             }
 
 
@@ -184,15 +176,6 @@ public class Tab1Codigo extends Fragment {
     }
 
 
-
-    public int retornaQuantidadeBikes() {
-
-    //    Toast.makeText(Tab1Codigo.super.getContext(), "Qade   " +quantidadeBikes, Toast.LENGTH_LONG).show();
-
-
-
-        return 13;
-    }
 
 
 }

@@ -95,10 +95,13 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     @Override
     public int getCount() {
 
+
+
         return super.getCount();
 
 
     }
+
 
 
 
@@ -129,6 +132,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
             final LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.lista_bikes, parent, false);
+
 
 
           // if(position % 2 ==0){
