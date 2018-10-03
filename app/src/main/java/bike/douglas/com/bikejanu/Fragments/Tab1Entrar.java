@@ -35,6 +35,7 @@ public class Tab1Entrar extends Fragment  {
     private Usuarios usuarios;
     private Entrar.SectionsPagerAdapter entrar;
     private ProgressBar progressBar;
+    private TextView carregando;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,7 +47,13 @@ public class Tab1Entrar extends Fragment  {
         final TextView edtEmail = (TextView) rootView.findViewById(R.id.EmailID);
         final TextView edtSenha = (TextView) rootView.findViewById(R.id.SenhaID);
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBarEntrarID);
+        carregando  = (TextView)rootView.findViewById(R.id.carregandoID);
+
+
+
         Button btnLogar = (Button) rootView.findViewById(R.id.LogarID);
+
+
 
 
         btnLogar.setOnClickListener(new View.OnClickListener() {
@@ -61,12 +68,14 @@ public class Tab1Entrar extends Fragment  {
                     usuarios.setSenha(edtSenha.getText().toString());
 
                     progressBar.setVisibility(View.VISIBLE);
+                    carregando.setVisibility(View.VISIBLE);
                     validarLogin();
 
                 } else {
 
                     Toast.makeText(Tab1Entrar.super.getActivity(), "Preencha os campos de E-mail e senha", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
+                    carregando.setVisibility(View.GONE);
                 }
 
             }
@@ -100,6 +109,7 @@ public class Tab1Entrar extends Fragment  {
 
                 Toast.makeText(Tab1Entrar.super.getActivity(), "Usuário ou senha invalidos", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
+                carregando.setVisibility(View.GONE);
             }
 
         }

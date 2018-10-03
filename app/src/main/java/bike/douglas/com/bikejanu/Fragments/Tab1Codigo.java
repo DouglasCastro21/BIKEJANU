@@ -34,7 +34,7 @@ public class Tab1Codigo extends Fragment {
 
 
     private EditText editPalavra;
-    private static ListView listPesquisa;
+    private  ListView listPesquisa;
 
 
     private FirebaseDatabase firebaseDatabase;

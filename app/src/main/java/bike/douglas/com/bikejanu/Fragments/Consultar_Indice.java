@@ -43,7 +43,7 @@ import bike.douglas.com.bikejanu.R;
 
 
 
-public class Consultar_Indice extends AppCompatActivity {
+public class Consultar_Indice extends AppCompatActivity  {
 
 
 
@@ -153,7 +153,6 @@ public class Consultar_Indice extends AppCompatActivity {
 
                 arrayAdapterBike.notifyDataSetChanged();
                 Toast.makeText(Consultar_Indice.this, "quantidade de bikes!  :"+arrayAdapterBike.getCount(), Toast.LENGTH_LONG).show();
-
 
 
                }
