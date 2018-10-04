@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -20,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,9 +40,10 @@ public class Tab1Codigo extends Fragment {
     private  ListView listPesquisa;
 
 
+
     private FirebaseDatabase firebaseDatabase;
     private static DatabaseReference databaseReference;
-    static int quantidadeBikes;
+
 
 
     public static List<Bike> listBikes = new ArrayList<Bike>();
@@ -57,8 +61,10 @@ public class Tab1Codigo extends Fragment {
          editPalavra = (EditText)  rootView.findViewById(R.id.pesquisaCodigoID);
          listPesquisa = (ListView) rootView.findViewById(R.id.listabikeCodigoID);
 
+
          inicializarFirebase();
          eventEdit();
+
 
 
 
@@ -74,6 +80,7 @@ public class Tab1Codigo extends Fragment {
         FirebaseApp.initializeApp(Tab1Codigo.super.getContext());
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+
 
     }
 

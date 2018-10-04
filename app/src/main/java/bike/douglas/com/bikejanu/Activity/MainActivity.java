@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     DatabaseReference databaseReference;
 
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //persistencia
+ //banco
 
      FirebaseDatabase firebaseDatabase = Configuracao_Firebase.getFireb();
 
@@ -69,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 startActivity(new Intent(MainActivity.this, Consultar_Indice.class));
+
+               // startActivity(new Intent(MainActivity.this, MapsActivity.class));
             }
         });
 

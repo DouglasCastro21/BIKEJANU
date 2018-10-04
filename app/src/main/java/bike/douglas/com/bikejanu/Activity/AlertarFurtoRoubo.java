@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +53,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private EditText alertaDescricao;
     private  RadioButton radioButtonFurtada;
     private RadioButton   status;
+
 
 
 

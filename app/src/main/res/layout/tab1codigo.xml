@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.Consultar_Bike$PlaceholderFragment">
 
-
     <EditText
         android:id="@+id/pesquisaCodigoID"
         android:layout_width="295dp"
@@ -22,6 +21,7 @@
         android:ems="10"
         android:hint="Pesquisa por Número de Série"
         android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

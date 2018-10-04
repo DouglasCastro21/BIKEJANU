@@ -134,9 +134,9 @@ public class Tab3Cor extends Fragment {
                 }
 
 
-                arrayAdapterBike = new ArrayAdapter(
-                        Tab3Cor.super.getContext(),android.R.layout.simple_list_item_1,
-                        listBikes  );
+               // arrayAdapterBike = new ArrayAdapter(
+                  //      Tab3Cor.super.getContext(),android.R.layout.simple_list_item_1,
+                     //   listBikes  );
 
                 arrayAdapterBike = new BikeAdapter(Tab3Cor.super.getContext(), (ArrayList<Bike>) listBikes);
                 listPesquisa.setAdapter(arrayAdapterBike);
