@@ -134,7 +134,15 @@ public class CadastroBike extends AppCompatActivity  {
         spinner = (Spinner) findViewById(R.id.spinnerMarcaID);
         spinner.setAdapter(arrayAdapter);
 
+        numero_serie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                caixaDialogoNumeroQUadro();
+
+
+            }
+        });
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -591,6 +599,39 @@ public class CadastroBike extends AppCompatActivity  {
     }
 
 
+    private void caixaDialogoNumeroQUadro(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(CadastroBike.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("Definição");
+
+
+        alertaDialog.setMessage("O número do quadro geralmente se encontra na parte central da bike, junto ao ponto de fixação dos pedais ou perto da presilha que prende o acento.");
+        // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
 
 
     }

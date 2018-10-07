@@ -1,38 +1,20 @@
 package bike.douglas.com.bikejanu.Adapter;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.internal.NavigationMenuItemView;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.app.AppCompatDialogFragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -40,28 +22,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import bike.douglas.com.bikejanu.Activity.AlertarFurtoRoubo;
-import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.DadosBike;
 
-import bike.douglas.com.bikejanu.Activity.Dialogo_Personalizado;
 import bike.douglas.com.bikejanu.Activity.EditarBike;
-import bike.douglas.com.bikejanu.Activity.ImagemBike;
-import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Entidades.Usuarios;
-import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
-import bike.douglas.com.bikejanu.Fragments.Entrar;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
-import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Entidades.Bike;
 
-import static android.support.v4.content.ContextCompat.startActivity;
 import static android.view.View.*;
 
 
@@ -78,6 +50,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
     DatabaseReference databaseReference;
     FirebaseDatabase  firebaseDatabase;
+
 
 
 
@@ -136,7 +109,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-          // if(position % 2 ==0){
+          // if(position <=0){
 
              //  view.setBackgroundColor(Color.YELLOW);
 
@@ -147,10 +120,12 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
+
+
             final TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             final TextView txtViewMarca       = (TextView) view.findViewById(R.id.txtViewMarca);
             final TextView txtViewCaixaDescricao    = (TextView) view.findViewById(R.id.CaixaDescricaoID);
-            final ImageView imagem            = (ImageView) view.findViewById(R.id.imagemListaID);
+            final ImageView imagem            = (ImageView) view.findViewById(R.id.listaImagemID);
             final TextView txtViewModelo      = (TextView) view.findViewById(R.id.textViewModeloID);
             final TextView txtViewCor         = (TextView) view.findViewById(R.id.textViewCorID);
             final TextView txtViewStatus         = (TextView) view.findViewById(R.id.textStatusID);
@@ -170,13 +145,14 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             bikeRoubadaFurtada = listabikes.get(position);
 
 
+
+
                 if( bikeRoubadaFurtada.getStatus().equals("Furtada") || bikeRoubadaFurtada.getStatus().equals("Roubada")){
 
                        view.setBackgroundColor(Color.RED);
 
 
 
-                 //   Toast.makeText(BikeAdapter.super.getContext(), "Quantidade   " +getCount(), Toast.LENGTH_LONG).show();
 
 
 
@@ -186,7 +162,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-                 firebaseDatabase = FirebaseDatabase.getInstance();
+              firebaseDatabase = FirebaseDatabase.getInstance();
                    // firebaseDatabase.setPersistenceEnabled(true);
             databaseReference = firebaseDatabase.getReference();
 
@@ -420,8 +396,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                 });
 
         }
+
         }
+
         return view;
+
 
 
     }

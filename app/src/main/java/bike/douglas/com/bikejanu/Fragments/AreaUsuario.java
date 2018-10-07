@@ -5,10 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,23 +15,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
-import com.google.firebase.auth.api.model.GetTokenResponse;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,13 +37,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
-import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
-import bike.douglas.com.bikejanu.Activity.Dialogo_Personalizado;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
-import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
@@ -106,6 +94,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
+
+
+
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
         final TextView receceNome = (TextView) findViewById(R.id.nomeUsuarioID);
         ImagemUsuario = (ImageView) findViewById(R.id.ImagemUsuarioID);
@@ -132,6 +123,13 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
+        // lista todas as bikes do usuario
+
+        listaBikes();
+
+
+
         btnmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,9 +141,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
-        // lista todas as bikes do usuario
 
-            listaBikes();
+
 
 
     }
@@ -301,6 +298,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
         //Recuperar contatos do firebase
       //  Preferencias preferencias = new Preferencias(AreaUsuario.this);
 
@@ -308,9 +306,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         // recupera usuario pelo email
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user != null) {
 
-            String name = user.getDisplayName();
             String email = user.getEmail();
 
 
@@ -318,7 +314,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             String identificadorUsuario = Base64Custom.codificarBase64(email);
 
 
-            Toast.makeText(AreaUsuario.this, "Bem Vindo!  :", Toast.LENGTH_LONG).show();
+
 
 
             // escolhe os nós que vão ser listados
@@ -327,7 +323,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                     .child(identificadorUsuario);
 
 
-             }
+
 
 
 
@@ -347,9 +343,30 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                     listabikes.add( b );
 
 
+
                 }
 
                 arrayAdapterBike.notifyDataSetChanged();
+
+                ImageView setaLista    = (ImageView) findViewById(R.id.setaListaID);
+                ImageView imagemLista  = (ImageView) findViewById(R.id.bikeListaID);
+                TextView  texto        = (TextView)  findViewById(R.id.textoSomeID);
+
+
+                if(arrayAdapterBike.getCount() >=1) {
+
+                        setaLista.setVisibility(View.GONE);
+                        imagemLista.setVisibility(View.GONE);
+                        texto.setVisibility(View.GONE);
+
+
+                }else{
+                      setaLista.setVisibility(View.VISIBLE);
+                      imagemLista.setVisibility(View.VISIBLE);
+                      texto.setVisibility(View.VISIBLE);
+
+                }
+
             }
 
             @Override

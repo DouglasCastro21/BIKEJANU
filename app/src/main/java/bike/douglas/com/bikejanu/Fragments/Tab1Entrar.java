@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Usuarios;
 import bike.douglas.com.bikejanu.R;
@@ -103,6 +104,7 @@ public class Tab1Entrar extends Fragment  {
 
 
                 Toast.makeText(Tab1Entrar.super.getActivity(),"Login Efetuado com Sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Tab1Entrar.super.getActivity(),"Bem Vindo!", Toast.LENGTH_SHORT).show();
 
 
             }else {
