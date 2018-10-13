@@ -85,6 +85,7 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
 
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -99,7 +100,14 @@
 
         <activity
             android:name=".Activity.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".Activity.MapsActivity2"
+            android:label="@string/title_activity_maps2" />
+        <activity android:name=".Activity.Grafico" />
+        <activity
+            android:name=".Activity.MapsRoubosActivity"
+            android:label="@string/title_activity_maps_roubos"></activity>
     </application>
 
 </manifest>

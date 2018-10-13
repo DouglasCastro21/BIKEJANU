@@ -153,9 +153,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-
-
-
               }
 
 

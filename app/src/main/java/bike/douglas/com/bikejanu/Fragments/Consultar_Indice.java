@@ -3,16 +3,20 @@ package bike.douglas.com.bikejanu.Fragments;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,6 +37,9 @@ import java.text.FieldPosition;
 import java.util.ArrayList;
 import java.util.List;
 
+import bike.douglas.com.bikejanu.Activity.CadastroBike;
+import bike.douglas.com.bikejanu.Activity.Grafico;
+import bike.douglas.com.bikejanu.Activity.MapsRoubosActivity;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
@@ -46,14 +53,8 @@ import bike.douglas.com.bikejanu.R;
 public class Consultar_Indice extends AppCompatActivity  {
 
 
+private ImageView botaoGrafico;
 
-    DatabaseReference databaseReference;
-    FirebaseDatabase firebaseDatabase;
-    private ListView listViewDados;
-
-
-    private List<Bike> listabikes = new ArrayList<Bike>();
-    private ArrayAdapter <Bike> arrayAdapterBike;
 
 
     @Override
@@ -61,109 +62,64 @@ public class Consultar_Indice extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar__indice);
 
-        inicializarFirebase();
-        listaBikes();
+
+        botaoGrafico = (ImageView)findViewById(R.id.BotaoGraficoID);
 
 
 
 
-
-
-
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3)
-        });
-        graph.addSeries(series);
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
-    private void inicializarFirebase() {
-
-        FirebaseApp.initializeApp(Consultar_Indice.this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
-
-    }
-
-
-    //lista todas as bikes dos usuarios
-
-    public void listaBikes(){
-
-
-
-        //Instânciar objetos
-        listabikes = new ArrayList<>();
-
-
-        ////////////////////////////////////////////
-
-
-        arrayAdapterBike = new BikeAdapter(Consultar_Indice.this, (ArrayList<Bike>) listabikes);
-      //  listViewDados.setAdapter(arrayAdapterBike);
-
-       // registerForContextMenu(listViewDados);
-
-
-
-
-
-            // escolhe os nós que vão ser listados
-            databaseReference = Configuracao_Firebase.getFirebase()
-                    .child("TodasBikes");
-
-
-
-
-
-
-
-        //Listener para recuperar bikes
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        botaoGrafico.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                //Limpar lista
-
-                listabikes.clear();
-
-                //Listar bikes
-                for (DataSnapshot dados: dataSnapshot.getChildren() ){
-
-                    Bike b = dados.getValue( Bike.class );
-                    listabikes.add( b );
+            public void onClick(View v) {
 
 
-                }
-
-                arrayAdapterBike.notifyDataSetChanged();
-                Toast.makeText(Consultar_Indice.this, "quantidade de bikes!  :"+arrayAdapterBike.getCount(), Toast.LENGTH_LONG).show();
-
-
-               }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+caixaDialogoGraficos();
 
             }
         });
 
+
     }
+
+    private void caixaDialogoGraficos(){
+
+        final CharSequence[] opcoes = {"Mapa dos Crimes", "Gráfico de Barras", "Gráfico de Pizza"};
+
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Consultar_Indice.this);
+        builder.setTitle("");
+        builder.setItems(opcoes, new DialogInterface.OnClickListener() {
+
+
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+
+                if (opcoes[i].equals("Mapa dos Crimes")) {
+
+                    startActivity(new Intent(Consultar_Indice.this, MapsRoubosActivity.class));
+
+
+                }else if (opcoes[i].equals("Gráfico de Barras")){
+
+                      startActivity(new Intent(Consultar_Indice.this, Grafico.class));
+
+
+                }else if (opcoes[i].equals("Gráfico de Pizza")){
+
+                    Toast.makeText(Consultar_Indice.this, " 3", Toast.LENGTH_LONG).show();
+
+
+
+
+                }
+
+            }
+
+                });
+
+                builder.show();
+            }
 
 
 }

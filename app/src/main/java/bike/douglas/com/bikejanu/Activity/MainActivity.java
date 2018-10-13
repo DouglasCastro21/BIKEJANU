@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-             //   startActivity(new Intent(MainActivity.this, Consultar_Indice.class));
+                startActivity(new Intent(MainActivity.this, Consultar_Indice.class));
 
-               startActivity(new Intent(MainActivity.this, MapsActivity.class));
+                //  startActivity(new Intent(MainActivity.this, MapsActivity2.class));
             }
         });
 
@@ -112,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
 
             abrirTElaPrincipal();
             finish();
-
-
 
         }
     }

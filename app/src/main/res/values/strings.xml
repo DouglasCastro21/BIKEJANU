@@ -35,6 +35,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="titulo">Nova Bike</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps2">Map</string>
+    <string name="title_activity_maps_roubos">Map</string>
 
 
 </resources>
