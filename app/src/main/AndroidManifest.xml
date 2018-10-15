@@ -107,7 +107,8 @@
         <activity android:name=".Activity.Grafico" />
         <activity
             android:name=".Activity.MapsRoubosActivity"
-            android:label="@string/title_activity_maps_roubos"></activity>
+            android:label="@string/title_activity_maps_roubos" />
+        <activity android:name=".Activity.ChamarMaps"></activity>
     </application>
 
 </manifest>

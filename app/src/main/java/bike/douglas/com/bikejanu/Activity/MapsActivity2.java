@@ -16,6 +16,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,7 +53,9 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     double longitude = 0.0;
 
     private TextView campoEstado;
+
     private TextView campoCidade;
+
     private TextView campoBairro;
     private TextView campoRUA;
 
@@ -79,9 +82,12 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         campoRUA =(TextView) findViewById(R.id.campoRuaID);
 
 
-
-
         btnLocalizacao = (Button)findViewById(R.id.btnLocalizacaoID);
+
+
+
+
+
     }
     /**
      * Manipulates the map once available.
@@ -111,18 +117,58 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         markerOptions.title("Localização atual");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         currentLocationMaker = mMap.addMarker(markerOptions);
+
+
         //Move to new location
         CameraPosition cameraPosition = new CameraPosition.Builder().zoom(15).target(currentLocationLatLong).build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         Toast.makeText(this, "Localização atualizada", Toast.LENGTH_SHORT).show();
-        //  latitude=location.getLatitude();
-        //   longitude=location.getLongitude();
-        //     try {
-        //        endereco = test(latitude,longitude);
-        //  Toast.makeText(this, "cidade"+endereco.getLocality(), Toast.LENGTH_SHORT).show();
-        //  } catch (IOException e) {
-        //       e.printStackTrace();
-        //   }
+
+
+          latitude=location.getLatitude();
+         longitude=location.getLongitude();
+             try {
+                 endereco = localizacaoCorrente(latitude,longitude);
+                 //Toast.makeText(this, "cidade"+endereco.getLocality(), Toast.LENGTH_SHORT).show();
+          } catch (IOException e) {
+             e.printStackTrace();
+         }
+
+
+        campoCidade.setText(endereco.getSubAdminArea());
+        campoBairro.setText(endereco.getSubLocality());
+        campoRUA.setText(endereco.getThoroughfare());
+
+
+        // enviar localizaçao par a tela Alerta_Furto_Roubo
+        btnLocalizacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                //seta os campos na tela AlertaFUrtosRoubos
+                AlertarFurtoRoubo.alertaEstado.setText(endereco.getAdminArea());
+                AlertarFurtoRoubo.alertaCidade.setText(endereco.getSubAdminArea());
+                AlertarFurtoRoubo.alertaBairro.setText(endereco.getSubLocality());
+                AlertarFurtoRoubo.alertaRua.setText(endereco.getThoroughfare());
+
+
+                Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
+                intent.putExtras(intent);
+
+
+                MapsActivity2.this.finish();
+
+
+
+            }
+        });
+
+
+
+
+
+
     }
     private ArrayList findUnAskedPermissions (ArrayList < String > wanted) {
         ArrayList result = new ArrayList();
@@ -237,49 +283,46 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         longitude=novaLocalizacao.longitude;
         // Toast.makeText(this, "LATITUDE"+latLng.toString(), Toast.LENGTH_SHORT).show();
         try {
-            endereco = novo(latitude,longitude);
-            Toast.makeText(this, "ESTADO  "+endereco.getAdminArea(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "CIDADE  "+endereco.getSubAdminArea(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "BAIRRO  "+endereco.getSubLocality(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "RUA "+endereco.getThoroughfare(),Toast.LENGTH_SHORT).show();
 
-
+            endereco = novoEndereco(latitude,longitude);
 
             // seta os locais nos campos
-
 
             campoCidade.setText(endereco.getSubAdminArea());
             campoBairro.setText(endereco.getSubLocality());
             campoRUA.setText(endereco.getThoroughfare());
 
-         //   campoEstado.setText(endereco.getAdminArea());
+
+
+
+
 
 
             //// até aq
-            Bundle params = new Bundle();
-            params.putString("cidade", campoCidade.getText().toString());
 
-            Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
-            intent.putExtras(params);
 
-                // enviar localizaçao par a tela Alerta_Furto_Roubo
 
-             btnLocalizacao.setOnClickListener(new View.OnClickListener() {
+
+            // enviar localizaçao par a tela Alerta_Furto_Roubo
+            btnLocalizacao.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
 
+                    //seta os campos na tela AlertaFUrtosRoubos
+                    AlertarFurtoRoubo.alertaEstado.setText(endereco.getAdminArea());
+                    AlertarFurtoRoubo.alertaCidade.setText(endereco.getSubAdminArea());
+                    AlertarFurtoRoubo.alertaBairro.setText(endereco.getSubLocality());
+                    AlertarFurtoRoubo.alertaRua.setText(endereco.getThoroughfare());
 
 
-                 //   params.putString("bairro", campoBairro.getText().toString());
-                  //  params.putString("rua", campoRUA.getText().toString());
-                 //   params.putString("estado", campoEstado.getText().toString());
-
-
-
+                     Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
+                     intent.putExtras(intent);
 
 
                     MapsActivity2.this.finish();
+
+
 
 
 
@@ -290,11 +333,13 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
             //// até aq
 
 
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public Address test(double latitude,double longitude)throws IOException{
+    public Address localizacaoCorrente(double latitude,double longitude)throws IOException{
         Geocoder geocoder;
         Address address =null;
         List<Address> addresses;
@@ -305,7 +350,9 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         }
         return address;
     }
-    public Address novo (double latitude, double longitude)throws IOException{
+
+
+    public Address novoEndereco (double latitude, double longitude)throws IOException{
         Geocoder geocoder;
         Address address =null;
         List<Address> addresses;
@@ -319,5 +366,13 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(Marker marker) {
         return false;
+    }
+
+
+    public void enderecos(){
+
+        endereco.getSubAdminArea();
+
+
     }
 }

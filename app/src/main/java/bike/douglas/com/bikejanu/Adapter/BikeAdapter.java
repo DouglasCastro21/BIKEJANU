@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +26,7 @@ import bike.douglas.com.bikejanu.Activity.AlertarFurtoRoubo;
 import bike.douglas.com.bikejanu.Activity.DadosBike;
 
 import bike.douglas.com.bikejanu.Activity.EditarBike;
+import bike.douglas.com.bikejanu.Activity.MapsActivity2;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
@@ -281,12 +283,10 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("status", bikeselecao.getStatus());
 
 
+                                   Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
+                                   intent.putExtras(params);
 
-
-                                    Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
-                                    intent.putExtras(params);
-
-                                    context.startActivity(intent);
+                                   context.startActivity(intent);
 
 
 
@@ -316,10 +316,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-                                    Intent intent = new Intent(BikeAdapter.super.getContext(), EditarBike.class);
-                                    intent.putExtras(params);
+                                  Intent intent = new Intent(BikeAdapter.super.getContext(), EditarBike.class);
+                                  intent.putExtras(params);
 
-                                    context.startActivity(intent);
+                                  context.startActivity(intent);
+
 
 
 

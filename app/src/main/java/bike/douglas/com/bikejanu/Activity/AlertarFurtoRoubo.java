@@ -1,40 +1,32 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.github.rtoshiro.util.format.SimpleMaskFormatter;
-import com.github.rtoshiro.util.format.text.MaskTextWatcher;
-import com.google.android.gms.maps.GoogleMap;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
-import java.security.acl.Group;
-import java.time.Duration;
 import java.util.Calendar;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
-import bike.douglas.com.bikejanu.Fragments.Tab2Data;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
 
@@ -47,10 +39,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private EditText alertaNumero;
 
 
-    private TextView alertaEstado;
-    private TextView alertaCidade;
-    private EditText alertaBairro;
-    private EditText alertaRua;
+      static TextView alertaEstado;
+      static  TextView alertaCidade;
+      static EditText alertaBairro;
+      static EditText alertaRua;
 
 
     private EditText alertaDate;
@@ -75,7 +67,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private TextView txtStatus;
 
 
-
     // campos texto
 
     private TextView txtmensagem1;
@@ -93,6 +84,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private int dia,mes,ano,hora,minuto;
 
 
+
+
+
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,17 +108,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         alertaNumero    = (EditText)findViewById(R.id.alertaNumeroID);
         alertaEstado    = (TextView) findViewById(R.id.alertaEstadoID);
-        alertaCidade    = (TextView) findViewById(R.id.cidadeID);
+        alertaCidade    = (TextView) findViewById(R.id.alertacidadeID);
         alertaBairro    = (EditText)findViewById(R.id.alertaBairroID);
         alertaRua       = (EditText)findViewById(R.id.alertaRuaID);
-
 
 
         alertaDate      = (EditText)findViewById(R.id.alertaDataID);
         alertaHora      = (EditText)findViewById(R.id.alertaHoraID);
         Boletim         = (EditText)findViewById(R.id.BoletimID);
         alertaDescricao = (EditText)findViewById(R.id.alertaDescricaoID);
-
 
 
         numero_serie     =  (TextView) findViewById(R.id.test1ID);
@@ -149,6 +142,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         alertaDate.setOnClickListener(AlertarFurtoRoubo.this);
         alertaHora.setOnClickListener(AlertarFurtoRoubo.this);
+
+
+
 
 
 
@@ -239,33 +235,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-                /// recebe localização da tela mapps
-
-
-                String cidade = params.getString("cidade");
-                TextView cidadeText = (TextView) findViewById(R.id.cidadeID);
-                cidadeText.setText(cidade);
-
-/*
-
-
-                String bairro = params.getString("bairro");
-                TextView bairroText = (TextView) findViewById(R.id.alertaBairroID);
-                bairroText.setText(bairro);
-
-                String rua = params.getString("rua");
-                TextView ruaText = (TextView) findViewById(R.id.alertaRuaID);
-                ruaText.setText(rua);
-
-
-
-**/
-
                 statusBike = statuss;
 
 
             }
         }
+
 
 
 
@@ -276,8 +251,11 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View v) {
 
+
                 Intent intent = new Intent(AlertarFurtoRoubo.this ,MapsActivity2.class);
                 startActivity(intent);
+
+
 
             }
         });
@@ -712,6 +690,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     }
 
 
+
+
     public void onClick(View v) {
 
         if(v==alertaDate){
@@ -765,7 +745,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-
 
 
 
