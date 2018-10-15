@@ -21,7 +21,7 @@
             android:layout_height="569dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
@@ -30,21 +30,20 @@
             android:id="@+id/imageView9"
             android:layout_width="401dp"
             android:layout_height="172dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginStart="2dp"
+            android:layout_marginBottom="1dp"
             android:src="@drawable/common_google_signin_btn_text_light_disabled"
+            app:layout_constraintBottom_toTopOf="@+id/map"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintHorizontal_bias="0.434"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/campoCidadeID"
             android:layout_width="350dp"
             android:layout_height="46dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -53,50 +52,54 @@
             android:background="@android:drawable/editbox_background_normal"
             android:hint="Cidade"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/map"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/campoRuaID"
-            android:layout_width="170dp"
+            android:layout_width="171dp"
             android:layout_height="46dp"
 
-            android:layout_marginEnd="6dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="20dp"
             android:background="@android:drawable/editbox_background_normal"
             android:hint="Rua"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/map"
-            app:layout_constraintTop_toBottomOf="@+id/campoCidadeID" />
+            app:layout_constraintStart_toEndOf="@+id/campoBairroID"
+            app:layout_constraintTop_toBottomOf="@+id/campoCidadeID"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/campoBairroID"
             android:layout_width="170dp"
             android:layout_height="46dp"
-            android:layout_marginEnd="11dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="11dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="25dp"
+
+            android:layout_marginStart="25dp"
 
             android:layout_marginTop="20dp"
-
             android:background="@android:drawable/editbox_background_normal"
             android:hint="Bairro"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/campoRuaID"
-            app:layout_constraintHorizontal_bias="0.22"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/campoCidadeID" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toBottomOf="@+id/campoCidadeID"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btnLocalizacaoID"
-            android:layout_width="210dp"
+            android:layout_width="224dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"

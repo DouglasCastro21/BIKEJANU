@@ -122,6 +122,8 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         //Move to new location
         CameraPosition cameraPosition = new CameraPosition.Builder().zoom(15).target(currentLocationLatLong).build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+
         Toast.makeText(this, "Localização atualizada", Toast.LENGTH_SHORT).show();
 
 
@@ -129,15 +131,22 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
          longitude=location.getLongitude();
              try {
                  endereco = localizacaoCorrente(latitude,longitude);
+
+
                  //Toast.makeText(this, "cidade"+endereco.getLocality(), Toast.LENGTH_SHORT).show();
           } catch (IOException e) {
              e.printStackTrace();
          }
 
 
+
+
         campoCidade.setText(endereco.getSubAdminArea());
         campoBairro.setText(endereco.getSubLocality());
         campoRUA.setText(endereco.getThoroughfare());
+
+
+
 
 
         // enviar localizaçao par a tela Alerta_Furto_Roubo

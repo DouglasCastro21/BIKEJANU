@@ -74,6 +74,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private TextView txtRua;
     private TextView txtDataHora;
     private TextView txtBairro;
+    private TextView txtCidade;
+    private TextView txtEstado;
     private TextView txtNumero;
     private TextView txtObservacao;
     private TextView txtBoletim;
@@ -130,6 +132,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         // campos txt
 
+        txtEstado          = (TextView) findViewById(R.id.textEstadoID);
+        txtCidade           = (TextView) findViewById(R.id.textCidade);
         txtRua           = (TextView) findViewById(R.id.txtRuaID);
         txtBairro        = (TextView) findViewById(R.id.txtBairroID);
         txtBoletim       = (TextView) findViewById(R.id.txtBoletimID);
@@ -273,6 +277,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
           // alertaNumero.setVisibility(View.VISIBLE);
+           alertaEstado.setVisibility(View.VISIBLE);
+           alertaCidade.setVisibility(View.VISIBLE);
            alertaRua.setVisibility(View.VISIBLE);
            alertaBairro.setVisibility(View.VISIBLE);
            alertaDescricao.setVisibility(View.VISIBLE);
@@ -290,6 +296,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            txtBoletim.setVisibility(View.VISIBLE);
            txtObservacao.setVisibility(View.VISIBLE);
            txtmensagem1.setVisibility(View.VISIBLE);
+           txtEstado.setVisibility(View.VISIBLE);
+           txtCidade.setVisibility(View.VISIBLE);
 
 
        }
@@ -303,12 +311,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
          //  alertaNumero.setVisibility(View.VISIBLE);
+          alertaEstado.setVisibility(View.VISIBLE);
+          alertaCidade.setVisibility(View.VISIBLE);
            alertaRua.setVisibility(View.VISIBLE);
            alertaBairro.setVisibility(View.VISIBLE);
            alertaDescricao.setVisibility(View.VISIBLE);
            alertaDate.setVisibility(View.VISIBLE);
            alertaHora.setVisibility(View.VISIBLE);
            Boletim.setVisibility(View.VISIBLE);
+
 
 
 
@@ -320,6 +331,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            txtBoletim.setVisibility(View.VISIBLE);
            txtObservacao.setVisibility(View.VISIBLE);
            txtmensagem1.setVisibility(View.VISIBLE);
+           txtEstado.setVisibility(View.VISIBLE);
+           txtCidade.setVisibility(View.VISIBLE);
 
 
        }
@@ -330,12 +343,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
 
          //  alertaNumero.setVisibility(View.GONE);
+            alertaEstado.setVisibility(View.GONE);
+            alertaCidade.setVisibility(View.GONE);
            alertaRua.setVisibility(View.GONE);
            alertaBairro.setVisibility(View.GONE);
            alertaDescricao.setVisibility(View.GONE);
            alertaDate.setVisibility(View.GONE);
            alertaHora.setVisibility(View.GONE);
            Boletim.setVisibility(View.GONE);
+
 
            txtRua.setVisibility(View.GONE);
            txtBairro.setVisibility(View.GONE);
@@ -344,6 +360,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            txtBoletim.setVisibility(View.GONE);
            txtObservacao.setVisibility(View.GONE);
            txtmensagem1.setVisibility(View.GONE);
+           txtEstado.setVisibility(View.GONE);
+           txtCidade.setVisibility(View.GONE);
 
 
 
@@ -361,6 +379,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
            //     alertaNumero.setVisibility(View.GONE);
+                alertaEstado.setVisibility(View.GONE);
+                alertaCidade.setVisibility(View.GONE);
                 alertaRua.setVisibility(View.GONE);
                 alertaBairro.setVisibility(View.GONE);
                 alertaDescricao.setVisibility(View.GONE);
@@ -375,6 +395,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 txtBoletim.setVisibility(View.GONE);
                 txtObservacao.setVisibility(View.GONE);
                 txtmensagem1.setVisibility(View.GONE);
+                txtEstado.setVisibility(View.GONE);
+                txtCidade.setVisibility(View.GONE);
 
 
             }
@@ -392,6 +414,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
              //   alertaNumero.setVisibility(View.VISIBLE);
+                alertaEstado.setVisibility(View.VISIBLE);
+                alertaCidade.setVisibility(View.VISIBLE);
                 alertaRua.setVisibility(View.VISIBLE);
                 alertaBairro.setVisibility(View.VISIBLE);
                 alertaDescricao.setVisibility(View.VISIBLE);
@@ -402,6 +426,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
                 // campos txt
+                txtEstado.setVisibility(View.VISIBLE);
+                txtCidade.setVisibility(View.VISIBLE);
                 txtRua.setVisibility(View.VISIBLE);
                 txtBairro.setVisibility(View.VISIBLE);
               //  txtNumero.setVisibility(View.VISIBLE);
@@ -409,6 +435,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 txtBoletim.setVisibility(View.VISIBLE);
                 txtObservacao.setVisibility(View.VISIBLE);
                 txtmensagem1.setVisibility(View.VISIBLE);
+
 
                 alertaDate.requestFocus();
 
@@ -430,6 +457,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
               //  alertaNumero.setVisibility(View.VISIBLE);
+                alertaEstado.setVisibility(View.VISIBLE);
+                alertaCidade.setVisibility(View.VISIBLE);
                 alertaRua.setVisibility(View.VISIBLE);
                 alertaBairro.setVisibility(View.VISIBLE);
                 alertaDescricao.setVisibility(View.VISIBLE);
@@ -440,6 +469,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
                 // campos txt
+                txtEstado.setVisibility(View.VISIBLE);
+                txtCidade.setVisibility(View.VISIBLE);
                 txtRua.setVisibility(View.VISIBLE);
                 txtBairro.setVisibility(View.VISIBLE);
               //  txtNumero.setVisibility(View.VISIBLE);
