@@ -1,5 +1,6 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +18,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,13 +46,14 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     private Marker currentLocationMaker;
     private LatLng currentLocationLatLong;
-    private int nulla = 0;
     private DatabaseReference mDatabase;
     private Location local;
     private Address endereco;
     private LocationManager localManager;
-    double latitude = 0.0;
+    double latitude  = 0.0;
     double longitude = 0.0;
+
+
 
     private TextView campoEstado;
 
@@ -58,6 +61,8 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
 
     private TextView campoBairro;
     private TextView campoRUA;
+    private TextView buscando;
+    private ProgressBar progressBarBuscando;
 
 
     private Button btnLocalizacao;
@@ -80,6 +85,9 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         campoBairro =(TextView) findViewById(R.id.campoBairroID);
 
         campoRUA =(TextView) findViewById(R.id.campoRuaID);
+        buscando =(TextView) findViewById(R.id.buscandoID);
+        progressBarBuscando =(ProgressBar) findViewById(R.id.progressBuscandoID);
+
 
 
         btnLocalizacao = (Button)findViewById(R.id.btnLocalizacaoID);
@@ -102,11 +110,7 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setOnMapClickListener(this);
-        // Add a marker in Sydney and move the camera
-        // LatLng januaria = new LatLng(36.9732949,-57.9677522);
-        //  mMap.addMarker(new MarkerOptions().position(januaria).title("januaria"));
-        // CameraPosition cameraPosition = new CameraPosition.Builder().zoom(15).target(januaria).build();
-        // mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
     }
     @Override
     public void onLocationChanged(Location location) {
@@ -119,21 +123,31 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         currentLocationMaker = mMap.addMarker(markerOptions);
 
 
+        if (currentLocationMaker!=null){
+
+            buscando.setVisibility(View.GONE);
+            progressBarBuscando.setVisibility(View.GONE);
+
+
+        }
+
         //Move to new location
         CameraPosition cameraPosition = new CameraPosition.Builder().zoom(15).target(currentLocationLatLong).build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
 
-        Toast.makeText(this, "Localização atualizada", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Localização atualizada", Toast.LENGTH_SHORT).show();
 
 
-          latitude=location.getLatitude();
+
+
+         latitude=location.getLatitude();
          longitude=location.getLongitude();
              try {
                  endereco = localizacaoCorrente(latitude,longitude);
 
 
-                 //Toast.makeText(this, "cidade"+endereco.getLocality(), Toast.LENGTH_SHORT).show();
+
           } catch (IOException e) {
              e.printStackTrace();
          }
@@ -149,24 +163,46 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
 
 
 
-        // enviar localizaçao par a tela Alerta_Furto_Roubo
+        // enviar localizaçao par a tela Alerta_Furto_Roubo  e Cadastro Bike
         btnLocalizacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                //seta os campos na tela AlertaFUrtosRoubos
-                AlertarFurtoRoubo.alertaEstado.setText(endereco.getAdminArea());
-                AlertarFurtoRoubo.alertaCidade.setText(endereco.getSubAdminArea());
-                AlertarFurtoRoubo.alertaBairro.setText(endereco.getSubLocality());
-                AlertarFurtoRoubo.alertaRua.setText(endereco.getThoroughfare());
+
+                if(AlertarFurtoRoubo.ativa.equals("positiva")){
+
+                    //seta os campos na tela AlertaFUrtosRoubos
+                    AlertarFurtoRoubo.alertaEstado.setText(endereco.getAdminArea());
+                    AlertarFurtoRoubo.alertaCidade.setText(endereco.getSubAdminArea());
+                    AlertarFurtoRoubo.alertaBairro.setText(endereco.getSubLocality());
+                    AlertarFurtoRoubo.alertaRua.setText(endereco.getThoroughfare());
+
+                    Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
+                    intent.putExtras(intent);
+
+                    AlertarFurtoRoubo.ativa="negativa";
 
 
-                Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
-                intent.putExtras(intent);
+                    MapsActivity2.this.finish();
 
 
-                MapsActivity2.this.finish();
+                }else{
+
+
+                    //seta os campos na tela CadastroBike
+                    CadastroBike.cadastroEstado.setText(endereco.getAdminArea());
+                    CadastroBike.cadastroCidade.setText(endereco.getSubAdminArea());
+                    CadastroBike.cadastroBairro.setText(endereco.getSubLocality());
+                    CadastroBike.cadastroRua.setText(endereco.getThoroughfare());
+
+
+                    Intent intent = new Intent(MapsActivity2.this, CadastroBike.class);
+                    intent.putExtras(intent);
+
+                    MapsActivity2.this.finish();
+                }
+
 
 
 
@@ -205,8 +241,11 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         alertDialog.setMessage("Ativar GPS?");
         alertDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+
+                MapsActivity2.this.finish();
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(intent);
+
             }
         });
         alertDialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -232,6 +271,7 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
         //Check if GPS and Network are on, if not asks the user to turn on
         if (!isGPS && !isNetwork) {
             showSettingsAlert();
+
         } else {
             // check permissions
             // check permissions for later versions
@@ -303,41 +343,57 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
 
 
 
-
-
-
-
             //// até aq
 
 
 
 
-            // enviar localizaçao par a tela Alerta_Furto_Roubo
+            // enviar localizaçao par a tela Alerta_Furto_Roubo  e Cadastro Bike
             btnLocalizacao.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
 
-                    //seta os campos na tela AlertaFUrtosRoubos
-                    AlertarFurtoRoubo.alertaEstado.setText(endereco.getAdminArea());
-                    AlertarFurtoRoubo.alertaCidade.setText(endereco.getSubAdminArea());
-                    AlertarFurtoRoubo.alertaBairro.setText(endereco.getSubLocality());
-                    AlertarFurtoRoubo.alertaRua.setText(endereco.getThoroughfare());
+
+                    if(AlertarFurtoRoubo.ativa.equals("positiva")){
+
+                        //seta os campos na tela AlertaFUrtosRoubos
+                        AlertarFurtoRoubo.alertaEstado.setText(endereco.getAdminArea());
+                        AlertarFurtoRoubo.alertaCidade.setText(endereco.getSubAdminArea());
+                        AlertarFurtoRoubo.alertaBairro.setText(endereco.getSubLocality());
+                        AlertarFurtoRoubo.alertaRua.setText(endereco.getThoroughfare());
+
+                        Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
+                        intent.putExtras(intent);
+
+                        AlertarFurtoRoubo.ativa="negativa";
 
 
-                     Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
-                     intent.putExtras(intent);
+                        MapsActivity2.this.finish();
 
 
-                    MapsActivity2.this.finish();
+                    }else{
 
 
+                        //seta os campos na tela CadastroBike
+                        CadastroBike.cadastroEstado.setText(endereco.getAdminArea());
+                        CadastroBike.cadastroCidade.setText(endereco.getSubAdminArea());
+                        CadastroBike.cadastroBairro.setText(endereco.getSubLocality());
+                        CadastroBike.cadastroRua.setText(endereco.getThoroughfare());
+
+
+                        Intent intent = new Intent(MapsActivity2.this, CadastroBike.class);
+                        intent.putExtras(intent);
+
+                        MapsActivity2.this.finish();
+                    }
 
 
 
 
                 }
             });
+
 
             //// até aq
 
@@ -378,10 +434,4 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     }
 
 
-    public void enderecos(){
-
-        endereco.getSubAdminArea();
-
-
-    }
 }

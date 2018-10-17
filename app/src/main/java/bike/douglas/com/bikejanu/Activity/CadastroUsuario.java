@@ -244,9 +244,7 @@ public class CadastroUsuario extends AppCompatActivity {
         MaskTextWatcher maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
         telefone.addTextChangedListener(maskTelefone);
 
-       // SimpleMaskFormatter simpleMaskNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
-     //   MaskTextWatcher maskNascimento = new MaskTextWatcher(nascimento, simpleMaskNascimento);
-      //  nascimento.addTextChangedListener(maskNascimento);
+
     }
 
 

@@ -1,6 +1,8 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -11,19 +13,23 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.github.rtoshiro.util.format.SimpleMaskFormatter;
-import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
@@ -41,9 +47,12 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText descricao;
 
 
-    private EditText alertaNumero;
-    private EditText alertaRua;
-    private EditText alertaBairro;
+  protected static EditText cadastroEstado;
+   public  static EditText cadastroCidade;
+    static EditText cadastroRua;
+    static EditText cadastroBairro;
+
+
     private EditText alertaDate;
     private EditText alertaHora;
     private EditText Boletim;
@@ -54,10 +63,13 @@ public class CadastroBike extends AppCompatActivity  {
     private TextView txtmensagem2;
     private TextView txtRua;
     private TextView txtDataHora;
+    private TextView txtCadastroBikeEstado;
+    private TextView txtCadastroBikeCidade;
     private TextView txtBairro;
-    private TextView txtNumero;
+
     private TextView txtObservacao;
     private TextView txtBoletim;
+    private TextView txtMensagemBoletim;
     private RadioButton radioButtonFurtada;
     private RadioButton radioButtonRoubada;
     private RadioGroup radioGroup;
@@ -66,14 +78,15 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-
-    private Button   botaocadastrar;
-    private ImageView   spinnerImagem;
+   protected Button  botaoBuscarMapa;
+   protected Button   botaocadastrar;
+   protected ImageView   spinnerImagem;
 
 
 
     public  Bike bike;
     private DatabaseReference firebase;
+    private int dia,mes,ano,hora,minuto;
 
 
 
@@ -88,27 +101,30 @@ public class CadastroBike extends AppCompatActivity  {
         setContentView(R.layout.activity_cadastro_bike);
 
 
-        numero_serie = (EditText) findViewById(R.id.NumeroID);
-      //  marca           = (EditText) findViewById(R.id.spinnerMarcaID);
-        modelo = (EditText) findViewById(R.id.modeloID);
-        cor = (EditText) findViewById(R.id.corID);
-        descricao = (EditText) findViewById(R.id.descricaoID);
+        numero_serie = (EditText)    findViewById(R.id.NumeroID);
+        modelo       = (EditText)    findViewById(R.id.modeloID);
+        cor          = (EditText)    findViewById(R.id.corID);
+        descricao    = (EditText)    findViewById(R.id.descricaoID);
 
-        alertaNumero = (EditText) findViewById(R.id.alertaNumeroID);
-        alertaRua = (EditText) findViewById(R.id.alertaRuaID);
-        alertaBairro = (EditText) findViewById(R.id.alertaBairroID);
-        alertaDate = (EditText) findViewById(R.id.alertaDataID);
-        alertaHora = (EditText) findViewById(R.id.alertaHoraID);
-        Boletim = (EditText) findViewById(R.id.BoletimID);
+        cadastroEstado  = (EditText) findViewById(R.id.cadastroEstadoID);
+        cadastroCidade  = (EditText) findViewById(R.id.cadastroCidadeID);
+        cadastroBairro  = (EditText) findViewById(R.id.cadastroBairroID);
+        cadastroRua     = (EditText) findViewById(R.id.cadastroRuaID);
+        alertaDate      = (EditText) findViewById(R.id.alertaDataID);
+        alertaHora      = (EditText) findViewById(R.id.alertaHoraID);
+        Boletim         = (EditText) findViewById(R.id.BoletimID);
         alertaDescricao = (EditText) findViewById(R.id.alertaDescricaoID);
 
         // campos txt
 
-        txtRua = (TextView) findViewById(R.id.txtRuaID);
-        txtBairro = (TextView) findViewById(R.id.txtBairroID);
-        txtBoletim = (TextView) findViewById(R.id.txtBoletimID);
-        txtDataHora = (TextView) findViewById(R.id.txtDataHoraID);
-        txtNumero = (TextView) findViewById(R.id.txtNumeroID);
+        txtCadastroBikeEstado = (TextView) findViewById(R.id.txtcadastroBikeEstadoID);
+        txtCadastroBikeCidade = (TextView) findViewById(R.id.txtcadastroBikeCidadeID);
+        txtRua = (TextView)                findViewById(R.id.txtRuaID);
+        txtBairro = (TextView)             findViewById(R.id.txtBairroID);
+        txtBoletim = (TextView)            findViewById(R.id.txtBoletimID);
+        txtDataHora = (TextView)           findViewById(R.id.txtDataHoraID);
+        txtMensagemBoletim = (TextView)           findViewById(R.id.txtMensagemBoletimID);
+
         txtObservacao = (TextView) findViewById(R.id.txtObservacaoID);
         txtmensagem1 = (TextView) findViewById(R.id.txtmensagem1ID);
         txtmensagem2 = (TextView) findViewById(R.id.txtmensagem2ID);
@@ -119,7 +135,7 @@ public class CadastroBike extends AppCompatActivity  {
         radioGroup = (RadioGroup) findViewById(R.id.radioGroupID);
 
 
-
+        botaoBuscarMapa = (Button) findViewById(R.id.btnBuscarMapsID) ;
         botaocadastrar = (Button) findViewById(R.id.finalizarID);
         final CheckBox checkBox = (CheckBox) findViewById(R.id.checkBoxID);
 
@@ -129,6 +145,10 @@ public class CadastroBike extends AppCompatActivity  {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerImagem = (ImageView) findViewById(R.id.spinerImagID);
+
+
+
+
 
 
         spinner = (Spinner) findViewById(R.id.spinnerMarcaID);
@@ -207,10 +227,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-
-
-        mascaras();
-
 // faz aparecer e desaparecer os campos na tela de cadastro de bikes
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -218,9 +234,12 @@ public class CadastroBike extends AppCompatActivity  {
 
                if(checkBox.isChecked()){
 
-                   alertaNumero.setVisibility(View.VISIBLE);
-                   alertaRua.setVisibility(View.VISIBLE);
-                   alertaBairro.setVisibility(View.VISIBLE);
+
+
+                   cadastroEstado.setVisibility(View.VISIBLE);
+                   cadastroCidade.setVisibility(View.VISIBLE);
+                   cadastroBairro.setVisibility(View.VISIBLE);
+                   cadastroRua.setVisibility(View.VISIBLE);
                    alertaDescricao.setVisibility(View.VISIBLE);
                    alertaDate.setVisibility(View.VISIBLE);
                    alertaHora.setVisibility(View.VISIBLE);
@@ -228,11 +247,17 @@ public class CadastroBike extends AppCompatActivity  {
                    radioButtonFurtada.setVisibility(View.VISIBLE);
                    radioButtonRoubada.setVisibility(View.VISIBLE);
                    radioGroup.setVisibility(View.VISIBLE);
+                   botaoBuscarMapa.setVisibility(View.VISIBLE);
+
 
                    // campos txt
+
+                   txtMensagemBoletim.setVisibility(View.VISIBLE);
+                   txtCadastroBikeEstado.setVisibility(View.VISIBLE);
+                   txtCadastroBikeCidade.setVisibility(View.VISIBLE);
                    txtRua.setVisibility(View.VISIBLE);
                    txtBairro.setVisibility(View.VISIBLE);
-                   txtNumero.setVisibility(View.VISIBLE);
+
                    txtDataHora.setVisibility(View.VISIBLE);
                    txtBoletim.setVisibility(View.VISIBLE);
                    txtObservacao.setVisibility(View.VISIBLE);
@@ -241,18 +266,42 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
+//preenche os campos datas
+
+                   SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                   // OU
+                   SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+
+                   Date data = new Date();
+
+                   Calendar  cal = Calendar.getInstance();
+                   cal.setTime(data);
+
+                   Date data_atual = cal.getTime();
+
+                   String data_completa = dateFormat.format(data_atual);
+
+                   String hora_atual = dateFormat_hora.format(data_atual);
+
+                   //  Log.i("data_completa", data_completa);
+                   // Log.i("data_atual", data_atual.toString());
+                   // Log.i("hora_atual", hora_atual);
+
+                   alertaDate.setText(data_completa);
+                   alertaHora.setText(hora_atual);
 
 
                }else{
 
-                   alertaNumero.setVisibility(View.GONE);
-                   alertaRua.setVisibility(View.GONE);
-                   alertaBairro.setVisibility(View.GONE);
+                   cadastroEstado.setVisibility(View.GONE);
+                   cadastroCidade.setVisibility(View.GONE);
+                   cadastroRua.setVisibility(View.GONE);
+                   cadastroBairro.setVisibility(View.GONE);
                    alertaDescricao.setVisibility(View.GONE);
                    alertaDate.setVisibility(View.GONE);
                    alertaHora.setVisibility(View.GONE);
                    Boletim.setVisibility(View.GONE);
-
+                   botaoBuscarMapa.setVisibility(View.GONE);
 
                    radioButtonFurtada.setVisibility(View.GONE);
                    radioButtonRoubada.setVisibility(View.GONE);
@@ -260,14 +309,21 @@ public class CadastroBike extends AppCompatActivity  {
 
                    //campos txt
 
+                   txtMensagemBoletim.setVisibility(View.GONE);
+                   txtCadastroBikeEstado.setVisibility(View.GONE);
+                   txtCadastroBikeCidade.setVisibility(View.GONE);
                    txtRua.setVisibility(View.GONE);
                    txtBairro.setVisibility(View.GONE);
-                   txtNumero.setVisibility(View.GONE);
+
                    txtDataHora.setVisibility(View.GONE);
                    txtBoletim.setVisibility(View.GONE);
                    txtObservacao.setVisibility(View.GONE);
                    txtmensagem1.setVisibility(View.GONE);
                    txtmensagem2.setVisibility(View.GONE);
+
+
+                   alertaDate.setText("");
+                   alertaHora.setText("");
 
 
 
@@ -279,14 +335,74 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-        radioButtonFurtada.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+        alertaDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Calendar calendar = Calendar.getInstance();
+
+                dia = calendar.get(Calendar.DAY_OF_MONTH);
+                mes = calendar.get(Calendar.MONTH);
+                ano = calendar.get(Calendar.YEAR);
+
+                final DatePickerDialog datePickerDialog = new  DatePickerDialog(CadastroBike.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                        alertaDate.setText(dayOfMonth +"/"+(month+1)+"/"+year);
+
+                    }
+                }
+
+                        ,ano,mes,dia);
+                datePickerDialog.show();
+                alertaHora.requestFocus();
+
+            }
+        });
+
+
+
+        alertaHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
+                final Calendar calendar = Calendar.getInstance();
+                hora = calendar.get(Calendar.HOUR_OF_DAY);
+                minuto = calendar.get(Calendar.MINUTE);
+
+                final TimePickerDialog timePickerDialog= new TimePickerDialog(CadastroBike.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+
+                        alertaHora.setText(hourOfDay +":"+minute);
+
+                    }
+                },hora,minuto,false);
+                timePickerDialog.show();
+
+
+            }
+        });
+
+
+
+
+
+        radioButtonFurtada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
                 caixaDialogoFurtada();
                 status = (RadioButton)findViewById(R.id.radioButtonFurtadaID);
-
 
             }
         });
@@ -297,17 +413,23 @@ public class CadastroBike extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-
                 caixaDialogoRoubada();
-
                 status = (RadioButton)findViewById(R.id.alertaRoubadaID);
-
 
             }
         });
 
 
+        botaoBuscarMapa.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
 
+
+        Intent intent = new Intent(CadastroBike.this ,MapsActivity2.class);
+        startActivity(intent);
+
+        }
+        });
 
 
 
@@ -321,8 +443,8 @@ public class CadastroBike extends AppCompatActivity  {
 
 
                     if (!numero_serie.getText().toString().equals("")  &&
-                            !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")&& !alertaBairro.getText().toString().equals("")
-                            && !alertaNumero.getText().toString().equals("")&& !alertaRua.getText().toString().equals("")
+                            !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")&& !cadastroBairro.getText().toString().equals("")
+                            && !cadastroRua.getText().toString().equals("")
                             && !alertaDate.getText().toString().equals("")&& !alertaHora.getText().toString().equals("")) {
 
                         inicializarElementos();
@@ -434,10 +556,10 @@ public class CadastroBike extends AppCompatActivity  {
          bike.setCor(cor.getText().toString());
          bike.setDescricao(descricao.getText().toString());
 
-
-         bike.setAlertaNumero(alertaNumero.getText().toString());
-         bike.setAlertaRua(alertaRua.getText().toString());
-         bike.setAlertaBairro(alertaBairro.getText().toString());
+         bike.setAlertaEstado(cadastroEstado.getText().toString());
+         bike.setAlertaCidade(cadastroCidade.getText().toString());
+         bike.setAlertaRua(cadastroRua.getText().toString());
+         bike.setAlertaBairro(cadastroBairro.getText().toString());
          bike.setAlertaDate(alertaDate.getText().toString());
          bike.setAlertaHora(alertaHora.getText().toString());
          bike.setBoletim(Boletim.getText().toString());
@@ -507,16 +629,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-    public void mascaras() {
 
-        SimpleMaskFormatter simpleMaskData = new SimpleMaskFormatter("NN/NN/NNNN");
-        MaskTextWatcher maskData = new MaskTextWatcher(alertaDate, simpleMaskData);
-        alertaDate.addTextChangedListener(maskData);
-
-        SimpleMaskFormatter simpleMaskHora = new SimpleMaskFormatter("NN:NN");
-        MaskTextWatcher maskHora = new MaskTextWatcher(alertaHora, simpleMaskHora);
-        alertaHora.addTextChangedListener(maskHora);
-    }
 
 
     private void caixaDialogoRoubada(){
@@ -632,6 +745,8 @@ public class CadastroBike extends AppCompatActivity  {
         alertaDialog.create();
         alertaDialog.show();
     }
+
+
 
 
     }

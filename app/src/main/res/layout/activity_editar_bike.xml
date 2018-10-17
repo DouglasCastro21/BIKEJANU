@@ -420,6 +420,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/descricaoID" />
 
+            <TextView
+                android:id="@+id/editarEstadoID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="279dp"
+                android:layout_marginRight="279dp"
+                android:layout_marginTop="167dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/teste4ID"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editarCidadeID" />
+
+            <TextView
+                android:id="@+id/editarCidadeID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="26dp"
+                android:layout_marginRight="26dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

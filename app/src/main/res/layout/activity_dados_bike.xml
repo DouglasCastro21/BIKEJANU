@@ -65,8 +65,8 @@
 
             <TextView
                 android:id="@+id/dadosNumeroSerieID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="306dp"
+                android:layout_height="46dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
                 android:background="@android:drawable/editbox_background_normal"
@@ -80,19 +80,23 @@
                 android:id="@+id/textView37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_marginLeft="50dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginStart="50dp"
                 android:text="Marca"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/dadosMarcaID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dadosNumeroSerieID" />
 
             <TextView
                 android:id="@+id/dadosCorID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="306dp"
+                android:layout_height="46dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
@@ -105,8 +109,8 @@
 
             <TextView
                 android:id="@+id/dadosModeloID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="306dp"
+                android:layout_height="46dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
@@ -119,8 +123,8 @@
 
             <TextView
                 android:id="@+id/dadosMarcaID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="306dp"
+                android:layout_height="46dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
@@ -198,11 +202,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
+                android:layout_marginTop="46dp"
                 android:text="Descrição"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/dadosDescricaoID"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView19" />
 
             <TextView
                 android:id="@+id/dadosDescricaoID"
@@ -239,12 +245,15 @@
                 android:id="@+id/textDataHoraID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="9dp"
                 android:text="Data e Hora do Furto/Roubo"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dadosStatusID" />
 
@@ -252,10 +261,10 @@
                 android:id="@+id/dadoDiaID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginStart="100dp"
                 android:background="@android:drawable/editbox_background_normal"
-                android:text="TextView"
+                android:hint="00/00/0000"
 
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -263,12 +272,12 @@
 
             <TextView
                 android:id="@+id/dadoHoraID"
-                android:layout_width="wrap_content"
+                android:layout_width="65dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:layout_marginStart="14dp"
-                android:text="TextView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/editbox_background_normal"
+                android:hint="00:00"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/dadoDiaID"
                 app:layout_constraintTop_toBottomOf="@+id/textDataHoraID" />
@@ -278,16 +287,12 @@
                 android:layout_width="306dp"
                 android:layout_height="86dp"
                 android:layout_marginBottom="16dp"
-                android:layout_marginEnd="28dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginRight="28dp"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="4dp"
 
                 android:background="@android:drawable/editbox_background_normal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInformacoesAuxiarID"
                 app:layout_constraintVertical_bias="0.0" />
@@ -304,12 +309,12 @@
                 android:textSize="18sp"
                 android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dadoDiaID" />
+                app:layout_constraintTop_toBottomOf="@+id/dadosBairroID" />
 
             <TextView
                 android:id="@+id/dadoRuaID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="306dp"
+                android:layout_height="46dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
                 android:background="@android:drawable/editbox_background_normal"
@@ -319,44 +324,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/textRuaID" />
 
             <TextView
-                android:id="@+id/textNumeroID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="110dp"
-                android:layout_marginStart="110dp"
-                android:text="Número"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/textRuaID"
-                app:layout_constraintTop_toBottomOf="@+id/dadoHoraID" />
-
-            <TextView
-                android:id="@+id/dadosNumeroID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="52dp"
-                android:layout_marginStart="52dp"
-                android:background="@android:drawable/editbox_background_normal"
-                android:text="TextView"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/dadoRuaID"
-                app:layout_constraintTop_toBottomOf="@+id/textNumeroID" />
-
-            <TextView
                 android:id="@+id/textBoletimID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="157dp"
-                android:layout_marginLeft="49dp"
-                android:layout_marginRight="157dp"
-                android:layout_marginStart="49dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="8dp"
                 android:text="Boletim de Ocorrência"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dadosBairroID" />
+                app:layout_constraintTop_toBottomOf="@+id/dadoRuaID" />
 
             <TextView
                 android:id="@+id/dadosBoletimID"
@@ -376,28 +354,22 @@
                 android:id="@+id/textBairroID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="286dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginRight="286dp"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:text="Bairro"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dadoRuaID" />
+                app:layout_constraintTop_toBottomOf="@+id/dadosEstadoID" />
 
             <TextView
                 android:id="@+id/dadosBairroID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="282dp"
+                android:layout_width="306dp"
+                android:layout_height="46dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginRight="282dp"
                 android:layout_marginStart="50dp"
                 android:background="@android:drawable/editbox_background_normal"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textBairroID" />
 
@@ -405,15 +377,12 @@
                 android:id="@+id/textInformacoesAuxiarID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="147dp"
-                android:layout_marginLeft="51dp"
-                android:layout_marginRight="147dp"
-                android:layout_marginStart="51dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="4dp"
                 android:text="Informações Auxiliares"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dadosBoletimID" />
 
@@ -445,6 +414,7 @@
                 android:layout_marginTop="1dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:textColor="?attr/colorError"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.42"
                 app:layout_constraintStart_toStartOf="parent"
@@ -452,17 +422,14 @@
 
             <TextView
                 android:id="@+id/textCasoVerifiqueID"
-                android:layout_width="298dp"
+                android:layout_width="306dp"
                 android:layout_height="53dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginLeft="56dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginStart="56dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="4dp"
                 android:text="Caso verifique que está bicicleta é Furtada ou  Roubada ,ligue:"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dadosInformacaoID" />
 
@@ -471,10 +438,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
                 android:layout_marginBottom="32dp"
-                android:layout_marginEnd="177dp"
-                android:layout_marginLeft="177dp"
-                android:layout_marginRight="177dp"
-                android:layout_marginStart="177dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:text="190  Polícia Militar"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
@@ -484,6 +451,62 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textCasoVerifiqueID"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textDadosEstadoID"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="10dp"
+                android:text="Estado"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dadoDiaID" />
+
+            <TextView
+                android:id="@+id/dadosEstadoID"
+                android:layout_width="124dp"
+                android:layout_height="67dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginStart="60dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDadosEstadoID" />
+
+            <TextView
+                android:id="@+id/textdadosCidadeID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="Cidade"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintStart_toEndOf="@+id/textDadosEstadoID"
+                app:layout_constraintTop_toBottomOf="@+id/dadoDiaID" />
+
+            <TextView
+                android:id="@+id/dadosCidadeID"
+                android:layout_width="142dp"
+                android:layout_height="67dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:text="TextView"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dadosEstadoID"
+                app:layout_constraintTop_toBottomOf="@+id/textdadosCidadeID" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

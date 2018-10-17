@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,7 +23,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
@@ -39,19 +42,19 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private EditText alertaNumero;
 
 
-      static TextView alertaEstado;
-      static  TextView alertaCidade;
-      static EditText alertaBairro;
-      static EditText alertaRua;
+    public static     EditText alertaEstado;
+     static     EditText alertaCidade;
+     static     EditText alertaBairro;
+     static     EditText alertaRua;
 
 
-    private EditText alertaDate;
-    private EditText alertaHora;
-    private EditText Boletim;
-    private EditText alertaDescricao;
-    private  RadioButton radioButtonFurtada;
-    private RadioButton   status;
-    private Button abrirMapa;
+    private     EditText alertaDate;
+    private     EditText alertaHora;
+    private     EditText Boletim;
+    private     EditText alertaDescricao;
+    private     RadioButton radioButtonFurtada;
+    private     RadioButton   status;
+    private     Button abrirMapa;
 
 
 
@@ -79,15 +82,14 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private TextView txtNumero;
     private TextView txtObservacao;
     private TextView txtBoletim;
-
+    static String ativa = "negativa";
 
     public  Bike bike;
     private DatabaseReference firebase;
     private int dia,mes,ano,hora,minuto;
 
 
-
-
+    public int checarDeOndeVenho=0;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -108,9 +110,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-        alertaNumero    = (EditText)findViewById(R.id.alertaNumeroID);
-        alertaEstado    = (TextView) findViewById(R.id.alertaEstadoID);
-        alertaCidade    = (TextView) findViewById(R.id.alertacidadeID);
+       // alertaNumero    = (EditText)findViewById(R.id.alertaCidadeID);
+        alertaEstado    = (EditText) findViewById(R.id.alertaEstadoID);
+        alertaCidade    = (EditText) findViewById(R.id.alertacidadeID);
         alertaBairro    = (EditText)findViewById(R.id.alertaBairroID);
         alertaRua       = (EditText)findViewById(R.id.alertaRuaID);
 
@@ -134,11 +136,11 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         txtEstado          = (TextView) findViewById(R.id.textEstadoID);
         txtCidade           = (TextView) findViewById(R.id.textCidade);
-        txtRua           = (TextView) findViewById(R.id.txtRuaID);
-        txtBairro        = (TextView) findViewById(R.id.txtBairroID);
+        txtRua           = (TextView) findViewById(R.id.textalertaRuaID);
+        txtBairro        = (TextView) findViewById(R.id.textAlertaBairroID);
         txtBoletim       = (TextView) findViewById(R.id.txtBoletimID);
         txtDataHora      = (TextView) findViewById(R.id.txtDataHoraID);
-        txtNumero        = (TextView) findViewById(R.id.txtNumeroID);
+        txtNumero        = (TextView) findViewById(R.id.txtcadastroBikeCidadeID);
         txtObservacao    = (TextView) findViewById(R.id.txtObservacaoID);
         txtmensagem1     = (TextView) findViewById(R.id.casoID);
       //  txtmensagem2     = (TextView) findViewById(R.id.txtmensagem2ID);
@@ -146,8 +148,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         alertaDate.setOnClickListener(AlertarFurtoRoubo.this);
         alertaHora.setOnClickListener(AlertarFurtoRoubo.this);
-
-
 
 
 
@@ -173,6 +173,18 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
              //   TextView alertaNumeroText = (TextView) findViewById(R.id.alertaNumeroID);
               //  alertaNumeroText.setText(alertaNumero);
 
+                // dados do alertaEstado
+                String alertaEstado = params.getString("alertaEstado");
+                TextView alertaEstadoText = (TextView) findViewById(R.id.alertaEstadoID);
+                alertaEstadoText.setText(alertaEstado);
+
+
+                // dados do alertaCidade
+                String alertaCidade = params.getString("alertaCidade");
+                TextView alertaCidadeText = (TextView) findViewById(R.id.alertacidadeID);
+                alertaCidadeText.setText(alertaCidade);
+
+
                 // dados do alertaBairro
                 String alertaBairro = params.getString("alertaBairro");
                 TextView alertaBairroText = (TextView) findViewById(R.id.alertaBairroID);
@@ -185,9 +197,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 alertaDescricaoText.setText(alertaDescricao);
 
                 // dados do alertaDate
-                String alertaDate = params.getString("alertaData");
-                TextView alertaDateText = (TextView) findViewById(R.id.alertaDataID);
-                alertaDateText.setText(alertaDate);
+              //  String alertaDate = params.getString("alertaData");
+               // TextView alertaDateText = (TextView) findViewById(R.id.alertaDataID);
+                //alertaDateText.setText(alertaDate);
 
 
                 // dados do alertaHora
@@ -256,10 +268,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             public void onClick(View v) {
 
 
+                ativa = "positiva";
+
                 Intent intent = new Intent(AlertarFurtoRoubo.this ,MapsActivity2.class);
                 startActivity(intent);
-
-
 
             }
         });
@@ -275,6 +287,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            radioButtonFurtada.toggle();
            status = (RadioButton)findViewById(R.id.alertaFurtadaID);
 
+
+          abrirMapa.setVisibility(View.VISIBLE);
 
           // alertaNumero.setVisibility(View.VISIBLE);
            alertaEstado.setVisibility(View.VISIBLE);
@@ -300,6 +314,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            txtCidade.setVisibility(View.VISIBLE);
 
 
+
+
        }
 
        if(statusBike.equals("Roubada")){
@@ -308,7 +324,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            status = (RadioButton)findViewById(R.id.alertaRoubadaID);
 
 
-
+           abrirMapa.setVisibility(View.VISIBLE);
 
          //  alertaNumero.setVisibility(View.VISIBLE);
           alertaEstado.setVisibility(View.VISIBLE);
@@ -335,6 +351,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            txtCidade.setVisibility(View.VISIBLE);
 
 
+
+
+
+
        }
 
        if(statusBike.equals("Sem Restrições")){
@@ -342,6 +362,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
            radioButtonNadaConsta.toggle();
            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
 
+
+           abrirMapa.setVisibility(View.GONE);
          //  alertaNumero.setVisibility(View.GONE);
             alertaEstado.setVisibility(View.GONE);
             alertaCidade.setVisibility(View.GONE);
@@ -378,7 +400,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
 
 
-           //     alertaNumero.setVisibility(View.GONE);
+                abrirMapa.setVisibility(View.GONE);
+
                 alertaEstado.setVisibility(View.GONE);
                 alertaCidade.setVisibility(View.GONE);
                 alertaRua.setVisibility(View.GONE);
@@ -412,7 +435,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 status = (RadioButton)findViewById(R.id.alertaFurtadaID);
 
 
-
+                abrirMapa.setVisibility(View.VISIBLE);
              //   alertaNumero.setVisibility(View.VISIBLE);
                 alertaEstado.setVisibility(View.VISIBLE);
                 alertaCidade.setVisibility(View.VISIBLE);
@@ -441,6 +464,30 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                // OU
+                SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+
+                Date data = new Date();
+
+                Calendar  cal = Calendar.getInstance();
+                cal.setTime(data);
+
+                Date data_atual = cal.getTime();
+
+                String data_completa = dateFormat.format(data_atual);
+
+                String hora_atual = dateFormat_hora.format(data_atual);
+
+                Log.i("data_completa", data_completa);
+                Log.i("data_atual", data_atual.toString());
+                Log.i("hora_atual", hora_atual);
+
+                alertaDate.setText(data_completa);
+                alertaHora.setText(hora_atual);
+
+
+
             }
         });
 
@@ -455,7 +502,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 status = (RadioButton)findViewById(R.id.alertaRoubadaID);
 
 
-
+                abrirMapa.setVisibility(View.VISIBLE);
               //  alertaNumero.setVisibility(View.VISIBLE);
                 alertaEstado.setVisibility(View.VISIBLE);
                 alertaCidade.setVisibility(View.VISIBLE);
@@ -482,6 +529,29 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 alertaDate.requestFocus();
 
 
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                // OU
+                SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+
+                Date data = new Date();
+
+                Calendar  cal = Calendar.getInstance();
+                cal.setTime(data);
+
+                Date data_atual = cal.getTime();
+
+                String data_completa = dateFormat.format(data_atual);
+
+                String hora_atual = dateFormat_hora.format(data_atual);
+
+                Log.i("data_completa", data_completa);
+                Log.i("data_atual", data_atual.toString());
+                Log.i("hora_atual", hora_atual);
+
+                alertaDate.setText(data_completa);
+                alertaHora.setText(hora_atual);
+
+
             }
         });
 
@@ -493,11 +563,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             public void onClick(View v) {
 
 
-
                 inicializarElementos();
                 caixaDialogoConfirmarFurtoRoubo();
-
-
 
 
             }
@@ -514,7 +581,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
         bike = new Bike();
-     //   bike.setAlertaNumero(alertaNumero.getText().toString());
+
+        bike.setAlertaEstado(alertaEstado.getText().toString());
+        bike.setAlertaCidade(alertaCidade.getText().toString());
+
         bike.setAlertaRua(alertaRua.getText().toString());
         bike.setAlertaBairro(alertaBairro.getText().toString());
         bike.setAlertaDate(alertaDate.getText().toString());
@@ -525,7 +595,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 ////
-      //  bike.setNumero_serie(numero_serie.getText().toString());
+        bike.setNumero_serie(numero_serie.getText().toString());
         bike.setMarca(marca.getText().toString());
         bike.setModelo(modelo.getText().toString());
         bike.setCor(cor.getText().toString());

@@ -107,7 +107,7 @@ caixaDialogoGraficos();
 
                 }else if (opcoes[i].equals("Gráfico de Pizza")){
 
-                    Toast.makeText(Consultar_Indice.this, " 3", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Consultar_Indice.this, " grafico de pizza", Toast.LENGTH_LONG).show();
 
 
 

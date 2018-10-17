@@ -40,7 +40,10 @@ public class EditarBike extends AppCompatActivity {
 
     // se não repetir os dados da tela cadastro os dados são exluidos
     private TextView alertaNumero;
+
     private TextView alertaRua;
+    private TextView alertaCidade;
+    private TextView alertaEstado;
     private TextView alertaBairro;
     private TextView alertaDate;
     private TextView alertaHora;
@@ -68,13 +71,16 @@ public class EditarBike extends AppCompatActivity {
     btnEditar = (Button) findViewById(R.id.finalizarID);
 
     numero_serie     =  (TextView) findViewById(R.id.NumeroID);
-   // marca            =  (EditText) findViewById(R.id.spinnerMarcaID);
+   // marca          =  (EditText) findViewById(R.id.spinnerMarcaID);
     modelo           =  (EditText) findViewById(R.id.modeloID);
     cor              =  (EditText) findViewById(R.id.corID);
     descricao        =  (EditText) findViewById(R.id.descricaoID);
 
 
         // se não repetir os dados da tela cadastro os dados são exluidos
+
+       // alertaEstado     =  (TextView) findViewById(R.id.);
+     //   alertaCidade       =  (TextView) findViewById(R.id.teste2ID);
     alertaNumero     =  (TextView) findViewById(R.id.teste1ID);
     alertaRua        =  (TextView) findViewById(R.id.teste2ID);
     alertaBairro     =  (TextView) findViewById(R.id.teste3ID);
@@ -82,6 +88,8 @@ public class EditarBike extends AppCompatActivity {
     alertaHora       =  (TextView) findViewById(R.id.teste5ID);
     alertaBoletim    =  (TextView) findViewById(R.id.teste6ID);
     alertaDescricao  =  (TextView) findViewById(R.id.teste7ID);
+    alertaEstado     =  (TextView) findViewById(R.id.editarEstadoID);
+    alertaCidade    =   (TextView) findViewById(R.id.editarCidadeID);
     txtStatus       =   (TextView) findViewById(R.id.statusID);
 
 
@@ -98,7 +106,7 @@ public class EditarBike extends AppCompatActivity {
 
 
         status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
-        spinner = (Spinner) findViewById(R.id.spinnerMarcaID);
+        spinner = (Spinner)   findViewById(R.id.spinnerMarcaID);
         spinner.setAdapter(arrayAdapter);
 
 
@@ -181,6 +189,19 @@ public class EditarBike extends AppCompatActivity {
                 alertaNumeroText.setText(alertaNumero);
 
 
+
+
+                // dados do alertaEstado
+                String alertaEstado = params.getString("alertaEstado");
+                TextView alertaEstadoText = (TextView) findViewById(R.id.editarEstadoID);
+                alertaEstadoText.setText(alertaEstado);
+
+
+                // dados do alertaCidade
+                String alertaCidade = params.getString("alertaCidade");
+                TextView alertaCidadeText = (TextView) findViewById(R.id.editarCidadeID);
+                alertaCidadeText.setText(alertaCidade);
+
                 //dados do alertaRua
                 String alertaRua = params.getString("alertaRua");
                 TextView alertaRuaText = (TextView) findViewById(R.id.teste2ID);
@@ -190,7 +211,7 @@ public class EditarBike extends AppCompatActivity {
 
                 // dados do alertaBairro
                 String alertaBairro = params.getString("alertaBairro");
-                TextView alertaBairroText = (TextView) findViewById(R.id.teste3ID);
+                TextView alertaBairroText = (TextView)findViewById(R.id.teste3ID) ;
                 alertaBairroText.setText(alertaBairro);
 
 
@@ -247,7 +268,8 @@ public class EditarBike extends AppCompatActivity {
         bike.setModelo(modelo.getText().toString());
         bike.setCor(cor.getText().toString());
         bike.setDescricao(descricao.getText().toString());
-        bike.setAlertaNumero(alertaNumero.getText().toString());
+        bike.setAlertaEstado(alertaEstado.getText().toString());
+        bike.setAlertaCidade(alertaCidade.getText().toString());
         bike.setAlertaRua(alertaRua.getText().toString());
         bike.setAlertaBairro(alertaBairro.getText().toString());
         bike.setAlertaDate(alertaDate.getText().toString());

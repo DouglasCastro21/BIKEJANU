@@ -132,30 +132,9 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/txtRuaID"
-                android:layout_width="43dp"
-                android:layout_height="25dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginEnd="317dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="317dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
-                android:text="Rua"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/alertaRuaID"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alertaBairroID"
-                app:layout_constraintVertical_chainStyle="spread_inside" />
-
-            <TextView
-                android:id="@+id/txtBairroID"
+                android:id="@+id/textAlertaBairroID"
                 android:layout_width="59dp"
                 android:layout_height="25dp"
-                android:layout_marginBottom="4dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="8dp"
@@ -210,9 +189,9 @@
 
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="00:00"
@@ -228,18 +207,15 @@
                 android:id="@+id/txtBoletimID"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginEnd="84dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="84dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Boletim de Ocorrência(Opcional)"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/casoID"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/alertaRuaID" />
 
@@ -247,15 +223,20 @@
                 android:id="@+id/BoletimID"
                 android:layout_width="wrap_content"
                 android:layout_height="46dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginLeft="24dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="xxxxxxxxxxxxx"
                 android:inputType="number"
                 app:layout_constraintBottom_toTopOf="@+id/txtObservacaoID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/casoID" />
+                app:layout_constraintTop_toBottomOf="@+id/casoID"
+                app:layout_constraintVertical_bias="0.0" />
 
             <EditText
                 android:id="@+id/alertaDescricaoID"
@@ -290,6 +271,7 @@
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/alertaDescricaoID"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/BoletimID" />
 
@@ -315,7 +297,7 @@
                 android:id="@+id/alertaBairroID"
                 android:layout_width="306dp"
                 android:layout_height="46dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="8dp"
@@ -324,46 +306,25 @@
                 android:ems="10"
                 android:hint="Bairro"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/alertaRuaID"
+                app:layout_constraintBottom_toTopOf="@+id/textalertaRuaID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtBairroID" />
-
-            <EditText
-                android:id="@+id/alertaRuaID"
-                android:layout_width="306dp"
-                android:layout_height="46dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="150dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="150dp"
-                android:layout_marginStart="24dp"
-                android:background="@android:drawable/editbox_background_normal"
-                android:ems="10"
-                android:hint="Rua"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/txtBoletimID"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtRuaID" />
+                app:layout_constraintTop_toBottomOf="@+id/textAlertaBairroID" />
 
             <TextView
                 android:id="@+id/casoID"
                 android:layout_width="306dp"
                 android:layout_height="38dp"
-                android:layout_marginEnd="54dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="54dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
                 android:text="Caso tenha efetuado uma ocorrência em alguma delegacia, informe o boletim de ocorrência(B.O)"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/BoletimID"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtBoletimID" />
 
@@ -452,15 +413,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="168dp"
-                android:layout_marginLeft="75dp"
                 android:layout_marginRight="168dp"
-                android:layout_marginStart="75dp"
-                android:layout_marginTop="8dp"
                 android:text="TextView"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/txtBairroID"
-                app:layout_constraintTop_toBottomOf="@+id/alertaRuaID" />
+                tools:layout_editor_absoluteY="562dp" />
 
             <TextView
                 android:id="@+id/textEstadoID"
@@ -472,11 +429,11 @@
                 android:text="Estado"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/alertaEstadoID"
+                app:layout_constraintBottom_toTopOf="@+id/cadastroCidadeID"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/abrirMapaID" />
 
-            <TextView
+            <EditText
                 android:id="@+id/alertaEstadoID"
                 android:layout_width="124dp"
                 android:layout_height="67dp"
@@ -508,13 +465,13 @@
                 app:layout_constraintStart_toEndOf="@+id/textEstadoID"
                 app:layout_constraintTop_toBottomOf="@+id/abrirMapaID" />
 
-            <TextView
+            <EditText
                 android:id="@+id/alertacidadeID"
-                android:layout_width="162dp"
+                android:layout_width="142dp"
                 android:layout_height="67dp"
-                android:layout_marginEnd="138dp"
+                android:layout_marginEnd="56dp"
                 android:layout_marginLeft="82dp"
-                android:layout_marginRight="138dp"
+                android:layout_marginRight="56dp"
                 android:layout_marginStart="82dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:hint="Cidade"
@@ -522,7 +479,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.449"
-                app:layout_constraintStart_toEndOf="@+id/alertaEstadoID"
+                app:layout_constraintStart_toEndOf="@+id/cadastroCidadeID"
                 app:layout_constraintTop_toBottomOf="@+id/textCidade" />
 
             <Button
@@ -539,6 +496,42 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/alertaDataID" />
+
+            <TextView
+                android:id="@+id/textalertaRuaID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:text="Rua"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/alertaRuaID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alertaBairroID" />
+
+            <EditText
+                android:id="@+id/alertaRuaID"
+                android:layout_width="306dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="24dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="Rua"
+
+                app:layout_constraintBottom_toTopOf="@+id/txtBoletimID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textalertaRuaID" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

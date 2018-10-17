@@ -30,9 +30,11 @@ public class DadosBike extends AppCompatActivity  {
 
         TextView dadosAlertaData = (TextView) findViewById(R.id.dadoDiaID);
         TextView dadosAlertaHora = (TextView) findViewById(R.id.dadoHoraID);
+        TextView dadosEstado = (TextView) findViewById(R.id.dadosEstadoID);
+        TextView dadosCidade = (TextView) findViewById(R.id.dadosCidadeID);
         TextView dadosBairro = (TextView) findViewById(R.id.dadosBairroID);
         TextView dadosRua = (TextView) findViewById(R.id.dadoRuaID);
-        TextView dadosNumero = (TextView) findViewById(R.id.dadosNumeroID);
+       // TextView dadosNumero = (TextView) findViewById(R.id.dadosNumeroID);
         TextView dadosBoletim = (TextView) findViewById(R.id.dadosBoletimID);
         TextView dadosInfAuxiliar = (TextView) findViewById(R.id.dadosInformacaoID);
         TextView dadosStatus = (TextView) findViewById(R.id.dadosStatusID);
@@ -49,8 +51,10 @@ public class DadosBike extends AppCompatActivity  {
         TextView  txtmensagem1  = (TextView) findViewById(R.id.textTipoCrimeID);
         TextView  txtmensagem2  = (TextView) findViewById(R.id.textCasoVerifiqueID);
         TextView  txtRua        = (TextView) findViewById(R.id.textRuaID);
+        TextView  txtEstado     = (TextView) findViewById(R.id.textDadosEstadoID);
+        TextView  txtCidade    = (TextView) findViewById(R.id.textdadosCidadeID);
         TextView  txtBairro     = (TextView) findViewById(R.id.textBairroID);
-        TextView  txtNumero     = (TextView) findViewById(R.id.textNumeroID);
+       // TextView  txtNumero     = (TextView) findViewById(R.id.textNumeroID);
         TextView  txtDataHora   = (TextView) findViewById(R.id.textDataHoraID);
         TextView  txtInformacao = (TextView) findViewById(R.id.textInformacoesAuxiarID);
         TextView  txtBoletim    = (TextView) findViewById(R.id.textBoletimID);
@@ -126,6 +130,16 @@ public class DadosBike extends AppCompatActivity  {
                 TextView alertaHoraText = (TextView) findViewById(R.id.dadoHoraID);
                 alertaHoraText.setText(alertaHora);
 
+                //dados do alertaEstado
+                String alertaEstado = params.getString("alertaEstado");
+                TextView alertaEstadoText = (TextView) findViewById(R.id.dadosEstadoID);
+                alertaEstadoText.setText(alertaEstado);
+
+
+                // dados do alertaCidade
+                String alertaCidade = params.getString("alertaCidade");
+                TextView alertaCidadeText = (TextView) findViewById(R.id.dadosCidadeID);
+                alertaCidadeText.setText(alertaCidade);
 
                 // dados da Bairro
                 String alertaBairro = params.getString("alertaBairro");
@@ -139,10 +153,7 @@ public class DadosBike extends AppCompatActivity  {
                 alertaRuaText.setText(alertaRua);
 
 
-                // dados do numero
-                String alertaNumero = params.getString("alertaNumero");
-                TextView alertaNumeroText = (TextView) findViewById(R.id.dadosNumeroID);
-                alertaNumeroText.setText(alertaNumero);
+
 
                 // dados da Boletim
                 String alertaBoletim = params.getString("alertaBoletim");
@@ -170,7 +181,8 @@ public class DadosBike extends AppCompatActivity  {
                     dadosAlertaHora.setVisibility(View.VISIBLE);
                     dadosBairro.setVisibility(View.VISIBLE);
                     dadosRua.setVisibility(View.VISIBLE);
-                    dadosNumero.setVisibility(View.VISIBLE);
+                    dadosEstado.setVisibility(View.VISIBLE);
+                    dadosCidade.setVisibility(View.VISIBLE);
                     dadosBoletim.setVisibility(View.VISIBLE);
                     dadosInfAuxiliar.setVisibility(View.VISIBLE);
                     dadosStatus.setVisibility(View.VISIBLE);
@@ -179,7 +191,8 @@ public class DadosBike extends AppCompatActivity  {
                     // campos txt
                     txtRua.setVisibility(View.VISIBLE);
                     txtBairro.setVisibility(View.VISIBLE);
-                    txtNumero.setVisibility(View.VISIBLE);
+                    txtEstado.setVisibility(View.VISIBLE);
+                    txtCidade.setVisibility(View.VISIBLE);
                     txtDataHora.setVisibility(View.VISIBLE);
                     txtBoletim.setVisibility(View.VISIBLE);
                     txtInformacao.setVisibility(View.VISIBLE);
@@ -198,7 +211,8 @@ public class DadosBike extends AppCompatActivity  {
                     dadosAlertaHora.setVisibility(View.GONE);
                     dadosBairro.setVisibility(View.GONE);
                     dadosRua.setVisibility(View.GONE);
-                    dadosNumero.setVisibility(View.GONE);
+                    dadosEstado.setVisibility(View.GONE);
+                    dadosCidade.setVisibility(View.GONE);
                     dadosBoletim.setVisibility(View.GONE);
                     dadosInfAuxiliar.setVisibility(View.GONE);
                    // dadosStatus.setVisibility(View.GONE);
@@ -208,9 +222,12 @@ public class DadosBike extends AppCompatActivity  {
 
                     //campos txt
 
+
+                    txtEstado.setVisibility(View.GONE);
+                    txtCidade.setVisibility(View.GONE);
                     txtRua.setVisibility(View.GONE);
                     txtBairro.setVisibility(View.GONE);
-                    txtNumero.setVisibility(View.GONE);
+
                     txtDataHora.setVisibility(View.GONE);
                     txtBoletim.setVisibility(View.GONE);
                     txtInformacao.setVisibility(View.GONE);

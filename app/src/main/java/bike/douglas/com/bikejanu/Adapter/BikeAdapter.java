@@ -16,7 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +25,6 @@ import bike.douglas.com.bikejanu.Activity.AlertarFurtoRoubo;
 import bike.douglas.com.bikejanu.Activity.DadosBike;
 
 import bike.douglas.com.bikejanu.Activity.EditarBike;
-import bike.douglas.com.bikejanu.Activity.MapsActivity2;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
@@ -134,10 +132,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
+            final TextView txtViewAlertaEstado    = (TextView) view.findViewById(R.id.cadastroCidadeID);
+            final TextView txtViewAlertaCidade    = (TextView) view.findViewById(R.id.alertacidadeID);
+            final TextView txtViewAlertaRua       = (TextView) view.findViewById(R.id.cadastroBairroID);
 
-            final TextView txtViewAlertaRua       = (TextView) view.findViewById(R.id.alertaRuaID);
-            final TextView txtViewAlertaNumero    = (TextView) view.findViewById(R.id.alertaNumeroID);
-            final TextView txtViewAlertaBairro    = (TextView) view.findViewById(R.id.alertaBairroID);
+            final TextView txtViewAlertaBairro    = (TextView) view.findViewById(R.id.cadastroBairroID);
             final TextView txtViewAlertaData      = (TextView) view.findViewById(R.id.alertaDataID);
             final TextView txtViewAlertaHora      = (TextView) view.findViewById(R.id.alertaHoraID);
             final TextView txtViewAlertaBoletim   = (TextView) view.findViewById(R.id.BoletimID);
@@ -188,7 +187,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     Bike bikeselecao = new Bike();
                     bikeselecao = listabikes.get(position);
 
-                    // passa dados  para a tela dados BIKE e Cadastro Bike
+                    // passa dados  para a tela dados BIKE
 
                     Bundle params = new Bundle();
                     params.putString("dadosmodelo", bikeselecao.getModelo());
@@ -199,9 +198,10 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-                    params.putString("alertaRua", bikeselecao.getAlertaRua());
-                    params.putString("alertaNumero", bikeselecao.getAlertaNumero());
+                    params.putString("alertaEstado", bikeselecao.getAlertaEstado());
+                    params.putString("alertaCidade", bikeselecao.getAlertaCidade());
                     params.putString("alertaBairro", bikeselecao.getAlertaBairro());
+                    params.putString("alertaRua", bikeselecao.getAlertaRua());
                     params.putString("alertaData", bikeselecao.getAlertaDate());
                     params.putString("alertaHora", bikeselecao.getAlertaHora());
                     params.putString("alertaBoletim", bikeselecao.getBoletim());
@@ -264,9 +264,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     // passa dados  para a tela dados usuarios e Cadastro Bike
 
                                     Bundle params = new Bundle();
-                                    params.putString("alertaRua", bikeselecao.getAlertaRua());
-                                    params.putString("alertaNumero", bikeselecao.getAlertaNumero());
+
+                                    params.putString("alertaEstado", bikeselecao.getAlertaEstado());
+                                    params.putString("alertaCidade", bikeselecao.getAlertaCidade());
                                     params.putString("alertaBairro", bikeselecao.getAlertaBairro());
+                                    params.putString("alertaRua", bikeselecao.getAlertaRua());
                                     params.putString("alertaHora", bikeselecao.getAlertaHora());
                                     params.putString("alertaData", bikeselecao.getAlertaDate());
                                     params.putString("alertaBoletim", bikeselecao.getBoletim());
@@ -305,8 +307,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
                                     ///// DADOS QUE NÃO vão ficar envisiveis na tela editar
+
+                                    params.putString("alertaEstado", bikeselecao.getAlertaEstado());
+                                    params.putString("alertaCidade", bikeselecao.getAlertaCidade());
                                     params.putString("alertaRua", bikeselecao.getAlertaRua());
-                                    params.putString("alertaNumero", bikeselecao.getAlertaNumero());
+
                                     params.putString("alertaBairro", bikeselecao.getAlertaBairro());
                                     params.putString("alertaHora", bikeselecao.getAlertaHora());
                                     params.putString("alertaData", bikeselecao.getAlertaDate());
@@ -398,6 +403,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
         }
 
         return view;
+
+
 
 
 
