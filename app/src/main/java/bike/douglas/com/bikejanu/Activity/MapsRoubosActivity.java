@@ -77,17 +77,15 @@ public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCa
                     String txtLatitude =map.latitude;
                     String txtLongitude =map.longitude;
 
-                    Toast.makeText(MapsRoubosActivity.this, "latitude :" +txtLatitude, Toast.LENGTH_LONG).show();
 
 
                   double db = Double.parseDouble(txtLatitude.replace(",", "."));
                  double db2 = Double.parseDouble(txtLongitude.replace(",", "."));
 
-                  //  double numberLatitude = Double.parseDouble(txtLatitude);
-                  //  double numberLongitude = Double.parseDouble(txtLongitude);
+
 
                  LatLng location = new LatLng(db,db2);
-                 mMap.addMarker(new MarkerOptions().position(location)).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                 mMap.addMarker(new MarkerOptions().position(location)).setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_ladrao));
 
 
                 }
