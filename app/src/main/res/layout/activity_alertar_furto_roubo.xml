@@ -533,6 +533,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textalertaRuaID" />
 
+            <TextView
+                android:id="@+id/alertaLatitudeID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/alertaLongitudeID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="gone" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

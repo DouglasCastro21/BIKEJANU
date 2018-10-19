@@ -26,6 +26,7 @@ import bike.douglas.com.bikejanu.Activity.DadosBike;
 
 import bike.douglas.com.bikejanu.Activity.EditarBike;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.Entidades.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
 
@@ -122,27 +123,27 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-            final TextView txtViewNumeroSerie = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
-            final TextView txtViewMarca       = (TextView) view.findViewById(R.id.txtViewMarca);
-            final TextView txtViewCaixaDescricao    = (TextView) view.findViewById(R.id.CaixaDescricaoID);
-            final ImageView imagem            = (ImageView) view.findViewById(R.id.listaImagemID);
-            final TextView txtViewModelo      = (TextView) view.findViewById(R.id.textViewModeloID);
-            final TextView txtViewCor         = (TextView) view.findViewById(R.id.textViewCorID);
-            final TextView txtViewStatus         = (TextView) view.findViewById(R.id.textStatusID);
+            final TextView txtViewNumeroSerie        = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
+            final TextView txtViewMarca              = (TextView) view.findViewById(R.id.txtViewMarca);
+            final TextView txtViewCaixaDescricao     = (TextView) view.findViewById(R.id.CaixaDescricaoID);
+            final ImageView imagem                   = (ImageView) view.findViewById(R.id.listaImagemID);
+            final TextView txtViewModelo             = (TextView) view.findViewById(R.id.textViewModeloID);
+            final TextView txtViewCor                = (TextView) view.findViewById(R.id.textViewCorID);
+            final TextView txtViewStatus             = (TextView) view.findViewById(R.id.textStatusID);
 
 
 
-            final TextView txtViewAlertaEstado    = (TextView) view.findViewById(R.id.cadastroCidadeID);
-            final TextView txtViewAlertaCidade    = (TextView) view.findViewById(R.id.alertacidadeID);
-            final TextView txtViewAlertaRua       = (TextView) view.findViewById(R.id.cadastroBairroID);
+            final TextView txtViewAlertaEstado       = (TextView) view.findViewById(R.id.cadastroCidadeID);
+            final TextView txtViewAlertaCidade       = (TextView) view.findViewById(R.id.alertacidadeID);
+            final TextView txtViewAlertaRua          = (TextView) view.findViewById(R.id.cadastroBairroID);
 
-            final TextView txtViewAlertaBairro    = (TextView) view.findViewById(R.id.cadastroBairroID);
-            final TextView txtViewAlertaData      = (TextView) view.findViewById(R.id.alertaDataID);
-            final TextView txtViewAlertaHora      = (TextView) view.findViewById(R.id.alertaHoraID);
-            final TextView txtViewAlertaBoletim   = (TextView) view.findViewById(R.id.BoletimID);
-            final TextView txtViewAlertaDescricao = (TextView) view.findViewById(R.id.alertaDescricaoID);
+            final TextView txtViewAlertaBairro       = (TextView) view.findViewById(R.id.cadastroBairroID);
+            final TextView txtViewAlertaData         = (TextView) view.findViewById(R.id.alertaDataID);
+            final TextView txtViewAlertaHora         = (TextView) view.findViewById(R.id.alertaHoraID);
+            final TextView txtViewAlertaBoletim      = (TextView) view.findViewById(R.id.BoletimID);
+            final TextView txtViewAlertaDescricao    = (TextView) view.findViewById(R.id.alertaDescricaoID);
 
-            Bike bikeRoubadaFurtada;
+            final Bike bikeRoubadaFurtada;
             bikeRoubadaFurtada = listabikes.get(position);
 
 
@@ -151,7 +152,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                 if( bikeRoubadaFurtada.getStatus().equals("Furtada") || bikeRoubadaFurtada.getStatus().equals("Roubada")){
 
                        view.setBackgroundColor(Color.RED);
-
 
 
               }
@@ -190,23 +190,23 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     // passa dados  para a tela dados BIKE
 
                     Bundle params = new Bundle();
-                    params.putString("dadosmodelo", bikeselecao.getModelo());
-                    params.putString("dadosmarca", bikeselecao.getMarca());
+                    params.putString("dadosmodelo",       bikeselecao.getModelo());
+                    params.putString("dadosmarca",        bikeselecao.getMarca());
                     params.putString("dadosnumero_serie", bikeselecao.getNumero_serie());
-                    params.putString("dadosdescricao", bikeselecao.getDescricao());
-                    params.putString("dadoscor", bikeselecao.getCor());
+                    params.putString("dadosdescricao",    bikeselecao.getDescricao());
+                    params.putString("dadoscor",          bikeselecao.getCor());
 
 
 
-                    params.putString("alertaEstado", bikeselecao.getAlertaEstado());
-                    params.putString("alertaCidade", bikeselecao.getAlertaCidade());
-                    params.putString("alertaBairro", bikeselecao.getAlertaBairro());
-                    params.putString("alertaRua", bikeselecao.getAlertaRua());
-                    params.putString("alertaData", bikeselecao.getAlertaDate());
-                    params.putString("alertaHora", bikeselecao.getAlertaHora());
-                    params.putString("alertaBoletim", bikeselecao.getBoletim());
-                    params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
-                    params.putString("status", bikeselecao.getStatus());
+                    params.putString("alertaEstado",      bikeselecao.getAlertaEstado());
+                    params.putString("alertaCidade",      bikeselecao.getAlertaCidade());
+                    params.putString("alertaBairro",      bikeselecao.getAlertaBairro());
+                    params.putString("alertaRua",         bikeselecao.getAlertaRua());
+                    params.putString("alertaData",        bikeselecao.getAlertaDate());
+                    params.putString("alertaHora",        bikeselecao.getAlertaHora());
+                    params.putString("alertaBoletim",     bikeselecao.getBoletim());
+                    params.putString("alertadescricao",   bikeselecao.getAlertaDescricao());
+                    params.putString("status",            bikeselecao.getStatus());
 
 
 
@@ -261,31 +261,34 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                 if (opcoes[i].equals("Mudar status da bike")) {
 
 
-                                    // passa dados  para a tela dados usuarios e Cadastro Bike
+                                    // passa dados  a tela alerta Furto/roubo
 
                                     Bundle params = new Bundle();
 
-                                    params.putString("alertaEstado", bikeselecao.getAlertaEstado());
-                                    params.putString("alertaCidade", bikeselecao.getAlertaCidade());
-                                    params.putString("alertaBairro", bikeselecao.getAlertaBairro());
-                                    params.putString("alertaRua", bikeselecao.getAlertaRua());
-                                    params.putString("alertaHora", bikeselecao.getAlertaHora());
-                                    params.putString("alertaData", bikeselecao.getAlertaDate());
-                                    params.putString("alertaBoletim", bikeselecao.getBoletim());
-                                    params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
+                                    params.putString("alertaEstado",   bikeselecao.getAlertaEstado());
+                                    params.putString("alertaCidade",   bikeselecao.getAlertaCidade());
+                                    params.putString("alertaBairro",   bikeselecao.getAlertaBairro());
+                                    params.putString("alertaRua",      bikeselecao.getAlertaRua());
+                                    params.putString("alertaHora",     bikeselecao.getAlertaHora());
+                                    params.putString("alertaData",     bikeselecao.getAlertaDate());
+                                    params.putString("alertaBoletim",  bikeselecao.getBoletim());
+                                    params.putString("alertadescricao",bikeselecao.getAlertaDescricao());
 
 
                                     /// DADOS QUE NÃO vão ficar visiveis na tela Alerta furto e roubo
 
-                                    params.putString("modelo", bikeselecao.getModelo());
-                                    params.putString("marca", bikeselecao.getMarca());
-                                    params.putString("numero_serie", bikeselecao.getNumero_serie());
-                                    params.putString("descricao", bikeselecao.getDescricao());
-                                    params.putString("cor", bikeselecao.getCor());
-                                    params.putString("status", bikeselecao.getStatus());
+                                    params.putString("modelo",          bikeselecao.getModelo());
+                                    params.putString("marca",           bikeselecao.getMarca());
+                                    params.putString("numero_serie",    bikeselecao.getNumero_serie());
+                                    params.putString("descricao",       bikeselecao.getDescricao());
+                                    params.putString("cor",             bikeselecao.getCor());
+                                    params.putString("status",          bikeselecao.getStatus());
+
+                                    params.putString("latitude",        bikeselecao.getLatitude() );
+                                    params.putString("longitude",       bikeselecao.getLongitude());
 
 
-                                   Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
+                                    Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
                                    intent.putExtras(params);
 
                                    context.startActivity(intent);
@@ -299,26 +302,28 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     // passa dados  para a tela dados usuarios e Cadastro Bike
 
                                     Bundle params = new Bundle();
-                                    params.putString("modelo", bikeselecao.getModelo());
-                                    params.putString("marca", bikeselecao.getMarca());
-                                    params.putString("numero_serie", bikeselecao.getNumero_serie());
-                                    params.putString("descricao", bikeselecao.getDescricao());
-                                    params.putString("cor", bikeselecao.getCor());
+                                    params.putString("modelo",         bikeselecao.getModelo());
+                                    params.putString("marca",          bikeselecao.getMarca());
+                                    params.putString("numero_serie",   bikeselecao.getNumero_serie());
+                                    params.putString("descricao",      bikeselecao.getDescricao());
+                                    params.putString("cor",            bikeselecao.getCor());
 
 
                                     ///// DADOS QUE NÃO vão ficar envisiveis na tela editar
 
-                                    params.putString("alertaEstado", bikeselecao.getAlertaEstado());
-                                    params.putString("alertaCidade", bikeselecao.getAlertaCidade());
-                                    params.putString("alertaRua", bikeselecao.getAlertaRua());
+                                    params.putString("alertaEstado",    bikeselecao.getAlertaEstado());
+                                    params.putString("alertaCidade",    bikeselecao.getAlertaCidade());
+                                    params.putString("alertaRua",       bikeselecao.getAlertaRua());
 
-                                    params.putString("alertaBairro", bikeselecao.getAlertaBairro());
-                                    params.putString("alertaHora", bikeselecao.getAlertaHora());
-                                    params.putString("alertaData", bikeselecao.getAlertaDate());
-                                    params.putString("alertaBoletim", bikeselecao.getBoletim());
+                                    params.putString("alertaBairro",    bikeselecao.getAlertaBairro());
+                                    params.putString("alertaHora",      bikeselecao.getAlertaHora());
+                                    params.putString("alertaData",      bikeselecao.getAlertaDate());
+                                    params.putString("alertaBoletim",   bikeselecao.getBoletim());
                                     params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
-                                    params.putString("status", bikeselecao.getStatus());
+                                    params.putString("status",          bikeselecao.getStatus());
 
+                                    params.putString("latitude",        bikeselecao.getLatitude() );
+                                    params.putString("longitude",       bikeselecao.getLongitude());
 
 
                                   Intent intent = new Intent(BikeAdapter.super.getContext(), EditarBike.class);

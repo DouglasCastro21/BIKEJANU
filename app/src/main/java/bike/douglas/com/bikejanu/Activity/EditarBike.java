@@ -47,6 +47,8 @@ public class EditarBike extends AppCompatActivity {
     private TextView alertaBairro;
     private TextView alertaDate;
     private TextView alertaHora;
+    private TextView latitude;
+    private TextView longitude;
     private TextView alertaBoletim;
     private TextView alertaDescricao;
     private ImageView spinnerImagem;
@@ -89,8 +91,10 @@ public class EditarBike extends AppCompatActivity {
     alertaBoletim    =  (TextView) findViewById(R.id.teste6ID);
     alertaDescricao  =  (TextView) findViewById(R.id.teste7ID);
     alertaEstado     =  (TextView) findViewById(R.id.editarEstadoID);
-    alertaCidade    =   (TextView) findViewById(R.id.editarCidadeID);
-    txtStatus       =   (TextView) findViewById(R.id.statusID);
+    alertaCidade     =  (TextView) findViewById(R.id.editarCidadeID);
+    txtStatus        =  (TextView) findViewById(R.id.statusID);
+    latitude         =  (TextView) findViewById(R.id.txtEditarLatitudeID);
+    longitude        =  (TextView) findViewById(R.id.txtEditarLongitudeID);
 
 
 
@@ -247,6 +251,16 @@ public class EditarBike extends AppCompatActivity {
                 statusBike = statuss;
 
 
+                String latitude = params.getString("latitude");
+                TextView latitudeText = (TextView) findViewById(R.id.txtEditarLatitudeID);
+                latitudeText.setText(latitude);
+
+
+                String longitude = params.getString("longitude");
+                TextView longitudeText = (TextView) findViewById(R.id.txtEditarLongitudeID);
+                longitudeText.setText(longitude);
+
+
 
 
 
@@ -276,7 +290,12 @@ public class EditarBike extends AppCompatActivity {
         bike.setAlertaHora(alertaHora.getText().toString());
         bike.setBoletim(alertaBoletim.getText().toString());
         bike.setAlertaDescricao(alertaDescricao.getText().toString());
+
+        bike.setLatitude(latitude.getText().toString());
+        bike.setLongitude(longitude.getText().toString());
+
         bike.setStatus(statusBike);
+
     }
 
     // volta pra tela usuario
@@ -306,11 +325,12 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-            // cadastra a bike no nó todas as bikes
+            // EDITA a bike no nó todas as bikes
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
             firebase.child(bike.getNumero_serie()).setValue(bike);
 
-            // cadastra no nó usuario logado
+
+            // Edita no nó usuario logado
              firebase = Configuracao_Firebase.getFirebase().child("Bikes");
              firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 

@@ -693,6 +693,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtBoletimID"
                 app:layout_constraintVertical_chainStyle="packed" />
 
+            <TextView
+                android:id="@+id/txCadastroLatitudeID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txCadastroLongitudeID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

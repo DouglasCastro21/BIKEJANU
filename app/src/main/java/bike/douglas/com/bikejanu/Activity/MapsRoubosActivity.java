@@ -2,18 +2,32 @@ package bike.douglas.com.bikejanu.Activity;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import bike.douglas.com.bikejanu.Entidades.LocalBikesMaps;
 import bike.douglas.com.bikejanu.R;
 
-public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
+    private ChildEventListener childEventListener;
+    private DatabaseReference databaseReference;
+    Marker marker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +37,14 @@ public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCa
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapRoubo);
         mapFragment.getMapAsync(this);
+
+
+        ChildEventListener childEventListener;
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("LocalMaps");
+        databaseReference.push().setValue(marker);
+
+
     }
 
 
@@ -39,9 +61,51 @@ public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        googleMap.setOnMarkerClickListener(MapsRoubosActivity.this);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot s:dataSnapshot.getChildren()){
+                    LocalBikesMaps  map = s.getValue(LocalBikesMaps.class);
+
+
+
+
+                    String txtLatitude =map.latitude;
+                    String txtLongitude =map.longitude;
+
+                    Toast.makeText(MapsRoubosActivity.this, "latitude :" +txtLatitude, Toast.LENGTH_LONG).show();
+
+
+                  double db = Double.parseDouble(txtLatitude.replace(",", "."));
+                 double db2 = Double.parseDouble(txtLongitude.replace(",", "."));
+
+                  //  double numberLatitude = Double.parseDouble(txtLatitude);
+                  //  double numberLongitude = Double.parseDouble(txtLongitude);
+
+                 LatLng location = new LatLng(db,db2);
+                 mMap.addMarker(new MarkerOptions().position(location)).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
     }
 }

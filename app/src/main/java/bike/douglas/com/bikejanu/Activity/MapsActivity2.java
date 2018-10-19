@@ -178,6 +178,11 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
                     AlertarFurtoRoubo.alertaBairro.setText(endereco.getSubLocality());
                     AlertarFurtoRoubo.alertaRua.setText(endereco.getThoroughfare());
 
+
+
+                    AlertarFurtoRoubo.localLatitude.setText(String.valueOf(endereco.getLatitude()));
+                    AlertarFurtoRoubo.localLongitude.setText(String.valueOf(endereco.getLongitude()));
+
                     Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
                     intent.putExtras(intent);
 
@@ -195,6 +200,11 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
                     CadastroBike.cadastroCidade.setText(endereco.getSubAdminArea());
                     CadastroBike.cadastroBairro.setText(endereco.getSubLocality());
                     CadastroBike.cadastroRua.setText(endereco.getThoroughfare());
+
+
+                    CadastroBike.txtLatitude.setText(String.valueOf(endereco.getLatitude()));
+                    CadastroBike.txtLongitude.setText(String.valueOf(endereco.getLongitude()));
+
 
 
                     Intent intent = new Intent(MapsActivity2.this, CadastroBike.class);
@@ -363,6 +373,12 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
                         AlertarFurtoRoubo.alertaBairro.setText(endereco.getSubLocality());
                         AlertarFurtoRoubo.alertaRua.setText(endereco.getThoroughfare());
 
+                        AlertarFurtoRoubo.localLatitude.setText(String.valueOf(endereco.getLatitude()));
+                        AlertarFurtoRoubo.localLongitude.setText(String.valueOf(endereco.getLongitude()));
+
+                       // Toast.makeText(this, "Não é possível obter a localização", Toast.LENGTH_SHORT).show();
+
+
                         Intent intent = new Intent(MapsActivity2.this, AlertarFurtoRoubo.class);
                         intent.putExtras(intent);
 
@@ -380,6 +396,10 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
                         CadastroBike.cadastroCidade.setText(endereco.getSubAdminArea());
                         CadastroBike.cadastroBairro.setText(endereco.getSubLocality());
                         CadastroBike.cadastroRua.setText(endereco.getThoroughfare());
+
+
+                       CadastroBike.txtLatitude.setText(String.valueOf(endereco.getLatitude()));
+                       CadastroBike.txtLongitude.setText(String.valueOf(endereco.getLongitude()));
 
 
                         Intent intent = new Intent(MapsActivity2.this, CadastroBike.class);

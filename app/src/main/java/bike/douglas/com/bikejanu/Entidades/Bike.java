@@ -27,6 +27,8 @@ public class Bike extends Usuarios{
     private String alertaCidade;
     private String alertaBairro;
     private String alertaRua;
+    private String latitude;
+    private String longitude;
 
     private String alertaDate;
     private String alertaHora;
@@ -59,11 +61,15 @@ public class Bike extends Usuarios{
         hashMapBike.put("alertaCidade",getAlertaCidade());
         hashMapBike.put("alertaRua",getAlertaRua());
         hashMapBike.put("alertaBairro",getAlertaBairro());
+
         hashMapBike.put("alertaDate",getAlertaDate());
         hashMapBike.put("alertaHora",getAlertaHora());
         hashMapBike.put("Boletim",getBoletim());
         hashMapBike.put("alertaDescricao",getAlertaDescricao());
         hashMapBike.put("status",getStatus());
+
+        hashMapBike.put("latitude",getLatitude());
+        hashMapBike.put("longitude",getLongitude());
 
 
 
@@ -191,5 +197,21 @@ public class Bike extends Usuarios{
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }

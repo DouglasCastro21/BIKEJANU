@@ -33,6 +33,7 @@ import java.util.Date;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
+import bike.douglas.com.bikejanu.Entidades.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
@@ -51,14 +52,15 @@ public class CadastroBike extends AppCompatActivity  {
    public  static EditText cadastroCidade;
     static EditText cadastroRua;
     static EditText cadastroBairro;
-
+    static TextView txtLatitude;
+    static TextView txtLongitude;
 
     private EditText alertaDate;
     private EditText alertaHora;
     private EditText Boletim;
     private EditText alertaDescricao;
 
-
+   ;
     private TextView txtmensagem1;
     private TextView txtmensagem2;
     private TextView txtRua;
@@ -66,6 +68,7 @@ public class CadastroBike extends AppCompatActivity  {
     private TextView txtCadastroBikeEstado;
     private TextView txtCadastroBikeCidade;
     private TextView txtBairro;
+
 
     private TextView txtObservacao;
     private TextView txtBoletim;
@@ -85,6 +88,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
     public  Bike bike;
+    public LocalBikesMaps localBikesMaps;
     private DatabaseReference firebase;
     private int dia,mes,ano,hora,minuto;
 
@@ -101,43 +105,46 @@ public class CadastroBike extends AppCompatActivity  {
         setContentView(R.layout.activity_cadastro_bike);
 
 
-        numero_serie = (EditText)    findViewById(R.id.NumeroID);
-        modelo       = (EditText)    findViewById(R.id.modeloID);
-        cor          = (EditText)    findViewById(R.id.corID);
-        descricao    = (EditText)    findViewById(R.id.descricaoID);
+        numero_serie    = (EditText)    findViewById(R.id.NumeroID);
+        modelo          = (EditText)    findViewById(R.id.modeloID);
+        cor             = (EditText)    findViewById(R.id.corID);
+        descricao       = (EditText)    findViewById(R.id.descricaoID);
 
-        cadastroEstado  = (EditText) findViewById(R.id.cadastroEstadoID);
-        cadastroCidade  = (EditText) findViewById(R.id.cadastroCidadeID);
-        cadastroBairro  = (EditText) findViewById(R.id.cadastroBairroID);
-        cadastroRua     = (EditText) findViewById(R.id.cadastroRuaID);
-        alertaDate      = (EditText) findViewById(R.id.alertaDataID);
-        alertaHora      = (EditText) findViewById(R.id.alertaHoraID);
-        Boletim         = (EditText) findViewById(R.id.BoletimID);
-        alertaDescricao = (EditText) findViewById(R.id.alertaDescricaoID);
+        cadastroEstado  = (EditText)    findViewById(R.id.cadastroEstadoID);
+        cadastroCidade  = (EditText)    findViewById(R.id.cadastroCidadeID);
+        cadastroBairro  = (EditText)    findViewById(R.id.cadastroBairroID);
+        cadastroRua     = (EditText)    findViewById(R.id.cadastroRuaID);
+        alertaDate      = (EditText)    findViewById(R.id.alertaDataID);
+        alertaHora      = (EditText)    findViewById(R.id.alertaHoraID);
+        Boletim         = (EditText)    findViewById(R.id.BoletimID);
+        alertaDescricao = (EditText)    findViewById(R.id.alertaDescricaoID);
 
         // campos txt
 
-        txtCadastroBikeEstado = (TextView) findViewById(R.id.txtcadastroBikeEstadoID);
-        txtCadastroBikeCidade = (TextView) findViewById(R.id.txtcadastroBikeCidadeID);
-        txtRua = (TextView)                findViewById(R.id.txtRuaID);
-        txtBairro = (TextView)             findViewById(R.id.txtBairroID);
-        txtBoletim = (TextView)            findViewById(R.id.txtBoletimID);
-        txtDataHora = (TextView)           findViewById(R.id.txtDataHoraID);
-        txtMensagemBoletim = (TextView)           findViewById(R.id.txtMensagemBoletimID);
+        txtLatitude             = (TextView)  findViewById(R.id.txCadastroLatitudeID);
+        txtLongitude            = (TextView)  findViewById(R.id.txCadastroLongitudeID);
+        txtCadastroBikeEstado   = (TextView)  findViewById(R.id.txtcadastroBikeEstadoID);
+        txtCadastroBikeCidade   = (TextView)  findViewById(R.id.txtcadastroBikeCidadeID);
+        txtRua                  = (TextView)  findViewById(R.id.txtRuaID);
+        txtBairro               = (TextView)  findViewById(R.id.txtBairroID);
+        txtBoletim              = (TextView)  findViewById(R.id.txtBoletimID);
+        txtDataHora             = (TextView)  findViewById(R.id.txtDataHoraID);
+        txtMensagemBoletim      = (TextView)  findViewById(R.id.txtMensagemBoletimID);
 
-        txtObservacao = (TextView) findViewById(R.id.txtObservacaoID);
-        txtmensagem1 = (TextView) findViewById(R.id.txtmensagem1ID);
-        txtmensagem2 = (TextView) findViewById(R.id.txtmensagem2ID);
-
-
-        radioButtonFurtada = (RadioButton) findViewById(R.id.radioButtonFurtadaID);
-        radioButtonRoubada = (RadioButton) findViewById(R.id.alertaRoubadaID);
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroupID);
+        txtObservacao           = (TextView)  findViewById(R.id.txtObservacaoID);
+        txtmensagem1            = (TextView)  findViewById(R.id.txtmensagem1ID);
+        txtmensagem2            = (TextView)  findViewById(R.id.txtmensagem2ID);
 
 
-        botaoBuscarMapa = (Button) findViewById(R.id.btnBuscarMapsID) ;
-        botaocadastrar = (Button) findViewById(R.id.finalizarID);
-        final CheckBox checkBox = (CheckBox) findViewById(R.id.checkBoxID);
+        radioButtonFurtada      = (RadioButton) findViewById(R.id.radioButtonFurtadaID);
+        radioButtonRoubada      = (RadioButton) findViewById(R.id.alertaRoubadaID);
+        radioGroup              = (RadioGroup)  findViewById(R.id.radioGroupID);
+
+
+
+        botaoBuscarMapa         = (Button)       findViewById(R.id.btnBuscarMapsID) ;
+        botaocadastrar          = (Button)       findViewById(R.id.finalizarID);
+        final CheckBox checkBox = (CheckBox)     findViewById(R.id.checkBoxID);
 
 
         //carrega os spinner
@@ -550,6 +557,7 @@ public class CadastroBike extends AppCompatActivity  {
     private void inicializarElementos(){
 
          bike = new Bike();
+         localBikesMaps = new LocalBikesMaps();
          bike.setNumero_serie(numero_serie.getText().toString());
          bike.setMarca(spinner.getSelectedItem().toString());
          bike.setModelo(modelo.getText().toString());
@@ -565,6 +573,12 @@ public class CadastroBike extends AppCompatActivity  {
          bike.setBoletim(Boletim.getText().toString());
          bike.setAlertaDescricao(alertaDescricao.getText().toString());
          bike.setStatus(status.getText().toString());
+
+         bike.setLatitude(txtLatitude.getText().toString());
+         bike.setLongitude(txtLongitude.getText().toString());
+         localBikesMaps.setLatitude(txtLatitude.getText().toString());
+         localBikesMaps.setLongitude(txtLongitude.getText().toString());
+
 
 
     }
@@ -609,6 +623,12 @@ public class CadastroBike extends AppCompatActivity  {
             // cadastra a bike no nó todas as bikes
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
             firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+            // cadastra a bikeROubada no Maps de roubos
+
+            firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+            firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
 
             // cadastra no nó usuario logado
             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
