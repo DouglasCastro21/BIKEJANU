@@ -1,5 +1,8 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.graphics.Color;
+import android.provider.ContactsContract;
+import android.renderscript.Element;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -12,11 +15,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.LegendRenderer;
+import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
@@ -34,6 +43,7 @@ public class Grafico extends AppCompatActivity {
     private ListView listViewDados;
 
 
+
     private List<Bike> listabikes = new ArrayList<Bike>();
     private ArrayAdapter<Bike> arrayAdapterBike;
 
@@ -48,17 +58,42 @@ public class Grafico extends AppCompatActivity {
 
 
 
-
-
-
         GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3)
+
+
+
+       BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
+
+
+               new  DataPoint(2010,18),
+             new  DataPoint(2011,9),
+               new  DataPoint(2012,22),
+              new  DataPoint(2013,61),
+               new  DataPoint(2014,91),
+
+
+
+           //     new DataPoint(2015, 77),
+            //    new DataPoint(2016, 143),
+           //     new DataPoint(2017, 150),
+
+
+
         });
+
         graph.addSeries(series);
 
+        series.setDrawValuesOnTop(true);
+        series.setValuesOnTopColor(Color.RED);
+        series.setSpacing(10);
+        series.setAnimated(true);
+
+
+
+        graph.setTitle("Roubo e furto de Bicicletas ");
+        series.setTitle("Roubo/furtos");
+        graph.getLegendRenderer().setVisible(true);
+        graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
 
 

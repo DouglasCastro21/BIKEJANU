@@ -24,8 +24,8 @@
         android:id="@+id/informe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="      Mapa do crime"
-        android:textSize="36sp" />
+        android:text="             Mapa do Crime"
+        android:textSize="30sp" />
 
 
 </android.support.design.widget.CoordinatorLayout>

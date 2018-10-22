@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">BIKE JANU</string>
-    <string name="btn_Indice">CONSULTAR ÍNDICES</string>
+    <string name="btn_Indice">CONSULTAR ESTATÍSTICAS</string>
     <string name="btn_Cadastro">CONSULTAR BIKE</string>
     <string name="btn_Login">ENTRAR</string>
     <string name="txt_Bike_Janu">Bike Janu</string>
