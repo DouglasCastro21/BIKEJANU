@@ -38,8 +38,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
-import bike.douglas.com.bikejanu.Activity.Grafico;
-import bike.douglas.com.bikejanu.Activity.MapsRoubosActivity;
+
+
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Entidades.Bike;
@@ -67,13 +67,11 @@ private ImageView botaoGrafico;
 
 
 
-
         botaoGrafico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-caixaDialogoGraficos();
 
             }
         });
@@ -81,45 +79,7 @@ caixaDialogoGraficos();
 
     }
 
-    private void caixaDialogoGraficos(){
 
-        final CharSequence[] opcoes = {"Mapa dos Crimes", "Gráfico de Barras", "Gráfico de Pizza"};
-
-
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(Consultar_Indice.this);
-        builder.setTitle("");
-        builder.setItems(opcoes, new DialogInterface.OnClickListener() {
-
-
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-
-                if (opcoes[i].equals("Mapa dos Crimes")) {
-
-                    startActivity(new Intent(Consultar_Indice.this, MapsRoubosActivity.class));
-
-
-                }else if (opcoes[i].equals("Gráfico de Barras")){
-
-                      startActivity(new Intent(Consultar_Indice.this, Grafico.class));
-
-
-                }else if (opcoes[i].equals("Gráfico de Pizza")){
-
-                    Toast.makeText(Consultar_Indice.this, " grafico de pizza", Toast.LENGTH_LONG).show();
-
-
-
-
-                }
-
-            }
-
-                });
-
-                builder.show();
-            }
 
 
 }

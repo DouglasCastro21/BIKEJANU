@@ -1,31 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".Activity.MapsRoubosActivity"
-
-    >
+    tools:context=".Fragments.MapaFragment">
 
 
     <fragment
 
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/mapRoubo"
+        android:id="@+id/mapRouboFragmento"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-    <TextView
-        android:id="@+id/informe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="             Mapa do Crime"
-        android:textSize="30sp" />
-
+        android:layout_height="match_parent" />
 
 </android.support.design.widget.CoordinatorLayout>

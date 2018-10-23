@@ -1,10 +1,13 @@
-package bike.douglas.com.bikejanu.Activity;
+package bike.douglas.com.bikejanu.Fragments;
 
-import android.support.v4.app.FragmentActivity;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -19,23 +22,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 import bike.douglas.com.bikejanu.Entidades.LocalBikesMaps;
 import bike.douglas.com.bikejanu.R;
 
-public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+
+public class MapaFragment extends Fragment  implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     private ChildEventListener childEventListener;
     private DatabaseReference databaseReference;
     Marker marker;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps_roubos);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.mapRoubo);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
+
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                .findFragmentById(R.id.mapRouboFragmento);
         mapFragment.getMapAsync(this);
 
 
@@ -45,23 +52,23 @@ public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCa
         databaseReference.push().setValue(marker);
 
 
+
+
+
+        return rootView;
     }
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
+    }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
-        googleMap.setOnMarkerClickListener(MapsRoubosActivity.this);
+        googleMap.setOnMarkerClickListener(MapaFragment.this);
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -79,13 +86,13 @@ public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCa
 
 
 
-                  double db = Double.parseDouble(txtLatitude.replace(",", "."));
-                 double db2 = Double.parseDouble(txtLongitude.replace(",", "."));
+                    double db =  Double.parseDouble(txtLatitude.replace(",", "."));
+                    double db2 = Double.parseDouble(txtLongitude.replace(",", "."));
 
 
 
-                 LatLng location = new LatLng(db,db2);
-                 mMap.addMarker(new MarkerOptions().position(location)).setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_ladrao));
+                    LatLng location = new LatLng(db,db2);
+                    mMap.addMarker(new MarkerOptions().position(location)).setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_ladrao));
 
 
                 }
@@ -101,9 +108,4 @@ public class MapsRoubosActivity extends FragmentActivity implements OnMapReadyCa
 
 
     }
-
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        return false;
-    }
-}
+        }

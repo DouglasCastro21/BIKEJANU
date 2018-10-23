@@ -37,6 +37,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_maps2">Map</string>
     <string name="title_activity_maps_roubos">Map</string>
+    <string name="title_activity_estatisticas">Estatísticas</string>
 
 
 </resources>
