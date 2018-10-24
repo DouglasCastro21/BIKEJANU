@@ -18,6 +18,7 @@ import android.view.MenuItem;
 
 import bike.douglas.com.bikejanu.Fragments.Consultar_Indice;
 import bike.douglas.com.bikejanu.Fragments.GraficoANOFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoBairroFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaFragment;
 import bike.douglas.com.bikejanu.Fragments.Tab1Entrar;
 import bike.douglas.com.bikejanu.Fragments.Tab2Data;
@@ -98,20 +99,22 @@ public class Estatisticas extends AppCompatActivity
 
         if (id == R.id.nav_map) {
 
+            transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
 
 
 
-
-        } else if (id == R.id.nav_grafico_barras) {
+        } else if (id == R.id.nav_grafico_ano) {
 
             transaction.replace(R.id.conteinerFragmentos,new GraficoANOFragment()).commit();
 
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_grafico_bairro) {
 
-            transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
+            transaction.replace(R.id.conteinerFragmentos,new GraficoBairroFragment()).commit();
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_grafico_ruas) {
+
+
 
         } else if (id == R.id.nav_share) {
 
