@@ -45,8 +45,6 @@ public class GraficoANOFragment extends Fragment {
                 new  DataPoint(2013,61),
                 new  DataPoint(2014,91),
 
-
-
                 //     new DataPoint(2015, 77),
                 //   new DataPoint(2016, 143),
                 //     new DataPoint(2017, 150),
