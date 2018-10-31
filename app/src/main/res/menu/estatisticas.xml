@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"></menu>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_barras"
+        android:orderInCategory="100"
+        android:title="Gráfico de Barras"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_linhas"
+        android:orderInCategory="100"
+        android:title="Gráfico de Linhas"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_misto"
+        android:orderInCategory="100"
+        android:title="Gráfico Misto"
+        app:showAsAction="never" />
+</menu>

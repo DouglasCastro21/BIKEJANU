@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.GraficoBairroFragment">
+    tools:context=".Fragments.GraficoBairroBarraFragment">
 
     <com.jjoe64.graphview.GraphView
 
-        android:id="@+id/graphBairro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/graphBairroBarra"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

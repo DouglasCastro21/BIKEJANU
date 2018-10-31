@@ -1,12 +1,10 @@
 package bike.douglas.com.bikejanu.Activity;
 
-import android.app.FragmentTransaction;
-import android.content.Intent;
+import android.annotation.SuppressLint;
+import android.content.ClipData;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.internal.NavigationMenuItemView;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,16 +14,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import bike.douglas.com.bikejanu.Fragments.Consultar_Indice;
-import bike.douglas.com.bikejanu.Fragments.GraficoANOFragment;
-import bike.douglas.com.bikejanu.Fragments.GraficoBairroFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoAnoBarraFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoAnoMistoFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoBairroMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaFragment;
-import bike.douglas.com.bikejanu.Fragments.Tab1Entrar;
-import bike.douglas.com.bikejanu.Fragments.Tab2Data;
 import bike.douglas.com.bikejanu.R;
+
+
+
 
 public class Estatisticas extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    public int resposta =0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,8 @@ public class Estatisticas extends AppCompatActivity
         setContentView(R.layout.activity_estatisticas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -49,7 +57,12 @@ public class Estatisticas extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        transaction.replace(R.id.conteinerFragmentos,new GraficoANOFragment()).commit();
+
+        transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
+        resposta=1;
+
+
+
     }
 
     @Override
@@ -76,12 +89,68 @@ public class Estatisticas extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
 
 
-        int id = item.getItemId();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
+        int idMenu = item.getItemId();
+
+   if(resposta==1){
+
+
+       if (idMenu == R.id.action_barras && resposta == 1) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoAnoBarraFragment()).commit();
+
+
+
+       } else if (idMenu == R.id.action_linhas && resposta == 1) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoAnoLinhaFragment()).commit();
+
+
+
+       } else if (idMenu == R.id.action_misto && resposta == 1) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoAnoMistoFragment()).commit();
+
+
+
+       }
+
+
+   }
+
+
+   if(resposta==2){
+
+       if (idMenu == R.id.action_barras && resposta == 2) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoBairroBarraFragment()).commit();
+
+
+
+       } else if (idMenu == R.id.action_linhas && resposta == 2) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoBairroLinhaFragment()).commit();
+
+
+
+       } else if (idMenu == R.id.action_misto && resposta == 2) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoBairroMistoFragment()).commit();
+
+
+
+       }
+
+
+   }
+
+      //  resposta=0;
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
+
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -92,25 +161,23 @@ public class Estatisticas extends AppCompatActivity
         // Handle navigation view item clicks here.
 
 
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-        int id = item.getItemId();
-
-        if (id == R.id.nav_map) {
-
-            transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
+        int  id = item.getItemId();
 
 
-
-        } else if (id == R.id.nav_grafico_ano) {
-
-            transaction.replace(R.id.conteinerFragmentos,new GraficoANOFragment()).commit();
+         if (id == R.id.nav_grafico_ano  ) {
 
 
-        } else if (id == R.id.nav_grafico_bairro) {
+            transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
+            resposta=1;
 
-            transaction.replace(R.id.conteinerFragmentos,new GraficoBairroFragment()).commit();
+        } else if (id == R.id.nav_grafico_bairro ) {
+
+            transaction.replace(R.id.conteinerFragmentos,new GraficoBairroBarraFragment()).commit();
+            resposta=2;
 
         } else if (id == R.id.nav_grafico_ruas) {
 
@@ -118,7 +185,9 @@ public class Estatisticas extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_map) {
+            transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
+
 
         }
 

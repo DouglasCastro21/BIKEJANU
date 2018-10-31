@@ -7,21 +7,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import bike.douglas.com.bikejanu.R;
 
-public class GraficoBairroFragment extends Fragment {
-
-
+public class GraficoBairroLinhaFragment extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_grafico_bairro, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_grafico_bairro_linha, container, false);
 
 
+        Toast.makeText(GraficoBairroLinhaFragment.super.getContext(), " Bairro Linha!", Toast.LENGTH_LONG).show();
+
+        return  rootView;
 
     }
 
