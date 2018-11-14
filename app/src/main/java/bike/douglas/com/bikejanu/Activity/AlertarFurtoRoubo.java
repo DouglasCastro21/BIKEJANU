@@ -28,8 +28,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Entidades.Bike;
-import bike.douglas.com.bikejanu.Entidades.LocalBikesMaps;
+import bike.douglas.com.bikejanu.Model.Bike;
+import bike.douglas.com.bikejanu.Model.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
@@ -350,6 +350,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
        if(statusBike.equals("Roubada")){
 
            radioButtonRoubada.toggle();
+
            status = (RadioButton)findViewById(R.id.alertaRoubadaID);
 
 

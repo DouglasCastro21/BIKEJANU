@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -23,17 +22,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
-import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Entidades.Bike;
-import bike.douglas.com.bikejanu.Entidades.Usuarios;
-import bike.douglas.com.bikejanu.Helper.Preferencias;
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 

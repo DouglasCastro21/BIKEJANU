@@ -40,7 +40,7 @@ import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Entidades.Bike;
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
@@ -155,6 +155,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
         }
     }
 

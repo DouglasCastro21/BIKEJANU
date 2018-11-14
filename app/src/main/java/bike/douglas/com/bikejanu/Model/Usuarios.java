@@ -1,4 +1,4 @@
-package bike.douglas.com.bikejanu.Entidades;
+package bike.douglas.com.bikejanu.Model;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
@@ -6,7 +6,6 @@ import com.google.firebase.database.Exclude;
 import java.util.HashMap;
 import java.util.Map;
 
-import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 
 public class Usuarios {

@@ -11,8 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -22,13 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
-import bike.douglas.com.bikejanu.Entidades.Bike;
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 

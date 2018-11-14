@@ -26,14 +26,13 @@ import bike.douglas.com.bikejanu.Activity.DadosBike;
 
 import bike.douglas.com.bikejanu.Activity.EditarBike;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Entidades.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import bike.douglas.com.bikejanu.Entidades.Bike;
+import bike.douglas.com.bikejanu.Model.Bike;
 
 import static android.view.View.*;
 
@@ -153,8 +152,9 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                        view.setBackgroundColor(Color.RED);
 
+                       // final  int quantidadeBikesRoubadas = getCount();
 
-              }
+                }
 
 
 

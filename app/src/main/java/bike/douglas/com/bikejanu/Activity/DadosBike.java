@@ -6,10 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
-import bike.douglas.com.bikejanu.Entidades.Bike;
 import bike.douglas.com.bikejanu.R;
 
 public class DadosBike extends AppCompatActivity  {

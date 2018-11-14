@@ -1,17 +1,9 @@
-package bike.douglas.com.bikejanu.Entidades;
+package bike.douglas.com.bikejanu.Model;
 
-import android.net.NetworkInfo;
-import android.provider.ContactsContract;
-
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Timer;
-
-import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 
 public class Bike extends Usuarios{
 

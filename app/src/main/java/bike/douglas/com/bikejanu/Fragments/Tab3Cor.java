@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
-import bike.douglas.com.bikejanu.Entidades.Bike;
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 

@@ -4,9 +4,6 @@ package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,23 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
-import com.google.firebase.auth.FirebaseUser;
 
-import java.util.concurrent.Executor;
-
-import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
-import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Entidades.Usuarios;
-import bike.douglas.com.bikejanu.Helper.Base64Custom;
-import bike.douglas.com.bikejanu.Helper.Preferencias;
+import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
 public class Tab2Cadastrar extends Fragment {

@@ -32,8 +32,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Entidades.Bike;
-import bike.douglas.com.bikejanu.Entidades.LocalBikesMaps;
+import bike.douglas.com.bikejanu.Model.Bike;
+import bike.douglas.com.bikejanu.Model.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
@@ -156,8 +156,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-
-
         spinner = (Spinner) findViewById(R.id.spinnerMarcaID);
         spinner.setAdapter(arrayAdapter);
 
@@ -183,8 +181,6 @@ public class CadastroBike extends AppCompatActivity  {
 
             }
         });
-
-
 
 
 
@@ -223,11 +219,8 @@ public class CadastroBike extends AppCompatActivity  {
                 TextView descricaoText = (TextView) findViewById(R.id.descricaoID);
                 descricaoText.setText(descricao);
 
-
-
-            }
+                }
         }
-
 
 
         status = (RadioButton)findViewById(R.id.radioButtonNadaConstaID);
@@ -241,7 +234,8 @@ public class CadastroBike extends AppCompatActivity  {
 
                if(checkBox.isChecked()){
 
-
+                   radioButtonFurtada.toggle();
+                   status = (RadioButton)findViewById(R.id.radioButtonFurtadaID);
 
                    cadastroEstado.setVisibility(View.VISIBLE);
                    cadastroCidade.setVisibility(View.VISIBLE);
@@ -300,6 +294,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                }else{
 
+                   status = (RadioButton)findViewById(R.id.radioButtonNadaConstaID);
                    cadastroEstado.setVisibility(View.GONE);
                    cadastroCidade.setVisibility(View.GONE);
                    cadastroRua.setVisibility(View.GONE);
@@ -612,7 +607,6 @@ public class CadastroBike extends AppCompatActivity  {
 
         if (user != null) {
 
-            String name = user.getDisplayName();
             String email = user.getEmail();
 
             // converte o email pra base 64
@@ -625,10 +619,16 @@ public class CadastroBike extends AppCompatActivity  {
             firebase.child(bike.getNumero_serie()).setValue(bike);
 
 
-            // cadastra a bikeROubada no Maps de roubos
 
-            firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
-            firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+                if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                    // cadastra a bikeROubada no Maps de roubos
+
+                    firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                    firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+                }
+
+
 
             // cadastra no nó usuario logado
             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
@@ -646,9 +646,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
     }
-
-
-
 
 
 
@@ -765,7 +762,6 @@ public class CadastroBike extends AppCompatActivity  {
         alertaDialog.create();
         alertaDialog.show();
     }
-
 
 
 

@@ -1,4 +1,4 @@
-package bike.douglas.com.bikejanu.Entidades;
+package bike.douglas.com.bikejanu.Model;
 
 
 import com.google.firebase.database.Exclude;
@@ -15,8 +15,6 @@ public class LocalBikesMaps {
 
 
 
-
-
     @Exclude
     public Map<String , Object> toMap() {
         HashMap<String , Object> hashMapBike = new HashMap<>();
@@ -29,6 +27,8 @@ public class LocalBikesMaps {
         return hashMapBike;
 
     }
+
+
 
 
 
