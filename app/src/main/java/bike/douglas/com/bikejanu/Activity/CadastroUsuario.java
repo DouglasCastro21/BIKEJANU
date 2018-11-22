@@ -72,9 +72,12 @@ public class CadastroUsuario extends AppCompatActivity {
     private Usuarios usuarios;
 
 
+
     private FirebaseAuth autenticacao;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +85,9 @@ public class CadastroUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_usuario);
 
 
-        // rebece o email passada pela tela cadastro
+
+
+        // rebece o e passada pela tela cadastro
             Intent intent = getIntent();
 
             if(intent !=null){
@@ -90,9 +95,9 @@ public class CadastroUsuario extends AppCompatActivity {
 
             if (params !=null){
 
-                String email = params.getString("email");
-                TextView emailText = (TextView) findViewById(R.id.EmailtextID);
-                emailText.setText(email);
+                String telefone = params.getString("telefone");
+                EditText telefoneText = (EditText) findViewById(R.id.telefoneeID);
+                telefoneText.setText(telefone);
 
             }
         }
@@ -115,7 +120,7 @@ public class CadastroUsuario extends AppCompatActivity {
         confirmaremail = (EditText)findViewById(R.id.confirmarEmailID);
         senha = (EditText)findViewById(R.id.senhaID);
         confirmarsenha = (EditText)findViewById(R.id.confirmarSenhaID);
-        telefone = (EditText)findViewById(R.id.telefoneID);
+        telefone = (EditText)findViewById(R.id.telefoneeID);
       //  nascimento = (EditText)findViewById(R.id.dataID);
         imagemPerfil = (ImageView) findViewById(R.id.imagemPerfilID);
 
@@ -180,9 +185,11 @@ public class CadastroUsuario extends AppCompatActivity {
                      if (email.getText().toString().equals(confirmaremail.getText().toString())) {
 
 
-                            addImagem();
-                            inicializarElementos();
-                            cadastrarUsuario();
+                             inicializarElementos();
+                             addImagem();
+                             cadastrarUsuario();
+
+
 
 
 
@@ -228,7 +235,8 @@ public class CadastroUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                    abrirFotos();
+
+                 abrirFotos();
 
             }
         });
@@ -237,7 +245,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
     private void mascaras() {
 
-        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)-N-NNNNNNNN");
+        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)NNNNNNNNN");
         MaskTextWatcher maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
         telefone.addTextChangedListener(maskTelefone);
 
@@ -416,4 +424,10 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+
 }

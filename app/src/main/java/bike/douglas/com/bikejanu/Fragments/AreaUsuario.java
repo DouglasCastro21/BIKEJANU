@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
+import bike.douglas.com.bikejanu.Activity.Estatisticas;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
@@ -209,9 +210,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
            // startActivity(new Intent(AreaUsuario.this, Consultar_Bike.class));
 
 
-        } else if (id == R.id.nav_indices) {
+        } else if (id == R.id.nav_estatisticas) {
 
-         //   startActivity(new Intent(AreaUsuario.this, Consultar_Indice.class));
+            startActivity(new Intent(AreaUsuario.this, Estatisticas.class));
 
         } else if (id == R.id.nav_configuracao) {
 

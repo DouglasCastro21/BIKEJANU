@@ -1,9 +1,13 @@
 package bike.douglas.com.bikejanu.Adapter;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.ColorSpace;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -47,6 +51,9 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     int cont=0;
     private ProgressBar progressBar;
 
+    public static int quantidadeBikesRoubadas=0;
+
+
 
     DatabaseReference databaseReference;
     FirebaseDatabase  firebaseDatabase;
@@ -73,7 +80,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
         return super.getCount();
 
-
     }
 
 
@@ -83,11 +89,18 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     @Nullable
     @Override
     public Bike getItem(int position) {
+
+
+
         return super.getItem(position);
     }
 
     @Override
     public long getItemId(int position) {
+
+
+
+
         return super.getItemId(position);
     }
 
@@ -99,23 +112,18 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-        // verifica se a lista está vazia
-        if(listabikes!=null) {
+
+
+            //verifica se a lista está vazia
+           if(listabikes!=null) {
+
+
+
 
             // inicializa objetos para a montagem da view
 
             final LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.lista_bikes, parent, false);
-
-
-
-          // if(position <=0){
-
-             //  view.setBackgroundColor(Color.YELLOW);
-
-
-
-         //  }
 
 
 
@@ -143,26 +151,38 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final TextView txtViewAlertaDescricao    = (TextView) view.findViewById(R.id.alertaDescricaoID);
 
             final Bike bikeRoubadaFurtada;
-            bikeRoubadaFurtada = listabikes.get(position);
 
-
-
-
-                if( bikeRoubadaFurtada.getStatus().equals("Furtada") || bikeRoubadaFurtada.getStatus().equals("Roubada")){
-
-                       view.setBackgroundColor(Color.RED);
-
-                       // final  int quantidadeBikesRoubadas = getCount();
-
-                }
+             bikeRoubadaFurtada = listabikes.get(position);
 
 
 
 
 
-              firebaseDatabase = FirebaseDatabase.getInstance();
+
+    if( bikeRoubadaFurtada.getStatus().equals("Furtada") || bikeRoubadaFurtada.getStatus().equals("Roubada")) {
+
+
+
+        view.setBackgroundColor(Color.RED);
+        quantidadeBikesRoubadas ++;
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+               firebaseDatabase = FirebaseDatabase.getInstance();
                    // firebaseDatabase.setPersistenceEnabled(true);
-            databaseReference = firebaseDatabase.getReference();
+                databaseReference = firebaseDatabase.getReference();
 
 
             final Bike bike1 = listabikes.get(position);
@@ -330,7 +350,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                   intent.putExtras(params);
 
                                   context.startActivity(intent);
-
 
 
 

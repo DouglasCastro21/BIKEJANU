@@ -6,6 +6,8 @@ import android.widget.EditText;
 
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class Preferencias {
 
     private Context context;
@@ -17,6 +19,11 @@ public class Preferencias {
 
     private final String CHAVE_IDENTIFICADOR = "identificarUsuarioLogado";
     private final String CHAVE_NOME = "nomeUsuarioLogado";
+
+
+
+    private final String CHAVE_TELEFONE  =  "telefone";
+    private final String CHAVE_TOKEN     =  "token";
 
 
 
@@ -40,6 +47,32 @@ public class Preferencias {
         editor.commit();
     }
 
+
+
+    public  void  salvarTokenPreferencias(String nome , String telefone , String token){
+
+        editor.putString(CHAVE_NOME, nome);
+        editor.putString(CHAVE_TELEFONE, telefone);
+        editor.putString(CHAVE_TOKEN, token);
+        editor.commit();
+
+
+    }
+
+
+
+    public HashMap<String,String> getTokenUsuario(){
+
+   HashMap<String, String> tokenUsuario = new HashMap<>();
+   tokenUsuario.put(CHAVE_NOME,preferences.getString(CHAVE_NOME,null));
+   tokenUsuario.put(CHAVE_TELEFONE,preferences.getString(CHAVE_TELEFONE,null));
+   tokenUsuario.put(CHAVE_TOKEN,preferences.getString(CHAVE_TOKEN,null));
+
+
+   return  tokenUsuario;
+
+
+    }
 
     public  void salvarBikePreferencias(String identificadorBike, String nomeBike){
         editor.putString(CHAVE_IDENTIFICADOR,identificadorBike);

@@ -18,15 +18,15 @@
             android:icon="@drawable/ic_action_bike"
             android:title="Consultar Bike" />
         <item
-            android:id="@+id/nav_indices"
+            android:id="@+id/nav_estatisticas"
             android:icon="@drawable/ic_action_bargraph"
-            android:title="Consultar Indíces" />
+            android:title="Consultar Estatísticas" />
 
 
         <item
             android:id="@+id/nav_configuracao"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Configuração" />
+            android:title="Configurações" />
 
         <item
         android:id="@+id/nav_sair"

@@ -1,5 +1,6 @@
 package bike.douglas.com.bikejanu.Fragments;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,7 +17,11 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 public class GraficoAnoLinhaFragment extends Fragment {
@@ -24,10 +29,9 @@ public class GraficoAnoLinhaFragment extends Fragment {
     private   FirebaseDatabase firebaseDatabase;
     private  DatabaseReference databaseReference;
 
+
+
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
-
-
-
 
 
 
@@ -37,13 +41,16 @@ public class GraficoAnoLinhaFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_grafico_ano_linha, container, false);
 
 
+
+
+
+
+
+
         GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoLinha);
 
 
         LineGraphSeries<DataPoint> series2 = new LineGraphSeries<>(new DataPoint[] {
-
-
-
 
                 new  DataPoint(2015, 77),
                 new  DataPoint(2016, 90),

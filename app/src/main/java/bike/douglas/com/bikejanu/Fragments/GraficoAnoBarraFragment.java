@@ -14,10 +14,14 @@ import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
 import bike.douglas.com.bikejanu.Activity.Estatisticas;
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 
 public class GraficoAnoBarraFragment extends Fragment {
+
+
 
 
 
@@ -27,6 +31,8 @@ public class GraficoAnoBarraFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_grafico_ano_barra, container, false);
 
 
+
+
         GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
 
 
@@ -34,10 +40,11 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
+
                 new  DataPoint(2015, 77),
                 new  DataPoint(2016, 90),
                 new  DataPoint(2017, 120),
-                new  DataPoint(2018, 130),
+                new  DataPoint(2018, BikeAdapter.quantidadeBikesRoubadas),
 
 
         });

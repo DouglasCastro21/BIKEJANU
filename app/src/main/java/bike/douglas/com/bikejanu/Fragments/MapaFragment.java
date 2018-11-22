@@ -87,7 +87,7 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback, Googl
 
                     }else {
 
-                        String txtLatitude = map.latitude;
+                        String txtLatitude  = map.latitude;
                         String txtLongitude = map.longitude;
 
 
