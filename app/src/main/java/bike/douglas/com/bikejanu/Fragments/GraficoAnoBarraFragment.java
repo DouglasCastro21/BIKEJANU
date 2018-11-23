@@ -27,8 +27,10 @@ import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.Estatisticas;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.Model.Bike;
@@ -101,7 +103,23 @@ public class GraficoAnoBarraFragment extends Fragment {
                     listBikes.add(b);
 
 
+                    final Calendar calendar = Calendar.getInstance();
 
+
+                     int  ano = calendar.get(Calendar.YEAR);
+
+
+
+
+
+
+    if(b.getAlertaDate().equals("14/11/2018")){
+
+
+    Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + b.getAlertaDate(), Toast.LENGTH_LONG).show();
+
+
+}
 
                     if (b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
@@ -129,6 +147,7 @@ public class GraficoAnoBarraFragment extends Fragment {
                         new  DataPoint(2016, 90),
                         new  DataPoint(2017, 120),
                         new  DataPoint(2018, cont),
+
 
 
                 });
@@ -202,9 +221,6 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-    private void pesquisarPalavra(String palavra) {
-
-    }
 
 
 
