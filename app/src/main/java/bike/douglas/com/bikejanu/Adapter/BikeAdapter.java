@@ -55,8 +55,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     int cont=0;
     private ProgressBar progressBar;
 
-    public  int recebeQtd=0;
-    public static int quantidadeBikesRoubadas=0;
+  //  public  int recebeQtd=0;
+  //  public static int quantidadeBikesRoubadas=0;
 
 
 
@@ -183,13 +183,13 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
         view.setBackgroundColor(Color.RED);
 
 
-        recebeQtd ++;
+      //  recebeQtd ++;
 
 
 
     }
 
-     quantidadeBikesRoubadas = recebeQtd;
+   //  quantidadeBikesRoubadas = recebeQtd;
 
 
 
