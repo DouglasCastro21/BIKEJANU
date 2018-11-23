@@ -9,12 +9,14 @@ import android.graphics.ColorFilter;
 import android.graphics.ColorSpace;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,10 +24,12 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import bike.douglas.com.bikejanu.Activity.AlertarFurtoRoubo;
+import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.Activity.DadosBike;
 
 import bike.douglas.com.bikejanu.Activity.EditarBike;
@@ -51,6 +55,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     int cont=0;
     private ProgressBar progressBar;
 
+    public  int recebeQtd=0;
     public static int quantidadeBikesRoubadas=0;
 
 
@@ -86,9 +91,14 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
+
     @Nullable
     @Override
     public Bike getItem(int position) {
+
+
+
+
 
 
 
@@ -101,6 +111,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
+
         return super.getItemId(position);
     }
 
@@ -108,7 +119,13 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     public View getView(final int position, View convertView, final ViewGroup parent) {
 
 
+
+
+
+
         View view = null;
+
+
 
 
 
@@ -164,17 +181,15 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
         view.setBackgroundColor(Color.RED);
-        quantidadeBikesRoubadas ++;
+
+
+        recebeQtd ++;
+
 
 
     }
 
-
-
-
-
-
-
+     quantidadeBikesRoubadas = recebeQtd;
 
 
 
@@ -433,6 +448,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
     }
+
+
 
 
 

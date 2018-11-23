@@ -138,8 +138,8 @@ public class Tab1Codigo extends Fragment {
 
 
                 for (DataSnapshot objSnapshot:dataSnapshot.getChildren()){
-            Bike b = objSnapshot.getValue(Bike.class);
-                  listBikes.add(b);
+                     Bike b = objSnapshot.getValue(Bike.class);
+                     listBikes.add(b);
 
 
             }
@@ -147,6 +147,8 @@ public class Tab1Codigo extends Fragment {
                 // verificar se precisa tirar ...nao sei pra uqe isso
                // arrayAdapterBike = new ArrayAdapter(
                    //     Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1, listBikes  );
+
+
 
                 arrayAdapterBike = new BikeAdapter(Tab1Codigo.super.getContext(), (ArrayList<Bike>) listBikes);
                 listPesquisa.setAdapter(arrayAdapterBike);
