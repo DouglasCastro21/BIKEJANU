@@ -1,7 +1,9 @@
 package bike.douglas.com.bikejanu.Fragments;
 
 import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,6 +30,7 @@ import com.jjoe64.graphview.series.DataPoint;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
@@ -42,6 +45,9 @@ public class GraficoAnoBarraFragment extends Fragment {
 
     private int cont=0;
     private ListView listPesquisa;
+     int  ano ;
+     int contandoBikesAno2018=0;
+    int contandoBikesAno2019=0;
 
 
 
@@ -61,7 +67,7 @@ public class GraficoAnoBarraFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_grafico_ano_barra, container, false);
 
 
-        listPesquisa = (ListView) rootView.findViewById(R.id.listaGoneID);
+       // listPesquisa = (ListView) rootView.findViewById(R.id.listaGoneID);
 
         inicializarFirebase();
 
@@ -103,29 +109,31 @@ public class GraficoAnoBarraFragment extends Fragment {
                     listBikes.add(b);
 
 
-                    final Calendar calendar = Calendar.getInstance();
-
-
-                     int  ano = calendar.get(Calendar.YEAR);
 
 
 
 
 
+        String texto = b.getAlertaDate();
+	//	String procurarPor = "2018";
 
-    if(b.getAlertaDate().equals("14/11/2018")){
+		if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+
+            contandoBikesAno2018++;
+		 //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
 
 
-    Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + b.getAlertaDate(), Toast.LENGTH_LONG).show();
+        }
 
 
-}
+        if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
-                    if (b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+		    contandoBikesAno2019++;
 
-                        cont++;
 
-                    }
+        }
+
+
 
 
                 }
@@ -133,32 +141,81 @@ public class GraficoAnoBarraFragment extends Fragment {
 
                 // inicio do grafico
 
+                final Calendar calendar = Calendar.getInstance();
+                ano = calendar.get(Calendar.YEAR);
 
 
                 GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
 
+                if(ano == 2018){
 
-                BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
-
-
-
-
-                        new  DataPoint(2015, 77),
-                        new  DataPoint(2016, 90),
-                        new  DataPoint(2017, 120),
-                        new  DataPoint(2018, cont),
+                    BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
 
 
 
-                });
 
-                graph.addSeries(series);
+                            new  DataPoint(2015, 77),
+                            new  DataPoint(2016, 90),
+                            new  DataPoint(2017, 120),
+                            new  DataPoint(2018, contandoBikesAno2018),
 
-                series.setDrawValuesOnTop(true);
-                series.setValuesOnTopColor(Color.RED);
-                series.setSpacing(10);
-                series.setAnimated(true);
-                series.setTitle("Roubo/furtos");
+
+
+
+                    });
+
+
+                    graph.addSeries(series);
+
+                    series.setDrawValuesOnTop(true);
+                    series.setValuesOnTopColor(Color.RED);
+                    series.setSpacing(10);
+                    series.setAnimated(true);
+                    series.setTitle("Roubo/furtos");
+
+
+                    StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+                    staticLabelsFormatter.setHorizontalLabels(new String[] {"2015", "2016", "2017","2018"});
+                    // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
+                    graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+
+
+                }
+
+
+
+
+                if(ano == 2019){
+
+                    BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
+
+
+
+
+                            new  DataPoint(2016, 90),
+                            new  DataPoint(2017, 120),
+                            new  DataPoint(2018, contandoBikesAno2018),
+                            new  DataPoint(2019, contandoBikesAno2019),
+
+
+                    });
+
+
+                    graph.addSeries(series);
+
+                    series.setDrawValuesOnTop(true);
+                    series.setValuesOnTopColor(Color.RED);
+                    series.setSpacing(10);
+                    series.setAnimated(true);
+                    series.setTitle("Roubo/furtos");
+
+
+                    StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+                    staticLabelsFormatter.setHorizontalLabels(new String[] { "2016", "2017","2018","2019"});
+                    // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
+                    graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+
+                }
 
 
                 graph.setTitle("Roubo e furto de Bicicletas ");
@@ -167,12 +224,6 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-
-
-                StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-                staticLabelsFormatter.setHorizontalLabels(new String[] {"2015", "2016", "2017","2018"});
-                // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
-                graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 /////fim do grafico
 
 
@@ -180,7 +231,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 // simula a lista
 
                 arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
-                listPesquisa.setAdapter(arrayAdapterBike);
+             //   listPesquisa.setAdapter(arrayAdapterBike);
 
 
             }
@@ -203,6 +254,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
     }
+
 
 
 

@@ -45,6 +45,7 @@ public class EditarBike extends AppCompatActivity {
     private TextView alertaBairro;
     private TextView alertaDate;
     private TextView alertaHora;
+
     private TextView latitude;
     private TextView longitude;
     private TextView alertaBoletim;
@@ -52,6 +53,7 @@ public class EditarBike extends AppCompatActivity {
     private ImageView spinnerImagem;
     private RadioButton status;
     private TextView txtStatus;
+
     String statusBike;
 
 

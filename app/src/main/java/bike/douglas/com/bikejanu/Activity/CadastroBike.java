@@ -48,8 +48,9 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText descricao;
 
 
-  protected static EditText cadastroEstado;
-   public  static EditText cadastroCidade;
+   protected static EditText cadastroEstado;
+   public    static EditText cadastroCidade;
+
     static EditText cadastroRua;
     static EditText cadastroBairro;
     static TextView txtLatitude;
@@ -60,7 +61,7 @@ public class CadastroBike extends AppCompatActivity  {
     private EditText Boletim;
     private EditText alertaDescricao;
 
-   ;
+
     private TextView txtmensagem1;
     private TextView txtmensagem2;
     private TextView txtRua;
@@ -70,20 +71,20 @@ public class CadastroBike extends AppCompatActivity  {
     private TextView txtBairro;
 
 
-    private TextView txtObservacao;
-    private TextView txtBoletim;
-    private TextView txtMensagemBoletim;
+    private TextView    txtObservacao;
+    private TextView    txtBoletim;
+    private TextView    txtMensagemBoletim;
     private RadioButton radioButtonFurtada;
     private RadioButton radioButtonRoubada;
-    private RadioGroup radioGroup;
+    private RadioGroup  radioGroup;
     private RadioButton status;
 
 
 
 
-   protected Button  botaoBuscarMapa;
-   protected Button   botaocadastrar;
-   protected ImageView   spinnerImagem;
+   protected Button     botaoBuscarMapa;
+   protected Button     botaocadastrar;
+   protected ImageView  spinnerImagem;
 
 
 

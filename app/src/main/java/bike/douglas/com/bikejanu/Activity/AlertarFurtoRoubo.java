@@ -493,7 +493,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat dateFormat =      new SimpleDateFormat("dd/MM/yyyy");
                 // OU
                 SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
 
@@ -855,8 +855,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             }
 
                     ,ano,mes,dia);
-            datePickerDialog.show();
-            alertaHora.requestFocus();
+                    datePickerDialog.show();
+                    alertaHora.requestFocus();
 
         }
         if(v==alertaHora){
