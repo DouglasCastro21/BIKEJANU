@@ -89,8 +89,7 @@ public class Estatisticas extends AppCompatActivity
 
         }
 
-
-
+           myHorientacion=10;
 
 
 }
