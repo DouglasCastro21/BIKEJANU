@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HeaderViewListAdapter;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,10 +37,12 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback, Googl
     Marker marker;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
+
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
@@ -70,7 +73,7 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback, Googl
         mMap = googleMap;
 
         googleMap.setOnMarkerClickListener(MapaFragment.this);
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

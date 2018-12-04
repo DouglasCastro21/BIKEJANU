@@ -24,6 +24,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
+import com.jjoe64.graphview.ValueDependentColor;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
@@ -43,11 +44,11 @@ import bike.douglas.com.bikejanu.R;
 public class GraficoAnoBarraFragment extends Fragment {
 
 
-    private int cont=0;
-    private ListView listPesquisa;
-     int  ano ;
-     int contandoBikesAno2018=0;
+
+    int  ano ;
+    int contandoBikesAno2018=0;
     int contandoBikesAno2019=0;
+
 
 
 
@@ -67,7 +68,7 @@ public class GraficoAnoBarraFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_grafico_ano_barra, container, false);
 
 
-       // listPesquisa = (ListView) rootView.findViewById(R.id.listaGoneID);
+
 
         inicializarFirebase();
 
@@ -165,7 +166,9 @@ public class GraficoAnoBarraFragment extends Fragment {
                     });
 
 
+
                     graph.addSeries(series);
+
 
                     series.setDrawValuesOnTop(true);
                     series.setValuesOnTopColor(Color.RED);
@@ -180,6 +183,15 @@ public class GraficoAnoBarraFragment extends Fragment {
                     graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
 
+
+
+
+                    series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
+                        @Override
+                        public int get(DataPoint data) {
+                            return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6),100);
+                        }
+                    });
                 }
 
 
@@ -218,6 +230,9 @@ public class GraficoAnoBarraFragment extends Fragment {
                 }
 
 
+
+
+
                 graph.setTitle("Roubo e furto de Bicicletas ");
                 graph.getLegendRenderer().setVisible(true);
                 graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
@@ -230,7 +245,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 // simula a lista
 
-                arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+               // arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
              //   listPesquisa.setAdapter(arrayAdapterBike);
 
 

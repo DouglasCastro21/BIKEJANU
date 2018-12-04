@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:visibility="visible"
+    android:id="@+id/menuGrafico">
     <item
+
         android:id="@+id/action_barras"
         android:orderInCategory="100"
         android:title="Gráfico de Barras"
@@ -18,4 +23,6 @@
         android:orderInCategory="100"
         android:title="Gráfico Misto"
         app:showAsAction="never" />
+
+
 </menu>

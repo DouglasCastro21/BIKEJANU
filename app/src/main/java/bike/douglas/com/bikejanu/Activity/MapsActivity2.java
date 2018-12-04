@@ -110,6 +110,7 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setOnMapClickListener(this);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
     }
     @Override

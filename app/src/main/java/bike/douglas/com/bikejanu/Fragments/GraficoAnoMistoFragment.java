@@ -247,7 +247,7 @@ public class GraficoAnoMistoFragment extends Fragment {
 
                 // simula a lista
 
-                arrayAdapterBike = new BikeAdapter(GraficoAnoMistoFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+               // arrayAdapterBike = new BikeAdapter(GraficoAnoMistoFragment.super.getContext(), (ArrayList<Bike>) listBikes);
                 //   listPesquisa.setAdapter(arrayAdapterBike);
 
 

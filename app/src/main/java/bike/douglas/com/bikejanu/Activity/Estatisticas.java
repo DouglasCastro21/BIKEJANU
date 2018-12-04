@@ -2,6 +2,7 @@ package bike.douglas.com.bikejanu.Activity;
 
 import android.annotation.SuppressLint;
 import android.content.ClipData;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenuItemView;
 import android.support.v4.app.FragmentManager;
@@ -13,7 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoMistoFragment;
@@ -30,7 +34,22 @@ public class Estatisticas extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    public int resposta =0;
+     public  int resposta = 0;
+     public  static int  myHorientacion=0;
+
+
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        int myInt = savedInstanceState.getInt("MyInt");
+      //  Toast.makeText(Estatisticas.this, "MYiNT"+myInt, Toast.LENGTH_LONG).show();
+
+        myHorientacion = myInt;
+
+    }
+
 
 
     @Override
@@ -42,12 +61,17 @@ public class Estatisticas extends AppCompatActivity
 
 
 
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+
+
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -57,13 +81,21 @@ public class Estatisticas extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+   //     Toast.makeText(Estatisticas.this, "horientacion"+myHorientacion, Toast.LENGTH_LONG).show();
 
-        transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
-        resposta=1;
+        if(myHorientacion == 0){
+
+              transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
+
+        }
 
 
 
-    }
+
+
+}
+
+
 
     @Override
     public void onBackPressed() {
@@ -82,6 +114,13 @@ public class Estatisticas extends AppCompatActivity
         return true;
     }
 
+
+
+
+
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -93,6 +132,8 @@ public class Estatisticas extends AppCompatActivity
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         int idMenu = item.getItemId();
+
+
 
    if(resposta==1){
 
@@ -146,6 +187,21 @@ public class Estatisticas extends AppCompatActivity
 
    }
 
+        if( resposta == 5){
+
+            transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
+
+         ///   item.setVisible(false);
+
+
+
+
+
+        }
+
+
+
+
       //  resposta=0;
         //noinspection SimplifiableIfStatement
 
@@ -170,7 +226,6 @@ public class Estatisticas extends AppCompatActivity
 
          if (id == R.id.nav_grafico_ano  ) {
 
-
             transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
             resposta=1;
 
@@ -185,8 +240,14 @@ public class Estatisticas extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
+
+
         } else if (id == R.id.nav_map) {
-            transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
+
+             transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
+             resposta = 5;
+
+
 
 
         }
@@ -195,4 +256,18 @@ public class Estatisticas extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+
+        savedInstanceState.putInt("MyInt", 10);
+
+    }
+
+
+
 }

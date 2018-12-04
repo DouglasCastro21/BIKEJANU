@@ -191,6 +191,9 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
 
 
+
+
+
                     graph.addSeries(series);
                     series.setDrawDataPoints(true);
                     series.setAnimated(true);
@@ -220,7 +223,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
                     // simula a lista
 
-                arrayAdapterBike = new BikeAdapter(GraficoAnoLinhaFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+               // arrayAdapterBike = new BikeAdapter(GraficoAnoLinhaFragment.super.getContext(), (ArrayList<Bike>) listBikes);
              //   listPesquisa.setAdapter(arrayAdapterBike);
 
 
