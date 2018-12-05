@@ -1,10 +1,6 @@
 package bike.douglas.com.bikejanu.Activity;
 
-import android.annotation.SuppressLint;
-import android.content.ClipData;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.internal.NavigationMenuItemView;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,16 +10,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
-import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroMistoFragment;
+import bike.douglas.com.bikejanu.Fragments.MapaCalorFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaFragment;
 import bike.douglas.com.bikejanu.R;
 
@@ -36,6 +30,7 @@ public class Estatisticas extends AppCompatActivity
 
      public  int resposta = 0;
      public  static int  myHorientacion=0;
+     public  static int myItemMap=0;
 
 
 
@@ -44,9 +39,12 @@ public class Estatisticas extends AppCompatActivity
         super.onRestoreInstanceState(savedInstanceState);
 
         int myInt = savedInstanceState.getInt("MyInt");
+        int myMap = savedInstanceState.getInt("MyMap");
       //  Toast.makeText(Estatisticas.this, "MYiNT"+myInt, Toast.LENGTH_LONG).show();
 
         myHorientacion = myInt;
+        myItemMap = myMap;
+
 
     }
 
@@ -61,14 +59,11 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-
 
 
 
@@ -89,7 +84,8 @@ public class Estatisticas extends AppCompatActivity
 
         }
 
-           myHorientacion=10;
+             myHorientacion=10;
+
 
 
 }
@@ -108,8 +104,22 @@ public class Estatisticas extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        if(myItemMap == 5 ){
+
+            getMenuInflater().inflate(R.menu.opcoes_mapa, menu);
+
+        }else
+        {
+
+            getMenuInflater().inflate(R.menu.estatisticas, menu);
+
+
+
+        }
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.estatisticas, menu);
+
         return true;
     }
 
@@ -186,14 +196,25 @@ public class Estatisticas extends AppCompatActivity
 
    }
 
-        if( resposta == 5){
+        if( resposta == 5  ){
 
-            transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
+
+            if(idMenu == R.id.action_barras && resposta == 5){
+
+                transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
+
+            }   else if(idMenu == R.id.action_linhas && resposta == 5){
+
+
+                transaction.replace(R.id.conteinerFragmentos,new MapaCalorFragment()).commit();
+
+
+            }
+
+
+
 
          ///   item.setVisible(false);
-
-
-
 
 
         }
@@ -225,11 +246,12 @@ public class Estatisticas extends AppCompatActivity
 
          if (id == R.id.nav_grafico_ano  ) {
 
+             myItemMap = 0;
             transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
             resposta=1;
 
         } else if (id == R.id.nav_grafico_bairro ) {
-
+             myItemMap = 0;
             transaction.replace(R.id.conteinerFragmentos,new GraficoBairroBarraFragment()).commit();
             resposta=2;
 
@@ -243,11 +265,9 @@ public class Estatisticas extends AppCompatActivity
 
         } else if (id == R.id.nav_map) {
 
+             myItemMap = 5;
              transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
              resposta = 5;
-
-
-
 
         }
 
@@ -264,6 +284,7 @@ public class Estatisticas extends AppCompatActivity
 
 
         savedInstanceState.putInt("MyInt", 10);
+        savedInstanceState.putInt("MyMap",  myItemMap);
 
     }
 

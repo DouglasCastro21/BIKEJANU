@@ -1,22 +1,20 @@
 package bike.douglas.com.bikejanu.Fragments;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HeaderViewListAdapter;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.TileOverlay;
 import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.firebase.database.ChildEventListener;
@@ -27,28 +25,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.maps.android.heatmaps.HeatmapTileProvider;
 
-
 import java.util.ArrayList;
 
 import bike.douglas.com.bikejanu.Model.LocalBikesMaps;
 import bike.douglas.com.bikejanu.R;
 
 
-public class MapaFragment extends Fragment  implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+
+public class MapaCalorFragment extends  Fragment  implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
 
     private GoogleMap mMap;
     private ChildEventListener childEventListener;
     private DatabaseReference databaseReference;
     Marker marker;
 
-   // HeatmapTileProvider heatmapTileProvider;
-   // TileOverlay tileOverlay;
-
+    HeatmapTileProvider heatmapTileProvider;
+    TileOverlay tileOverlay;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
+        // Inflate the layout for this fragment
+      View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
 
 
 
@@ -61,6 +59,7 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback, Googl
 
         databaseReference = FirebaseDatabase.getInstance().getReference("LocalMaps");
         databaseReference.push().setValue(marker);
+
 
 
 
@@ -79,7 +78,7 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback, Googl
 
         mMap = googleMap;
 
-        googleMap.setOnMarkerClickListener(MapaFragment.this);
+        googleMap.setOnMarkerClickListener(MapaCalorFragment.this);
         googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -88,7 +87,7 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback, Googl
 
 
                 for(DataSnapshot s:dataSnapshot.getChildren()){
-                    LocalBikesMaps  map = s.getValue(LocalBikesMaps.class);
+                    LocalBikesMaps map = s.getValue(LocalBikesMaps.class);
 
 
                     if(map.latitude.equals("") ||map.longitude.equals("")){
@@ -101,31 +100,29 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback, Googl
                         String txtLongitude = map.longitude;
 
 
-                      //  Toast.makeText(MapaFragment.super.getContext(), "Latitude  " + txtLatitude, Toast.LENGTH_LONG).show();
+                        //  Toast.makeText(MapaFragment.super.getContext(), "Latitude  " + txtLatitude, Toast.LENGTH_LONG).show();
 
 
-                         double db  =  Double.parseDouble(txtLatitude.replace(",","."));
-                         double db2 = Double.parseDouble(txtLongitude.replace(",","."));
+                        double db  =  Double.parseDouble(txtLatitude.replace(",","."));
+                        double db2 = Double.parseDouble(txtLongitude.replace(",","."));
 
 
-                          LatLng location = new LatLng(db,db2);
-                         ArrayList<LatLng> list = new ArrayList();
-                       //  list.add(new LatLng(db,db2));
+                        LatLng location = new LatLng(db,db2);
+                        ArrayList<LatLng> list = new ArrayList();
+                        list.add(new LatLng(db,db2));
 
-                          mMap.addMarker(new MarkerOptions().position(location)).setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_ladrao));
+                        //  mMap.addMarker(new MarkerOptions().position(location)).setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_ladrao));
 
                         //Move to new location
-                          CameraPosition cameraPosition = new CameraPosition.Builder().zoom(15).target(location).build();
-                          mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                        CameraPosition cameraPosition = new CameraPosition.Builder().zoom(15).target(location).build();
+                        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
 
+                        heatmapTileProvider = new  HeatmapTileProvider.Builder()
+                                .data(list)
+                                .build();
 
-                          // calor mapa
-                         // heatmapTileProvider = new  HeatmapTileProvider.Builder()
-                          //        .data(list)
-                           //       .build();
-
-                        //  tileOverlay = mMap.addTileOverlay(new TileOverlayOptions().tileProvider(heatmapTileProvider));
+                        tileOverlay = mMap.addTileOverlay(new TileOverlayOptions().tileProvider(heatmapTileProvider));
 
 
                     }
@@ -143,4 +140,8 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback, Googl
 
 
     }
-        }
+
+
+
+
+}
