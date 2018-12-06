@@ -34,16 +34,19 @@ public class Estatisticas extends AppCompatActivity
 
 
 
+
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
         int myInt = savedInstanceState.getInt("MyInt");
         int myMap = savedInstanceState.getInt("MyMap");
+        int myResp = savedInstanceState.getInt("MyResposta");
       //  Toast.makeText(Estatisticas.this, "MYiNT"+myInt, Toast.LENGTH_LONG).show();
 
         myHorientacion = myInt;
         myItemMap = myMap;
+        resposta = myResp;
 
 
     }
@@ -78,14 +81,16 @@ public class Estatisticas extends AppCompatActivity
 
    //     Toast.makeText(Estatisticas.this, "horientacion"+myHorientacion, Toast.LENGTH_LONG).show();
 
+
         if(myHorientacion == 0){
 
               transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
 
+
         }
 
              myHorientacion=10;
-
+             resposta=1;
 
 
 }
@@ -106,26 +111,12 @@ public class Estatisticas extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
 
 
-        if(myItemMap == 5 ){
-
-            getMenuInflater().inflate(R.menu.opcoes_mapa, menu);
-
-        }else
-        {
-
             getMenuInflater().inflate(R.menu.estatisticas, menu);
 
-
-
-        }
         // Inflate the menu; this adds items to the action bar if it is present.
 
         return true;
     }
-
-
-
-
 
 
 
@@ -143,15 +134,11 @@ public class Estatisticas extends AppCompatActivity
         int idMenu = item.getItemId();
 
 
-
-   if(resposta==1){
-
-
-
-
        if (idMenu == R.id.action_barras && resposta == 1) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoAnoBarraFragment()).commit();
+
+
 
 
 
@@ -167,10 +154,10 @@ public class Estatisticas extends AppCompatActivity
 
 
 
+
        }
 
 
-   }
 
 
    if(resposta==2){
@@ -190,6 +177,7 @@ public class Estatisticas extends AppCompatActivity
        } else if (idMenu == R.id.action_misto && resposta == 2) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoBairroMistoFragment()).commit();
+
 
 
 
@@ -255,6 +243,9 @@ public class Estatisticas extends AppCompatActivity
             transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
             resposta=1;
 
+
+
+
         } else if (id == R.id.nav_grafico_bairro ) {
              myItemMap = 0;
             transaction.replace(R.id.conteinerFragmentos,new GraficoBairroBarraFragment()).commit();
@@ -290,6 +281,7 @@ public class Estatisticas extends AppCompatActivity
 
         savedInstanceState.putInt("MyInt", 10);
         savedInstanceState.putInt("MyMap",  myItemMap);
+        savedInstanceState.putInt("MyResposta",  resposta);
 
     }
 
