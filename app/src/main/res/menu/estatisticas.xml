@@ -29,13 +29,15 @@
         android:id="@+id/action_mapaPontos"
         android:orderInCategory="100"
         android:title="Mapa de pontos"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:visible="false"/>
 
     <item
         android:id="@+id/action_mapaCalor"
         android:orderInCategory="100"
         android:title="Mapa de calor"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:visible="false"/>
 
 
 </menu>

@@ -1,5 +1,6 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Checkable;
 
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
@@ -31,6 +33,9 @@ public class Estatisticas extends AppCompatActivity
      public  int resposta = 0;
      public  static int  myHorientacion=0;
      public  static int myItemMap=0;
+     Menu menu1;
+     Menu menu2;
+
 
 
 
@@ -49,6 +54,7 @@ public class Estatisticas extends AppCompatActivity
         resposta = myResp;
 
 
+
     }
 
 
@@ -59,6 +65,8 @@ public class Estatisticas extends AppCompatActivity
         setContentView(R.layout.activity_estatisticas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
 
 
@@ -80,6 +88,9 @@ public class Estatisticas extends AppCompatActivity
 
 
    //     Toast.makeText(Estatisticas.this, "horientacion"+myHorientacion, Toast.LENGTH_LONG).show();
+
+
+
 
 
         if(myHorientacion == 0){
@@ -113,10 +124,15 @@ public class Estatisticas extends AppCompatActivity
 
             getMenuInflater().inflate(R.menu.estatisticas, menu);
 
+          menu2 = menu;
         // Inflate the menu; this adds items to the action bar if it is present.
+
+
 
         return true;
     }
+
+
 
 
 
@@ -132,6 +148,13 @@ public class Estatisticas extends AppCompatActivity
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         int idMenu = item.getItemId();
+
+
+
+
+
+
+
 
 
        if (idMenu == R.id.action_barras && resposta == 1) {
@@ -186,7 +209,13 @@ public class Estatisticas extends AppCompatActivity
 
    }
 
+
+
+
         if( resposta == 5  ){
+
+
+
 
 
             if(idMenu == R.id.action_mapaPontos && resposta == 5){
@@ -237,7 +266,33 @@ public class Estatisticas extends AppCompatActivity
         int  id = item.getItemId();
 
 
+
+
          if (id == R.id.nav_grafico_ano  ) {
+
+             menu1 = menu2;
+             MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
+             visivelMapaCalor.setVisible(false);
+
+
+
+             MenuItem visivel = menu1.findItem(R.id.action_mapaPontos);
+             visivel.setVisible(false);
+
+
+
+
+             MenuItem visivelGraficoBarras = menu1.findItem(R.id.action_barras);
+             visivelGraficoBarras.setVisible(true);
+
+
+
+             MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
+             visivelGraficoLinhas.setVisible(true);
+
+
+             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
+             visivelGraficoMisto.setVisible(true);
 
              myItemMap = 0;
             transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
@@ -247,6 +302,34 @@ public class Estatisticas extends AppCompatActivity
 
 
         } else if (id == R.id.nav_grafico_bairro ) {
+
+
+             menu1 = menu2;
+             MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
+             visivelMapaCalor.setVisible(false);
+
+
+
+             MenuItem visivel = menu1.findItem(R.id.action_mapaPontos);
+             visivel.setVisible(false);
+
+
+
+
+             MenuItem visivelGraficoBarras = menu1.findItem(R.id.action_barras);
+             visivelGraficoBarras.setVisible(true);
+
+
+
+             MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
+             visivelGraficoLinhas.setVisible(true);
+
+
+             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
+             visivelGraficoMisto.setVisible(true);
+
+
+
              myItemMap = 0;
             transaction.replace(R.id.conteinerFragmentos,new GraficoBairroBarraFragment()).commit();
             resposta=2;
@@ -261,9 +344,36 @@ public class Estatisticas extends AppCompatActivity
 
         } else if (id == R.id.nav_map) {
 
+
+             menu1 = menu2;
+             MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
+             visivelMapaCalor.setVisible(true);
+
+
+
+             MenuItem visivelMapaPontos = menu1.findItem(R.id.action_mapaPontos);
+             visivelMapaPontos.setVisible(true);
+
+
+
+
+             MenuItem visivelGraficoBarras = menu1.findItem(R.id.action_barras);
+             visivelGraficoBarras.setVisible(false);
+
+
+
+             MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
+             visivelGraficoLinhas.setVisible(false);
+
+
+             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
+             visivelGraficoMisto.setVisible(false);
+
+
              myItemMap = 5;
              transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
              resposta = 5;
+
 
         }
 
