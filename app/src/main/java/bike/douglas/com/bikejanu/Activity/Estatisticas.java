@@ -147,6 +147,8 @@ public class Estatisticas extends AppCompatActivity
    if(resposta==1){
 
 
+
+
        if (idMenu == R.id.action_barras && resposta == 1) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoAnoBarraFragment()).commit();
@@ -199,14 +201,17 @@ public class Estatisticas extends AppCompatActivity
         if( resposta == 5  ){
 
 
-            if(idMenu == R.id.action_barras && resposta == 5){
+            if(idMenu == R.id.action_mapaPontos && resposta == 5){
 
                 transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();
 
-            }   else if(idMenu == R.id.action_linhas && resposta == 5){
+
+
+            }   else if(idMenu == R.id.action_mapaCalor && resposta == 5){
 
 
                 transaction.replace(R.id.conteinerFragmentos,new MapaCalorFragment()).commit();
+
 
 
             }
