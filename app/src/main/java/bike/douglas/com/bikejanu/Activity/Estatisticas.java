@@ -1,7 +1,9 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Checkable;
+import android.widget.Toast;
 
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
@@ -93,15 +96,22 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-        if(myHorientacion == 0){
+        if(myHorientacion == 0  ){
 
               transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
 
 
         }
 
-             myHorientacion=10;
+
+
+
+
+             myHorientacion = 10;
              resposta=1;
+
+
+
 
 
 }
@@ -122,7 +132,7 @@ public class Estatisticas extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
 
 
-            getMenuInflater().inflate(R.menu.estatisticas, menu);
+        getMenuInflater().inflate(R.menu.estatisticas, menu);
 
           menu2 = menu;
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -211,7 +221,6 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-
         if( resposta == 5  ){
 
 
@@ -296,6 +305,7 @@ public class Estatisticas extends AppCompatActivity
 
              myItemMap = 0;
             transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
+
             resposta=1;
 
 
@@ -379,7 +389,9 @@ public class Estatisticas extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
+
     }
 
 
@@ -388,7 +400,6 @@ public class Estatisticas extends AppCompatActivity
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
-
         savedInstanceState.putInt("MyInt", 10);
         savedInstanceState.putInt("MyMap",  myItemMap);
         savedInstanceState.putInt("MyResposta",  resposta);
@@ -396,5 +407,9 @@ public class Estatisticas extends AppCompatActivity
     }
 
 
-
+    @Override
+    public void finish() {
+        myHorientacion =0;
+        super.finish();
+    }
 }

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     DatabaseReference databaseReference;
 
 
@@ -66,14 +67,18 @@ public class MainActivity extends AppCompatActivity {
             });
 
         btn_consultar_Indice = (Button) findViewById(R.id.btn_IndicesID);
+
+
+
         btn_consultar_Indice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-               // startActivity(new Intent(MainActivity.this, Consultar_Indice.class));
-
                   startActivity(new Intent(MainActivity.this, Estatisticas.class));
+
+
+
             }
         });
 

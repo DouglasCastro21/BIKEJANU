@@ -123,6 +123,8 @@ int cont=0;
 
 
 
+
+
                         cont++;
 
 
@@ -182,12 +184,18 @@ int cont=0;
 
                 if(ano == 2018){
 
+
+
+
+
+
                     BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
 
 
 
                             new  DataPoint(2015, cont),
-                           // new  DataPoint(2016, 90),
+
+                            // new  DataPoint(2016, 90),
                          //   new  DataPoint(2017, 120),
                          //   new  DataPoint(2018, contandoBikesAno2018),
 
