@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.ValueDependentColor;
+import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
@@ -39,6 +41,8 @@ public class GraficoBairroBarraFragment extends Fragment {
 
 
 int cont=0;
+int jatoba=0;
+int boaVista=0;
     int  ano ;
     int contandoBikesAno2018=0;
     int contandoBikesAno2019=0;
@@ -62,7 +66,7 @@ int cont=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_grafico_bairro_barra, container, false);
 
 
@@ -117,15 +121,31 @@ int cont=0;
 
                     if (!b.getAlertaBairro().equals("") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
-                        Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Bairro :"+bairro, Toast.LENGTH_LONG).show();
+                      //  Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Bairro :"+bairro, Toast.LENGTH_LONG).show();
 
                         bairro = b.getAlertaBairro();
+
+
+                        if(bairro.equals("Jatoba") ){
+
+                           jatoba++;
+
+
+                        }else if(bairro.equals("Boa Vista") ){
+
+                           boaVista++;
+
+
+                        }
+
 
 
 
 
 
                         cont++;
+
+
 
 
 
@@ -182,52 +202,99 @@ int cont=0;
 
                 GraphView graph = (GraphView) rootView.findViewById(R.id.graphBairroBarra);
 
-                if(ano == 2018){
+
+
+
+                   if(ano == 2018){
+
+
+ //   Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Boa vista :"+boaVista, Toast.LENGTH_LONG).show();
+
+
+
+                       BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
+
+
+
+                               new  DataPoint(7,5),
+                               new  DataPoint(8,15),
+                               new  DataPoint(9,54),
+                               new  DataPoint(10,6),
+                               new  DataPoint(11,13),
+                               new  DataPoint(12,54),
+                               new  DataPoint(13,30),
+                               new  DataPoint(14,21),
+                               new  DataPoint(15,10),
+                               new  DataPoint(16,6),
+                               new  DataPoint(17,26),
+                               new  DataPoint(18,19),
+                               // new  DataPoint(2016, 90),
+                               //   new  DataPoint(2017, 120),
+                               //   new  DataPoint(2018, contandoBikesAno2018),
+
+
+                       });
+
+
+                       graph.addSeries(series);
+
+
+                       // activate horizontal zooming and scrolling
+                       graph.getViewport().setScalable(true);
+
+// activate horizontal scrolling
+                       graph.getViewport().setScrollable(true);
+
+// activate horizontal and vertical zooming and scrolling
+                       graph.getViewport().setScalableY(true);
+
+// activate vertical scrolling
+                       graph.getViewport().setScrollableY(true);
+
+
+                  //     graph.getViewport().setXAxisBoundsManual(true);
+                  //     graph.getViewport().setMinX(1);
+                   //    graph.getViewport().setMaxX(7);
+
+
+                       series.setDrawValuesOnTop(true);
+                       series.setValuesOnTopColor(Color.RED);
+                       series.setSpacing(10);
+                       series.setAnimated(true);
+                       series.setTitle("Roubo/furtos");
 
 
 
 
 
 
-                    BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
+
+                       StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+                       staticLabelsFormatter.setHorizontalLabels(new String[]{"Boa Vista","Jussara","Boa Vista","Jatoba","Boa Vista","Jatoba","Jatoba","Boa Vista","Jatoba","Jatoba","Boa Vista","Jatoba"});
+                       // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
+                       graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
 
 
-                            new  DataPoint(2015, cont),
 
-                            // new  DataPoint(2016, 90),
-                         //   new  DataPoint(2017, 120),
-                         //   new  DataPoint(2018, contandoBikesAno2018),
+                      // graph.getGridLabelRenderer().isHorizontalLabelsVisible();
 
 
-                    });
 
 
-                    graph.addSeries(series);
-
-                    series.setDrawValuesOnTop(true);
-                    series.setValuesOnTopColor(Color.RED);
-                    series.setSpacing(10);
-                    series.setAnimated(true);
-                    series.setTitle("Roubo/furtos");
-
-
-                    StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-                    staticLabelsFormatter.setHorizontalLabels(new String[] {bairro,bairro,""});
-                    // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
-                    graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+                       series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
+                           @Override
+                           public int get(DataPoint data) {
+                               return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
+                           }
+                       });
+                   }
 
 
 
 
 
-                    series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
-                        @Override
-                        public int get(DataPoint data) {
-                            return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
-                        }
-                    });
-                }
+
 
 
 

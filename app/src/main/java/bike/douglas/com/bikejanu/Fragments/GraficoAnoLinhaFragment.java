@@ -163,6 +163,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
 
 
+
                     StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
                     staticLabelsFormatter.setHorizontalLabels(new String[] {"2015", "2016", "2017","2018"});
                     // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
