@@ -22,6 +22,7 @@ import bike.douglas.com.bikejanu.Fragments.GraficoAnoMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroMistoFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoPizzaTotalBikesFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaCalorFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaFragment;
 import bike.douglas.com.bikejanu.R;
@@ -351,8 +352,38 @@ public class Estatisticas extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
 
+         } else if(id == R.id.nav_dados_bikes){
 
-        } else if (id == R.id.nav_map) {
+             menu1 = menu2;
+             MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
+             visivelMapaCalor.setVisible(false);
+
+
+
+             MenuItem visivelMapaPontos = menu1.findItem(R.id.action_mapaPontos);
+             visivelMapaPontos.setVisible(false);
+
+
+
+
+             MenuItem visivelGraficoBarras = menu1.findItem(R.id.action_barras);
+             visivelGraficoBarras.setVisible(false);
+
+
+
+             MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
+             visivelGraficoLinhas.setVisible(false);
+
+
+             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
+             visivelGraficoMisto.setVisible(false);
+
+
+
+             transaction.replace(R.id.conteinerFragmentos,new GraficoPizzaTotalBikesFragment()).commit();
+
+
+          }  else if (id == R.id.nav_map) {
 
 
              menu1 = menu2;

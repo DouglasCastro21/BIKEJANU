@@ -11,6 +11,22 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.Chart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.DataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -48,6 +64,13 @@ int boaVista=0;
     int contandoBikesAno2019=0;
     private static String  bairro;
 
+    private BarChart barChart;
+
+    private String[] nomes   = new String[]{"Boa Vista","Jussara","Alvorada","Ceramica","São João","Brasilina","Centro"};
+    private int[]    valores = new int   []{1,2,4,8,12,12,34};
+    private int []   cores   = new int   []{Color.BLUE,Color.YELLOW,Color.DKGRAY,Color.RED,Color.BLACK,Color.GREEN,Color.RED};
+
+
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -69,7 +92,7 @@ int boaVista=0;
                              final Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_grafico_bairro_barra, container, false);
 
-
+        barChart =  (BarChart) rootView.findViewById(R.id.graficoBarras);
 
         inicializarFirebase();
 
@@ -140,38 +163,10 @@ int boaVista=0;
 
 
 
-
-
-
                         cont++;
 
 
-
-
-
                     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -200,7 +195,7 @@ int boaVista=0;
                 ano = calendar.get(Calendar.YEAR);
 
 
-                GraphView graph = (GraphView) rootView.findViewById(R.id.graphBairroBarra);
+
 
 
 
@@ -208,86 +203,8 @@ int boaVista=0;
                    if(ano == 2018){
 
 
- //   Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Boa vista :"+boaVista, Toast.LENGTH_LONG).show();
+                       creatCharts();
 
-
-
-                       BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
-
-
-
-                               new  DataPoint(7,5),
-                               new  DataPoint(8,15),
-                               new  DataPoint(9,54),
-                               new  DataPoint(10,6),
-                               new  DataPoint(11,13),
-                               new  DataPoint(12,54),
-                               new  DataPoint(13,30),
-                               new  DataPoint(14,21),
-                               new  DataPoint(15,10),
-                               new  DataPoint(16,6),
-                               new  DataPoint(17,26),
-                               new  DataPoint(18,19),
-                               // new  DataPoint(2016, 90),
-                               //   new  DataPoint(2017, 120),
-                               //   new  DataPoint(2018, contandoBikesAno2018),
-
-
-                       });
-
-
-                       graph.addSeries(series);
-
-
-                       // activate horizontal zooming and scrolling
-                       graph.getViewport().setScalable(true);
-
-// activate horizontal scrolling
-                       graph.getViewport().setScrollable(true);
-
-// activate horizontal and vertical zooming and scrolling
-                       graph.getViewport().setScalableY(true);
-
-// activate vertical scrolling
-                       graph.getViewport().setScrollableY(true);
-
-
-                  //     graph.getViewport().setXAxisBoundsManual(true);
-                  //     graph.getViewport().setMinX(1);
-                   //    graph.getViewport().setMaxX(7);
-
-
-                       series.setDrawValuesOnTop(true);
-                       series.setValuesOnTopColor(Color.RED);
-                       series.setSpacing(10);
-                       series.setAnimated(true);
-                       series.setTitle("Roubo/furtos");
-
-
-
-
-
-
-
-                       StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-                       staticLabelsFormatter.setHorizontalLabels(new String[]{"Boa Vista","Jussara","Boa Vista","Jatoba","Boa Vista","Jatoba","Jatoba","Boa Vista","Jatoba","Jatoba","Boa Vista","Jatoba"});
-                       // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
-                       graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-
-
-
-
-                      // graph.getGridLabelRenderer().isHorizontalLabelsVisible();
-
-
-
-
-                       series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
-                           @Override
-                           public int get(DataPoint data) {
-                               return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
-                           }
-                       });
                    }
 
 
@@ -301,40 +218,13 @@ int boaVista=0;
 
                 if(ano == 2019){
 
-                    BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
 
 
 
-
-                            new  DataPoint(2016, 90),
-                            new  DataPoint(2017, 120),
-                            new  DataPoint(2018, contandoBikesAno2018),
-                            new  DataPoint(2019, contandoBikesAno2019),
-
-
-                    });
-
-
-                    graph.addSeries(series);
-
-                    series.setDrawValuesOnTop(true);
-                    series.setValuesOnTopColor(Color.RED);
-                    series.setSpacing(10);
-                    series.setAnimated(true);
-                    series.setTitle("Roubo/furtos");
-
-
-                    StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-                    staticLabelsFormatter.setHorizontalLabels(new String[] { "2016", "2017","2018","2019"});
-                    // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
-                    graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
                 }
 
 
-                graph.setTitle("Roubo e furto de Bicicletas ");
-                graph.getLegendRenderer().setVisible(true);
-                graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
 
 
@@ -382,6 +272,151 @@ int boaVista=0;
         databaseReference = firebaseDatabase.getReference();
 
 
+    }
+
+    private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
+
+        chart.getDescription().setText(descricao);
+        chart.getDescription().setTextSize(15);
+        chart.setBackgroundColor(background);
+        chart.animateY(animacaoY);
+
+
+        legend(chart);
+
+        return  chart;
+    }
+
+    public void legend(Chart chart){
+        Legend legend = chart.getLegend();
+        legend.setForm(Legend.LegendForm.CIRCLE);
+        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+
+
+        ArrayList<LegendEntry> entries = new ArrayList<>();
+
+        for(int i=0;i<nomes.length;i++){
+
+            LegendEntry entry = new LegendEntry();
+            entry.formColor = cores[i];
+            entry.label = nomes[i];
+            entries.add(entry);
+
+        }
+        legend.setCustom(entries);
+
+    }
+
+
+
+    private ArrayList<BarEntry> getBarEntries(){
+
+
+        ArrayList<BarEntry> entries = new ArrayList<>();
+
+
+        for(int i=0;i <valores.length;i++)
+            entries.add(new BarEntry(i,valores[i]));
+        return entries;
+
+
+
+    }
+
+
+    private ArrayList<PieEntry> getPieEntries(){
+
+        ArrayList<PieEntry> entries = new ArrayList<>();
+
+
+        for(int i=0;i <valores.length;i++)
+            entries.add(new PieEntry(valores[i]));
+        return entries;
+
+
+    }
+
+
+    private void axisX(XAxis axis){
+
+        axis.setGranularityEnabled(true);
+        axis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
+
+
+    }
+
+    private void axisLeft(YAxis axis){
+        axis.setSpaceTop(30);
+        axis.setAxisMinimum(0);
+
+    }
+
+
+    private void axisRight(YAxis axis){
+        axis.setEnabled(true);
+
+    }
+
+
+    public void creatCharts(){
+
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
+        barChart.setDrawGridBackground(true);
+        barChart.setDrawBarShadow(true);
+
+
+
+        barChart.setData(getBarDate());
+        barChart.invalidate();
+
+        axisX(barChart.getXAxis());
+        axisLeft(barChart.getAxisLeft());
+        axisRight(barChart.getAxisRight());
+
+        barChart.getLegend().setEnabled(true);
+
+
+    }
+
+    private DataSet getDate(DataSet dataSet){
+
+        dataSet.setColors(cores);
+        dataSet.setValueTextSize(Color.WHITE);
+        dataSet.setValueTextSize(10);
+
+        return dataSet;
+    }
+
+
+
+    private BarData getBarDate(){
+        BarDataSet barDataSet = (BarDataSet)getDate(new BarDataSet(getBarEntries(),""));
+
+        barDataSet.setBarShadowColor(Color.GRAY);
+
+        BarData barData = new BarData(barDataSet);
+        barData.setBarWidth(0.45f);
+
+
+
+
+        return barData;
+    }
+
+
+
+
+    private PieData getPieDate(){
+        PieDataSet pieDataSet = (PieDataSet)getDate(new PieDataSet(getPieEntries(),""));
+
+        pieDataSet.setSliceSpace(2);
+
+        // passa para poercentagem
+      //  pieDataSet.setValueFormatter(new PercentFormatter());
+
+
+        return new PieData(pieDataSet);
     }
 
 

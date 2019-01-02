@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +34,7 @@ public class Tab3Cor extends Fragment {
 
     private EditText editPalavra;
     private ListView listPesquisa;
+    private TextView naoCor;
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -50,6 +52,7 @@ public class Tab3Cor extends Fragment {
 
         editPalavra = (EditText)  rootView.findViewById(R.id.pesquisaCorID);
         listPesquisa = (ListView) rootView.findViewById(R.id.listabikeCorID);
+        naoCor       = (TextView) rootView.findViewById(R.id.naoCorID);
 
         inicializarFirebase();
         eventEdit();
@@ -130,6 +133,19 @@ public class Tab3Cor extends Fragment {
                     Bike b = objSnapshot.getValue(Bike.class);
                     listBikes.add(b);
 
+
+                }
+
+
+
+                if(listBikes.isEmpty()){
+
+                    naoCor.setVisibility(View.VISIBLE);
+
+
+                }else {
+
+                    naoCor.setVisibility(View.GONE);
 
                 }
 

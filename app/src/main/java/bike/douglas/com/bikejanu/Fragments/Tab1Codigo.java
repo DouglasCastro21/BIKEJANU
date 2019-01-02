@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +34,7 @@ public class Tab1Codigo extends Fragment {
 
 
     private EditText editPalavra;
+    private TextView naoNumeroSerie;
     private  ListView listPesquisa;
 
 
@@ -56,6 +58,7 @@ public class Tab1Codigo extends Fragment {
 
          editPalavra = (EditText)  rootView.findViewById(R.id.pesquisaCodigoID);
          listPesquisa = (ListView) rootView.findViewById(R.id.listabikeCodigoID);
+         naoNumeroSerie = (TextView) rootView.findViewById(R.id.naoNumeroSerieID);
 
 
          inicializarFirebase();
@@ -100,6 +103,8 @@ public class Tab1Codigo extends Fragment {
                 String palavra = editPalavra.getText().toString().trim();
                 pesquisarPalavra(palavra);
 
+
+
             }
         });
 
@@ -111,21 +116,40 @@ public class Tab1Codigo extends Fragment {
 
     private void pesquisarPalavra(String palavra) {
 
-        Query query;
+          Query query;
+          Bike bike;
 
 
           //Instânciar objetos
           listBikes = new ArrayList<>();
 
+          bike = new Bike();
+
+
         if (palavra.equals("")) {
 
             query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
 
+
         }else{
+
+
 
             query = databaseReference.child("TodasBikes")
                     .orderByChild("numero_serie").startAt(palavra).endAt(palavra+"\uf8ff");
+
+
+
+
+
+
         }
+
+
+
+
+
+
 
 
         query.addValueEventListener(new ValueEventListener() {
@@ -142,8 +166,21 @@ public class Tab1Codigo extends Fragment {
                      listBikes.add(b);
 
 
+
             }
 
+
+
+            if(listBikes.isEmpty()){
+
+                naoNumeroSerie.setVisibility(View.VISIBLE);
+
+
+            }else {
+
+                naoNumeroSerie.setVisibility(View.GONE);
+
+            }
                 // verificar se precisa tirar ...nao sei pra uqe isso
                // arrayAdapterBike = new ArrayAdapter(
                    //     Tab1Codigo.super.getContext(),android.R.layout.simple_list_item_1, listBikes  );
@@ -178,6 +215,8 @@ public class Tab1Codigo extends Fragment {
         super.onResume();
 
         pesquisarPalavra("");
+
+
     }
 
 

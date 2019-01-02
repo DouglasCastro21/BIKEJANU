@@ -1,7 +1,5 @@
 package bike.douglas.com.bikejanu.Fragments;
 
-import android.accounts.NetworkErrorException;
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
@@ -10,13 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableRow;
-import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
@@ -28,58 +22,55 @@ import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 
-import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.R;
 
-public class GraficoBairroMistoFragment extends Fragment {
+
+public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
-private PieChart pieChart;
+    private PieChart pieChart;
 
-
-
-
-private String[] nomes   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-private int[]    valores = new int   []{3000,150,100,80};
-private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+    private String[] nomes   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
+    private int[]    valores = new int   []{3000,150,100,80};
+    private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_grafico_barra_misto, container, false);
 
-      //  Toast.makeText(GraficoBairroMistoFragment.super.getContext(), " Bairro Misto!", Toast.LENGTH_LONG).show();
-
+        View rootView = inflater.inflate(R.layout.fragment_grafico_pizza_total_bikes, container, false);
 
 
-    pieChart =  (PieChart) rootView.findViewById(R.id.graficoPizza);
+        pieChart =  (PieChart) rootView.findViewById(R.id.graficoPizza);
 
 
 
 
-    creatCharts();
+        creatCharts();
 
-    return  rootView;
 
+  return rootView;
     }
 
 
-    private Chart getSameChart(Chart chart,String descricao,int textColor,int background,int animacaoY){
-
-            chart.getDescription().setText(descricao);
-            chart.getDescription().setTextSize(15);
-            chart.setBackgroundColor(background);
-            chart.animateY(animacaoY);
 
 
-            legend(chart);
+
+
+    private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
+
+        chart.getDescription().setText(descricao);
+        chart.getDescription().setTextSize(15);
+        chart.setBackgroundColor(background);
+        chart.animateY(animacaoY);
+
+
+        legend(chart);
 
         return  chart;
     }
@@ -102,23 +93,23 @@ private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.
         }
         legend.setCustom(entries);
 
-        }
+    }
 
 
 
-        private ArrayList<BarEntry> getBarEntries(){
+    private ArrayList<BarEntry> getBarEntries(){
 
 
-            ArrayList<BarEntry> entries = new ArrayList<>();
+        ArrayList<BarEntry> entries = new ArrayList<>();
 
 
-            for(int i=0;i <valores.length;i++)
-                entries.add(new BarEntry(i,valores[i]));
-                return entries;
+        for(int i=0;i <valores.length;i++)
+            entries.add(new BarEntry(i,valores[i]));
+        return entries;
 
 
 
-        }
+    }
 
 
     private ArrayList<PieEntry> getPieEntries(){
@@ -144,14 +135,14 @@ private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.
     }
 
     private void axisLeft(YAxis axis){
-      axis.setSpaceTop(30);
-      axis.setAxisMinimum(0);
+        axis.setSpaceTop(30);
+        axis.setAxisMinimum(0);
 
     }
 
 
     private void axisRight(YAxis axis){
-      axis.setEnabled(true);
+        axis.setEnabled(true);
 
     }
 
@@ -160,10 +151,10 @@ private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.
 
 
 
-         pieChart = (PieChart) getSameChart(pieChart,"",Color.RED,Color.WHITE,3000);
-         pieChart.setHoleRadius(10);
-         pieChart.setTransparentCircleRadius(12);
-          //  pieChart.setDrawHoleEnabled(false);
+        pieChart = (PieChart) getSameChart(pieChart,"",Color.RED,Color.WHITE,3000);
+        pieChart.setHoleRadius(10);
+        pieChart.setTransparentCircleRadius(12);
+        //  pieChart.setDrawHoleEnabled(false);
 
 
         pieChart.setData(getPieDate());
@@ -201,13 +192,18 @@ private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.
     private PieData getPieDate(){
         PieDataSet pieDataSet = (PieDataSet)getDate(new PieDataSet(getPieEntries(),""));
 
-       pieDataSet.setSliceSpace(2);
+        pieDataSet.setSliceSpace(2);
 
-       // passa para poercentagem
-       //pieDataSet.setValueFormatter(new PercentFormatter());
+        // passa para poercentagem
+        //pieDataSet.setValueFormatter(new PercentFormatter());
 
 
         return new PieData(pieDataSet);
     }
+
+
+
+
+
 
 }

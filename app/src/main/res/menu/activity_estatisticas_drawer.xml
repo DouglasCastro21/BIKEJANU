@@ -23,6 +23,11 @@
             android:icon="@drawable/ic_action_bargraph"
             android:title="Gráfico por Horário" />
 
+        <item
+            android:id="@+id/nav_dados_bikes"
+            android:icon="@drawable/ic_action_bargraph"
+            android:title="Gráfico Dados Bikes" />
+
 
         <item
             android:id="@+id/nav_map"

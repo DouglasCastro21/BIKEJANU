@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -36,6 +37,7 @@ public  class Tab2Data extends Fragment {
 
     private EditText editPalavra;
     private ListView listPesquisa;
+    private TextView naoData;
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -62,6 +64,9 @@ public  class Tab2Data extends Fragment {
 
         editPalavra = (EditText) view.findViewById(R.id.pesquisaDataID);
         listPesquisa = (ListView) view.findViewById(R.id.listabikeDataID);
+
+
+        naoData = (TextView) view.findViewById(R.id.naoDataID);
 
         inicializarFirebase();
         eventEdit();
@@ -141,6 +146,20 @@ public  class Tab2Data extends Fragment {
 
 
                 }
+
+                if(listBikes.isEmpty()){
+
+                    naoData.setVisibility(View.VISIBLE);
+
+
+                }else {
+
+                    naoData.setVisibility(View.GONE);
+
+                }
+
+
+
 
                 // verificar se precisa tirar ...nao sei pra uqe isso
               //   arrayAdapterBike = new ArrayAdapter(

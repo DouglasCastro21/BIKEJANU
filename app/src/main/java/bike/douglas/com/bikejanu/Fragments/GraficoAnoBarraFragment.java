@@ -15,6 +15,22 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.Chart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.DataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -52,6 +68,17 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
+
+    private BarChart barChart;
+
+
+
+    private String[] nomes   = new String[]{"2015","2016","2017","2018"};
+    private int[]    valores = new int   []{20,40,60,80};
+    private int []   cores   = new int   []{Color.GREEN,Color.BLUE,Color.BLACK,Color.RED};
+
+
+
     private FirebaseDatabase firebaseDatabase;
     private static DatabaseReference databaseReference;
 
@@ -71,6 +98,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
         inicializarFirebase();
+        barChart =  (BarChart) rootView.findViewById(R.id.graficoBarrasBarChar);
 
 
 
@@ -146,52 +174,18 @@ public class GraficoAnoBarraFragment extends Fragment {
                 ano = calendar.get(Calendar.YEAR);
 
 
-                GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
+               // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
 
                 if(ano == 2018){
 
-                    BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
 
 
 
 
-                            new  DataPoint(2015, 77),
-                            new  DataPoint(2016, 90),
-                            new  DataPoint(2017, 120),
-                            new  DataPoint(2018, contandoBikesAno2018),
+                    creatCharts();
 
 
 
-
-                    });
-
-
-
-                    graph.addSeries(series);
-
-
-                    series.setDrawValuesOnTop(true);
-                    series.setValuesOnTopColor(Color.RED);
-                    series.setSpacing(10);
-                    series.setAnimated(true);
-                    series.setTitle("Roubo/furtos");
-
-
-                    StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-                    staticLabelsFormatter.setHorizontalLabels(new String[] {"2015", "2016", "2017","2018"});
-                    // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
-                    graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-
-
-
-
-
-                    series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
-                        @Override
-                        public int get(DataPoint data) {
-                            return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6),100);
-                        }
-                    });
                 }
 
 
@@ -199,43 +193,15 @@ public class GraficoAnoBarraFragment extends Fragment {
 
                 if(ano == 2019){
 
-                    BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
 
 
-
-
-                            new  DataPoint(2016, 90),
-                            new  DataPoint(2017, 120),
-                            new  DataPoint(2018, contandoBikesAno2018),
-                            new  DataPoint(2019, contandoBikesAno2019),
-
-
-                    });
-
-
-                    graph.addSeries(series);
-
-                    series.setDrawValuesOnTop(true);
-                    series.setValuesOnTopColor(Color.RED);
-                    series.setSpacing(10);
-                    series.setAnimated(true);
-                    series.setTitle("Roubo/furtos");
-
-
-                    StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-                    staticLabelsFormatter.setHorizontalLabels(new String[] { "2016", "2017","2018","2019"});
-                    // staticLabelsFormatter.setVerticalLabels(new String[] {"low", "middle", "high"});
-                    graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-
-                }
+                    }
 
 
 
 
 
-                graph.setTitle("Roubo e furto de Bicicletas ");
-                graph.getLegendRenderer().setVisible(true);
-                graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
+
 
 
 
@@ -284,6 +250,138 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
     }
+
+
+    private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
+
+        chart.getDescription().setText(descricao);
+        chart.getDescription().setTextSize(16);
+        chart.setBackgroundColor(background);
+        chart.animateY(animacaoY);
+        chart.getDescription().setPosition(300,30);
+
+
+
+        legend(chart);
+
+        return  chart;
+    }
+
+    public void legend(Chart chart){
+        Legend legend = chart.getLegend();
+        legend.setForm(Legend.LegendForm.CIRCLE);
+        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+
+
+        ArrayList<LegendEntry> entries = new ArrayList<>();
+
+        for(int i=0;i<nomes.length;i++){
+
+            LegendEntry entry = new LegendEntry();
+            entry.formColor = cores[i];
+            entry.label = nomes[i];
+            entries.add(entry);
+
+        }
+        legend.setCustom(entries);
+
+    }
+
+
+
+    private ArrayList<BarEntry> getBarEntries(){
+
+
+        ArrayList<BarEntry> entries = new ArrayList<>();
+
+
+        for(int i=0;i <valores.length;i++)
+            entries.add(new BarEntry(i,valores[i]));
+        return entries;
+
+
+
+    }
+
+
+
+
+
+    private void axisX(XAxis axis){
+
+        axis.setGranularityEnabled(true);
+        axis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
+
+
+    }
+
+    private void axisLeft(YAxis axis){
+        axis.setSpaceTop(30);
+        axis.setAxisMinimum(0);
+
+    }
+
+
+    private void axisRight(YAxis axis){
+        axis.setEnabled(true);
+
+    }
+
+
+    public void creatCharts(){
+
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
+        barChart.setDrawGridBackground(true);
+
+        barChart.setDrawBarShadow(true);
+
+
+
+        barChart.setData(getBarDate());
+        barChart.invalidate();
+
+        axisX(barChart.getXAxis());
+        axisLeft(barChart.getAxisLeft());
+        axisRight(barChart.getAxisRight());
+
+        barChart.getLegend().setEnabled(true);
+
+
+
+
+
+    }
+
+    private DataSet getDate(DataSet dataSet){
+
+        dataSet.setColors(cores);
+        dataSet.setValueTextSize(Color.WHITE);
+        dataSet.setValueTextSize(10);
+
+        return dataSet;
+    }
+
+
+
+    private BarData getBarDate(){
+        BarDataSet barDataSet = (BarDataSet)getDate(new BarDataSet(getBarEntries(),""));
+
+        barDataSet.setBarShadowColor(Color.GRAY);
+
+        BarData barData = new BarData(barDataSet);
+        barData.setBarWidth(0.45f);
+
+
+
+
+        return barData;
+    }
+
+
+
+
+
 
 
 
