@@ -9,11 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
-import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
@@ -26,8 +24,6 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,27 +31,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.LegendRenderer;
-import com.jjoe64.graphview.ValueDependentColor;
-import com.jjoe64.graphview.Viewport;
-import com.jjoe64.graphview.helper.StaticLabelsFormatter;
-import com.jjoe64.graphview.series.BarGraphSeries;
-import com.jjoe64.graphview.series.DataPoint;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import bike.douglas.com.bikejanu.Activity.EditarBike;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 
-public class GraficoBairroBarraFragment extends Fragment {
 
-
+public class GraficoRuaBarraFragment extends Fragment {
     int cont=0;
     int jatoba=0;
     int boaVista=0;
@@ -67,7 +54,7 @@ public class GraficoBairroBarraFragment extends Fragment {
 
     private BarChart barChart;
 
-    private String[] nomes   = new String[]{"Boa Vista","Jussara","Alvorada","Ceramica","São João","Brasilina","Centro"};
+    private String[] nomes   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12","Rua 10","Brasilina","Centro"};
     private int[]    valores = new int   []{1,2,4,8,12,12,34};
     private int []   cores   = new int   []{Color.BLUE,Color.YELLOW,Color.DKGRAY,Color.RED,Color.BLACK,Color.GREEN,Color.RED};
 
@@ -82,8 +69,8 @@ public class GraficoBairroBarraFragment extends Fragment {
     public static ArrayAdapter<Bike> arrayAdapterBike;
 
 
- //   public static List<String> listBairros = new ArrayList<String>();
-   // public static ArrayAdapter<String> arrayAdapterBairro;
+    //   public static List<String> listBairros = new ArrayList<String>();
+    // public static ArrayAdapter<String> arrayAdapterBairro;
 
 
 
@@ -91,9 +78,9 @@ public class GraficoBairroBarraFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_grafico_bairro_barra, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_grafico_rua_barra, container, false);
 
-        barChart =  (BarChart) rootView.findViewById(R.id.graficoBarras);
+        barChart =  (BarChart) rootView.findViewById(R.id.graficoRuaBarra);
 
         inicializarFirebase();
 
@@ -109,7 +96,7 @@ public class GraficoBairroBarraFragment extends Fragment {
         //Instânciar objetos
         listBikes = new ArrayList<>();
 
-     //   listBairros = new ArrayList<>();
+        //   listBairros = new ArrayList<>();
 
 
         query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
@@ -137,7 +124,7 @@ public class GraficoBairroBarraFragment extends Fragment {
 
 
                     String texto = b.getAlertaDate();
-                  //  bairro = b.getAlertaBairro();
+                    //  bairro = b.getAlertaBairro();
 
 
 
@@ -145,19 +132,19 @@ public class GraficoBairroBarraFragment extends Fragment {
 
                     if (!b.getAlertaBairro().equals("") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
-                      //  Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Bairro :"+bairro, Toast.LENGTH_LONG).show();
+                        //  Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Bairro :"+bairro, Toast.LENGTH_LONG).show();
 
                         bairro = b.getAlertaBairro();
 
 
                         if(bairro.equals("Jatoba") ){
 
-                           jatoba++;
+                            jatoba++;
 
 
                         }else if(bairro.equals("Boa Vista") ){
 
-                           boaVista++;
+                            boaVista++;
 
 
                         }
@@ -187,7 +174,7 @@ public class GraficoBairroBarraFragment extends Fragment {
 
                     }
 
-                    }
+                }
 
 
                 // inicio do grafico
@@ -201,12 +188,12 @@ public class GraficoBairroBarraFragment extends Fragment {
 
 
 
-                   if(ano == 2018){
+                if(ano == 2018){
 
 
-                       creatCharts();
+                    creatCharts();
 
-                   }
+                }
 
 
 
@@ -223,7 +210,7 @@ public class GraficoBairroBarraFragment extends Fragment {
                     creatCharts();
 
 
-                 }
+                }
 
 
 
@@ -235,7 +222,7 @@ public class GraficoBairroBarraFragment extends Fragment {
 
 // simula a lista
 
-                arrayAdapterBike = new BikeAdapter(GraficoBairroBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+                arrayAdapterBike = new BikeAdapter(GraficoRuaBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
                 //   listPesquisa.setAdapter(arrayAdapterBike);
 
 
@@ -268,7 +255,7 @@ public class GraficoBairroBarraFragment extends Fragment {
 
     private void inicializarFirebase() {
 
-        FirebaseApp.initializeApp(GraficoBairroBarraFragment.super.getContext());
+        FirebaseApp.initializeApp(GraficoRuaBarraFragment.super.getContext());
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
@@ -414,7 +401,7 @@ public class GraficoBairroBarraFragment extends Fragment {
         pieDataSet.setSliceSpace(2);
 
         // passa para poercentagem
-      //  pieDataSet.setValueFormatter(new PercentFormatter());
+        //  pieDataSet.setValueFormatter(new PercentFormatter());
 
 
         return new PieData(pieDataSet);

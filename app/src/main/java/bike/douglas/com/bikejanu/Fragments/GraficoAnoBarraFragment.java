@@ -73,8 +73,8 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-    private String[] nomes   = new String[]{"2015","2016","2017","2018"};
-    private int[]    valores = new int   []{20,40,60,80};
+    private String[] nomes   = new String[]{"2016","2017","2018","2019"};
+    private int[]    valores = new int   []{20,40,60,1};
     private int []   cores   = new int   []{Color.GREEN,Color.BLUE,Color.BLACK,Color.RED};
 
 
@@ -179,11 +179,7 @@ public class GraficoAnoBarraFragment extends Fragment {
                 if(ano == 2018){
 
 
-
-
-
                     creatCharts();
-
 
 
                 }
@@ -193,6 +189,8 @@ public class GraficoAnoBarraFragment extends Fragment {
 
                 if(ano == 2019){
 
+
+                    creatCharts();
 
 
                     }
@@ -255,7 +253,7 @@ public class GraficoAnoBarraFragment extends Fragment {
     private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
 
         chart.getDescription().setText(descricao);
-        chart.getDescription().setTextSize(16);
+        chart.getDescription().setTextSize(24);
         chart.setBackgroundColor(background);
         chart.animateY(animacaoY);
         chart.getDescription().setPosition(300,30);
@@ -357,7 +355,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
         dataSet.setColors(cores);
         dataSet.setValueTextSize(Color.WHITE);
-        dataSet.setValueTextSize(10);
+        dataSet.setValueTextSize(15);
 
         return dataSet;
     }

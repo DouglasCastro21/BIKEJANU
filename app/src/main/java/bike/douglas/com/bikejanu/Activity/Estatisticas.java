@@ -23,6 +23,9 @@ import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoPizzaTotalBikesFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoRuaBarraFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoRuaLinhaFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoRuaMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaCalorFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaFragment;
 import bike.douglas.com.bikejanu.R;
@@ -164,10 +167,6 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-
-
-
-
        if (idMenu == R.id.action_barras && resposta == 1) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoAnoBarraFragment()).commit();
@@ -216,6 +215,35 @@ public class Estatisticas extends AppCompatActivity
 
 
        }
+
+
+   }
+
+
+   if(resposta == 3){
+
+
+       if (idMenu == R.id.action_barras && resposta == 2) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoRuaBarraFragment()).commit();
+
+
+
+       } else if (idMenu == R.id.action_linhas && resposta == 2) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoRuaLinhaFragment()).commit();
+
+
+
+       } else if (idMenu == R.id.action_misto && resposta == 2) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoRuaMistoFragment()).commit();
+
+
+
+
+       }
+
 
 
    }
@@ -346,6 +374,39 @@ public class Estatisticas extends AppCompatActivity
             resposta=2;
 
         } else if (id == R.id.nav_grafico_ruas) {
+
+
+             menu1 = menu2;
+             MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
+             visivelMapaCalor.setVisible(false);
+
+
+
+             MenuItem visivel = menu1.findItem(R.id.action_mapaPontos);
+             visivel.setVisible(false);
+
+
+
+
+             MenuItem visivelGraficoBarras = menu1.findItem(R.id.action_barras);
+             visivelGraficoBarras.setVisible(true);
+
+
+
+             MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
+             visivelGraficoLinhas.setVisible(true);
+
+
+             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
+             visivelGraficoMisto.setVisible(true);
+
+
+
+             myItemMap = 0;
+             transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraFragment()).commit();
+             resposta=3;
+
+
 
 
 

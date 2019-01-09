@@ -35,7 +35,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
     private PieChart pieChart;
 
     private String[] nomes   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-    private int[]    valores = new int   []{3000,150,100,80};
+    private int[]    valores = new int   []{300,150,100,50};
     private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
 
 
@@ -154,7 +154,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
         pieChart = (PieChart) getSameChart(pieChart,"",Color.RED,Color.WHITE,3000);
         pieChart.setHoleRadius(10);
         pieChart.setTransparentCircleRadius(12);
-        //  pieChart.setDrawHoleEnabled(false);
+         pieChart.setDrawHoleEnabled(false);
 
 
         pieChart.setData(getPieDate());
@@ -165,7 +165,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
         dataSet.setColors(cores);
         dataSet.setValueTextSize(Color.WHITE);
-        dataSet.setValueTextSize(10);
+        dataSet.setValueTextSize(15);
 
         return dataSet;
     }
