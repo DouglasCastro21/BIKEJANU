@@ -19,7 +19,7 @@
             android:title="Gráfico por Rua" />
 
         <item
-            android:id="@+id/nav_share"
+            android:id="@+id/nav_grafico_Horario"
             android:icon="@drawable/ic_action_bargraph"
             android:title="Gráfico por Horário" />
 

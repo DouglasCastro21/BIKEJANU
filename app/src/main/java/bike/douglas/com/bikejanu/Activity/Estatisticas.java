@@ -22,6 +22,9 @@ import bike.douglas.com.bikejanu.Fragments.GraficoAnoMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroMistoFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoHorarioBarraFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoHorarioLinhaFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoHorarioMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoPizzaTotalBikesFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoRuaBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoRuaLinhaFragment;
@@ -223,19 +226,19 @@ public class Estatisticas extends AppCompatActivity
    if(resposta == 3){
 
 
-       if (idMenu == R.id.action_barras && resposta == 2) {
+       if (idMenu == R.id.action_barras && resposta == 3) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoRuaBarraFragment()).commit();
 
 
 
-       } else if (idMenu == R.id.action_linhas && resposta == 2) {
+       } else if (idMenu == R.id.action_linhas && resposta == 3) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoRuaLinhaFragment()).commit();
 
 
 
-       } else if (idMenu == R.id.action_misto && resposta == 2) {
+       } else if (idMenu == R.id.action_misto && resposta == 3) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoRuaMistoFragment()).commit();
 
@@ -245,6 +248,34 @@ public class Estatisticas extends AppCompatActivity
        }
 
 
+
+   }
+
+
+   if (resposta == 4){
+
+
+
+       if (idMenu == R.id.action_barras && resposta == 4) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioBarraFragment()).commit();
+
+
+
+       } else if (idMenu == R.id.action_linhas && resposta == 4) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioLinhaFragment()).commit();
+
+
+
+       } else if (idMenu == R.id.action_misto && resposta == 4) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioMistoFragment()).commit();
+
+
+
+
+       }
 
    }
 
@@ -410,7 +441,39 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_grafico_Horario) {
+
+
+
+             menu1 = menu2;
+             MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
+             visivelMapaCalor.setVisible(false);
+
+
+
+             MenuItem visivel = menu1.findItem(R.id.action_mapaPontos);
+             visivel.setVisible(false);
+
+
+
+
+             MenuItem visivelGraficoBarras = menu1.findItem(R.id.action_barras);
+             visivelGraficoBarras.setVisible(true);
+
+
+
+             MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
+             visivelGraficoLinhas.setVisible(true);
+
+
+             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
+             visivelGraficoMisto.setVisible(true);
+
+
+
+             myItemMap = 0;
+             transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioBarraFragment()).commit();
+             resposta=4;
 
 
          } else if(id == R.id.nav_dados_bikes){
