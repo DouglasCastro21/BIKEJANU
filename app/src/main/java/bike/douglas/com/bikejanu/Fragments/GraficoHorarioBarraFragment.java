@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -53,10 +54,15 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private BarChart barChart;
 
-    private String[] nomes   = new String[]{"Boa Vista","Jussara","Alvorada","Ceramica","São João","Brasilina","Centro"};
-    private int[]    valores = new int   []{1,2,4,8,12,12,34};
-    private int []   cores   = new int   []{Color.BLUE,Color.YELLOW,Color.DKGRAY,Color.RED,Color.BLACK,Color.GREEN,Color.RED};
+    private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+    private int[]    roubos  = new int   []{10,15,12,34,};
+    private int []   cores   = new int   []{Color.RED,Color.DKGRAY};
 
+
+
+    private String[] nome   = new String[]{"Roubo","Furto"};
+
+    private int[]    furtos = new int   []{5,10,6,10};
 
 
 
@@ -68,7 +74,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     public static ArrayAdapter<Bike> arrayAdapterBike;
 
 
-    //   public static List<String> listBairros = new ArrayList<String>();
+    //   public static List<String> l  axis.setPosition(XAxis.XAxisPosition.BOTTOM);istBairros = new ArrayList<String>();
     // public static ArrayAdapter<String> arrayAdapterBairro;
 
 
@@ -85,6 +91,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
 
+
+
+
+
+        barChart.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+
+
+                Toast.makeText(GraficoHorarioBarraFragment.super.getContext(), "VC USOU CLIK LONGO", Toast.LENGTH_LONG).show();
+
+
+                return false;
+            }
+        });
 
 
 
@@ -190,7 +212,6 @@ public class GraficoHorarioBarraFragment extends Fragment {
                 if(ano == 2018){
 
 
-                    creatCharts();
 
                 }
 
@@ -206,8 +227,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
                 if(ano == 2019){
 
 
-                    creatCharts();
-
+                    criarGraficos();
 
                 }
 
@@ -261,6 +281,8 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     }
 
+
+
     private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
 
         chart.getDescription().setText(descricao);
@@ -275,60 +297,41 @@ public class GraficoHorarioBarraFragment extends Fragment {
     }
 
     public void legend(Chart chart){
+
         Legend legend = chart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        legend.setTextSize(15);
+
+
 
 
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
-        for(int i=0;i<nomes.length;i++){
+        for(int i=0;i<nome.length;i++){
 
             LegendEntry entry = new LegendEntry();
             entry.formColor = cores[i];
-            entry.label = nomes[i];
+            entry.label = nome[i];
             entries.add(entry);
 
         }
+
+
         legend.setCustom(entries);
 
     }
 
-
-
-    private ArrayList<BarEntry> getBarEntries(){
-
-
-        ArrayList<BarEntry> entries = new ArrayList<>();
-
-
-        for(int i=0;i <valores.length;i++)
-            entries.add(new BarEntry(i,valores[i]));
-        return entries;
-
-
-
-    }
-
-
-    private ArrayList<PieEntry> getPieEntries(){
-
-        ArrayList<PieEntry> entries = new ArrayList<>();
-
-
-        for(int i=0;i <valores.length;i++)
-            entries.add(new PieEntry(valores[i]));
-        return entries;
-
-
-    }
-
-
     private void axisX(XAxis axis){
 
         axis.setGranularityEnabled(true);
-        axis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        axis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);
         axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
+
+
+
+
+
 
 
     }
@@ -343,69 +346,81 @@ public class GraficoHorarioBarraFragment extends Fragment {
     private void axisRight(YAxis axis){
         axis.setEnabled(true);
 
+
+
+
     }
 
 
-    public void creatCharts(){
 
-        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
+
+    private void criarGraficos(){
+
+
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,2000);
         barChart.setDrawGridBackground(true);
-        barChart.setDrawBarShadow(true);
+
+        barChart.setActivated(true);
 
 
 
-        barChart.setData(getBarDate());
-        barChart.invalidate();
+
+        ArrayList<BarEntry> yVals1 = new ArrayList<>();
+        for (int i=0;i<roubos.length;i++){
+            yVals1.add(new BarEntry(i,roubos[i]));
+
+        }
+
+
+
+        ArrayList<BarEntry> yVals2 = new ArrayList<>();
+
+        for(int i=0;i <furtos.length;i++){
+            yVals2.add(new BarEntry(i,furtos[i]));
+
+        }
+
+
+
+        BarDataSet set1,set2;
+
+
+        set1 = new BarDataSet(yVals1,"Roubo");
+        set1.setColor(Color.RED);
+        set1.setValueTextSize(15);
+        set1.setValueTextColor(Color.BLUE);
+
+
+
+
+        set2= new BarDataSet(yVals2, "Furto");
+
+        set2.setColor(Color.DKGRAY);
+        set2.setValueTextSize(15);
+        set2.setValueTextColor(Color.BLUE);
+
+
+
+        BarData data = new BarData(set1,set2);
+
+        barChart.setData(data);
+
+
 
         axisX(barChart.getXAxis());
         axisLeft(barChart.getAxisLeft());
         axisRight(barChart.getAxisRight());
 
+
         barChart.getLegend().setEnabled(true);
 
+        data.setBarWidth(0.45f);
 
-    }
-
-    private DataSet getDate(DataSet dataSet){
-
-        dataSet.setColors(cores);
-        dataSet.setValueTextSize(Color.WHITE);
-        dataSet.setValueTextSize(15);
-
-        return dataSet;
-    }
-
-
-
-    private BarData getBarDate(){
-        BarDataSet barDataSet = (BarDataSet)getDate(new BarDataSet(getBarEntries(),""));
-
-        barDataSet.setBarShadowColor(Color.GRAY);
-
-        BarData barData = new BarData(barDataSet);
-        barData.setBarWidth(0.45f);
 
 
 
 
-        return barData;
     }
-
-
-
-
-    private PieData getPieDate(){
-        PieDataSet pieDataSet = (PieDataSet)getDate(new PieDataSet(getPieEntries(),""));
-
-        pieDataSet.setSliceSpace(2);
-
-        // passa para poercentagem
-        //  pieDataSet.setValueFormatter(new PercentFormatter());
-
-
-        return new PieData(pieDataSet);
-    }
-
 
 
 

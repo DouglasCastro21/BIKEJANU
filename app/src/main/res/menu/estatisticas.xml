@@ -18,11 +18,7 @@
         android:title="Gráfico de Linhas"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_misto"
-        android:orderInCategory="100"
-        android:title="Gráfico Misto"
-        app:showAsAction="never" />
+
 
     <item
 

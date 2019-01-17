@@ -151,7 +151,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
 
-        pieChart = (PieChart) getSameChart(pieChart,"",Color.RED,Color.WHITE,3000);
+        pieChart = (PieChart) getSameChart(pieChart,"",Color.RED,Color.WHITE,2000);
         pieChart.setHoleRadius(10);
         pieChart.setTransparentCircleRadius(12);
          pieChart.setDrawHoleEnabled(false);
@@ -159,6 +159,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
         pieChart.setData(getPieDate());
         pieChart.invalidate();
+
     }
 
     private DataSet getDate(DataSet dataSet){

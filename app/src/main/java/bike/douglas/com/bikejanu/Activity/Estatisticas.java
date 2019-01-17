@@ -184,13 +184,6 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-       } else if (idMenu == R.id.action_misto && resposta == 1) {
-
-           transaction.replace(R.id.conteinerFragmentos, new GraficoAnoMistoFragment()).commit();
-
-
-
-
        }
 
 
@@ -207,13 +200,6 @@ public class Estatisticas extends AppCompatActivity
        } else if (idMenu == R.id.action_linhas && resposta == 2) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoBairroLinhaFragment()).commit();
-
-
-
-       } else if (idMenu == R.id.action_misto && resposta == 2) {
-
-           transaction.replace(R.id.conteinerFragmentos, new GraficoBairroMistoFragment()).commit();
-
 
 
 
@@ -238,13 +224,6 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-       } else if (idMenu == R.id.action_misto && resposta == 3) {
-
-           transaction.replace(R.id.conteinerFragmentos, new GraficoRuaMistoFragment()).commit();
-
-
-
-
        }
 
 
@@ -265,13 +244,6 @@ public class Estatisticas extends AppCompatActivity
        } else if (idMenu == R.id.action_linhas && resposta == 4) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioLinhaFragment()).commit();
-
-
-
-       } else if (idMenu == R.id.action_misto && resposta == 4) {
-
-           transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioMistoFragment()).commit();
-
 
 
 
@@ -360,8 +332,6 @@ public class Estatisticas extends AppCompatActivity
              visivelGraficoLinhas.setVisible(true);
 
 
-             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
-             visivelGraficoMisto.setVisible(true);
 
              myItemMap = 0;
             transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
@@ -395,8 +365,6 @@ public class Estatisticas extends AppCompatActivity
              visivelGraficoLinhas.setVisible(true);
 
 
-             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
-             visivelGraficoMisto.setVisible(true);
 
 
 
@@ -428,8 +396,6 @@ public class Estatisticas extends AppCompatActivity
              visivelGraficoLinhas.setVisible(true);
 
 
-             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
-             visivelGraficoMisto.setVisible(true);
 
 
 
@@ -466,9 +432,6 @@ public class Estatisticas extends AppCompatActivity
              visivelGraficoLinhas.setVisible(true);
 
 
-             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
-             visivelGraficoMisto.setVisible(true);
-
 
 
              myItemMap = 0;
@@ -499,8 +462,6 @@ public class Estatisticas extends AppCompatActivity
              visivelGraficoLinhas.setVisible(false);
 
 
-             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
-             visivelGraficoMisto.setVisible(false);
 
 
 
@@ -530,9 +491,6 @@ public class Estatisticas extends AppCompatActivity
              MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
              visivelGraficoLinhas.setVisible(false);
 
-
-             MenuItem visivelGraficoMisto = menu1.findItem(R.id.action_misto);
-             visivelGraficoMisto.setVisible(false);
 
 
              myItemMap = 5;
