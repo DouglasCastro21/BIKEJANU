@@ -1,22 +1,14 @@
 package bike.douglas.com.bikejanu.Fragments;
 
-import android.accounts.NetworkErrorException;
-import android.app.DatePickerDialog;
-import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableRow;
-import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
@@ -28,16 +20,13 @@ import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 
-import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.R;
 
-public class GraficoBairroMistoFragment extends Fragment {
+public class GraficoBairroBarraGeralFragment extends Fragment {
 
 
 private PieChart pieChart;
@@ -53,9 +42,9 @@ private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_grafico_barra_misto, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_grafico_bairro_barra_geral, container, false);
 
-      //  Toast.makeText(GraficoBairroMistoFragment.super.getContext(), " Bairro Misto!", Toast.LENGTH_LONG).show();
+      //  Toast.makeText(GraficoBairroBarraGeralFragment.super.getContext(), " Bairro Misto!", Toast.LENGTH_LONG).show();
 
 
 

@@ -1,9 +1,6 @@
 package bike.douglas.com.bikejanu.Activity;
 
-import android.content.ClipData;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,22 +10,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Checkable;
-import android.widget.Toast;
 
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
-import bike.douglas.com.bikejanu.Fragments.GraficoAnoMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
-import bike.douglas.com.bikejanu.Fragments.GraficoBairroMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioLinhaFragment;
-import bike.douglas.com.bikejanu.Fragments.GraficoHorarioMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoPizzaTotalBikesFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoRuaBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoRuaLinhaFragment;
-import bike.douglas.com.bikejanu.Fragments.GraficoRuaMistoFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaCalorFragment;
 import bike.douglas.com.bikejanu.Fragments.MapaFragment;
 import bike.douglas.com.bikejanu.R;
@@ -43,6 +34,7 @@ public class Estatisticas extends AppCompatActivity
      public  int resposta = 0;
      public  static int  myHorientacion=0;
      public  static int myItemMap=0;
+
      Menu menu1;
      Menu menu2;
 
@@ -57,11 +49,13 @@ public class Estatisticas extends AppCompatActivity
         int myInt = savedInstanceState.getInt("MyInt");
         int myMap = savedInstanceState.getInt("MyMap");
         int myResp = savedInstanceState.getInt("MyResposta");
+        int myUnir = savedInstanceState.getInt("MyUnir");
       //  Toast.makeText(Estatisticas.this, "MYiNT"+myInt, Toast.LENGTH_LONG).show();
 
         myHorientacion = myInt;
         myItemMap = myMap;
         resposta = myResp;
+
 
 
 
@@ -80,7 +74,8 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
 
@@ -112,13 +107,8 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-
-
              myHorientacion = 10;
              resposta=1;
-
-
-
 
 
 }
@@ -152,8 +142,6 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -167,13 +155,11 @@ public class Estatisticas extends AppCompatActivity
         int idMenu = item.getItemId();
 
 
-
-
-
        if (idMenu == R.id.action_barras && resposta == 1) {
 
-           transaction.replace(R.id.conteinerFragmentos, new GraficoAnoBarraFragment()).commit();
 
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoAnoBarraFragment()).commit();
 
 
 
@@ -184,7 +170,15 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-       }
+       }//else if (idMenu != R.id.action_barras ||idMenu !=R.id.action_linhas){
+
+
+
+
+    //  }
+
+
+
 
 
 
@@ -225,7 +219,6 @@ public class Estatisticas extends AppCompatActivity
 
 
        }
-
 
 
    }
@@ -310,6 +303,9 @@ public class Estatisticas extends AppCompatActivity
 
 
          if (id == R.id.nav_grafico_ano  ) {
+
+
+
 
              menu1 = menu2;
              MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
@@ -517,6 +513,7 @@ public class Estatisticas extends AppCompatActivity
         savedInstanceState.putInt("MyMap",  myItemMap);
         savedInstanceState.putInt("MyResposta",  resposta);
 
+
     }
 
 
@@ -525,4 +522,6 @@ public class Estatisticas extends AppCompatActivity
         myHorientacion =0;
         super.finish();
     }
+
+
 }

@@ -2,8 +2,6 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +25,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.LegendRenderer;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
+import com.jjoe64.graphview.series.BarGraphSeries;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,7 +40,9 @@ import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 
-public class GraficoAnoBarraFragment extends Fragment {
+
+public class GraficoAnoBarraGeralFragment extends Fragment {
+
 
 
 
@@ -55,12 +61,8 @@ public class GraficoAnoBarraFragment extends Fragment {
 
     private String[] nomes   = new String[]{"2016","2017","2018","2019"};
     private int[]     roubos = new int   []{20,16,20,11};
-    private int []   cores   = new int   []{Color.RED,Color.DKGRAY};
-
-
-
-    private String[] nome   = new String[]{"Roubo","Furto"};
-    private int[]    furtos = new int   []{5,10,6,10};
+    private int []   cores   = new int   []{Color.RED};
+    private String[] nome   = new String[]{"Furto/Roubo"};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -76,13 +78,13 @@ public class GraficoAnoBarraFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_grafico_ano_barra, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_grafico_ano_barra_geral, container, false);
 
 
 
 
         inicializarFirebase();
-        barChart =  (BarChart) rootView.findViewById(R.id.graficoBarrasBarChar);
+        barChart =  (BarChart) rootView.findViewById(R.id.graficoAnoBarraGeral);
 
 
 
@@ -98,12 +100,12 @@ public class GraficoAnoBarraFragment extends Fragment {
 
                 final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraGeralFragment()).commit();
+                transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
 
 
 
                 return false;
-           }
+            }
         });
 
 
@@ -121,11 +123,11 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-            query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+        query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
 
 
-          //  query = databaseReference.child("TodasBikes")
-               //     .orderByChild("numero_serie").startAt(palavra).endAt(palavra+"\uf8ff");
+        //  query = databaseReference.child("TodasBikes")
+        //     .orderByChild("numero_serie").startAt(palavra).endAt(palavra+"\uf8ff");
 
 
 
@@ -149,24 +151,24 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-        String texto = b.getAlertaDate();
-	//	String procurarPor = "2018";
+                    String texto = b.getAlertaDate();
+                    //	String procurarPor = "2018";
 
-		if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
-            contandoBikesAno2018++;
-		 //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
-
-
-        }
+                        contandoBikesAno2018++;
+                        //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
 
 
-        if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
-
-		    contandoBikesAno2019++;
+                    }
 
 
-        }
+                    if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+
+                        contandoBikesAno2019++;
+
+
+                    }
 
 
 
@@ -180,7 +182,7 @@ public class GraficoAnoBarraFragment extends Fragment {
                 ano = calendar.get(Calendar.YEAR);
 
 
-               // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
+                // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
 
                 if(ano == 2018){
 
@@ -196,10 +198,10 @@ public class GraficoAnoBarraFragment extends Fragment {
                 if(ano == 2019){
 
 
-                   criarGraficos();
+                    criarGraficos();
 
 
-                    }
+                }
 
 
 
@@ -215,8 +217,8 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 // simula a lista
 
-               // arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
-             //   listPesquisa.setAdapter(arrayAdapterBike);
+                // arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+                //   listPesquisa.setAdapter(arrayAdapterBike);
 
 
             }
@@ -245,7 +247,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
     private void inicializarFirebase() {
 
-        FirebaseApp.initializeApp(GraficoAnoBarraFragment.super.getContext());
+        FirebaseApp.initializeApp(GraficoAnoBarraGeralFragment.super.getContext());
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
@@ -337,7 +339,7 @@ public class GraficoAnoBarraFragment extends Fragment {
         barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
         barChart.setDrawGridBackground(true);
 
-         barChart.setActivated(true);
+        barChart.setActivated(true);
 
 
 
@@ -355,14 +357,6 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-        ArrayList<BarEntry> yVals2 = new ArrayList<>();
-
-        for(int i=0;i <furtos.length;i++){
-           yVals2.add(new BarEntry(i,furtos[i]));
-
-        }
-
-
 
         BarDataSet set1,set2;
 
@@ -374,15 +368,10 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-        set2= new BarDataSet(yVals2, "Furto");
-
-        set2.setColor(Color.DKGRAY);
-        set2.setValueTextSize(15);
-        set2.setValueTextColor(Color.BLUE);
 
 
 
-        BarData data = new BarData(set1,set2);
+        BarData data = new BarData(set1);
 
         barChart.setData(data);
 
@@ -409,47 +398,4 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-    private void caixaDialogoUnirDados(){
-
-
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-
-                final CharSequence[] opcoes = {"Unir Dados"};
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(GraficoAnoBarraFragment.super.getContext());
-                builder.setTitle("");
-                builder.setItems(opcoes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-
-                        Bundle params = new Bundle();
-
-                        if (opcoes[i].equals("Unir Dados")) {
-
-
-                            transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraGeralFragment()).commit();
-
-                          //  startActivity(new Intent( GraficoAnoBarraFragment.super.getContext(), GraficoAnoBarraGeralFragment.class));
-
-                           // Intent intent = new Intent(GraficoAnoBarraFragment.super.getContext(), Estatisticas.class);
-                         //   intent.putExtras(params);
-
-                          //  startActivity(intent);
-
-
-                        }
-
-
-                    }
-                });
-                builder.show();
-
-
-    }
-
-
-
-
 }
-
