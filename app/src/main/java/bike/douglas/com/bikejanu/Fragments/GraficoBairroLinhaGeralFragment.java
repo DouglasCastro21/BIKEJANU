@@ -9,21 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.DataSet;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -43,26 +38,28 @@ import bike.douglas.com.bikejanu.R;
 
 
 
-public class GraficoRuaBarraFragment extends Fragment {
+public class GraficoBairroLinhaGeralFragment extends Fragment {
 
+    int cont=0;
+    int jatoba=0;
+    int boaVista=0;
 
     int  ano ;
     int contandoBikesAno2018=0;
     int contandoBikesAno2019=0;
 
 
+    private static String  bairro;
+
+    private LineChart lineChart;
 
 
+    private String[] nomes   = new String[]{"Boa Vista","Jussara","Alvorada","Ceramica","ussara","Alvorada","Ceramica","Alvorada","Ceramica"};
+    private int[]    roubos = new int   []{10,15,14,20,12,23,12};
 
-    private BarChart barChart;
-    int  unirDados= 0;
+    private int []   cores   = new int   []{Color.RED};
 
-
-    private String[] nomes   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
-    private int[]    roubos = new int   []{10,15,14,20};
-    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
-    private String[] legenda  = new String[]{"Furto","Roubo"};
-    private int[]    furtos = new int   []{5,10,6,10};
+    private String[] legenda  = new String[]{"Furto/Roubo"};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -73,18 +70,20 @@ public class GraficoRuaBarraFragment extends Fragment {
     public static ArrayAdapter<Bike> arrayAdapterBike;
 
 
+    //   public static List<String> listBairros = new ArrayList<String>();
+    // public static ArrayAdapter<String> arrayAdapterBairro;
+
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_grafico_rua_barra, container, false);
+                             final Bundle savedInstanceState) {
+        final View rootView = inflater.inflate(R.layout.fragment_grafico_bairro_linha_geral, container, false);
 
-
-
+        lineChart =  (LineChart) rootView.findViewById(R.id.graficoBairroLinhaGeral);
 
         inicializarFirebase();
-        barChart =  (BarChart) rootView.findViewById(R.id.graficoRuaBarra);
 
 
 
@@ -92,15 +91,15 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-
-
-        barChart.setOnLongClickListener(new View.OnLongClickListener() {
+        lineChart.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
 
                 final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
+                transaction.replace(R.id.conteinerFragmentos,new GraficoBairroLinhaGeralFragment()).commit();
+
+
 
 
 
@@ -110,17 +109,13 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-
-
-
-
         Query query;
 
 
         //Instânciar objetos
         listBikes = new ArrayList<>();
 
-
+        //   listBairros = new ArrayList<>();
 
 
         query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
@@ -147,18 +142,46 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-
-
-
-
                     String texto = b.getAlertaDate();
-                    //	String procurarPor = "2018";
+                    //  bairro = b.getAlertaBairro();
+
+
+
+
+
+                    if (!b.getAlertaBairro().equals("") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+
+                        //  Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Bairro :"+bairro, Toast.LENGTH_LONG).show();
+
+                        bairro = b.getAlertaBairro();
+
+
+                        if(bairro.equals("Jatoba") ){
+
+                            jatoba++;
+
+
+                        }else if(bairro.equals("Boa Vista") ){
+
+                            boaVista++;
+
+
+                        }
+
+
+
+                        cont++;
+
+
+                    }
+
+
+
+
 
                     if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
                         contandoBikesAno2018++;
-                        //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
-
 
                     }
 
@@ -170,9 +193,6 @@ public class GraficoRuaBarraFragment extends Fragment {
 
                     }
 
-
-
-
                 }
 
 
@@ -182,10 +202,10 @@ public class GraficoRuaBarraFragment extends Fragment {
                 ano = calendar.get(Calendar.YEAR);
 
 
-                // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
+
+
 
                 if(ano == 2018){
-
 
 
 
@@ -205,19 +225,13 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-
-
-
-
-
-
 /////fim do grafico
 
 
 
 // simula a lista
 
-                // arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+               // arrayAdapterBike = new BikeAdapter(GraficoBairroLinhaFragment.super.getContext(), (ArrayList<Bike>) listBikes);
                 //   listPesquisa.setAdapter(arrayAdapterBike);
 
 
@@ -231,6 +245,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
             }
+
         });
 
 
@@ -238,23 +253,17 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         return rootView;
 
-
-
     }
-
-
 
 
     private void inicializarFirebase() {
 
-        FirebaseApp.initializeApp(GraficoRuaBarraFragment.super.getContext());
+        FirebaseApp.initializeApp(GraficoBairroLinhaGeralFragment.super.getContext());
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
 
     }
-
-
 
 
     private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
@@ -267,7 +276,6 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         legend(chart);
 
-
         return  chart;
     }
 
@@ -277,8 +285,6 @@ public class GraficoRuaBarraFragment extends Fragment {
         legend.setForm(Legend.LegendForm.CIRCLE);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
         legend.setTextSize(15);
-
-
 
 
 
@@ -303,94 +309,65 @@ public class GraficoRuaBarraFragment extends Fragment {
     private void axisX(XAxis axis){
 
         axis.setGranularityEnabled(true);
-
         axis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);
         axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
 
 
-
-
     }
-
-
-
-    private void axisRight(YAxis axis){
-        axis.setEnabled(true);
-
-    }
-
 
 
 
     private void criarGraficos(){
 
 
-        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
-        barChart.setDrawGridBackground(true);
 
-        barChart.setActivated(true);
+        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,3000);
+        lineChart.setDrawGridBackground(true);
 
-
-
+        lineChart.setActivated(true);
 
 
 
-        ArrayList<BarEntry> yVals1 = new ArrayList<>();
+
+        ArrayList<Entry> yVals1 = new ArrayList<>();
         for (int i=0;i<roubos.length;i++){
-            yVals1.add(new BarEntry(i,roubos[i]));
+            yVals1.add(new Entry(i,roubos[i]));
 
         }
 
 
 
-        ArrayList<BarEntry> yVals2 = new ArrayList<>();
-
-        for(int i=0;i <furtos.length;i++){
-            yVals2.add(new BarEntry(i,furtos[i]));
-
-        }
 
 
+        LineDataSet set1;
 
-        BarDataSet set1,set2;
 
-
-        set1 = new BarDataSet(yVals1,"Roubo");
+        set1 = new LineDataSet(yVals1,"Roubo");
         set1.setColor(Color.RED);
+        set1.setCircleColor(Color.RED);
+        set1.setDrawCircles(true);
+        set1.setLineWidth(4f);
         set1.setValueTextSize(15);
         set1.setValueTextColor(Color.BLUE);
 
 
 
-        set2= new BarDataSet(yVals2, "Furto");
 
-        set2.setColor(Color.DKGRAY);
-        set2.setValueTextSize(15);
-        set2.setValueTextColor(Color.BLUE);
+        LineData data = new LineData(set1);
 
-
-
-        BarData data = new BarData(set1,set2);
-
-        barChart.setData(data);
+        lineChart.setData(data);
 
 
 
-        axisX(barChart.getXAxis());
 
-        // axisRight(barChart.getAxisRight());
+        axisX(lineChart.getXAxis());
 
+        lineChart.getLegend().setEnabled(true);
 
-        barChart.getLegend().setEnabled(true);
-
-        data.setBarWidth(0.45f);
-
-
-
-        barChart.invalidate();
 
 
     }
+
 
 
 

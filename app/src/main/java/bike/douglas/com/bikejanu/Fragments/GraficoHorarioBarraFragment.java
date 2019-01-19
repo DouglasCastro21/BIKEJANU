@@ -56,11 +56,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
     private int[]    roubos  = new int   []{10,15,12,34,};
-    private int []   cores   = new int   []{Color.RED,Color.DKGRAY};
+    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
 
 
 
-    private String[] nome   = new String[]{"Roubo","Furto"};
+    private String[] legenda  = new String[]{"Furto","Roubo"};
 
     private int[]    furtos = new int   []{5,10,6,10};
 
@@ -95,13 +95,15 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
 
+
         barChart.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
 
+                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
+                transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioGeralBarraFragment()).commit();
 
-                Toast.makeText(GraficoHorarioBarraFragment.super.getContext(), "VC USOU CLIK LONGO", Toast.LENGTH_LONG).show();
 
 
                 return false;
@@ -308,11 +310,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
-        for(int i=0;i<nome.length;i++){
+        for(int i=0;i<legenda.length;i++){
 
             LegendEntry entry = new LegendEntry();
             entry.formColor = cores[i];
-            entry.label = nome[i];
+            entry.label = legenda[i];
             entries.add(entry);
 
         }
@@ -336,28 +338,13 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     }
 
-    private void axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMinimum(0);
-
-    }
-
-
-    private void axisRight(YAxis axis){
-        axis.setEnabled(true);
-
-
-
-
-    }
-
 
 
 
     private void criarGraficos(){
 
 
-        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,2000);
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
         barChart.setDrawGridBackground(true);
 
         barChart.setActivated(true);
@@ -408,8 +395,6 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
         axisX(barChart.getXAxis());
-        axisLeft(barChart.getAxisLeft());
-        axisRight(barChart.getAxisRight());
 
 
         barChart.getLegend().setEnabled(true);

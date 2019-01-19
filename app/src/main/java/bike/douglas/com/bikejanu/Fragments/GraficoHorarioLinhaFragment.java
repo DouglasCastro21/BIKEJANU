@@ -56,11 +56,11 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
     private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
     private int[]    roubos = new int   []{10,8,12,34};
-    private int []   cores   = new int   []{Color.RED,Color.DKGRAY};
+    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
 
 
 
-    private String[] nome   = new String[]{"Roubo","Furto"};
+    private String[] legenda  = new String[]{"Furto","Roubo"};
     private int[]    furtos = new int   []{5,10,6,10};
 
 
@@ -97,9 +97,10 @@ public class GraficoHorarioLinhaFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
 
+                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
+                transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioLinhaGeralFragment()).commit();
 
-                Toast.makeText(GraficoHorarioLinhaFragment.super.getContext(), "VC USOU CLIK LONGO", Toast.LENGTH_LONG).show();
 
 
                 return false;
@@ -288,11 +289,11 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
-        for(int i=0;i<nome.length;i++){
+        for(int i=0;i<legenda.length;i++){
 
             LegendEntry entry = new LegendEntry();
             entry.formColor = cores[i];
-            entry.label = nome[i];
+            entry.label = legenda[i];
             entries.add(entry);
 
         }
@@ -313,24 +314,14 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
     }
 
-    private void axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMinimum(0);
 
-    }
-
-
-    private void axisRight(YAxis axis){
-        axis.setEnabled(true);
-
-    }
 
 
     private void criarGraficos(){
 
 
 
-        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,2000);
+        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,3000);
         lineChart.setDrawGridBackground(true);
 
         lineChart.setActivated(true);
@@ -384,8 +375,7 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
 
         axisX(lineChart.getXAxis());
-        axisLeft(lineChart.getAxisLeft());
-        axisRight(lineChart.getAxisRight());
+
 
     //   lineChart.getLegend().setEnabled(true);
 

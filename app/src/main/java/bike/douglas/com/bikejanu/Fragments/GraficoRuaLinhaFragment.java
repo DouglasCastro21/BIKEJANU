@@ -56,11 +56,11 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private String[] nomes   = new String[]{"Rua1","Rua2","Rua3","Rua4"};
     private int[]     roubos = new int   []{20,16,20,11};
-    private int []   cores   = new int   []{Color.RED,Color.DKGRAY};
+    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
 
 
 
-    private String[] nome   = new String[]{"Roubo","Furto"};
+    private String[] legenda  = new String[]{"Furto","Roubo"};
     private int[]    furtos = new int   []{5,10,6,10};
 
 
@@ -97,8 +97,9 @@ public class GraficoRuaLinhaFragment extends Fragment {
             public boolean onLongClick(View v) {
 
 
+                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                Toast.makeText(GraficoRuaLinhaFragment.super.getContext(), "VC USOU CLIK LONGO", Toast.LENGTH_LONG).show();
+                transaction.replace(R.id.conteinerFragmentos,new GraficoRuaLinhaGeralFragment()).commit();
 
 
                 return false;
@@ -287,11 +288,11 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
-        for(int i=0;i<nome.length;i++){
+        for(int i=0;i<legenda.length;i++){
 
             LegendEntry entry = new LegendEntry();
             entry.formColor = cores[i];
-            entry.label = nome[i];
+            entry.label = legenda[i];
             entries.add(entry);
 
         }
@@ -303,6 +304,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+
     private void axisX(XAxis axis){
 
         axis.setGranularityEnabled(true);
@@ -310,15 +312,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
         axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
 
 
-
     }
-
-    private void axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMinimum(0);
-
-    }
-
 
     private void axisRight(YAxis axis){
         axis.setEnabled(true);
@@ -330,7 +324,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
-        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,2000);
+        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,3000);
         lineChart.setDrawGridBackground(true);
 
         lineChart.setActivated(true);
@@ -382,13 +376,11 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
-
-        axisX(lineChart.getXAxis());
-        axisLeft(lineChart.getAxisLeft());
-        axisRight(lineChart.getAxisRight());
+         axisX(lineChart.getXAxis());
+      //  axisRight(lineChart.getAxisRight());
 
         lineChart.getLegend().setEnabled(true);
-        set1.setValueTextSize(15);
+
 
 
     }

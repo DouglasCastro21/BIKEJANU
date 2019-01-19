@@ -55,14 +55,13 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
     private BarChart barChart;
-    int  unirDados= 0;
 
 
 
     private String[] nomes   = new String[]{"2016","2017","2018","2019"};
     private int[]     roubos = new int   []{20,16,20,11};
     private int []   cores   = new int   []{Color.RED};
-    private String[] nome   = new String[]{"Furto/Roubo"};
+    private String[] legenda   = new String[]{"Furto/Roubo"};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -288,11 +287,11 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
-        for(int i=0;i<nome.length;i++){
+        for(int i=0;i<legenda.length;i++){
 
             LegendEntry entry = new LegendEntry();
             entry.formColor = cores[i];
-            entry.label = nome[i];
+            entry.label = legenda[i];
             entries.add(entry);
 
         }
@@ -318,11 +317,7 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
     }
 
-    private void axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMinimum(0);
 
-    }
 
 
     private void axisRight(YAxis axis){
@@ -343,12 +338,6 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
 
-
-
-
-
-
-
         ArrayList<BarEntry> yVals1 = new ArrayList<>();
         for (int i=0;i<roubos.length;i++){
             yVals1.add(new BarEntry(i,roubos[i]));
@@ -356,15 +345,14 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
         }
 
 
-
-
-        BarDataSet set1,set2;
+        BarDataSet set1;
 
 
         set1 = new BarDataSet(yVals1,"Roubo");
         set1.setColor(Color.RED);
         set1.setValueTextSize(15);
         set1.setValueTextColor(Color.BLUE);
+
 
 
 
@@ -378,12 +366,11 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
         axisX(barChart.getXAxis());
-        axisLeft(barChart.getAxisLeft());
-        axisRight(barChart.getAxisRight());
+      //  axisRight(barChart.getAxisRight());
 
 
         barChart.getLegend().setEnabled(true);
-        set1.setValueTextSize(15);
+
         data.setBarWidth(0.45f);
 
 

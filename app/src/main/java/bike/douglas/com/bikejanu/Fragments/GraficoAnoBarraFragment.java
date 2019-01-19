@@ -55,11 +55,11 @@ public class GraficoAnoBarraFragment extends Fragment {
 
     private String[] nomes   = new String[]{"2016","2017","2018","2019"};
     private int[]     roubos = new int   []{20,16,20,11};
-    private int []   cores   = new int   []{Color.RED,Color.DKGRAY};
+    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
 
 
 
-    private String[] nome   = new String[]{"Roubo","Furto"};
+    private String[] legenda  = new String[]{"Furto","Roubo"};
     private int[]    furtos = new int   []{5,10,6,10};
 
 
@@ -280,17 +280,13 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-
-
-
-
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
-        for(int i=0;i<nome.length;i++){
+        for(int i=0;i<legenda.length;i++){
 
             LegendEntry entry = new LegendEntry();
             entry.formColor = cores[i];
-            entry.label = nome[i];
+            entry.label = legenda[i];
             entries.add(entry);
 
         }
@@ -312,15 +308,8 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-
-
     }
 
-    private void axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMinimum(0);
-
-    }
 
 
     private void axisRight(YAxis axis){
@@ -338,9 +327,6 @@ public class GraficoAnoBarraFragment extends Fragment {
         barChart.setDrawGridBackground(true);
 
          barChart.setActivated(true);
-
-
-
 
 
 
@@ -389,12 +375,12 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
         axisX(barChart.getXAxis());
-        axisLeft(barChart.getAxisLeft());
-        axisRight(barChart.getAxisRight());
+
+       // axisRight(barChart.getAxisRight());
 
 
         barChart.getLegend().setEnabled(true);
-        set1.setValueTextSize(15);
+
         data.setBarWidth(0.45f);
 
 

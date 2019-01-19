@@ -125,26 +125,9 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
     }
 
 
-    private void axisX(XAxis axis){
-
-        axis.setGranularityEnabled(true);
-        axis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
 
 
-    }
 
-    private void axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMinimum(0);
-
-    }
-
-
-    private void axisRight(YAxis axis){
-        axis.setEnabled(true);
-
-    }
 
 
     public void creatCharts(){

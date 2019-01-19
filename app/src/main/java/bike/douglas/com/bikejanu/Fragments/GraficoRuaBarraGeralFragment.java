@@ -1,109 +1,374 @@
 package bike.douglas.com.bikejanu.Fragments;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.Chart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link GraficoRuaBarraGeralFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link GraficoRuaBarraGeralFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
 public class GraficoRuaBarraGeralFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
 
-    public GraficoRuaBarraGeralFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GraficoRuaBarraGeralFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GraficoRuaBarraGeralFragment newInstance(String param1, String param2) {
-        GraficoRuaBarraGeralFragment fragment = new GraficoRuaBarraGeralFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    int  ano ;
+    int contandoBikesAno2018=0;
+    int contandoBikesAno2019=0;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+
+
+
+
+    private BarChart barChart;
+
+
+
+
+    private String[] nomes   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+    private int[]    roubos = new int   []{10,15,14,20};
+    private int []   cores   = new int   []{Color.RED};
+
+    private String[] legenda   = new String[]{"Furto/Roubo"};
+
+
+    private FirebaseDatabase firebaseDatabase;
+    private static DatabaseReference databaseReference;
+
+
+    public static List<Bike> listBikes = new ArrayList<Bike>();
+    public static ArrayAdapter<Bike> arrayAdapterBike;
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_grafico_rua_barra_geral, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_grafico_rua_barra_geral, container, false);
+
+
+
+
+        inicializarFirebase();
+        barChart =  (BarChart) rootView.findViewById(R.id.graficoRuaBarraGeral);
+
+
+
+
+        barChart.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraFragment()).commit();
+
+
+
+                return false;
+            }
+        });
+
+
+
+
+
+
+
+        Query query;
+
+
+        //Instânciar objetos
+        listBikes = new ArrayList<>();
+
+
+
+
+        query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+
+
+        //  query = databaseReference.child("TodasBikes")
+        //     .orderByChild("numero_serie").startAt(palavra).endAt(palavra+"\uf8ff");
+
+
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                listBikes.clear();  //limpa lista
+
+
+                // verifica itens da lista
+
+                for (DataSnapshot objSnapshot:dataSnapshot.getChildren()){
+                    Bike b = objSnapshot.getValue(Bike.class);
+                    listBikes.add(b);
+
+
+
+
+
+
+
+                    String texto = b.getAlertaDate();
+                    //	String procurarPor = "2018";
+
+                    if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+
+                        contandoBikesAno2018++;
+                        //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
+
+
+                    }
+
+
+                    if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+
+                        contandoBikesAno2019++;
+
+
+                    }
+
+
+
+
+                }
+
+
+                // inicio do grafico
+
+                final Calendar calendar = Calendar.getInstance();
+                ano = calendar.get(Calendar.YEAR);
+
+
+                // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
+
+                if(ano == 2018){
+
+
+
+
+
+                }
+
+
+
+
+                if(ano == 2019){
+
+
+                    criarGraficos();
+
+
+                }
+
+
+
+
+
+
+
+
+
+/////fim do grafico
+
+
+
+// simula a lista
+
+                // arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+                //   listPesquisa.setAdapter(arrayAdapterBike);
+
+
+            }
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+
+            }
+        });
+
+
+
+
+        return rootView;
+
+
+
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+
+
+
+    private void inicializarFirebase() {
+
+        FirebaseApp.initializeApp(GraficoRuaBarraGeralFragment.super.getContext());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+
+
+    }
+
+
+
+
+    private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
+
+        chart.getDescription().setText(descricao);
+        chart.getDescription().setTextSize(24);
+        chart.setBackgroundColor(background);
+        chart.animateY(animacaoY);
+
+
+        legend(chart);
+
+
+        return  chart;
+    }
+
+    public void legend(Chart chart){
+
+        Legend legend = chart.getLegend();
+        legend.setForm(Legend.LegendForm.CIRCLE);
+        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        legend.setTextSize(15);
+
+
+
+
+
+
+
+
+
+        ArrayList<LegendEntry> entries = new ArrayList<>();
+
+        for(int i=0;i<legenda.length;i++){
+
+            LegendEntry entry = new LegendEntry();
+            entry.formColor = cores[i];
+            entry.label = legenda[i];
+            entries.add(entry);
+
         }
+
+
+        legend.setCustom(entries);
+
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+
+
+    private void axisX(XAxis axis){
+
+        axis.setGranularityEnabled(true);
+
+        axis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);
+        axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
+
+
+
+
+
+
+    }
+
+
+
+
+
+    private void criarGraficos(){
+
+
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
+        barChart.setDrawGridBackground(true);
+
+        barChart.setActivated(true);
+
+
+
+
+
+        ArrayList<BarEntry> yVals1 = new ArrayList<>();
+        for (int i=0;i<roubos.length;i++){
+            yVals1.add(new BarEntry(i,roubos[i]));
+
         }
+
+
+
+
+        BarDataSet set1,set2;
+
+
+        set1 = new BarDataSet(yVals1,"Roubo");
+        set1.setColor(Color.RED);
+        set1.setValueTextSize(15);
+        set1.setValueTextColor(Color.BLUE);
+
+
+
+
+
+
+        BarData data = new BarData(set1);
+
+        barChart.setData(data);
+
+
+
+        axisX(barChart.getXAxis());
+
+
+        barChart.getLegend().setEnabled(true);
+
+        data.setBarWidth(0.45f);
+
+
+
+        barChart.invalidate();
+
+
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
+
 }

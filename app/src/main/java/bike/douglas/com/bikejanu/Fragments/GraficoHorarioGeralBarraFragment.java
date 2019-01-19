@@ -47,18 +47,23 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
     int  ano ;
     int contandoBikesAno2018=0;
     int contandoBikesAno2019=0;
-    private static String  bairro;
+
+
+
+
 
     private BarChart barChart;
-
-    private String[] nomes   = new String[]{"Madrugada:00:00 às 05:59","Manhã:6:00 às 11:59","Tarde:12:00 às 17:59","Noite:18:00 às 23:59"};
-    private int[]    roubos = new int   []{60,10,15,8};
-    private int []   cores   = new int   []{Color.RED,Color.DKGRAY};
+    int  unirDados= 0;
 
 
 
-    private String[] nome   = new String[]{"Roubo","Furto"};
-    private int[]    furtos = new int   []{5,10,6,10};
+    private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+    private int[]    roubos  = new int   []{10,15,12,34,};
+    private int []   cores   = new int   []{Color.RED};
+
+
+
+    private String[] legenda   = new String[]{"Furto/Roubo"};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -69,20 +74,40 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
     public static ArrayAdapter<Bike> arrayAdapterBike;
 
 
-    //   public static List<String> listBairros = new ArrayList<String>();
-    // public static ArrayAdapter<String> arrayAdapterBairro;
-
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             final Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_grafico_horario_geral_barra, container, false);
 
-        barChart =  (BarChart) rootView.findViewById(R.id.graficoHorarioGeralBarra);
+
+
 
         inicializarFirebase();
+        barChart =  (BarChart) rootView.findViewById(R.id.graficoHorarioGeralBarra);
+
+
+
+
+
+
+
+
+
+        barChart.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioBarraFragment()).commit();
+
+
+
+                return false;
+            }
+        });
 
 
 
@@ -96,7 +121,7 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
         //Instânciar objetos
         listBikes = new ArrayList<>();
 
-        //   listBairros = new ArrayList<>();
+
 
 
         query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
@@ -123,30 +148,18 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
 
+
+
+
+
                     String texto = b.getAlertaDate();
-                    //  bairro = b.getAlertaBairro();
-
-
-
-
-
-                    if (!b.getAlertaBairro().equals("") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
-
-                        //  Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Bairro :"+bairro, Toast.LENGTH_LONG).show();
-
-                        bairro = b.getAlertaBairro();
-
-
-
-                    }
-
-
-
-
+                    //	String procurarPor = "2018";
 
                     if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
                         contandoBikesAno2018++;
+                        //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
+
 
                     }
 
@@ -158,6 +171,9 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
                     }
 
+
+
+
                 }
 
 
@@ -167,26 +183,30 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
                 ano = calendar.get(Calendar.YEAR);
 
 
-
-
-
-
+                // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
 
                 if(ano == 2018){
 
 
 
 
+
                 }
+
+
 
 
                 if(ano == 2019){
 
 
-                   criarGraficos();
+                    criarGraficos();
 
 
                 }
+
+
+
+
 
 
 
@@ -198,7 +218,7 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 // simula a lista
 
-                arrayAdapterBike = new BikeAdapter(GraficoHorarioGeralBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+                // arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
                 //   listPesquisa.setAdapter(arrayAdapterBike);
 
 
@@ -226,9 +246,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
 
-
-
-
     private void inicializarFirebase() {
 
         FirebaseApp.initializeApp(GraficoHorarioGeralBarraFragment.super.getContext());
@@ -237,6 +254,7 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
     }
+
 
 
 
@@ -250,6 +268,7 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
         legend(chart);
 
+
         return  chart;
     }
 
@@ -262,13 +281,19 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
 
+
+
+
+
+
+
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
-        for(int i=0;i<nome.length;i++){
+        for(int i=0;i<legenda.length;i++){
 
             LegendEntry entry = new LegendEntry();
             entry.formColor = cores[i];
-            entry.label = nome[i];
+            entry.label = legenda[i];
             entries.add(entry);
 
         }
@@ -278,26 +303,22 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
     }
 
+
+
     private void axisX(XAxis axis){
 
         axis.setGranularityEnabled(true);
-        axis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        axis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);
         axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
 
 
+
+
+
+
     }
 
-    private void axisLeft(YAxis axis){
-        axis.setSpaceTop(30);
-        axis.setAxisMinimum(0);
-
-    }
-
-
-    private void axisRight(YAxis axis){
-        axis.setEnabled(true);
-
-    }
 
 
 
@@ -305,10 +326,15 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
     private void criarGraficos(){
 
 
-        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,2000);
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
         barChart.setDrawGridBackground(true);
 
         barChart.setActivated(true);
+
+
+
+
+
 
 
 
@@ -319,14 +345,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
         }
 
-
-
-        ArrayList<BarEntry> yVals2 = new ArrayList<>();
-
-        for(int i=0;i <furtos.length;i++){
-            yVals2.add(new BarEntry(i,furtos[i]));
-
-        }
 
 
 
@@ -340,29 +358,30 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
 
-        set2= new BarDataSet(yVals2, "Furto");
-
-        set2.setColor(Color.DKGRAY);
-        set2.setValueTextSize(15);
-        set2.setValueTextColor(Color.BLUE);
 
 
 
-        BarData data = new BarData(set1,set2);
+        BarData data = new BarData(set1);
 
         barChart.setData(data);
 
 
 
         axisX(barChart.getXAxis());
-        axisLeft(barChart.getAxisLeft());
-        axisRight(barChart.getAxisRight());
+
 
 
         barChart.getLegend().setEnabled(true);
-        set1.setValueTextSize(15);
+
         data.setBarWidth(0.45f);
 
 
+
+        barChart.invalidate();
+
+
     }
+
+
+
 }
