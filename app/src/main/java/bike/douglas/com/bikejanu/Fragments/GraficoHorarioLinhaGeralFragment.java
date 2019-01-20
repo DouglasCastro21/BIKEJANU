@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.Chart;
@@ -49,6 +52,12 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
     int contandoBikesAno2019=0;
 
 
+    protected ImageView spinnerImagem;
+    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+    private Spinner spinner;
+
+
+
     private static String  bairro;
 
     private LineChart lineChart;
@@ -87,6 +96,58 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
         inicializarFirebase();
 
 
+
+
+        //carrega os spinner
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(GraficoHorarioLinhaGeralFragment.super.getContext(), android.R.layout.simple_spinner_dropdown_item,camposSpinner);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        spinnerImagem = (ImageView) rootView.findViewById(R.id.imageViewSpinnerID);
+        spinner = (Spinner) rootView.findViewById(R.id.spinnerID);
+        spinner.setAdapter(arrayAdapter);
+
+        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if(position==0){
+
+
+
+                } else if(position == 1){
+
+                    transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
+
+
+                }else if (position==2){
+
+
+                }else if(position==3){
+
+
+
+
+                }else if (position==4){
+
+
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
 
