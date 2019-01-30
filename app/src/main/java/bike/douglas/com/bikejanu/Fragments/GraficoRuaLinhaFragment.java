@@ -55,7 +55,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+    private String camposSpinner[] = new String[] {"----","2018","2019"};
     private Spinner spinner;
 
 
@@ -67,9 +67,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
     private String[] nomes   = new String[]{"Rua1","Rua2","Rua3","Rua4"};
     private int[]     roubos = new int   []{20,16,20,11};
     private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
-
-
-
     private String[] legenda  = new String[]{"Furto","Roubo"};
     private int[]    furtos = new int   []{5,10,6,10};
 
@@ -118,21 +115,83 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 if(position==0){
 
 
+                    String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                    int[]    rob = new int   []{10,15,14,20};
+                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] leg  = new String[]{"Furto","Roubo"};
+                    int[]    furt = new int   []{5,10,6,10};
+
+
+
+                    nomes   = bairros;
+                    roubos =  rob;
+                    cores   =  cor;
+                    legenda  = leg;
+                    furtos = furt;
+
+
+                    criarGraficos();
 
                 } else if(position == 1){
 
-                    transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
+
+                    String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                    int[]    rob = new int   []{10,15,14,20};
+                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] leg  = new String[]{"Furto","Roubo"};
+                    int[]    furt = new int   []{5,10,6,10};
+
+
+
+                    nomes   = bairros;
+                    roubos =  rob;
+                    cores   =  cor;
+                    legenda  = leg;
+                    furtos = furt;
+
+
+
+                    criarGraficos();
+
 
 
                 }else if (position==2){
 
+                    String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                    int[]    rob = new int   []{10,15,14,20};
+                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] leg  = new String[]{"Furto","Roubo"};
+                    int[]    furt = new int   []{5,10,6,10};
+
+
+
+                    nomes   = bairros;
+                    roubos =  rob;
+                    cores   =  cor;
+                    legenda  = leg;
+                    furtos = furt;
+
+
+                    criarGraficos();
 
                 }else if(position==3){
 
+                    String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                    int[]    rob = new int   []{10,15,14,20};
+                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] leg  = new String[]{"Furto","Roubo"};
+                    int[]    furt = new int   []{5,10,6,10};
 
 
 
-                }else if (position==4){
+                    nomes   = bairros;
+                    roubos =  rob;
+                    cores   =  cor;
+                    legenda  = leg;
+                    furtos = furt;
+
+
+                    criarGraficos();
 
 
 
@@ -147,6 +206,9 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
             }
         });
+
+
+
 
 
 
@@ -253,33 +315,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 }
 
 
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
-
-
-
-
-
-                if(ano == 2018){
-
-
-
-
-                }
-
-
-
-
-                if(ano == 2019){
-
-
-                   criarGraficos();
-
-
-                }
-
 
 
 /////fim do grafico
@@ -372,10 +407,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     }
 
-    private void axisRight(YAxis axis){
-        axis.setEnabled(true);
-
-    }
 
 
     private void criarGraficos(){
@@ -435,7 +466,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
          axisX(lineChart.getXAxis());
-      //  axisRight(lineChart.getAxisRight());
+
 
         lineChart.getLegend().setEnabled(true);
 

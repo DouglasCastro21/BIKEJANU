@@ -16,6 +16,7 @@ import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioBarraFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoHorarioGeralPizzaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoPizzaTotalBikesFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoRuaBarraFragment;
@@ -155,28 +156,18 @@ public class Estatisticas extends AppCompatActivity
         int idMenu = item.getItemId();
 
 
-       if (idMenu == R.id.action_barras && resposta == 1) {
+        if (idMenu == R.id.action_barras && resposta == 1) {
 
 
-
-           transaction.replace(R.id.conteinerFragmentos, new GraficoAnoBarraFragment()).commit();
-
+            transaction.replace(R.id.conteinerFragmentos, new GraficoAnoBarraFragment()).commit();
 
 
+        } else if (idMenu == R.id.action_linhas && resposta == 1) {
 
-       } else if (idMenu == R.id.action_linhas && resposta == 1) {
-
-           transaction.replace(R.id.conteinerFragmentos, new GraficoAnoLinhaFragment()).commit();
-
+            transaction.replace(R.id.conteinerFragmentos, new GraficoAnoLinhaFragment()).commit();
 
 
-       }//else if (idMenu != R.id.action_barras ||idMenu !=R.id.action_linhas){
-
-
-
-
-    //  }
-
+        }
 
 
 
@@ -238,6 +229,11 @@ public class Estatisticas extends AppCompatActivity
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioLinhaFragment()).commit();
 
+
+
+       }else if (idMenu == R.id.action_pizza && resposta == 4) {
+
+           transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioGeralPizzaFragment()).commit();
 
 
        }
@@ -327,7 +323,8 @@ public class Estatisticas extends AppCompatActivity
              MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
              visivelGraficoLinhas.setVisible(true);
 
-
+             MenuItem visivelGraficoPizza = menu1.findItem(R.id.action_pizza);
+             visivelGraficoPizza.setVisible(false);
 
              myItemMap = 0;
             transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
@@ -361,7 +358,8 @@ public class Estatisticas extends AppCompatActivity
              visivelGraficoLinhas.setVisible(true);
 
 
-
+             MenuItem visivelGraficoPizza = menu1.findItem(R.id.action_pizza);
+             visivelGraficoPizza.setVisible(false);
 
 
              myItemMap = 0;
@@ -391,7 +389,8 @@ public class Estatisticas extends AppCompatActivity
              MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
              visivelGraficoLinhas.setVisible(true);
 
-
+             MenuItem visivelGraficoPizza = menu1.findItem(R.id.action_pizza);
+             visivelGraficoPizza.setVisible(false);
 
 
 
@@ -427,6 +426,8 @@ public class Estatisticas extends AppCompatActivity
              MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
              visivelGraficoLinhas.setVisible(true);
 
+             MenuItem visivelGraficoPizza = menu1.findItem(R.id.action_pizza);
+             visivelGraficoPizza.setVisible(true);
 
 
 
@@ -458,6 +459,8 @@ public class Estatisticas extends AppCompatActivity
              visivelGraficoLinhas.setVisible(false);
 
 
+             MenuItem visivelGraficoPizza = menu1.findItem(R.id.action_pizza);
+             visivelGraficoPizza.setVisible(false);
 
 
 
@@ -487,7 +490,8 @@ public class Estatisticas extends AppCompatActivity
              MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
              visivelGraficoLinhas.setVisible(false);
 
-
+             MenuItem visivelGraficoPizza = menu1.findItem(R.id.action_pizza);
+             visivelGraficoPizza.setVisible(false);
 
              myItemMap = 5;
              transaction.replace(R.id.conteinerFragmentos,new MapaFragment()).commit();

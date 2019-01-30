@@ -14,7 +14,9 @@
         android:id="@+id/graficoBarrasBarChar"
         android:layout_weight="1"
 
-        />
+        >
+
+    </com.github.mikephil.charting.charts.BarChart>
 
 
 

@@ -55,21 +55,18 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+    private String camposSpinner[] = new String[] {"----","2018","2019"};
     private Spinner spinner;
 
     private static String  bairro;
 
     private LineChart lineChart;
 
-    private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
-    private int[]    roubos = new int   []{10,8,12,34};
-    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
-
-
-
-    private String[] legenda  = new String[]{"Furto","Roubo"};
-    private int[]    furtos = new int   []{5,10,6,10};
+   private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+   private   int[]    roubos  = new int   []{10,15,12,34,};
+   private  int []   cores   = new int   []{Color.DKGRAY,Color.RED};
+   private String[] legenda  = new String[]{"Furto","Roubo"};
+   private int[]    furtos = new int   []{5,10,6,10};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -108,33 +105,85 @@ public class GraficoHorarioLinhaFragment extends Fragment {
         spinner.setAdapter(arrayAdapter);
 
 
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+
                 if(position==0){
 
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] leg  = new String[]{"Furto","Roubo"};
+                    int[]    furt = new int   []{5,10,6,10};
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+                    furtos = furt;
+
+
+                    criarGraficos();
 
                 } else if(position == 1){
 
-                    transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
+
+
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] leg  = new String[]{"Furto","Roubo"};
+                    int[]    furt = new int   []{5,10,6,10};
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+                    furtos = furt;
+
+
+
+                    criarGraficos();
+
 
 
                 }else if (position==2){
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] leg  = new String[]{"Furto","Roubo"};
+                    int[]    furt = new int   []{5,10,6,10};
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+                    furtos = furt;
+
+
+                    criarGraficos();
 
                 }else if(position==3){
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] leg  = new String[]{"Furto","Roubo"};
+                    int[]    furt = new int   []{5,10,6,10};
 
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+                    furtos = furt;
 
-
-                }else if (position==4){
-
-
+                    criarGraficos();
 
                 }
 
@@ -147,6 +196,7 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
             }
         });
+
 
 
 

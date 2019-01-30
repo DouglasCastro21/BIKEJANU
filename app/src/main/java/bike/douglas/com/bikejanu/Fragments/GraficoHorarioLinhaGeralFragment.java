@@ -53,7 +53,7 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+   private String camposSpinner[] = new String[] {"----","2018","2019"};
     private Spinner spinner;
 
 
@@ -63,12 +63,11 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
     private LineChart lineChart;
 
     private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
-    private int[]    roubos = new int   []{10,8,12,34};
+
+    private int[]    roubos  = new int   []{10,15,12,34,};
     private int []   cores   = new int   []{Color.RED};
-
-
-
     private String[] legenda  = new String[]{"Furto/Roubo"};
+
 
 
 
@@ -119,22 +118,72 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
                 if(position==0){
 
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.RED};
+                    String[] leg  = new String[]{"Furto/Roubo"};
+
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+
+
+
+                    criarGraficos();
 
                 } else if(position == 1){
 
-                    transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
+
+
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.RED};
+                    String[] leg  = new String[]{"Furto/Roubo"};
+
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+
+
+
+
+                    criarGraficos();
+
 
 
                 }else if (position==2){
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.RED};
+                    String[] leg  = new String[]{"Furto/Roubo"};
+
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+
+                    criarGraficos();
 
                 }else if(position==3){
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.RED};
+                    String[] leg  = new String[]{"Furto/Roubo"};
 
 
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
 
-                }else if (position==4){
-
+                    criarGraficos();
 
 
                 }
@@ -148,6 +197,7 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
 
             }
         });
+
 
 
 
@@ -197,38 +247,33 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
 
                 // verifica itens da lista
 
-                for (DataSnapshot objSnapshot:dataSnapshot.getChildren()){
+                for (DataSnapshot objSnapshot:dataSnapshot.getChildren()) {
                     Bike b = objSnapshot.getValue(Bike.class);
                     listBikes.add(b);
-
 
 
                     String texto = b.getAlertaDate();
                     //  bairro = b.getAlertaBairro();
 
 
-
-
-
-                    if (!b.getAlertaBairro().equals("") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (!b.getAlertaBairro().equals("") && b.getStatus().equals("Furtada") || b.getStatus().equals("Roubada")) {
 
                         //  Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Bairro :"+bairro, Toast.LENGTH_LONG).show();
 
                         bairro = b.getAlertaBairro();
 
 
-                        if(bairro.equals("Jatoba") ){
+                        if (bairro.equals("Jatoba")) {
 
                             jatoba++;
 
 
-                        }else if(bairro.equals("Boa Vista") ){
+                        } else if (bairro.equals("Boa Vista")) {
 
                             boaVista++;
 
 
                         }
-
 
 
                         cont++;
@@ -237,17 +282,14 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
                     }
 
 
-
-
-
-                    if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (texto.contains("2018") && b.getStatus().equals("Furtada") || b.getStatus().equals("Roubada")) {
 
                         contandoBikesAno2018++;
 
                     }
 
 
-                    if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (texto.contains("2019") && b.getStatus().equals("Furtada") || b.getStatus().equals("Roubada")) {
 
                         contandoBikesAno2019++;
 
@@ -256,37 +298,6 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
 
                 }
 
-
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
-
-
-
-
-
-                if(ano == 2018){
-
-
-
-
-                }
-
-
-
-
-                if(ano == 2019){
-
-
-                    criarGraficos();
-
-
-                }
-
-
-
-/////fim do grafico
 
 
 

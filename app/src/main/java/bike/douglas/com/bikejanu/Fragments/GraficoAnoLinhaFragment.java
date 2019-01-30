@@ -57,12 +57,16 @@ import bike.douglas.com.bikejanu.R;
 public class GraficoAnoLinhaFragment extends Fragment {
 
 
-
     int  ano ;
-    int contandoBikesAno2018=0;
-    int contandoBikesAno2019=0;
+    int contandoBikesRouboAno2018=0;
+    int contandoBikesRouboAno2019=0;
 
 
+
+
+    // Alimentar com REDS
+    int contandoBikesFurtoAno2018=0;
+    int contandoBikesFurtoAno2019=0;
 
 
 
@@ -71,14 +75,14 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
 
 
-    private String[] nomes   = new String[]{"2016","2017","2018","2019"};
-    private int[]     roubos = new int   []{20,16,20,11};
-    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
+    private String[] nomes   = new String[]{};
+    private int[]     roubos = new int   []{};
+    private int []   cores   = new int   []{};
 
 
 
-    private String[] legenda  = new String[]{"Furto","Roubo"};
-    private int[]    furtos = new int   []{5,10,6,10};
+    private String[] legenda  = new String[]{};
+    private int[]    furtos = new int   []{};
 
 
 
@@ -133,7 +137,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
 
 
-        query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+        query = databaseReference.child("TodasBikes");
 
 
         //  query = databaseReference.child("TodasBikes")
@@ -156,55 +160,46 @@ public class GraficoAnoLinhaFragment extends Fragment {
                     listBikes.add(b);
 
 
-                    String texto = b.getAlertaDate();
+                    String anoDeBusca = b.getAlertaDate();
                     //	String procurarPor = "2018";
+                    if (anoDeBusca.contains("2018") && b.getStatus().equals("Roubada")){
 
-                    if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
-
-                        contandoBikesAno2018++;
+                        contandoBikesRouboAno2018++;
                         //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
 
 
                     }
 
 
-                    if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (anoDeBusca.contains("2019") && b.equals("Roubada")){
 
-                        contandoBikesAno2019++;
+                        contandoBikesRouboAno2019++;
+
+
+                    }
+
+                    if (anoDeBusca.contains("2018") && b.getStatus().equals("Furtada")){
+
+                        contandoBikesFurtoAno2018++;
 
 
                     }
 
 
-                }
+                    if (anoDeBusca.contains("2019") && b.equals("Furtada")){
 
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
+                        contandoBikesFurtoAno2019++;
 
 
-                // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
-
-                if(ano == 2018){
+                    }
 
 
+                    graficoANOS();
 
 
                 }
 
 
-
-
-                if(ano == 2019){
-
-
-
-                 criarGraficos();
-
-
-
-                }
 
 
 
@@ -349,7 +344,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
 
         set2= new LineDataSet(yVals2, "Furto");
-        set2.setColor(Color.DKGRAY);
+        set2.setColor(Color.YELLOW);
         set2.setCircleColor(Color.RED);
         set2.setLineWidth(4f);
         set2.setDrawCircles(true);
@@ -367,6 +362,35 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
         lineChart.getLegend().setEnabled(true);
 
+
+
+    }
+
+
+
+    public void     graficoANOS(){
+
+        String[] bairros   = new String[]{"2018","2019"};
+        int[]    rob = new int   [] {contandoBikesRouboAno2018,contandoBikesRouboAno2019};
+        int []   cor   = new int   []{Color.YELLOW,Color.RED};
+        String[] leg = new String[]{"Furto","Roubo"};
+        int[]    furt = new int   [] {contandoBikesFurtoAno2018,contandoBikesFurtoAno2019};
+
+
+
+
+
+        nomes    = bairros;
+        roubos   = rob;
+        cores = cor;
+        legenda  = leg;
+        furtos   = furt;
+
+
+
+
+
+        criarGraficos();
 
 
     }

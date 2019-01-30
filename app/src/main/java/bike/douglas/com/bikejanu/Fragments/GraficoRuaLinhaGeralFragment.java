@@ -51,7 +51,7 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+   private String camposSpinner[] = new String[] {"----","2018","2019"};
     private Spinner spinner;
 
 
@@ -65,9 +65,6 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
     private String[] nomes   = new String[]{"Rua1","Rua2","Rua3","Rua4"};
     private int[]     roubos = new int   []{20,16,20,11};
     private int []    cores   = new int   []{Color.RED};
-
-
-
     private String[] legenda  = new String[]{"Furto/Roubo"};
 
 
@@ -114,25 +111,84 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
                 if(position==0){
 
 
 
+                    String[] bairros   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                    int[]    rob = new int   []{10,15,14,20};
+                    int []   cor  = new int   []{Color.RED};
+                    String[] leg   = new String[]{"Furto/Roubo"};
+
+
+
+
+                    nomes   = bairros;
+                    roubos =  rob;
+                    cores   =  cor;
+                    legenda  = leg;
+
+
+
+                    criarGraficos();
+
                 } else if(position == 1){
 
-                    transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
+
+                    String[] bairros   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                    int[]    rob = new int   []{10,15,14,20};
+                    int []   cor  = new int   []{Color.RED};
+                    String[] leg   = new String[]{"Furto/Roubo"};
+
+
+
+                    nomes   = bairros;
+                    roubos =  rob;
+                    cores   =  cor;
+                    legenda  = leg;
+
+
+
+
+                    criarGraficos();
+
 
 
                 }else if (position==2){
 
+                    String[] bairros   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                    int[]    rob = new int   []{10,15,14,20};
+                    int []   cor  = new int   []{Color.RED};
+                    String[] leg   = new String[]{"Furto/Roubo"};
+
+
+
+                    nomes   = bairros;
+                    roubos =  rob;
+                    cores   =  cor;
+                    legenda  = leg;
+
+
+
+                    criarGraficos();
 
                 }else if(position==3){
 
+                    String[] bairros   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                    int[]    rob = new int   []{10,15,14,20};
+                    int []   cor  = new int   []{Color.RED};
+                    String[] leg   = new String[]{"Furto/Roubo"};
 
 
 
-                }else if (position==4){
+                    nomes   = bairros;
+                    roubos =  rob;
+                    cores   =  cor;
+                    legenda  = leg;
+
+
+
+                    criarGraficos();
 
 
 
@@ -257,32 +313,6 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
                 }
 
 
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
-
-
-
-
-
-                if(ano == 2018){
-
-
-
-
-                }
-
-
-
-
-                if(ano == 2019){
-
-
-                    criarGraficos();
-
-
-                }
 
 
 

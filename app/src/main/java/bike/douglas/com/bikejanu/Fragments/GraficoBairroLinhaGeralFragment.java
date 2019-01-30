@@ -43,9 +43,60 @@ import bike.douglas.com.bikejanu.R;
 
 public class GraficoBairroLinhaGeralFragment extends Fragment {
 
-    int cont=0;
-    int jatoba=0;
-    int boaVista=0;
+
+
+
+
+    String ano2019 ="2019";
+
+
+    int qtdAlvoradaTodos=0;
+    int qtdBoaEsperancaTodos=0;
+    int qtdBomJardimTodos=0;
+    int qtdCentroTodos=0;
+    int qtdCeramicaTodos=0;
+    int qtdJadeteTodos=0;
+    int qtdJatobaTodos=0;
+    int qtdMangueirasTodos=0;
+    int qtdBandeirantesTodos=0;
+    int qtdJussaraTodos=0;
+    int qtdLevianopolisTodos=0;
+
+
+
+    // Alimentar com dados do REDS
+
+    int qtdAlvoradaRoubo=0;
+    int qtdBoaEsperancaRoubo=0;
+    int qtdBomJardimRoubo=0;
+    int qtdCentroRoubo=0;
+    int qtdCeramicaRoubo=0;
+    int qtdJadeteRoubo=0;
+    int qtdJatobaRoubo=0;
+    int qtdMangueirasRoubo=0;
+    int qtdBandeirantesRoubo=0;
+    int qtdJussaraRoubo=0;
+    int qtdLevianopolisRoubo=0;
+
+
+
+
+
+
+
+    int qtdAlvoradaFurtoRoubo2019 =0;
+    int qtdBoaEsperancaFurtoRoubo2019 =0;
+    int qtdBomJardimFurtoRoubo2019 =0;
+    int qtdCentroFurtoRoubo2019 =0;
+    int qtdCeramicaFurtoRoubo2019 =0;
+    int qtdJadeteFurtoRoubo2019 =0;
+    int qtdJatobaFurtoRoubo2019 =0;
+    int qtdMangueirasFurtoRoubo2019 =0;
+    int qtdBandeirantesFurtosRoubo2019 =0;
+    int qtdJussaraFurtoRoubo2019 =0;
+    int qtdLevianopolisFurtoRoubo2019 =0;
+
+
 
     int  ano ;
     int contandoBikesAno2018=0;
@@ -54,7 +105,7 @@ public class GraficoBairroLinhaGeralFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+   private String camposSpinner[] = new String[] {"Todos","2018","2019"};
     private Spinner spinner;
 
     private static String  bairro;
@@ -62,12 +113,12 @@ public class GraficoBairroLinhaGeralFragment extends Fragment {
     private LineChart lineChart;
 
 
-    private String[] nomes   = new String[]{"Boa Vista","Jussara","Alvorada","Ceramica","ussara","Alvorada","Ceramica","Alvorada","Ceramica"};
-    private int[]    roubos = new int   []{10,15,14,20,12,23,12};
+    String[] nomes   = new String[]{""};
+    int[]    roubos =  new int   []{};
+    int []   cores   = new int   []{};
+    String[] legenda  = new String[]{};
 
-    private int []   cores   = new int   []{Color.RED};
 
-    private String[] legenda  = new String[]{"Furto/Roubo"};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -114,26 +165,23 @@ public class GraficoBairroLinhaGeralFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
                 if(position==0){
 
 
+                    positionTodosAnos();
 
                 } else if(position == 1){
 
-                    transaction.replace(R.id.conteinerFragmentos,new GraficoBairroLinhaFragment()).commit();
+
+
+                    positionAno2018();
+
 
 
                 }else if (position==2){
 
 
-                }else if(position==3){
-
-
-
-
-                }else if (position==4){
-
+                   positionAno2019();
 
 
                 }
@@ -205,29 +253,77 @@ public class GraficoBairroLinhaGeralFragment extends Fragment {
 
 
 
-                    if (!b.getAlertaBairro().equals("") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
-
-                        //  Toast.makeText(GraficoBairroBarraFragment.super.getContext(), " Bairro :"+bairro, Toast.LENGTH_LONG).show();
-
-                        bairro = b.getAlertaBairro();
+                    /// todos os anos  furtadas e roubadas
 
 
-                        if(bairro.equals("Jatoba") ){
+                    if (b.getAlertaBairro().equals("Alvorada") && b.getStatus().equals("Furtada") || b.getStatus().equals("Roubada")){
 
-                            jatoba++;
+                        qtdAlvoradaTodos++;
 
+                    }
 
-                        }else if(bairro.equals("Boa Vista") ){
-
-                            boaVista++;
-
-
-                        }
+                    if (b.getAlertaBairro().equals("Boa Esperança") && b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
 
 
+                        qtdBoaEsperancaTodos++;
 
-                        cont++;
+                    }
 
+
+                    if (b.getAlertaBairro().equals("Bom Jardim")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdBomJardimTodos++;
+
+
+                    }
+
+                    if (b.getAlertaBairro().equals("Centro")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdCentroTodos++;
+
+                    }
+
+                    if (b.getAlertaBairro().equals("Ceramica")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdCeramicaTodos++;
+
+                    }
+
+                    if (b.getAlertaBairro().equals("Jadete")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdJadeteTodos++;
+
+                    }
+
+
+                    if (b.getAlertaBairro().equals("Jatoba")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdJatobaTodos++;
+
+                    }
+
+                    if (b.getAlertaBairro().equals("Mangueiras")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdMangueirasTodos++;
+
+                    }
+
+                    if (b.getAlertaBairro().equals("Bandeirantes")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdBandeirantesTodos++;
+
+                    }
+
+                    if (b.getAlertaBairro().equals("Jussara")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdJussaraTodos++;
+
+                    }
+
+
+                    if (b.getAlertaBairro().equals("Levianopolis")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdLevianopolisTodos++;
 
                     }
 
@@ -235,53 +331,101 @@ public class GraficoBairroLinhaGeralFragment extends Fragment {
 
 
 
-                    if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    /// ANo 2019
 
-                        contandoBikesAno2018++;
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Alvorada") && b.getStatus().equals("Furtada") || b.getStatus().equals("Roubada")){
+
+                        qtdAlvoradaFurtoRoubo2019++;
+
+                    }
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Boa Esperança") && b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+
+                        qtdBoaEsperancaFurtoRoubo2019++;
 
                     }
 
 
-                    if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Bom Jardim")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
 
-                        contandoBikesAno2019++;
+                        qtdBomJardimFurtoRoubo2019++;
 
 
                     }
 
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Centro")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdCentroFurtoRoubo2019++;
+
+                    }
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Ceramica")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdCeramicaFurtoRoubo2019++;
+
+                    }
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Jadete")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdJadeteFurtoRoubo2019++;
+
+                    }
+
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Jatoba")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdJatobaFurtoRoubo2019++;
+
+                    }
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Mangueiras")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdMangueirasFurtoRoubo2019++;
+
+                    }
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Bandeirantes")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdBandeirantesFurtosRoubo2019++;
+
+                    }
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Jussara")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdJussaraFurtoRoubo2019++;
+
+                    }
+
+
+
+                    if (b.getAlertaDate().equals(ano2019) && b.getAlertaBairro().equals("Levianopolis")&& b.getStatus().equals("Furtada")|| b.getStatus().equals("Roubada")){
+
+                        qtdLevianopolisFurtoRoubo2019++;
+
+                    }
+
+
+
+
+
+
+
+                     qtdAlvoradaTodos  = qtdAlvoradaTodos+qtdAlvoradaRoubo+qtdAlvoradaFurtoRoubo2019;
+                     qtdBoaEsperancaTodos=0;
+                     qtdBomJardimTodos=0;
+                     qtdCentroTodos=0;
+                     qtdCeramicaTodos=0;
+                     qtdJadeteTodos=0;
+                     qtdJatobaTodos=0;
+                     qtdMangueirasTodos=0;
+                     qtdBandeirantesTodos=0;
+                     qtdJussaraTodos=0;
+                     qtdLevianopolisTodos=0;
+
                 }
 
-
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
-
-
-
-
-
-                if(ano == 2018){
-
-
-
-
-                }
-
-
-
-
-                if(ano == 2019){
-
-
-                    criarGraficos();
-
-
-                }
-
-
-
-/////fim do grafico
 
 
 
@@ -427,7 +571,73 @@ public class GraficoBairroLinhaGeralFragment extends Fragment {
 
 
 
+    public void positionTodosAnos(){
 
+        String[] bairros   = new String[]{"Alvorada","Boa Esperança","Bom Jardim","Centro","Ceramica","Jadete","Jatoba","Mangueiras","Bandeirantes","Jussara","Levianopolis"};
+        int[]    rob = new int   []{qtdAlvoradaTodos,qtdBoaEsperancaTodos,qtdBomJardimTodos,qtdCentroTodos,qtdCeramicaTodos,qtdJadeteTodos,qtdJatobaTodos,qtdMangueirasRoubo,qtdBandeirantesTodos,qtdJussaraTodos,qtdLevianopolisTodos};
+        int []   cor   = new int   []{Color.RED};
+        final String[] leg  = new String[]{"Furto/Roubo"};
+
+
+
+        nomes   = bairros;
+        roubos =  rob;
+        cores   =  cor;
+        legenda  = leg;
+
+
+
+        criarGraficos();
+
+
+    }
+
+
+
+    public void positionAno2018(){
+
+
+        String[] bairros   = new String[]{"Alvorada","Boa Esperança","Bom Jardim","Centro","Ceramica","Jadete","Jatoba","Mangueiras","Bandeirantes","Jussara","Levianopolis"};
+        int[]    rob = new int   []{qtdAlvoradaRoubo,qtdBoaEsperancaRoubo,qtdBomJardimRoubo,qtdCentroRoubo,qtdCeramicaRoubo,qtdJadeteRoubo,qtdJatobaRoubo,qtdMangueirasRoubo,qtdBandeirantesRoubo,qtdJussaraRoubo,qtdLevianopolisRoubo};
+        int []   cor   = new int   []{Color.RED};
+        final String[] leg  = new String[]{"Furto/Roubo"};
+
+
+
+        nomes   = bairros;
+        roubos =  rob;
+        cores   =  cor;
+        legenda  = leg;
+
+
+
+
+        criarGraficos();
+
+
+
+    }
+
+
+    public void  positionAno2019(){
+
+        String[] bairros   = new String[]{"Alvorada","Boa Esperança","Bom Jardim","Centro","Ceramica","Jadete","Jatoba","Mangueiras","Bandeirantes","Jussara","Levianopolis"};
+        int[]    rob = new int   []{qtdAlvoradaFurtoRoubo2019, qtdBoaEsperancaFurtoRoubo2019, qtdBomJardimFurtoRoubo2019, qtdCentroFurtoRoubo2019, qtdCeramicaFurtoRoubo2019, qtdJadeteFurtoRoubo2019, qtdJatobaFurtoRoubo2019, qtdMangueirasFurtoRoubo2019, qtdBandeirantesFurtosRoubo2019, qtdJussaraFurtoRoubo2019, qtdLevianopolisFurtoRoubo2019};
+        int []   cor   = new int   []{Color.RED};
+        final     String[] leg  = new String[]{"Furto/Roubo"};
+
+
+
+        nomes   = bairros;
+        roubos =  rob;
+        cores   =  cor;
+        legenda  = leg;
+
+
+        criarGraficos();
+
+
+    }
 
 
 }

@@ -47,8 +47,8 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
     int  ano ;
-    int contandoBikesAno2018=0;
-    int contandoBikesAno2019=0;
+    int contandoBikesAnoFurtosRoubos2018=0;
+    int contandoBikesFurtosRoubosAno2019=-1;
 
 
 
@@ -58,10 +58,10 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
 
-    private String[] nomes   = new String[]{"2016","2017","2018","2019"};
-    private int[]     roubos = new int   []{20,16,20,11};
-    private int []   cores   = new int   []{Color.RED};
-    private String[] legenda   = new String[]{"Furto/Roubo"};
+    private String[] nomes   = new String[]{};
+    private int[]     roubos = new int   []{};
+    private int []   cores   = new int   []{};
+    private String[] legenda   = new String[]{};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -122,7 +122,7 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
 
-        query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+        query = databaseReference.child("TodasBikes");
 
 
         //  query = databaseReference.child("TodasBikes")
@@ -147,63 +147,28 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
 
-
-
-
-                    String texto = b.getAlertaDate();
+                    String anoDeBusca = b.getAlertaDate();
                     //	String procurarPor = "2018";
 
-                    if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (anoDeBusca.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
-                        contandoBikesAno2018++;
-                        //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
-
-
-                    }
-
-
-                    if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
-
-                        contandoBikesAno2019++;
+                        contandoBikesAnoFurtosRoubos2018++;
 
 
                     }
 
 
+                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+
+                        contandoBikesFurtosRoubosAno2019++;
 
 
-                }
+                    }
 
 
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
-
-
-                // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
-
-                if(ano == 2018){
-
-
-
-
+                    graficoANOS();
 
                 }
-
-
-
-
-                if(ano == 2019){
-
-
-                    criarGraficos();
-
-
-                }
-
-
-
 
 
 
@@ -382,6 +347,29 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
 
+
+    public void     graficoANOS(){
+
+        String[] bairros   = new String[]{"2018","2019"};
+        int[]    rob = new int   []{contandoBikesAnoFurtosRoubos2018,contandoBikesFurtosRoubosAno2019};
+        int []   cor   = new int   []{Color.RED};
+        String[] leg = new String[]{"Furto/Roubo"};
+
+
+
+
+        nomes    = bairros;
+        roubos   = rob;
+        cores    = cor;
+        legenda  = leg;
+
+
+
+
+        criarGraficos();
+
+
+    }
 
 
 

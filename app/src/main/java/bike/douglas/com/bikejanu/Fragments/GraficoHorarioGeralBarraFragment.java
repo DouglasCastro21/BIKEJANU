@@ -53,22 +53,19 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+   private String camposSpinner[] = new String[] {"----","2018","2019"};
     private Spinner spinner;
 
 
     private BarChart barChart;
-    int  unirDados= 0;
 
 
 
     private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
-    private int[]    roubos  = new int   []{10,15,12,34,};
-    private int []   cores   = new int   []{Color.RED};
+    private   int[]    roubos  = new int   []{10,15,12,34,};
+    private  int []   cores   = new int   []{Color.RED};
+    private String[] legenda  = new String[]{"Furto/Roubo"};
 
-
-
-    private String[] legenda   = new String[]{"Furto/Roubo"};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -106,32 +103,80 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
 
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
                 if(position==0){
 
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.RED};
+                    String[] leg  = new String[]{"Furto/Roubo"};
+
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+
+
+
+                    criarGraficos();
 
                 } else if(position == 1){
 
-                    transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
+
+
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.RED};
+                    String[] leg  = new String[]{"Furto/Roubo"};
+
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+
+
+
+
+                    criarGraficos();
+
 
 
                 }else if (position==2){
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.RED};
+                    String[] leg  = new String[]{"Furto/Roubo"};
+
+
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
+
+                    criarGraficos();
 
                 }else if(position==3){
 
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    rouboss  = new int   []{10,15,12,34,};
+                    int []   cor   = new int   []{Color.RED};
+                    String[] leg  = new String[]{"Furto/Roubo"};
 
 
+                    nomes   = turnos;
+                    roubos =  rouboss;
+                    cores   =  cor;
+                    legenda  = leg;
 
-                }else if (position==4){
-
+                    criarGraficos();
 
 
                 }
@@ -227,45 +272,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
                 }
-
-
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
-
-
-                // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
-
-                if(ano == 2018){
-
-
-
-
-
-                }
-
-
-
-
-                if(ano == 2019){
-
-
-                    criarGraficos();
-
-
-                }
-
-
-
-
-
-
-
-
-
-/////fim do grafico
-
 
 
 // simula a lista

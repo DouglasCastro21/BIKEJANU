@@ -38,7 +38,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+     private String camposSpinner[] = new String[] {"----","2018","2019"};
     private Spinner spinner;
 
 
@@ -81,21 +81,70 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
                 if(position==0){
 
 
+                     String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
+                     int[]    valor = new int   []{1000,700,300,500};
+                     int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+
+
+
+                    nomes   = titulos;
+                    valores =  valor;
+                    cores   =  cor;
+
+
+
+                    criarGraficos();
 
                 } else if(position == 1){
 
-                    transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
+
+                    String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
+                    int[]    valor = new int   []{600,200,400,300};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+
+
+
+
+                    nomes   = titulos;
+                    valores =  valor;
+                    cores   =  cor;
+
+
+                    criarGraficos();
+
 
 
                 }else if (position==2){
 
+                    String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
+                    int[]    valor = new int   []{400,150,250,200};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+
+
+
+
+                    nomes   = titulos;
+                    valores =  valor;
+                    cores   =  cor;
+
+
+                    criarGraficos();
 
                 }else if(position==3){
 
+                    String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
+                    int[]    valor = new int   []{300,200,100,150};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
 
 
 
-                }else if (position==4){
+
+                    nomes   = titulos;
+                    valores =  valor;
+                    cores   =  cor;
+
+
+                    criarGraficos();
 
 
 
@@ -116,13 +165,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
 
-
-
-
-        creatCharts();
-
-
-  return rootView;
+        return rootView;
     }
 
 
@@ -198,7 +241,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
 
-    public void creatCharts(){
+    public void criarGraficos(){
 
 
 
@@ -248,6 +291,11 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
         // passa para poercentagem
         //pieDataSet.setValueFormatter(new PercentFormatter());
+
+
+
+
+
 
 
         return new PieData(pieDataSet);

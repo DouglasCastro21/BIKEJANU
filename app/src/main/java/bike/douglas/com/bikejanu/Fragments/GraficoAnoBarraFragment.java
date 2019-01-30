@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import bike.douglas.com.bikejanu.Activity.EditarBike;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
@@ -41,26 +43,30 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
     int  ano ;
-    int contandoBikesAno2018=0;
-    int contandoBikesAno2019=0;
+    int contandoBikesRouboAno2018=0;
+    int contandoBikesRouboAno2019=0;
 
+
+
+
+    // Alimentar com REDS
+    int contandoBikesFurtoAno2018=0;
+    int contandoBikesFurtoAno2019=0;
 
 
 
 
     private BarChart barChart;
-    int  unirDados= 0;
 
 
 
-    private String[] nomes   = new String[]{"2016","2017","2018","2019"};
-    private int[]     roubos = new int   []{20,16,20,11};
-    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
 
+    private String[] nomes   = new String[]{};
+    private int[]     roubos = new int   []{};
+    private int []   cores   = new int   []{};
+    private String[] legenda  = new String[]{};
+    private int[]    furtos = new int   []{};
 
-
-    private String[] legenda  = new String[]{"Furto","Roubo"};
-    private int[]    furtos = new int   []{5,10,6,10};
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -86,9 +92,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-
-
-
+         //   graficoANOS();
 
 
 
@@ -121,7 +125,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-            query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+            query = databaseReference.child("TodasBikes");
 
 
           //  query = databaseReference.child("TodasBikes")
@@ -148,58 +152,55 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
+                    String anoDeBusca = b.getAlertaDate();
 
-        String texto = b.getAlertaDate();
-	//	String procurarPor = "2018";
 
-		if (texto.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
 
-            contandoBikesAno2018++;
-		 //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
+
+		if (anoDeBusca.contains("2018") && b.getStatus().equals("Roubada")){
+
+          //Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "sei lá" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
+
+            contandoBikesRouboAno2018++ ;
+
+
+         //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "ROubo 2018"+contandoBikesRouboAno2018, Toast.LENGTH_LONG).show();
+
+        }
+
+
+        if ( anoDeBusca.contains("2018") && b.getStatus().equals("Furtada")){
+
+		    contandoBikesFurtoAno2018++;
+
+
+
+
 
 
         }
 
 
-        if (texto.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+           if (anoDeBusca.contains("2019")  && b.getStatus().equals("Roubada")){
 
-		    contandoBikesAno2019++;
-
-
-        }
+             contandoBikesRouboAno2019++;
 
 
+		    }
+
+		    if (anoDeBusca.contains("2019") && b.getStatus().equals("Furtada")){
 
 
-                }
+		    contandoBikesFurtoAno2019++;
 
 
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
+		    }
 
 
-               // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
-
-                if(ano == 2018){
+		    graficoANOS();
 
 
-
-
-
-                }
-
-
-
-
-                if(ano == 2019){
-
-
-                   criarGraficos();
-
-
-                    }
+		}
 
 
 
@@ -209,11 +210,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-/////fim do grafico
 
-
-
-// simula a lista
 
                // arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
              //   listPesquisa.setAdapter(arrayAdapterBike);
@@ -326,49 +323,64 @@ public class GraficoAnoBarraFragment extends Fragment {
         barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
         barChart.setDrawGridBackground(true);
 
+
+
          barChart.setActivated(true);
 
 
 
-
-
-
         ArrayList<BarEntry> yVals1 = new ArrayList<>();
-        for (int i=0;i<roubos.length;i++){
-            yVals1.add(new BarEntry(i,roubos[i]));
+
+
+
+
+
+
+        for(int i=0;i <furtos.length;i++){
+            yVals1.add(new BarEntry(i,furtos[i]));
 
         }
-
 
 
         ArrayList<BarEntry> yVals2 = new ArrayList<>();
-
-        for(int i=0;i <furtos.length;i++){
-           yVals2.add(new BarEntry(i,furtos[i]));
+        for (int i=0;i<roubos.length;i++){
+            yVals2.add(new BarEntry(i,roubos[i]));
 
         }
+
+
+
+
+
+
+
+
 
 
 
         BarDataSet set1,set2;
 
 
-        set1 = new BarDataSet(yVals1,"Roubo");
-        set1.setColor(Color.RED);
+        set1 = new BarDataSet(yVals1,"Furto");
+        set1.setColor(Color.YELLOW);
         set1.setValueTextSize(15);
         set1.setValueTextColor(Color.BLUE);
 
 
 
-        set2= new BarDataSet(yVals2, "Furto");
+        set2= new BarDataSet(yVals2, "Roubo");
 
-        set2.setColor(Color.DKGRAY);
+        set2.setColor(Color.RED);
         set2.setValueTextSize(15);
         set2.setValueTextColor(Color.BLUE);
 
 
 
+
+
+
         BarData data = new BarData(set1,set2);
+
 
         barChart.setData(data);
 
@@ -394,48 +406,32 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
+    public void     graficoANOS(){
 
-    private void caixaDialogoUnirDados(){
-
-
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-
-                final CharSequence[] opcoes = {"Unir Dados"};
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(GraficoAnoBarraFragment.super.getContext());
-                builder.setTitle("");
-                builder.setItems(opcoes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-
-                        Bundle params = new Bundle();
-
-                        if (opcoes[i].equals("Unir Dados")) {
+        String[] bairros   = new String[]{"2018","2019"};
+        int[]    rob = new int   [] {contandoBikesRouboAno2018,contandoBikesRouboAno2019};
+        int []   cor   = new int   []{Color.YELLOW,Color.RED};
+        String[] leg = new String[]{"Furto","Roubo"};
+        int[]    furt = new int   [] {contandoBikesFurtoAno2018,contandoBikesFurtoAno2019};
 
 
-                            transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraGeralFragment()).commit();
-
-                          //  startActivity(new Intent( GraficoAnoBarraFragment.super.getContext(), GraficoAnoBarraGeralFragment.class));
-
-                           // Intent intent = new Intent(GraficoAnoBarraFragment.super.getContext(), Estatisticas.class);
-                         //   intent.putExtras(params);
-
-                          //  startActivity(intent);
 
 
-                        }
+
+        nomes    = bairros;
+        roubos   = rob;
+        cores = cor;
+        legenda  = leg;
+        furtos   = furt;
 
 
-                    }
-                });
-                builder.show();
+
+
+
+        criarGraficos();
 
 
     }
-
-
-
 
 }
 

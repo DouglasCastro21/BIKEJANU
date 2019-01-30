@@ -53,7 +53,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2017","2018","2019"};
+   private String camposSpinner[] = new String[] {"----","2018","2019"};
     private Spinner spinner;
 
 
@@ -110,38 +110,101 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
                  @Override
               public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if(position==0){
+                     if(position==0){
 
 
 
-                } else if(position == 1){
-
-                transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
-
-
-                }else if (position==2){
-
-
-                }else if(position==3){
+                          String[] bairros   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                          int[]    rob = new int   []{10,15,14,20};
+                          int []   cor  = new int   []{Color.RED};
+                          String[] leg   = new String[]{"Furto/Roubo"};
 
 
 
 
-                }else if (position==4){
+                         nomes   = bairros;
+                         roubos =  rob;
+                         cores   =  cor;
+                         legenda  = leg;
 
 
 
-                }
+                         criarGraficos();
+
+                     } else if(position == 1){
+
+
+                         String[] bairros   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                         int[]    rob = new int   []{10,15,14,20};
+                         int []   cor  = new int   []{Color.RED};
+                         String[] leg   = new String[]{"Furto/Roubo"};
 
 
 
-            }
+                         nomes   = bairros;
+                         roubos =  rob;
+                         cores   =  cor;
+                         legenda  = leg;
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
+
+
+                         criarGraficos();
+
+
+
+                     }else if (position==2){
+
+                         String[] bairros   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                         int[]    rob = new int   []{10,15,14,20};
+                         int []   cor  = new int   []{Color.RED};
+                         String[] leg   = new String[]{"Furto/Roubo"};
+
+
+
+                         nomes   = bairros;
+                         roubos =  rob;
+                         cores   =  cor;
+                         legenda  = leg;
+
+
+
+                         criarGraficos();
+
+                     }else if(position==3){
+
+                         String[] bairros   = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
+                         int[]    rob = new int   []{10,15,14,20};
+                         int []   cor  = new int   []{Color.RED};
+                         String[] leg   = new String[]{"Furto/Roubo"};
+
+
+
+                         nomes   = bairros;
+                         roubos =  rob;
+                         cores   =  cor;
+                         legenda  = leg;
+
+
+
+                         criarGraficos();
+
+
+
+                     }
+
+
+
+                 }
+
+              @Override
+              public void onNothingSelected(AdapterView<?> parent) {
+
+              }
+          });
+
+
+
 
 
 
@@ -230,42 +293,10 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
                 }
 
 
-                // inicio do grafico
-
-                final Calendar calendar = Calendar.getInstance();
-                ano = calendar.get(Calendar.YEAR);
-
-
-                // GraphView graph = (GraphView) rootView.findViewById(R.id.graphAnoBarra);
-
-                if(ano == 2018){
 
 
 
 
-
-                }
-
-
-
-
-                if(ano == 2019){
-
-
-                    criarGraficos();
-
-
-                }
-
-
-
-
-
-
-
-
-
-/////fim do grafico
 
 
 
@@ -397,7 +428,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-        BarDataSet set1,set2;
+        BarDataSet set1;
 
 
         set1 = new BarDataSet(yVals1,"Roubo");

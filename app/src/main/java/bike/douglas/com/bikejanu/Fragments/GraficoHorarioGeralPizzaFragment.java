@@ -8,7 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.Spinner;
 
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -24,19 +29,39 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 
 public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
+
+    protected ImageView spinnerImagem;
+    private String camposSpinner[] = new String[] {"----","2018","2019"};
+    private Spinner spinner;
+
+
     private PieChart pieChart;
 
-    private String[] nomes   = new String[]{"Madrugada:00:00 às 05:59","Manhã:6:00 às 11:59","Tarde:12:00 às 17:59","Noite:18:00 às 23:59"};
-    private int[]    valores = new int   []{60,10,15,8};
+
+
+
+    private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+    private   int[]    valores  = new int   []{120,125,112,314,};
     private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+
+
 
 
     @Override
@@ -50,12 +75,134 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
 
+        //carrega os spinner
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(GraficoHorarioGeralPizzaFragment.super.getContext(), android.R.layout.simple_spinner_dropdown_item,camposSpinner);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        creatCharts();
+
+        spinnerImagem = (ImageView) rootView.findViewById(R.id.imageViewSpinnerID);
+        spinner = (Spinner) rootView.findViewById(R.id.spinnerID);
+        spinner.setAdapter(arrayAdapter);
+
+
+
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if(position==0){
+
+
+                  String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                  int[]    valor  = new int   []{101,125,123,342,};
+                   int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+
+
+
+
+                    nomes   = turnos;
+                    valores =  valor;
+                    cores   =  cor;
+
+
+
+                    criarGraficos();
+
+                } else if(position == 1){
+
+
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    valor  = new int   []{110,115,112,314,};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+
+
+
+
+                    nomes   = turnos;
+                    valores =  valor;
+                    cores   =  cor;
+
+                    criarGraficos();
+
+
+
+                }else if (position==2){
+
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    valor  = new int   []{110,115,112,314,};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+
+
+
+
+                    nomes   = turnos;
+                    valores =  valor;
+                    cores   =  cor;
+
+
+                    criarGraficos();
+
+                }else if(position==3){
+
+                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+                    int[]    valor  = new int   []{100,135,132,324,};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+
+
+
+
+                    nomes   = turnos;
+                    valores =  valor;
+                    cores   =  cor;
+
+
+                    criarGraficos();
+
+
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+
+
+
+        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+
+// nao funciona aq
+        pieChart.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+
+                transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioBarraFragment()).commit();
+
+
+
+                return false;
+
+            }
+        });
 
 
         return rootView;
     }
+
+
+
 
 
 
@@ -96,6 +243,33 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
     }
 
 
+    private void axisX(XAxis axis){
+
+        axis.setGranularityEnabled(true);
+
+        axis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);
+        axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
+
+
+
+
+    }
+
+
+
+    private ArrayList<BarEntry> getBarEntries(){
+
+
+        ArrayList<BarEntry> entries = new ArrayList<>();
+
+
+        for(int i=0;i <valores.length;i++)
+            entries.add(new BarEntry(i,valores[i]));
+        return entries;
+
+
+
+    }
 
 
     private ArrayList<PieEntry> getPieEntries(){
@@ -114,11 +288,13 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
 
-    public void creatCharts(){
+
+
+    public void criarGraficos(){
 
 
 
-        pieChart = (PieChart) getSameChart(pieChart,"",Color.RED,Color.WHITE,3000);
+        pieChart = (PieChart) getSameChart(pieChart,"",Color.RED,Color.WHITE,2000);
         pieChart.setHoleRadius(10);
         pieChart.setTransparentCircleRadius(12);
         pieChart.setDrawHoleEnabled(false);
@@ -126,6 +302,10 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
         pieChart.setData(getPieDate());
         pieChart.invalidate();
+
+
+
+
     }
 
     private DataSet getDate(DataSet dataSet){
@@ -134,9 +314,27 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
         dataSet.setValueTextSize(Color.WHITE);
         dataSet.setValueTextSize(15);
 
+
+
+
         return dataSet;
     }
 
+
+
+    private BarData getBarDate(){
+        BarDataSet barDataSet = (BarDataSet)getDate(new BarDataSet(getBarEntries(),""));
+
+        barDataSet.setBarShadowColor(Color.GRAY);
+
+        BarData barData = new BarData(barDataSet);
+        barData.setBarWidth(0.45f);
+
+
+
+
+        return barData;
+    }
 
 
 
@@ -147,11 +345,18 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
         pieDataSet.setSliceSpace(2);
 
         // passa para poercentagem
-        pieDataSet.setValueFormatter(new PercentFormatter());
+        //pieDataSet.setValueFormatter(new PercentFormatter());
+
+
+
 
 
         return new PieData(pieDataSet);
     }
+
+
+
+
 
 
 
