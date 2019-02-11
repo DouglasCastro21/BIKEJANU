@@ -38,7 +38,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-     private String camposSpinner[] = new String[] {"----","2018","2019"};
+     private String camposSpinner[] = new String[] {"Todos","2018","2019"};
     private Spinner spinner;
 
 

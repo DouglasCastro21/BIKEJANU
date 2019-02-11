@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="ESTATÍSTICA: Ramo da matemática que trata da coleta, da análise, da interpretação e da apresentação de massas de dados numéricos."
+        android:text="ESTATÍSTICA: Ramo da matemática que trata da coleta, da análise, da interpretação de dados numéricos."
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>

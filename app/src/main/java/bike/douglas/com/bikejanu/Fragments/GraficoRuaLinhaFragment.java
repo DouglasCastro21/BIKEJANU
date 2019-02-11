@@ -55,7 +55,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-    private String camposSpinner[] = new String[] {"----","2018","2019"};
+    private String camposSpinner[] = new String[] {"Todos","2018","2019"};
     private Spinner spinner;
 
 
@@ -114,20 +114,19 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
                 if(position==0){
 
-
-                    String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
-                    int[]    rob = new int   []{10,15,14,20};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                    String[] leg  = new String[]{"Furto","Roubo"};
-                    int[]    furt = new int   []{5,10,6,10};
-
+                    String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
+                    int[]    valores = new int   []{10,10,10,10};
+                    int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] legendaGrafico  = new String[]{"Furto","Roubo"};
+                    int[]    furtosRuas = new int   []{5,10,6,10};
 
 
-                    nomes   = bairros;
-                    roubos =  rob;
-                    cores   =  cor;
-                    legenda  = leg;
-                    furtos = furt;
+
+                    nomes   = ruas;
+                    roubos =  valores;
+                    cores   =  coresRuas;
+                    legenda  = legendaGrafico;
+                    furtos = furtosRuas;
 
 
                     criarGraficos();
@@ -135,20 +134,19 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 } else if(position == 1){
 
 
-                    String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
-                    int[]    rob = new int   []{10,15,14,20};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                    String[] leg  = new String[]{"Furto","Roubo"};
-                    int[]    furt = new int   []{5,10,6,10};
+                    String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
+                    int[]    valores = new int   []{10,10,10,10};
+                    int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] legendaGrafico  = new String[]{"Furto","Roubo"};
+                    int[]    furtosRuas = new int   []{5,10,6,10};
 
 
 
-                    nomes   = bairros;
-                    roubos =  rob;
-                    cores   =  cor;
-                    legenda  = leg;
-                    furtos = furt;
-
+                    nomes   = ruas;
+                    roubos =  valores;
+                    cores   =  coresRuas;
+                    legenda  = legendaGrafico;
+                    furtos = furtosRuas;
 
 
                     criarGraficos();
@@ -157,43 +155,22 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
                 }else if (position==2){
 
-                    String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
-                    int[]    rob = new int   []{10,15,14,20};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                    String[] leg  = new String[]{"Furto","Roubo"};
-                    int[]    furt = new int   []{5,10,6,10};
+                    String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
+                    int[]    valores = new int   []{10,10,10,10};
+                    int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
+                    String[] legendaGrafico  = new String[]{"Furto","Roubo"};
+                    int[]    furtosRuas = new int   []{5,10,6,10};
 
 
 
-                    nomes   = bairros;
-                    roubos =  rob;
-                    cores   =  cor;
-                    legenda  = leg;
-                    furtos = furt;
-
-
-                    criarGraficos();
-
-                }else if(position==3){
-
-                    String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
-                    int[]    rob = new int   []{10,15,14,20};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                    String[] leg  = new String[]{"Furto","Roubo"};
-                    int[]    furt = new int   []{5,10,6,10};
-
-
-
-                    nomes   = bairros;
-                    roubos =  rob;
-                    cores   =  cor;
-                    legenda  = leg;
-                    furtos = furt;
+                    nomes   = ruas;
+                    roubos =  valores;
+                    cores   =  coresRuas;
+                    legenda  = legendaGrafico;
+                    furtos = furtosRuas;
 
 
                     criarGraficos();
-
-
 
                 }
 
@@ -237,7 +214,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
         //   listBairros = new ArrayList<>();
 
 
-        query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+        query = databaseReference.child("TodasBikes");
 
 
         //  query = databaseReference.child("TodasBikes")

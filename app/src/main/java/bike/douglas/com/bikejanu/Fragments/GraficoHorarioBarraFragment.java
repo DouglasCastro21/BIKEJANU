@@ -59,7 +59,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-     private String camposSpinner[] = new String[] {"----","2018","2019"};
+     private String camposSpinner[] = new String[] {"Todos","2018","2019"};
     private Spinner spinner;
 
 
@@ -174,25 +174,6 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
                     criarGraficos();
-
-                }else if(position==3){
-
-                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
-                    int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                    String[] leg  = new String[]{"Furto","Roubo"};
-                    int[]    furt = new int   []{5,10,6,10};
-
-                    nomes   = turnos;
-                    roubos =  rouboss;
-                    cores   =  cor;
-                    legenda  = leg;
-                    furtos = furt;
-
-
-                    criarGraficos();
-
-
 
                 }
 

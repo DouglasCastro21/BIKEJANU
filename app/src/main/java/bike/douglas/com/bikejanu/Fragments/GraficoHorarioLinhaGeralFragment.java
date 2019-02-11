@@ -53,7 +53,7 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
-   private String camposSpinner[] = new String[] {"----","2018","2019"};
+   private String camposSpinner[] = new String[] {"Todos","2018","2019"};
     private Spinner spinner;
 
 
@@ -229,7 +229,7 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
         //   listBairros = new ArrayList<>();
 
 
-        query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+        query = databaseReference.child("TodasBikes");
 
 
         //  query = databaseReference.child("TodasBikes")

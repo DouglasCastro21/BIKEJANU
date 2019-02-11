@@ -63,11 +63,16 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-    private String[] nomes   = new String[]{"Rua 7","Rua 10","Centro","Rua 12"};
+    private String[] nomes   = new String []{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
     private int[]    roubos = new int   []{10,15,14,20};
     private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
     private String[] legenda  = new String[]{"Furto","Roubo"};
     private int[]    furtos = new int   []{5,10,6,10};
+
+
+
+
+
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -80,7 +85,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     String  autoComplete;
 
-    int spinnerCorrente =10;
+    int spinnerCorrente = 0;
     int todosAnos=0;
     int ano2018=1;
     int ano2019=2;
@@ -119,7 +124,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
               // opção para combinar com o spninner todos os anos
 
-              if(autoCompletegraficoRuaBarra.getText().toString().equals("Aeroporto") && spinnerCorrente ==todosAnos){
+              if(autoCompletegraficoRuaBarra.getText().toString().equals("Aeroporto") && spinnerCorrente == todosAnos){
 
 
                 aeroportoTodosAnos();
@@ -518,11 +523,6 @@ public class GraficoRuaBarraFragment extends Fragment {
                   zonaRuralTodosAnos();
 
               }
-
-
-
-
-
 
 
 
@@ -1333,14 +1333,6 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-
-
-
-
-
-
-
-
       //carrega os spinner
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(GraficoRuaBarraFragment.super.getContext(), android.R.layout.simple_spinner_dropdown_item,camposSpinner);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -1364,20 +1356,23 @@ public class GraficoRuaBarraFragment extends Fragment {
                          /////todos os anos e bairros
                          // posicion 0  todos os anos
 
-                          String[] todosRuas  = new String[]{"Rua 7","Rua 10","Centro","Rua 12"};
-                          int[]    rob = new int   []{1,1,1,1};
-                           int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                          String[] leg  = new String[]{"Furto","Roubo"};
-                          int[]    furt = new int   []{5,10,6,10};
+
+                         spinnerCorrente =0;
+
+                         String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
+                         int[]    valores = new int   []{10,10,10,10};
+                         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
+                         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
+                         int[]    furtosRuas = new int   []{5,10,6,10};
 
 
-                         nomes   = todosRuas;
-                         roubos =  rob;
-                         cores   =  cor;
-                         legenda  = leg;
-                         furtos = furt;
 
-                         spinnerCorrente = 0;
+                         nomes    = ruas;
+                         roubos   =  valores;
+                         cores    =  coresRuas;
+                         legenda  = legendaGrafico;
+                         furtos   = furtosRuas;
+
 
                          criarGraficos();
 
@@ -1453,7 +1448,7 @@ public class GraficoRuaBarraFragment extends Fragment {
                          if (autoCompletegraficoRuaBarra.getText().toString().equals("Brasilina")){
 
 
-                       brasilinaTodosAnos();
+                             brasilinaTodosAnos();
 
                          }
 
@@ -1751,23 +1746,25 @@ public class GraficoRuaBarraFragment extends Fragment {
                          // opção spinner 2018
 
 
-                         String[] bairros  = new String[]{"Rua 7","Rua 10","spineer 2018","Rua 12"};
-                         int[]    rob = new int   []{10,15,14,20};
-                         int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                         String[] leg  = new String[]{"Furto","Roubo"};
-                         int[]    furt = new int   []{5,10,6,10};
-
-
-
-                         nomes   = bairros;
-                         roubos =  rob;
-                         cores   =  cor;
-                         legenda  = leg;
-                         furtos = furt;
-
                          spinnerCorrente =1;
 
-                         criarGraficos();
+
+                         String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
+                         int[]    valores = new int   []{10,15,20,25};
+                         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
+                         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
+                         int[]    furtosRuas = new int   []{5,10,15,20};
+
+
+
+                         nomes   = ruas;
+                         roubos =  valores;
+                         cores   =  coresRuas;
+                         legenda  = legendaGrafico;
+                         furtos = furtosRuas;
+
+
+                            criarGraficos();
 
 
 
@@ -2136,25 +2133,31 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
+
+
                      }else if (position==2){  //2019
 
 
 
-                         String[] bairros  = new String[]{"Rua 7","Rua 10","Alvorada","Rua 12"};
-                         int[]    rob = new int   []{10,15,14,20};
-                         int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                         String[] leg  = new String[]{"Furto","Roubo"};
-                         int[]    furt = new int   []{5,10,6,10};
+
+                         spinnerCorrente=2;
 
 
 
-                         nomes   = bairros;
-                         roubos =  rob;
-                         cores   =  cor;
-                         legenda  = leg;
-                         furtos = furt;
+                         String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
+                         int[]    valores = new int   []{25,30,25,40};
+                         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
+                         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
+                         int[]    furtosRuas = new int   []{20,10,6,20};
 
-                         spinnerCorrente = 2;
+
+
+                         nomes   = ruas;
+                         roubos =  valores;
+                         cores   =  coresRuas;
+                         legenda  = legendaGrafico;
+                         furtos = furtosRuas;
+
 
                          criarGraficos();
 
@@ -2574,7 +2577,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-        query = databaseReference.child("TodasBikes").orderByChild("numero_serie");
+        query = databaseReference.child("TodasBikes");
 
 
         //  query = databaseReference.child("TodasBikes")
@@ -2610,7 +2613,6 @@ public class GraficoRuaBarraFragment extends Fragment {
 
                         AeroportoRuaTal++;
 
-                        Toast.makeText(GraficoRuaBarraFragment.super.getContext(), "Rua sete" +AeroportoRuaTal, Toast.LENGTH_LONG).show();
 
                     }
 
@@ -2835,7 +2837,7 @@ public class GraficoRuaBarraFragment extends Fragment {
     public void aeroportoTodosAnos(){
 
 
-        String[] bairros  = new String[]{"RUA 7","spinnerCorrente 10","Aeroporto","Rua 12","RUA 7","spinnerCorrente 10","Aeroporto","Rua 12"};
+        String[] bairros  = new String[]{"Av Aeroporto","Av Seis","Rua Um ","Rua Dois","Rua Três","Rua Quatro","Rua Vinte e Três","Rua XI"};
         int[]    rob = new int   []{AeroportoRuaTal,12,10,12,10,12,10,12};
         int []   cor   = new int   []{Color.DKGRAY,Color.RED};
         String[] leg  = new String[]{"Furto","Roubo"};
@@ -2857,6 +2859,8 @@ public class GraficoRuaBarraFragment extends Fragment {
     /// opção todos os bairros no spinner
 
     public void alameidaTodosAnos(){
+
+        //xx
 
         String[] alameda = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alameda", "Rua 12"};
         int[] robAlameda = new int[]{10, 10, 10, 10};
@@ -2881,6 +2885,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void altoCemitérioTodosAnos(){
 
+        //xx
+
         String[] altoCemitério = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério", "Rua 12"};
         int[] robAltoCemitério = new int[]{10, 10, 10, 10};
         int[] corAltoCemitério = new int[]{Color.DKGRAY, Color.RED};
@@ -2902,7 +2908,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void altoPocoesTodosAnos(){
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Alto dos Pocões","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Av Um","Av Dois", "Av Três", "Av Quatro", "Av Cinco"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -2925,7 +2931,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void alvoradaTodosAnos(){
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Alvorada","Rua 12"};
+        String[] ruas  = new String[]{"Rua do Aterro","Rua Um ","Rua A","Rua E","Rua J","Rua K","Rua L","Rua M","Rua N","Rua O"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -2948,7 +2954,7 @@ public class GraficoRuaBarraFragment extends Fragment {
     public void bandeirantesTodosAnos(){
 
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Bandeirante","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Dez","Rua Brasília de Minas","Rua 15 de Novembro","Rua Mirabela","Tv.Mirabela","Tv. Jílio Magalhães"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -2968,6 +2974,8 @@ public class GraficoRuaBarraFragment extends Fragment {
     }
 
     private void belaVistaTodosAnos() {
+
+        ///XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","belaVista","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -2995,7 +3003,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void boaEsperançaTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Boa Esperança","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Rua Seis","Rua Treze de Maio","Rua Luís Tupiná","Rua Hermílio Tupiná ","Rua São Geraldo"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3018,7 +3026,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void boaVistaTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Boa Vista","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua F","Rua G","Rua H","Rua I","Rua J","Rua L"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3038,10 +3046,10 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     }
 
-
     private void brasilinaTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Brasilina","Rua 12"};
+
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinto","Rua Seis","Rua Sete","Rua Minas Gerais","Rua Pirapora","Rua São Luiz"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3057,13 +3065,12 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
         criarGraficos();
-
 
     }
 
     private void brejoDoAmparoTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Brejo do Amparo","Rua 12"};
+        String[] ruas  = new String[]{"Alameda do Riacho","Rua Bela Vista","Rua da Serra","Rua Flôres","Rua Padre Josino","Rua Padre Ramiro","Rua Tabatinga","Rua Taboca","Rua Trinta e Sete","Rua Trinta e Oito"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3090,6 +3097,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void caicTodosAnos() {
 
+
+        //XX  caic fica no Dom joão Batista
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Caic","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -3115,7 +3125,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void centroTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Centro","Rua 12"};
+        String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3140,7 +3150,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void ceramicaTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Cerâmica","Rua 12"};
+        String[] ruas  = new String[]{"Rua Aterro","Rua Brasília de Minas","Rua Itacarambi","Rua Itapiraçaba","Rua Manga","Rua Montes Claros","Rua Montalvânia","Rua Vazelândia","Rua Milton Campos", "Rua Milton Sá"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3166,7 +3176,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void eldoradoTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Eldorado","Rua 12"};
+        String[] ruas  = new String[]{"Av Seis","Rua A","Rua B","Rua C","Rua D","Rua E","Rua G","Rua J","Rua L","Rua M"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3190,6 +3200,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void fabiaoTodosAnos() {
 
+
+        //XXX zona ruaral
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Fabião","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -3212,7 +3225,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void franklinTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Franklin","Rua 12"};
+        String[] ruas  = new String[]{"Rua J. Antônio do vale Filho","Rua L","Rua Vinte e Três","Rua Vinte e Quatro","Rua Vinte e Cinco","Rua Vinte e Oito"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3236,7 +3249,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jadeteTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jadete","Rua 12"};
+        String[] ruas  = new String[]{"Av Cônego Ramiro Leite","Alameda Viana","Rua Inezita A Ferreira","Rua Isla H Azevedo","Rua Santo Antônio","Rua Viana","Rua vinte e Dois","Rua Ver João Alkimim","Tv Viana"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3259,6 +3272,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void januariaTodosAnos() {
+
+
+        //xxx
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Januária","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3284,7 +3300,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jardimDanielTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jardim Daniel","Rua 12"};
+
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Alagoas","Rua Bela Vista","Av Cônego Ramiro Leite","Rua Inezita A Ferreira","Rua Minas Gerais"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3308,7 +3325,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jardimEstelaTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jardim Estela","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua G","Rua H","Rua Barão de São Romão","Rua João Gasparino","Rua Vinte e Dois","Rua Vinte e Três"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3330,6 +3347,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void jatobaTodosAnos() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jatobá","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3354,6 +3373,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void joventinaMesquitaTodosAnos() {
 
+
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Joventina Mesquita","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -3377,7 +3399,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jussaraTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jussara","Rua 12"};
+
+
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Rua Seis","Rua Sete","Rua Oito","Rua Nove","Rua Dez"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3400,7 +3424,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void levianopolisTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Levianopolis","Rua 12"};
+        String[] ruas  = new String[]{"Rua Seis", "Rua Sete", "Rua Oito","Rua Nove","Rua Vinte", "Rua Anízio G Moreira ","Rua H Caciquinho","Praça Emilio de Matos","Rua J.A do vale Filho"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3421,6 +3445,9 @@ public class GraficoRuaBarraFragment extends Fragment {
     }
 
     private void mangueirasTodosAnos() {
+
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Mangueiras","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3444,6 +3471,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void margareteTodosAnos() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Margarete","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3469,6 +3498,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void moradeirasTodosAnos() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Moradeiras","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -3491,6 +3522,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void normaConsueloTodosAnos() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Norma Consuelo","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3516,6 +3549,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void novoMilenioTodosAnos() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Novo Milênio","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -3539,7 +3574,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void quintaMangabeirasTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Quinta Mangabeiras","Rua 12"};
+
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua D","Rua E","Rua do Bonde","Rua T.Bastos"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3562,7 +3598,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void riachoDaCruzTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Riacho da Cruz","Rua 12"};
+        String[] ruas  = new String[]{"Rua Murici","Rua Café Mineiro","Rua Antônio C.da Silva","Rua Manoel J.de Souza","Rua Oliveira Pôrto","Rua Tertuliano R.Pôrto","Tv J.F.Melo"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3584,7 +3620,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoJoaoTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São João","Rua 12"};
+        String[] ruas  = new String[]{"Av.Cel.Cassiano","Tv.Leão Treze","Rua Um","Rua Dois","Rua B.J Ferreira","Rua do Curtume","Rua Trinta de Maio","Rua J.Augusto","Rua Mal.Floriano Peixoto"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3607,7 +3643,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoJoaquimTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Joaquim","Rua 12"};
+
+
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Seis","Rua Oito","Rua Nove","Rua Dez","Rua Doze","Rua S.Inês}","Rua S.Maria"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3629,7 +3667,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoMiguelTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Miguel","Rua 12"};
+
+
+        String[] ruas  = new String[]{"Av.São Francisco","Rua Um", "Rua Dois","Rua Três", "Rua A", "Rua B","Rua D","Rua Pirapora","Rua Montavânia","Tv.Galiléia"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3652,7 +3692,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoVicenteTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Vicente","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua E.T.Bastos","Rua L.N.Neto","Rua Maria C.Carvalho","Rua Olibrio Lima","Rua T.Torres","Rua Sebastião F.Lima"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3674,6 +3714,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void sagradaFamiliaTodosAnos() {
+
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sagrada Família","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3697,6 +3740,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void santaCruzTodosAnos() {
+
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Cruz","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3722,6 +3768,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void santaIsabelTodosAnos() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Isabel","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -3745,6 +3793,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void sedeTodosAnos() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sede","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -3767,7 +3817,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void tejucoTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Tejuco","Rua 12"};
+
+
+        String[] ruas  = new String[]{"Rua Castelo Branco","Rua J.kubitschek","Rua Tancredo Neves","Rua Tejuco","Rua Tropical","Rua São João","Rua São José","Rua M.A.Carvalho"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3789,6 +3841,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void terceiroMilenioTodosAnos() {
+
+        // XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Terceiro Milênio","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3813,6 +3867,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void tropicalTodosAnos() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Tropical","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -3835,6 +3891,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void varzeaDosPocoesTodosAnos() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Várzea dos Pocões","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -3859,7 +3917,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaFatimaTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Fátima","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua F","Rua G.P.Rocha","Rua J.P.Carvalho","Rua Joaquim Fernandes","Rua J.Augusto"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3881,7 +3939,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void pandeirosTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Pandeiros","Rua 12"};
+        String[] ruas  = new String[]{"Rua J.B.Gobira","Rua M.Moreira"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3903,7 +3961,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaPaulaTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Paula","Rua 12"};
+        String[] ruas  = new String[]{"Av.São Fransisco","Tv.J.Nunes","Tv.J.Moura","Rua L.N.Neto","Rua A.J.Rocha","Rua.J.Moura","Rua J.Nunes","Rua S.F.Lima","Rua Srg.Monzart"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3925,7 +3983,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaVerdeTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Verde","Rua 12"};
+        String[] ruas  = new String[]{"Av.Mal.Deodoro da Fonseca","Rua A","Rua Aterro","Rua B","Rua D","Rua O","Rua R","Rua T","Rua U","Rua V"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3948,7 +4006,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaVianaTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Viana","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua Arthur L.Pimenta","Rua B","Rua D","Rua E","Rua F","Rua G","Rua R","Rua X"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -3970,11 +4028,11 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void zonaRuralTodosAnos() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Zona Rural","Rua 12"};
-        int[]    valores = new int   []{10,10,10,10};
+        String[] ruas  = new String[]{"Zona Rural"};
+        int[]    valores = new int   []{10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{5};
 
 
 
@@ -4004,11 +4062,12 @@ public class GraficoRuaBarraFragment extends Fragment {
     public void aeroporto2018(){
 
 
-        String[] bairros  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Aeroporto2018","Rua 12"};
+        String[] bairros  = new String[]{"Av Aeroporto","Av Seis","Rua Um ","Rua Dois","Rua Três","Rua Quatro","Rua Vinte e Três","Rua XI"};
         int[]    rob = new int   []{12,12,10,12};
         int []   cor   = new int   []{Color.DKGRAY,Color.RED};
         String[] leg  = new String[]{"Furto","Roubo"};
         int[]    furt = new int   []{5,10,6,10};
+
 
 
         nomes   = bairros;
@@ -4024,6 +4083,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     public void alameida2018(){
+        //XX
 
         String[] alameda = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alameda2018", "Rua 12"};
         int[] robAlameda = new int[]{10, 10, 10, 10};
@@ -4048,6 +4108,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void altoCemitério2018(){
 
+        //XX
+
         String[] altoCemitério = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério2018", "Rua 12"};
         int[] robAltoCemitério = new int[]{10, 10, 10, 10};
         int[] corAltoCemitério = new int[]{Color.DKGRAY, Color.RED};
@@ -4069,7 +4131,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void altoPocoes2018(){
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Alto dos Pocões2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Av Um","Av Dois", "Av Três", "Av Quatro", "Av Cinco"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4092,7 +4154,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void alvorada2018(){
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Alvorada2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua do Aterro","Rua Um ","Rua A","Rua E","Rua J","Rua K","Rua L","Rua M","Rua N","Rua O"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4115,7 +4177,7 @@ public class GraficoRuaBarraFragment extends Fragment {
     public void bandeirantes2018(){
 
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Bandeirante2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Dez","Rua Brasília de Minas","Rua 15 de Novembro","Rua Mirabela","Tv.Mirabela","Tv. Jílio Magalhães"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4135,6 +4197,8 @@ public class GraficoRuaBarraFragment extends Fragment {
     }
 
     private void belaVista2018() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","belaVista2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4162,7 +4226,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void boaEsperança2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Boa Esperança2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Rua Seis","Rua Treze de Maio","Rua Luís Tupiná","Rua Hermílio Tupiná ","Rua São Geraldo"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4185,7 +4249,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void boaVista2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Boa Vista2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua F","Rua G","Rua H","Rua I","Rua J","Rua L"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4208,7 +4272,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void brasilina2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Brasilina2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinto","Rua Seis","Rua Sete","Rua Minas Gerais","Rua Pirapora","Rua São Luiz"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4230,7 +4294,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void brejoDoAmparo2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Brejo do Amparo2018","Rua 12"};
+        String[] ruas  = new String[]{"Alameda do Riacho","Rua Bela Vista","Rua da Serra","Rua Flôres","Rua Padre Josino","Rua Padre Ramiro","Rua Tabatinga","Rua Taboca","Rua Trinta e Sete","Rua Trinta e Oito"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4257,6 +4321,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void caic2018() {
 
+        //XX  caic fica no Dom joão Batista
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Caic2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -4282,7 +4348,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void centro2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Centro2018","Rua 12"};
+        String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4307,7 +4373,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void ceramica2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Cerâmica2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Aterro","Rua Brasília de Minas","Rua Itacarambi","Rua Itapiraçaba","Rua Manga","Rua Montes Claros","Rua Montalvânia","Rua Vazelândia","Rua Milton Campos", "Rua Milton Sá"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4333,7 +4399,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void eldorado2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Eldorado2018","Rua 12"};
+        String[] ruas  = new String[]{"Av Seis","Rua A","Rua B","Rua C","Rua D","Rua E","Rua G","Rua J","Rua L","Rua M"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4357,6 +4423,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void fabiao2018() {
 
+
+        //XXX zona ruaral
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Fabião2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -4379,7 +4448,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void franklin2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Franklin2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua J. Antônio do vale Filho","Rua L","Rua Vinte e Três","Rua Vinte e Quatro","Rua Vinte e Cinco","Rua Vinte e Oito"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4403,7 +4472,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jadete2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jadete2018","Rua 12"};
+        String[] ruas  = new String[]{"Av Cônego Ramiro Leite","Alameda Viana","Rua Inezita A Ferreira","Rua Isla H Azevedo","Rua Santo Antônio","Rua Viana","Rua vinte e Dois","Rua Ver João Alkimim","Tv Viana"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4426,6 +4495,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void januaria2018() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Januária2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4451,7 +4522,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jardimDaniel2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jardim Daniel2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Alagoas","Rua Bela Vista","Av Cônego Ramiro Leite","Rua Inezita A Ferreira","Rua Minas Gerais"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4475,7 +4546,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jardimEstela2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jardim Estela2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua G","Rua H","Rua Barão de São Romão","Rua João Gasparino","Rua Vinte e Dois","Rua Vinte e Três"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4497,6 +4568,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void jatoba2018() {
+
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jatobá2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4521,6 +4595,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void joventinaMesquita2018() {
 
+        ///XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Joventina Mesquita2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -4544,7 +4620,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jussara2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jussara2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Rua Seis","Rua Sete","Rua Oito","Rua Nove","Rua Dez"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4567,7 +4643,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void levianopolis2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Levianopolis2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Seis", "Rua Sete", "Rua Oito","Rua Nove","Rua Vinte", "Rua Anízio G Moreira ","Rua H Caciquinho","Praça Emilio de Matos","Rua J.A do vale Filho"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4588,6 +4665,8 @@ public class GraficoRuaBarraFragment extends Fragment {
     }
 
     private void mangueiras2018() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Mangueiras2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4611,6 +4690,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void margarete2018() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Margarete2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4636,6 +4717,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void moradeiras2018() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Moradeiras2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -4658,6 +4741,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void normaConsuelo2018() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Norma Consuelo2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4683,6 +4768,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void novoMilenio2018() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Novo Milênio2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -4706,7 +4793,10 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void quintaMangabeiras2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Quinta Mangabeiras2018","Rua 12"};
+
+
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua D","Rua E","Rua do Bonde","Rua T.Bastos"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4729,7 +4819,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void riachoDaCruz2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Riacho da Cruz2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Murici","Rua Café Mineiro","Rua Antônio C.da Silva","Rua Manoel J.de Souza","Rua Oliveira Pôrto","Rua Tertuliano R.Pôrto","Tv J.F.Melo"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4751,7 +4841,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoJoao2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São João2018","Rua 12"};
+        String[] ruas  = new String[]{"Av.Cel.Cassiano","Tv.Leão Treze","Rua Um","Rua Dois","Rua B.J Ferreira","Rua do Curtume","Rua Trinta de Maio","Rua J.Augusto","Rua Mal.Floriano Peixoto"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4774,7 +4864,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoJoaquim2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Joaquim2018","Rua 12"};
+
+
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Seis","Rua Oito","Rua Nove","Rua Dez","Rua Doze","Rua S.Inês}","Rua S.Maria"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4796,7 +4888,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoMiguel2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Miguel2018","Rua 12"};
+        String[] ruas  = new String[]{"Av.São Francisco","Rua Um", "Rua Dois","Rua Três", "Rua A", "Rua B","Rua D","Rua Pirapora","Rua Montavânia","Tv.Galiléia"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4819,7 +4911,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoVicente2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Vicente2018","Rua 12"};
+
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua E.T.Bastos","Rua L.N.Neto","Rua Maria C.Carvalho","Rua Olibrio Lima","Rua T.Torres","Rua Sebastião F.Lima"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4865,6 +4958,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void santaCruz2018() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Cruz2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -4888,6 +4983,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void santaIsabel2018() {
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Isabel2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4911,6 +5007,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void sede2018() {
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sede2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4934,7 +5031,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void tejuco2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Tejuco2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua Castelo Branco","Rua J.kubitschek","Rua Tancredo Neves","Rua Tejuco","Rua Tropical","Rua São João","Rua São José","Rua M.A.Carvalho"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -4956,6 +5054,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void terceiroMilenio2018() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Terceiro Milênio2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -4980,6 +5080,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void tropical2018() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Tropical2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -5002,6 +5104,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void varzeaDosPocoes2018() {
+
+        ///xx
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Várzea dos Pocões2018","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -5026,7 +5130,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaFatima2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Fátima2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua F","Rua G.P.Rocha","Rua J.P.Carvalho","Rua Joaquim Fernandes","Rua J.Augusto"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5048,7 +5153,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void pandeiros2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Pandeiros2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua J.B.Gobira","Rua M.Moreira"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5070,7 +5176,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaPaula2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Paula2018","Rua 12"};
+        String[] ruas  = new String[]{"Av.São Fransisco","Tv.J.Nunes","Tv.J.Moura","Rua L.N.Neto","Rua A.J.Rocha","Rua.J.Moura","Rua J.Nunes","Rua S.F.Lima","Rua Srg.Monzart"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5092,7 +5198,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaVerde2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Verde2018","Rua 12"};
+        String[] ruas  = new String[]{"Av.Mal.Deodoro da Fonseca","Rua A","Rua Aterro","Rua B","Rua D","Rua O","Rua R","Rua T","Rua U","Rua V"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5115,7 +5222,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaViana2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Viana2018","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua Arthur L.Pimenta","Rua B","Rua D","Rua E","Rua F","Rua G","Rua R","Rua X"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5137,7 +5245,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void zonaRural2018() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Zona Rural2018","Rua 12"};
+        String[] ruas  = new String[]{"Zona Rural"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5171,7 +5280,7 @@ public class GraficoRuaBarraFragment extends Fragment {
     public void aeroporto2019(){
 
 
-        String[] bairros  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Aeroporto2019","Rua 12"};
+        String[] bairros  = new String[]{"Av Aeroporto","Av Seis","Rua Um ","Rua Dois","Rua Três","Rua Quatro","Rua Vinte e Três","Rua XI"};
         int[]    rob = new int   []{12,12,10,12};
         int []   cor   = new int   []{Color.DKGRAY,Color.RED};
         String[] leg  = new String[]{"Furto","Roubo"};
@@ -5191,7 +5300,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     public void alameida2019(){
-
+ //xxx
         String[] alameda = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alameda2019", "Rua 12"};
         int[] robAlameda = new int[]{10, 10, 10, 10};
         int[] corAlameda = new int[]{Color.DKGRAY, Color.RED};
@@ -5215,6 +5324,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void altoCemitério2019(){
 
+
+        //xxx
+
         String[] altoCemitério = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério2019", "Rua 12"};
         int[] robAltoCemitério = new int[]{10, 10, 10, 10};
         int[] corAltoCemitério = new int[]{Color.DKGRAY, Color.RED};
@@ -5236,7 +5348,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void altoPocoes2019(){
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Alto dos Pocões2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Av Um","Av Dois", "Av Três", "Av Quatro", "Av Cinco"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5259,7 +5372,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     public void alvorada2019(){
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Alvorada2019","Rua 12"};
+
+        String[] ruas  = new String[]{"Rua do Aterro","Rua Um ","Rua A","Rua E","Rua J","Rua K","Rua L","Rua M","Rua N","Rua O"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5282,7 +5396,8 @@ public class GraficoRuaBarraFragment extends Fragment {
     public void bandeirantes2019(){
 
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Bandeirante2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Dez","Rua Brasília de Minas","Rua 15 de Novembro","Rua Mirabela","Tv.Mirabela","Tv. Jílio Magalhães"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5302,6 +5417,8 @@ public class GraficoRuaBarraFragment extends Fragment {
     }
 
     private void belaVista2019() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","belaVista2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -5329,7 +5446,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void boaEsperança2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Boa Esperança2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Rua Seis","Rua Treze de Maio","Rua Luís Tupiná","Rua Hermílio Tupiná ","Rua São Geraldo"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5352,7 +5470,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void boaVista2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Boa Vista2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua F","Rua G","Rua H","Rua I","Rua J","Rua L"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5375,7 +5494,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void brasilina2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Brasilina2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinto","Rua Seis","Rua Sete","Rua Minas Gerais","Rua Pirapora","Rua São Luiz"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5397,7 +5517,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void brejoDoAmparo2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Brejo do Amparo2019","Rua 12"};
+        String[] ruas  = new String[]{"Alameda do Riacho","Rua Bela Vista","Rua da Serra","Rua Flôres","Rua Padre Josino","Rua Padre Ramiro","Rua Tabatinga","Rua Taboca","Rua Trinta e Sete","Rua Trinta e Oito"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5424,6 +5545,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void caic2019() {
 
+        //XX  caic fica no Dom joão Batista
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Caic2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -5449,7 +5572,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void centro2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Centro2019","Rua 12"};
+        String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5474,7 +5598,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void ceramica2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Cerâmica2019","Rua 12"};
+
+        String[] ruas  = new String[]{"Rua Aterro","Rua Brasília de Minas","Rua Itacarambi","Rua Itapiraçaba","Rua Manga","Rua Montes Claros","Rua Montalvânia","Rua Vazelândia","Rua Milton Campos", "Rua Milton Sá"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5500,7 +5626,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void eldorado2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Eldorado2019","Rua 12"};
+
+        String[] ruas  = new String[]{"Av Seis","Rua A","Rua B","Rua C","Rua D","Rua E","Rua G","Rua J","Rua L","Rua M"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5524,6 +5652,10 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void fabiao2019() {
 
+
+        //XXX zona ruaral
+
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Fabião2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -5546,7 +5678,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void franklin2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Franklin2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua J. Antônio do vale Filho","Rua L","Rua Vinte e Três","Rua Vinte e Quatro","Rua Vinte e Cinco","Rua Vinte e Oito"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5570,7 +5703,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jadete2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jadete2019","Rua 12"};
+        String[] ruas  = new String[]{"Av Cônego Ramiro Leite","Alameda Viana","Rua Inezita A Ferreira","Rua Isla H Azevedo","Rua Santo Antônio","Rua Viana","Rua vinte e Dois","Rua Ver João Alkimim","Tv Viana"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5593,6 +5727,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void januaria2019() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Januária2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -5618,7 +5754,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jardimDaniel2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jardim Daniel2019","Rua 12"};
+
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Alagoas","Rua Bela Vista","Av Cônego Ramiro Leite","Rua Inezita A Ferreira","Rua Minas Gerais"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5642,7 +5780,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jardimEstela2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jardim Estela2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua G","Rua H","Rua Barão de São Romão","Rua João Gasparino","Rua Vinte e Dois","Rua Vinte e Três"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5664,6 +5803,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void jatoba2019() {
+
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jatobá2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -5688,6 +5829,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void joventinaMesquita2019() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Joventina Mesquita2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -5711,7 +5854,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void jussara2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jussara2019","Rua 12"};
+
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Quatro","Rua Cinco","Rua Seis","Rua Sete","Rua Oito","Rua Nove","Rua Dez"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5734,7 +5879,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void levianopolis2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Levianopolis2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua Seis", "Rua Sete", "Rua Oito","Rua Nove","Rua Vinte", "Rua Anízio G Moreira ","Rua H Caciquinho","Praça Emilio de Matos","Rua J.A do vale Filho"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5755,6 +5901,8 @@ public class GraficoRuaBarraFragment extends Fragment {
     }
 
     private void mangueiras2019() {
+
+        //xx
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Mangueiras2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -5779,6 +5927,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void margarete2019() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Margarete2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -5802,6 +5952,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void moradeiras2019() {
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Moradeiras2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -5825,6 +5976,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void normaConsuelo2019() {
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Norma Consuelo2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -5850,6 +6002,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void novoMilenio2019() {
 
+        //xx
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Novo Milênio2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -5873,7 +6027,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void quintaMangabeiras2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Quinta Mangabeiras2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua D","Rua E","Rua do Bonde","Rua T.Bastos"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5896,7 +6051,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void riachoDaCruz2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Riacho da Cruz2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua Murici","Rua Café Mineiro","Rua Antônio C.da Silva","Rua Manoel J.de Souza","Rua Oliveira Pôrto","Rua Tertuliano R.Pôrto","Tv J.F.Melo"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5918,7 +6074,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoJoao2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São João2019","Rua 12"};
+
+        String[] ruas  = new String[]{"Av.Cel.Cassiano","Tv.Leão Treze","Rua Um","Rua Dois","Rua B.J Ferreira","Rua do Curtume","Rua Trinta de Maio","Rua J.Augusto","Rua Mal.Floriano Peixoto"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5941,7 +6098,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoJoaquim2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Joaquim2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua Um","Rua Dois","Rua Três","Rua Seis","Rua Oito","Rua Nove","Rua Dez","Rua Doze","Rua S.Inês}","Rua S.Maria"};
+
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5963,7 +6122,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoMiguel2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Miguel2019","Rua 12"};
+        String[] ruas  = new String[]{"Av.São Francisco","Rua Um", "Rua Dois","Rua Três", "Rua A", "Rua B","Rua D","Rua Pirapora","Rua Montavânia","Tv.Galiléia"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -5986,7 +6146,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoVicente2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","São Vicente2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua E.T.Bastos","Rua L.N.Neto","Rua Maria C.Carvalho","Rua Olibrio Lima","Rua T.Torres","Rua Sebastião F.Lima"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -6008,6 +6169,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void sagradaFamilia2019() {
+
+        //xx
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sagrada Família2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -6031,6 +6194,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void santaCruz2019() {
+        //xx
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Cruz2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -6055,6 +6219,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void santaIsabel2019() {
+        //xx   O google não mostra ruas nesse bairro
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Isabel2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -6078,6 +6243,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void sede2019() {
+        ///XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sede2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -6101,7 +6267,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void tejuco2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Tejuco2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua Castelo Branco","Rua J.kubitschek","Rua Tancredo Neves","Rua Tejuco","Rua Tropical","Rua São João","Rua São José","Rua M.A.Carvalho"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -6123,6 +6290,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void terceiroMilenio2019() {
+
+        //xx
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Terceiro Milênio2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -6147,6 +6316,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void tropical2019() {
 
+        //XX
+
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Tropical2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
@@ -6169,6 +6340,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     private void varzeaDosPocoes2019() {
+        //XX
 
         String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Várzea dos Pocões2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
@@ -6193,7 +6365,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaFatima2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Fátima2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua B","Rua C","Rua D","Rua E","Rua F","Rua G.P.Rocha","Rua J.P.Carvalho","Rua Joaquim Fernandes","Rua J.Augusto"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -6215,7 +6388,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void pandeiros2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Pandeiros2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua J.B.Gobira","Rua M.Moreira"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -6237,7 +6411,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaPaula2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Paula2019","Rua 12"};
+        String[] ruas  = new String[]{"Av.São Fransisco","Tv.J.Nunes","Tv.J.Moura","Rua L.N.Neto","Rua A.J.Rocha","Rua.J.Moura","Rua J.Nunes","Rua S.F.Lima","Rua Srg.Monzart"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -6259,7 +6434,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaVerde2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Verde2019","Rua 12"};
+        String[] ruas  = new String[]{"Av.Mal.Deodoro da Fonseca","Rua A","Rua Aterro","Rua B","Rua D","Rua O","Rua R","Rua T","Rua U","Rua V"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -6282,7 +6458,8 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void vilaViana2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Vila Viana2019","Rua 12"};
+        String[] ruas  = new String[]{"Rua A","Rua Arthur L.Pimenta","Rua B","Rua D","Rua E","Rua F","Rua G","Rua R","Rua X"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};
@@ -6304,7 +6481,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void zonaRural2019() {
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Zona Rural2019","Rua 12"};
+
+        String[] ruas  = new String[]{"Zona Rural"};
+
         int[]    valores = new int   []{10,10,10,10};
         int []   coresRuas   = new int   []{Color.DKGRAY,Color.RED};
         String[] legendaGrafico  = new String[]{"Furto","Roubo"};

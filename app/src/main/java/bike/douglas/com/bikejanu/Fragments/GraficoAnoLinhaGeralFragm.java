@@ -41,8 +41,8 @@ public class GraficoAnoLinhaGeralFragm extends Fragment {
 
 
     int  ano ;
-    int contandoBikesAnoFurtosRoubos2018=0;
-    int contandoBikesFurtosRoubosAno2019=-1;
+    int contandoBikesAnoFurtosRoubos2018 = 0;
+    int contandoBikesFurtosRoubosAno2019 = 0;
 
 
 
@@ -136,7 +136,7 @@ public class GraficoAnoLinhaGeralFragm extends Fragment {
 
                     String anoDeBusca = b.getAlertaDate();
                     //	String procurarPor = "2018";
-                    if (anoDeBusca.contains("2018") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (anoDeBusca.contains("2018") && ( b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada"))){
 
                         contandoBikesAnoFurtosRoubos2018++;
 
@@ -144,7 +144,7 @@ public class GraficoAnoLinhaGeralFragm extends Fragment {
                     }
 
 
-                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada")){
+                    if (anoDeBusca.contains("2019") && ( b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada"))){
 
                         contandoBikesFurtosRoubosAno2019++;
 
