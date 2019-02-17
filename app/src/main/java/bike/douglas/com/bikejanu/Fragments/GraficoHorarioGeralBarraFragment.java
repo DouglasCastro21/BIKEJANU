@@ -43,7 +43,7 @@ import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
-
+// mostra roubos e furtos em um só grafico
 public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 

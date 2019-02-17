@@ -400,11 +400,6 @@ public class GraficoBairroBarraGeralFragment extends Fragment {
                     }
 
 
-
-
-
-
-
                 }
 
 

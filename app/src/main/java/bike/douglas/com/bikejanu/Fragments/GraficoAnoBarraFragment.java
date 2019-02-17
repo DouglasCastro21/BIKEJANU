@@ -417,7 +417,6 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
-
         nomes    = bairros;
         roubos   = rob;
         cores = cor;

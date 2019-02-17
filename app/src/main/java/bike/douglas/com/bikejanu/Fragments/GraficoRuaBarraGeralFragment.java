@@ -38,7 +38,7 @@ import java.util.List;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
-
+// mostra roubos e furtos em um só grafico
 
 public class GraficoRuaBarraGeralFragment extends Fragment {
 
