@@ -751,6 +751,8 @@ public class GraficoBairroBarraFragment extends Fragment {
         barChart.setActivated(true);
 
 
+        barChart.zoom(3,0,3,0);
+
 
         ArrayList<BarEntry> yVals1 = new ArrayList<>();
         for (int i=0;i<roubos.length;i++){

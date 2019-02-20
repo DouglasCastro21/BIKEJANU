@@ -518,7 +518,7 @@ public class GraficoBairroBarraGeralFragment extends Fragment {
         barChart.setActivated(true);
 
 
-
+        barChart.zoom(3,0,2,0);
 
 
 

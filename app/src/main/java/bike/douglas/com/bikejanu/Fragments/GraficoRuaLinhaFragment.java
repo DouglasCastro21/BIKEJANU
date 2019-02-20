@@ -398,6 +398,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+
         ArrayList<Entry> yVals1 = new ArrayList<>();
         for (int i=0;i<roubos.length;i++){
             yVals1.add(new Entry(i,roubos[i]));
@@ -440,7 +441,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         lineChart.setData(data);
 
-
+        lineChart.zoom(2,0,2,0);
 
          axisX(lineChart.getXAxis());
 

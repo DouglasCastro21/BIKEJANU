@@ -266,6 +266,8 @@ public class GraficoAnoLinhaGeralFragm extends Fragment {
 
 
 
+
+
         ArrayList<Entry> yVals1 = new ArrayList<>();
         for (int i=0;i<roubos.length;i++){
             yVals1.add(new Entry(i,roubos[i]));

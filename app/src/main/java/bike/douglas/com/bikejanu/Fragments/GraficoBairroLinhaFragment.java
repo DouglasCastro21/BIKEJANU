@@ -741,7 +741,7 @@ public class GraficoBairroLinhaFragment extends Fragment {
         lineChart.setActivated(true);
 
 
-
+        lineChart.zoom(2,0,2,0);
 
         ArrayList<Entry> yVals1 = new ArrayList<>();
         for (int i=0;i<roubos.length;i++){

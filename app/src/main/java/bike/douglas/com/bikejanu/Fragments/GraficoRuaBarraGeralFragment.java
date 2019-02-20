@@ -350,8 +350,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-
-
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
         for(int i=0;i<legenda.length;i++){
@@ -393,11 +391,10 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
         barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
         barChart.setDrawGridBackground(true);
-
         barChart.setActivated(true);
 
 
-
+        barChart.zoom(2,0,2,0);
 
 
         ArrayList<BarEntry> yVals1 = new ArrayList<>();
@@ -423,21 +420,15 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
         BarData data = new BarData(set1);
-
         barChart.setData(data);
 
 
 
         axisX(barChart.getXAxis());
-
-
         barChart.getLegend().setEnabled(true);
-
         data.setBarWidth(0.45f);
 
-
-
-        barChart.invalidate();
+       // barChart.invalidate();
 
 
     }

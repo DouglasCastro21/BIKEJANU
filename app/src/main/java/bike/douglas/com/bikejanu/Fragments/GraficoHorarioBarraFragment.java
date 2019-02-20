@@ -386,11 +386,6 @@ public class GraficoHorarioBarraFragment extends Fragment {
         axis.setValueFormatter(new IndexAxisValueFormatter(nomes));
 
 
-
-
-
-
-
     }
 
 

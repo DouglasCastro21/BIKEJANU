@@ -213,7 +213,6 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
         ArrayList<BarEntry> entries = new ArrayList<>();
 
-
         for(int i=0;i <valores.length;i++)
             entries.add(new BarEntry(i,valores[i]));
         return entries;

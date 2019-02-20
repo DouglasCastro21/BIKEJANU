@@ -325,6 +325,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
 
 
+
          barChart.setActivated(true);
 
 

@@ -513,7 +513,7 @@ public class GraficoBairroLinhaGeralFragment extends Fragment {
 
         lineChart.setActivated(true);
 
-
+        lineChart.zoom(2,0,2,0);
 
 
         ArrayList<Entry> yVals1 = new ArrayList<>();
