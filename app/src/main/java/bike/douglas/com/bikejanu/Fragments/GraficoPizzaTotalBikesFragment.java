@@ -83,7 +83,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
                      String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
                      int[]    valor = new int   []{1000,700,300,500};
-                     int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+                     int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
 
@@ -100,7 +100,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
                     String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
                     int[]    valor = new int   []{600,200,400,300};
-                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
 
@@ -118,7 +118,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
                     String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
                     int[]    valor = new int   []{400,150,250,200};
-                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
 
@@ -129,24 +129,6 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
                     criarGraficos();
-
-                }else if(position==3){
-
-                    String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-                    int[]    valor = new int   []{300,200,100,150};
-                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
-
-
-
-
-                    nomes   = titulos;
-                    valores =  valor;
-                    cores   =  cor;
-
-
-                    criarGraficos();
-
-
 
                 }
 
@@ -269,7 +251,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
     private BarData getBarDate(){
         BarDataSet barDataSet = (BarDataSet)getDate(new BarDataSet(getBarEntries(),""));
 
-        barDataSet.setBarShadowColor(Color.GRAY);
+        barDataSet.setBarShadowColor(Color.YELLOW);
 
         BarData barData = new BarData(barDataSet);
         barData.setBarWidth(0.45f);

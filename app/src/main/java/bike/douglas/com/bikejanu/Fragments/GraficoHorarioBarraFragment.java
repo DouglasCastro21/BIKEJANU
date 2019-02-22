@@ -65,11 +65,14 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private BarChart barChart;
 
-    private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
-    private   int[]    roubos  = new int   []{10,15,12,34,};
-    private  int []   cores   = new int   []{Color.DKGRAY,Color.RED};
-    private String[] legenda  = new String[]{"Furto","Roubo"};
-    private int[]    furtos = new int   []{5,10,6,10};
+    private String[]  nomes   = new String[]{};
+    private   int[]   roubos  = new int   []{};
+    private  int []   cores   = new int   []{};
+    private String[]  legenda  = new String[]{};
+    private int[]     furtos = new int   []{};
+
+    int []   cor   = new int   []{Color.YELLOW,Color.RED};  // ALTERAR a cor da legenda aq
+
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -122,9 +125,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
                     String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+
                     String[] leg  = new String[]{"Furto","Roubo"};
                     int[]    furt = new int   []{5,10,6,10};
+
+
 
                     nomes   = turnos;
                     roubos =  rouboss;
@@ -141,7 +146,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
                     String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+
                     String[] leg  = new String[]{"Furto","Roubo"};
                     int[]    furt = new int   []{5,10,6,10};
 
@@ -161,7 +166,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
                     String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+
                     String[] leg  = new String[]{"Furto","Roubo"};
                     int[]    furt = new int   []{5,10,6,10};
 
@@ -432,7 +437,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         set2= new BarDataSet(yVals2, "Furto");
 
-        set2.setColor(Color.DKGRAY);
+        set2.setColor(Color.YELLOW);
         set2.setValueTextSize(15);
         set2.setValueTextColor(Color.BLUE);
 

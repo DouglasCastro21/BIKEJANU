@@ -60,6 +60,10 @@ public class GraficoRuaBarraFragment extends Fragment {
     // variaveis do bairro Aeroporto ,ruas   todos os anos   /// alimentar aq os anos de 2018
 
 
+
+
+
+
     int contandoAvAeroportoAeroportoRouboTodosAnos =0;
     int contandoAvSeisAeroportoRouboTodosAnos =0;
     int contandoRuaRUmAeroportoRouboTodosAnos=0;
@@ -1037,6 +1041,353 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
+    int contandoRuaSaoFranciscoSaoMiguelFurtoTodosAnos=0;
+    int contandoRuaUmSaoMiguelFurtoTodosAnos=0;
+    int contandoRuaDoisSaoMiguelFurtoTodosAnos=0;
+    int contandoRuaTresSaoMiguelFurtoTodosAnos=0;
+    int contandoRuaASaoMiguelFurtoTodosAnos=0;
+    int contandoRuaBSaoMiguelFurtoTodosAnos=0;
+    int contandoRuaDSaoMiguelFurtoTodosAnos=0;
+    int contandoRuaPiraporaSaoMiguelFurtoTodosAnos=0;
+    int contandoRuaMontalvaniaSaoMiguelFurtoTodosAnos=0;
+    int contandoTvGalileiaSaoMiguelFurtoTodosAnos=0;
+
+
+
+    int contandoRuaSaoFranciscoSaoMiguelRouboTodosAnos=0;
+    int contandoRuaUmSaoMiguelRouboTodosAnos=0;
+    int contandoRuaDoisSaoMiguelRouboTodosAnos=0;
+    int contandoRuaTresSaoMiguelRouboTodosAnos=0;
+    int contandoRuaASaoMiguelRouboTodosAnos=0;
+    int contandoRuaBSaoMiguelRouboTodosAnos=0;
+    int contandoRuaDSaoMiguelRouboTodosAnos=0;
+    int contandoRuaPiraporaSaoMiguelRouboTodosAnos=0;
+    int contandoRuaMontalvaniaSaoMiguelRouboTodosAnos=0;
+    int contandoTvGalileiaSaoMiguelRouboTodosAnos=0;
+
+
+    int contandoRuaSaoFranciscoSaoMiguelFurto2019=0;
+    int contandoRuaUmSaoMiguelFurto2019=0;
+    int contandoRuaDoisSaoMiguelFurto2019=0;
+    int contandoRuaTresSaoMiguelFurto2019=0;
+    int contandoRuaASaoMiguelFurto2019=0;
+    int contandoRuaBSaoMiguelFurto2019=0;
+    int contandoRuaDSaoMiguelFurto2019=0;
+    int contandoRuaPiraporaSaoMiguelFurto2019=0;
+    int contandoRuaMontalvaniaSaoMiguelFurto2019=0;
+    int contandoTvGalileiaSaoMiguelFurto2019=0;
+
+    int contandoRuaSaoFranciscoSaoMiguelRoubo2019=0;
+    int contandoRuaUmSaoMiguelRoubo2019=0;
+    int contandoRuaDoisSaoMiguelRoubo2019=0;
+    int contandoRuaTresSaoMiguelRoubo2019=0;
+    int contandoRuaASaoMiguelRoubo2019=0;
+    int contandoRuaBSaoMiguelRoubo2019=0;
+    int contandoRuaDSaoMiguelRoubo2019=0;
+    int contandoRuaPiraporaSaoMiguelRoubo2019=0;
+    int contandoRuaMontalvaniaSaoMiguelRoubo2019=0;
+    int contandoTvGalileiaSaoMiguelRoubo2019=0;
+
+
+    int contandoRuaASaoVicenteFurtoTodosAnos=0;
+    int contandoRuaBSaoVicenteFurtoTodosAnos=0;
+    int contandoRuaDSaoVicenteFurtoTodosAnos=0;
+    int contandoRuaESaoVicenteFurtoTodosAnos=0;
+    int contandoRuaTutaBastosSaoVicenteFurtoTodosAnos=0;
+    int contandoRuaLeonelNogueiraNetoSaoVicenteFurtoTodosAnos=0;
+    int contandoRuaMariaCarneiroCarvalhoSaoVicenteFurtoTodosAnos=0;
+    int contandoRuaOlibrioLimaSaoVicenteFurtoTodosAnos=0;
+    int contandoRuaTerencioTorresSaoVicenteFurtoTodosAnos=0;
+    int contandoRuaSebastiaoFerreiraLimaSaoVicenteFurtoTodosAnos=0;
+
+
+    int contandoRuaASaoVicenteRouboTodosAnos=0;
+    int contandoRuaBSaoVicenteRouboTodosAnos=0;
+    int contandoRuaDSaoVicenteRouboTodosAnos=0;
+    int contandoRuaESaoVicenteRouboTodosAnos=0;
+    int contandoRuaTutaBastosSaoVicenteRouboTodosAnos=0;
+    int contandoRuaLeonelNogueiraNetoSaoVicenteRouboTodosAnos=0;
+    int contandoRuaMariaCarneiroCarvalhoSaoVicenteRouboTodosAnos=0;
+    int contandoRuaOlibrioLimaSaoVicenteRouboTodosAnos=0;
+    int contandoRuaTerencioTorresSaoVicenteRouboTodosAnos=0;
+    int contandoRuaSebastiaoFerreiraLimaSaoVicenteRouboTodosAnos=0;
+
+
+
+    int contandoRuaASaoVicenteFurto2019=0;
+    int contandoRuaBSaoVicenteFurto2019=0;
+    int contandoRuaDSaoVicenteFurto2019=0;
+    int contandoRuaESaoVicenteFurto2019=0;
+    int contandoRuaTutaBastosSaoVicenteFurto2019=0;
+    int contandoRuaLeonelNogueiraNetoSaoVicenteFurto2019=0;
+    int contandoRuaMariaCarneiroCarvalhoSaoVicenteFurto2019=0;
+    int contandoRuaOlibrioLimaSaoVicenteFurto2019=0;
+    int contandoRuaTerencioTorresSaoVicenteFurto2019=0;
+    int contandoRuaSebastiaoFerreiraLimaSaoVicenteFurto2019=0;
+
+
+    int contandoRuaASaoVicenteRoubo2019=0;
+    int contandoRuaBSaoVicenteRoubo2019=0;
+    int contandoRuaDSaoVicenteRoubo2019=0;
+    int contandoRuaESaoVicenteRoubo2019=0;
+    int contandoRuaTutaBastosSaoVicenteRoubo2019=0;
+    int contandoRuaLeonelNogueiraNetoSaoVicenteRoubo2019=0;
+    int contandoRuaMariaCarneiroCarvalhoSaoVicenteRoubo2019=0;
+    int contandoRuaOlibrioLimaSaoVicenteRoubo2019=0;
+    int contandoRuaTerencioTorresSaoVicenteRoubo2019=0;
+    int contandoRuaSebastiaoFerreiraLimaSaoVicenteRoubo2019=0;
+
+
+
+    int contandoRuaCasteloBrancoTejucoFurtoTodosAnos=0;
+    int contandoRuaJucelinoKubitscheckTejucoFurtoTodosAnos=0;
+    int contandoRuaTancredoNevesTejucoFurtoTodosAnos=0;
+    int contandoRuaTejucoTejucoFurtoTodosAnos=0;
+    int contandoRuaTropicalTejucoVicenteFurtoTodosAnos=0;
+    int contandoRuaSaoJoaoTejucoFurtoTodosAnos=0;
+    int contandoRuaSaoJoseTejucoFurtoTodosAnos =0;
+    int contandoRuaManoelAlexandrinodeCarvalhoTejucoFurtoTodosAnos=0;
+
+
+    int contandoRuaCasteloBrancoTejucoRouboTodosAnos=0;
+    int contandoRuaJucelinoKubitscheckTejucoRouboTodosAnos=0;
+    int contandoRuaTancredoNevesTejucoRouboTodosAnos=0;
+    int contandoRuaTejucoTejucoRouboTodosAnos=0;
+    int contandoRuaTropicalTejucoVicenteRouboTodosAnos=0;
+    int contandoRuaSaoJoaoTejucoRouboTodosAnos=0;
+    int contandoRuaSaoJoseTejucoRouboTodosAnos =0;
+    int contandoRuaManoelAlexandrinodeCarvalhoTejucoRouboTodosAnos=0;
+
+
+
+
+    int contandoRuaCasteloBrancoTejucoFurto2019=0;
+    int contandoRuaJucelinoKubitscheckTejucoFurto2019=0;
+    int contandoRuaTancredoNevesTejucoFurto2019=0;
+    int contandoRuaTejucoTejucoFurto2019=0;
+    int contandoRuaTropicalTejucoVicenteFurto2019=0;
+    int contandoRuaSaoJoaoTejucoFurto2019=0;
+    int contandoRuaSaoJoseTejucoFurto2019 =0;
+    int contandoRuaManoelAlexandrinodeCarvalhoTejucoFurto2019=0;
+
+
+    int contandoRuaCasteloBrancoTejucoRoubo2019=0;
+    int contandoRuaJucelinoKubitscheckTejucoRoubo2019=0;
+    int contandoRuaTancredoNevesTejucoRoubo2019=0;
+    int contandoRuaTejucoTejucoRoubo2019=0;
+    int contandoRuaTropicalTejucoVicenteRoubo2019=0;
+    int contandoRuaSaoJoaoTejucoRoubo2019=0;
+    int contandoRuaSaoJoseTejucoRoubo2019 =0;
+    int contandoRuaManoelAlexandrinodeCarvalhoTejucoRoubo2019=0;
+
+
+
+    int contandoRuaAVilaFatimaFurtoTodosAnos=0;
+    int contandoRuaBFatimaFurtoTodosAnos=0;
+    int contandoRuaCVilaFatimaFurtoTodosAnos=0;
+    int contandoRuaDVilaFatimaFurtoTodosAnos=0;
+    int contandoRuaEVilaFatimaVicenteFurtoTodosAnos=0;
+    int contandoRuaFVilaFatimaFurtoTodosAnos=0;
+    int contandoRuaGilmarPereiraRochaVilaFatimaFurtoTodosAnos=0;
+    int contandoRuaJoaoPimentaCarvalhoVilaFatimaFurtoTodosAnos=0;
+    int contandoRuaJoaquimFernandesoVilaFatimaFurtoTodosAnos=0;
+    int contandoRuaJoseAugustoVilaFatimaFurtoTodosAnos=0;
+
+
+    int contandoRuaAVilaFatimaRouboTodosAnos=0;
+    int contandoRuaBFatimaRouboTodosAnos=0;
+    int contandoRuaCVilaFatimaRouboTodosAnos=0;
+    int contandoRuaDVilaFatimaRouboTodosAnos=0;
+    int contandoRuaEVilaFatimaVicenteRouboTodosAnos=0;
+    int contandoRuaFVilaFatimaRouboTodosAnos=0;
+    int contandoRuaGilmarPereiraRochaVilaFatimaRouboTodosAnos=0;
+    int contandoRuaJoaoPimentaCarvalhoVilaFatimaRouboTodosAnos=0;
+    int contandoRuaJoaquimFernandesoVilaFatimaRouboTodosAnos=0;
+    int contandoRuaJoseAugustoVilaFatimaRouboTodosAnos=0;
+
+
+    int contandoRuaAVilaFatimaFurto2019=0;
+    int contandoRuaBFatimaFurto2019=0;
+    int contandoRuaCVilaFatimaFurto2019=0;
+    int contandoRuaDVilaFatimaFurto2019=0;
+    int contandoRuaEVilaFatimaVicenteFurto2019=0;
+    int contandoRuaFVilaFatimaFurto2019=0;
+    int contandoRuaGilmarPereiraRochaVilaFatimaFurto2019=0;
+    int contandoRuaJoaoPimentaCarvalhoVilaFatimaFurto2019=0;
+    int contandoRuaJoaquimFernandesoVilaFatimaFurto2019=0;
+    int contandoRuaJoseAugustoVilaFatimaFurto2019=0;
+
+
+    int contandoRuaAVilaFatimaRoubo2019=0;
+    int contandoRuaBFatimaRoubo2019=0;
+    int contandoRuaCVilaFatimaRoubo2019=0;
+    int contandoRuaDVilaFatimaRoubo2019=0;
+    int contandoRuaEVilaFatimaVicenteRoubo2019=0;
+    int contandoRuaFVilaFatimaRoubo2019=0;
+    int contandoRuaGilmarPereiraRochaVilaFatimaRoubo2019=0;
+    int contandoRuaJoaoPimentaCarvalhoVilaFatimaRoubo2019=0;
+    int contandoRuaJoaquimFernandesoVilaFatimaRoubo2019=0;
+    int contandoRuaJoseAugustoVilaFatimaRoubo2019=0;
+
+
+
+    int contandoRuaJoaquimBarbosaGobiraPandeirosFurtoTodosAnos=0;
+    int contandoRuaMariaMoreiraPandeirosFurtoTodosAnos=0;
+
+    int contandoRuaJoaquimBarbosaGobiraPandeirosRouboTodosAnos=0;
+    int contandoRuaMariaMoreiraPandeirosRouboTodosAnos=0;
+
+
+    int contandoRuaJoaquimBarbosaGobiraPandeirosFurto2019=0;
+    int contandoRuaMariaMoreiraPandeirosFurto2019=0;
+
+    int contandoRuaJoaquimBarbosaGobiraPandeirosRoubo2019=0;
+    int contandoRuaMariaMoreiraPandeirosRoubo2019 =0;
+
+
+
+    int contandoRuaSaoFranciscoVilaPaulaFurtoTodosAnos=0;
+    int contandoTvJoseNunesVilaPaulaFurtoTodosAnos =0;
+    int contandoTvJulioMouraVilaPaulaFurtoTodosAnos =0;
+    int contandoRuaLeonelNogueiraNetoVilaPaulaFurtoTodosAnos=0;
+    int contandoRuaAnizioJoseRochaVilaPaulaFurtoTodosAnos=0;
+    int contandoRuaJulioMouraVilaPaulaFurtoTodosAnos=0;
+    int contandoRuaJoseNunesVilaPaulaFurtoTodosAnos=0;
+    int contandoRuaSebastiaoFerreiraLimaVilaPaulaFurtoTodosAnos=0;
+    int contandoRuaSrgMozarVilaPaulaFurtoTodosAnos=0;
+
+
+
+    int contandoRuaSaoFranciscoVilaPaulaRouboTodosAnos=0;
+    int contandoTvJoseNunesVilaPaulaRouboTodosAnos =0;
+    int contandoTvJulioMouraVilaPaulaRouboTodosAnos =0;
+    int contandoRuaLeonelNogueiraNetoVilaPaulaRouboTodosAnos=0;
+    int contandoRuaAnizioJoseRochaVilaPaulaRouboTodosAnos=0;
+    int contandoRuaJulioMouraVilaPaulaRouboTodosAnos=0;
+    int contandoRuaJoseNunesVilaPaulaRouboTodosAnos=0;
+    int contandoRuaSebastiaoFerreiraLimaVilaPaulaRouboTodosAnos=0;
+    int contandoRuaSrgMozarVilaPaulaRouboTodosAnos=0;
+
+
+
+    int contandoRuaSaoFranciscoVilaPaulaFurto2019=0;
+    int contandoTvJoseNunesVilaPaulaFurto2019 =0;
+    int contandoTvJulioMouraVilaPaulaFurto2019 =0;
+    int contandoRuaLeonelNogueiraNetoVilaPaulaFurto2019=0;
+    int contandoRuaAnizioJoseRochaVilaPaulaFurto2019=0;
+    int contandoRuaJulioMouraVilaPaulaFurto2019=0;
+    int contandoRuaJoseNunesVilaPaulaFurto2019=0;
+    int contandoRuaSebastiaoFerreiraLimaVilaPaulaFurto2019=0;
+    int contandoRuaSrgMozarVilaPaulaFurto2019=0;
+
+
+
+    int contandoRuaSaoFranciscoVilaPaulaRoubo2019=0;
+    int contandoTvJoseNunesVilaPaulaRoubo2019 =0;
+    int contandoTvJulioMouraVilaPaulaRoubo2019 =0;
+    int contandoRuaLeonelNogueiraNetoVilaPaulaRoubo2019=0;
+    int contandoRuaAnizioJoseRochaVilaPaulaRoubo2019=0;
+    int contandoRuaJulioMouraVilaPaulaRoubo2019=0;
+    int contandoRuaJoseNunesVilaPaulaRoubo2019=0;
+    int contandoRuaSebastiaoFerreiraLimaVilaPaulaRoubo2019=0;
+    int contandoRuaSrgMozarVilaPaulaRoubo2019=0;
+
+
+    int contandoAvMalDeodoroFonsecaVilaVerdeFurtoTodosAnos=0;
+    int contandoRAVilaVerdeFurtoTodosAnos=0;
+    int contandoRuaAterroVilaVerdeFurtoTodosAnos=0;
+    int contandoRuaBVilaVerdeFurtoTodosAnos=0;
+    int contandoRuaDVilaVerdeFurtoTodosAnos=0;
+    int contandoRuaOVilaVerdeFurtoTodosAnos=0;
+    int contandoRuaRVilaVerdeFurtoTodosAnos=0;
+    int contandoRuaTVilaVerdeFurtoTodosAnos=0;
+    int contandoRuaUVilaVerdeFurtoTodosAnos=0;
+    int contandoRuaVVilaVerdeFurtoTodosAnos=0;
+
+
+    int contandoAvMalDeodoroFonsecaVilaVerdeRouboTodosAnos=0;
+    int contandoRAVilaVerdeRouboTodosAnos=0;
+    int contandoRuaAterroVilaVerdeRouboTodosAnos=0;
+    int contandoRuaBVilaVerdeRouboTodosAnos=0;
+    int contandoRuaDVilaVerdeRouboTodosAnos=0;
+    int contandoRuaOVilaVerdeRouboTodosAnos=0;
+    int contandoRuaRVilaVerdeRouboTodosAnos=0;
+    int contandoRuaTVilaVerdeRouboTodosAnos=0;
+    int contandoRuaUVilaVerdeRouboTodosAnos=0;
+    int contandoRuaVVilaVerdeRouboTodosAnos=0;
+
+
+
+
+    int contandoAvMalDeodoroFonsecaVilaVerdeFurto2019=0;
+    int contandoRAVilaVerdeFurto2019=0;
+    int contandoRuaAterroVilaVerdeFurto2019=0;
+    int contandoRuaBVilaVerdeFurto2019=0;
+    int contandoRuaDVilaVerdeFurto2019=0;
+    int contandoRuaOVilaVerdeFurto2019=0;
+    int contandoRuaRVilaVerdeFurto2019=0;
+    int contandoRuaTVilaVerdeFurto2019=0;
+    int contandoRuaUVilaVerdeFurto2019=0;
+    int contandoRuaVVilaVerdeFurto2019=0;
+
+
+    int contandoAvMalDeodoroFonsecaVilaVerdeRoubo2019=0;
+    int contandoRAVilaVerdeRoubo2019=0;
+    int contandoRuaAterroVilaVerdeRoubo2019=0;
+    int contandoRuaBVilaVerdeRoubo2019=0;
+    int contandoRuaDVilaVerdeRoubo2019=0;
+    int contandoRuaOVilaVerdeRoubo2019=0;
+    int contandoRuaRVilaVerdeRoubo2019=0;
+    int contandoRuaTVilaVerdeRoubo2019=0;
+    int contandoRuaUVilaVerdeRoubo2019=0;
+    int contandoRuaVVilaVerdeRoubo2019=0;
+
+
+    int contandoRuaAVilaVianaFurtoTodosAnos=0;
+    int contandoRuaArthurLopesPimentaVilaVianaFurtoTodosAnos=0;
+    int contandoRuaBVilaVianaFurtoTodosAnos=0;
+    int contandoRuaDVilaVianaFurtoTodosAnos=0;
+    int contandoRuaEVilaVianaFurtoTodosAnos=0;
+    int contandoRuaFVilaVianaFurtoTodosAnos=0;
+    int contandoRuaGVilaVianaFurtoTodosAnos=0;
+    int contandoRuaRVilaVianaFurtoTodosAnos=0;
+    int contandoRuaXVilaVianaFurtoTodosAnos=0;
+
+    int contandoRuaAVilaVianaRouboTodosAnos=0;
+    int contandoRuaArthurLopesPimentaVilaVianaRouboTodosAnos=0;
+    int contandoRuaBVilaVianaRouboTodosAnos=0;
+    int contandoRuaDVilaVianaRouboTodosAnos=0;
+    int contandoRuaEVilaVianaRouboTodosAnos=0;
+    int contandoRuaFVilaVianaRouboTodosAnos=0;
+    int contandoRuaGVilaVianaRouboTodosAnos=0;
+    int contandoRuaRVilaVianaRouboTodosAnos=0;
+    int contandoRuaXVilaVianaRouboTodosAnos=0;
+
+
+    int contandoRuaAVilaVianaFurto2019=0;
+    int contandoRuaArthurLopesPimentaVilaVianaFurto2019=0;
+    int contandoRuaBVilaVianaFurto2019=0;
+    int contandoRuaDVilaVianaFurto2019=0;
+    int contandoRuaEVilaVianaFurto2019=0;
+    int contandoRuaFVilaVianaFurto2019=0;
+    int contandoRuaGVilaVianaFurto2019=0;
+    int contandoRuaRVilaVianaFurto2019=0;
+    int contandoRuaXVilaVianaFurto2019=0;
+
+    int contandoRuaAVilaVianaRoubo2019=0;
+    int contandoRuaArthurLopesPimentaVilaVianaRoubo2019=0;
+    int contandoRuaBVilaVianaRoubo2019=0;
+    int contandoRuaDVilaVianaRoubo2019=0;
+    int contandoRuaEVilaVianaRoubo2019=0;
+    int contandoRuaFVilaVianaRoubo2019=0;
+    int contandoRuaGVilaVianaRoubo2019=0;
+    int contandoRuaRVilaVianaRoubo2019=0;
+    int contandoRuaXVilaVianaRoubo2019=0;
+
+
+
+
+
     protected ImageView spinnerImagem;
     private String camposSpinner[] = new String[] {"Todos","2018","2019"};
     private Spinner spinner;
@@ -1044,17 +1395,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-    private BarChart barChart;
 
-
-
-    private String[] nomes   = new String []{};
-    private int[]    roubos = new int   []{};
-    private int []   cores   = new int   []{};
-    private String[] legenda  = new String[]{};
-    private int[]    furtos = new int   []{};
-    int []   cor   = new int   []{Color.YELLOW,Color.RED};  // ALTERAR a cor da legenda aq
-    String[] legendaGrafico  = new String[]{"Furto","Roubo"}; // ALTERAR a nome da legenda aq
 
 
 
@@ -1075,10 +1416,23 @@ public class GraficoRuaBarraFragment extends Fragment {
     int ano2019=2;
 
 
-
     Bike b;
     String procuraBairro;
     String procuraAno;
+
+
+    private BarChart barChart;
+
+
+
+    private String[] nomes   = new String []{};
+    private int[]    roubos = new int   []{};
+    private int []   cores   = new int   []{};
+    private String[] legenda  = new String[]{};
+    private int[]    furtos = new int   []{};
+    int []   cor   = new int   []{Color.YELLOW,Color.RED};  // ALTERAR a cor da legenda aq
+    String[] legendaGrafico  = new String[]{"Furto","Roubo"}; // ALTERAR a nome da legenda aq
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -1088,18 +1442,23 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
         inicializarFirebase();
+
+
+
+
+
+
         barChart =  (BarChart) rootView.findViewById(R.id.graficoRuaBarra);
-
-
         String[] countries =  getResources().getStringArray(R.array.countries);
 
         final AutoCompleteTextView autoCompletegraficoRuaBarra = rootView.findViewById(R.id.autocompletegraficoruabarra);
-
-
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(GraficoRuaBarraFragment.super.getContext(), android.R.layout.simple_spinner_dropdown_item,countries);
-        autoCompletegraficoRuaBarra.setAdapter(adapter);
 
+        autoCompletegraficoRuaBarra.setAdapter(adapter);
         autoComplete = autoCompletegraficoRuaBarra.getAdapter().toString();
+
+
+
 
 
 
@@ -1134,42 +1493,14 @@ public class GraficoRuaBarraFragment extends Fragment {
 
                      procuraAno = b.getAlertaDate();
                      procuraBairro = b.getAlertaBairro();
-                    String procuraRua = b.getAlertaRua();
+                     String procuraRua = b.getAlertaRua();
 
 
 
-//procura as ruas ...
+                    //procura as ruas ...
 
                     // todos os anos
 
-
-
-                    if (procuraBairro.contains("Aeoroporto") && b.getAlertaRua().equals("teco teco")){
-
-                        contandoBikesAno2018++;
-                        //Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
-
-
-                    }
-
-
-                    if (procuraBairro.contains("Aeoroporto") && b.getAlertaRua().equals("tico tico")){
-
-                        contandoBikesAno2018++;
-                        //Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
-
-
-                    }
-
-
-                    ///apenas 2019
-                    if (procuraBairro.contains("2019") && b.getStatus().equals("Furtada")){
-
-                        contandoBikesAno2018++;
-                        //Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
-
-
-                    }
 
 
 
@@ -1196,6 +1527,17 @@ public class GraficoRuaBarraFragment extends Fragment {
                     ruasBairroQuintasMangueirasTodosAnos();
                     ruasBairroRiachoCruzTodosAnos();
                     ruasBairroVilaSaoJoaoTodosAnos();
+                    ruasBairroSaoMiguelTodosAnos();
+                    ruasBairroSaoVicenteTodosAnos();
+                    ruasBairroTejucoTodosAnos();
+                    ruasBairroVilaFatimaTodosAnos();
+                    ruasBairroPandeirosTodosAnos();
+                    ruasBairroVilaPaulaTodosAnos();
+                    ruasBairroVilaVerdeTodosAnos();
+                    ruasBairroVilaVianaTodosAnos();
+
+
+
 
 
 
@@ -1223,6 +1565,14 @@ public class GraficoRuaBarraFragment extends Fragment {
                     ruasBairroVilaSaoJoao2019();
                     ruasBairroSaoJoaquimTodosAnos();
                     ruasBairroSaoJoaquim2019();
+                    ruasBairroSaoMiguel2019();
+                    ruasBairroSaoVicente2019();
+                    ruasBairroTejuco2019();
+                    ruasBairroVilaFatima2019();
+                    ruasBairroPandeiros2019();
+                    ruasBairroVilaPaula2019();
+                    ruasBairroVilaVerde2019();
+                    ruasBairroVilaViana2019();
 
 
 
@@ -1230,18 +1580,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        autoCompletegraficoRuaBarra.setOnDismissListener(new AutoCompleteTextView.OnDismissListener() {
+                    autoCompletegraficoRuaBarra.setOnDismissListener(new AutoCompleteTextView.OnDismissListener() {
           @Override
           public void onDismiss() {
 
@@ -1608,7 +1947,7 @@ public class GraficoRuaBarraFragment extends Fragment {
               }
 
 
-              if(autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fátima") && spinnerCorrente ==todosAnos) {
+              if(autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fatima") && spinnerCorrente ==todosAnos) {
 
 
                   vilaFatimaTodosAnos();
@@ -2004,7 +2343,7 @@ public class GraficoRuaBarraFragment extends Fragment {
               }
 
 
-              if(autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fátima") && spinnerCorrente ==ano2018) {
+              if(autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fatima") && spinnerCorrente ==ano2018) {
 
 
                   vilaFatima2018();
@@ -2404,7 +2743,7 @@ public class GraficoRuaBarraFragment extends Fragment {
               }
 
 
-              if(autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fátima") && spinnerCorrente ==ano2019) {
+              if(autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fatima") && spinnerCorrente ==ano2019) {
 
 
                   vilaFatima2019();
@@ -2824,7 +3163,7 @@ public class GraficoRuaBarraFragment extends Fragment {
                          }
 
 
-                         if (autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fátima")) {
+                         if (autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fatima")) {
 
                              vilaFatimaTodosAnos();
 
@@ -3200,7 +3539,7 @@ public class GraficoRuaBarraFragment extends Fragment {
                          }
 
 
-                         if (autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fátima")) {
+                         if (autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fatima")) {
 
                              vilaFatima2018();
 
@@ -3576,7 +3915,7 @@ public class GraficoRuaBarraFragment extends Fragment {
                          }
 
 
-                         if (autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fátima")) {
+                         if (autoCompletegraficoRuaBarra.getText().toString().equals("Vila Fatima")) {
 
                              vilaFatima2019();
 
@@ -4952,10 +5291,28 @@ public class GraficoRuaBarraFragment extends Fragment {
     private void saoMiguelTodosAnos() {
 
 
-        String[] ruas  = new String[]{"Av.São Francisco","R. Um", "R. Dois","R. Três", "R. A", "R. B","R. D","R. Pirapora","R. Montavânia","Tv.Galiléia"};
-        int[]    valores = new int   []{10,10,10,10};
+        String[] ruas  = new String[]{"Av.São Francisco","R. Um", "R. Dois","R. Três", "R. A", "R. B","R. D","R. Piraporã","R. Montavânia","Tv.Galiléia"};
+        int[]    valores = new int   []{contandoRuaSaoFranciscoSaoMiguelRouboTodosAnos,
+                contandoRuaUmSaoMiguelRouboTodosAnos,
+                contandoRuaDoisSaoMiguelRouboTodosAnos,
+                contandoRuaTresSaoMiguelRouboTodosAnos,
+                contandoRuaASaoMiguelRouboTodosAnos,
+                contandoRuaBSaoMiguelRouboTodosAnos,
+                contandoRuaDSaoMiguelRouboTodosAnos,
+                contandoRuaPiraporaSaoMiguelRouboTodosAnos,
+                contandoRuaMontalvaniaSaoMiguelRouboTodosAnos,
+                contandoTvGalileiaSaoMiguelRouboTodosAnos};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{contandoRuaSaoFranciscoSaoMiguelFurtoTodosAnos,
+                contandoRuaUmSaoMiguelFurtoTodosAnos,
+                contandoRuaDoisSaoMiguelFurtoTodosAnos,
+                contandoRuaTresSaoMiguelFurtoTodosAnos,
+                contandoRuaASaoMiguelFurtoTodosAnos,
+                contandoRuaBSaoMiguelFurtoTodosAnos,
+                contandoRuaDSaoMiguelFurtoTodosAnos,
+                contandoRuaPiraporaSaoMiguelFurtoTodosAnos,
+                contandoRuaMontalvaniaSaoMiguelFurtoTodosAnos,
+                contandoTvGalileiaSaoMiguelFurtoTodosAnos};
 
 
 
@@ -4973,10 +5330,30 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoVicenteTodosAnos() {
 
-        String[] ruas  = new String[]{"R. A","R. B","R. E.T.Bastos","R. L.N.Neto","R. Maria C.Carvalho","R. Olibrio Lima","R. T.Torres","R. Sebastião F.Lima"};
-        int[]    valores = new int   []{10,10,10,10};
+        String[] ruas  = new String[]{"R. A","R. B","R. D","R. E","R. E.T.Bastos","R. L.N.Neto","R. Maria C.Carvalho","R. Olibrio Lima","R. T.Torres","R. Sebastião F.Lima"};
+        int[]    valores = new int   []{
+                 contandoRuaASaoVicenteRouboTodosAnos,
+                 contandoRuaBSaoVicenteRouboTodosAnos,
+                 contandoRuaDSaoVicenteRouboTodosAnos,
+                 contandoRuaESaoVicenteRouboTodosAnos,
+                 contandoRuaTutaBastosSaoVicenteRouboTodosAnos,
+                 contandoRuaLeonelNogueiraNetoSaoVicenteRouboTodosAnos,
+                 contandoRuaMariaCarneiroCarvalhoSaoVicenteRouboTodosAnos,
+                 contandoRuaOlibrioLimaSaoVicenteRouboTodosAnos,
+                 contandoRuaTerencioTorresSaoVicenteRouboTodosAnos,
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteRouboTodosAnos};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{
+                contandoRuaASaoVicenteFurtoTodosAnos,
+                contandoRuaBSaoVicenteFurtoTodosAnos,
+                contandoRuaDSaoVicenteFurtoTodosAnos,
+                contandoRuaESaoVicenteFurtoTodosAnos,
+                contandoRuaTutaBastosSaoVicenteFurtoTodosAnos,
+                contandoRuaLeonelNogueiraNetoSaoVicenteFurtoTodosAnos,
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteFurtoTodosAnos,
+                contandoRuaOlibrioLimaSaoVicenteFurtoTodosAnos,
+                contandoRuaTerencioTorresSaoVicenteFurtoTodosAnos,
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteFurtoTodosAnos};
 
 
 
@@ -5091,9 +5468,29 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
         String[] ruas  = new String[]{"R. Castelo Branco","R. J.kubitschek","R. Tancredo Neves","R. Tejuco","R. Tropical","R. São João","R. São José","R. M.A.Carvalho"};
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+
+                contandoRuaCasteloBrancoTejucoRouboTodosAnos,
+                contandoRuaJucelinoKubitscheckTejucoRouboTodosAnos,
+                contandoRuaTancredoNevesTejucoRouboTodosAnos,
+                contandoRuaTejucoTejucoRouboTodosAnos,
+                contandoRuaTropicalTejucoVicenteRouboTodosAnos,
+                contandoRuaSaoJoaoTejucoRouboTodosAnos,
+                contandoRuaSaoJoseTejucoRouboTodosAnos ,
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoRouboTodosAnos};
+
+        int[]    furtosRuas = new int   []{
+
+
+                contandoRuaCasteloBrancoTejucoFurtoTodosAnos,
+                contandoRuaJucelinoKubitscheckTejucoFurtoTodosAnos,
+                contandoRuaTancredoNevesTejucoFurtoTodosAnos,
+                contandoRuaTejucoTejucoFurtoTodosAnos,
+                contandoRuaTropicalTejucoVicenteFurtoTodosAnos,
+                contandoRuaSaoJoaoTejucoFurtoTodosAnos,
+                contandoRuaSaoJoseTejucoFurtoTodosAnos ,
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoFurtoTodosAnos};
 
 
 
@@ -5181,9 +5578,27 @@ public class GraficoRuaBarraFragment extends Fragment {
     private void vilaFatimaTodosAnos() {
 
         String[] ruas  = new String[]{"R. A","R. B","R. C","R. D","R. E","R. F","R. G.P.Rocha","R. J.P.Carvalho","R. Joaquim Fernandes","R. J.Augusto"};
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{ contandoRuaAVilaFatimaRouboTodosAnos,
+                contandoRuaBFatimaRouboTodosAnos,
+                contandoRuaCVilaFatimaRouboTodosAnos,
+                contandoRuaDVilaFatimaRouboTodosAnos,
+                contandoRuaEVilaFatimaVicenteRouboTodosAnos,
+                contandoRuaFVilaFatimaRouboTodosAnos,
+                contandoRuaGilmarPereiraRochaVilaFatimaRouboTodosAnos,
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaRouboTodosAnos,
+                contandoRuaJoaquimFernandesoVilaFatimaRouboTodosAnos,
+                contandoRuaJoseAugustoVilaFatimaRouboTodosAnos};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas =new int   []{ contandoRuaAVilaFatimaFurtoTodosAnos,
+                contandoRuaBFatimaFurtoTodosAnos,
+                contandoRuaCVilaFatimaFurtoTodosAnos,
+                contandoRuaDVilaFatimaFurtoTodosAnos,
+                contandoRuaEVilaFatimaVicenteFurtoTodosAnos,
+                contandoRuaFVilaFatimaFurtoTodosAnos,
+                contandoRuaGilmarPereiraRochaVilaFatimaFurtoTodosAnos,
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaFurtoTodosAnos,
+                contandoRuaJoaquimFernandesoVilaFatimaFurtoTodosAnos,
+                contandoRuaJoseAugustoVilaFatimaFurtoTodosAnos};
 
 
 
@@ -5202,9 +5617,13 @@ public class GraficoRuaBarraFragment extends Fragment {
     private void pandeirosTodosAnos() {
 
         String[] ruas  = new String[]{"R. J.B.Gobira","R. M.Moreira"};
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{
+                contandoRuaJoaquimBarbosaGobiraPandeirosRouboTodosAnos,
+                contandoRuaMariaMoreiraPandeirosRouboTodosAnos};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{
+                contandoRuaJoaquimBarbosaGobiraPandeirosFurtoTodosAnos,
+                contandoRuaMariaMoreiraPandeirosFurtoTodosAnos};
 
 
 
@@ -5223,9 +5642,25 @@ public class GraficoRuaBarraFragment extends Fragment {
     private void vilaPaulaTodosAnos() {
 
         String[] ruas  = new String[]{"Av.São Fransisco","Tv.J.Nunes","Tv.J.Moura","R. L.N.Neto","R. A.J.Rocha","R. J.Moura","R. J.Nunes","R. S.F.Lima","R. Srg.Monzart"};
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{contandoRuaSaoFranciscoVilaPaulaRouboTodosAnos,
+             contandoTvJoseNunesVilaPaulaRouboTodosAnos ,
+             contandoTvJulioMouraVilaPaulaRouboTodosAnos ,
+             contandoRuaLeonelNogueiraNetoVilaPaulaRouboTodosAnos,
+             contandoRuaAnizioJoseRochaVilaPaulaRouboTodosAnos,
+             contandoRuaJulioMouraVilaPaulaRouboTodosAnos,
+             contandoRuaJoseNunesVilaPaulaRouboTodosAnos,
+             contandoRuaSebastiaoFerreiraLimaVilaPaulaRouboTodosAnos,
+             contandoRuaSrgMozarVilaPaulaRouboTodosAnos};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{contandoRuaSaoFranciscoVilaPaulaFurtoTodosAnos,
+                contandoTvJoseNunesVilaPaulaFurtoTodosAnos ,
+                contandoTvJulioMouraVilaPaulaFurtoTodosAnos ,
+                contandoRuaLeonelNogueiraNetoVilaPaulaFurtoTodosAnos,
+                contandoRuaAnizioJoseRochaVilaPaulaFurtoTodosAnos,
+                contandoRuaJulioMouraVilaPaulaFurtoTodosAnos,
+                contandoRuaJoseNunesVilaPaulaFurtoTodosAnos,
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaFurtoTodosAnos,
+                contandoRuaSrgMozarVilaPaulaFurtoTodosAnos};
 
 
 
@@ -5244,9 +5679,27 @@ public class GraficoRuaBarraFragment extends Fragment {
     private void vilaVerdeTodosAnos() {
 
         String[] ruas  = new String[]{"Av.Mal.Deodoro da Fonseca","R. A","Rua Aterro","R. B","R. D","R. O","R. R","Rua T","R. U","R. V"};
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{contandoAvMalDeodoroFonsecaVilaVerdeRouboTodosAnos,
+                contandoRAVilaVerdeRouboTodosAnos,
+                contandoRuaAterroVilaVerdeRouboTodosAnos,
+                contandoRuaBVilaVerdeRouboTodosAnos,
+                contandoRuaDVilaVerdeRouboTodosAnos,
+                contandoRuaOVilaVerdeRouboTodosAnos,
+                contandoRuaRVilaVerdeRouboTodosAnos,
+                contandoRuaTVilaVerdeRouboTodosAnos,
+                contandoRuaUVilaVerdeRouboTodosAnos,
+                contandoRuaVVilaVerdeRouboTodosAnos};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{contandoAvMalDeodoroFonsecaVilaVerdeFurtoTodosAnos,
+                contandoRAVilaVerdeFurtoTodosAnos,
+                contandoRuaAterroVilaVerdeFurtoTodosAnos,
+                contandoRuaBVilaVerdeFurtoTodosAnos,
+                contandoRuaDVilaVerdeFurtoTodosAnos,
+                contandoRuaOVilaVerdeFurtoTodosAnos,
+                contandoRuaRVilaVerdeFurtoTodosAnos,
+                contandoRuaTVilaVerdeFurtoTodosAnos,
+                contandoRuaUVilaVerdeFurtoTodosAnos,
+                contandoRuaVVilaVerdeFurtoTodosAnos};
 
 
 
@@ -5265,9 +5718,25 @@ public class GraficoRuaBarraFragment extends Fragment {
     private void vilaVianaTodosAnos() {
 
         String[] ruas  = new String[]{"R. A","R. Arthur L.Pimenta","R. B","R. D","R. E","R. F","R. G","R. R","R. X"};
-        int[]    valores = new int   []{10,10,10,10};
-        ;
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{ contandoRuaAVilaVianaRouboTodosAnos,
+                contandoRuaArthurLopesPimentaVilaVianaRouboTodosAnos,
+                contandoRuaBVilaVianaRouboTodosAnos,
+                contandoRuaDVilaVianaRouboTodosAnos,
+                contandoRuaEVilaVianaRouboTodosAnos,
+                contandoRuaFVilaVianaRouboTodosAnos,
+                contandoRuaGVilaVianaRouboTodosAnos,
+                contandoRuaRVilaVianaRouboTodosAnos,
+                contandoRuaXVilaVianaRouboTodosAnos};
+
+        int[]    furtosRuas = new int   []{ contandoRuaAVilaVianaFurtoTodosAnos,
+                contandoRuaArthurLopesPimentaVilaVianaFurtoTodosAnos,
+                contandoRuaBVilaVianaFurtoTodosAnos,
+                contandoRuaDVilaVianaFurtoTodosAnos,
+                contandoRuaEVilaVianaFurtoTodosAnos,
+                contandoRuaFVilaVianaFurtoTodosAnos,
+                contandoRuaGVilaVianaFurtoTodosAnos,
+                contandoRuaRVilaVianaFurtoTodosAnos,
+                contandoRuaXVilaVianaFurtoTodosAnos};
 
 
 
@@ -5302,7 +5771,7 @@ public class GraficoRuaBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }
+    }  /// não fazer
 
 
 
@@ -6069,7 +6538,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoMiguel2018() {
 
-        String[] ruas  = new String[]{"Av. São Francisco","R. Um", "R. Dois","R. Três", "R. A", "R. B","R. D","R. Pirapora","R. Montavânia","Tv. Galiléia"};
+        String[] ruas  = new String[]{"Av. São Francisco","R. Um", "R. Dois","R. Três", "R. A", "R. B","R. D","R. Piraporã","R. Montavânia","Tv. Galiléia"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6091,7 +6560,7 @@ public class GraficoRuaBarraFragment extends Fragment {
     private void saoVicente2018() {
 
 
-        String[] ruas  = new String[]{"R. A","R. B","R. E.T.Bastos","R. L.N.Neto","R. Maria C.Carvalho","R. Olibrio Lima","R. T.Torres","R. Sebastião F.Lima"};
+        String[] ruas  = new String[]{"R. A","R. B","R. D","R. E","R. E.T.Bastos","R. L.N.Neto","R. Maria C.Carvalho","R. Olibrio Lima","R. T.Torres","R. Sebastião F.Lima"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6420,7 +6889,7 @@ public class GraficoRuaBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }
+    }  /// não fazer
 
 
 
@@ -6494,8 +6963,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         //xxx
 
-        String[] altoCemitério = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério2019", "Rua 12"};
-        int[] robAltoCemitério = new int[]{10, 10, 10, 10};
+        String[] altoCemitério = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério2019", "Rua 12"};int[] robAltoCemitério = new int[]{10, 10, 10, 10};
 
         int[] furtAltoCemitério = new int[]{5, 10, 6, 10};
 
@@ -7555,12 +8023,28 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoMiguel2019() {
 
-        String[] ruas  = new String[]{"Av.São Francisco","R. Um", "R. Dois","Rua Três", "R. A", "R. B","R. D","R. Pirapora","R. Montavânia","Tv.Galiléia"};
+        String[] ruas  = new String[]{"Av.São Francisco","R. Um", "R. Dois","Rua Três", "R. A", "R. B","R. D","R. Piraporã","R. Montavânia","Tv.Galiléia"};
+        int[]    valores = new int   []{contandoRuaSaoFranciscoSaoMiguelRoubo2019,
+                contandoRuaUmSaoMiguelRoubo2019,
+                contandoRuaDoisSaoMiguelRoubo2019,
+                contandoRuaTresSaoMiguelRoubo2019,
+                contandoRuaASaoMiguelRoubo2019,
+                contandoRuaBSaoMiguelRoubo2019,
+                contandoRuaDSaoMiguelRoubo2019,
+                contandoRuaPiraporaSaoMiguelRoubo2019,
+                contandoRuaMontalvaniaSaoMiguelRoubo2019,
+                contandoTvGalileiaSaoMiguelRoubo2019};
 
-        int[]    valores = new int   []{10,10,10,10};
-
-        int[]    furtosRuas = new int   []{5,10,6,10};
-
+        int[]    furtosRuas = new int   []{contandoRuaSaoFranciscoSaoMiguelFurto2019,
+                contandoRuaUmSaoMiguelFurto2019,
+                contandoRuaDoisSaoMiguelFurto2019,
+                contandoRuaTresSaoMiguelFurto2019,
+                contandoRuaASaoMiguelFurto2019,
+                contandoRuaBSaoMiguelFurto2019,
+                contandoRuaDSaoMiguelFurto2019,
+                contandoRuaPiraporaSaoMiguelFurto2019,
+                contandoRuaMontalvaniaSaoMiguelFurto2019,
+                contandoTvGalileiaSaoMiguelFurto2019};
 
 
         nomes   = ruas;
@@ -7577,11 +8061,31 @@ public class GraficoRuaBarraFragment extends Fragment {
 
     private void saoVicente2019() {
 
-        String[] ruas  = new String[]{"R. A","R. B","R. E.T.Bastos","R. L.N.Neto","R. Maria C.Carvalho","R. Olibrio Lima","R. T.Torres","R. Sebastião F.Lima"};
+        String[] ruas  = new String[]{"R. A","R. B","R. D","R. E","R. E.T.Bastos","R. L.N.Neto","R. Maria C.Carvalho","R. Olibrio Lima","R. T.Torres","R. Sebastião F.Lima"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{
+                contandoRuaASaoVicenteRoubo2019,
+                contandoRuaBSaoVicenteRoubo2019,
+                contandoRuaDSaoVicenteRoubo2019,
+                contandoRuaESaoVicenteRoubo2019,
+                contandoRuaTutaBastosSaoVicenteRoubo2019,
+                contandoRuaLeonelNogueiraNetoSaoVicenteRoubo2019,
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteRoubo2019,
+                contandoRuaOlibrioLimaSaoVicenteRoubo2019,
+                contandoRuaTerencioTorresSaoVicenteRoubo2019,
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteRoubo2019};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{
+                contandoRuaASaoVicenteFurto2019,
+                contandoRuaBSaoVicenteFurto2019,
+                contandoRuaDSaoVicenteFurto2019,
+                contandoRuaESaoVicenteFurto2019,
+                contandoRuaTutaBastosSaoVicenteFurto2019,
+                contandoRuaLeonelNogueiraNetoSaoVicenteFurto2019,
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteFurto2019,
+                contandoRuaOlibrioLimaSaoVicenteFurto2019,
+                contandoRuaTerencioTorresSaoVicenteFurto2019,
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteFurto2019};
 
 
 
@@ -7690,10 +8194,29 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         String[] ruas  = new String[]{"R. Castelo Branco","R. J.kubitschek","R. Tancredo Neves","R. Tejuco","R. Tropical","R. São João","R. São José","R. M.A.Carvalho"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
 
+                contandoRuaCasteloBrancoTejucoRoubo2019,
+                contandoRuaJucelinoKubitscheckTejucoRoubo2019,
+                contandoRuaTancredoNevesTejucoRoubo2019,
+                contandoRuaTejucoTejucoRoubo2019,
+                contandoRuaTropicalTejucoVicenteRoubo2019,
+                contandoRuaSaoJoaoTejucoRoubo2019,
+                contandoRuaSaoJoseTejucoRoubo2019 ,
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoRoubo2019};
+
+        int[]    furtosRuas = new int   []{
+
+
+                contandoRuaCasteloBrancoTejucoFurto2019,
+                contandoRuaJucelinoKubitscheckTejucoFurto2019,
+                contandoRuaTancredoNevesTejucoFurto2019,
+                contandoRuaTejucoTejucoFurto2019,
+                contandoRuaTropicalTejucoVicenteFurto2019,
+                contandoRuaSaoJoaoTejucoFurto2019,
+                contandoRuaSaoJoseTejucoFurto2019 ,
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoFurto2019};
 
 
         nomes   = ruas;
@@ -7780,9 +8303,27 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         String[] ruas  = new String[]{"R. A","R. B","R. C","R. D","R. E","R. F","R. G.P.Rocha","R. J.P.Carvalho","R. Joaquim Fernandes","R. J.Augusto"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{ contandoRuaAVilaFatimaRoubo2019,
+                contandoRuaBFatimaRoubo2019,
+                contandoRuaCVilaFatimaRoubo2019,
+                contandoRuaDVilaFatimaRoubo2019,
+                contandoRuaEVilaFatimaVicenteRoubo2019,
+                contandoRuaFVilaFatimaRoubo2019,
+                contandoRuaGilmarPereiraRochaVilaFatimaRoubo2019,
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaRoubo2019,
+                contandoRuaJoaquimFernandesoVilaFatimaRoubo2019,
+                contandoRuaJoseAugustoVilaFatimaRoubo2019};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas =new int   []{ contandoRuaAVilaFatimaFurto2019,
+                contandoRuaBFatimaFurto2019,
+                contandoRuaCVilaFatimaFurto2019,
+                contandoRuaDVilaFatimaFurto2019,
+                contandoRuaEVilaFatimaVicenteFurto2019,
+                contandoRuaFVilaFatimaFurto2019,
+                contandoRuaGilmarPereiraRochaVilaFatimaFurto2019,
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaFurto2019,
+                contandoRuaJoaquimFernandesoVilaFatimaFurto2019,
+                contandoRuaJoseAugustoVilaFatimaFurto2019};
 
 
 
@@ -7802,9 +8343,13 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         String[] ruas  = new String[]{"R. J.B.Gobira","R. M.Moreira"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{
+                contandoRuaJoaquimBarbosaGobiraPandeirosRoubo2019,
+                contandoRuaMariaMoreiraPandeirosRoubo2019};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{
+                contandoRuaJoaquimBarbosaGobiraPandeirosFurto2019,
+                contandoRuaMariaMoreiraPandeirosFurto2019};
 
 
 
@@ -7824,10 +8369,25 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         String[] ruas  = new String[]{"Av.São Fransisco","Tv.J.Nunes","Tv.J.Moura","R. L.N.Neto","R. A.J.Rocha","R. J.Moura","R. J.Nunes","R. S.F.Lima","R. Srg.Monzart"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{contandoRuaSaoFranciscoVilaPaulaRoubo2019,
+                contandoTvJoseNunesVilaPaulaRoubo2019 ,
+                contandoTvJulioMouraVilaPaulaRoubo2019 ,
+                contandoRuaLeonelNogueiraNetoVilaPaulaRoubo2019,
+                contandoRuaAnizioJoseRochaVilaPaulaRoubo2019,
+                contandoRuaJulioMouraVilaPaulaRoubo2019,
+                contandoRuaJoseNunesVilaPaulaRoubo2019,
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaRoubo2019,
+                contandoRuaSrgMozarVilaPaulaRoubo2019};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
-
+        int[]    furtosRuas = new int   []{contandoRuaSaoFranciscoVilaPaulaFurto2019,
+                contandoTvJoseNunesVilaPaulaFurto2019 ,
+                contandoTvJulioMouraVilaPaulaFurto2019,
+                contandoRuaLeonelNogueiraNetoVilaPaulaFurto2019,
+                contandoRuaAnizioJoseRochaVilaPaulaFurto2019,
+                contandoRuaJulioMouraVilaPaulaFurto2019,
+                contandoRuaJoseNunesVilaPaulaFurto2019,
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaFurto2019,
+                contandoRuaSrgMozarVilaPaulaFurto2019};
 
 
         nomes   = ruas;
@@ -7846,10 +8406,27 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         String[] ruas  = new String[]{"Av.Mal.Deodoro da Fonseca","R. A","R. Aterro","R. B","R. D","R. O","R. R","R. T","R. U","R. V"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{contandoAvMalDeodoroFonsecaVilaVerdeRoubo2019,
+                contandoRAVilaVerdeRoubo2019,
+                contandoRuaAterroVilaVerdeRoubo2019,
+                contandoRuaBVilaVerdeRoubo2019,
+                contandoRuaDVilaVerdeRoubo2019,
+                contandoRuaOVilaVerdeRoubo2019,
+                contandoRuaRVilaVerdeRoubo2019,
+                contandoRuaTVilaVerdeRoubo2019,
+                contandoRuaUVilaVerdeRoubo2019,
+                contandoRuaVVilaVerdeRoubo2019};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
-
+        int[]    furtosRuas = new int   []{contandoAvMalDeodoroFonsecaVilaVerdeFurto2019,
+                contandoRAVilaVerdeFurto2019,
+                contandoRuaAterroVilaVerdeFurto2019,
+                contandoRuaBVilaVerdeFurto2019,
+                contandoRuaDVilaVerdeFurto2019,
+                contandoRuaOVilaVerdeFurto2019,
+                contandoRuaRVilaVerdeFurto2019,
+                contandoRuaTVilaVerdeFurto2019,
+                contandoRuaUVilaVerdeFurto2019,
+                contandoRuaVVilaVerdeFurto2019};
 
 
         nomes   = ruas;
@@ -7868,9 +8445,25 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         String[] ruas  = new String[]{"R. A","Rua Arthur L.Pimenta","R. B","R. D","R. E","R. F","R. G","R. R","R. X"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{ contandoRuaAVilaVianaRoubo2019,
+                contandoRuaArthurLopesPimentaVilaVianaRoubo2019,
+                contandoRuaBVilaVianaRoubo2019,
+                contandoRuaDVilaVianaRoubo2019,
+                contandoRuaEVilaVianaRoubo2019,
+                contandoRuaFVilaVianaRoubo2019,
+                contandoRuaGVilaVianaRoubo2019,
+                contandoRuaRVilaVianaRoubo2019,
+                contandoRuaXVilaVianaRoubo2019};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{ contandoRuaAVilaVianaFurto2019,
+                contandoRuaArthurLopesPimentaVilaVianaFurto2019,
+                contandoRuaBVilaVianaFurto2019,
+                contandoRuaDVilaVianaFurto2019,
+                contandoRuaEVilaVianaFurto2019,
+                contandoRuaFVilaVianaFurto2019,
+                contandoRuaGVilaVianaFurto2019,
+                contandoRuaRVilaVianaFurto2019,
+                contandoRuaXVilaVianaFurto2019};
 
 
 
@@ -7907,7 +8500,7 @@ public class GraficoRuaBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }
+    } /// não fazer
 
 
 
@@ -14608,16 +15201,7 @@ public class GraficoRuaBarraFragment extends Fragment {
         }
     }
 
-
-
-
-
-
-
     public void ruasBairroSaoMiguelTodosAnos(){
-
-
-
 
 
 
@@ -14626,78 +15210,78 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
+            if (b.getAlertaRua().equals("Av. São Francisco")){
+
+                contandoRuaSaoFranciscoSaoMiguelRouboTodosAnos++;
+
+
+            }
+
             if (b.getAlertaRua().equals("R. Um")){
 
-                contandoRuaUmSaoJoaquimRouboTodosAnos++;
+                contandoRuaUmSaoMiguelRouboTodosAnos++;
 
 
             }
 
             if (b.getAlertaRua().equals("R. Dois")){
 
-                contandoRuaDoisSaoJoaquimRouboTodosAnos++;
+                contandoRuaDoisSaoMiguelRouboTodosAnos++;
 
 
             }
 
-            if (b.getAlertaRua().equals("R. Três")){
+            if (b.getAlertaRua().equals("Rua Três")){
 
-                contandoRuaTresSaoJoaquimRouboTodosAnos++;
-
-
-            }
-
-            if (b.getAlertaRua().equals("R. Seis")){
-
-                contandoRuaSeisSaoJoaquimRouboTodosAnos++;
+                contandoRuaTresSaoMiguelRouboTodosAnos++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Oito")){
+            if (b.getAlertaRua().equals("R. A")){
 
-                contandoRuaOitoSaoJoaquimRouboTodosAnos++;
-
-
-            }
-
-
-            if (b.getAlertaRua().equals("R. Nove")){
-
-                contandoRuaNoveSaoJoaquimRouboTodosAnos++;
+                contandoRuaASaoMiguelRouboTodosAnos++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Dez")){
+            if (b.getAlertaRua().equals("R. B")){
 
-                contandoRuaDezSaoJoaquimRouboTodosAnos++;
+                contandoRuaBSaoMiguelRouboTodosAnos++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Doze")){
+            if (b.getAlertaRua().equals("R. D")){
 
-                contandoRuaDozeSaoJoaquimRouboTodosAnos++;
+                contandoRuaDSaoMiguelRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Piraporã")){
+
+                contandoRuaPiraporaSaoMiguelRouboTodosAnos++;
 
 
             }
 
 
 
-            if (b.getAlertaRua().equals("Rua Santa Inês")){
+            if (b.getAlertaRua().equals("R. Montalvânia")){
 
-                contandoRuaSantaInesSaoJoaquimRouboTodosAnos++;
+                contandoRuaMontalvaniaSaoMiguelRouboTodosAnos++;
 
 
             }
 
-            if (b.getAlertaRua().equals("Rua Santa Maria")){
+            if (b.getAlertaRua().equals("Tv. Galiléia")){
 
-                contandoRuaSantaMariaSaoJoaquimRouboTodosAnos++;
+                contandoTvGalileiaSaoMiguelRouboTodosAnos++;
 
 
             }
@@ -14713,9 +15297,18 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
+
+            if (b.getAlertaRua().equals("Av. São Francisco")){
+
+                contandoRuaSaoFranciscoSaoMiguelFurtoTodosAnos++;
+
+
+
+            }
+
             if (b.getAlertaRua().equals("R. Um")){
 
-                contandoRuaUmSaoJoaquimFurtoTodosAnos++;
+                contandoRuaUmSaoMiguelFurtoTodosAnos++;
 
 
 
@@ -14723,79 +15316,74 @@ public class GraficoRuaBarraFragment extends Fragment {
 
             if (b.getAlertaRua().equals("R. Dois")){
 
-                contandoRuaDoisSaoJoaquimFurtoTodosAnos++;
+                contandoRuaDoisSaoMiguelFurtoTodosAnos++;
 
 
 
             }
 
-            if (b.getAlertaRua().equals("R. Três")){
+            if (b.getAlertaRua().equals("Rua Três")){
 
-                contandoRuaTresSaoJoaquimFurtoTodosAnos++;
-
-
-
-            }
-
-            if (b.getAlertaRua().equals("R. Seis")){
-
-                contandoRuaSeisSaoJoaquimFurtoTodosAnos++;
+                contandoRuaTresSaoMiguelFurtoTodosAnos++;
 
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Oito")){
+            if (b.getAlertaRua().equals("R. A")){
 
-                contandoRuaOitoSaoJoaquimFurtoTodosAnos++;
-
-
-
-            }
-
-
-            if (b.getAlertaRua().equals("R. Nove")){
-
-                contandoRuaNoveSaoJoaquimFurtoTodosAnos++;
-
-
-            }
-
-
-            if (b.getAlertaRua().equals("R. Dez")){
-
-                contandoRuaDezSaoJoaquimFurtoTodosAnos++;
+                contandoRuaASaoMiguelFurtoTodosAnos++;
 
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Doze")){
+            if (b.getAlertaRua().equals("R. B")){
 
-                contandoRuaDozeSaoJoaquimFurtoTodosAnos++;
-                ;
+                contandoRuaBSaoMiguelFurtoTodosAnos++;
+
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDSaoMiguelFurtoTodosAnos++;
+
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Piraporã")){
+
+                contandoRuaPiraporaSaoMiguelFurtoTodosAnos++;
+
 
 
             }
 
 
 
-            if (b.getAlertaRua().equals("Rua Santa Inês")){
+            if (b.getAlertaRua().equals("R. Montalvânia")){
 
-                contandoRuaSantaInesSaoJoaquimFurtoTodosAnos++;
+                contandoRuaMontalvaniaSaoMiguelFurtoTodosAnos++;
 
-
-            }
-
-            if (b.getAlertaRua().equals("Rua Santa Maria")){
-
-                contandoRuaSantaMariaSaoJoaquimFurtoTodosAnos++;
 
 
             }
 
+            if (b.getAlertaRua().equals("Tv. Galiléia")){
+
+                contandoTvGalileiaSaoMiguelFurtoTodosAnos++;
+
+
+            }
         }
 
 
@@ -14808,83 +15396,82 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
+            if (b.getAlertaRua().equals("Av. São Francisco")){
 
+                contandoRuaSaoFranciscoSaoMiguelRoubo2019++;
+
+
+            }
 
             if (b.getAlertaRua().equals("R. Um")){
 
-                contandoRuaUmSaoJoaquimRoubo2019++;
+                contandoRuaUmSaoMiguelRoubo2019++;
 
 
             }
 
             if (b.getAlertaRua().equals("R. Dois")){
 
-                contandoRuaDoisSaoJoaquimRoubo2019++;
+                contandoRuaDoisSaoMiguelRoubo2019++;
 
 
             }
 
-            if (b.getAlertaRua().equals("R. Três")){
+            if (b.getAlertaRua().equals("Rua Três")){
 
-                contandoRuaTresSaoJoaquimRoubo2019++;
-
-
-            }
-
-            if (b.getAlertaRua().equals("R. Seis")){
-
-                contandoRuaSeisSaoJoaquimRoubo2019++;
+                contandoRuaTresSaoMiguelRoubo2019++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Oito")){
+            if (b.getAlertaRua().equals("R. A")){
 
-                contandoRuaOitoSaoJoaquimRoubo2019++;
-
-
-            }
-
-
-            if (b.getAlertaRua().equals("R. Nove")){
-
-                contandoRuaNoveSaoJoaquimRoubo2019++;
+                contandoRuaASaoMiguelRoubo2019++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Dez")){
+            if (b.getAlertaRua().equals("R. B")){
 
-                contandoRuaDezSaoJoaquimRoubo2019++;
+                contandoRuaBSaoMiguelRoubo2019++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Doze")){
+            if (b.getAlertaRua().equals("R. D")){
 
-                contandoRuaDozeSaoJoaquimRoubo2019++;
+                contandoRuaDSaoMiguelRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Piraporã")){
+
+                contandoRuaPiraporaSaoMiguelRoubo2019++;
 
 
             }
 
 
 
-            if (b.getAlertaRua().equals("Rua Santa Inês")){
+            if (b.getAlertaRua().equals("R. Montalvânia")){
 
-                contandoRuaSantaInesSaoJoaquimRoubo2019++;
+                contandoRuaMontalvaniaSaoMiguelRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. Galiléia")){
+
+                contandoTvGalileiaSaoMiguelRoubo2019++;
 
 
             }
 
-            if (b.getAlertaRua().equals("Rua Santa Maria")){
-
-                contandoRuaSantaMariaSaoJoaquimRoubo2019++;
-
-
-            }
         }
 
 
@@ -14895,81 +15482,1924 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
+            if (b.getAlertaRua().equals("Av. São Francisco")){
+
+                contandoRuaSaoFranciscoSaoMiguelFurto2019++;
 
 
+            }
 
             if (b.getAlertaRua().equals("R. Um")){
 
-                contandoRuaUmSaoJoaquimFurto2019++;
+                contandoRuaUmSaoMiguelFurto2019++;
 
 
             }
 
             if (b.getAlertaRua().equals("R. Dois")){
 
-                contandoRuaDoisSaoJoaquimFurto2019++;
+                contandoRuaDoisSaoMiguelFurto2019++;
 
 
             }
 
-            if (b.getAlertaRua().equals("R. Três")){
+            if (b.getAlertaRua().equals("Rua Três")){
 
-                contandoRuaTresSaoJoaquimFurto2019++;
-
-
-            }
-
-            if (b.getAlertaRua().equals("R. Seis")){
-
-                contandoRuaSeisSaoJoaquimFurto2019++;
+                contandoRuaTresSaoMiguelFurto2019++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Oito")){
+            if (b.getAlertaRua().equals("R. A")){
 
-                contandoRuaOitoSaoJoaquimFurto2019++;
-
-
-            }
-
-
-            if (b.getAlertaRua().equals("R. Nove")){
-
-                contandoRuaNoveSaoJoaquimFurto2019++;
+                contandoRuaASaoMiguelFurto2019++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Dez")){
+            if (b.getAlertaRua().equals("R. B")){
 
-                contandoRuaDezSaoJoaquimFurto2019++;
+                contandoRuaBSaoMiguelFurto2019++;
 
 
             }
 
 
-            if (b.getAlertaRua().equals("R. Doze")){
+            if (b.getAlertaRua().equals("R. D")){
 
-                contandoRuaDozeSaoJoaquimFurto2019++;
+                contandoRuaDSaoMiguelFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Piraporã")){
+
+                contandoRuaPiraporaSaoMiguelFurto2019++;
 
 
             }
 
 
 
-            if (b.getAlertaRua().equals("Rua Santa Inês")){
+            if (b.getAlertaRua().equals("R. Montalvânia")){
 
-                contandoRuaSantaInesSaoJoaquimFurto2019++;
+                contandoRuaMontalvaniaSaoMiguelFurto2019++;
 
 
             }
 
-            if (b.getAlertaRua().equals("Rua Santa Maria")){
+            if (b.getAlertaRua().equals("Tv. Galiléia")){
 
-                contandoRuaSantaMariaSaoJoaquimFurto2019++;
+                contandoTvGalileiaSaoMiguelFurto2019++;
+
+
+            }
+        }
+    }
+
+    public void ruasBairroSaoVicenteTodosAnos(){
+
+
+
+
+        if (procuraBairro.contains("São Vicente") && b.getStatus().equals("Roubada")){
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaASaoVicenteRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBSaoVicenteRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDSaoVicenteRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. e")){
+
+                contandoRuaESaoVicenteRouboTodosAnos++;
+
+
+            }
+
+
+
+
+            if (b.getAlertaRua().equals("Rua Tuta Bastos")){
+
+                contandoRuaTutaBastosSaoVicenteRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Leonel Nogueira Neto")){
+
+                contandoRuaLeonelNogueiraNetoSaoVicenteRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Maria Carneiro Carvalho")){
+
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Olibrio Lima")){
+
+                contandoRuaOlibrioLimaSaoVicenteRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Terêncio Tôrres")){
+
+                contandoRuaTerencioTorresSaoVicenteRouboTodosAnos++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Sebastião Ferreira Lima")){
+
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteRouboTodosAnos++;
+
+
+            }
+
+
+
+
+
+        }
+
+
+
+
+        if (procuraBairro.contains("São Vicente") && b.getStatus().equals("Furtada")) {
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaASaoVicenteFurtoTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBSaoVicenteFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDSaoVicenteFurtoTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. e")){
+
+                contandoRuaESaoVicenteFurtoTodosAnos++;
+
+
+
+            }
+
+
+
+
+            if (b.getAlertaRua().equals("Rua Tuta Bastos")){
+
+                contandoRuaTutaBastosSaoVicenteFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Leonel Nogueira Neto")){
+
+                contandoRuaLeonelNogueiraNetoSaoVicenteFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Maria Carneiro Carvalho")){
+
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Olibrio Lima")){
+
+                contandoRuaOlibrioLimaSaoVicenteFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Terêncio Tôrres")){
+
+                contandoRuaTerencioTorresSaoVicenteFurtoTodosAnos++;
+            ;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Sebastião Ferreira Lima")){
+
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteFurtoTodosAnos++;
+
+
+            }
+
+
+        }
+
+
+    }
+
+    public void ruasBairroSaoVicente2019() {
+
+
+        if (procuraBairro.contains("São Vicente") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaASaoVicenteRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBSaoVicenteRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDSaoVicenteRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. e")){
+
+                contandoRuaESaoVicenteRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("Rua Tuta Bastos")){
+
+                contandoRuaTutaBastosSaoVicenteRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Leonel Nogueira Neto")){
+
+                contandoRuaLeonelNogueiraNetoSaoVicenteRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Maria Carneiro Carvalho")){
+
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Olibrio Lima")){
+
+                contandoRuaOlibrioLimaSaoVicenteRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Terêncio Tôrres")){
+
+                contandoRuaTerencioTorresSaoVicenteRoubo2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Sebastião Ferreira Lima")){
+
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteRoubo2019++;
+
+
+            }
+        }
+
+
+
+
+
+        if (procuraBairro.contains("São Vicente") && procuraAno.contains(anoProcura2019)&& b.getStatus().equals("Furtada")){
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaASaoVicenteFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBSaoVicenteFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDSaoVicenteFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. e")){
+
+                contandoRuaESaoVicenteFurto2019++;
+
+
+            }
+
+
+
+
+            if (b.getAlertaRua().equals("Rua Tuta Bastos")){
+
+                contandoRuaTutaBastosSaoVicenteFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Leonel Nogueira Neto")){
+
+                contandoRuaLeonelNogueiraNetoSaoVicenteFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Maria Carneiro Carvalho")){
+
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Olibrio Lima")){
+
+                contandoRuaOlibrioLimaSaoVicenteFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Terêncio Tôrres")){
+
+                contandoRuaTerencioTorresSaoVicenteFurto2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Sebastião Ferreira Lima")){
+
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteFurto2019++;
+
+
+            }
+
+        }
+    }
+
+    public void ruasBairroTejucoTodosAnos(){
+
+
+
+
+        if (procuraBairro.contains("Tejuco") && b.getStatus().equals("Roubada")){
+
+
+
+
+            if (b.getAlertaRua().equals("R. Castelo Branco")){
+
+                contandoRuaCasteloBrancoTejucoRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Jucelino Kubitscheck")){
+
+                contandoRuaJucelinoKubitscheckTejucoRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Tancredo Neves")){
+
+                contandoRuaTancredoNevesTejucoRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Tejuco")){
+
+                contandoRuaTejucoTejucoRouboTodosAnos++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Tropical")){
+
+                contandoRuaTropicalTejucoVicenteRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. São João")){
+
+                contandoRuaSaoJoaoTejucoRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. São José")){
+
+                contandoRuaSaoJoseTejucoRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Manoel Alexandrino de Carvalho")){
+
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoRouboTodosAnos++;
+
+
+            }
+
+
+
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Tejuco") && b.getStatus().equals("Furtada")) {
+
+
+
+
+
+
+            if (b.getAlertaRua().equals("R. Castelo Branco")){
+
+                contandoRuaCasteloBrancoTejucoFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Jucelino Kubitscheck")){
+
+                contandoRuaJucelinoKubitscheckTejucoFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Tancredo Neves")){
+
+                contandoRuaTancredoNevesTejucoFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Tejuco")){
+
+                contandoRuaTejucoTejucoFurtoTodosAnos++;
+
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Tropical")){
+
+                contandoRuaTropicalTejucoVicenteFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. São João")){
+
+                contandoRuaSaoJoaoTejucoFurtoTodosAnos++;
+
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. São José")){
+
+                contandoRuaSaoJoseTejucoFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Manoel Alexandrino de Carvalho")){
+
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoFurtoTodosAnos++;
+
+
+            }
+        }
+
+
+    }
+
+    public void ruasBairroTejuco2019() {
+
+
+        if (procuraBairro.contains("Tejuco") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+
+
+
+
+
+            if (b.getAlertaRua().equals("R. Castelo Branco")){
+
+                contandoRuaCasteloBrancoTejucoRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Jucelino Kubitscheck")){
+
+                contandoRuaJucelinoKubitscheckTejucoRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Tancredo Neves")){
+
+                contandoRuaTancredoNevesTejucoRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Tejuco")){
+
+                contandoRuaTejucoTejucoRoubo2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Tropical")){
+
+                contandoRuaTropicalTejucoVicenteRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. São João")){
+
+                contandoRuaSaoJoaoTejucoRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. São José")){
+
+                contandoRuaSaoJoseTejucoRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Manoel Alexandrino de Carvalho")){
+
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoRoubo2019++;
+
+
+            }
+        }
+
+
+
+
+        if (procuraBairro.contains("Tejuco") && procuraAno.contains(anoProcura2019)&& b.getStatus().equals("Furtada")){
+
+
+
+
+
+            if (b.getAlertaRua().equals("R. Castelo Branco")){
+
+                contandoRuaCasteloBrancoTejucoFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Jucelino Kubitscheck")){
+
+                contandoRuaJucelinoKubitscheckTejucoFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Tancredo Neves")){
+
+                contandoRuaTancredoNevesTejucoFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Tejuco")){
+
+                contandoRuaTejucoTejucoFurto2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Tropical")){
+
+                contandoRuaTropicalTejucoVicenteFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. São João")){
+
+                contandoRuaSaoJoaoTejucoFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. São José")){
+
+                contandoRuaSaoJoseTejucoFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Manoel Alexandrino de Carvalho")){
+
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoFurto2019++;
+
+
+            }
+
+        }
+    }
+
+    public void ruasBairroVilaFatimaTodosAnos(){
+
+
+
+
+
+        if (procuraBairro.contains("Vila Fatima") && b.getStatus().equals("Roubada")){
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaAVilaFatimaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBFatimaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. C")){
+
+                contandoRuaCVilaFatimaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaFatimaRouboTodosAnos++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. E")){
+
+                contandoRuaEVilaFatimaVicenteRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. F")){
+
+                contandoRuaFVilaFatimaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("Rua Gilmar Pereira Rocha")){
+
+                contandoRuaGilmarPereiraRochaVilaFatimaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. João Pimenta de Carvalho")){
+
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Joaquim Fernandes")){
+
+                contandoRuaJoaquimFernandesoVilaFatimaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. José Augusto")){
+
+                contandoRuaJoseAugustoVilaFatimaRouboTodosAnos++;
+
+
+            }
+
+
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Vila Fatima") && b.getStatus().equals("Furtada")) {
+
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaAVilaFatimaFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBFatimaFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. C")){
+
+                contandoRuaCVilaFatimaFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaFatimaFurtoTodosAnos++;
+
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. E")){
+
+                contandoRuaEVilaFatimaVicenteFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. F")){
+
+                contandoRuaFVilaFatimaFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("Rua Gilmar Pereira Rocha")){
+
+                contandoRuaGilmarPereiraRochaVilaFatimaFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. João Pimenta de Carvalho")){
+
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Joaquim Fernandes")){
+
+                contandoRuaJoaquimFernandesoVilaFatimaFurtoTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. José Augusto")){
+
+                contandoRuaJoseAugustoVilaFatimaFurtoTodosAnos++;
+
+
+            }
+
+
+        }
+
+
+    }
+
+    public void ruasBairroVilaFatima2019() {
+
+
+        if (procuraBairro.contains("Vila Fatima") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaAVilaFatimaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBFatimaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. C")){
+
+                contandoRuaCVilaFatimaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaFatimaRoubo2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. E")){
+
+                contandoRuaEVilaFatimaVicenteRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. F")){
+
+                contandoRuaFVilaFatimaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("Rua Gilmar Pereira Rocha")){
+
+                contandoRuaGilmarPereiraRochaVilaFatimaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. João Pimenta de Carvalho")){
+
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Joaquim Fernandes")){
+
+                contandoRuaJoaquimFernandesoVilaFatimaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. José Augusto")){
+
+                contandoRuaJoseAugustoVilaFatimaRoubo2019++;
+
+
+            }
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Vila Fatima") && procuraAno.contains(anoProcura2019)&& b.getStatus().equals("Furtada")){
+
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaAVilaFatimaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBFatimaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. C")){
+
+                contandoRuaCVilaFatimaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaFatimaFurto2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. E")){
+
+                contandoRuaEVilaFatimaVicenteFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. F")){
+
+                contandoRuaFVilaFatimaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("Rua Gilmar Pereira Rocha")){
+
+                contandoRuaGilmarPereiraRochaVilaFatimaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. João Pimenta de Carvalho")){
+
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Joaquim Fernandes")){
+
+                contandoRuaJoaquimFernandesoVilaFatimaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. José Augusto")){
+
+                contandoRuaJoseAugustoVilaFatimaFurto2019++;
+
+
+            }
+        }
+    }
+
+    public void ruasBairroPandeirosTodosAnos(){
+
+
+
+        if (procuraBairro.contains("Pandeiros") && b.getStatus().equals("Roubada")){
+
+
+
+
+            if (b.getAlertaRua().equals("Rua Joaquim Barbosa Gobira")){
+
+                contandoRuaJoaquimBarbosaGobiraPandeirosRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Rua Maria Moreira")){
+
+                contandoRuaMariaMoreiraPandeirosRouboTodosAnos++;
+
+
+            }
+
+
+
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Pandeiros") && b.getStatus().equals("Furtada")) {
+
+
+
+
+
+            if (b.getAlertaRua().equals("Rua Joaquim Barbosa Gobira")){
+
+                contandoRuaJoaquimBarbosaGobiraPandeirosFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("Rua Maria Moreira")){
+
+                contandoRuaMariaMoreiraPandeirosFurtoTodosAnos++;
+
+
+            }
+
+        }
+
+
+    }
+
+    public void ruasBairroPandeiros2019() {
+
+
+        if (procuraBairro.contains("Pandeiros") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+
+
+
+
+            if (b.getAlertaRua().equals("Rua Joaquim Barbosa Gobira")){
+
+                contandoRuaJoaquimBarbosaGobiraPandeirosRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Rua Maria Moreira")){
+
+                contandoRuaMariaMoreiraPandeirosRoubo2019++;
+
+
+            }
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Pandeiros") && procuraAno.contains(anoProcura2019)&& b.getStatus().equals("Furtada")){
+
+
+
+            if (b.getAlertaRua().equals("Rua Joaquim Barbosa Gobira")){
+
+                contandoRuaJoaquimBarbosaGobiraPandeirosFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Rua Maria Moreira")){
+
+                contandoRuaMariaMoreiraPandeirosFurto2019++;
+
+
+            }
+        }
+    }
+
+    public void ruasBairroVilaPaulaTodosAnos(){
+
+
+
+
+
+
+        if (procuraBairro.contains("Vila Paula") && b.getStatus().equals("Roubada")){
+
+
+
+
+            if (b.getAlertaRua().equals("Av. São Francisco")){
+
+                contandoRuaSaoFranciscoVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. José Nunes")){
+
+                contandoTvJoseNunesVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. Júlio de Moura")){
+
+                contandoTvJulioMouraVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Leonel Nogueira Neto")){
+
+                contandoRuaLeonelNogueiraNetoVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Anizio Jose Da Rocha")){
+
+                contandoRuaAnizioJoseRochaVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Júlio de Moura")){
+
+                contandoRuaJulioMouraVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. José Nunes")){
+
+                contandoRuaJoseNunesVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Sebastião Ferreira Lima")){
+
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Srg. Mozar")){
+
+                contandoRuaSrgMozarVilaPaulaRouboTodosAnos++;
+
+
+            }
+
+
+
+
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Vila Paula") && b.getStatus().equals("Furtada")) {
+
+
+
+
+            if (b.getAlertaRua().equals("Av. São Francisco")){
+
+                contandoRuaSaoFranciscoVilaPaulaFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. José Nunes")){
+
+                contandoTvJoseNunesVilaPaulaFurtoTodosAnos++;
+
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. Júlio de Moura")){
+
+                contandoTvJulioMouraVilaPaulaFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Leonel Nogueira Neto")){
+
+                contandoRuaLeonelNogueiraNetoVilaPaulaFurtoTodosAnos++;
+
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Anizio Jose Da Rocha")){
+
+                contandoRuaAnizioJoseRochaVilaPaulaFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Júlio de Moura")){
+
+                contandoRuaJulioMouraVilaPaulaFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. José Nunes")){
+
+                contandoRuaJoseNunesVilaPaulaFurtoTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Sebastião Ferreira Lima")){
+
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Srg. Mozar")){
+
+                contandoRuaSrgMozarVilaPaulaFurtoTodosAnos++;
+
+
+            }
+
+
+        }
+
+
+    }
+
+    public void ruasBairroVilaPaula2019() {
+
+
+        if (procuraBairro.contains("Vila Paula") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+
+
+
+
+
+
+            if (b.getAlertaRua().equals("Av. São Francisco")){
+
+                contandoRuaSaoFranciscoVilaPaulaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. José Nunes")){
+
+                contandoTvJoseNunesVilaPaulaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. Júlio de Moura")){
+
+                contandoTvJulioMouraVilaPaulaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Leonel Nogueira Neto")){
+
+                contandoRuaLeonelNogueiraNetoVilaPaulaRoubo2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Anizio Jose Da Rocha")){
+
+                contandoRuaAnizioJoseRochaVilaPaulaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Júlio de Moura")){
+
+                contandoRuaJulioMouraVilaPaulaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. José Nunes")){
+
+                contandoRuaJoseNunesVilaPaulaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Sebastião Ferreira Lima")){
+
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Srg. Mozar")){
+
+                contandoRuaSrgMozarVilaPaulaRoubo2019++;
+
+
+            }
+        }
+
+
+
+
+        if (procuraBairro.contains("Vila Paula") && procuraAno.contains(anoProcura2019)&& b.getStatus().equals("Furtada")){
+
+
+
+
+
+            if (b.getAlertaRua().equals("Av. São Francisco")){
+
+                contandoRuaSaoFranciscoVilaPaulaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. José Nunes")){
+
+                contandoTvJoseNunesVilaPaulaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("Tv. Júlio de Moura")){
+
+                contandoTvJulioMouraVilaPaulaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Leonel Nogueira Neto")){
+
+                contandoRuaLeonelNogueiraNetoVilaPaulaFurto2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. Anizio Jose Da Rocha")){
+
+                contandoRuaAnizioJoseRochaVilaPaulaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Júlio de Moura")){
+
+                contandoRuaJulioMouraVilaPaulaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. José Nunes")){
+
+                contandoRuaJoseNunesVilaPaulaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Sebastião Ferreira Lima")){
+
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. Srg. Mozar")){
+
+                contandoRuaSrgMozarVilaPaulaFurto2019++;
+
+
+            }
+        }
+    }
+
+    public void ruasBairroVilaVerdeTodosAnos(){
+
+
+
+
+
+
+        if (procuraBairro.contains("Vila Verde") && b.getStatus().equals("Roubada")){
+
+
+
+            if (b.getAlertaRua().equals("Av. Mal. Deodoro da Fonseca")){
+
+                contandoAvMalDeodoroFonsecaVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRAVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. do Aterro")){
+
+                contandoRuaAterroVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. O")){
+
+                contandoRuaOVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. R")){
+
+                contandoRuaRVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. T")){
+
+                contandoRuaTVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. U")){
+
+                contandoRuaUVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. V")){
+
+                contandoRuaVVilaVerdeRouboTodosAnos++;
+
+
+            }
+
+
+
+
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Vila Verde") && b.getStatus().equals("Furtada")) {
+
+
+
+            if (b.getAlertaRua().equals("Av. Mal. Deodoro da Fonseca")){
+
+                contandoAvMalDeodoroFonsecaVilaVerdeFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRAVilaVerdeFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. do Aterro")){
+
+                contandoRuaAterroVilaVerdeFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBVilaVerdeFurtoTodosAnos++;
+
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaVerdeFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. O")){
+
+                contandoRuaOVilaVerdeFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. R")){
+
+                contandoRuaRVilaVerdeFurtoTodosAnos++;
+
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. T")){
+
+                contandoRuaTVilaVerdeFurtoTodosAnos++;
+
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. U")){
+
+                contandoRuaUVilaVerdeFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. V")){
+
+                contandoRuaVVilaVerdeFurtoTodosAnos++;
+
+
+            }
+
+
+        }
+
+
+    }
+
+    public void ruasBairroVilaVerde2019() {
+
+
+        if (procuraBairro.contains("Vila Verde") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+
+
+
+
+
+            if (b.getAlertaRua().equals("Av. Mal. Deodoro da Fonseca")){
+
+                contandoAvMalDeodoroFonsecaVilaVerdeRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRAVilaVerdeRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. do Aterro")){
+
+                contandoRuaAterroVilaVerdeRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBVilaVerdeRoubo2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaVerdeRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. O")){
+
+                contandoRuaOVilaVerdeRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. R")){
+
+                contandoRuaRVilaVerdeRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. T")){
+
+                contandoRuaTVilaVerdeRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. U")){
+
+                contandoRuaUVilaVerdeRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. V")){
+
+                contandoRuaVVilaVerdeRoubo2019++;
+
+
+            }
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Vila Verde") && procuraAno.contains(anoProcura2019)&& b.getStatus().equals("Furtada")){
+
+
+
+
+            if (b.getAlertaRua().equals("Av. Mal. Deodoro da Fonseca")){
+
+                contandoAvMalDeodoroFonsecaVilaVerdeFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRAVilaVerdeFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. do Aterro")){
+
+                contandoRuaAterroVilaVerdeFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBVilaVerdeFurto2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaVerdeFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. O")){
+
+                contandoRuaOVilaVerdeFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. R")){
+
+                contandoRuaRVilaVerdeFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. T")){
+
+                contandoRuaTVilaVerdeFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. U")){
+
+                contandoRuaUVilaVerdeFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. V")){
+
+                contandoRuaVVilaVerdeFurto2019++;
 
 
             }
@@ -14977,11 +17407,342 @@ public class GraficoRuaBarraFragment extends Fragment {
     }
 
 
+    public void ruasBairroVilaVianaTodosAnos(){
 
 
 
 
 
+
+
+        if (procuraBairro.contains("Vila Viana") && b.getStatus().equals("Roubada")){
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaAVilaVianaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Arthur Lopes Pimenta")){
+
+                contandoRuaArthurLopesPimentaVilaVianaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBVilaVianaRouboTodosAnos++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaVianaRouboTodosAnos++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. E")){
+
+                contandoRuaEVilaVianaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. F")){
+
+                contandoRuaFVilaVianaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. G")){
+
+                contandoRuaGVilaVianaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. R")){
+
+                contandoRuaRVilaVianaRouboTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. X")){
+
+                contandoRuaXVilaVianaRouboTodosAnos++;
+
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Vila Viana") && b.getStatus().equals("Furtada")) {
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaAVilaVianaFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Arthur Lopes Pimenta")){
+
+                contandoRuaArthurLopesPimentaVilaVianaFurtoTodosAnos++;
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBVilaVianaFurtoTodosAnos++;
+
+
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaVianaFurtoTodosAnos++;
+
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. E")){
+
+                contandoRuaEVilaVianaFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. F")){
+
+                contandoRuaFVilaVianaFurtoTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. G")){
+
+                contandoRuaGVilaVianaFurtoTodosAnos++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. R")){
+
+                contandoRuaRVilaVianaFurtoTodosAnos++;
+
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. X")){
+
+                contandoRuaXVilaVianaFurtoTodosAnos++;
+
+
+            }
+
+        }
+
+
+    }
+
+    public void ruasBairroVilaViana2019() {
+
+
+        if (procuraBairro.contains("Vila Viana") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaAVilaVianaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Arthur Lopes Pimenta")){
+
+                contandoRuaArthurLopesPimentaVilaVianaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBVilaVianaRoubo2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaVianaRoubo2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. E")){
+
+                contandoRuaEVilaVianaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. F")){
+
+                contandoRuaFVilaVianaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. G")){
+
+                contandoRuaGVilaVianaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. R")){
+
+                contandoRuaRVilaVianaRoubo2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. X")){
+
+                contandoRuaXVilaVianaRoubo2019++;
+
+
+            }
+
+        }
+
+
+
+
+        if (procuraBairro.contains("Vila Viana") && procuraAno.contains(anoProcura2019)&& b.getStatus().equals("Furtada")){
+
+
+
+
+            if (b.getAlertaRua().equals("R. A")){
+
+                contandoRuaAVilaVianaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. Arthur Lopes Pimenta")){
+
+                contandoRuaArthurLopesPimentaVilaVianaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. B")){
+
+                contandoRuaBVilaVianaFurto2019++;
+
+
+            }
+
+            if (b.getAlertaRua().equals("R. D")){
+
+                contandoRuaDVilaVianaFurto2019++;
+
+
+            }
+
+
+
+            if (b.getAlertaRua().equals("R. E")){
+
+                contandoRuaEVilaVianaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. F")){
+
+                contandoRuaFVilaVianaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. G")){
+
+                contandoRuaGVilaVianaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. R")){
+
+                contandoRuaRVilaVianaFurto2019++;
+
+
+            }
+
+
+            if (b.getAlertaRua().equals("R. X")){
+
+                contandoRuaXVilaVianaFurto2019++;
+
+
+            }
+        }
+    }
 
     public void ruasBairroJadeteTodosAnos(){
 
@@ -15296,5 +18057,16 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
 
 }

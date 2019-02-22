@@ -64,9 +64,9 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private LineChart lineChart;
 
-    private String[] nomes   = new String[]{"Rua1","Rua2","Rua3","Rua4"};
-    private int[]     roubos = new int   []{20,16,20,11};
-    private int []   cores   = new int   []{Color.DKGRAY,Color.RED};
+    private String[] nomes   = new String[]{""};
+    private int[]     roubos = new int   []{};
+    private int []   cores   = new int   []{};
     private String[] legenda  = new String[]{"Furto","Roubo"};
     private int[]    furtos = new int   []{5,10,6,10};
 
@@ -186,6 +186,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+        GraficoRuaBarraFragment n = new GraficoRuaBarraFragment();
 
 
 
@@ -373,8 +374,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
     }
 
 
-
-
     private void axisX(XAxis axis){
 
         axis.setGranularityEnabled(true);
@@ -383,8 +382,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
     }
-
-
 
     private void criarGraficos(){
 

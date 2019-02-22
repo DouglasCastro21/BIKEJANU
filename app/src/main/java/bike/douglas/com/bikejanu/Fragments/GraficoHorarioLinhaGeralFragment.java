@@ -62,13 +62,17 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
 
     private LineChart lineChart;
 
-    private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+    private String[] nomes   = new String[]{};
 
-    private int[]    roubos  = new int   []{10,15,12,34,};
-    private int []   cores   = new int   []{Color.RED};
-    private String[] legenda  = new String[]{"Furto/Roubo"};
+    private int[]    roubos  = new int   []{};
+    private int []   cores   = new int   []{};
+    private String[] legenda  = new String[]{};
 
 
+
+
+    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+    String[] leg  = new String[]{"Furto/Roubo"}; // ALTERAR a LEGENDA da aq
 
 
     private FirebaseDatabase firebaseDatabase;
@@ -118,10 +122,9 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
                 if(position==0){
 
 
-                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    rouboss  = new int   []{10,15,12,34,};
                     int []   cor   = new int   []{Color.RED};
-                    String[] leg  = new String[]{"Furto/Roubo"};
+
 
 
                     nomes   = turnos;
@@ -136,11 +139,9 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
                 } else if(position == 1){
 
 
-
-                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    rouboss  = new int   []{10,15,12,34,};
                     int []   cor   = new int   []{Color.RED};
-                    String[] leg  = new String[]{"Furto/Roubo"};
+
 
 
                     nomes   = turnos;
@@ -157,10 +158,10 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
 
                 }else if (position==2){
 
-                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
+
                     int[]    rouboss  = new int   []{10,15,12,34,};
                     int []   cor   = new int   []{Color.RED};
-                    String[] leg  = new String[]{"Furto/Roubo"};
+
 
 
                     nomes   = turnos;
@@ -169,22 +170,6 @@ public class GraficoHorarioLinhaGeralFragment extends Fragment {
                     legenda  = leg;
 
                     criarGraficos();
-
-                }else if(position==3){
-
-                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
-                    int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.RED};
-                    String[] leg  = new String[]{"Furto/Roubo"};
-
-
-                    nomes   = turnos;
-                    roubos =  rouboss;
-                    cores   =  cor;
-                    legenda  = leg;
-
-                    criarGraficos();
-
 
                 }
 

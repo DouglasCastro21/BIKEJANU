@@ -59,7 +59,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
     private String[] nomes   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
     private   int[]    valores  = new int   []{120,125,112,314,};
-    private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+    private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
 
@@ -97,7 +97,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
                   String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                   int[]    valor  = new int   []{101,125,123,342,};
-                   int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+                   int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
 
@@ -115,7 +115,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
                     String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    valor  = new int   []{110,115,112,314,};
-                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
 
@@ -132,7 +132,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
                     String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    valor  = new int   []{110,115,112,314,};
-                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
+                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
 
@@ -143,28 +143,8 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
                     criarGraficos();
-
-                }else if(position==3){
-
-                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
-                    int[]    valor  = new int   []{100,135,132,324,};
-                    int []   cor   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
-
-
-
-
-                    nomes   = turnos;
-                    valores =  valor;
-                    cores   =  cor;
-
-
-                    criarGraficos();
-
-
 
                 }
-
-
 
             }
 
@@ -325,7 +305,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
     private BarData getBarDate(){
         BarDataSet barDataSet = (BarDataSet)getDate(new BarDataSet(getBarEntries(),""));
 
-        barDataSet.setBarShadowColor(Color.GRAY);
+        barDataSet.setBarShadowColor(Color.YELLOW);
 
         BarData barData = new BarData(barDataSet);
         barData.setBarWidth(0.45f);

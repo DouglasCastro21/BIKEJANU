@@ -69,6 +69,10 @@ public class GraficoHorarioLinhaFragment extends Fragment {
    private int[]    furtos = new int   []{5,10,6,10};
 
 
+
+
+
+
     private FirebaseDatabase firebaseDatabase;
     private static DatabaseReference databaseReference;
 
@@ -117,7 +121,7 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
                     String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    int []   cor   = new int   []{Color.YELLOW,Color.RED};
                     String[] leg  = new String[]{"Furto","Roubo"};
                     int[]    furt = new int   []{5,10,6,10};
 
@@ -136,7 +140,7 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
                     String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    int []   cor   = new int   []{Color.YELLOW,Color.RED};
                     String[] leg  = new String[]{"Furto","Roubo"};
                     int[]    furt = new int   []{5,10,6,10};
 
@@ -156,7 +160,7 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
                     String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
                     int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
+                    int []   cor   = new int   []{Color.YELLOW,Color.RED};
                     String[] leg  = new String[]{"Furto","Roubo"};
                     int[]    furt = new int   []{5,10,6,10};
 
@@ -166,22 +170,6 @@ public class GraficoHorarioLinhaFragment extends Fragment {
                     legenda  = leg;
                     furtos = furt;
 
-
-                    criarGraficos();
-
-                }else if(position==3){
-
-                    String[] turnos   = new String[]{"Madrug'","Manhã", "Tarde","Noite"};
-                    int[]    rouboss  = new int   []{10,15,12,34,};
-                    int []   cor   = new int   []{Color.DKGRAY,Color.RED};
-                    String[] leg  = new String[]{"Furto","Roubo"};
-                    int[]    furt = new int   []{5,10,6,10};
-
-                    nomes   = turnos;
-                    roubos =  rouboss;
-                    cores   =  cor;
-                    legenda  = leg;
-                    furtos = furt;
 
                     criarGraficos();
 
@@ -472,7 +460,7 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
 
         set2= new LineDataSet(yVals2, "Furto");
-        set2.setColor(Color.DKGRAY);
+        set2.setColor(Color.YELLOW);
         set2.setCircleColor(Color.RED);
         set2.setLineWidth(4f);
         set2.setDrawCircles(true);
