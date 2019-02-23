@@ -314,8 +314,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
     }
 
 
-
-
     private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
 
         chart.getDescription().setText(descricao);
@@ -361,8 +359,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
     }
 
-
-
     private void axisX(XAxis axis){
 
         axis.setGranularityEnabled(true);
@@ -376,10 +372,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
     }
-
-
-
-
 
     private void criarGraficos(){
 

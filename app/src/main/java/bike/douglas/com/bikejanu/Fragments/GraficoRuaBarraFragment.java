@@ -1465,17 +1465,9 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
         Query query;
-
-
         //Instânciar objetos
         listBikes = new ArrayList<>();
-
-
-
-
         query = databaseReference.child("TodasBikes");
-
-
         query.addValueEventListener(new ValueEventListener() {
             @Override
 
@@ -1573,9 +1565,6 @@ public class GraficoRuaBarraFragment extends Fragment {
                     ruasBairroVilaPaula2019();
                     ruasBairroVilaVerde2019();
                     ruasBairroVilaViana2019();
-
-
-
 
 
 
@@ -17406,7 +17395,6 @@ public class GraficoRuaBarraFragment extends Fragment {
         }
     }
 
-
     public void ruasBairroVilaVianaTodosAnos(){
 
 
@@ -18057,15 +18045,6 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     }
-
-
-
-
-
-
-
-
-
 
 
 
