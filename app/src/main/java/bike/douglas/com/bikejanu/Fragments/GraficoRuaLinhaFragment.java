@@ -4046,8 +4046,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
     }
 
 
-
-
     // CRIA OS GRAFICOS
 
     private void criarGraficos(){

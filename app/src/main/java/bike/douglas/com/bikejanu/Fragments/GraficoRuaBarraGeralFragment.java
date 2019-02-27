@@ -73,14 +73,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuavinteTresAeroportoRouboTodosAnos=0;
     int contandoRuaRXIAeroportoRouboTodosAnos=0;
 
-    int  contandoAvAeroportoAeroportoFurtoTodosAnos =0;
-    int contandoAvSeisAeroportoFurtoTodosAnos =0;
-    int contandoRuaRUmAeroportoFurtoTodosAnos=0;
-    int contandoRuaRDoisAeroportoFurtoTodosAnos=0;
-    int contandoRuaRTresAeroportoFurtoTodosAnos=0;
-    int contandoRuaRQuatroAeroportoFurtoTodosAnos=0;
-    int contandoRuavinteTresAeroportoFurtoTodosAnos=0;
-    int contandoRuaRXIAeroportoFurtoTodosAnos=0;
 
 
 
@@ -97,14 +89,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuavinteTresAeroportoRoubo2019=0;
     int contandoRuaRXIAeroportoRoubo2019=0;
 
-    int contandoAvAeroportoAeroportoFurtada2019=0;
-    int  contandoAvSeisAeroportoFurtada2019=0;
-    int contandoRuaRUmAeroportoFurtada2019=0;
-    int contandoRuaRDoisAeroportoFurtada2019=0;
-    int  contandoRuaRTresAeroportoFurtada2019=0;
-    int contandoRuaRQuatroAeroportoFurtada2019=0;
-    int contandoRuavinteTresAeroportoFurtada2019=0;
-    int contandoRuaRXIAeroportoFurtada2019=0;
 
 
 
@@ -121,15 +105,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoTvVianaJadeteRouboTodosAnos =0;
 
 
-    int contandoRuaRamiroLeiteJadeteFurtoTodosAnos =0;
-    int contandoRuaAlameidaVianaJadeteFurtoTodosAnos =0;
-    int contandoRuaInezitaJadeteFurtoTodosAnos =0;
-    int contandoRuaIslaHJadeteFurtoTodosAnos =0;
-    int contandoRuaSantoAntJadeteFurtoTodosAnos =0;
-    int contandoRuaVianaJadeteFurtoTodosAnos =0;
-    int contandoRuavinteDoisJadeteFurtoTodosAnos =0;
-    int contandoRuaJoaoAlkimimJadeteFurtoTodosAnos =0;
-    int contandoTvVianaJadeteFurtoTodosAnos =0;
 
 
     // variaveis do bairro jussara ,ruas   ano 2019
@@ -143,28 +118,10 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaJoaoAlkimimJadeteRouboAno2019 =0;
     int contandoTvVianaJadeteRouboAno2019 =0;
 
-    int contandoRuaRamiroLeiteJadeteFurtoAno2019 =0;
-    int contandoRuaAlameidaVianaJadeteFurtoAno2019 =0;
-    int contandoRuaInezitaJadeteFurtoAno2019 =0;
-    int contandoRuaIslaHJadeteFurtoAno2019 =0;
-    int contandoRuaSantoAntJadeteFurtoAno2019 =0;
-    int contandoRuaVianaJadeteFurtoAno2019 =0;
-    int contandoRuavinteDoisJadeteFurtoAno2019 =0;
-    int contandoRuaJoaoAlkimimJadeteFurtoAno2019 =0;
-    int contandoTvVianaJadeteFurtoAno2019 =0;
 
 
 
-    int contandoRuaUmAltoPocoesFurtoTodosAnos=0;
-    int contandoRuaDoisAltoPocoesFurtoTodosAnos=0;
-    int  contandoRuaTresAltoPocoesFurtoTodosAnos=0;
-    int contandoRuaQuatroAltoPocoesFurtoTodosAnos=0;
-    int contandoRuaCincoAltoPocoesFurtoTodosAnos=0;
-    int  contandoAvUmAltoPocoesFurtoTodosAnos=0;
-    int contandoAvDoisRuaAltoPocoesFurtoTodosAnos=0;
-    int contandoAvTresAltoPocoesFurtoTodosAnos=0;
-    int contandoAvQuatroAltoPocoesFurtoTodosAnos=0;
-    int contandoAvCincoAltoPocoesFurtoTodosAnos=0;
+
 
 
 
@@ -181,16 +138,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaUmAltoPocoesFurto2019=0;
-    int contandoRuaDoisAltoPocoesFurto2019=0;
-    int  contandoRuaTresAltoPocoesFurto2019=0;
-    int contandoRuaQuatroAltoPocoesFurto2019=0;
-    int contandoRuaCincoAltoPocoesFurto2019=0;
-    int  contandoAvUmAltoPocoesFurto2019=0;
-    int contandoAvDoisRuaAltoPocoesFurto2019=0;
-    int contandoAvTresAltoPocoesFurto2019=0;
-    int contandoAvQuatroAltoPocoesFurto2019=0;
-    int contandoAvCincoAltoPocoesFurto2019=0;
+
 
 
 
@@ -207,16 +155,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaAterroAlvoradaFurtoTodosAnos=0;
-    int contandoRuaUmAlvoradaFurtoTodosAnos=0;
-    int contandoRuaAAlvoradaFurtoTodosAnos=0;
-    int contandoRuaEAlvoradaFurtoTodosAnos=0;
-    int contandoRuaJAlvoradaFurtoTodosAnos=0;
-    int contandoRuaKAlvoradaFurtoTodosAnos=0;
-    int contandoRuaLAlvoradaFurtoTodosAnos=0;
-    int contandoRuaMAlvoradaFurtoTodosAnos=0;
-    int contandoRuaNAlvoradaFurtoTodosAnos=0;
-    int contandoRuaOAlvoradaFurtoTodosAnos=0;
 
 
     int contandoRuaAterroAlvoradaRouboTodosAnos=0;
@@ -232,16 +170,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaAterroAlvoradaFurto2019=0;
-    int contandoRuaUmAlvoradaFurto2019=0;
-    int contandoRuaAAlvoradaFurto2019=0;
-    int contandoRuaEAlvoradaFurto2019=0;
-    int contandoRuaJAlvoradaFurto2019=0;
-    int contandoRuaKAlvoradaFurto2019=0;
-    int contandoRuaLAlvoradaFurto2019=0;
-    int contandoRuaMAlvoradaFurto2019=0;
-    int contandoRuaNAlvoradaFurto2019=0;
-    int contandoRuaOAlvoradaFurto2019=0;
+
 
 
     int contandoRuaAterroAlvoradaRoubo2019=0;
@@ -258,14 +187,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaUmBandeirantesFurtoTodosAnos=0;
-    int contandoRuaABandeirantesFurtoTodosAnos=0;
-    int contandoRuaEBandeirantesFurtoTodosAnos=0;
-    int contandoRuaJBandeirantesFurtoTodosAnos=0;
-    int contandoRuaKBandeirantesFurtoTodosAnos=0;
-    int contandoRuaMirabelaBandeirantesFurtoTodosAnos=0;
-    int contandoTvMirabelaBandeirantesFurtoTodosAnos=0;
-    int contandoTvJulioBandeirantesFurtoTodosAnos=0;
 
     int contandoRuaUmBandeirantesRouboTodosAnos=0;
     int contandoRuaABandeirantesRouboTodosAnos=0;
@@ -279,15 +200,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaUmBandeirantesFurto2019=0;
-    int contandoRuaABandeirantesFurto2019=0;
-    int contandoRuaEBandeirantesFurto2019=0;
-    int contandoRuaJBandeirantesFurto2019=0;
-    int contandoRuaKBandeirantesFurto2019=0;
-    int contandoRuaMirabelaBandeirantesFurto2019=0;
-    int contandoTvMirabelaBandeirantesFurto2019=0;
-    int contandoTvJulioBandeirantesFurto2019=0;
-
     int contandoRuaUmBandeirantesRoubo2019=0;
     int contandoRuaABandeirantesRoubo2019=0;
     int contandoRuaEBandeirantesRoubo2019=0;
@@ -298,16 +210,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoTvJulioBandeirantesRoubo2019=0;
 
 
-    int contandoRuaUmBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaDoisBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaTresBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaQuatroBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaCincoBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaSeisBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaTrezeMaioBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaLuisTupinaBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaHermilioTupinaBoaEsperancaFurtoTodosAnos=0;
-    int contandoRuaSaoGeraldoBoaEsperancaFurtoTodosAnos=0;
 
 
     int contandoRuaUmBoaEsperancaRouboTodosAnos=0;
@@ -323,17 +225,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaUmBoaEsperancaFurto2019=0;
-    int contandoRuaDoisBoaEsperancaFurto2019=0;
-    int contandoRuaTresBoaEsperancaFurto2019=0;
-    int contandoRuaQuatroBoaEsperancaFurto2019=0;
-    int contandoRuaCincoBoaEsperancaFurto2019=0;
-    int contandoRuaSeisBoaEsperancaFurto2019=0;
-    int contandoRuaTrezeMaioBoaEsperancaFurto2019=0;
-    int contandoRuaLuisTupinaBoaEsperancaFurto2019=0;
-    int contandoRuaHermilioTupinaBoaEsperancaFurto2019=0;
-    int contandoRuaSaoGeraldoBoaEsperancaFurto2019=0;
-
 
     int contandoRuaUmBoaEsperancaRoubo2019=0;
     int contandoRuaDoisBoaEsperancaRoubo2019=0;
@@ -347,17 +238,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaSaoGeraldoBoaEsperancaRoubo2019=0;
 
 
-    int contandoRuaABoaVistaFurtoTodosAnos=0;
-    int contandoRuaBBoaVistaFurtoTodosAnos=0;
-    int contandoRuaCBoaVistaFurtoTodosAnos=0;
-    int contandoRuaDBoaVistaFurtoTodosAnos=0;
-    int contandoRuaEBoaVistaFurtoTodosAnos=0;
-    int contandoRuaFBoaVistaFurtoTodosAnos=0;
-    int contandoRuaGBoaVistaFurtoTodosAnos=0;
-    int contandoRuaHBoaVistaFurtoTodosAnos=0;
-    int contandoRuaIBoaVistaFurtoTodosAnos=0;
-    int contandoRuaJBoaVistaFurtoTodosAnos=0;
-    int contandoRuaLBoaVistaFurtoTodosAnos=0;
+
 
 
     int contandoRuaABoaVistaRouboTodosAnos=0;
@@ -374,17 +255,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaABoaVistaFurto2019=0;
-    int contandoRuaBBoaVistaFurto2019=0;
-    int contandoRuaCBoaVistaFurto2019=0;
-    int contandoRuaDBoaVistaFurto2019=0;
-    int contandoRuaEBoaVistaFurto2019=0;
-    int contandoRuaFBoaVistaFurto2019=0;
-    int contandoRuaGBoaVistaFurto2019=0;
-    int contandoRuaHBoaVistaFurto2019=0;
-    int contandoRuaIBoaVistaFurto2019=0;
-    int contandoRuaJBoaVistaFurto2019=0;
-    int contandoRuaLBoaVistaFurto2019=0;
+
 
 
     int contandoRuaABoaVistaRoubo2019=0;
@@ -400,16 +271,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaLBoaVistaRoubo2019=0;
 
 
-    int contandoRuaUmVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaDoisVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaTresVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaQuatroVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaCincoVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaSeisVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaSeteVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaMinasGeraisVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaPiraporaVilaBrasilandiaFurtoTodosAnos=0;
-    int contandoRuaSaoLuizVilaBrasilandiaFurtoTodosAnos=0;
 
 
 
@@ -426,16 +287,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaUmVilaBrasilandiaFurto2019=0;
-    int contandoRuaDoisVilaBrasilandiaFurto2019=0;
-    int contandoRuaTresVilaBrasilandiaFurto2019=0;
-    int contandoRuaQuatroVilaBrasilandiaFurto2019=0;
-    int contandoRuaCincoVilaBrasilandiaFurto2019=0;
-    int contandoRuaSeisVilaBrasilandiaFurto2019=0;
-    int contandoRuaSeteVilaBrasilandiaFurto2019=0;
-    int contandoRuaMinasGeraisVilaBrasilandiaFurto2019=0;
-    int contandoRuaPiraporaVilaBrasilandiaFurto2019=0;
-    int contandoRuaSaoLuizVilaBrasilandiaFurto2019=0;
 
 
 
@@ -451,16 +302,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaSaoLuizVilaBrasilandiaRoubo2019=0;
 
 
-    int contandoAlamedaRiachoBrejoAmparoFurtoTodosAnos=0;
-    int contandoRuaBelaVistaBrejoAmparoFurtoTodosAnos=0;
-    int contandoRuaSerraBrejoAmparoFurtoTodosAnos=0;
-    int contandoRuaFloresBrejoAmparoFurtoTodosAnos=0;
-    int contandoRuaPadreJosinoBrejoAmparoFurtoTodosAnos=0;
-    int contandoRuaPadreRamiroAmparoFurtoTodosAnos=0;
-    int contandoRuaTabatingaBrejoAmparoFurtoTodosAnos=0;
-    int contandoRuaTabocaBrejoAmparoFurtoTodosAnos=0;
-    int contandoRuaTrintaSeteBrejoAmparoFurtoTodosAnos=0;
-    int contandoRuaTrintaOitoBrejoAmparoFurtoTodosAnos=0;
+
 
     int contandoAlamedaRiachoBrejoAmparoRouboTodosAnos=0;
     int contandoRuaBelaVistaBrejoAmparoRouboTodosAnos=0;
@@ -475,16 +317,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoAlamedaRiachoBrejoAmparoFurto2019=0;
-    int contandoRuaBelaVistaBrejoAmparoFurto2019=0;
-    int contandoRuaSerraBrejoAmparoFurto2019=0;
-    int contandoRuaFloresBrejoAmparoFurto2019=0;
-    int contandoRuaPadreJosinoBrejoAmparoFurto2019=0;
-    int contandoRuaPadreRamiroAmparoFurto2019=0;
-    int contandoRuaTabatingaBrejoAmparoFurto2019=0;
-    int contandoRuaTabocaBrejoAmparoFurto2019=0;
-    int contandoRuaTrintaSeteBrejoAmparoFurto2019=0;
-    int contandoRuaTrintaOitoBrejoAmparoFurto2019=0;
+
 
     int contandoAlamedaRiachoBrejoAmparoRoubo2019=0;
     int contandoRuaBelaVistaBrejoAmparoRoubo2019=0;
@@ -498,16 +331,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaTrintaOitoBrejoAmparoRoubo2019=0;
 
 
-    int contandoArturBernardesCentroFurtoTodosAnos=0;
-    int contandoBaraoSaoRomaoCentroFurtoTodosAnos=0;
-    int contandoBaraoRioBrancoCentroFurtoTodosAnos=0;
-    int contandoConegoRamiroLeiteCentroFurtoTodosAnos=0;
-    int contandoCelCassianoCentroFurtoTodosAnos=0;
-    int contandoCelSerraoCentroFurtoTodosAnos=0;
-    int contandoDomDanielCentroFurtoTodosAnos=0;
-    int contandoGetulioVargasCentroFurtoTodosAnos=0;
-    int contandoPadreHenriqueCentroFurtoTodosAnos=0;
-    int contandoPracaTiradentesCentroFurtoTodosAnos=0;
+
 
     int contandoArturBernardesCentroRouboTodosAnos=0;
     int contandoBaraoSaoRomaoCentroRouboTodosAnos=0;
@@ -522,16 +346,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoArturBernardesCentroFurto2019=0;
-    int contandoBaraoSaoRomaoCentroFurto2019=0;
-    int contandoBaraoRioBrancoCentroFurto2019=0;
-    int contandoConegoRamiroLeiteCentroFurto2019=0;
-    int contandoCelCassianoCentroFurto2019=0;
-    int contandoCelSerraoCentroFurto2019=0;
-    int contandoDomDanielCentroFurto2019=0;
-    int contandoGetulioVargasCentroFurto2019=0;
-    int contandoPadreHenriqueCentroFurto2019=0;
-    int contandoPracaTiradentesCentroFurto2019=0;
+
 
     int contandoArturBernardesCentroRoubo2019=0;
     int contandoBaraoSaoRomaoCentroRoubo2019=0;
@@ -546,17 +361,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaAterroCeramicaFurtoTodosAnos=0;
-    int contandoRuaBrasiliaMinasCeramicaFurtoTodosAnos=0;
-    int contandoRuaItacarambiCeramicaFurtoTodosAnos=0;
-    int contandoRuaItapiracabaCeramicaFurtoTodosAnos=0;
-    int contandoRuaMangaCeramicaFurtoTodosAnos=0;
-    int contandoRuaMontesClarosCeramicaFurtoTodosAnos=0;
-    int contandoRuaMontalvaniaCeramicaFurtoTodosAnos=0;
-    int contandoRuaVarzelandiaCeramicaFurtoTodosAnos=0;
-    int contandoRuaMiltonCamposCeramicaFurtoTodosAnos=0;
-    int contandoRuaMiltonSaCeramicaFurtoTodosAnos=0;
-
 
     int contandoRuaAterroCeramicaRouboTodosAnos=0;
     int contandoRuaBrasiliaMinasCeramicaRouboTodosAnos=0;
@@ -570,16 +374,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaMiltonSaCeramicaRouboTodosAnos=0;
 
 
-    int contandoRuaAterroCeramicaFurto2019=0;
-    int contandoRuaBrasiliaMinasCeramicaFurto2019=0;
-    int contandoRuaItacarambiCeramicaFurto2019=0;
-    int contandoRuaItapiracabaCeramicaFurto2019=0;
-    int contandoRuaMangaCeramicaFurto2019=0;
-    int contandoRuaMontesClarosCeramicaFurto2019=0;
-    int contandoRuaMontalvaniaCeramicaFurto2019=0;
-    int contandoRuaVarzelandiaCeramicaFurto2019=0;
-    int contandoRuaMiltonCamposCeramicaFurto2019=0;
-    int contandoRuaMiltonSaCeramicaFurto2019=0;
+
 
 
     int contandoRuaAterroCeramicaRoubo2019=0;
@@ -595,16 +390,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoAvSeisEldoradoFurtoTodosAnos=0;
-    int contandoRuaAEldoradoFurtoTodosAnos=0;
-    int contandoRuaBEldoradoFurtoTodosAnos=0;
-    int contandoRuaCEldoradoFurtoTodosAnos=0;
-    int contandoRuaDEldoradoFurtoTodosAnos=0;
-    int contandoRuaEEldoradoFurtoTodosAnos=0;
-    int contandoRuaGEldoradoFurtoTodosAnos=0;
-    int contandoRuaJEldoradoFurtoTodosAnos=0;
-    int contandoRuaLEldoradoFurtoTodosAnos=0;
-    int contandoRuaMEldoradoFurtoTodosAnos=0;
 
     int contandoAvSeisEldoradoRouboTodosAnos=0;
     int contandoRuaAEldoradoRouboTodosAnos=0;
@@ -619,17 +404,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoAvSeisEldoradoFurto2019=0;
-    int contandoRuaAEldoradoFurto2019=0;
-    int contandoRuaBEldoradoFurto2019=0;
-    int contandoRuaCEldoradoFurto2019=0;
-    int contandoRuaDEldoradoFurto2019=0;
-    int contandoRuaEEldoradoFurto2019=0;
-    int contandoRuaGEldoradoFurto2019=0;
-    int contandoRuaJEldoradoFurto2019=0;
-    int contandoRuaLEldoradoFurto2019=0;
-    int contandoRuaMEldoradoFurto2019=0;
-
     int contandoAvSeisEldoradoRoubo2019=0;
     int contandoRuaAEldoradoRoubo2019=0;
     int contandoRuaBEldoradoRoubo2019=0;
@@ -643,12 +417,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaAntonioValeFilhoFranklimFurtoTodosAnos=0;
-    int contandoRuaLFranklimFurtoTodosAnos=0;
-    int contandoRuaVinteTresFranklimFurtoTodosAnos=0;
-    int contandoRuaVinteQuatroFranklimFurtoTodosAnos=0;
-    int contandoRuaR25FranklimdoFurtoTodosAnos=0;
-    int contandoRuaVinteOitoFranklimFurtoTodosAnos=0;
+
 
     int contandoRuaAntonioValeFilhoFranklimRouboTodosAnos=0;
     int contandoRuaLFranklimRouboTodosAnos=0;
@@ -658,12 +427,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaVinteOitoFranklimRouboTodosAnos=0;
 
 
-    int contandoRuaAntonioValeFilhoFranklimFurto2019=0;
-    int contandoRuaLFranklimFurto2019=0;
-    int contandoRuaVinteTresFranklimFurto2019=0;
-    int contandoRuaVinteQuatroFranklimFurto2019=0;
-    int contandoRuaR25FranklimdoFurto2019=0;
-    int contandoRuaVinteOitoFranklimFurto2019=0;
+
 
     int contandoRuaAntonioValeFilhoFranklimRoubo2019=0;
     int contandoRuaLFranklimRoubo2019=0;
@@ -674,15 +438,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaUmJardimDanielFurtoTodosAnos=0;
-    int contandoRuaDoisDanielFurtoTodosAnos=0;
-    int contandoRuaTresJardimDanielFurtoTodosAnos=0;
-    int contandoRuaQuatroJardimDanielFurtoTodosAnos=0;
-    int contandoRuaAlagoasJardimDanielFurtoTodosAnos=0;
-    int contandoRuaBelaVistaJardimDanielFurtoTodosAnos=0;
-    int contandoRuaConegoRamiroLeiteJardimDanielFurtoTodosAnos=0;
-    int contandoRuaInezitaAlvesFerreiraJardimDanielFurtoTodosAnos=0;
-    int contandoRuaMinasGeraisJardimDanielFurtoTodosAnos=0;
+
 
 
     int contandoRuaUmJardimDanielRouboTodosAnos=0;
@@ -695,15 +451,8 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaInezitaAlvesFerreiraJardimDanielRouboTodosAnos=0;
     int contandoRuaMinasGeraisJardimDanielRouboTodosAnos=0;
 
-    int contandoRuaUmJardimDanielFurto2019=0;
-    int contandoRuaDoisDanielFurto2019=0;
-    int contandoRuaTresJardimDanielFurto2019=0;
-    int contandoRuaQuatroJardimDanielFurto2019=0;
-    int contandoRuaAlagoasJardimDanielFurto2019=0;
-    int contandoRuaBelaVistaJardimDanielFurto2019=0;
-    int contandoRuaConegoRamiroLeiteJardimDanielFurto2019=0;
-    int contandoRuaInezitaAlvesFerreiraJardimDanielFurto2019=0;
-    int contandoRuaMinasGeraisJardimDanielFurto2019=0;
+
+
 
 
     int contandoRuaUmJardimDanielRoubo2019=0;
@@ -718,17 +467,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaAJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaBJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaCJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaDJardimEstrelalFurtoTodosAnos=0;
-    int contandoRuaEJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaGJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaHJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaBaraoSaoRomaoJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaJoaoGasparinoJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaVinteDoisJardimEstrelaFurtoTodosAnos=0;
-    int contandoRuaVinteTresJardimEstrelaFurtoTodosAnos=0;
+
 
     int contandoRuaAJardimEstrelaRouboTodosAnos=0;
     int contandoRuaBJardimEstrelaRouboTodosAnos=0;
@@ -745,17 +484,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaAJardimEstrelaFurto2019=0;
-    int contandoRuaBJardimEstrelaFurto2019=0;
-    int contandoRuaCJardimEstrelaFurto2019=0;
-    int contandoRuaDJardimEstrelalFurto2019=0;
-    int contandoRuaEJardimEstrelaFurto2019=0;
-    int contandoRuaGJardimEstrelaFurto2019=0;
-    int contandoRuaHJardimEstrelaFurto2019=0;
-    int contandoRuaBaraoSaoRomaoJardimEstrelaFurto2019=0;
-    int contandoRuaJoaoGasparinoJardimEstrelaFurto2019=0;
-    int contandoRuaVinteDoisJardimEstrelaFurto2019=0;
-    int contandoRuaVinteTresJardimEstrelaFurto2019=0;
 
     int contandoRuaAJardimEstrelaRoubo2019=0;
     int contandoRuaBJardimEstrelaRoubo2019=0;
@@ -770,16 +498,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaVinteTresJardimEstrelaRoubo2019=0;
 
 
-    int contandoRuaUmJussaraFurtoTodosAnos=0;
-    int contandoRuaDoisJussaraFurtoTodosAnos=0;
-    int contandoRuaTresJussaraFurtoTodosAnos=0;
-    int contandoRuaQuatroJussaralFurtoTodosAnos=0;
-    int contandoRuaCincoJussaraFurtoTodosAnos=0;
-    int contandoRuaSeisJussaraFurtoTodosAnos=0;
-    int contandoRuaSeteJussaraFurtoTodosAnos=0;
-    int contandoRuaOitoJussaraFurtoTodosAnos=0;
-    int contandoRuaNoveJussaraFurtoTodosAnos=0;
-    int contandoRuaDezJussaraFurtoTodosAnos=0;
 
 
     int contandoRuaUmJussaraRouboTodosAnos=0;
@@ -793,16 +511,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaNoveJussaraRouboTodosAnos=0;
     int contandoRuaDezJussaraRouboTodosAnos=0;
 
-    int contandoRuaUmJussaraFurto2019=0;
-    int contandoRuaDoisJussaraFurto2019=0;
-    int contandoRuaTresJussaraFurto2019=0;
-    int contandoRuaQuatroJussaralFurto2019=0;
-    int contandoRuaCincoJussaraFurto2019=0;
-    int contandoRuaSeisJussaraFurto2019=0;
-    int contandoRuaSeteJussaraFurto2019=0;
-    int contandoRuaOitoJussaraFurto2019=0;
-    int contandoRuaNoveJussaraFurto2019=0;
-    int contandoRuaDezJussaraFurto2019=0;
+
 
 
     int contandoRuaUmJussaraRoubo2019=0;
@@ -817,16 +526,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaDezJussaraRoubo2019=0;
 
 
-    int contandoRuaSeisVilaLevianopolisFurtoTodosAnos=0;
-    int contandoRuaSeteVilaLevianopolisFurtoTodosAnos=0;
-    int contandoRuaOitoVilaLevianopolisFurtoTodosAnos=0;
-    int contandoRuaNoveVilaLevianopolisFurtoTodosAnos=0;
-    int contandoRuaVinteVilaLevianopolisFurtoTodosAnos=0;
-    int contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisFurtoTodosAnos =0;
-    int contandoRuaHonorCaciquinhoVilaLevianopolisFurtoTodosAnos=0;
-    int contandoRuaEmilioMatosVilaLevianopolisFurtoTodosAnos=0;
-    int contandoRuaJoseAntonioValeFilhoVilaLevianopolisFurtoTodosAnos=0;
-    int contandoRuaInezitaAlvesFerreiraLevianopolisFurtoTodosAnos=0;
+
 
 
     int contandoRuaSeisVilaLevianopolisRouboTodosAnos=0;
@@ -844,17 +544,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaSeisVilaLevianopolisFurto2019=0;
-    int contandoRuaSeteVilaLevianopolisFurto2019=0;
-    int contandoRuaOitoVilaLevianopolisFurto2019=0;
-    int contandoRuaNoveVilaLevianopolisFurto2019=0;
-    int contandoRuaVinteVilaLevianopolisFurto2019=0;
-    int contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisFurto2019 =0;
-    int contandoRuaHonorCaciquinhoVilaLevianopolisFurto2019=0;
-    int contandoRuaEmilioMatosVilaLevianopolisFurto2019=0;
-    int contandoRuaJoseAntonioValeFilhoVilaLevianopolisFurto2019=0;
-    int contandoRuaInezitaAlvesFerreiraLevianopolisFurto2019=0;
-
 
     int contandoRuaSeisVilaLevianopolisRoubo2019=0;
     int contandoRuaSeteVilaLevianopolisRoubo2019=0;
@@ -869,12 +558,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaAQuintasMangueirasFurtoTodosAnos=0;
-    int contandoRuaBQuintasMangueirasFurtoTodosAnos=0;
-    int contandoRuaDQuintasMangueirasFurtoTodosAnos=0;
-    int contandoRuaEQuintasMangueirasFurtoTodosAnos=0;
-    int contandoRuaBondeQuintasMangueirasFurtoTodosAnos=0;
-    int contandoRuaTutaBastosQuintasMangueirasFurtoTodosAnos=0;
+
 
 
     int contandoRuaAQuintasMangueirasRouboTodosAnos=0;
@@ -885,12 +569,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaTutaBastosQuintasMangueirasRouboTodosAnos=0;
 
 
-    int contandoRuaAQuintasMangueirasFurto2019=0;
-    int contandoRuaBQuintasMangueirasFurto2019=0;
-    int contandoRuaDQuintasMangueirasFurto2019=0;
-    int contandoRuaEQuintasMangueirasFurto2019=0;
-    int contandoRuaBondeQuintasMangueirasFurto2019=0;
-    int contandoRuaTutaBastosQuintasMangueirasFurto2019=0;
+
 
 
     int contandoRuaAQuintasMangueirasRoubo2019=0;
@@ -902,13 +581,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaMuriciRiachoCruzFurtoTodosAnos=0;
-    int contandoRuaCafeMineiroRiachoCruzFurtoTodosAnos=0;
-    int contandoRuaAntonioSilvaRiachoCruzFurtoTodosAnos=0;
-    int contandoRuaManoelJSouzaRiachoCruzFurtoTodosAnos=0;
-    int contandoRuaOliveiraPortoRiachoCruzFurtoTodosAnos=0;
-    int contandoRuaTertulianoRPortoRiachoCruzFurtoTodosAnos=0;
-    int contandoRuaJFMeloRiachoCruzFurtoTodosAnos=0;
+
 
 
 
@@ -922,14 +595,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaMuriciRiachoCruzFurto2019=0;
-    int contandoRuaCafeMineiroRiachoCruzFurto2019=0;
-    int contandoRuaAntonioSilvaRiachoCruzFurto2019=0;
-    int contandoRuaManoelJSouzaRiachoCruzFurto2019=0;
-    int contandoRuaOliveiraPortoRiachoCruzFurto2019=0;
-    int contandoRuaTertulianoRPortoRiachoCruzFurto2019=0;
-    int contandoRuaJFMeloRiachoCruzFurto2019=0;
-
 
     int contandoRuaMuriciRiachoCruzRoubo2019=0;
     int contandoRuaCafeMineiroRiachoCruzRoubo2019=0;
@@ -940,16 +605,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaJFMeloRiachoCruzRoubo2019=0;
 
 
-    int contandoRuaCelCassianoVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaLeaoTrezeVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaUmVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaDoisVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaBenicioJoseFerreiraVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaCurtumeVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaTrintaMarcoVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaJoseAugustoVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaMalFlorianoPeixotoVilaSaoJoaoFurtoTodosAnos=0;
-    int contandoRuaWVilaSaoJoaoFurtoTodosAnos=0;
+
 
 
     int contandoRuaCelCassianoVilaSaoJoaoRouboTodosAnos=0;
@@ -963,16 +619,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaMalFlorianoPeixotoVilaSaoJoaoRouboTodosAnos=0;
     int contandoRuaWVilaSaoJoaoRouboTodosAnos=0;
 
-    int contandoRuaCelCassianoVilaSaoJoaoFurto2019=0;
-    int contandoRuaLeaoTrezeVilaSaoJoaoFurto2019=0;
-    int contandoRuaUmVilaSaoJoaoFurto2019=0;
-    int contandoRuaDoisVilaSaoJoaoFurto2019=0;
-    int contandoRuaBenicioJoseFerreiraVilaSaoJoaoFurto2019=0;
-    int contandoRuaCurtumeVilaSaoJoaoFurto2019=0;
-    int contandoRuaTrintaMarcoVilaSaoJoaoFurto2019=0;
-    int contandoRuaJoseAugustoVilaSaoJoaoFurto2019=0;
-    int contandoRuaMalFlorianoPeixotoVilaSaoJoaoFurto2019=0;
-    int contandoRuaWVilaSaoJoaoFurto2019=0;
+
 
 
     int contandoRuaCelCassianoVilaSaoJoaoRoubo2019=0;
@@ -988,16 +635,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaUmSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaDoisSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaTresSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaSeisSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaOitoSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaNoveSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaDezSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaDozeSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaSantaInesSaoJoaquimFurtoTodosAnos=0;
-    int contandoRuaSantaMariaSaoJoaquimFurtoTodosAnos=0;
+
 
 
 
@@ -1014,16 +652,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaUmSaoJoaquimFurto2019=0;
-    int contandoRuaDoisSaoJoaquimFurto2019=0;
-    int contandoRuaTresSaoJoaquimFurto2019=0;
-    int contandoRuaSeisSaoJoaquimFurto2019=0;
-    int contandoRuaOitoSaoJoaquimFurto2019=0;
-    int contandoRuaNoveSaoJoaquimFurto2019=0;
-    int contandoRuaDezSaoJoaquimFurto2019=0;
-    int contandoRuaDozeSaoJoaquimFurto2019=0;
-    int contandoRuaSantaInesSaoJoaquimFurto2019=0;
-    int contandoRuaSantaMariaSaoJoaquimFurto2019=0;
 
 
 
@@ -1041,17 +669,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaSaoFranciscoSaoMiguelFurtoTodosAnos=0;
-    int contandoRuaUmSaoMiguelFurtoTodosAnos=0;
-    int contandoRuaDoisSaoMiguelFurtoTodosAnos=0;
-    int contandoRuaTresSaoMiguelFurtoTodosAnos=0;
-    int contandoRuaASaoMiguelFurtoTodosAnos=0;
-    int contandoRuaBSaoMiguelFurtoTodosAnos=0;
-    int contandoRuaDSaoMiguelFurtoTodosAnos=0;
-    int contandoRuaPiraporaSaoMiguelFurtoTodosAnos=0;
-    int contandoRuaMontalvaniaSaoMiguelFurtoTodosAnos=0;
-    int contandoTvGalileiaSaoMiguelFurtoTodosAnos=0;
-
 
 
     int contandoRuaSaoFranciscoSaoMiguelRouboTodosAnos=0;
@@ -1066,16 +683,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoTvGalileiaSaoMiguelRouboTodosAnos=0;
 
 
-    int contandoRuaSaoFranciscoSaoMiguelFurto2019=0;
-    int contandoRuaUmSaoMiguelFurto2019=0;
-    int contandoRuaDoisSaoMiguelFurto2019=0;
-    int contandoRuaTresSaoMiguelFurto2019=0;
-    int contandoRuaASaoMiguelFurto2019=0;
-    int contandoRuaBSaoMiguelFurto2019=0;
-    int contandoRuaDSaoMiguelFurto2019=0;
-    int contandoRuaPiraporaSaoMiguelFurto2019=0;
-    int contandoRuaMontalvaniaSaoMiguelFurto2019=0;
-    int contandoTvGalileiaSaoMiguelFurto2019=0;
+
 
     int contandoRuaSaoFranciscoSaoMiguelRoubo2019=0;
     int contandoRuaUmSaoMiguelRoubo2019=0;
@@ -1089,16 +697,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoTvGalileiaSaoMiguelRoubo2019=0;
 
 
-    int contandoRuaASaoVicenteFurtoTodosAnos=0;
-    int contandoRuaBSaoVicenteFurtoTodosAnos=0;
-    int contandoRuaDSaoVicenteFurtoTodosAnos=0;
-    int contandoRuaESaoVicenteFurtoTodosAnos=0;
-    int contandoRuaTutaBastosSaoVicenteFurtoTodosAnos=0;
-    int contandoRuaLeonelNogueiraNetoSaoVicenteFurtoTodosAnos=0;
-    int contandoRuaMariaCarneiroCarvalhoSaoVicenteFurtoTodosAnos=0;
-    int contandoRuaOlibrioLimaSaoVicenteFurtoTodosAnos=0;
-    int contandoRuaTerencioTorresSaoVicenteFurtoTodosAnos=0;
-    int contandoRuaSebastiaoFerreiraLimaSaoVicenteFurtoTodosAnos=0;
 
 
     int contandoRuaASaoVicenteRouboTodosAnos=0;
@@ -1114,16 +712,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaASaoVicenteFurto2019=0;
-    int contandoRuaBSaoVicenteFurto2019=0;
-    int contandoRuaDSaoVicenteFurto2019=0;
-    int contandoRuaESaoVicenteFurto2019=0;
-    int contandoRuaTutaBastosSaoVicenteFurto2019=0;
-    int contandoRuaLeonelNogueiraNetoSaoVicenteFurto2019=0;
-    int contandoRuaMariaCarneiroCarvalhoSaoVicenteFurto2019=0;
-    int contandoRuaOlibrioLimaSaoVicenteFurto2019=0;
-    int contandoRuaTerencioTorresSaoVicenteFurto2019=0;
-    int contandoRuaSebastiaoFerreiraLimaSaoVicenteFurto2019=0;
+
 
 
     int contandoRuaASaoVicenteRoubo2019=0;
@@ -1139,14 +728,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaCasteloBrancoTejucoFurtoTodosAnos=0;
-    int contandoRuaJucelinoKubitscheckTejucoFurtoTodosAnos=0;
-    int contandoRuaTancredoNevesTejucoFurtoTodosAnos=0;
-    int contandoRuaTejucoTejucoFurtoTodosAnos=0;
-    int contandoRuaTropicalTejucoVicenteFurtoTodosAnos=0;
-    int contandoRuaSaoJoaoTejucoFurtoTodosAnos=0;
-    int contandoRuaSaoJoseTejucoFurtoTodosAnos =0;
-    int contandoRuaManoelAlexandrinodeCarvalhoTejucoFurtoTodosAnos=0;
+
 
 
     int contandoRuaCasteloBrancoTejucoRouboTodosAnos=0;
@@ -1161,15 +743,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaCasteloBrancoTejucoFurto2019=0;
-    int contandoRuaJucelinoKubitscheckTejucoFurto2019=0;
-    int contandoRuaTancredoNevesTejucoFurto2019=0;
-    int contandoRuaTejucoTejucoFurto2019=0;
-    int contandoRuaTropicalTejucoVicenteFurto2019=0;
-    int contandoRuaSaoJoaoTejucoFurto2019=0;
-    int contandoRuaSaoJoseTejucoFurto2019 =0;
-    int contandoRuaManoelAlexandrinodeCarvalhoTejucoFurto2019=0;
-
 
     int contandoRuaCasteloBrancoTejucoRoubo2019=0;
     int contandoRuaJucelinoKubitscheckTejucoRoubo2019=0;
@@ -1182,16 +755,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaAVilaFatimaFurtoTodosAnos=0;
-    int contandoRuaBFatimaFurtoTodosAnos=0;
-    int contandoRuaCVilaFatimaFurtoTodosAnos=0;
-    int contandoRuaDVilaFatimaFurtoTodosAnos=0;
-    int contandoRuaEVilaFatimaVicenteFurtoTodosAnos=0;
-    int contandoRuaFVilaFatimaFurtoTodosAnos=0;
-    int contandoRuaGilmarPereiraRochaVilaFatimaFurtoTodosAnos=0;
-    int contandoRuaJoaoPimentaCarvalhoVilaFatimaFurtoTodosAnos=0;
-    int contandoRuaJoaquimFernandesoVilaFatimaFurtoTodosAnos=0;
-    int contandoRuaJoseAugustoVilaFatimaFurtoTodosAnos=0;
 
 
     int contandoRuaAVilaFatimaRouboTodosAnos=0;
@@ -1206,16 +769,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaJoseAugustoVilaFatimaRouboTodosAnos=0;
 
 
-    int contandoRuaAVilaFatimaFurto2019=0;
-    int contandoRuaBFatimaFurto2019=0;
-    int contandoRuaCVilaFatimaFurto2019=0;
-    int contandoRuaDVilaFatimaFurto2019=0;
-    int contandoRuaEVilaFatimaVicenteFurto2019=0;
-    int contandoRuaFVilaFatimaFurto2019=0;
-    int contandoRuaGilmarPereiraRochaVilaFatimaFurto2019=0;
-    int contandoRuaJoaoPimentaCarvalhoVilaFatimaFurto2019=0;
-    int contandoRuaJoaquimFernandesoVilaFatimaFurto2019=0;
-    int contandoRuaJoseAugustoVilaFatimaFurto2019=0;
+
 
 
     int contandoRuaAVilaFatimaRoubo2019=0;
@@ -1231,30 +785,18 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaJoaquimBarbosaGobiraPandeirosFurtoTodosAnos=0;
-    int contandoRuaMariaMoreiraPandeirosFurtoTodosAnos=0;
 
     int contandoRuaJoaquimBarbosaGobiraPandeirosRouboTodosAnos=0;
     int contandoRuaMariaMoreiraPandeirosRouboTodosAnos=0;
 
 
-    int contandoRuaJoaquimBarbosaGobiraPandeirosFurto2019=0;
-    int contandoRuaMariaMoreiraPandeirosFurto2019=0;
+
 
     int contandoRuaJoaquimBarbosaGobiraPandeirosRoubo2019=0;
     int contandoRuaMariaMoreiraPandeirosRoubo2019 =0;
 
 
 
-    int contandoRuaSaoFranciscoVilaPaulaFurtoTodosAnos=0;
-    int contandoTvJoseNunesVilaPaulaFurtoTodosAnos =0;
-    int contandoTvJulioMouraVilaPaulaFurtoTodosAnos =0;
-    int contandoRuaLeonelNogueiraNetoVilaPaulaFurtoTodosAnos=0;
-    int contandoRuaAnizioJoseRochaVilaPaulaFurtoTodosAnos=0;
-    int contandoRuaJulioMouraVilaPaulaFurtoTodosAnos=0;
-    int contandoRuaJoseNunesVilaPaulaFurtoTodosAnos=0;
-    int contandoRuaSebastiaoFerreiraLimaVilaPaulaFurtoTodosAnos=0;
-    int contandoRuaSrgMozarVilaPaulaFurtoTodosAnos=0;
 
 
 
@@ -1270,15 +812,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoRuaSaoFranciscoVilaPaulaFurto2019=0;
-    int contandoTvJoseNunesVilaPaulaFurto2019 =0;
-    int contandoTvJulioMouraVilaPaulaFurto2019 =0;
-    int contandoRuaLeonelNogueiraNetoVilaPaulaFurto2019=0;
-    int contandoRuaAnizioJoseRochaVilaPaulaFurto2019=0;
-    int contandoRuaJulioMouraVilaPaulaFurto2019=0;
-    int contandoRuaJoseNunesVilaPaulaFurto2019=0;
-    int contandoRuaSebastiaoFerreiraLimaVilaPaulaFurto2019=0;
-    int contandoRuaSrgMozarVilaPaulaFurto2019=0;
 
 
 
@@ -1293,16 +826,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaSrgMozarVilaPaulaRoubo2019=0;
 
 
-    int contandoAvMalDeodoroFonsecaVilaVerdeFurtoTodosAnos=0;
-    int contandoRAVilaVerdeFurtoTodosAnos=0;
-    int contandoRuaAterroVilaVerdeFurtoTodosAnos=0;
-    int contandoRuaBVilaVerdeFurtoTodosAnos=0;
-    int contandoRuaDVilaVerdeFurtoTodosAnos=0;
-    int contandoRuaOVilaVerdeFurtoTodosAnos=0;
-    int contandoRuaRVilaVerdeFurtoTodosAnos=0;
-    int contandoRuaTVilaVerdeFurtoTodosAnos=0;
-    int contandoRuaUVilaVerdeFurtoTodosAnos=0;
-    int contandoRuaVVilaVerdeFurtoTodosAnos=0;
 
 
     int contandoAvMalDeodoroFonsecaVilaVerdeRouboTodosAnos=0;
@@ -1318,19 +841,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-
-    int contandoAvMalDeodoroFonsecaVilaVerdeFurto2019=0;
-    int contandoRAVilaVerdeFurto2019=0;
-    int contandoRuaAterroVilaVerdeFurto2019=0;
-    int contandoRuaBVilaVerdeFurto2019=0;
-    int contandoRuaDVilaVerdeFurto2019=0;
-    int contandoRuaOVilaVerdeFurto2019=0;
-    int contandoRuaRVilaVerdeFurto2019=0;
-    int contandoRuaTVilaVerdeFurto2019=0;
-    int contandoRuaUVilaVerdeFurto2019=0;
-    int contandoRuaVVilaVerdeFurto2019=0;
-
-
     int contandoAvMalDeodoroFonsecaVilaVerdeRoubo2019=0;
     int contandoRAVilaVerdeRoubo2019=0;
     int contandoRuaAterroVilaVerdeRoubo2019=0;
@@ -1343,15 +853,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaVVilaVerdeRoubo2019=0;
 
 
-    int contandoRuaAVilaVianaFurtoTodosAnos=0;
-    int contandoRuaArthurLopesPimentaVilaVianaFurtoTodosAnos=0;
-    int contandoRuaBVilaVianaFurtoTodosAnos=0;
-    int contandoRuaDVilaVianaFurtoTodosAnos=0;
-    int contandoRuaEVilaVianaFurtoTodosAnos=0;
-    int contandoRuaFVilaVianaFurtoTodosAnos=0;
-    int contandoRuaGVilaVianaFurtoTodosAnos=0;
-    int contandoRuaRVilaVianaFurtoTodosAnos=0;
-    int contandoRuaXVilaVianaFurtoTodosAnos=0;
 
     int contandoRuaAVilaVianaRouboTodosAnos=0;
     int contandoRuaArthurLopesPimentaVilaVianaRouboTodosAnos=0;
@@ -1364,15 +865,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaXVilaVianaRouboTodosAnos=0;
 
 
-    int contandoRuaAVilaVianaFurto2019=0;
-    int contandoRuaArthurLopesPimentaVilaVianaFurto2019=0;
-    int contandoRuaBVilaVianaFurto2019=0;
-    int contandoRuaDVilaVianaFurto2019=0;
-    int contandoRuaEVilaVianaFurto2019=0;
-    int contandoRuaFVilaVianaFurto2019=0;
-    int contandoRuaGVilaVianaFurto2019=0;
-    int contandoRuaRVilaVianaFurto2019=0;
-    int contandoRuaXVilaVianaFurto2019=0;
 
     int contandoRuaAVilaVianaRoubo2019=0;
     int contandoRuaArthurLopesPimentaVilaVianaRoubo2019=0;
@@ -3992,8 +3484,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-
-
     }
 
 
@@ -5462,11 +4952,6 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
     }  /// não fazer
-
-
-
-
-
 
 
 

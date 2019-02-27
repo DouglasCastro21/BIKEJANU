@@ -195,12 +195,12 @@ public class GraficoAnoLinhaGeralFragm extends Fragment {
 
 
 
-    private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
+    private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoX){
 
         chart.getDescription().setText(descricao);
         chart.getDescription().setTextSize(24);
         chart.setBackgroundColor(background);
-        chart.animateY(animacaoY);
+        chart.animateX(animacaoX);
 
 
         legend(chart);
@@ -258,7 +258,7 @@ public class GraficoAnoLinhaGeralFragm extends Fragment {
 
 
 
-        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,3000);
+        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,2000);
         lineChart.setDrawGridBackground(true);
 
         lineChart.setActivated(true);

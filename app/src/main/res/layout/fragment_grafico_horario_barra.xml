@@ -21,13 +21,11 @@
         app:layout_constraintTop_toBottomOf="@+id/autocompletegraficoruabarrageral" />
 
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/autocompletegraficoruabarrageral"
         android:layout_width="295dp"
         android:layout_height="55dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@android:drawable/editbox_background_normal"

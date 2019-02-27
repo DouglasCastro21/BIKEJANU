@@ -171,7 +171,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
                     }
 
 
-                    if (anoDeBusca.contains("2019") && b.equals("Roubada")){
+                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Roubada")){
 
                         contandoBikesRouboAno2019++;
 
@@ -186,7 +186,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
                     }
 
 
-                    if (anoDeBusca.contains("2019") && b.equals("Furtada")){
+                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Furtada")){
 
                         contandoBikesFurtoAno2019++;
 
