@@ -3558,7 +3558,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     private void criarGraficos(){
 
 
-        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,2000);
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.TRANSPARENT,2000);
         barChart.setDrawGridBackground(true);
         barChart.setActivated(true);
 

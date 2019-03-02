@@ -296,7 +296,7 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
     private void criarGraficos(){
 
 
-        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.TRANSPARENT,3000);
         barChart.setDrawGridBackground(true);
 
         barChart.setActivated(true);
@@ -351,7 +351,7 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
     public void     graficoANOS(){
 
         String[] bairros   = new String[]{"2018","2019"};
-        int[]    rob = new int   []{contandoBikesAnoFurtosRoubos2018,contandoBikesFurtosRoubosAno2019};
+        int[]    rob = new int   []{131,contandoBikesFurtosRoubosAno2019};
         int []   cor   = new int   []{Color.RED};
         String[] leg = new String[]{"Furto/Roubo"};
 

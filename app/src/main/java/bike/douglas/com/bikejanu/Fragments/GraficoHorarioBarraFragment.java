@@ -663,6 +663,145 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeTejucoRoubo2019=0;
     int noiteTejucoRoubo2019=0;
 
+
+
+    int madrugadaVilaFatimaFurto=0;
+    int manhaVilaFatimaFurto=0;
+    int tardeVilaFatimaFurto=0;
+    int noiteVilaFatimaFurto=0;
+
+    int madrugadaVilaFatimaRoubo=0;
+    int manhaVilaFatimaRoubo=0;
+    int tardeVilaFatimaRoubo=0;
+    int noiteVilaFatimaRoubo=0;
+
+    int madrugadaVilaFatimaFurto2019=0;
+    int manhaVilaFatimaFurto2019=0;
+    int tardeVilaFatimaFurto2019=0;
+    int noiteVilaFatimaFurto2019=0;
+
+    int madrugadaVilaFatimaRoubo2019=0;
+    int manhaVilaFatimaRoubo2019=0;
+    int tardeVilaFatimaRoubo2019=0;
+    int noiteVilaFatimaRoubo2019=0;
+
+
+
+
+
+    int madrugadaPandeirosFurto=0;
+    int manhaPandeirosFurto=0;
+    int tardePandeirosFurto=0;
+    int noitePandeirosFurto=0;
+
+    int madrugadaPandeirosRoubo=0;
+    int manhaPandeirosRoubo=0;
+    int tardePandeirosRoubo=0;
+    int noitePandeirosRoubo=0;
+
+    int madrugadaPandeirosFurto2019=0;
+    int manhaPandeirosFurto2019=0;
+    int tardePandeirosFurto2019=0;
+    int noitePandeirosFurto2019=0;
+
+    int madrugadaPandeirosRoubo2019=0;
+    int manhaPandeirosRoubo2019=0;
+    int tardePandeirosRoubo2019=0;
+    int noitePandeirosRoubo2019=0;
+
+
+
+
+    int madrugadaVilaPaulaFurto=0;
+    int manhaVilaPaulaFurto=0;
+    int tardeVilaPaulaFurto=0;
+    int noiteVilaPaulaFurto=0;
+
+    int madrugadaVilaPaulaRoubo=0;
+    int manhaVilaPaulaRoubo=0;
+    int tardeVilaPaulaRoubo=0;
+    int noiteVilaPaulaRoubo=0;
+
+    int madrugadaVilaPaulaFurto2019=0;
+    int manhaVilaPaulaFurto2019=0;
+    int tardeVilaPaulaFurto2019=0;
+    int noiteVilaPaulaFurto2019=0;
+
+    int madrugadaVilaPaulaRoubo2019=0;
+    int manhaVilaPaulaRoubo2019=0;
+    int tardeVilaPaulaRoubo2019=0;
+    int noiteVilaPaulaRoubo2019=0;
+
+
+
+
+
+    int madrugadaVilaVerdeFurto=0;
+    int manhaVilaVerdeFurto=0;
+    int tardeVilaVerdeFurto=0;
+    int noiteVilaVerdeFurto=0;
+
+    int madrugadaVilaVerdeRoubo=0;
+    int manhaVilaVerdeRoubo=0;
+    int tardeVilaVerdeRoubo=0;
+    int noiteVilaVerdeRoubo=0;
+
+    int madrugadaVilaVerdeFurto2019=0;
+    int manhaVilaVerdeFurto2019=0;
+    int tardeVilaVerdeFurto2019=0;
+    int noiteVilaVerdeFurto2019=0;
+
+    int madrugadaVilaVerdeRoubo2019=0;
+    int manhaVilaVerdeRoubo2019=0;
+    int tardeVilaVerdeRoubo2019=0;
+    int noiteVilaVerdeRoubo2019=0;
+
+
+
+
+    int madrugadaVilaVianaFurto=0;
+    int manhaVilaVianaFurto=0;
+    int tardeVilaVianaFurto=0;
+    int noiteVilaVianaFurto=0;
+
+    int madrugadaVilaVianaRoubo=0;
+    int manhaVilaVianaRoubo=0;
+    int tardeVilaVianaRoubo=0;
+    int noiteVilaVianaRoubo=0;
+
+    int madrugadaVilaVianaFurto2019=0;
+    int manhaVilaVianaFurto2019=0;
+    int tardeVilaVianaFurto2019=0;
+    int noiteVilaVianaFurto2019=0;
+
+    int madrugadaVilaVianaRoubo2019=0;
+    int manhaVilaVianaRoubo2019=0;
+    int tardeVilaVianaRoubo2019=0;
+    int noiteVilaVianaRoubo2019=0;
+
+
+
+
+    int madrugadaVilaJadeteFurto=0;
+    int manhaVilaJadeteFurto=0;
+    int tardeVilaJadeteFurto=0;
+    int noiteVilaJadeteFurto=0;
+
+    int madrugadaVilaJadeteRoubo=0;
+    int manhaVilaJadeteRoubo=0;
+    int tardeVilaJadeteRoubo=0;
+    int noiteVilaJadeteRoubo=0;
+
+    int madrugadaVilaJadeteFurto2019=0;
+    int manhaVilaJadeteFurto2019=0;
+    int tardeVilaJadeteFurto2019=0;
+    int noiteVilaJadeteFurto2019=0;
+
+    int madrugadaVilaJadeteRoubo2019=0;
+    int manhaVilaJadeteRoubo2019=0;
+    int tardeVilaJadeteRoubo2019=0;
+    int noiteVilaJadeteRoubo2019=0;
+
     //   public static List<String> l  axis.setPosition(XAxis.XAxisPosition.BOTTOM);istBairros = new ArrayList<String>();
     // public static ArrayAdapter<String> arrayAdapterBairro;
 
@@ -3211,7 +3350,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     private void criarGraficos() {
 
 
-        barChart = (BarChart) getSameChart(barChart, "", Color.RED, Color.WHITE, 3000);
+        barChart = (BarChart) getSameChart(barChart, "", Color.RED, Color.TRANSPARENT, 3000);
         barChart.setDrawGridBackground(true);
 
         barChart.setActivated(true);
@@ -3605,9 +3744,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void jadeteTodosAnos() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaJadeteRoubo, manhaVilaJadeteRoubo, tardeVilaJadeteRoubo,noiteVilaJadeteRoubo};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaJadeteFurto, manhaVilaJadeteFurto, tardeVilaJadeteFurto,noiteVilaJadeteFurto};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4138,9 +4278,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaFatimaTodosAnos() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaFatimaRoubo, manhaVilaFatimaRoubo, tardeVilaFatimaRoubo,noiteVilaFatimaRoubo};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaFatimaFurto, manhaVilaFatimaFurto, tardeVilaFatimaFurto,noiteVilaFatimaFurto};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4156,9 +4297,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void pandeirosTodosAnos() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaPandeirosRoubo, manhaPandeirosRoubo, tardePandeirosRoubo,noitePandeirosRoubo};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaPandeirosFurto, manhaPandeirosFurto, tardePandeirosFurto,noitePandeirosFurto};
 
         nomes = turnos;
         roubos = rouboss;
@@ -4174,9 +4315,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaPaulaTodosAnos() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaPaulaRoubo, manhaVilaPaulaRoubo, tardeVilaPaulaRoubo,noiteVilaPaulaRoubo};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaPaulaFurto, manhaVilaPaulaFurto, tardeVilaPaulaFurto,noiteVilaPaulaFurto};
 
         nomes = turnos;
         roubos = rouboss;
@@ -4192,9 +4333,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaVerdeTodosAnos() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaVerdeRoubo, manhaVilaVerdeRoubo, tardeVilaVerdeRoubo,noiteVilaVerdeRoubo};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaVerdeFurto, manhaVilaVerdeFurto, tardeVilaVerdeFurto,noiteVilaVerdeFurto};
 
         nomes = turnos;
         roubos = rouboss;
@@ -4210,9 +4351,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaVianaTodosAnos() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaVianaRoubo, manhaVilaVianaRoubo, tardeVilaVianaRoubo,noiteVilaVianaRoubo};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaVianaFurto, manhaVilaVianaFurto, tardeVilaVianaFurto,noiteVilaVianaFurto};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5536,9 +5678,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void jadete2019() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaJadeteRoubo2019, manhaVilaJadeteRoubo2019, tardeVilaJadeteRoubo2019,noiteVilaJadeteRoubo2019};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaJadeteFurto2019, manhaVilaJadeteFurto2019, tardeVilaJadeteFurto2019,noiteVilaJadeteFurto2019};
 
         nomes = turnos;
         roubos = rouboss;
@@ -6063,10 +6205,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaFatima2019() {
 
+        int[] rouboss = new int[]{madrugadaVilaFatimaRoubo2019, manhaVilaFatimaRoubo2019, tardeVilaFatimaRoubo2019,noiteVilaFatimaRoubo2019};
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] furtoss = new int[]{madrugadaVilaFatimaFurto2019, manhaVilaFatimaFurto2019, tardeVilaFatimaFurto2019,noiteVilaFatimaFurto2019};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -6082,9 +6225,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void pandeiros2019() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaPandeirosRoubo2019, manhaPandeirosRoubo2019, tardePandeirosRoubo2019,noitePandeirosRoubo2019};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaPandeirosFurto2019, manhaPandeirosFurto2019, tardePandeirosFurto2019,noitePandeirosFurto2019};
+
+        nomes = turnos;
 
         nomes = turnos;
         roubos = rouboss;
@@ -6100,10 +6245,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaPaula2019() {
 
+        int[] rouboss = new int[]{madrugadaVilaPaulaRoubo2019, manhaVilaPaulaRoubo2019, tardeVilaPaulaRoubo2019,noiteVilaPaulaRoubo2019};
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
-
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaPaulaFurto2019, manhaVilaPaulaFurto2019, tardeVilaPaulaFurto2019,noiteVilaPaulaFurto2019};
 
         nomes = turnos;
         roubos = rouboss;
@@ -6119,10 +6263,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaVerde2019() {
 
+        int[] rouboss = new int[]{madrugadaVilaVerdeRoubo2019, manhaVilaVerdeRoubo2019, tardeVilaVerdeRoubo2019,noiteVilaVerdeRoubo2019};
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] furtoss = new int[]{madrugadaVilaVerdeFurto2019, manhaVilaVerdeFurto2019, tardeVilaVerdeFurto2019,noiteVilaVerdeFurto2019};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
 
         nomes = turnos;
         roubos = rouboss;
@@ -6139,9 +6283,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
     private void vilaViana2019() {
 
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaVianaRoubo2019, manhaVilaVianaRoubo2019, tardeVilaVianaRoubo2019,noiteVilaVianaRoubo2019};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaVianaFurto2019, manhaVilaVianaFurto2019, tardeVilaVianaFurto2019,noiteVilaVianaFurto2019};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -8584,6 +8729,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
         if (procuraBairro.contains("Vila Fatima") && b.getStatus().equals("Roubada")) {
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaFatimaRoubo++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaFatimaRoubo++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaFatimaRoubo++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaFatimaRoubo++;
+            }
 
 
         }
@@ -8593,6 +8754,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaFatimaFurto++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaFatimaFurto++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaFatimaFurto++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaFatimaFurto++;
+            }
 
         }
 
@@ -8605,12 +8782,45 @@ public class GraficoHorarioBarraFragment extends Fragment {
         if (procuraBairro.contains("Vila Fatima") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaFatimaRoubo2019++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaFatimaRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaFatimaRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaFatimaRoubo2019++;
+            }
 
         }
 
 
         if (procuraBairro.contains("Vila Fatima") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Furtada")) {
 
+
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaFatimaFurto2019++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaFatimaFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaFatimaFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaFatimaFurto2019++;
+            }
 
         }
     }
@@ -8621,6 +8831,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
         if (procuraBairro.contains("Pandeiros") && b.getStatus().equals("Roubada")) {
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaPandeirosRoubo++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaPandeirosRoubo++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardePandeirosRoubo++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noitePandeirosRoubo++;
+            }
 
 
         }
@@ -8628,6 +8854,23 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         if (procuraBairro.contains("Pandeiros") && b.getStatus().equals("Furtada")) {
 
+
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaPandeirosFurto++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaPandeirosFurto++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardePandeirosFurto++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noitePandeirosFurto++;
+            }
 
         }
 
@@ -8639,13 +8882,46 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         if (procuraBairro.contains("Pandeiros") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaPandeirosRoubo2019++;
+            }
 
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaPandeirosRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardePandeirosRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noitePandeirosRoubo2019++;
+            }
 
         }
 
 
         if (procuraBairro.contains("Pandeiros") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Furtada")) {
 
+
+
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaPandeirosFurto2019++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaPandeirosFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardePandeirosFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noitePandeirosFurto2019++;
+            }
 
         }
     }
@@ -8656,6 +8932,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
         if (procuraBairro.contains("Vila Paula") && b.getStatus().equals("Roubada")) {
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaPaulaRoubo++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaPaulaRoubo++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaPaulaRoubo++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaPaulaRoubo++;
+            }
 
         }
 
@@ -8663,6 +8955,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
         if (procuraBairro.contains("Vila Paula") && b.getStatus().equals("Furtada")) {
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaPaulaFurto++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaPaulaFurto++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaPaulaFurto++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaPaulaFurto++;
+            }
 
 
         }
@@ -8676,12 +8984,44 @@ public class GraficoHorarioBarraFragment extends Fragment {
         if (procuraBairro.contains("Vila Paula") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
 
 
+
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaPaulaRoubo2019++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaPaulaRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaPaulaRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaPaulaRoubo2019++;
+            }
         }
 
 
         if (procuraBairro.contains("Vila Paula") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Furtada")) {
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaPaulaFurto2019++;
+            }
 
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaPaulaFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaPaulaFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaPaulaFurto2019++;
+            }
         }
     }
 
@@ -8692,11 +9032,44 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaVerdeRoubo++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaVerdeRoubo++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaVerdeRoubo++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaVerdeRoubo++;
+            }
+
         }
 
 
         if (procuraBairro.contains("Vila Verde") && b.getStatus().equals("Furtada")) {
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaVerdeFurto++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaVerdeFurto++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaVerdeFurto++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaVerdeFurto++;
+            }
 
 
 
@@ -8710,7 +9083,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         if (procuraBairro.contains("Vila Verde") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaVerdeRoubo2019++;
+            }
 
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaVerdeRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaVerdeRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaVerdeRoubo2019++;
+            }
 
 
         }
@@ -8718,7 +9106,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         if (procuraBairro.contains("Vila Verde") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Furtada")) {
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaVerdeFurto2019++;
+            }
 
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaVerdeFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaVerdeFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaVerdeFurto2019++;
+            }
 
         }
     }
@@ -8728,13 +9131,44 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         if (procuraBairro.contains("Vila Viana") && b.getStatus().equals("Roubada")) {
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaVianaRoubo++;
+            }
 
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaVianaRoubo++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaVianaRoubo++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaVianaRoubo++;
+            }
 
         }
 
 
         if (procuraBairro.contains("Vila Viana") && b.getStatus().equals("Furtada")) {
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaVianaFurto++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaVianaFurto++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaVianaFurto++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaVianaFurto++;
+            }
 
 
         }
@@ -8745,15 +9179,48 @@ public class GraficoHorarioBarraFragment extends Fragment {
     public void ruasBairroVilaViana2019() {
 
 
-        if (procuraBairro.contains("Vila Viana") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+        if (procuraBairro.equals("Vila Viana") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
+
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaVianaRoubo2019++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaVianaRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaVianaRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaVianaRoubo2019++;
+            }
 
 
 
         }
 
 
-        if (procuraBairro.contains("Vila Viana") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Furtada")) {
+        if (procuraBairro.equals("Vila Viana") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Furtada")) {
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaVianaFurto2019++;
+            }
+
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaVianaFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaVianaFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaVianaFurto2019++;
+            }
 
         }
     }
@@ -8761,17 +9228,47 @@ public class GraficoHorarioBarraFragment extends Fragment {
     public void ruasBairroJadeteTodosAnos() {
 
 
-        if (procuraBairro.contains("Vila Jadete") && b.getStatus().equals("Roubada")) {
+        if (procuraBairro.equals("Vila Jadete") && b.getStatus().equals("Roubada")) {
+
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaJadeteRoubo++;
+            }
 
 
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaJadeteRoubo++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaJadeteRoubo++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaJadeteRoubo++;
+            }
 
 
         }
 
 
-        if (procuraBairro.contains("Vila Jadete") && b.getStatus().equals("Furtada")) {
+        if (procuraBairro.equals("Vila Jadete") && b.getStatus().equals("Furtada")) {
+
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaJadeteFurto++;
+            }
 
 
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaJadeteFurto++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaJadeteFurto++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaJadeteFurto++;
+            }
 
 
         }
@@ -8785,7 +9282,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
         if (procuraBairro.contains("Vila Jadete") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Roubada")) {
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaJadeteRoubo2019++;
+            }
 
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaJadeteRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaJadeteRoubo2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaJadeteRoubo2019++;
+            }
 
         }
 
@@ -8793,7 +9305,22 @@ public class GraficoHorarioBarraFragment extends Fragment {
         if (procuraBairro.contains("Vila Jadete") && procuraAno.contains(anoProcura2019) && b.getStatus().equals("Furtada")) {
 
 
+            if (horaDaOcorrencia >= madrugadaMin && horaDaOcorrencia <= madrugadaMax ){
+                madrugadaVilaJadeteFurto2019++;
+            }
 
+
+            if (horaDaOcorrencia >= manhaMin && horaDaOcorrencia <= manhaMax ){
+                manhaVilaJadeteFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= tardeMin && horaDaOcorrencia <= tardeMax ){
+                tardeVilaJadeteFurto2019++;
+            }
+
+            if (horaDaOcorrencia >= noiteMin && horaDaOcorrencia <= noiteMax ){
+                noiteVilaJadeteFurto2019++;
+            }
 
 
         }

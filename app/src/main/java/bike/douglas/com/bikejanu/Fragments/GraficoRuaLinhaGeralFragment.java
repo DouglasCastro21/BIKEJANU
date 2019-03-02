@@ -3555,7 +3555,7 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
 
 
 
-        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,2000);
+        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.TRANSPARENT,2000);
         lineChart.setDrawGridBackground(true);
 
         lineChart.setActivated(true);

@@ -305,7 +305,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
 
 
-        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,3000);
+        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.TRANSPARENT,3000);
         lineChart.setDrawGridBackground(true);
 
         lineChart.setActivated(true);
@@ -373,10 +373,10 @@ public class GraficoAnoLinhaFragment extends Fragment {
     public void     graficoANOS(){
 
         String[] bairros   = new String[]{"2018","2019"};
-        int[]    rob = new int   [] {contandoBikesRouboAno2018,contandoBikesRouboAno2019};
+        int[]    rob = new int   [] {2,contandoBikesRouboAno2019};
         int []   cor   = new int   []{Color.YELLOW,Color.RED};
         String[] leg = new String[]{"Furto","Roubo"};
-        int[]    furt = new int   [] {contandoBikesFurtoAno2018,contandoBikesFurtoAno2019};
+        int[]    furt = new int   [] {129,contandoBikesFurtoAno2019};
 
 
 

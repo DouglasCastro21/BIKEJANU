@@ -376,7 +376,7 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
     private void criarGraficos(){
 
 
-        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.WHITE,3000);
+        barChart = (BarChart) getSameChart(barChart,"",Color.RED,Color.TRANSPARENT,3000);
         barChart.setDrawGridBackground(true);
 
         barChart.setActivated(true);

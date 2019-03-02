@@ -421,7 +421,7 @@ public class GraficoHorarioLinhaFragment extends Fragment {
 
 
 
-        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.WHITE,3000);
+        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.TRANSPARENT,3000);
         lineChart.setDrawGridBackground(true);
 
         lineChart.setActivated(true);
