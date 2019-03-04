@@ -119,7 +119,6 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
 
-
     int madrugadaAeroportoFurto=0;
     int manhaAeroportoFurto=0;
     int tardeAeroportoFurto=0;
@@ -129,6 +128,20 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int manhaAeroportoRoubo=0;
     int tardeAeroportoRoubo=0;
     int noiteAeroportoRoubo=0;
+
+
+
+
+
+    int madrugadaAeroportoFurto2018=0;
+    int manhaAeroportoFurto2018=0;
+    int tardeAeroportoFurto2018=0;
+    int noiteAeroportoFurto2018=0;
+
+    int madrugadaAeroportoRoubo2018=0;
+    int manhaAeroportoRoubo2018=0;
+    int tardeAeroportoRoubo2018=0;
+    int noiteAeroportoRoubo2018=0;
 
 
     int madrugadaAeroportoFurto2019=0;
@@ -142,6 +155,8 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteAeroportoRoubo2019=0;
 
 
+    //----
+
     int madrugadaAltoPocoesFurto=0;
     int manhaAltoPocoesFurto=0;
     int tardeAltoPocoesFurto=0;
@@ -151,6 +166,20 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int manhaAltoPocoesRoubo=0;
     int tardeAltoPocoesRoubo=0;
     int noiteAltoPocoesRoubo=0;
+
+
+
+
+
+    int madrugadaAltoPocoesFurto2018=0;
+    int manhaAltoPocoesFurto2018=0;
+    int tardeAltoPocoesFurto2018=0;
+    int noiteAltoPocoesFurto2018=0;
+
+    int madrugadaAltoPocoesRoubo2018=0;
+    int manhaAltoPocoesRoubo2018=0;
+    int tardeAltoPocoesRoubo2018=0;
+    int noiteAltoPocoesRoubo2018=0;
 
 
     int madrugadaAltoPocoesFurto2019=0;
@@ -164,8 +193,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteAltoPocoesRoubo2019=0;
 
 
-
-
+//---
 
 
     int madrugadaAlvoradaFurto=0;
@@ -179,6 +207,17 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteAlvoradaRoubo=0;
 
 
+
+    int madrugadaAlvoradaFurto2018=0;
+    int manhaAlvoradaFurto2018=0;
+    int tardeAlvoradaFurto2018=0;
+    int noiteAlvoradaFurto2018=0;
+
+    int madrugadaAlvoradaRoubo2018=0;
+    int manhaAlvoradaRoubo2018=0;
+    int tardeAlvoradaRoubo2018=0;
+    int noiteAlvoradaRoubo2018=0;
+
     int madrugadaAlvoradaFurto2019=0;
     int manhaAlvoradaFurto2019=0;
     int tardeAlvoradaFurto2019=0;
@@ -190,7 +229,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteAlvoradaRoubo2019=0;
 
 
-
+///---
 
     int madrugadaBandeirantesFurto=0;
     int manhaBandeirantesFurto=0;
@@ -203,6 +242,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteBandeirantesRoubo=0;
 
 
+
+
+    int madrugadaBandeirantesFurto2018=0;
+    int manhaBandeirantesFurto2018=0;
+    int tardeBandeirantesFurto2018=0;
+    int noiteBandeirantesFurto2018=0;
+
+    int madrugadaBandeirantesRoubo2018=0;
+    int manhaBandeirantesRoubo2018=0;
+    int tardeBandeirantesRoubo2018=0;
+    int noiteBandeirantesRoubo2018=0;
+
     int madrugadaBandeirantesFurto2019=0;
     int manhaBandeirantesFurto2019=0;
     int tardeBandeirantesFurto2019=0;
@@ -214,7 +265,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteBandeirantesRoubo2019=0;
 
 
-
+//----
 
 
     int madrugadaBoaEsperancaFurto=0;
@@ -228,6 +279,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteBoaEsperancaRoubo=0;
 
 
+
+    int madrugadaBoaEsperancaFurto2018=0;
+    int manhaBoaEsperancaFurto2018=0;
+    int tardeBoaEsperancaFurto2018=0;
+    int noiteBoaEsperancaFurto2018=0;
+
+    int madrugadaBoaEsperancaRoubo2018=0;
+    int manhaBoaEsperancaRoubo2018=0;
+    int tardeBoaEsperancaRoubo2018=0;
+    int noiteBoaEsperancaRoubo2018=0;
+
+
     int madrugadaBoaEsperancaFurto2019=0;
     int manhaBoaEsperancaFurto2019=0;
     int tardeBoaEsperancaFurto2019=0;
@@ -239,7 +302,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteBoaEsperancaRoubo2019=0;
 
 
-
+//---
 
 
 
@@ -254,6 +317,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteBoaVistaRoubo=0;
 
 
+
+    int madrugadaBoaVistaFurto2018=0;
+    int manhaBoaVistaFurto2018=0;
+    int tardeBoaVistaFurto2018=0;
+    int noiteBoaVistaFurto2018=0;
+
+    int madrugadaBoaVistaRoubo2018=0;
+    int manhaBoaVistaRoubo2018=0;
+    int tardeBoaVistaRoubo2018=0;
+    int noiteBoaVistaRoubo2018=0;
+
+
     int madrugadaBoaVistaFurto2019=0;
     int manhaBoaVistaFurto2019=0;
     int tardeBoaVistaFurto2019=0;
@@ -264,7 +339,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeBoaVistaRoubo2019=0;
     int noiteBoaVistaRoubo2019=0;
 
-
+//---
 
 
     int madrugadaVilaBrasilandiaFurto=0;
@@ -278,6 +353,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteVilaBrasilandiaRoubo=0;
 
 
+
+
+    int madrugadaVilaBrasilandiaFurto2018=0;
+    int manhaVilaBrasilandiaFurto2018=0;
+    int tardeVilaBrasilandiaFurto2018=0;
+    int noiteVilaBrasilandiaFurto2018=0;
+
+    int madrugadaVilaBrasilandiaRoubo2018=0;
+    int manhaVilaBrasilandiaRoubo2018=0;
+    int tardeVilaBrasilandiaRoubo2018=0;
+    int noiteVilaBrasilandiaRoubo2018=0;
+
     int madrugadaVilaBrasilandiaFurto2019=0;
     int manhaVilaBrasilandiaFurto2019=0;
     int tardeVilaBrasilandiaFurto2019=0;
@@ -290,7 +377,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
 
-
+//---
 
 
     int madrugadaBrejoAmparoFurto=0;
@@ -304,6 +391,19 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteBrejoAmparoRoubo=0;
 
 
+
+    int madrugadaBrejoAmparoFurto2018=0;
+    int manhaBrejoAmparoFurto2018=0;
+    int tardeBrejoAmparoFurto2018=0;
+    int noiteBrejoAmparoFurto2018=0;
+
+    int madrugadaBrejoAmparoRoubo2018=0;
+    int manhaBrejoAmparoRoubo2018=0;
+    int tardeBrejoAmparoRoubo2018=0;
+    int noiteBrejoAmparoRoubo2018=0;
+
+
+
     int madrugadaBrejoAmparoFurto2019=0;
     int manhaBrejoAmparoFurto2019=0;
     int tardeBrejoAmparoFurto2019=0;
@@ -314,7 +414,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeBrejoAmparoRoubo2019=0;
     int noiteBrejoAmparoRoubo2019=0;
 
-
+//--
 
 
     int madrugadaCentroFurto=0;
@@ -328,6 +428,17 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteCentroRoubo=0;
 
 
+
+    int madrugadaCentroFurto2018=0;
+    int manhaCentroFurto2018=0;
+    int tardeCentroFurto2018=0;
+    int noiteCentroFurto2018=0;
+
+    int madrugadaCentroRoubo2018=0;
+    int manhaCentroRoubo2018=0;
+    int tardeCentroRoubo2018=0;
+    int noiteCentroRoubo2018=0;
+
     int madrugadaCentroFurto2019=0;
     int manhaCentroFurto2019=0;
     int tardeCentroFurto2019=0;
@@ -338,7 +449,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeCentroRoubo2019=0;
     int noiteCentroRoubo2019=0;
 
-
+//---
 
 
     int madrugadaCeramicaFurto=0;
@@ -352,6 +463,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteCeramicaRoubo=0;
 
 
+
+
+    int madrugadaCeramicaFurto2018=0;
+    int manhaCeramicaFurto2018=0;
+    int tardeCeramicaFurto2018=0;
+    int noiteCeramicaFurto2018=0;
+
+    int madrugadaCeramicaRoubo2018=0;
+    int manhaCeramicaRoubo2018=0;
+    int tardeCeramicaRoubo2018=0;
+    int noiteCeramicaRoubo2018=0;
+
     int madrugadaCeramicaFurto2019=0;
     int manhaCeramicaFurto2019=0;
     int tardeCeramicaFurto2019=0;
@@ -362,7 +485,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeCeramicaRoubo2019=0;
     int noiteCeramicaRoubo2019=0;
 
-
+//--
 
 
     int madrugadaEldoradoFurto=0;
@@ -376,6 +499,19 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteEldoradoRoubo=0;
 
 
+
+
+    int madrugadaEldoradoFurto2018=0;
+    int manhaEldoradoFurto2018=0;
+    int tardeEldoradoFurto2018=0;
+    int noiteEldoradoFurto2018=0;
+
+    int madrugadaEldoradoRoubo2018=0;
+    int manhaEldoradoRoubo2018=0;
+    int tardeEldoradoRoubo2018=0;
+    int noiteEldoradoRoubo2018=0;
+
+
     int madrugadaEldoradoFurto2019=0;
     int manhaEldoradoFurto2019=0;
     int tardeEldoradoFurto2019=0;
@@ -386,7 +522,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeEldoradoRoubo2019=0;
     int noiteEldoradoRoubo2019=0;
 
-
+//---
 
 
     int madrugadaFranklimFurto=0;
@@ -400,6 +536,21 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteFranklimRoubo=0;
 
 
+
+
+    int madrugadaFranklimFurto2018=0;
+    int manhaFranklimFurto2018=0;
+    int tardeFranklimFurto2018=0;
+    int noiteFranklimFurto2018=0;
+
+    int madrugadaFranklimRoubo2018=0;
+    int manhaFranklimRoubo2018=0;
+    int tardeFranklimRoubo2018=0;
+    int noiteFranklimRoubo2018=0;
+
+
+
+
     int madrugadaFranklimFurto2019=0;
     int manhaFranklimFurto2019=0;
     int tardeFranklimFurto2019=0;
@@ -410,7 +561,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeFranklimRoubo2019=0;
     int noiteFranklimRoubo2019=0;
 
-
+//---
 
 
     int madrugadaJardimDanielFurto=0;
@@ -424,6 +575,17 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteJardimDanielRoubo=0;
 
 
+    int madrugadaJardimDanielFurto2018=0;
+    int manhaJardimDanielFurto2018=0;
+    int tardeJardimDanielFurto2018=0;
+    int noiteJardimDanielFurto2018=0;
+
+    int madrugadaJardimDanielRoubo2018=0;
+    int manhaJardimDanielRoubo2018=0;
+    int tardeJardimDanielRoubo2018=0;
+    int noiteJardimDanielRoubo2018=0;
+
+
     int madrugadaJardimDanielFurto2019=0;
     int manhaJardimDanielFurto2019=0;
     int tardeJardimDanielFurto2019=0;
@@ -434,7 +596,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeJardimDanielRoubo2019=0;
     int noiteJardimDanielRoubo2019=0;
 
-
+//--
 
     int madrugadaJardimEstrelaFurto=0;
     int manhaJardimEstrelaFurto=0;
@@ -445,6 +607,19 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int manhaJardimEstrelaRoubo=0;
     int tardeJardimEstrelaRoubo=0;
     int noiteJardimEstrelaRoubo=0;
+
+
+
+
+    int madrugadaJardimEstrelaFurto2018=0;
+    int manhaJardimEstrelaFurto2018=0;
+    int tardeJardimEstrelaFurto2018=0;
+    int noiteJardimEstrelaFurto2018=0;
+
+    int madrugadaJardimEstrelaRoubo2018=0;
+    int manhaJardimEstrelaRoubo2018=0;
+    int tardeJardimEstrelaRoubo2018=0;
+    int noiteJardimEstrelaRoubo2018=0;
 
 
     int madrugadaJardimEstrelaFurto2019=0;
@@ -458,7 +633,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteJardimEstrelaRoubo2019=0;
 
 
-
+//---
 
     int madrugadaJussaraFurto=0;
     int manhaJussaraFurto=0;
@@ -470,6 +645,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeJussaraRoubo=0;
     int noiteJussaraRoubo=0;
 
+
+
+    int madrugadaJussaraFurto2018=0;
+    int manhaJussaraFurto2018=0;
+    int tardeJussaraFurto2018=0;
+    int noiteJussaraFurto2018=0;
+
+    int madrugadaJussaraRoubo2018=0;
+    int manhaJussaraRoubo2018=0;
+    int tardeJussaraRoubo2018=0;
+    int noiteJussaraRoubo2018=0;
+
     int madrugadaJussaraFurto2019=0;
     int manhaJussaraFurto2019=0;
     int tardeJussaraFurto2019=0;
@@ -480,7 +667,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeJussaraRoubo2019=0;
     int noiteJussaraRoubo2019=0;
 
-
+//---
 
 
     int madrugadaVilaLevianopolisFurto=0;
@@ -493,6 +680,19 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeVilaLevianopolisRoubo=0;
     int noiteVilaLevianopolisRoubo=0;
 
+
+
+    int madrugadaVilaLevianopolisFurto2018=0;
+    int manhaVilaLevianopolisFurto2018=0;
+    int tardeVilaLevianopolisFurto2018=0;
+    int noiteVilaLevianopolisFurto2018=0;
+
+    int madrugadaVilaLevianopolisRoubo2018=0;
+    int manhaVilaLevianopolisRoubo2018=0;
+    int tardeVilaLevianopolisRoubo2018=0;
+    int noiteVilaLevianopolisRoubo2018=0;
+
+
     int madrugadaVilaLevianopolisFurto2019=0;
     int manhaVilaLevianopolisFurto2019=0;
     int tardeVilaLevianopolisFurto2019=0;
@@ -503,7 +703,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeVilaLevianopolisRoubo2019=0;
     int noiteVilaLevianopolisRoubo2019=0;
 
-
+//---
 
 
     int madrugadaQuintasMangueirasFurto=0;
@@ -516,6 +716,19 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeQuintasMangueirasRoubo=0;
     int noiteQuintasMangueirasRoubo=0;
 
+
+    int madrugadaQuintasMangueirasFurto2018=0;
+    int manhaQuintasMangueirasFurto2018=0;
+    int tardeQuintasMangueirasFurto2018=0;
+    int noiteQuintasMangueirasFurto2018=0;
+
+    int madrugadaQuintasMangueirasRoubo2018=0;
+    int manhaQuintasMangueirasRoubo2018=0;
+    int tardeQuintasMangueirasRoubo2018=0;
+    int noiteQuintasMangueirasRoubo2018=0;
+
+
+
     int madrugadaQuintasMangueirasFurto2019=0;
     int manhaQuintasMangueirasFurto2019=0;
     int tardeQuintasMangueirasFurto2019=0;
@@ -526,7 +739,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeQuintasMangueirasRoubo2019=0;
     int noiteQuintasMangueirasRoubo2019=0;
 
-
+//----
 
 
     int madrugadaRiachoCruzFurto=0;
@@ -539,6 +752,19 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeRiachoCruzRoubo=0;
     int noiteRiachoCruzRoubo=0;
 
+
+
+    int madrugadaRiachoCruzFurto2018=0;
+    int manhaRiachoCruzFurto2018=0;
+    int tardeRiachoCruzFurto2018=0;
+    int noiteRiachoCruzFurto2018=0;
+
+    int madrugadaRiachoCruzRoubo2018=0;
+    int manhaRiachoCruzRoubo2018=0;
+    int tardeRiachoCruzRoubo2018=0;
+    int noiteRiachoCruzRoubo2018=0;
+
+
     int madrugadaRiachoCruzFurto2019=0;
     int manhaRiachoCruzFurto2019=0;
     int tardeRiachoCruzFurto2019=0;
@@ -549,7 +775,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeRiachoCruzRoubo2019=0;
     int noiteRiachoCruzRoubo2019=0;
 
-
+//---
 
 
 
@@ -563,6 +789,20 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeVilaSaoJoaoRoubo=0;
     int noiteVilaSaoJoaoRoubo=0;
 
+
+
+
+    int madrugadaVilaSaoJoaoFurto2018=0;
+    int manhaVilaSaoJoaoFurto2018=0;
+    int tardeVilaSaoJoaoFurto2018=0;
+    int noiteVilaSaoJoaoFurto2018=0;
+
+    int madrugadaVilaSaoJoaoRoubo2018=0;
+    int manhaVilaSaoJoaoRoubo2018=0;
+    int tardeVilaSaoJoaoRoubo2018=0;
+    int noiteVilaSaoJoaoRoubo2018=0;
+
+
     int madrugadaVilaSaoJoaoFurto2019=0;
     int manhaVilaSaoJoaoFurto2019=0;
     int tardeVilaSaoJoaoFurto2019=0;
@@ -575,6 +815,8 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
 
+    //---
+
     int madrugadaSaoJoaquimFurto=0;
     int manhaSaoJoaquimFurto=0;
     int tardeSaoJoaquimFurto=0;
@@ -584,6 +826,19 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int manhaSaoJoaquimRoubo=0;
     int tardeSaoJoaquimRoubo=0;
     int noiteSaoJoaquimRoubo=0;
+
+
+
+
+    int madrugadaSaoJoaquimFurto2018=0;
+    int manhaSaoJoaquimFurto2018=0;
+    int tardeSaoJoaquimFurto2018=0;
+    int noiteSaoJoaquimFurto2018=0;
+
+    int madrugadaSaoJoaquimRoubo2018=0;
+    int manhaSaoJoaquimRoubo2018=0;
+    int tardeSaoJoaquimRoubo2018=0;
+    int noiteSaoJoaquimRoubo2018=0;
 
     int madrugadaSaoJoaquimFurto2019=0;
     int manhaSaoJoaquimFurto2019=0;
@@ -596,6 +851,8 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteSaoJoaquimRoubo2019=0;
 
 
+    //--
+
     int madrugadaSaoMiguelFurto=0;
     int manhaSaoMiguelFurto=0;
     int tardeSaoMiguelFurto=0;
@@ -605,6 +862,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int manhaSaoMiguelRoubo=0;
     int tardeSaoMiguelRoubo=0;
     int noiteSaoMiguelRoubo=0;
+
+
+
+    int madrugadaSaoMiguelFurto2018=0;
+    int manhaSaoMiguelFurto2018=0;
+    int tardeSaoMiguelFurto2018=0;
+    int noiteSaoMiguelFurto2018=0;
+
+    int madrugadaSaoMiguelRoubo2018=0;
+    int manhaSaoMiguelRoubo2018=0;
+    int tardeSaoMiguelRoubo2018=0;
+    int noiteSaoMiguelRoubo2018=0;
 
     int madrugadaSaoMiguelFurto2019=0;
     int manhaSaoMiguelFurto2019=0;
@@ -616,7 +885,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeSaoMiguelRoubo2019=0;
     int noiteSaoMiguelRoubo2019=0;
 
-
+//---
 
 
     int madrugadaSaoVicenteFurto=0;
@@ -629,6 +898,20 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeSaoVicenteRoubo=0;
     int noiteSaoVicenteRoubo=0;
 
+
+
+
+
+    int madrugadaSaoVicenteFurto2018=0;
+    int manhaSaoVicenteFurto2018=0;
+    int tardeSaoVicenteFurto2018=0;
+    int noiteSaoVicenteFurto2018=0;
+
+    int madrugadaSaoVicenteRoubo2018=0;
+    int manhaSaoVicenteRoubo2018=0;
+    int tardeSaoVicenteRoubo2018=0;
+    int noiteSaoVicenteRoubo2018=0;
+
     int madrugadaSaoVicenteFurto2019=0;
     int manhaSaoVicenteFurto2019=0;
     int tardeSaoVicenteFurto2019=0;
@@ -640,7 +923,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteSaoVicenteRoubo2019=0;
 
 
-
+//---
 
 
     int madrugadaTejucoFurto=0;
@@ -653,6 +936,17 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeTejucoRoubo=0;
     int noiteTejucoRoubo=0;
 
+
+    int madrugadaTejucoFurto2018=0;
+    int manhaTejucoFurto2018=0;
+    int tardeTejucoFurto2018=0;
+    int noiteTejucoFurto2018=0;
+
+    int madrugadaTejucoRoubo2018=0;
+    int manhaTejucoRoubo2018=0;
+    int tardeTejucoRoubo2018=0;
+    int noiteTejucoRoubo2018=0;
+
     int madrugadaTejucoFurto2019=0;
     int manhaTejucoFurto2019=0;
     int tardeTejucoFurto2019=0;
@@ -663,7 +957,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeTejucoRoubo2019=0;
     int noiteTejucoRoubo2019=0;
 
-
+//---
 
     int madrugadaVilaFatimaFurto=0;
     int manhaVilaFatimaFurto=0;
@@ -674,6 +968,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int manhaVilaFatimaRoubo=0;
     int tardeVilaFatimaRoubo=0;
     int noiteVilaFatimaRoubo=0;
+
+
+
+    int madrugadaVilaFatimaFurto2018=0;
+    int manhaVilaFatimaFurto2018=0;
+    int tardeVilaFatimaFurto2018=0;
+    int noiteVilaFatimaFurto2018=0;
+
+    int madrugadaVilaFatimaRoubo2018=0;
+    int manhaVilaFatimaRoubo2018=0;
+    int tardeVilaFatimaRoubo2018=0;
+    int noiteVilaFatimaRoubo2018=0;
 
     int madrugadaVilaFatimaFurto2019=0;
     int manhaVilaFatimaFurto2019=0;
@@ -686,7 +992,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteVilaFatimaRoubo2019=0;
 
 
-
+//---
 
 
     int madrugadaPandeirosFurto=0;
@@ -699,6 +1005,20 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardePandeirosRoubo=0;
     int noitePandeirosRoubo=0;
 
+
+
+
+    int madrugadaPandeirosFurto2018=0;
+    int manhaPandeirosFurto2018=0;
+    int tardePandeirosFurto2018=0;
+    int noitePandeirosFurto2018=0;
+
+    int madrugadaPandeirosRoubo2018=0;
+    int manhaPandeirosRoubo2018=0;
+    int tardePandeirosRoubo2018=0;
+    int noitePandeirosRoubo2018=0;
+
+
     int madrugadaPandeirosFurto2019=0;
     int manhaPandeirosFurto2019=0;
     int tardePandeirosFurto2019=0;
@@ -709,7 +1029,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardePandeirosRoubo2019=0;
     int noitePandeirosRoubo2019=0;
 
-
+//---
 
 
     int madrugadaVilaPaulaFurto=0;
@@ -722,6 +1042,20 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeVilaPaulaRoubo=0;
     int noiteVilaPaulaRoubo=0;
 
+
+
+
+    int madrugadaVilaPaulaFurto2018=0;
+    int manhaVilaPaulaFurto2018=0;
+    int tardeVilaPaulaFurto2018=0;
+    int noiteVilaPaulaFurto2018=0;
+
+    int madrugadaVilaPaulaRoubo2018=0;
+    int manhaVilaPaulaRoubo2018=0;
+    int tardeVilaPaulaRoubo2018=0;
+    int noiteVilaPaulaRoubo2018=0;
+
+
     int madrugadaVilaPaulaFurto2019=0;
     int manhaVilaPaulaFurto2019=0;
     int tardeVilaPaulaFurto2019=0;
@@ -733,7 +1067,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteVilaPaulaRoubo2019=0;
 
 
-
+//--
 
 
     int madrugadaVilaVerdeFurto=0;
@@ -746,6 +1080,18 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeVilaVerdeRoubo=0;
     int noiteVilaVerdeRoubo=0;
 
+
+
+    int madrugadaVilaVerdeFurto2018=0;
+    int manhaVilaVerdeFurto2018=0;
+    int tardeVilaVerdeFurto2018=0;
+    int noiteVilaVerdeFurto2018=0;
+
+    int madrugadaVilaVerdeRoubo2018=0;
+    int manhaVilaVerdeRoubo2018=0;
+    int tardeVilaVerdeRoubo2018=0;
+    int noiteVilaVerdeRoubo2018=0;
+
     int madrugadaVilaVerdeFurto2019=0;
     int manhaVilaVerdeFurto2019=0;
     int tardeVilaVerdeFurto2019=0;
@@ -756,7 +1102,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeVilaVerdeRoubo2019=0;
     int noiteVilaVerdeRoubo2019=0;
 
-
+//--
 
 
     int madrugadaVilaVianaFurto=0;
@@ -769,6 +1115,20 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeVilaVianaRoubo=0;
     int noiteVilaVianaRoubo=0;
 
+
+
+
+
+    int madrugadaVilaVianaFurto2018=0;
+    int manhaVilaVianaFurto2018=0;
+    int tardeVilaVianaFurto2018=0;
+    int noiteVilaVianaFurto2018=0;
+
+    int madrugadaVilaVianaRoubo2018=0;
+    int manhaVilaVianaRoubo2018=0;
+    int tardeVilaVianaRoubo2018=0;
+    int noiteVilaVianaRoubo2018=0;
+
     int madrugadaVilaVianaFurto2019=0;
     int manhaVilaVianaFurto2019=0;
     int tardeVilaVianaFurto2019=0;
@@ -779,7 +1139,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeVilaVianaRoubo2019=0;
     int noiteVilaVianaRoubo2019=0;
 
-
+//---
 
 
     int madrugadaVilaJadeteFurto=0;
@@ -791,6 +1151,16 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int manhaVilaJadeteRoubo=0;
     int tardeVilaJadeteRoubo=0;
     int noiteVilaJadeteRoubo=0;
+
+    int madrugadaVilaJadeteFurto2018=0;
+    int manhaVilaJadeteFurto2018=0;
+    int tardeVilaJadeteFurto2018=0;
+    int noiteVilaJadeteFurto2018=0;
+
+    int madrugadaVilaJadeteRoubo2018=0;
+    int manhaVilaJadeteRoubo2018=0;
+    int tardeVilaJadeteRoubo2018=0;
+    int noiteVilaJadeteRoubo2018=0;
 
     int madrugadaVilaJadeteFurto2019=0;
     int manhaVilaJadeteFurto2019=0;
@@ -3285,6 +3655,359 @@ public class GraficoHorarioBarraFragment extends Fragment {
         });
 
 
+
+
+
+
+
+
+         madrugadaAeroportoFurto          = madrugadaAeroportoFurto2018    +    madrugadaAeroportoFurto2019 ;
+         manhaAeroportoFurto              = manhaAeroportoFurto2018        +    manhaAeroportoFurto2019 ;
+         tardeAeroportoFurto              = tardeAeroportoFurto2018        +    tardeAeroportoFurto2019;
+         noiteAeroportoFurto              = noiteAeroportoFurto2018        +    noiteAeroportoFurto2019;
+
+         madrugadaAeroportoRoubo          = madrugadaAeroportoRoubo2018    +    madrugadaAeroportoRoubo2019 ;
+         manhaAeroportoRoubo              = manhaAeroportoRoubo2018        +    manhaAeroportoRoubo2019;
+         tardeAeroportoRoubo              = tardeAeroportoRoubo2018        +    tardeAeroportoRoubo2019 ;
+         noiteAeroportoRoubo              = noiteAeroportoRoubo2018        +    noiteAeroportoRoubo2019;
+
+
+
+
+         madrugadaAltoPocoesFurto        =  madrugadaAltoPocoesFurto2018    +   madrugadaAltoPocoesFurto2019;
+         manhaAltoPocoesFurto            =  manhaAltoPocoesFurto2018        +   manhaAltoPocoesFurto2019;
+         tardeAltoPocoesFurto            =  tardeAltoPocoesFurto2018        +   tardeAltoPocoesFurto2019 ;
+         noiteAltoPocoesFurto            =  noiteAltoPocoesFurto2018        +   noiteAltoPocoesFurto2019 ;
+
+         madrugadaAltoPocoesRoubo        =  madrugadaAltoPocoesRoubo2018    +   madrugadaAltoPocoesRoubo2019 ;
+         manhaAltoPocoesRoubo            =  manhaAltoPocoesRoubo2018        +   manhaAltoPocoesRoubo2019 ;
+         tardeAltoPocoesRoubo            =  tardeAltoPocoesRoubo2018        +   tardeAltoPocoesRoubo2019 ;
+         noiteAltoPocoesRoubo            =  noiteAltoPocoesRoubo2018        +   noiteAltoPocoesRoubo2019 ;
+
+
+
+         madrugadaAlvoradaFurto          =  madrugadaAlvoradaFurto2018      +   madrugadaAlvoradaFurto2019;
+         manhaAlvoradaFurto              =  manhaAlvoradaFurto2018          +   manhaAlvoradaFurto2019;
+         tardeAlvoradaFurto              =  tardeAlvoradaFurto2018          +   tardeAlvoradaFurto2019 ;
+         noiteAlvoradaFurto              =  noiteAlvoradaFurto2018          +   noiteAlvoradaFurto2019  ;
+
+         madrugadaAlvoradaRoubo          =  madrugadaAlvoradaRoubo2018      +   madrugadaAlvoradaRoubo2019  ;
+         manhaAlvoradaRoubo              =  manhaAlvoradaRoubo2018          +   manhaAlvoradaRoubo2019 ;
+         tardeAlvoradaRoubo              =  tardeAlvoradaRoubo2018          +   tardeAlvoradaRoubo2019 ;
+         noiteAlvoradaRoubo              =  noiteAlvoradaRoubo2018          +   noiteAlvoradaRoubo2019  ;
+
+
+         madrugadaBandeirantesFurto      =  madrugadaBandeirantesFurto2018  +   madrugadaBandeirantesFurto2019;
+         manhaBandeirantesFurto          =  manhaBandeirantesFurto2018      +   manhaBandeirantesFurto2019;
+         tardeBandeirantesFurto          =  tardeBandeirantesFurto2018      +   tardeBandeirantesFurto2019;
+         noiteBandeirantesFurto          =  noiteBandeirantesFurto2018      +   noiteBandeirantesFurto2019 ;
+
+         madrugadaBandeirantesRoubo      =  madrugadaBandeirantesRoubo2018  +   madrugadaBandeirantesRoubo2019;
+         manhaBandeirantesRoubo          =  manhaBandeirantesRoubo2018      +   manhaBandeirantesRoubo2019 ;
+         tardeBandeirantesRoubo          =  tardeBandeirantesRoubo2018      +   tardeBandeirantesRoubo2019;
+         noiteBandeirantesRoubo          =  noiteBandeirantesRoubo2018      +   noiteBandeirantesRoubo2019 ;
+
+
+
+         madrugadaBoaEsperancaFurto     =   madrugadaBoaEsperancaFurto2018  +   madrugadaBoaEsperancaFurto2019;
+         manhaBoaEsperancaFurto         =   manhaBoaEsperancaFurto2018      +   manhaBoaEsperancaFurto2019;
+         tardeBoaEsperancaFurto         =   tardeBoaEsperancaFurto2018      +   tardeBoaEsperancaFurto2019  ;
+         noiteBoaEsperancaFurto         =   noiteBoaEsperancaFurto2018      +   noiteBoaEsperancaFurto2019;
+
+         madrugadaBoaEsperancaRoubo     =   madrugadaBoaEsperancaRoubo2018  +   madrugadaBoaEsperancaRoubo2019;
+         manhaBoaEsperancaRoubo         =   manhaBoaEsperancaRoubo2018      +   manhaBoaEsperancaRoubo2019;
+         tardeBoaEsperancaRoubo         =   tardeBoaEsperancaRoubo2018      +   tardeBoaEsperancaRoubo2019 ;
+         noiteBoaEsperancaRoubo         =   noiteBoaEsperancaRoubo2018      +   noiteBoaEsperancaRoubo2019 ;
+
+
+
+
+
+         madrugadaBoaVistaFurto         =   madrugadaBoaVistaFurto2018      +   madrugadaBoaVistaFurto2019;
+         manhaBoaVistaFurto             =   manhaBoaVistaFurto2018          +   manhaBoaVistaFurto2019 ;
+         tardeBoaVistaFurto             =   tardeBoaVistaFurto2018          +   tardeBoaVistaFurto2019 ;
+         noiteBoaVistaFurto             =   noiteBoaVistaFurto2018          +   noiteBoaVistaFurto2019 ;
+
+         madrugadaBoaVistaRoubo         =   madrugadaBoaVistaRoubo2018      +   madrugadaBoaVistaRoubo2019 ;
+         manhaBoaVistaRoubo             =   manhaBoaVistaRoubo2018          +   manhaBoaVistaRoubo2019 ;
+         tardeBoaVistaRoubo             =   tardeBoaVistaRoubo2018          +   tardeBoaVistaRoubo2019;
+         noiteBoaVistaRoubo             =   noiteBoaVistaRoubo2018          +   noiteBoaVistaRoubo2019 ;
+
+
+
+         madrugadaVilaBrasilandiaFurto  =   madrugadaVilaBrasilandiaFurto2018+  madrugadaVilaBrasilandiaFurto2019;
+         manhaVilaBrasilandiaFurto      =   manhaVilaBrasilandiaFurto2018    +  manhaVilaBrasilandiaFurto2019;
+         tardeVilaBrasilandiaFurto      =   tardeVilaBrasilandiaFurto2018    +  tardeVilaBrasilandiaFurto2019;
+         noiteVilaBrasilandiaFurto      =   noiteVilaBrasilandiaFurto2018    +  noiteVilaBrasilandiaFurto2019;
+
+         madrugadaVilaBrasilandiaRoubo  =   madrugadaVilaBrasilandiaRoubo2018+  madrugadaVilaBrasilandiaRoubo2019;
+         manhaVilaBrasilandiaRoubo      =   manhaVilaBrasilandiaRoubo2018    +  manhaVilaBrasilandiaRoubo2019;
+         tardeVilaBrasilandiaRoubo      =   tardeVilaBrasilandiaRoubo2018    +  tardeVilaBrasilandiaRoubo2019 ;
+         noiteVilaBrasilandiaRoubo      =   noiteVilaBrasilandiaRoubo2018    +  noiteVilaBrasilandiaRoubo2019 ;
+
+
+
+         madrugadaBrejoAmparoFurto      =   madrugadaBrejoAmparoFurto2018    +  madrugadaBrejoAmparoFurto2019;
+         manhaBrejoAmparoFurto          =   manhaBrejoAmparoFurto2018        +  manhaBrejoAmparoFurto2019;
+         tardeBrejoAmparoFurto          =   tardeBrejoAmparoFurto2018        +  tardeBrejoAmparoFurto2019 ;
+         noiteBrejoAmparoFurto          =   noiteBrejoAmparoFurto2018        +  noiteBrejoAmparoFurto2019 ;
+
+         madrugadaBrejoAmparoRoubo      =   madrugadaBrejoAmparoRoubo2018    +  madrugadaBrejoAmparoRoubo2019;
+         manhaBrejoAmparoRoubo          =   manhaBrejoAmparoRoubo2018        +  manhaBrejoAmparoRoubo2019;
+         tardeBrejoAmparoRoubo          =   tardeBrejoAmparoRoubo2018        +  tardeBrejoAmparoRoubo2019 ;
+         noiteBrejoAmparoRoubo          =   noiteBrejoAmparoRoubo2018        +  noiteBrejoAmparoRoubo2019  ;
+
+
+
+
+         madrugadaCentroFurto           =   madrugadaCentroFurto2018         +  madrugadaCentroFurto2019 ;
+         manhaCentroFurto               =   manhaCentroFurto2018             +  manhaCentroFurto2019;
+         tardeCentroFurto               =   tardeCentroFurto2018             +  tardeCentroFurto2019;
+         noiteCentroFurto               =   noiteCentroFurto2018             +  noiteCentroFurto2019 ;
+
+         madrugadaCentroRoubo           =   madrugadaCentroRoubo2018         +  madrugadaCentroRoubo2019;
+         manhaCentroRoubo               =   manhaCentroRoubo2018             +  manhaCentroRoubo2019;
+         tardeCentroRoubo               =   tardeCentroRoubo2018             +  tardeCentroRoubo2019;
+         noiteCentroRoubo               =   noiteCentroRoubo2018             +  noiteCentroRoubo2019 ;
+
+
+
+         madrugadaCeramicaFurto         =   madrugadaCeramicaFurto2018       +  madrugadaCeramicaFurto2019 ;
+         manhaCeramicaFurto             =   manhaCeramicaFurto2018           +  manhaCeramicaFurto2019;
+         tardeCeramicaFurto             =   tardeCeramicaFurto2018           +  tardeCeramicaFurto2019 ;
+         noiteCeramicaFurto             =   noiteCeramicaFurto2018           +  noiteCeramicaFurto2019 ;
+
+         madrugadaCeramicaRoubo         =   madrugadaCeramicaRoubo2018       +  madrugadaCeramicaRoubo2019 ;
+         manhaCeramicaRoubo             =   manhaCeramicaRoubo2018           +  manhaCeramicaRoubo2019;
+         tardeCeramicaRoubo             =   tardeCeramicaRoubo2018           +  tardeCeramicaRoubo2019;
+         noiteCeramicaRoubo             =   noiteCeramicaRoubo2018           +  noiteCeramicaRoubo2019;
+
+
+
+         madrugadaEldoradoFurto         =   madrugadaEldoradoFurto2018       +  madrugadaEldoradoFurto2019;
+         manhaEldoradoFurto             =   manhaEldoradoFurto2018           +  manhaEldoradoFurto2019;
+         tardeEldoradoFurto             =   tardeEldoradoFurto2018           +  tardeEldoradoFurto2019;
+         noiteEldoradoFurto             =   noiteEldoradoFurto2018           +  noiteEldoradoFurto2019;
+
+         madrugadaEldoradoRoubo         =   madrugadaEldoradoRoubo2018       +  madrugadaEldoradoRoubo2019;
+         manhaEldoradoRoubo             =   manhaEldoradoRoubo2018           +  manhaEldoradoRoubo2019;
+         tardeEldoradoRoubo             =   tardeEldoradoRoubo2018           +  tardeEldoradoRoubo2019;
+         noiteEldoradoRoubo             =   noiteEldoradoRoubo2018           +  noiteEldoradoRoubo2019;
+
+
+
+         madrugadaFranklimFurto        =    madrugadaFranklimFurto2018       +  madrugadaFranklimFurto2019 ;
+         manhaFranklimFurto            =    manhaFranklimFurto2018           +  manhaFranklimFurto2019;
+         tardeFranklimFurto            =    tardeFranklimFurto2018           +  tardeFranklimFurto2019;
+         noiteFranklimFurto            =    noiteFranklimFurto2018           +  noiteFranklimFurto2019;
+
+         madrugadaFranklimRoubo        =    madrugadaFranklimRoubo2018       +  madrugadaFranklimRoubo2019;
+         manhaFranklimRoubo            =    manhaFranklimRoubo2018           +  manhaFranklimRoubo2019;
+         tardeFranklimRoubo            =    tardeFranklimRoubo2018           +  tardeFranklimRoubo2019;
+         noiteFranklimRoubo            =    noiteFranklimRoubo2018           +  noiteFranklimRoubo2019;
+
+
+         madrugadaJardimDanielFurto    =    madrugadaJardimDanielFurto2018   +  madrugadaJardimDanielFurto2019;
+         manhaJardimDanielFurto        =    manhaJardimDanielFurto2018       +  manhaJardimDanielFurto2019;
+         tardeJardimDanielFurto        =    tardeJardimDanielFurto2018       +  tardeJardimDanielFurto2019;
+         noiteJardimDanielFurto        =    noiteJardimDanielFurto2018       +  noiteJardimDanielFurto2019;
+
+         madrugadaJardimDanielRoubo    =    madrugadaJardimDanielRoubo2018   +  madrugadaJardimDanielRoubo2019;
+         manhaJardimDanielRoubo        =    manhaJardimDanielRoubo2018       +  manhaJardimDanielRoubo2019;
+         tardeJardimDanielRoubo        =    tardeJardimDanielRoubo2018       +  tardeJardimDanielRoubo2019 ;
+         noiteJardimDanielRoubo        =    noiteJardimDanielRoubo2018       +  noiteJardimDanielRoubo2019;
+
+
+
+         madrugadaJardimEstrelaFurto   =    madrugadaJardimEstrelaFurto2018  +  madrugadaJardimEstrelaFurto2019;
+         manhaJardimEstrelaFurto       =    manhaJardimEstrelaFurto2018      +  manhaJardimEstrelaFurto2019;
+         tardeJardimEstrelaFurto       =    tardeJardimEstrelaFurto2018      +  tardeJardimEstrelaFurto2019;
+         noiteJardimEstrelaFurto       =    noiteJardimEstrelaFurto2018      +  noiteJardimEstrelaFurto2019;
+
+         madrugadaJardimEstrelaRoubo   =    madrugadaJardimEstrelaRoubo2018  +  madrugadaJardimEstrelaRoubo2019;
+         manhaJardimEstrelaRoubo       =    manhaJardimEstrelaRoubo2018      +  manhaJardimEstrelaRoubo2019;
+         tardeJardimEstrelaRoubo       =    tardeJardimEstrelaRoubo2018      +  tardeJardimEstrelaRoubo2019;
+         noiteJardimEstrelaRoubo       =    noiteJardimEstrelaRoubo2018      +  noiteJardimEstrelaRoubo2019;
+
+
+         madrugadaJussaraFurto         =    madrugadaJussaraFurto2018        +  madrugadaJussaraFurto2019;
+         manhaJussaraFurto             =    manhaJussaraFurto2018            +  manhaJussaraFurto2019 ;
+         tardeJussaraFurto             =    tardeJussaraFurto2018            +  tardeJussaraFurto2019 ;
+         noiteJussaraFurto             =    noiteJussaraFurto2018            +  noiteJussaraFurto2019 ;
+
+         madrugadaJussaraRoubo         =    madrugadaJussaraRoubo2018        +  madrugadaJussaraRoubo2019;
+         manhaJussaraRoubo             =    manhaJussaraRoubo2018            +  manhaJussaraRoubo2019;
+         tardeJussaraRoubo             =    tardeJussaraRoubo2018            +  tardeJussaraRoubo2019;
+         noiteJussaraRoubo             =    noiteJussaraRoubo2018            +  noiteJussaraRoubo2019;
+
+
+
+         madrugadaVilaLevianopolisFurto=    madrugadaVilaLevianopolisFurto2018+ madrugadaVilaLevianopolisFurto2019;
+         manhaVilaLevianopolisFurto    =    manhaVilaLevianopolisFurto2018    + manhaVilaLevianopolisFurto2019;
+         tardeVilaLevianopolisFurto    =    tardeVilaLevianopolisFurto2018    + tardeVilaLevianopolisFurto2019;
+         noiteVilaLevianopolisFurto    =    noiteVilaLevianopolisFurto2018    + noiteVilaLevianopolisFurto2019 ;
+
+         madrugadaVilaLevianopolisRoubo=    madrugadaVilaLevianopolisRoubo2018+ madrugadaVilaLevianopolisRoubo2019;
+         manhaVilaLevianopolisRoubo    =    manhaVilaLevianopolisRoubo2018    + manhaVilaLevianopolisRoubo2019;
+         tardeVilaLevianopolisRoubo    =    tardeVilaLevianopolisRoubo2018    + tardeVilaLevianopolisRoubo2019;
+         noiteVilaLevianopolisRoubo    =    noiteVilaLevianopolisRoubo2018    + noiteVilaLevianopolisRoubo2019 ;
+
+
+         madrugadaQuintasMangueirasFurto=   madrugadaQuintasMangueirasFurto2018+    madrugadaQuintasMangueirasFurto2019;
+         manhaQuintasMangueirasFurto    =   manhaQuintasMangueirasFurto2018    +    manhaQuintasMangueirasFurto2019;
+         tardeQuintasMangueirasFurto    =   tardeQuintasMangueirasFurto2018    +    tardeQuintasMangueirasFurto2019;
+         noiteQuintasMangueirasFurto    =   noiteQuintasMangueirasFurto2018    +    noiteQuintasMangueirasFurto2019;
+
+         madrugadaQuintasMangueirasRoubo=   madrugadaQuintasMangueirasRoubo2018+    madrugadaQuintasMangueirasRoubo2019;
+         manhaQuintasMangueirasRoubo    =   manhaQuintasMangueirasRoubo2018    +    manhaQuintasMangueirasRoubo2019;
+         tardeQuintasMangueirasRoubo    =   tardeQuintasMangueirasRoubo2018    +    tardeQuintasMangueirasRoubo2019;
+         noiteQuintasMangueirasRoubo    =   noiteQuintasMangueirasRoubo2018    +    noiteQuintasMangueirasRoubo2019;
+
+
+         madrugadaRiachoCruzFurto       =   madrugadaRiachoCruzFurto2018       +    madrugadaRiachoCruzFurto2019;
+         manhaRiachoCruzFurto           =   manhaRiachoCruzFurto2018           +    manhaRiachoCruzFurto2019 ;
+         tardeRiachoCruzFurto           =   tardeRiachoCruzFurto2018           +    tardeRiachoCruzFurto2019 ;
+         noiteRiachoCruzFurto           =   noiteRiachoCruzFurto2018           +    noiteRiachoCruzFurto2019;
+
+         madrugadaRiachoCruzRoubo       =   madrugadaRiachoCruzRoubo2018       +    madrugadaRiachoCruzRoubo2019;
+         manhaRiachoCruzRoubo           =   manhaRiachoCruzRoubo2018           +    manhaRiachoCruzRoubo2019;
+         tardeRiachoCruzRoubo           =   tardeRiachoCruzRoubo2018           +    tardeRiachoCruzRoubo2019;
+         noiteRiachoCruzRoubo           =   noiteRiachoCruzRoubo2018           +    noiteRiachoCruzRoubo2019;
+
+
+
+
+         madrugadaVilaSaoJoaoFurto      =   madrugadaVilaSaoJoaoFurto2018      +    madrugadaVilaSaoJoaoFurto2019;
+         manhaVilaSaoJoaoFurto          =   manhaVilaSaoJoaoFurto2018          +    manhaVilaSaoJoaoFurto2019;
+         tardeVilaSaoJoaoFurto          =   tardeVilaSaoJoaoFurto2018          +    tardeVilaSaoJoaoFurto2019;
+         noiteVilaSaoJoaoFurto          =   noiteVilaSaoJoaoFurto2018          +    noiteVilaSaoJoaoFurto2019;
+
+         madrugadaVilaSaoJoaoRoubo      =   madrugadaVilaSaoJoaoRoubo2018      +    madrugadaVilaSaoJoaoRoubo2019;
+         manhaVilaSaoJoaoRoubo          =   manhaVilaSaoJoaoRoubo2018          +    manhaVilaSaoJoaoRoubo2019;
+         tardeVilaSaoJoaoRoubo          =   tardeVilaSaoJoaoRoubo2018          +    tardeVilaSaoJoaoRoubo2019;
+         noiteVilaSaoJoaoRoubo          =   noiteVilaSaoJoaoRoubo2018          +    noiteVilaSaoJoaoRoubo2019;
+
+
+
+         madrugadaSaoJoaquimFurto       =   madrugadaSaoJoaquimFurto2018       +    madrugadaSaoJoaquimFurto2019;
+         manhaSaoJoaquimFurto           =   manhaSaoJoaquimFurto2018           +    manhaSaoJoaquimFurto2019;
+         tardeSaoJoaquimFurto           =   tardeSaoJoaquimFurto2018           +        tardeSaoJoaquimFurto2019;
+         noiteSaoJoaquimFurto           =   noiteSaoJoaquimFurto2018           +    noiteSaoJoaquimFurto2019;
+
+         madrugadaSaoJoaquimRoubo       =   madrugadaSaoJoaquimRoubo2018       +    madrugadaSaoJoaquimRoubo2019;
+         manhaSaoJoaquimRoubo           =   manhaSaoJoaquimRoubo2018           +    manhaSaoJoaquimRoubo2019;
+         tardeSaoJoaquimRoubo           =   tardeSaoJoaquimRoubo2018           +    tardeSaoJoaquimRoubo2019;
+         noiteSaoJoaquimRoubo           =   noiteSaoJoaquimRoubo2018           +    noiteSaoJoaquimRoubo2019;
+
+         madrugadaSaoMiguelFurto        =   madrugadaSaoMiguelFurto2018        +    madrugadaSaoMiguelFurto2019;
+         manhaSaoMiguelFurto            =   manhaSaoMiguelFurto2018            +    manhaSaoMiguelFurto2019;
+         tardeSaoMiguelFurto            =   tardeSaoMiguelFurto2018            +    tardeSaoMiguelFurto2019;
+         noiteSaoMiguelFurto            =   noiteSaoMiguelFurto2018            +    noiteSaoMiguelFurto2019;
+
+         madrugadaSaoMiguelRoubo        =   madrugadaSaoMiguelRoubo2018        +    madrugadaSaoMiguelRoubo2019;
+         manhaSaoMiguelRoubo            =   manhaSaoMiguelRoubo2018            +    manhaSaoMiguelRoubo2019;
+         tardeSaoMiguelRoubo            =   tardeSaoMiguelRoubo2018            +    tardeSaoMiguelRoubo2019;
+         noiteSaoMiguelRoubo            =   noiteSaoMiguelRoubo2018            +    noiteSaoMiguelRoubo2019;
+
+
+         madrugadaSaoVicenteFurto       =   madrugadaSaoVicenteFurto2018       +    madrugadaSaoVicenteFurto2019;
+         manhaSaoVicenteFurto           =   manhaSaoVicenteFurto2018           +    manhaSaoVicenteFurto2019 ;
+         tardeSaoVicenteFurto           =   tardeSaoVicenteFurto2018           +    tardeSaoVicenteFurto2019;
+         noiteSaoVicenteFurto           =   noiteSaoVicenteFurto2018           +    noiteSaoVicenteFurto2019 ;
+
+         madrugadaSaoVicenteRoubo       =   madrugadaSaoVicenteRoubo2018       +    madrugadaSaoVicenteRoubo2019;
+         manhaSaoVicenteRoubo           =   manhaSaoVicenteRoubo2018           +    manhaSaoVicenteRoubo2019;
+         tardeSaoVicenteRoubo           =   tardeSaoVicenteRoubo2018           +    tardeSaoVicenteRoubo2019;
+         noiteSaoVicenteRoubo           =   noiteSaoVicenteRoubo2018           +    noiteSaoVicenteRoubo2019;
+
+
+         madrugadaTejucoFurto           =   madrugadaTejucoFurto2018           +    madrugadaTejucoFurto2019;
+         manhaTejucoFurto               =   manhaTejucoFurto2018               +    manhaTejucoFurto2019;
+         tardeTejucoFurto               =   tardeTejucoFurto2018               +    tardeTejucoFurto2019;
+         noiteTejucoFurto               =   noiteTejucoFurto2018               +    noiteTejucoFurto2019;
+
+         madrugadaTejucoRoubo           =   madrugadaTejucoRoubo2018           +    madrugadaTejucoRoubo2019;
+         manhaTejucoRoubo               =   manhaTejucoRoubo2018               +    manhaTejucoRoubo2019;
+         tardeTejucoRoubo               =   tardeTejucoRoubo2018               +    tardeTejucoRoubo2019;
+         noiteTejucoRoubo               =   noiteTejucoRoubo2018               +    noiteTejucoRoubo2019;
+
+
+
+         madrugadaVilaFatimaFurto       =   madrugadaVilaFatimaFurto2018       +    madrugadaVilaFatimaFurto2019;
+         manhaVilaFatimaFurto           =   manhaVilaFatimaFurto2018           +    manhaVilaFatimaFurto2019;
+         tardeVilaFatimaFurto           =   tardeVilaFatimaFurto2018           +    tardeVilaFatimaFurto2019;
+         noiteVilaFatimaFurto           =   noiteVilaFatimaFurto2018           +    noiteVilaFatimaFurto2019;
+
+         madrugadaVilaFatimaRoubo       =   madrugadaVilaFatimaRoubo2018       +    madrugadaVilaFatimaRoubo2019;
+         manhaVilaFatimaRoubo           =   manhaVilaFatimaRoubo2018           +    manhaVilaFatimaRoubo2019;
+         tardeVilaFatimaRoubo           =   tardeVilaFatimaRoubo2018           +    tardeVilaFatimaRoubo2019;
+         noiteVilaFatimaRoubo           =   noiteVilaFatimaRoubo2018           +    noiteVilaFatimaRoubo2019;
+
+
+         madrugadaPandeirosFurto        =   madrugadaPandeirosFurto2018        +    madrugadaPandeirosFurto2019 ;
+         manhaPandeirosFurto            =   manhaPandeirosFurto2018            +    manhaPandeirosFurto2019;
+         tardePandeirosFurto            =   tardePandeirosFurto2018            +    tardePandeirosFurto2019;
+         noitePandeirosFurto            =   noitePandeirosFurto2018            +    noitePandeirosFurto2019;
+
+         madrugadaPandeirosRoubo        =   madrugadaPandeirosRoubo2018        +    madrugadaPandeirosRoubo2019;
+         manhaPandeirosRoubo            =   manhaPandeirosRoubo2018            +    manhaPandeirosRoubo2019;
+         tardePandeirosRoubo            =   tardePandeirosRoubo2018            +    tardePandeirosRoubo2019;
+         noitePandeirosRoubo            =   noitePandeirosRoubo2018            +    noitePandeirosRoubo2019;
+
+
+
+         madrugadaVilaPaulaFurto        =   madrugadaVilaPaulaFurto2018        +    madrugadaVilaPaulaFurto2019 ;
+         manhaVilaPaulaFurto            =   manhaVilaPaulaFurto2018            +    manhaVilaPaulaFurto2019;
+         tardeVilaPaulaFurto            =   tardeVilaPaulaFurto2018            +    tardeVilaPaulaFurto2019;
+         noiteVilaPaulaFurto            =   noiteVilaPaulaFurto2018            +    noiteVilaPaulaFurto2019;
+
+         madrugadaVilaPaulaRoubo        =   madrugadaVilaPaulaRoubo2018        +    madrugadaVilaPaulaRoubo2019;
+         manhaVilaPaulaRoubo            =   manhaVilaPaulaRoubo2018            +    manhaVilaPaulaRoubo2019;
+         tardeVilaPaulaRoubo            =   tardeVilaPaulaRoubo2018            +    tardeVilaPaulaRoubo2019;
+         noiteVilaPaulaRoubo            =   noiteVilaPaulaRoubo2018            +    noiteVilaPaulaRoubo2019;
+
+
+
+         madrugadaVilaVerdeFurto        =   madrugadaVilaVerdeFurto2018        +    madrugadaVilaVerdeFurto2019;
+         manhaVilaVerdeFurto            =   manhaVilaVerdeFurto2018            +    manhaVilaVerdeFurto2019;
+         tardeVilaVerdeFurto            =   tardeVilaVerdeFurto2018            +    tardeVilaVerdeFurto2019;
+         noiteVilaVerdeFurto            =   noiteVilaVerdeFurto2018            +    noiteVilaVerdeFurto2019;
+
+         madrugadaVilaVerdeRoubo        =   madrugadaVilaVerdeRoubo2018        +    madrugadaVilaVerdeRoubo2019;
+         manhaVilaVerdeRoubo            =   manhaVilaVerdeRoubo2018            +    manhaVilaVerdeRoubo2019;
+         tardeVilaVerdeRoubo            =   tardeVilaVerdeRoubo2018            +    tardeVilaVerdeRoubo2019;
+         noiteVilaVerdeRoubo            =   noiteVilaVerdeRoubo2018            +    noiteVilaVerdeRoubo2019;
+
+
+         madrugadaVilaVianaFurto        =   madrugadaVilaVianaFurto2018        +    madrugadaVilaVianaFurto2019;
+         manhaVilaVianaFurto            =   manhaVilaVianaFurto2018            +    manhaVilaVianaFurto2019;
+         tardeVilaVianaFurto            =   tardeVilaVianaFurto2018            +    tardeVilaVianaFurto2019 ;
+         noiteVilaVianaFurto            =   noiteVilaVianaFurto2018            +    noiteVilaVianaFurto2019;
+
+         madrugadaVilaVianaRoubo        =   madrugadaVilaVianaRoubo2018        +    madrugadaVilaVianaRoubo2019;
+         manhaVilaVianaRoubo            =   manhaVilaVianaRoubo2018            +    manhaVilaVianaRoubo2019;
+         tardeVilaVianaRoubo            =   tardeVilaVianaRoubo2018            +    tardeVilaVianaRoubo2019;
+         noiteVilaVianaRoubo            =   noiteVilaVianaRoubo2018            +    noiteVilaVianaRoubo2019;
+
+         madrugadaVilaJadeteFurto       =   madrugadaVilaJadeteFurto2018       +    madrugadaVilaJadeteFurto2019 ;
+         manhaVilaJadeteFurto           =   manhaVilaJadeteFurto2018           +    manhaVilaJadeteFurto2019;
+         tardeVilaJadeteFurto           =   tardeVilaJadeteFurto2018           +    tardeVilaJadeteFurto2019 ;
+         noiteVilaJadeteFurto           =   noiteVilaJadeteFurto2018           +    noiteVilaJadeteFurto2019;
+
+         madrugadaVilaJadeteRoubo       =   madrugadaVilaJadeteRoubo2018       +    madrugadaVilaJadeteRoubo2019;
+         manhaVilaJadeteRoubo           =   manhaVilaJadeteRoubo2018           +    manhaVilaJadeteRoubo2019;
+         tardeVilaJadeteRoubo           =   tardeVilaJadeteRoubo2018           +    tardeVilaJadeteRoubo2019;
+         noiteVilaJadeteRoubo           =   noiteVilaJadeteRoubo2018           +    noiteVilaJadeteRoubo2019;
+
+
+
+
+
+
+
+
+
+
         return rootView;
 
 
@@ -3405,6 +4128,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     /// opção todos os bairros no spinner
     // dados para geração de cada grafico
+
 
 
     public void aeroportoTodosAnos() {
@@ -4397,9 +5121,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
     public void aeroporto2018() {
 
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaAeroportoRoubo2018, manhaAeroportoRoubo2018, tardeAeroportoRoubo2018,noiteAeroportoRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaAeroportoFurto2018, manhaAeroportoFurto2018, tardeAeroportoFurto2018,noiteAeroportoFurto2018};
 
         nomes = turnos;
         roubos = rouboss;
@@ -4413,8 +5137,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     }
 
     public void alameida2018() {
-        //XX
-
+        //xxx
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
         int[] furtoss = new int[]{5, 10, 6, 10};
@@ -4429,11 +5152,12 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    } //Não consta no google
+    } // não consta no google
 
     public void altoCemiterio2018() {
 
-        //XX
+
+        //xxx
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -4448,13 +5172,14 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         criarGraficos();
 
-    } //Não consta no google
+    }  // não consta no google
 
     public void altoPocoes2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaAltoPocoesRoubo2018, manhaAltoPocoesRoubo2018, tardeAltoPocoesRoubo2018,noiteAltoPocoesRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaAltoPocoesFurto2018, manhaAltoPocoesFurto2018, tardeAltoPocoesFurto2018,noiteAltoPocoesFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4470,9 +5195,12 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     public void alvorada2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaAlvoradaRoubo2018, manhaAlvoradaRoubo2018, tardeAlvoradaRoubo2018,noiteAlvoradaRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaAlvoradaFurto2018, manhaAlvoradaFurto2018, tardeAlvoradaFurto2018,noiteAlvoradaFurto2018};
+
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4487,9 +5215,12 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     public void bandeirantes2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+
+        int[] rouboss = new int[]{madrugadaBandeirantesRoubo2018, manhaBandeirantesRoubo2018, tardeBandeirantesRoubo2018,noiteBandeirantesRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaBandeirantesFurto2018, manhaBandeirantesFurto2018, tardeBandeirantesFurto2018,noiteBandeirantesFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4520,13 +5251,15 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void boaEsperanca2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaBoaEsperancaRoubo2018, manhaBoaEsperancaRoubo2018, tardeBoaEsperancaRoubo2018,noiteBoaEsperancaRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaBoaEsperancaFurto2018, manhaBoaEsperancaFurto2018, tardeBoaEsperancaFurto2018,noiteBoaEsperancaFurto2018};
+
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4542,9 +5275,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void boaVista2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaBoaVistaRoubo2018, manhaBoaVistaRoubo2018, tardeBoaVistaRoubo2018,noiteBoaVistaRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaBoaVistaFurto2018, manhaBoaVistaFurto2018, tardeBoaVistaFurto2018,noiteBoaVistaFurto2018};
 
         nomes = turnos;
         roubos = rouboss;
@@ -4560,9 +5294,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void brasilandia2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaBrasilandiaRoubo2018, manhaVilaBrasilandiaRoubo2018, tardeVilaBrasilandiaRoubo2018,noiteVilaBrasilandiaRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaBrasilandiaFurto2018, manhaVilaBrasilandiaFurto2018, tardeVilaBrasilandiaFurto2018,noiteVilaBrasilandiaFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4578,9 +5313,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void brejoDoAmparo2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaBrejoAmparoRoubo2018, manhaBrejoAmparoRoubo2018, tardeBrejoAmparoRoubo2018,noiteBrejoAmparoRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaBrejoAmparoFurto2018, manhaBrejoAmparoFurto2018, tardeBrejoAmparoFurto2018,noiteBrejoAmparoFurto2018};
+
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4612,13 +5349,15 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }   // não consta no google
 
     private void centro2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaCentroRoubo2018, manhaCentroRoubo2018, tardeCentroRoubo2018,noiteCentroRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaCentroFurto2018, manhaCentroFurto2018, tardeCentroFurto2018,noiteCentroFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4634,9 +5373,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void ceramica2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaCeramicaRoubo2018, manhaCeramicaRoubo2018, tardeCeramicaRoubo2018,noiteCeramicaRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaCeramicaFurto2018, manhaCeramicaFurto2018, tardeCeramicaFurto2018,noiteCeramicaFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4652,9 +5393,12 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void eldorado2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaEldoradoRoubo2018, manhaEldoradoRoubo2018, tardeEldoradoRoubo2018,noiteEldoradoRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaEldoradoFurto2018, manhaEldoradoFurto2018, tardeEldoradoFurto2018,noiteEldoradoFurto2018};
+
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4687,13 +5431,14 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void franklim2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaFranklimRoubo2018, manhaFranklimRoubo2018, tardeFranklimRoubo2018,noiteFranklimRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaFranklimFurto2018, manhaFranklimFurto2018, tardeFranklimFurto2018,noiteFranklimFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4709,9 +5454,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void jadete2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaJadeteRoubo2018, manhaVilaJadeteRoubo2018, tardeVilaJadeteRoubo2018,noiteVilaJadeteRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaJadeteFurto2018, manhaVilaJadeteFurto2018, tardeVilaJadeteFurto2018,noiteVilaJadeteFurto2018};
 
         nomes = turnos;
         roubos = rouboss;
@@ -4728,7 +5473,6 @@ public class GraficoHorarioBarraFragment extends Fragment {
     private void januaria2018() {
 
         //XX
-
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
         int[] furtoss = new int[]{5, 10, 6, 10};
@@ -4743,13 +5487,14 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void jardimDaniel2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaJardimDanielRoubo2018, manhaJardimDanielRoubo2018, tardeJardimDanielRoubo2018,noiteJardimDanielRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaJardimDanielFurto2018, manhaJardimDanielFurto2018, tardeJardimDanielFurto2018,noiteJardimDanielFurto2018};
 
         nomes = turnos;
         roubos = rouboss;
@@ -4766,9 +5511,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
     private void jardimEstela2018() {
 
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaJardimEstrelaRoubo2018, manhaJardimEstrelaRoubo2018, tardeJardimEstrelaRoubo2018,noiteJardimEstrelaRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaJardimEstrelaFurto2018, manhaJardimEstrelaFurto2018, tardeJardimEstrelaFurto2018,noiteJardimEstrelaFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4784,6 +5530,24 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void jatoba2018() {
 
+        //XX
+
+        int[] rouboss = new int[]{10, 15, 12, 34,};
+
+        int[] furtoss = new int[]{5, 10, 6, 10};
+
+        nomes = turnos;
+        roubos = rouboss;
+        furtos = furtoss;
+        cores = cor;
+        legenda = legendaGrafico;
+
+
+        criarGraficos();
+
+    }  // não consta no google
+
+    private void joventinaMesquita2018() {
 
         //XX
 
@@ -4801,33 +5565,15 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
-
-    private void joventinaMesquita2018() {
-
-        ///XX
-
-        int[] rouboss = new int[]{10, 15, 12, 34,};
-
-        int[] furtoss = new int[]{5, 10, 6, 10};
-
-        nomes = turnos;
-        roubos = rouboss;
-        furtos = furtoss;
-        cores = cor;
-        legenda = legendaGrafico;
-
-
-        criarGraficos();
-
-
-    }  //Não consta no google
+    }  // não consta no google
 
     private void jussara2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaJussaraRoubo2018, manhaJussaraRoubo2018, tardeJussaraRoubo2018,noiteJussaraRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaJussaraFurto2018, manhaJussaraFurto2018, tardeJussaraFurto2018,noiteJussaraFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4843,9 +5589,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void levianopolis2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaLevianopolisRoubo2018, manhaVilaLevianopolisRoubo2018, tardeVilaLevianopolisRoubo2018,noiteVilaLevianopolisRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaLevianopolisFurto2018, manhaVilaLevianopolisFurto2018, tardeVilaLevianopolisFurto2018,noiteVilaLevianopolisFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4861,7 +5608,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void mangueiras2018() {
 
-        //XX
+        //xx
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -4877,7 +5624,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void margarete2018() {
 
@@ -4897,10 +5644,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void moradeiras2018() {
-
         //XX
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
@@ -4917,10 +5663,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }// não consta no google
 
     private void normaConsuelo2018() {
-
         //XX
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
@@ -4937,11 +5682,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    } //Não consta no google
+    }  // não consta no google
 
     private void novoMilenio2018() {
 
-        //XX
+        //xx
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -4957,14 +5702,14 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void quintaMangabeiras2018() {
 
+        int[] rouboss = new int[]{madrugadaQuintasMangueirasRoubo2018, manhaQuintasMangueirasRoubo2018, tardeQuintasMangueirasRoubo2018,noiteQuintasMangueirasRoubo2018};
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] furtoss = new int[]{madrugadaQuintasMangueirasFurto2018, manhaQuintasMangueirasFurto2018, tardeQuintasMangueirasFurto2018,noiteQuintasMangueirasFurto2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
 
         nomes = turnos;
         roubos = rouboss;
@@ -4980,9 +5725,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void riachoDaCruz2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaRiachoCruzRoubo2018, manhaRiachoCruzRoubo2018, tardeRiachoCruzRoubo2018,noiteRiachoCruzRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaRiachoCruzFurto2018, manhaRiachoCruzFurto2018, tardeRiachoCruzFurto2018,noiteRiachoCruzFurto2018};
+
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -4998,9 +5745,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void saoJoao2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaVilaSaoJoaoRoubo2018, manhaVilaSaoJoaoRoubo2018, tardeVilaSaoJoaoRoubo2018,noiteVilaSaoJoaoRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaVilaSaoJoaoFurto2018, manhaVilaSaoJoaoFurto2018, tardeVilaSaoJoaoFurto2018,noiteVilaSaoJoaoFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5017,9 +5766,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
     private void saoJoaquim2018() {
 
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaSaoJoaquimRoubo2018, manhaSaoJoaquimRoubo2018, tardeSaoJoaquimRoubo2018,noiteSaoJoaquimRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaSaoJoaquimFurto2018, manhaSaoJoaquimFurto2018, tardeSaoJoaquimFurto2018,noiteSaoJoaquimFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5035,9 +5785,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void saoMiguel2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaSaoMiguelRoubo2018, manhaSaoMiguelRoubo2018, tardeSaoMiguelRoubo2018,noiteSaoMiguelRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaSaoMiguelFurto2018, manhaSaoMiguelFurto2018, tardeSaoMiguelFurto2018,noiteSaoMiguelFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5053,9 +5804,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void saoVicente2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaSaoVicenteRoubo2018, manhaSaoVicenteRoubo2018, tardeSaoVicenteRoubo2018,noiteSaoVicenteRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaSaoVicenteFurto2018, manhaSaoVicenteFurto2018, tardeSaoVicenteFurto2018,noiteSaoVicenteFurto2018};
+
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5071,7 +5824,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void sagradaFamilia2018() {
 
-        //XX
+        //xx
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -5087,11 +5840,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    } //Não consta no google
+    }  // não consta no google
 
     private void santaCruz2018() {
-
-        //XX
+        //xx
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -5107,10 +5859,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void santaIsabel2018() {
-        //XX
+
+        //xx   O google não mostra ruas nesse bairro
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -5126,10 +5879,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void sede2018() {
-        //XX
+        ///XX
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -5145,13 +5898,15 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }   //Não consta no google
+    }   // não consta no google
 
     private void tejuco2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaTejucoRoubo2018, manhaTejucoRoubo2018, tardeTejucoRoubo2018,noiteTejucoRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaTejucoFurto2018, manhaTejucoFurto2018, tardeTejucoFurto2018,noiteTejucoFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5167,7 +5922,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void terceiroMilenio2018() {
 
-        //XX
+        //xx
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -5183,7 +5938,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void tropical2018() {
 
@@ -5203,11 +5958,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    } //Não consta no google
+    }  // não consta no google
 
     private void varzeaDosPocoes2018() {
-
-        ///xx
+        //XX
 
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
@@ -5223,13 +5977,15 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    } //Não consta no google
+    }  // não consta no google
 
     private void vilaFatima2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaFatimaRoubo2018, manhaVilaFatimaRoubo2018, tardeVilaFatimaRoubo2018,noiteVilaFatimaRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaFatimaFurto2018, manhaVilaFatimaFurto2018, tardeVilaFatimaFurto2018,noiteVilaFatimaFurto2018};
+
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5245,9 +6001,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void pandeiros2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaPandeirosRoubo2018, manhaPandeirosRoubo2018, tardePandeirosRoubo2018,noitePandeirosRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaPandeirosFurto2018, manhaPandeirosFurto2018, tardePandeirosFurto2018,noitePandeirosFurto2018};
+
+        nomes = turnos;
 
         nomes = turnos;
         roubos = rouboss;
@@ -5263,9 +6021,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaPaula2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaPaulaRoubo2018, manhaVilaPaulaRoubo2018, tardeVilaPaulaRoubo2018,noiteVilaPaulaRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaPaulaFurto2018, manhaVilaPaulaFurto2018, tardeVilaPaulaFurto2018,noiteVilaPaulaFurto2018};
 
         nomes = turnos;
         roubos = rouboss;
@@ -5281,9 +6039,10 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaVerde2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
+        int[] rouboss = new int[]{madrugadaVilaVerdeRoubo2018, manhaVilaVerdeRoubo2018, tardeVilaVerdeRoubo2018,noiteVilaVerdeRoubo2018};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] furtoss = new int[]{madrugadaVilaVerdeFurto2018, manhaVilaVerdeFurto2018, tardeVilaVerdeFurto2018,noiteVilaVerdeFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5299,9 +6058,11 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void vilaViana2018() {
 
-        int[] rouboss = new int[]{10, 15, 12, 34,};
 
-        int[] furtoss = new int[]{5, 10, 6, 10};
+        int[] rouboss = new int[]{madrugadaVilaVianaRoubo2018, manhaVilaVianaRoubo2018, tardeVilaVianaRoubo2018,noiteVilaVianaRoubo2018};
+
+        int[] furtoss = new int[]{madrugadaVilaVianaFurto2018, manhaVilaVianaFurto2018, tardeVilaVianaFurto2018,noiteVilaVianaFurto2018};
+
 
         nomes = turnos;
         roubos = rouboss;
@@ -5317,6 +6078,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     private void zonaRural2018() {
 
+
         int[] rouboss = new int[]{10, 15, 12, 34,};
 
         int[] furtoss = new int[]{5, 10, 6, 10};
@@ -5331,8 +6093,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
         criarGraficos();
 
 
-    }  /// não fazer
-
+    } /// não fazer
 
     ///
 

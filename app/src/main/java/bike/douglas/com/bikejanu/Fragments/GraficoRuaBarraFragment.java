@@ -4693,7 +4693,7 @@ public class GraficoRuaBarraFragment extends Fragment {
          contandoRuaEVilaVianaFurtoTodosAnos                         =  contandoRuaEVilaVianaFurto2018                   + contandoRuaEVilaVianaFurto2019;
          contandoRuaFVilaVianaFurtoTodosAnos                         =  contandoRuaFVilaVianaFurto2018                   + contandoRuaFVilaVianaFurto2019;
          contandoRuaGVilaVianaFurtoTodosAnos                         =  contandoRuaGVilaVianaFurto2018                   + contandoRuaGVilaVianaFurto2019;
-        contandoRuaRVilaVianaFurtoTodosAnos                         =  contandoRuaRVilaVianaFurto2018                    + contandoRuaRVilaVianaFurto2019;
+        contandoRuaRVilaVianaFurtoTodosAnos                          =  contandoRuaRVilaVianaFurto2018                    + contandoRuaRVilaVianaFurto2019;
          contandoRuaXVilaVianaFurtoTodosAnos                         =  contandoRuaXVilaVianaFurto2018                   + contandoRuaXVilaVianaFurto2019;
          contandoRuaAVilaVianaRouboTodosAnos                         =  contandoRuaAVilaVianaRoubo2018                   + contandoRuaAVilaVianaRoubo2019;
          contandoRuaArthurLopesPimentaVilaVianaRouboTodosAnos        =  contandoRuaArthurLopesPimentaVilaVianaRoubo2018  + contandoRuaArthurLopesPimentaVilaVianaRoubo2019;
@@ -4703,7 +4703,7 @@ public class GraficoRuaBarraFragment extends Fragment {
          contandoRuaFVilaVianaRouboTodosAnos                         =  contandoRuaFVilaVianaRoubo2018                   + contandoRuaFVilaVianaRoubo2019;
         contandoRuaGVilaVianaRouboTodosAnos                          =  contandoRuaGVilaVianaRoubo2018                   + contandoRuaGVilaVianaRoubo2019;
         contandoRuaRVilaVianaRouboTodosAnos                          =  contandoRuaRVilaVianaRoubo2018                   + contandoRuaRVilaVianaRoubo2019;
-        contandoRuaXVilaVianaRouboTodosAnos                         =  contandoRuaXVilaVianaRoubo2018                    + contandoRuaXVilaVianaRoubo2019;
+        contandoRuaXVilaVianaRouboTodosAnos                          =  contandoRuaXVilaVianaRoubo2018                    + contandoRuaXVilaVianaRoubo2019;
 
 
 
@@ -8299,7 +8299,7 @@ public class GraficoRuaBarraFragment extends Fragment {
         nomes   = ruas;
         roubos =  valores;
         cores   =  cor;
-        legenda  = legendaGrafico;;
+        legenda  = legendaGrafico;
         furtos = furtosRuas;
 
 
@@ -8406,7 +8406,7 @@ public class GraficoRuaBarraFragment extends Fragment {
         nomes   = ruas;
         roubos =  valores;
         cores   =  cor;
-        legenda  = legendaGrafico;;
+        legenda  = legendaGrafico;
         furtos = furtosRuas;
 
 

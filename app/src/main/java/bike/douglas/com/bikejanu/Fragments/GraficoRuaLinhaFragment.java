@@ -56,6 +56,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+
+
     int contandoAvAeroportoAeroportoRouboTodosAnos =0;
     int contandoAvSeisAeroportoRouboTodosAnos =0;
     int contandoRuaRUmAeroportoRouboTodosAnos=0;
@@ -77,9 +79,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
-    // variaveis do bairro Aeroporo ,ruas   ano 2019
-
-
     int contandoAvAeroportoAeroportoRoubo2019=0;
     int  contandoAvSeisAeroportoRoubo2019=0;
     int contandoRuaRUmAeroportoRoubo2019=0;
@@ -97,6 +96,33 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaRQuatroAeroportoFurtada2019=0;
     int contandoRuavinteTresAeroportoFurtada2019=0;
     int contandoRuaRXIAeroportoFurtada2019=0;
+
+    // variaveis do bairro Aeroporo ,ruas   ano 2019
+
+
+    int contandoAvAeroportoAeroportoRoubo2018=0;
+    int  contandoAvSeisAeroportoRoubo2018=0;
+    int contandoRuaRUmAeroportoRoubo2018=0;
+    int contandoRuaRDoisAeroportoRoubo2018=0;
+    int  contandoRuaRTresAeroportoRoubo2018=1;
+    int contandoRuaRQuatroAeroportoRoubo2018=0;
+    int contandoRuavinteTresAeroportoRoubo2018=0;
+    int contandoRuaRXIAeroportoRoubo2018=0;
+
+    int contandoAvAeroportoAeroportoFurto2018=0;
+    int  contandoAvSeisAeroportoFurto2018=0;
+    int contandoRuaRUmAeroportoFurto2018=0;
+    int contandoRuaRDoisAeroportoFurto2018=0;
+    int  contandoRuaRTresAeroportoFurto2018=0;
+    int contandoRuaRQuatroAeroportoFurto2018=0;
+    int contandoRuavinteTresAeroportoFurto2018=0;
+    int contandoRuaRXIAeroportoFurto2018=0;
+
+
+
+
+
+    //----
 
 
 
@@ -124,6 +150,29 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoTvVianaJadeteFurtoTodosAnos =0;
 
 
+
+
+
+    int contandoRuaRamiroLeiteJadeteRoubo2018 =0;
+    int contandoRuaAlameidaVianaJadeteRoubo2018 =0;
+    int contandoRuaInezitaJadeteRoubo2018 =0;
+    int contandoRuaIslaHJadeteRoubo2018 =0;
+    int contandoRuaSantoAntJadeteRoubo2018 =0;
+    int contandoRuaVianaJadeteRoubo2018 =0;
+    int contandoRuavinteDoisJadeteRoubo2018 =0;
+    int contandoRuaJoaoAlkimimJadeteRoubo2018 =0;
+    int contandoTvVianaJadeteRoubo2018 =0;
+
+    int contandoRuaRamiroLeiteJadeteFurto2018 =0;
+    int contandoRuaAlameidaVianaJadeteFurto2018 =0;
+    int contandoRuaInezitaJadeteFurto2018 =0;
+    int contandoRuaIslaHJadeteFurto2018 =0;
+    int contandoRuaSantoAntJadeteFurto2018 =0;
+    int contandoRuaVianaJadeteFurto2018 =0;
+    int contandoRuavinteDoisJadeteFurto2018 =0;
+    int contandoRuaJoaoAlkimimJadeteFurto2018 =0;
+    int contandoTvVianaJadeteFurto2018=0;
+
     // variaveis do bairro jussara ,ruas   ano 2019
     int contandoRuaRamiroLeiteJadeteRouboAno2019 =0;
     int contandoRuaAlameidaVianaJadeteRouboAno2019 =0;
@@ -145,7 +194,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaJoaoAlkimimJadeteFurtoAno2019 =0;
     int contandoTvVianaJadeteFurtoAno2019 =0;
 
-
+//-----
 
     int contandoRuaUmAltoPocoesFurtoTodosAnos=0;
     int contandoRuaDoisAltoPocoesFurtoTodosAnos=0;
@@ -173,6 +222,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+    int contandoRuaUmAltoPocoesFurto2018=0;
+    int contandoRuaDoisAltoPocoesFurto2018=0;
+    int  contandoRuaTresAltoPocoesFurto2018=0;
+    int contandoRuaQuatroAltoPocoesFurto2018=0;
+    int contandoRuaCincoAltoPocoesFurto2018=0;
+    int  contandoAvUmAltoPocoesFurto2018=0;
+    int contandoAvDoisRuaAltoPocoesFurto2018=0;
+    int contandoAvTresAltoPocoesFurto2018=0;
+    int contandoAvQuatroAltoPocoesFurto2018=0;
+    int contandoAvCincoAltoPocoesFurto2018=0;
+
+
+
+    int contandoRuaUmAltoPocoesRoubo2018=0;
+    int contandoRuaDoisAltoPocoesRoubo2018=0;
+    int  contandoRuaTresAltoPocoesRoubo2018=0;
+    int contandoRuaQuatroAltoPocoesRoubo2018=0;
+    int contandoRuaCincoAltoPocoesRoubo2018=0;
+    int  contandoAvUmAltoPocoesRoubo2018=0;
+    int contandoAvDoisRuaAltoPocoesRoubo2018=0;
+    int contandoAvTresAltoPocoesRoubo2018=0;
+    int contandoAvQuatroAltoPocoesRoubo2018=0;
+    int contandoAvCincoAltoPocoesRoubo2018=0;
+
     int contandoRuaUmAltoPocoesFurto2019=0;
     int contandoRuaDoisAltoPocoesFurto2019=0;
     int  contandoRuaTresAltoPocoesFurto2019=0;
@@ -197,7 +270,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoAvQuatroAltoPocoesRoubo2019=0;
     int contandoAvCincoAltoPocoesRoubo2019=0;
 
-
+//---
 
     int contandoRuaAterroAlvoradaFurtoTodosAnos=0;
     int contandoRuaUmAlvoradaFurtoTodosAnos=0;
@@ -224,6 +297,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+
+    int contandoRuaAterroAlvoradaFurto2018=0;
+    int contandoRuaUmAlvoradaFurto2018=0;
+    int contandoRuaAAlvoradaFurto2018=0;
+    int contandoRuaEAlvoradaFurto2018=0;
+    int contandoRuaJAlvoradaFurto2018=0;
+    int contandoRuaKAlvoradaFurto2018=0;
+    int contandoRuaLAlvoradaFurto2018=0;
+    int contandoRuaMAlvoradaFurto2018=0;
+    int contandoRuaNAlvoradaFurto2018=0;
+    int contandoRuaOAlvoradaFurto2018=0;
+
+
+    int contandoRuaAterroAlvoradaRoubo2018=0;
+    int contandoRuaUmAlvoradaRoubo2018=0;
+    int contandoRuaAAlvoradaRoubo2018=0;
+    int contandoRuaEAlvoradaRoubo2018=0;
+    int contandoRuaJAlvoradaRoubo2018=0;
+    int contandoRuaKAlvoradaRoubo2018=0;
+    int contandoRuaLAlvoradaRoubo2018=0;
+    int contandoRuaMAlvoradaRoubo2018=0;
+    int contandoRuaNAlvoradaRoubo2018=0;
+    int contandoRuaOAlvoradaRoubo2018=0;
+
     int contandoRuaAterroAlvoradaFurto2019=0;
     int contandoRuaUmAlvoradaFurto2019=0;
     int contandoRuaAAlvoradaFurto2019=0;
@@ -247,7 +344,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaNAlvoradaRoubo2019=0;
     int contandoRuaOAlvoradaRoubo2019=0;
 
-
+//---
 
 
     int contandoRuaUmBandeirantesFurtoTodosAnos=0;
@@ -269,7 +366,23 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoTvJulioBandeirantesRouboTodosAnos=0;
 
 
+    int contandoRuaUmBandeirantesFurto2018=0;
+    int contandoRuaABandeirantesFurto2018=0;
+    int contandoRuaEBandeirantesFurto2018=0;
+    int contandoRuaJBandeirantesFurto2018=0;
+    int contandoRuaKBandeirantesFurto2018=0;
+    int contandoRuaMirabelaBandeirantesFurto2018=0;
+    int contandoTvMirabelaBandeirantesFurto2018=0;
+    int contandoTvJulioBandeirantesFurto2018=0;
 
+    int contandoRuaUmBandeirantesRoubo2018=0;
+    int contandoRuaABandeirantesRoubo2018=0;
+    int contandoRuaEBandeirantesRoubo2018=0;
+    int contandoRuaJBandeirantesRoubo2018=0;
+    int contandoRuaKBandeirantesRoubo2018=0;
+    int contandoRuaMirabelaBandeirantesRoubo2018=0;
+    int contandoTvMirabelaBandeirantesRoubo2018=0;
+    int contandoTvJulioBandeirantesRoubo2018=0;
 
     int contandoRuaUmBandeirantesFurto2019=0;
     int contandoRuaABandeirantesFurto2019=0;
@@ -289,6 +402,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoTvMirabelaBandeirantesRoubo2019=0;
     int contandoTvJulioBandeirantesRoubo2019=0;
 
+    //---
 
     int contandoRuaUmBoaEsperancaFurtoTodosAnos=0;
     int contandoRuaDoisBoaEsperancaFurtoTodosAnos=0;
@@ -315,6 +429,32 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+
+
+    int contandoRuaUmBoaEsperancaFurto2018=0;
+    int contandoRuaDoisBoaEsperancaFurto2018=0;
+    int contandoRuaTresBoaEsperancaFurto2018=0;
+    int contandoRuaQuatroBoaEsperancaFurto2018=0;
+    int contandoRuaCincoBoaEsperancaFurto2018=0;
+    int contandoRuaSeisBoaEsperancaFurto2018=0;
+    int contandoRuaTrezeMaioBoaEsperancaFurto2018=0;
+    int contandoRuaLuisTupinaBoaEsperancaFurto2018=0;
+    int contandoRuaHermilioTupinaBoaEsperancaFurto2018=0;
+    int contandoRuaSaoGeraldoBoaEsperancaFurto2018=0;
+
+
+    int contandoRuaUmBoaEsperancaRoubo2018=0;
+    int contandoRuaDoisBoaEsperancaRoubo2018=0;
+    int contandoRuaTresBoaEsperancaRoubo2018=0;
+    int contandoRuaQuatroBoaEsperancaRoubo2018=0;
+    int contandoRuaCincoBoaEsperancaRoubo2018=0;
+    int contandoRuaSeisBoaEsperancaRoubo2018=0;
+    int contandoRuaTrezeMaioBoaEsperancaRoubo2018=0;
+    int contandoRuaLuisTupinaBoaEsperancaRoubo2018=0;
+    int contandoRuaHermilioTupinaBoaEsperancaRoubo2018=0;
+    int contandoRuaSaoGeraldoBoaEsperancaRoubo2018=0;
+
+
     int contandoRuaUmBoaEsperancaFurto2019=0;
     int contandoRuaDoisBoaEsperancaFurto2019=0;
     int contandoRuaTresBoaEsperancaFurto2019=0;
@@ -338,6 +478,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaHermilioTupinaBoaEsperancaRoubo2019=0;
     int contandoRuaSaoGeraldoBoaEsperancaRoubo2019=0;
 
+
+//-------
 
     int contandoRuaABoaVistaFurtoTodosAnos=0;
     int contandoRuaBBoaVistaFurtoTodosAnos=0;
@@ -366,6 +508,32 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+    int contandoRuaABoaVistaFurto2018=0;
+    int contandoRuaBBoaVistaFurto2018=0;
+    int contandoRuaCBoaVistaFurto2018=0;
+    int contandoRuaDBoaVistaFurto2018=0;
+    int contandoRuaEBoaVistaFurto2018=0;
+    int contandoRuaFBoaVistaFurto2018=0;
+    int contandoRuaGBoaVistaFurto2018=0;
+    int contandoRuaHBoaVistaFurto2018=0;
+    int contandoRuaIBoaVistaFurto2018=0;
+    int contandoRuaJBoaVistaFurto2018=0;
+    int contandoRuaLBoaVistaFurto2018=0;
+
+
+    int contandoRuaABoaVistaRoubo2018=0;
+    int contandoRuaBBoaVistaRoubo2018=0;
+    int contandoRuaCBoaVistaRoubo2018=0;
+    int contandoRuaDBoaVistaRoubo2018=0;
+    int contandoRuaEBoaVistaRoubo2018=0;
+    int contandoRuaFBoaVistaRoubo2018=0;
+    int contandoRuaGBoaVistaRoubo2018=0;
+    int contandoRuaHBoaVistaRoubo2018=0;
+    int contandoRuaIBoaVistaRoubo2018=0;
+    int contandoRuaJBoaVistaRoubo2018=0;
+    int contandoRuaLBoaVistaRoubo2018=0;
+
+
     int contandoRuaABoaVistaFurto2019=0;
     int contandoRuaBBoaVistaFurto2019=0;
     int contandoRuaCBoaVistaFurto2019=0;
@@ -391,6 +559,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaJBoaVistaRoubo2019=0;
     int contandoRuaLBoaVistaRoubo2019=0;
 
+//-----
 
     int contandoRuaUmVilaBrasilandiaFurtoTodosAnos=0;
     int contandoRuaDoisVilaBrasilandiaFurtoTodosAnos=0;
@@ -402,6 +571,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaMinasGeraisVilaBrasilandiaFurtoTodosAnos=0;
     int contandoRuaPiraporaVilaBrasilandiaFurtoTodosAnos=0;
     int contandoRuaSaoLuizVilaBrasilandiaFurtoTodosAnos=0;
+
 
 
 
@@ -417,6 +587,31 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaSaoLuizVilaBrasilandiaRouboTodosAnos=0;
 
 
+
+
+    int contandoRuaUmVilaBrasilandiaFurto2018=0;
+    int contandoRuaDoisVilaBrasilandiaFurto2018=0;
+    int contandoRuaTresVilaBrasilandiaFurto2018=0;
+    int contandoRuaQuatroVilaBrasilandiaFurto2018=0;
+    int contandoRuaCincoVilaBrasilandiaFurto2018=0;
+    int contandoRuaSeisVilaBrasilandiaFurto2018=0;
+    int contandoRuaSeteVilaBrasilandiaFurto2018=0;
+    int contandoRuaMinasGeraisVilaBrasilandiaFurto2018=0;
+    int contandoRuaPiraporaVilaBrasilandiaFurto2018=0;
+    int contandoRuaSaoLuizVilaBrasilandiaFurto2018=0;
+
+
+
+    int contandoRuaUmVilaBrasilandiaRoubo2018=0;
+    int contandoRuaDoisVilaBrasilandiaRoubo2018=0;
+    int contandoRuaTresVilaBrasilandiaRoubo2018=0;
+    int contandoRuaQuatroVilaBrasilandiaRoubo2018=0;
+    int contandoRuaCincoVilaBrasilandiaRoubo2018=0;
+    int contandoRuaSeisVilaBrasilandiaRoubo2018=0;
+    int contandoRuaSeteVilaBrasilandiaRoubo2018=0;
+    int contandoRuaMinasGeraisVilaBrasilandiaRoubo2018=0;
+    int contandoRuaPiraporaVilaBrasilandiaRoubo2018=0;
+    int contandoRuaSaoLuizVilaBrasilandiaRoubo2018=0;
 
     int contandoRuaUmVilaBrasilandiaFurto2019=0;
     int contandoRuaDoisVilaBrasilandiaFurto2019=0;
@@ -442,7 +637,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaPiraporaVilaBrasilandiaRoubo2019=0;
     int contandoRuaSaoLuizVilaBrasilandiaRoubo2019=0;
 
-
+    //-----
     int contandoAlamedaRiachoBrejoAmparoFurtoTodosAnos=0;
     int contandoRuaBelaVistaBrejoAmparoFurtoTodosAnos=0;
     int contandoRuaSerraBrejoAmparoFurtoTodosAnos=0;
@@ -464,6 +659,32 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaTabocaBrejoAmparoRouboTodosAnos=0;
     int contandoRuaTrintaSeteBrejoAmparoRouboTodosAnos=0;
     int contandoRuaTrintaOitoBrejoAmparoRouboTodosAnos=0;
+
+
+
+
+    int contandoAlamedaRiachoBrejoAmparoFurto2018=0;
+    int contandoRuaBelaVistaBrejoAmparoFurto2018=0;
+    int contandoRuaSerraBrejoAmparoFurto2018=0;
+    int contandoRuaFloresBrejoAmparoFurto2018=0;
+    int contandoRuaPadreJosinoBrejoAmparoFurto2018=0;
+    int contandoRuaPadreRamiroAmparoFurto2018=0;
+    int contandoRuaTabatingaBrejoAmparoFurto2018=0;
+    int contandoRuaTabocaBrejoAmparoFurto2018=0;
+    int contandoRuaTrintaSeteBrejoAmparoFurto2018=0;
+    int contandoRuaTrintaOitoBrejoAmparoFurto2018=0;
+
+    int contandoAlamedaRiachoBrejoAmparoRoubo2018=0;
+    int contandoRuaBelaVistaBrejoAmparoRoubo2018=0;
+    int contandoRuaSerraBrejoAmparoRoubo2018=0;
+    int contandoRuaFloresBrejoAmparoRoubo2018=0;
+    int contandoRuaPadreJosinoBrejoAmparoRoubo2018=0;
+    int contandoRuaPadreRamiroAmparoRoubo2018=0;
+    int contandoRuaTabatingaBrejoAmparoRoubo2018=0;
+    int contandoRuaTabocaBrejoAmparoRoubo2018=0;
+    int contandoRuaTrintaSeteBrejoAmparoRoubo2018=0;
+    int contandoRuaTrintaOitoBrejoAmparoRoubo2018=0;
+
 
 
 
@@ -490,6 +711,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaTrintaOitoBrejoAmparoRoubo2019=0;
 
 
+    //-------
+
     int contandoArturBernardesCentroFurtoTodosAnos=0;
     int contandoBaraoSaoRomaoCentroFurtoTodosAnos=0;
     int contandoBaraoRioBrancoCentroFurtoTodosAnos=0;
@@ -511,6 +734,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoGetulioVargasCentroRouboTodosAnos=0;
     int contandoPadreHenriqueCentroRouboTodosAnos=0;
     int contandoPracaTiradentesCentroRouboTodosAnos=0;
+
+
+
+    int contandoArturBernardesCentroFurto2018=0;
+    int contandoBaraoSaoRomaoCentroFurto2018=0;
+    int contandoBaraoRioBrancoCentroFurto2018=0;
+    int contandoConegoRamiroLeiteCentroFurto2018=0;
+    int contandoCelCassianoCentroFurto2018=0;
+    int contandoCelSerraoCentroFurto2018=0;
+    int contandoDomDanielCentroFurto2018=0;
+    int contandoGetulioVargasCentroFurto2018=0;
+    int contandoPadreHenriqueCentroFurto2018=0;
+    int contandoPracaTiradentesCentroFurto2018=0;
+
+    int contandoArturBernardesCentroRoubo2018=0;
+    int contandoBaraoSaoRomaoCentroRoubo2018=0;
+    int contandoBaraoRioBrancoCentroRoubo2018=0;
+    int contandoConegoRamiroLeiteCentroRoubo2018=0;
+    int contandoCelCassianoCentroRoubo2018=0;
+    int contandoCelSerraoCentroRoubo2018=0;
+    int contandoDomDanielCentroRoubo2018=0;
+    int contandoGetulioVargasCentroRoubo2018=0;
+    int contandoPadreHenriqueCentroRoubo2018=0;
+    int contandoPracaTiradentesCentroRoubo2018=0;
 
 
 
@@ -536,7 +783,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoPadreHenriqueCentroRoubo2019=0;
     int contandoPracaTiradentesCentroRoubo2019=0;
 
-
+//-------
 
     int contandoRuaAterroCeramicaFurtoTodosAnos=0;
     int contandoRuaBrasiliaMinasCeramicaFurtoTodosAnos=0;
@@ -562,6 +809,34 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaMiltonSaCeramicaRouboTodosAnos=0;
 
 
+
+
+
+    int contandoRuaAterroCeramicaFurto2018=0;
+    int contandoRuaBrasiliaMinasCeramicaFurto2018=0;
+    int contandoRuaItacarambiCeramicaFurto2018=0;
+    int contandoRuaItapiracabaCeramicaFurto2018=0;
+    int contandoRuaMangaCeramicaFurto2018=0;
+    int contandoRuaMontesClarosCeramicaFurto2018=0;
+    int contandoRuaMontalvaniaCeramicaFurto2018=0;
+    int contandoRuaVarzelandiaCeramicaFurto2018=0;
+    int contandoRuaMiltonCamposCeramicaFurto2018=0;
+    int contandoRuaMiltonSaCeramicaFurto2018=0;
+
+
+    int contandoRuaAterroCeramicaRoubo2018=0;
+    int contandoRuaBrasiliaMinasCeramicaRoubo2018=0;
+    int contandoRuaItacarambiCeramicaRoubo2018=0;
+    int contandoRuaItapiracabaCeramicaRoubo2018=0;
+    int contandoRuaMangaCeramicaRoubo2018=0;
+    int contandoRuaMontesClarosCeramicaRoubo2018=0;
+    int contandoRuaMontalvaniaCeramicaRoubo2018=0;
+    int contandoRuaVarzelandiaCeramicaRoubo2018=0;
+    int contandoRuaMiltonCamposCeramicaRoubo2018=0;
+    int contandoRuaMiltonSaCeramicaRoubo2018=0;
+
+
+
     int contandoRuaAterroCeramicaFurto2019=0;
     int contandoRuaBrasiliaMinasCeramicaFurto2019=0;
     int contandoRuaItacarambiCeramicaFurto2019=0;
@@ -572,6 +847,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaVarzelandiaCeramicaFurto2019=0;
     int contandoRuaMiltonCamposCeramicaFurto2019=0;
     int contandoRuaMiltonSaCeramicaFurto2019=0;
+
 
 
     int contandoRuaAterroCeramicaRoubo2019=0;
@@ -585,7 +861,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaMiltonCamposCeramicaRoubo2019=0;
     int contandoRuaMiltonSaCeramicaRoubo2019=0;
 
-
+//---
 
     int contandoAvSeisEldoradoFurtoTodosAnos=0;
     int contandoRuaAEldoradoFurtoTodosAnos=0;
@@ -611,6 +887,31 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+
+    int contandoAvSeisEldoradoFurto2018=0;
+    int contandoRuaAEldoradoFurto2018=0;
+    int contandoRuaBEldoradoFurto2018=0;
+    int contandoRuaCEldoradoFurto2018=0;
+    int contandoRuaDEldoradoFurto2018=0;
+    int contandoRuaEEldoradoFurto2018=0;
+    int contandoRuaGEldoradoFurto2018=0;
+    int contandoRuaJEldoradoFurto2018=0;
+    int contandoRuaLEldoradoFurto2018=0;
+    int contandoRuaMEldoradoFurto2018=0;
+
+    int contandoAvSeisEldoradoRoubo2018=0;
+    int contandoRuaAEldoradoRoubo2018=0;
+    int contandoRuaBEldoradoRoubo2018=0;
+    int contandoRuaCEldoradoRoubo2018=0;
+    int contandoRuaDEldoradoRoubo2018=0;
+    int contandoRuaEEldoradoRoubo2018=0;
+    int contandoRuaGEldoradoRoubo2018=0;
+    int contandoRuaJEldoradoRoubo2018=0;
+    int contandoRuaLEldoradoRoubo2018=0;
+    int contandoRuaMEldoradoRoubo2018=0;
+
+
+
     int contandoAvSeisEldoradoFurto2019=0;
     int contandoRuaAEldoradoFurto2019=0;
     int contandoRuaBEldoradoFurto2019=0;
@@ -633,7 +934,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaLEldoradoRoubo2019=0;
     int contandoRuaMEldoradoRoubo2019=0;
 
-
+//-----
 
     int contandoRuaAntonioValeFilhoFranklimFurtoTodosAnos=0;
     int contandoRuaLFranklimFurtoTodosAnos=0;
@@ -650,6 +951,24 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaVinteOitoFranklimRouboTodosAnos=0;
 
 
+
+
+    int contandoRuaAntonioValeFilhoFranklimFurto2018=0;
+    int contandoRuaLFranklimFurto2018=0;
+    int contandoRuaVinteTresFranklimFurto2018=0;
+    int contandoRuaVinteQuatroFranklimFurto2018=0;
+    int contandoRuaR25FranklimdoFurto2018=0;
+    int contandoRuaVinteOitoFranklimFurto2018=0;
+
+    int contandoRuaAntonioValeFilhoFranklimRoubo2018=0;
+    int contandoRuaLFranklimRoubo2018=0;
+    int contandoRuaVinteTresFranklimRoubo2018=0;
+    int contandoRuaVinteQuatroFranklimRoubo2018=0;
+    int contandoRuaR25FranklimdoRoubo2018=0;
+    int contandoRuaVinteOitoFranklimRoubo2018=0;
+
+
+
     int contandoRuaAntonioValeFilhoFranklimFurto2019=0;
     int contandoRuaLFranklimFurto2019=0;
     int contandoRuaVinteTresFranklimFurto2019=0;
@@ -664,7 +983,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaR25FranklimdoRoubo2019=0;
     int contandoRuaVinteOitoFranklimRoubo2019=0;
 
-
+//-----
 
     int contandoRuaUmJardimDanielFurtoTodosAnos=0;
     int contandoRuaDoisDanielFurtoTodosAnos=0;
@@ -687,6 +1006,32 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaInezitaAlvesFerreiraJardimDanielRouboTodosAnos=0;
     int contandoRuaMinasGeraisJardimDanielRouboTodosAnos=0;
 
+
+
+
+    int contandoRuaUmJardimDanielFurto2018=0;
+    int contandoRuaDoisDanielFurto2018=0;
+    int contandoRuaTresJardimDanielFurto2018=0;
+    int contandoRuaQuatroJardimDanielFurto2018=0;
+    int contandoRuaAlagoasJardimDanielFurto2018=0;
+    int contandoRuaBelaVistaJardimDanielFurto2018=0;
+    int contandoRuaConegoRamiroLeiteJardimDanielFurto2018=0;
+    int contandoRuaInezitaAlvesFerreiraJardimDanielFurto2018=0;
+    int contandoRuaMinasGeraisJardimDanielFurto2018=0;
+
+
+    int contandoRuaUmJardimDanielRoubo2018=0;
+    int contandoRuaDoisDanielRoubo2018=0;
+    int contandoRuaTresJardimDanielRoubo2018=0;
+    int contandoRuaQuatroJardimDanielRoubo2018=0;
+    int contandoRuaAlagoasJardimDanielRoubo2018=0;
+    int contandoRuaBelaVistaJardimDanielRoubo2018=0;
+    int contandoRuaConegoRamiroLeiteJardimDanielRoubo2018=0;
+    int contandoRuaInezitaAlvesFerreiraJardimDanielRoubo2018=0;
+    int contandoRuaMinasGeraisJardimDanielRoubo2018=0;
+
+
+
     int contandoRuaUmJardimDanielFurto2019=0;
     int contandoRuaDoisDanielFurto2019=0;
     int contandoRuaTresJardimDanielFurto2019=0;
@@ -708,7 +1053,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaInezitaAlvesFerreiraJardimDanielRoubo2019=0;
     int contandoRuaMinasGeraisJardimDanielRoubo2019=0;
 
-
+//----
 
     int contandoRuaAJardimEstrelaFurtoTodosAnos=0;
     int contandoRuaBJardimEstrelaFurtoTodosAnos=0;
@@ -737,6 +1082,33 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+
+
+    int contandoRuaAJardimEstrelaFurto2018=0;
+    int contandoRuaBJardimEstrelaFurto2018=0;
+    int contandoRuaCJardimEstrelaFurto2018=0;
+    int contandoRuaDJardimEstrelalFurto2018=0;
+    int contandoRuaEJardimEstrelaFurto2018=0;
+    int contandoRuaGJardimEstrelaFurto2018=0;
+    int contandoRuaHJardimEstrelaFurto2018=0;
+    int contandoRuaBaraoSaoRomaoJardimEstrelaFurto2018=0;
+    int contandoRuaJoaoGasparinoJardimEstrelaFurto2018=0;
+    int contandoRuaVinteDoisJardimEstrelaFurto2018=0;
+    int contandoRuaVinteTresJardimEstrelaFurto2018=0;
+
+    int contandoRuaAJardimEstrelaRoubo2018=0;
+    int contandoRuaBJardimEstrelaRoubo2018=0;
+    int contandoRuaCJardimEstrelaRoubo2018=0;
+    int contandoRuaDJardimEstrelalRoubo2018=0;
+    int contandoRuaEJardimEstrelaRoubo2018=0;
+    int contandoRuaGJardimEstrelaRoubo2018=0;
+    int contandoRuaHJardimEstrelaRoubo2018=0;
+    int contandoRuaBaraoSaoRomaoJardimEstrelaRoubo2018=0;
+    int contandoRuaJoaoGasparinoJardimEstrelaRoubo2018=0;
+    int contandoRuaVinteDoisJardimEstrelaRoubo2018=0;
+    int contandoRuaVinteTresJardimEstrelaRoubo2018=0;
+
+
     int contandoRuaAJardimEstrelaFurto2019=0;
     int contandoRuaBJardimEstrelaFurto2019=0;
     int contandoRuaCJardimEstrelaFurto2019=0;
@@ -760,6 +1132,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaJoaoGasparinoJardimEstrelaRoubo2019=0;
     int contandoRuaVinteDoisJardimEstrelaRoubo2019=0;
     int contandoRuaVinteTresJardimEstrelaRoubo2019=0;
+
+//------
 
 
     int contandoRuaUmJussaraFurtoTodosAnos=0;
@@ -785,6 +1159,35 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaNoveJussaraRouboTodosAnos=0;
     int contandoRuaDezJussaraRouboTodosAnos=0;
 
+
+
+
+
+
+    int contandoRuaUmJussaraFurto2018=0;
+    int contandoRuaDoisJussaraFurto2018=0;
+    int contandoRuaTresJussaraFurto2018=0;
+    int contandoRuaQuatroJussaralFurto2018=0;
+    int contandoRuaCincoJussaraFurto2018=0;
+    int contandoRuaSeisJussaraFurto2018=0;
+    int contandoRuaSeteJussaraFurto2018=0;
+    int contandoRuaOitoJussaraFurto2018=0;
+    int contandoRuaNoveJussaraFurto2018=0;
+    int contandoRuaDezJussaraFurto2018=0;
+
+
+    int contandoRuaUmJussaraRoubo2018=0;
+    int contandoRuaDoisJussaraRoubo2018=0;
+    int contandoRuaTresJussaraRoubo2018=0;
+    int contandoRuaQuatroJussaralRoubo2018=0;
+    int contandoRuaCincoJussaraRoubo2018=0;
+    int contandoRuaSeisJussaraRoubo2018=0;
+    int contandoRuaSeteJussaraRoubo2018=0;
+    int contandoRuaOitoJussaraRoubo2018=0;
+    int contandoRuaNoveJussaraRoubo2018=0;
+    int contandoRuaDezJussaraRoubo2018=0;
+
+
     int contandoRuaUmJussaraFurto2019=0;
     int contandoRuaDoisJussaraFurto2019=0;
     int contandoRuaTresJussaraFurto2019=0;
@@ -808,6 +1211,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaNoveJussaraRoubo2019=0;
     int contandoRuaDezJussaraRoubo2019=0;
 
+
+    //----
 
     int contandoRuaSeisVilaLevianopolisFurtoTodosAnos=0;
     int contandoRuaSeteVilaLevianopolisFurtoTodosAnos=0;
@@ -834,6 +1239,28 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+    int contandoRuaSeisVilaLevianopolisFurto2018=0;
+    int contandoRuaSeteVilaLevianopolisFurto2018=0;
+    int contandoRuaOitoVilaLevianopolisFurto2018=0;
+    int contandoRuaNoveVilaLevianopolisFurto2018=0;
+    int contandoRuaVinteVilaLevianopolisFurto2018=0;
+    int contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisFurto2018 =0;
+    int contandoRuaHonorCaciquinhoVilaLevianopolisFurto2018=0;
+    int contandoRuaEmilioMatosVilaLevianopolisFurto2018=0;
+    int contandoRuaJoseAntonioValeFilhoVilaLevianopolisFurto2018=0;
+    int contandoRuaInezitaAlvesFerreiraLevianopolisFurto2018=0;
+
+
+    int contandoRuaSeisVilaLevianopolisRoubo2018=0;
+    int contandoRuaSeteVilaLevianopolisRoubo2018=0;
+    int contandoRuaOitoVilaLevianopolisRoubo2018=0;
+    int contandoRuaNoveVilaLevianopolisRoubo2018=0;
+    int contandoRuaVinteVilaLevianopolisRoubo2018=0;
+    int contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisRoubo2018=0;
+    int contandoRuaHonorCaciquinhoVilaLevianopolisRoubo2018=0;
+    int contandoRuaEmilioMatosVilaLevianopolisRoubo2018=0;
+    int contandoRuaJoseAntonioValeFilhoVilaLevianopolisRoubo2018=0;
+    int contandoRuaInezitaAlvesFerreiraLevianopolisRoubo2018=0;
 
 
     int contandoRuaSeisVilaLevianopolisFurto2019=0;
@@ -859,6 +1286,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaJoseAntonioValeFilhoVilaLevianopolisRoubo2019=0;
     int contandoRuaInezitaAlvesFerreiraLevianopolisRoubo2019=0;
 
+//---
 
 
     int contandoRuaAQuintasMangueirasFurtoTodosAnos=0;
@@ -868,13 +1296,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaBondeQuintasMangueirasFurtoTodosAnos=0;
     int contandoRuaTutaBastosQuintasMangueirasFurtoTodosAnos=0;
 
-
     int contandoRuaAQuintasMangueirasRouboTodosAnos=0;
     int contandoRuaBQuintasMangueirasRouboTodosAnos=0;
     int contandoRuaDQuintasMangueirasRouboTodosAnos=0;
     int contandoRuaEQuintasMangueirasRouboTodosAnos=0;
     int contandoRuaBondeQuintasMangueirasRouboTodosAnos=0;
     int contandoRuaTutaBastosQuintasMangueirasRouboTodosAnos=0;
+
+
+
+    int contandoRuaAQuintasMangueirasFurto2018=0;
+    int contandoRuaBQuintasMangueirasFurto2018=0;
+    int contandoRuaDQuintasMangueirasFurto2018=0;
+    int contandoRuaEQuintasMangueirasFurto2018=0;
+    int contandoRuaBondeQuintasMangueirasFurto2018=0;
+    int contandoRuaTutaBastosQuintasMangueirasFurto2018=0;
+
+
+    int contandoRuaAQuintasMangueirasRoubo2018=0;
+    int contandoRuaBQuintasMangueirasRoubo2018=0;
+    int contandoRuaDQuintasMangueirasRoubo2018=0;
+    int contandoRuaEQuintasMangueirasRoubo2018=0;
+    int contandoRuaBondeQuintasMangueirasRoubo2018=0;
+    int contandoRuaTutaBastosQuintasMangueirasRoubo2018=0;
+
 
 
     int contandoRuaAQuintasMangueirasFurto2019=0;
@@ -892,7 +1337,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaBondeQuintasMangueirasRoubo2019=0;
     int contandoRuaTutaBastosQuintasMangueirasRoubo2019=0;
 
-
+//----
 
     int contandoRuaMuriciRiachoCruzFurtoTodosAnos=0;
     int contandoRuaCafeMineiroRiachoCruzFurtoTodosAnos=0;
@@ -914,6 +1359,23 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+    int contandoRuaMuriciRiachoCruzFurto2018=0;
+    int contandoRuaCafeMineiroRiachoCruzFurto2018=0;
+    int contandoRuaAntonioSilvaRiachoCruzFurto2018=0;
+    int contandoRuaManoelJSouzaRiachoCruzFurto2018=0;
+    int contandoRuaOliveiraPortoRiachoCruzFurto2018=0;
+    int contandoRuaTertulianoRPortoRiachoCruzFurto2018=0;
+    int contandoRuaJFMeloRiachoCruzFurto2018=0;
+
+
+    int contandoRuaMuriciRiachoCruzRoubo2018=0;
+    int contandoRuaCafeMineiroRiachoCruzRoubo2018=0;
+    int contandoRuaAntonioSilvaRiachoCruzRoubo2018=0;
+    int contandoRuaManoelJSouzaRiachoCruzRoubo2018=0;
+    int contandoRuaOliveiraPortoRiachoCruzRoubo2018=0;
+    int contandoRuaTertulianoRPortoRiachoCruzRoubo2018=0;
+    int contandoRuaJFMeloRiachoCruzRoubo2018=0;
+
     int contandoRuaMuriciRiachoCruzFurto2019=0;
     int contandoRuaCafeMineiroRiachoCruzFurto2019=0;
     int contandoRuaAntonioSilvaRiachoCruzFurto2019=0;
@@ -931,6 +1393,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaTertulianoRPortoRiachoCruzRoubo2019=0;
     int contandoRuaJFMeloRiachoCruzRoubo2019=0;
 
+
+    //---
 
     int contandoRuaCelCassianoVilaSaoJoaoFurtoTodosAnos=0;
     int contandoRuaLeaoTrezeVilaSaoJoaoFurtoTodosAnos=0;
@@ -955,6 +1419,32 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaMalFlorianoPeixotoVilaSaoJoaoRouboTodosAnos=0;
     int contandoRuaWVilaSaoJoaoRouboTodosAnos=0;
 
+
+    int contandoRuaCelCassianoVilaSaoJoaoFurto2018=0;
+    int contandoRuaLeaoTrezeVilaSaoJoaoFurto2018=0;
+    int contandoRuaUmVilaSaoJoaoFurto2018=0;
+    int contandoRuaDoisVilaSaoJoaoFurto2018=0;
+    int contandoRuaBenicioJoseFerreiraVilaSaoJoaoFurto2018=0;
+    int contandoRuaCurtumeVilaSaoJoaoFurto2018=0;
+    int contandoRuaTrintaMarcoVilaSaoJoaoFurto2018=0;
+    int contandoRuaJoseAugustoVilaSaoJoaoFurto2018=0;
+    int contandoRuaMalFlorianoPeixotoVilaSaoJoaoFurto2018=0;
+    int contandoRuaWVilaSaoJoaoFurto2018=0;
+
+
+    int contandoRuaCelCassianoVilaSaoJoaoRoubo2018=0;
+    int contandoRuaLeaoTrezeVilaSaoJoaoRoubo2018=0;
+    int contandoRuaUmVilaSaoJoaoRoubo2018=0;
+    int contandoRuaDoisVilaSaoJoaoRoubo2018=0;
+    int contandoRuaBenicioJoseFerreiraVilaSaoJoaoRoubo2018=0;
+    int contandoRuaCurtumeVilaSaoJoaoRoubo2018=0;
+    int contandoRuaTrintaMarcoVilaSaoJoaoRoubo2018=0;
+    int contandoRuaJoseAugustoVilaSaoJoaoRoubo2018=0;
+    int contandoRuaMalFlorianoPeixotoVilaSaoJoaoRoubo2018=0;
+    int contandoRuaWVilaSaoJoaoRoubo2018=0;
+
+
+
     int contandoRuaCelCassianoVilaSaoJoaoFurto2019=0;
     int contandoRuaLeaoTrezeVilaSaoJoaoFurto2019=0;
     int contandoRuaUmVilaSaoJoaoFurto2019=0;
@@ -978,7 +1468,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaMalFlorianoPeixotoVilaSaoJoaoRoubo2019=0;
     int contandoRuaWVilaSaoJoaoRoubo2019=0;
 
-
+//----
 
     int contandoRuaUmSaoJoaquimFurtoTodosAnos=0;
     int contandoRuaDoisSaoJoaquimFurtoTodosAnos=0;
@@ -1005,6 +1495,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaSantaMariaSaoJoaquimRouboTodosAnos=0;
 
 
+    int contandoRuaUmSaoJoaquimFurto2018   =0;
+    int contandoRuaDoisSaoJoaquimFurto2018 =0;
+    int contandoRuaTresSaoJoaquimFurto2018 =0;
+    int contandoRuaSeisSaoJoaquimFurto2018 =0;
+    int contandoRuaOitoSaoJoaquimFurto2018 =0;
+    int contandoRuaNoveSaoJoaquimFurto2018 =0;
+    int contandoRuaDezSaoJoaquimFurto2018  =0;
+    int contandoRuaDozeSaoJoaquimFurto2018  =0;
+    int contandoRuaSantaInesSaoJoaquimFurto2018=0;
+    int contandoRuaSantaMariaSaoJoaquimFurto2018=0;
+
+
+
+    int contandoRuaUmSaoJoaquimRoubo2018  =0;
+    int contandoRuaDoisSaoJoaquimRoubo2018=0;
+    int contandoRuaTresSaoJoaquimRoubo2018=0;
+    int contandoRuaSeisSaoJoaquimRoubo2018=0;
+    int contandoRuaOitoSaoJoaquimRoubo2018=0;
+    int contandoRuaNoveSaoJoaquimRoubo2018=0;
+    int contandoRuaDezSaoJoaquimRoubo2018 =0;
+    int contandoRuaDozeSaoJoaquimRoubo2018=0;
+    int contandoRuaSantaInesSaoJoaquimRoubo2018=0;
+    int contandoRuaSantaMariaSaoJoaquimRoubo2018=0;
+
 
     int contandoRuaUmSaoJoaquimFurto2019=0;
     int contandoRuaDoisSaoJoaquimFurto2019=0;
@@ -1030,7 +1544,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaSantaInesSaoJoaquimRoubo2019=0;
     int contandoRuaSantaMariaSaoJoaquimRoubo2019=0;
 
-
+//---
 
 
     int contandoRuaSaoFranciscoSaoMiguelFurtoTodosAnos=0;
@@ -1058,6 +1572,29 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoTvGalileiaSaoMiguelRouboTodosAnos=0;
 
 
+    int contandoRuaSaoFranciscoSaoMiguelFurto2018=0;
+    int contandoRuaUmSaoMiguelFurto2018=0;
+    int contandoRuaDoisSaoMiguelFurto2018=0;
+    int contandoRuaTresSaoMiguelFurto2018=0;
+    int contandoRuaASaoMiguelFurto2018=0;
+    int contandoRuaBSaoMiguelFurto2018=0;
+    int contandoRuaDSaoMiguelFurto2018=0;
+    int contandoRuaPiraporaSaoMiguelFurto2018=0;
+    int contandoRuaMontalvaniaSaoMiguelFurto2018=0;
+    int contandoTvGalileiaSaoMiguelFurto2018=0;
+
+    int contandoRuaSaoFranciscoSaoMiguelRoubo2018=0;
+    int contandoRuaUmSaoMiguelRoubo2018=0;
+    int contandoRuaDoisSaoMiguelRoubo2018=0;
+    int contandoRuaTresSaoMiguelRoubo2018=0;
+    int contandoRuaASaoMiguelRoubo2018=0;
+    int contandoRuaBSaoMiguelRoubo2018=0;
+    int contandoRuaDSaoMiguelRoubo2018=0;
+    int contandoRuaPiraporaSaoMiguelRoubo2018=0;
+    int contandoRuaMontalvaniaSaoMiguelRoubo2018=0;
+    int contandoTvGalileiaSaoMiguelRoubo2018=0;
+
+
     int contandoRuaSaoFranciscoSaoMiguelFurto2019=0;
     int contandoRuaUmSaoMiguelFurto2019=0;
     int contandoRuaDoisSaoMiguelFurto2019=0;
@@ -1080,6 +1617,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaMontalvaniaSaoMiguelRoubo2019=0;
     int contandoTvGalileiaSaoMiguelRoubo2019=0;
 
+    //---
 
     int contandoRuaASaoVicenteFurtoTodosAnos=0;
     int contandoRuaBSaoVicenteFurtoTodosAnos=0;
@@ -1106,6 +1644,32 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+
+    int contandoRuaASaoVicenteFurto2018=0;
+    int contandoRuaBSaoVicenteFurto2018=0;
+    int contandoRuaDSaoVicenteFurto2018=0;
+    int contandoRuaESaoVicenteFurto2018=0;
+    int contandoRuaTutaBastosSaoVicenteFurto2018=0;
+    int contandoRuaLeonelNogueiraNetoSaoVicenteFurto2018=0;
+    int contandoRuaMariaCarneiroCarvalhoSaoVicenteFurto2018=0;
+    int contandoRuaOlibrioLimaSaoVicenteFurto2018=0;
+    int contandoRuaTerencioTorresSaoVicenteFurto2018=0;
+    int contandoRuaSebastiaoFerreiraLimaSaoVicenteFurto2018=0;
+
+
+    int contandoRuaASaoVicenteRoubo2018=0;
+    int contandoRuaBSaoVicenteRoubo2018=0;
+    int contandoRuaDSaoVicenteRoubo2018=0;
+    int contandoRuaESaoVicenteRoubo2018=0;
+    int contandoRuaTutaBastosSaoVicenteRoubo2018=0;
+    int contandoRuaLeonelNogueiraNetoSaoVicenteRoubo2018=0;
+    int contandoRuaMariaCarneiroCarvalhoSaoVicenteRoubo2018=0;
+    int contandoRuaOlibrioLimaSaoVicenteRoubo2018=0;
+    int contandoRuaTerencioTorresSaoVicenteRoubo2018=0;
+    int contandoRuaSebastiaoFerreiraLimaSaoVicenteRoubo2018=0;
+
+
+
     int contandoRuaASaoVicenteFurto2019=0;
     int contandoRuaBSaoVicenteFurto2019=0;
     int contandoRuaDSaoVicenteFurto2019=0;
@@ -1129,7 +1693,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaTerencioTorresSaoVicenteRoubo2019=0;
     int contandoRuaSebastiaoFerreiraLimaSaoVicenteRoubo2019=0;
 
-
+//----
 
     int contandoRuaCasteloBrancoTejucoFurtoTodosAnos=0;
     int contandoRuaJucelinoKubitscheckTejucoFurtoTodosAnos=0;
@@ -1150,6 +1714,26 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaSaoJoseTejucoRouboTodosAnos =0;
     int contandoRuaManoelAlexandrinodeCarvalhoTejucoRouboTodosAnos=0;
 
+
+    int contandoRuaCasteloBrancoTejucoFurto2018=0;
+    int contandoRuaJucelinoKubitscheckTejucoFurto2018=0;
+    int contandoRuaTancredoNevesTejucoFurto2018=0;
+    int contandoRuaTejucoTejucoFurto2018=0;
+    int contandoRuaTropicalTejucoVicenteFurto2018=0;
+    int contandoRuaSaoJoaoTejucoFurto2018=0;
+    int contandoRuaSaoJoseTejucoFurto2018 =0;
+    int contandoRuaManoelAlexandrinodeCarvalhoTejucoFurto2018=0;
+
+
+
+    int contandoRuaCasteloBrancoTejucoRoubo2018=0;
+    int contandoRuaJucelinoKubitscheckTejucoRoubo2018=0;
+    int contandoRuaTancredoNevesTejucoRoubo2018=0;
+    int contandoRuaTejucoTejucoRoubo2018=0;
+    int contandoRuaTropicalTejucoVicenteRoubo2018=0;
+    int contandoRuaSaoJoaoTejucoRoubo2018=0;
+    int contandoRuaSaoJoseTejucoRoubo2018 =0;
+    int contandoRuaManoelAlexandrinodeCarvalhoTejucoRoubo2018=0;
 
 
 
@@ -1172,7 +1756,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaSaoJoseTejucoRoubo2019 =0;
     int contandoRuaManoelAlexandrinodeCarvalhoTejucoRoubo2019=0;
 
-
+//---
 
     int contandoRuaAVilaFatimaFurtoTodosAnos=0;
     int contandoRuaBFatimaFurtoTodosAnos=0;
@@ -1198,6 +1782,31 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaJoseAugustoVilaFatimaRouboTodosAnos=0;
 
 
+    int contandoRuaAVilaFatimaFurto2018=0;
+    int contandoRuaBFatimaFurto2018=0;
+    int contandoRuaCVilaFatimaFurto2018=0;
+    int contandoRuaDVilaFatimaFurto2018=0;
+    int contandoRuaEVilaFatimaVicenteFurto2018=0;
+    int contandoRuaFVilaFatimaFurto2018=0;
+    int contandoRuaGilmarPereiraRochaVilaFatimaFurto2018=0;
+    int contandoRuaJoaoPimentaCarvalhoVilaFatimaFurto2018=0;
+    int contandoRuaJoaquimFernandesoVilaFatimaFurto2018=0;
+    int contandoRuaJoseAugustoVilaFatimaFurto2018=0;
+
+
+    int contandoRuaAVilaFatimaRoubo2018=0;
+    int contandoRuaBFatimaRoubo2018=0;
+    int contandoRuaCVilaFatimaRoubo2018=0;
+    int contandoRuaDVilaFatimaRoubo2018=0;
+    int contandoRuaEVilaFatimaVicenteRoubo2018=0;
+    int contandoRuaFVilaFatimaRoubo2018=0;
+    int contandoRuaGilmarPereiraRochaVilaFatimaRoubo2018=0;
+    int contandoRuaJoaoPimentaCarvalhoVilaFatimaRoubo2018=0;
+    int contandoRuaJoaquimFernandesoVilaFatimaRoubo2018=0;
+    int contandoRuaJoseAugustoVilaFatimaRoubo2018=0;
+
+
+
     int contandoRuaAVilaFatimaFurto2019=0;
     int contandoRuaBFatimaFurto2019=0;
     int contandoRuaCVilaFatimaFurto2019=0;
@@ -1221,7 +1830,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaJoaquimFernandesoVilaFatimaRoubo2019=0;
     int contandoRuaJoseAugustoVilaFatimaRoubo2019=0;
 
-
+//----
 
     int contandoRuaJoaquimBarbosaGobiraPandeirosFurtoTodosAnos=0;
     int contandoRuaMariaMoreiraPandeirosFurtoTodosAnos=0;
@@ -1229,6 +1838,12 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaJoaquimBarbosaGobiraPandeirosRouboTodosAnos=0;
     int contandoRuaMariaMoreiraPandeirosRouboTodosAnos=0;
 
+
+    int contandoRuaJoaquimBarbosaGobiraPandeirosFurto2018=0;
+    int contandoRuaMariaMoreiraPandeirosFurto2018=0;
+
+    int contandoRuaJoaquimBarbosaGobiraPandeirosRoubo2018=0;
+    int contandoRuaMariaMoreiraPandeirosRoubo2018 =0;
 
     int contandoRuaJoaquimBarbosaGobiraPandeirosFurto2019=0;
     int contandoRuaMariaMoreiraPandeirosFurto2019=0;
@@ -1262,6 +1877,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
+    int contandoRuaSaoFranciscoVilaPaulaFurto2018=0;
+    int contandoTvJoseNunesVilaPaulaFurto2018 =0;
+    int contandoTvJulioMouraVilaPaulaFurto2018 =0;
+    int contandoRuaLeonelNogueiraNetoVilaPaulaFurto2018=0;
+    int contandoRuaAnizioJoseRochaVilaPaulaFurto2018=0;
+    int contandoRuaJulioMouraVilaPaulaFurto2018=0;
+    int contandoRuaJoseNunesVilaPaulaFurto2018=0;
+    int contandoRuaSebastiaoFerreiraLimaVilaPaulaFurto2018=0;
+    int contandoRuaSrgMozarVilaPaulaFurto2018=0;
+
+
+
+    int contandoRuaSaoFranciscoVilaPaulaRoubo2018=0;
+    int contandoTvJoseNunesVilaPaulaRoubo2018 =0;
+    int contandoTvJulioMouraVilaPaulaRoubo2018 =0;
+    int contandoRuaLeonelNogueiraNetoVilaPaulaRoubo2018=0;
+    int contandoRuaAnizioJoseRochaVilaPaulaRoubo2018=0;
+    int contandoRuaJulioMouraVilaPaulaRoubo2018=0;
+    int contandoRuaJoseNunesVilaPaulaRoubo2018=0;
+    int contandoRuaSebastiaoFerreiraLimaVilaPaulaRoubo2018=0;
+    int contandoRuaSrgMozarVilaPaulaRoubo2018=0;
+
+
+
     int contandoRuaSaoFranciscoVilaPaulaFurto2019=0;
     int contandoTvJoseNunesVilaPaulaFurto2019 =0;
     int contandoTvJulioMouraVilaPaulaFurto2019 =0;
@@ -1285,6 +1924,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaSrgMozarVilaPaulaRoubo2019=0;
 
 
+    //---
+
     int contandoAvMalDeodoroFonsecaVilaVerdeFurtoTodosAnos=0;
     int contandoRAVilaVerdeFurtoTodosAnos=0;
     int contandoRuaAterroVilaVerdeFurtoTodosAnos=0;
@@ -1307,6 +1948,32 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaTVilaVerdeRouboTodosAnos=0;
     int contandoRuaUVilaVerdeRouboTodosAnos=0;
     int contandoRuaVVilaVerdeRouboTodosAnos=0;
+
+
+
+    int contandoAvMalDeodoroFonsecaVilaVerdeFurto2018=0;
+    int contandoRAVilaVerdeFurto2018=0;
+    int contandoRuaAterroVilaVerdeFurto2018=0;
+    int contandoRuaBVilaVerdeFurto2018=0;
+    int contandoRuaDVilaVerdeFurto2018=0;
+    int contandoRuaOVilaVerdeFurto2018=0;
+    int contandoRuaRVilaVerdeFurto2018=0;
+    int contandoRuaTVilaVerdeFurto2018=0;
+    int contandoRuaUVilaVerdeFurto2018=0;
+    int contandoRuaVVilaVerdeFurto2018=0;
+
+
+    int contandoAvMalDeodoroFonsecaVilaVerdeRoubo2018=0;
+    int contandoRAVilaVerdeRoubo2018=0;
+    int contandoRuaAterroVilaVerdeRoubo2018=0;
+    int contandoRuaBVilaVerdeRoubo2018=0;
+    int contandoRuaDVilaVerdeRoubo2018=0;
+    int contandoRuaOVilaVerdeRoubo2018=0;
+    int contandoRuaRVilaVerdeRoubo2018=0;
+    int contandoRuaTVilaVerdeRoubo2018=0;
+    int contandoRuaUVilaVerdeRoubo2018=0;
+    int contandoRuaVVilaVerdeRoubo2018=0;
+
 
 
 
@@ -1334,6 +2001,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaUVilaVerdeRoubo2019=0;
     int contandoRuaVVilaVerdeRoubo2019=0;
 
+//----
+
 
     int contandoRuaAVilaVianaFurtoTodosAnos=0;
     int contandoRuaArthurLopesPimentaVilaVianaFurtoTodosAnos=0;
@@ -1356,6 +2025,27 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaXVilaVianaRouboTodosAnos=0;
 
 
+    int contandoRuaAVilaVianaFurto2018=0;
+    int contandoRuaArthurLopesPimentaVilaVianaFurto2018=0;
+    int contandoRuaBVilaVianaFurto2018=0;
+    int contandoRuaDVilaVianaFurto2018=0;
+    int contandoRuaEVilaVianaFurto2018=0;
+    int contandoRuaFVilaVianaFurto2018=0;
+    int contandoRuaGVilaVianaFurto2018=0;
+    int contandoRuaRVilaVianaFurto2018=0;
+    int contandoRuaXVilaVianaFurto2018=0;
+
+    int contandoRuaAVilaVianaRoubo2018=0;
+    int contandoRuaArthurLopesPimentaVilaVianaRoubo2018=0;
+    int contandoRuaBVilaVianaRoubo2018=0;
+    int contandoRuaDVilaVianaRoubo2018=0;
+    int contandoRuaEVilaVianaRoubo2018=0;
+    int contandoRuaFVilaVianaRoubo2018=0;
+    int contandoRuaGVilaVianaRoubo2018=0;
+    int contandoRuaRVilaVianaRoubo2018=0;
+    int contandoRuaXVilaVianaRoubo2018=0;
+
+
     int contandoRuaAVilaVianaFurto2019=0;
     int contandoRuaArthurLopesPimentaVilaVianaFurto2019=0;
     int contandoRuaBVilaVianaFurto2019=0;
@@ -1375,6 +2065,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     int contandoRuaGVilaVianaRoubo2019=0;
     int contandoRuaRVilaVianaRoubo2019=0;
     int contandoRuaXVilaVianaRoubo2019=0;
+
+
 
 
 
@@ -1402,7 +2094,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
-    private static String  bairro;
+
 
     private LineChart lineChart;
 
@@ -1455,9 +2147,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
-
-
-
         Query query;
         //Instânciar objetos
         listBikes = new ArrayList<>();
@@ -1479,7 +2168,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
                     procuraAno = b.getAlertaDate();
                     procuraBairro = b.getAlertaBairro();
-                    String procuraRua = b.getAlertaRua();
+
 
 
 
@@ -3982,6 +4671,631 @@ public class GraficoRuaLinhaFragment extends Fragment {
         });
 
 
+
+
+
+
+
+
+        contandoRuaAVilaVianaFurtoTodosAnos                         =  contandoRuaAVilaVianaFurto2018                   + contandoRuaAVilaVianaFurto2019;
+        contandoRuaArthurLopesPimentaVilaVianaFurtoTodosAnos        =  contandoRuaArthurLopesPimentaVilaVianaFurto2018  + contandoRuaArthurLopesPimentaVilaVianaFurto2019;
+        contandoRuaBVilaVianaFurtoTodosAnos                         =  contandoRuaBVilaVianaFurto2018                   + contandoRuaBVilaVianaFurto2019;
+        contandoRuaDVilaVianaFurtoTodosAnos                         =  contandoRuaDVilaVianaFurto2018                   + contandoRuaDVilaVianaFurto2019;
+        contandoRuaEVilaVianaFurtoTodosAnos                         =  contandoRuaEVilaVianaFurto2018                   + contandoRuaEVilaVianaFurto2019;
+        contandoRuaFVilaVianaFurtoTodosAnos                         =  contandoRuaFVilaVianaFurto2018                   + contandoRuaFVilaVianaFurto2019;
+        contandoRuaGVilaVianaFurtoTodosAnos                         =  contandoRuaGVilaVianaFurto2018                   + contandoRuaGVilaVianaFurto2019;
+        contandoRuaRVilaVianaFurtoTodosAnos                          =  contandoRuaRVilaVianaFurto2018                    + contandoRuaRVilaVianaFurto2019;
+        contandoRuaXVilaVianaFurtoTodosAnos                         =  contandoRuaXVilaVianaFurto2018                   + contandoRuaXVilaVianaFurto2019;
+        contandoRuaAVilaVianaRouboTodosAnos                         =  contandoRuaAVilaVianaRoubo2018                   + contandoRuaAVilaVianaRoubo2019;
+        contandoRuaArthurLopesPimentaVilaVianaRouboTodosAnos        =  contandoRuaArthurLopesPimentaVilaVianaRoubo2018  + contandoRuaArthurLopesPimentaVilaVianaRoubo2019;
+        contandoRuaBVilaVianaRouboTodosAnos                         =  contandoRuaBVilaVianaRoubo2018                   + contandoRuaBVilaVianaRoubo2019;
+        contandoRuaDVilaVianaRouboTodosAnos                         =  contandoRuaDVilaVianaRoubo2018                   + contandoRuaDVilaVianaRoubo2019;
+        contandoRuaEVilaVianaRouboTodosAnos                          =  contandoRuaEVilaVianaRoubo2018                   + contandoRuaEVilaVianaRoubo2019;
+        contandoRuaFVilaVianaRouboTodosAnos                         =  contandoRuaFVilaVianaRoubo2018                   + contandoRuaFVilaVianaRoubo2019;
+        contandoRuaGVilaVianaRouboTodosAnos                          =  contandoRuaGVilaVianaRoubo2018                   + contandoRuaGVilaVianaRoubo2019;
+        contandoRuaRVilaVianaRouboTodosAnos                          =  contandoRuaRVilaVianaRoubo2018                   + contandoRuaRVilaVianaRoubo2019;
+        contandoRuaXVilaVianaRouboTodosAnos                          =  contandoRuaXVilaVianaRoubo2018                    + contandoRuaXVilaVianaRoubo2019;
+
+
+
+        contandoAvMalDeodoroFonsecaVilaVerdeFurtoTodosAnos          =  contandoAvMalDeodoroFonsecaVilaVerdeFurto2018    + contandoAvMalDeodoroFonsecaVilaVerdeFurto2019;
+        contandoRAVilaVerdeFurtoTodosAnos                           =  contandoRAVilaVerdeFurto2018                     + contandoRAVilaVerdeFurto2019;
+        contandoRuaAterroVilaVerdeFurtoTodosAnos                    =  contandoRuaAterroVilaVerdeFurto2018              + contandoRuaAterroVilaVerdeFurto2019;
+        contandoRuaBVilaVerdeFurtoTodosAnos                         =  contandoRuaBVilaVerdeFurto2018                   + contandoRuaBVilaVerdeFurto2019;
+        contandoRuaDVilaVerdeFurtoTodosAnos                         =  contandoRuaDVilaVerdeFurto2018                   + contandoRuaDVilaVerdeFurto2019;
+        contandoRuaOVilaVerdeFurtoTodosAnos                         =  contandoRuaOVilaVerdeFurto2018                   + contandoRuaOVilaVerdeFurto2019;
+        contandoRuaRVilaVerdeFurtoTodosAnos                         =  contandoRuaRVilaVerdeFurto2018                   + contandoRuaRVilaVerdeFurto2019;
+        contandoRuaTVilaVerdeFurtoTodosAnos                         =  contandoRuaTVilaVerdeFurto2018                   + contandoRuaTVilaVerdeFurto2019;
+        contandoRuaUVilaVerdeFurtoTodosAnos                         =  contandoRuaUVilaVerdeFurto2018                   + contandoRuaUVilaVerdeFurto2019;
+        contandoRuaVVilaVerdeFurtoTodosAnos                         =  contandoRuaVVilaVerdeFurto2018                   + contandoRuaVVilaVerdeFurto2019;
+        contandoAvMalDeodoroFonsecaVilaVerdeRouboTodosAnos          =  contandoAvMalDeodoroFonsecaVilaVerdeRoubo2018    + contandoAvMalDeodoroFonsecaVilaVerdeRoubo2019;
+        contandoRAVilaVerdeRouboTodosAnos                           =  contandoRAVilaVerdeRoubo2018                     + contandoRAVilaVerdeRoubo2019;
+        contandoRuaAterroVilaVerdeRouboTodosAnos                    =  contandoRuaAterroVilaVerdeRoubo2018              + contandoRuaAterroVilaVerdeRoubo2019;
+        contandoRuaBVilaVerdeRouboTodosAnos                         =  contandoRuaBVilaVerdeRoubo2018                   + contandoRuaBVilaVerdeRoubo2019;
+        contandoRuaDVilaVerdeRouboTodosAnos                         =  contandoRuaDVilaVerdeRoubo2018                   + contandoRuaDVilaVerdeRoubo2019;
+        contandoRuaOVilaVerdeRouboTodosAnos                         =  contandoRuaOVilaVerdeRoubo2018                   + contandoRuaOVilaVerdeRoubo2019;
+        contandoRuaRVilaVerdeRouboTodosAnos                         =  contandoRuaRVilaVerdeRoubo2018                   + contandoRuaRVilaVerdeRoubo2019;
+        contandoRuaTVilaVerdeRouboTodosAnos                         =  contandoRuaTVilaVerdeRoubo2018                   + contandoRuaTVilaVerdeRoubo2019;
+        contandoRuaUVilaVerdeRouboTodosAnos                         =  contandoRuaUVilaVerdeRoubo2018                   + contandoRuaUVilaVerdeRoubo2019;
+        contandoRuaVVilaVerdeRouboTodosAnos                         =  contandoRuaVVilaVerdeRoubo2018                   + contandoRuaVVilaVerdeRoubo2019;
+
+
+
+        contandoRuaSaoFranciscoVilaPaulaFurtoTodosAnos               =  contandoRuaSaoFranciscoVilaPaulaFurto2018        + contandoRuaSaoFranciscoVilaPaulaFurto2019;
+        contandoTvJoseNunesVilaPaulaFurtoTodosAnos                  =  contandoTvJoseNunesVilaPaulaFurto2018            + contandoTvJoseNunesVilaPaulaFurto2019;
+        contandoTvJulioMouraVilaPaulaFurtoTodosAnos                  =  contandoTvJulioMouraVilaPaulaFurto2018           + contandoTvJulioMouraVilaPaulaFurto2019;
+        contandoRuaLeonelNogueiraNetoVilaPaulaFurtoTodosAnos         =  contandoRuaLeonelNogueiraNetoVilaPaulaFurto2018  + contandoRuaLeonelNogueiraNetoVilaPaulaFurto2019;
+        contandoRuaAnizioJoseRochaVilaPaulaFurtoTodosAnos           =  contandoRuaAnizioJoseRochaVilaPaulaFurto2018     + contandoRuaAnizioJoseRochaVilaPaulaFurto2019;
+        contandoRuaJulioMouraVilaPaulaFurtoTodosAnos                 =  contandoRuaJulioMouraVilaPaulaFurto2018          + contandoRuaJulioMouraVilaPaulaFurto2019;
+        contandoRuaJoseNunesVilaPaulaFurtoTodosAnos                 =  contandoRuaJoseNunesVilaPaulaFurto2018           + contandoRuaJoseNunesVilaPaulaFurto2019;
+        contandoRuaSebastiaoFerreiraLimaVilaPaulaFurtoTodosAnos     =  contandoRuaSebastiaoFerreiraLimaVilaPaulaFurto2018+contandoRuaSebastiaoFerreiraLimaVilaPaulaFurto2019;
+        contandoRuaSrgMozarVilaPaulaFurtoTodosAnos                   =  contandoRuaSrgMozarVilaPaulaFurto2018            + contandoRuaSrgMozarVilaPaulaFurto2019;
+        contandoRuaSaoFranciscoVilaPaulaRouboTodosAnos              =  contandoRuaSaoFranciscoVilaPaulaRoubo2018        + contandoRuaSaoFranciscoVilaPaulaRoubo2019;
+        contandoTvJoseNunesVilaPaulaRouboTodosAnos                  =  contandoTvJoseNunesVilaPaulaRoubo2018            + contandoTvJoseNunesVilaPaulaRoubo2019;
+        contandoTvJulioMouraVilaPaulaRouboTodosAnos                  =  contandoTvJulioMouraVilaPaulaRoubo2018           + contandoTvJulioMouraVilaPaulaRoubo2019;
+        contandoRuaLeonelNogueiraNetoVilaPaulaRouboTodosAnos        =  contandoRuaLeonelNogueiraNetoVilaPaulaRoubo2018  + contandoRuaLeonelNogueiraNetoVilaPaulaRoubo2019;
+        contandoRuaAnizioJoseRochaVilaPaulaRouboTodosAnos           =  contandoRuaAnizioJoseRochaVilaPaulaRoubo2018     + contandoRuaAnizioJoseRochaVilaPaulaRoubo2019;
+        contandoRuaJulioMouraVilaPaulaRouboTodosAnos                =  contandoRuaJulioMouraVilaPaulaRoubo2018          + contandoRuaJulioMouraVilaPaulaRoubo2019;
+        contandoRuaJoseNunesVilaPaulaRouboTodosAnos                 =  contandoRuaJoseNunesVilaPaulaRoubo2018           + contandoRuaJoseNunesVilaPaulaRoubo2019;
+        contandoRuaSebastiaoFerreiraLimaVilaPaulaRouboTodosAnos     =  contandoRuaSebastiaoFerreiraLimaVilaPaulaRoubo2018+ contandoRuaSebastiaoFerreiraLimaVilaPaulaRoubo2019;
+        contandoRuaSrgMozarVilaPaulaRouboTodosAnos                  =  contandoRuaSrgMozarVilaPaulaRoubo2018            + contandoRuaSrgMozarVilaPaulaRoubo2019;
+
+
+
+        contandoRuaJoaquimBarbosaGobiraPandeirosFurtoTodosAnos      =  contandoRuaJoaquimBarbosaGobiraPandeirosFurto2018 + contandoRuaJoaquimBarbosaGobiraPandeirosFurto2019;
+        contandoRuaMariaMoreiraPandeirosFurtoTodosAnos              =  contandoRuaMariaMoreiraPandeirosFurto2018         + contandoRuaMariaMoreiraPandeirosFurto2019;
+        contandoRuaJoaquimBarbosaGobiraPandeirosRouboTodosAnos      =  contandoRuaJoaquimBarbosaGobiraPandeirosRoubo2018 + contandoRuaJoaquimBarbosaGobiraPandeirosRoubo2019;
+        contandoRuaMariaMoreiraPandeirosRouboTodosAnos              =  contandoRuaMariaMoreiraPandeirosRoubo2018         + contandoRuaMariaMoreiraPandeirosRoubo2019;
+
+
+        contandoRuaAVilaFatimaFurtoTodosAnos                        =  contandoRuaAVilaFatimaFurto2018                   + contandoRuaAVilaFatimaFurto2019;
+        contandoRuaBFatimaFurtoTodosAnos                            =  contandoRuaBFatimaFurto2018                       + contandoRuaBFatimaFurto2019;
+        contandoRuaCVilaFatimaFurtoTodosAnos                        =  contandoRuaCVilaFatimaFurto2018                   + contandoRuaCVilaFatimaFurto2019;
+        contandoRuaDVilaFatimaFurtoTodosAnos                        =  contandoRuaDVilaFatimaFurto2018                   + contandoRuaDVilaFatimaFurto2019;
+        contandoRuaEVilaFatimaVicenteFurtoTodosAnos                 =  contandoRuaEVilaFatimaVicenteFurto2018            + contandoRuaEVilaFatimaVicenteFurto2019;
+        contandoRuaFVilaFatimaFurtoTodosAnos                        =  contandoRuaFVilaFatimaFurto2018                   + contandoRuaFVilaFatimaFurto2019;
+        contandoRuaGilmarPereiraRochaVilaFatimaFurtoTodosAnos       =  contandoRuaGilmarPereiraRochaVilaFatimaFurto2018  + contandoRuaGilmarPereiraRochaVilaFatimaFurto2019;
+        contandoRuaJoaoPimentaCarvalhoVilaFatimaFurtoTodosAnos      =  contandoRuaJoaoPimentaCarvalhoVilaFatimaFurto2018 + contandoRuaJoaoPimentaCarvalhoVilaFatimaFurto2019;
+        contandoRuaJoaquimFernandesoVilaFatimaFurtoTodosAnos        =  contandoRuaJoaquimFernandesoVilaFatimaFurto2018   + contandoRuaJoaquimFernandesoVilaFatimaFurto2019;
+        contandoRuaJoseAugustoVilaFatimaFurtoTodosAnos              =  contandoRuaJoseAugustoVilaFatimaFurto2018         + contandoRuaJoseAugustoVilaFatimaFurto2019;
+        contandoRuaAVilaFatimaRouboTodosAnos                        =  contandoRuaAVilaFatimaRoubo2018                   + contandoRuaAVilaFatimaRoubo2019;
+        contandoRuaBFatimaRouboTodosAnos                            =  contandoRuaBFatimaRoubo2018                       + contandoRuaBFatimaRoubo2019;
+        contandoRuaCVilaFatimaRouboTodosAnos                        =  contandoRuaCVilaFatimaRoubo2018                   + contandoRuaCVilaFatimaRoubo2019;
+        contandoRuaDVilaFatimaRouboTodosAnos                        =  contandoRuaDVilaFatimaRoubo2018                   + contandoRuaDVilaFatimaRoubo2019;
+        contandoRuaEVilaFatimaVicenteRouboTodosAnos                 =  contandoRuaEVilaFatimaVicenteRoubo2018            + contandoRuaEVilaFatimaVicenteRoubo2019;
+        contandoRuaFVilaFatimaRouboTodosAnos                        =  contandoRuaFVilaFatimaRoubo2018                   + contandoRuaFVilaFatimaRoubo2019;
+        contandoRuaGilmarPereiraRochaVilaFatimaRouboTodosAnos       =  contandoRuaGilmarPereiraRochaVilaFatimaRoubo2018  + contandoRuaGilmarPereiraRochaVilaFatimaRoubo2019;
+        contandoRuaJoaoPimentaCarvalhoVilaFatimaRouboTodosAnos      =  contandoRuaJoaoPimentaCarvalhoVilaFatimaRoubo2018 + contandoRuaJoaoPimentaCarvalhoVilaFatimaRoubo2019;
+        contandoRuaJoaquimFernandesoVilaFatimaRouboTodosAnos        =  contandoRuaJoaquimFernandesoVilaFatimaRoubo2018   + contandoRuaJoaquimFernandesoVilaFatimaRoubo2019;
+        contandoRuaJoseAugustoVilaFatimaRouboTodosAnos              =  contandoRuaJoseAugustoVilaFatimaRoubo2018         + contandoRuaJoseAugustoVilaFatimaRoubo2019;
+
+
+        contandoRuaCasteloBrancoTejucoFurtoTodosAnos                =  contandoRuaCasteloBrancoTejucoFurto2018           + contandoRuaCasteloBrancoTejucoFurto2019;
+        contandoRuaJucelinoKubitscheckTejucoFurtoTodosAnos          =  contandoRuaJucelinoKubitscheckTejucoFurto2018     + contandoRuaJucelinoKubitscheckTejucoFurto2019;
+        contandoRuaTancredoNevesTejucoFurtoTodosAnos                =  contandoRuaTancredoNevesTejucoFurto2018           + contandoRuaTancredoNevesTejucoFurto2019;
+        contandoRuaTejucoTejucoFurtoTodosAnos                       =  contandoRuaTejucoTejucoFurto2018                  + contandoRuaTejucoTejucoFurto2019;
+        contandoRuaTropicalTejucoVicenteFurtoTodosAnos              =  contandoRuaTropicalTejucoVicenteFurto2018         + contandoRuaTropicalTejucoVicenteFurto2019;
+        contandoRuaSaoJoaoTejucoFurtoTodosAnos                      =  contandoRuaSaoJoaoTejucoFurto2018                 + contandoRuaSaoJoaoTejucoFurto2019;
+        contandoRuaSaoJoseTejucoFurtoTodosAnos                      =  contandoRuaSaoJoseTejucoFurto2018                 + contandoRuaSaoJoseTejucoFurto2019;
+        contandoRuaManoelAlexandrinodeCarvalhoTejucoFurtoTodosAnos  =  contandoRuaManoelAlexandrinodeCarvalhoTejucoFurto2018+contandoRuaManoelAlexandrinodeCarvalhoTejucoFurto2019;
+        contandoRuaCasteloBrancoTejucoRouboTodosAnos                =  contandoRuaCasteloBrancoTejucoRoubo2018           + contandoRuaCasteloBrancoTejucoRoubo2019;
+        contandoRuaJucelinoKubitscheckTejucoRouboTodosAnos          =  contandoRuaJucelinoKubitscheckTejucoRoubo2018     + contandoRuaJucelinoKubitscheckTejucoRoubo2019;
+        contandoRuaTancredoNevesTejucoRouboTodosAnos                =  contandoRuaTancredoNevesTejucoRoubo2018           + contandoRuaTancredoNevesTejucoRoubo2019;
+        contandoRuaTejucoTejucoRouboTodosAnos                       =  contandoRuaTejucoTejucoRoubo2018                  + contandoRuaTejucoTejucoRoubo2019;
+        contandoRuaTropicalTejucoVicenteRouboTodosAnos              =  contandoRuaTropicalTejucoVicenteRoubo2018         + contandoRuaTropicalTejucoVicenteRoubo2019;
+        contandoRuaSaoJoaoTejucoRouboTodosAnos                      =  contandoRuaSaoJoaoTejucoRoubo2018                 + contandoRuaSaoJoaoTejucoRoubo2019;
+        contandoRuaSaoJoseTejucoRouboTodosAnos                      =  contandoRuaSaoJoseTejucoRoubo2018                 + contandoRuaSaoJoseTejucoRoubo2019;
+        contandoRuaManoelAlexandrinodeCarvalhoTejucoRouboTodosAnos  =  contandoRuaManoelAlexandrinodeCarvalhoTejucoRoubo2018+contandoRuaManoelAlexandrinodeCarvalhoTejucoRoubo2019;
+
+        contandoRuaASaoVicenteFurtoTodosAnos                        =  contandoRuaASaoVicenteFurto2018                   + contandoRuaASaoVicenteFurto2019;
+        contandoRuaBSaoVicenteFurtoTodosAnos                        =  contandoRuaBSaoVicenteFurto2018                   + contandoRuaBSaoVicenteFurto2019;
+        contandoRuaDSaoVicenteFurtoTodosAnos                        =  contandoRuaDSaoVicenteFurto2018                   + contandoRuaDSaoVicenteFurto2019;
+        contandoRuaESaoVicenteFurtoTodosAnos                        =  contandoRuaESaoVicenteFurto2018                   + contandoRuaESaoVicenteFurto2019;
+        contandoRuaTutaBastosSaoVicenteFurtoTodosAnos               =  contandoRuaTutaBastosSaoVicenteFurto2018          + contandoRuaTutaBastosSaoVicenteFurto2019;
+        contandoRuaLeonelNogueiraNetoSaoVicenteFurtoTodosAnos       =  contandoRuaLeonelNogueiraNetoSaoVicenteFurto2018  + contandoRuaLeonelNogueiraNetoSaoVicenteFurto2019;
+        contandoRuaMariaCarneiroCarvalhoSaoVicenteFurtoTodosAnos    =  contandoRuaMariaCarneiroCarvalhoSaoVicenteFurto2018+contandoRuaMariaCarneiroCarvalhoSaoVicenteFurto2019;
+        contandoRuaOlibrioLimaSaoVicenteFurtoTodosAnos              =  contandoRuaOlibrioLimaSaoVicenteFurto2018         + contandoRuaOlibrioLimaSaoVicenteFurto2019;
+        contandoRuaTerencioTorresSaoVicenteFurtoTodosAnos           =  contandoRuaTerencioTorresSaoVicenteFurto2018      + contandoRuaTerencioTorresSaoVicenteFurto2019;
+        contandoRuaSebastiaoFerreiraLimaSaoVicenteFurtoTodosAnos    =  contandoRuaSebastiaoFerreiraLimaSaoVicenteFurto2018+contandoRuaSebastiaoFerreiraLimaSaoVicenteFurto2019;
+        contandoRuaASaoVicenteRouboTodosAnos                        =  contandoRuaASaoVicenteRoubo2018                   + contandoRuaASaoVicenteRoubo2019;
+        contandoRuaBSaoVicenteRouboTodosAnos                        =  contandoRuaBSaoVicenteRoubo2018                   + contandoRuaBSaoVicenteRoubo2019;
+        contandoRuaDSaoVicenteRouboTodosAnos                        =  contandoRuaDSaoVicenteRoubo2018                   + contandoRuaDSaoVicenteRoubo2019;
+        contandoRuaESaoVicenteRouboTodosAnos                        =  contandoRuaESaoVicenteRoubo2018                   + contandoRuaESaoVicenteRoubo2019;
+        contandoRuaTutaBastosSaoVicenteRouboTodosAnos               =  contandoRuaTutaBastosSaoVicenteRoubo2018          + contandoRuaTutaBastosSaoVicenteRoubo2019;
+        contandoRuaLeonelNogueiraNetoSaoVicenteRouboTodosAnos       =  contandoRuaLeonelNogueiraNetoSaoVicenteRoubo2018  + contandoRuaLeonelNogueiraNetoSaoVicenteRoubo2019;
+        contandoRuaMariaCarneiroCarvalhoSaoVicenteRouboTodosAnos    =  contandoRuaMariaCarneiroCarvalhoSaoVicenteRoubo2018+contandoRuaMariaCarneiroCarvalhoSaoVicenteRoubo2019;
+        contandoRuaOlibrioLimaSaoVicenteRouboTodosAnos              =  contandoRuaOlibrioLimaSaoVicenteRoubo2018         + contandoRuaOlibrioLimaSaoVicenteRoubo2019;
+        contandoRuaTerencioTorresSaoVicenteRouboTodosAnos           =  contandoRuaTerencioTorresSaoVicenteRoubo2018      + contandoRuaTerencioTorresSaoVicenteRoubo2019;
+        contandoRuaSebastiaoFerreiraLimaSaoVicenteRouboTodosAnos    =  contandoRuaSebastiaoFerreiraLimaSaoVicenteRoubo2018+contandoRuaSebastiaoFerreiraLimaSaoVicenteRoubo2019;
+
+
+
+
+        contandoRuaSaoFranciscoSaoMiguelFurtoTodosAnos              =  contandoRuaSaoFranciscoSaoMiguelFurto2018         + contandoRuaSaoFranciscoSaoMiguelFurto2019;
+        contandoRuaUmSaoMiguelFurtoTodosAnos                        =  contandoRuaUmSaoMiguelFurto2018                   + contandoRuaUmSaoMiguelFurto2019;
+        contandoRuaDoisSaoMiguelFurtoTodosAnos                      =  contandoRuaDoisSaoMiguelFurto2018                 + contandoRuaDoisSaoMiguelFurto2019;
+        contandoRuaTresSaoMiguelFurtoTodosAnos                      =  contandoRuaTresSaoMiguelFurto2018                 + contandoRuaTresSaoMiguelFurto2019;
+        contandoRuaASaoMiguelFurtoTodosAnos                         =  contandoRuaASaoMiguelFurto2018                    + contandoRuaASaoMiguelFurto2019;
+        contandoRuaBSaoMiguelFurtoTodosAnos                         =  contandoRuaBSaoMiguelFurto2018                    + contandoRuaBSaoMiguelFurto2019;
+        contandoRuaDSaoMiguelFurtoTodosAnos                         =  contandoRuaDSaoMiguelFurto2018                    + contandoRuaDSaoMiguelFurto2019;
+        contandoRuaPiraporaSaoMiguelFurtoTodosAnos                  =  contandoRuaPiraporaSaoMiguelFurto2018             + contandoRuaPiraporaSaoMiguelFurto2019;
+        contandoRuaMontalvaniaSaoMiguelFurtoTodosAnos               =  contandoRuaMontalvaniaSaoMiguelFurto2018          + contandoRuaMontalvaniaSaoMiguelFurto2019;
+        contandoTvGalileiaSaoMiguelFurtoTodosAnos                   =  contandoTvGalileiaSaoMiguelFurto2018              + contandoTvGalileiaSaoMiguelFurto2019;
+        contandoRuaSaoFranciscoSaoMiguelRouboTodosAnos              =  contandoRuaSaoFranciscoSaoMiguelRoubo2018         + contandoRuaSaoFranciscoSaoMiguelRoubo2019;
+        contandoRuaUmSaoMiguelRouboTodosAnos                        =  contandoRuaUmSaoMiguelRoubo2018                   + contandoRuaUmSaoMiguelRoubo2019;
+        contandoRuaDoisSaoMiguelRouboTodosAnos                      =  contandoRuaDoisSaoMiguelRoubo2018                 + contandoRuaDoisSaoMiguelRoubo2019;
+        contandoRuaTresSaoMiguelRouboTodosAnos                      =  contandoRuaTresSaoMiguelRoubo2018                 + contandoRuaTresSaoMiguelRoubo2019;
+        contandoRuaASaoMiguelRouboTodosAnos                         =  contandoRuaASaoMiguelRoubo2018                    + contandoRuaASaoMiguelRoubo2019;
+        contandoRuaBSaoMiguelRouboTodosAnos                         =  contandoRuaBSaoMiguelRoubo2018                    + contandoRuaBSaoMiguelRoubo2019;
+        contandoRuaDSaoMiguelRouboTodosAnos                         =  contandoRuaDSaoMiguelRoubo2018                    + contandoRuaDSaoMiguelRoubo2019;
+        contandoRuaPiraporaSaoMiguelRouboTodosAnos                  =  contandoRuaPiraporaSaoMiguelRoubo2018             + contandoRuaPiraporaSaoMiguelRoubo2019;
+        contandoRuaMontalvaniaSaoMiguelRouboTodosAnos               =  contandoRuaMontalvaniaSaoMiguelRoubo2018          + contandoRuaMontalvaniaSaoMiguelRoubo2019;
+        contandoTvGalileiaSaoMiguelRouboTodosAnos                   =  contandoTvGalileiaSaoMiguelRoubo2018              + contandoTvGalileiaSaoMiguelRoubo2019;
+
+
+
+        contandoRuaUmSaoJoaquimFurtoTodosAnos                       =  contandoRuaUmSaoJoaquimFurto2018                  + contandoRuaUmSaoJoaquimFurto2019;
+        contandoRuaDoisSaoJoaquimFurtoTodosAnos                     =  contandoRuaDoisSaoJoaquimFurto2018                + contandoRuaDoisSaoJoaquimFurto2019;
+        contandoRuaTresSaoJoaquimFurtoTodosAnos                     =  contandoRuaTresSaoJoaquimFurto2018                + contandoRuaTresSaoJoaquimFurto2019;
+        contandoRuaSeisSaoJoaquimFurtoTodosAnos                     =  contandoRuaSeisSaoJoaquimFurto2018                + contandoRuaSeisSaoJoaquimFurto2019;
+        contandoRuaOitoSaoJoaquimFurtoTodosAnos                     =  contandoRuaOitoSaoJoaquimFurto2018                + contandoRuaOitoSaoJoaquimFurto2019;
+        contandoRuaNoveSaoJoaquimFurtoTodosAnos                     =  contandoRuaNoveSaoJoaquimFurto2018                + contandoRuaNoveSaoJoaquimFurto2019;
+        contandoRuaDezSaoJoaquimFurtoTodosAnos                      =  contandoRuaDezSaoJoaquimFurto2018                 + contandoRuaDezSaoJoaquimFurto2019;
+        contandoRuaDozeSaoJoaquimFurtoTodosAnos                     =  contandoRuaDozeSaoJoaquimFurto2018                + contandoRuaDozeSaoJoaquimFurto2019;
+        contandoRuaSantaInesSaoJoaquimFurtoTodosAnos                =  contandoRuaSantaInesSaoJoaquimFurto2018           + contandoRuaSantaInesSaoJoaquimFurto2019;
+        contandoRuaSantaMariaSaoJoaquimFurtoTodosAnos               =  contandoRuaSantaMariaSaoJoaquimFurto2018          + contandoRuaSantaMariaSaoJoaquimFurto2019;
+
+
+
+        contandoRuaUmSaoJoaquimRouboTodosAnos                        =  contandoRuaUmSaoJoaquimRoubo2018                  + contandoRuaUmSaoJoaquimRoubo2019;
+        contandoRuaDoisSaoJoaquimRouboTodosAnos                      =  contandoRuaDoisSaoJoaquimRoubo2018                + contandoRuaDoisSaoJoaquimRoubo2019;
+        contandoRuaTresSaoJoaquimRouboTodosAnos                      =  contandoRuaTresSaoJoaquimRoubo2018                + contandoRuaTresSaoJoaquimRoubo2019;
+        contandoRuaSeisSaoJoaquimRouboTodosAnos                      =  contandoRuaSeisSaoJoaquimRoubo2018                + contandoRuaSeisSaoJoaquimRoubo2019;
+        contandoRuaOitoSaoJoaquimRouboTodosAnos                      =  contandoRuaOitoSaoJoaquimRoubo2018                + contandoRuaOitoSaoJoaquimRoubo2019;
+        contandoRuaNoveSaoJoaquimRouboTodosAnos                      =  contandoRuaNoveSaoJoaquimRoubo2018                + contandoRuaNoveSaoJoaquimRoubo2019;
+        contandoRuaDezSaoJoaquimRouboTodosAnos                       =  contandoRuaDezSaoJoaquimRoubo2018                 + contandoRuaDezSaoJoaquimRoubo2019;
+        contandoRuaDozeSaoJoaquimRouboTodosAnos                      =  contandoRuaDozeSaoJoaquimRoubo2018                + contandoRuaDozeSaoJoaquimRoubo2019;
+        contandoRuaSantaInesSaoJoaquimRouboTodosAnos                 =  contandoRuaSantaInesSaoJoaquimRoubo2018           + contandoRuaSantaInesSaoJoaquimRoubo2019;
+        contandoRuaSantaMariaSaoJoaquimRouboTodosAnos                =  contandoRuaSantaMariaSaoJoaquimRoubo2018          + contandoRuaSantaMariaSaoJoaquimRoubo2019;
+
+
+
+
+
+
+
+
+        contandoRuaCelCassianoVilaSaoJoaoFurtoTodosAnos             =  contandoRuaCelCassianoVilaSaoJoaoFurto2018       + contandoRuaCelCassianoVilaSaoJoaoFurto2019;
+        contandoRuaLeaoTrezeVilaSaoJoaoFurtoTodosAnos               =  contandoRuaLeaoTrezeVilaSaoJoaoFurto2018         + contandoRuaLeaoTrezeVilaSaoJoaoFurto2019;
+        contandoRuaUmVilaSaoJoaoFurtoTodosAnos                      =  contandoRuaUmVilaSaoJoaoFurto2018                + contandoRuaUmVilaSaoJoaoFurto2019;
+        contandoRuaDoisVilaSaoJoaoFurtoTodosAnos                    =  contandoRuaDoisVilaSaoJoaoFurto2018              + contandoRuaDoisVilaSaoJoaoFurto2019;
+        contandoRuaBenicioJoseFerreiraVilaSaoJoaoFurtoTodosAnos     =  contandoRuaBenicioJoseFerreiraVilaSaoJoaoFurto2018+contandoRuaBenicioJoseFerreiraVilaSaoJoaoFurto2019;
+        contandoRuaCurtumeVilaSaoJoaoFurtoTodosAnos                 =  contandoRuaCurtumeVilaSaoJoaoFurto2018           + contandoRuaCurtumeVilaSaoJoaoFurto2019;
+        contandoRuaTrintaMarcoVilaSaoJoaoFurtoTodosAnos             =  contandoRuaTrintaMarcoVilaSaoJoaoFurto2018       + contandoRuaTrintaMarcoVilaSaoJoaoFurto2019;
+        contandoRuaJoseAugustoVilaSaoJoaoFurtoTodosAnos             =  contandoRuaJoseAugustoVilaSaoJoaoFurto2018       + contandoRuaJoseAugustoVilaSaoJoaoFurto2019;
+        contandoRuaMalFlorianoPeixotoVilaSaoJoaoFurtoTodosAnos      =  contandoRuaMalFlorianoPeixotoVilaSaoJoaoFurto2018+ contandoRuaMalFlorianoPeixotoVilaSaoJoaoFurto2019;
+        contandoRuaWVilaSaoJoaoFurtoTodosAnos                       =  contandoRuaWVilaSaoJoaoFurto2018                 + contandoRuaWVilaSaoJoaoFurto2019;
+        contandoRuaCelCassianoVilaSaoJoaoRouboTodosAnos             =  contandoRuaCelCassianoVilaSaoJoaoRoubo2018       + contandoRuaCelCassianoVilaSaoJoaoRoubo2019;
+        contandoRuaLeaoTrezeVilaSaoJoaoRouboTodosAnos               =  contandoRuaLeaoTrezeVilaSaoJoaoRoubo2018         + contandoRuaLeaoTrezeVilaSaoJoaoRoubo2019;
+        contandoRuaUmVilaSaoJoaoRouboTodosAnos                      =  contandoRuaUmVilaSaoJoaoRoubo2018                + contandoRuaUmVilaSaoJoaoRoubo2019;
+        contandoRuaDoisVilaSaoJoaoRouboTodosAnos                    =  contandoRuaDoisVilaSaoJoaoRoubo2018              + contandoRuaDoisVilaSaoJoaoRoubo2019;
+        contandoRuaBenicioJoseFerreiraVilaSaoJoaoRouboTodosAnos     =  contandoRuaBenicioJoseFerreiraVilaSaoJoaoRoubo2018+contandoRuaBenicioJoseFerreiraVilaSaoJoaoRoubo2019;
+        contandoRuaCurtumeVilaSaoJoaoRouboTodosAnos                 =  contandoRuaCurtumeVilaSaoJoaoRoubo2018           + contandoRuaCurtumeVilaSaoJoaoRoubo2019;
+        contandoRuaTrintaMarcoVilaSaoJoaoRouboTodosAnos             =  contandoRuaTrintaMarcoVilaSaoJoaoRoubo2018       + contandoRuaTrintaMarcoVilaSaoJoaoRoubo2019;
+        contandoRuaJoseAugustoVilaSaoJoaoRouboTodosAnos             =  contandoRuaJoseAugustoVilaSaoJoaoRoubo2018       + contandoRuaJoseAugustoVilaSaoJoaoRoubo2019;
+        contandoRuaMalFlorianoPeixotoVilaSaoJoaoRouboTodosAnos      =  contandoRuaMalFlorianoPeixotoVilaSaoJoaoRoubo2018+ contandoRuaMalFlorianoPeixotoVilaSaoJoaoRoubo2019;
+        contandoRuaWVilaSaoJoaoRouboTodosAnos                       =  contandoRuaWVilaSaoJoaoRoubo2018                 + contandoRuaWVilaSaoJoaoRoubo2019;
+
+
+
+
+
+        contandoRuaMuriciRiachoCruzFurtoTodosAnos                   =  contandoRuaMuriciRiachoCruzFurto2018             + contandoRuaMuriciRiachoCruzFurto2019;
+        contandoRuaCafeMineiroRiachoCruzFurtoTodosAnos              =  contandoRuaCafeMineiroRiachoCruzFurto2018        + contandoRuaCafeMineiroRiachoCruzFurto2019;
+        contandoRuaAntonioSilvaRiachoCruzFurtoTodosAnos             =  contandoRuaAntonioSilvaRiachoCruzFurto2018       + contandoRuaAntonioSilvaRiachoCruzFurto2019;
+        contandoRuaManoelJSouzaRiachoCruzFurtoTodosAnos             =  contandoRuaManoelJSouzaRiachoCruzFurto2018       + contandoRuaManoelJSouzaRiachoCruzFurto2019;
+        contandoRuaOliveiraPortoRiachoCruzFurtoTodosAnos            =  contandoRuaOliveiraPortoRiachoCruzFurto2018      + contandoRuaOliveiraPortoRiachoCruzFurto2019;
+        contandoRuaTertulianoRPortoRiachoCruzFurtoTodosAnos         =  contandoRuaTertulianoRPortoRiachoCruzFurto2018   + contandoRuaTertulianoRPortoRiachoCruzFurto2019;
+        contandoRuaJFMeloRiachoCruzFurtoTodosAnos                   =  contandoRuaJFMeloRiachoCruzFurto2018             + contandoRuaJFMeloRiachoCruzFurto2019;
+        contandoRuaMuriciRiachoCruzRouboTodosAnos                   =  contandoRuaMuriciRiachoCruzRoubo2018             + contandoRuaMuriciRiachoCruzRoubo2019;
+        contandoRuaCafeMineiroRiachoCruzRouboTodosAnos              =  contandoRuaCafeMineiroRiachoCruzRoubo2018        + contandoRuaCafeMineiroRiachoCruzRoubo2019;
+        contandoRuaAntonioSilvaRiachoCruzRouboTodosAnos             =  contandoRuaAntonioSilvaRiachoCruzRoubo2018       + contandoRuaAntonioSilvaRiachoCruzRoubo2019;
+        contandoRuaManoelJSouzaRiachoCruzRouboTodosAnos             =  contandoRuaManoelJSouzaRiachoCruzRoubo2018       + contandoRuaManoelJSouzaRiachoCruzRoubo2019;
+        contandoRuaOliveiraPortoRiachoCruzRouboTodosAnos            =  contandoRuaOliveiraPortoRiachoCruzRoubo2018      + contandoRuaOliveiraPortoRiachoCruzRoubo2019;
+        contandoRuaTertulianoRPortoRiachoCruzRouboTodosAnos         =  contandoRuaTertulianoRPortoRiachoCruzRoubo2018   + contandoRuaTertulianoRPortoRiachoCruzRoubo2019;
+        contandoRuaJFMeloRiachoCruzRouboTodosAnos                   =  contandoRuaJFMeloRiachoCruzRoubo2018             + contandoRuaJFMeloRiachoCruzRoubo2019;
+        contandoRuaAQuintasMangueirasFurtoTodosAnos                 =  contandoRuaAQuintasMangueirasFurto2018           + contandoRuaAQuintasMangueirasFurto2019;
+        contandoRuaBQuintasMangueirasFurtoTodosAnos                 =  contandoRuaBQuintasMangueirasFurto2018           + contandoRuaBQuintasMangueirasFurto2019;
+        contandoRuaDQuintasMangueirasFurtoTodosAnos                 =  contandoRuaDQuintasMangueirasFurto2018           + contandoRuaDQuintasMangueirasFurto2019;
+        contandoRuaEQuintasMangueirasFurtoTodosAnos                 =  contandoRuaEQuintasMangueirasFurto2018           + contandoRuaEQuintasMangueirasFurto2019;
+        contandoRuaBondeQuintasMangueirasFurtoTodosAnos             =  contandoRuaBondeQuintasMangueirasFurto2018       + contandoRuaBondeQuintasMangueirasFurto2019;
+        contandoRuaTutaBastosQuintasMangueirasFurtoTodosAnos        =  contandoRuaTutaBastosQuintasMangueirasFurto2018  + contandoRuaTutaBastosQuintasMangueirasFurto2019;
+        contandoRuaAQuintasMangueirasRouboTodosAnos                 =  contandoRuaAQuintasMangueirasRoubo2018           + contandoRuaAQuintasMangueirasRoubo2019;
+        contandoRuaBQuintasMangueirasRouboTodosAnos                 =  contandoRuaBQuintasMangueirasRoubo2018           + contandoRuaBQuintasMangueirasRoubo2019;
+        contandoRuaDQuintasMangueirasRouboTodosAnos                 =  contandoRuaDQuintasMangueirasRoubo2018           + contandoRuaDQuintasMangueirasRoubo2019;
+        contandoRuaEQuintasMangueirasRouboTodosAnos                 =  contandoRuaEQuintasMangueirasRoubo2018           + contandoRuaEQuintasMangueirasRoubo2019;
+
+
+
+        contandoRuaBondeQuintasMangueirasRouboTodosAnos             =  contandoRuaBondeQuintasMangueirasRoubo2018       + contandoRuaBondeQuintasMangueirasRoubo2019;
+        contandoRuaTutaBastosQuintasMangueirasRouboTodosAnos        =  contandoRuaTutaBastosQuintasMangueirasRoubo2018  + contandoRuaTutaBastosQuintasMangueirasRoubo2019;
+        contandoRuaSeisVilaLevianopolisFurtoTodosAnos               =  contandoRuaSeisVilaLevianopolisFurto2018         + contandoRuaSeisVilaLevianopolisFurto2019;
+        contandoRuaSeteVilaLevianopolisFurtoTodosAnos               =  contandoRuaSeteVilaLevianopolisFurto2018         + contandoRuaSeteVilaLevianopolisFurto2019;
+        contandoRuaOitoVilaLevianopolisFurtoTodosAnos               =  contandoRuaOitoVilaLevianopolisFurto2018         + contandoRuaOitoVilaLevianopolisFurto2019;
+        contandoRuaNoveVilaLevianopolisFurtoTodosAnos               =  contandoRuaNoveVilaLevianopolisFurto2018         + contandoRuaNoveVilaLevianopolisFurto2019;
+        contandoRuaVinteVilaLevianopolisFurtoTodosAnos              =  contandoRuaVinteVilaLevianopolisFurto2018        + contandoRuaVinteVilaLevianopolisFurto2019;
+        contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisFurtoTodosAnos =contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisFurto2018+contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisFurto2019;
+        contandoRuaHonorCaciquinhoVilaLevianopolisFurtoTodosAnos    =  contandoRuaHonorCaciquinhoVilaLevianopolisFurto2018+contandoRuaHonorCaciquinhoVilaLevianopolisFurto2019;
+        contandoRuaEmilioMatosVilaLevianopolisFurtoTodosAnos        =  contandoRuaEmilioMatosVilaLevianopolisFurto2018  + contandoRuaEmilioMatosVilaLevianopolisFurto2019;
+        contandoRuaJoseAntonioValeFilhoVilaLevianopolisFurtoTodosAnos= contandoRuaJoseAntonioValeFilhoVilaLevianopolisFurto2018+contandoRuaJoseAntonioValeFilhoVilaLevianopolisFurto2019;
+        contandoRuaInezitaAlvesFerreiraLevianopolisFurtoTodosAnos   =  contandoRuaInezitaAlvesFerreiraLevianopolisFurto2018+contandoRuaInezitaAlvesFerreiraLevianopolisFurto2019;
+        contandoRuaSeisVilaLevianopolisRouboTodosAnos               =  contandoRuaSeisVilaLevianopolisRoubo2018          + contandoRuaSeisVilaLevianopolisRoubo2019;
+        contandoRuaSeteVilaLevianopolisRouboTodosAnos               =  contandoRuaSeteVilaLevianopolisRoubo2018          + contandoRuaSeteVilaLevianopolisRoubo2019;
+        contandoRuaOitoVilaLevianopolisRouboTodosAnos               =  contandoRuaOitoVilaLevianopolisRoubo2018          + contandoRuaOitoVilaLevianopolisRoubo2019;
+        contandoRuaNoveVilaLevianopolisRouboTodosAnos               =  contandoRuaNoveVilaLevianopolisRoubo2018          + contandoRuaNoveVilaLevianopolisRoubo2019;
+        contandoRuaVinteVilaLevianopolisRouboTodosAnos              =  contandoRuaVinteVilaLevianopolisRoubo2018         + contandoRuaVinteVilaLevianopolisRoubo2019;
+        contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisRouboTodosAnos=contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisRoubo2018+contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisRoubo2019;
+        contandoRuaHonorCaciquinhoVilaLevianopolisRouboTodosAnos    =  contandoRuaHonorCaciquinhoVilaLevianopolisRoubo2018+ contandoRuaHonorCaciquinhoVilaLevianopolisRoubo2019;
+        contandoRuaEmilioMatosVilaLevianopolisRouboTodosAnos        =  contandoRuaEmilioMatosVilaLevianopolisRoubo2018   + contandoRuaEmilioMatosVilaLevianopolisRoubo2019;
+        contandoRuaJoseAntonioValeFilhoVilaLevianopolisRouboTodosAnos= contandoRuaJoseAntonioValeFilhoVilaLevianopolisRoubo2018+contandoRuaJoseAntonioValeFilhoVilaLevianopolisRoubo2019;
+        contandoRuaInezitaAlvesFerreiraLevianopolisRouboTodosAnos   =  contandoRuaInezitaAlvesFerreiraLevianopolisRoubo2018+ contandoRuaInezitaAlvesFerreiraLevianopolisRoubo2019;
+
+
+
+        contandoRuaUmJussaraFurtoTodosAnos                          =  contandoRuaUmJussaraFurto2018                      + contandoRuaUmJussaraFurto2019;
+        contandoRuaDoisJussaraFurtoTodosAnos                        =  contandoRuaDoisJussaraFurto2018                    + contandoRuaDoisJussaraFurto2019;
+        contandoRuaTresJussaraFurtoTodosAnos                        =  contandoRuaTresJussaraFurto2018                    + contandoRuaTresJussaraFurto2019;
+        contandoRuaQuatroJussaralFurtoTodosAnos                     =  contandoRuaQuatroJussaralFurto2018                 + contandoRuaQuatroJussaralFurto2019;
+        contandoRuaCincoJussaraFurtoTodosAnos                       =  contandoRuaCincoJussaraFurto2018                   + contandoRuaCincoJussaraFurto2019;
+        contandoRuaSeisJussaraFurtoTodosAnos                        =  contandoRuaSeisJussaraFurto2018                    + contandoRuaSeisJussaraFurto2019;
+        contandoRuaSeteJussaraFurtoTodosAnos                        =  contandoRuaSeteJussaraFurto2018                    + contandoRuaSeteJussaraFurto2019;
+        contandoRuaOitoJussaraFurtoTodosAnos                        =  contandoRuaOitoJussaraFurto2018                    + contandoRuaOitoJussaraFurto2019;
+        contandoRuaNoveJussaraFurtoTodosAnos                        =  contandoRuaNoveJussaraFurto2018                    + contandoRuaNoveJussaraFurto2019;
+        contandoRuaDezJussaraFurtoTodosAnos                         =  contandoRuaDezJussaraFurto2018                     + contandoRuaDezJussaraFurto2019;
+        contandoRuaUmJussaraRouboTodosAnos                          =  contandoRuaUmJussaraRoubo2018                      + contandoRuaUmJussaraRoubo2019;
+        contandoRuaDoisJussaraRouboTodosAnos                        =  contandoRuaDoisJussaraRoubo2018                    + contandoRuaDoisJussaraRoubo2019;
+        contandoRuaTresJussaraRouboTodosAnos                        =  contandoRuaTresJussaraRoubo2018                    + contandoRuaTresJussaraRoubo2019;
+        contandoRuaQuatroJussaralRouboTodosAnos                     =  contandoRuaQuatroJussaralRoubo2018                 + contandoRuaQuatroJussaralRoubo2019;
+        contandoRuaCincoJussaraRouboTodosAnos                       =  contandoRuaCincoJussaraRoubo2018                   + contandoRuaCincoJussaraRoubo2019;
+        contandoRuaSeisJussaraRouboTodosAnos                        =  contandoRuaSeisJussaraRoubo2018                    + contandoRuaSeisJussaraRoubo2019;
+        contandoRuaSeteJussaraRouboTodosAnos                        =  contandoRuaSeteJussaraRoubo2018                    + contandoRuaSeteJussaraRoubo2019;
+
+
+
+        contandoRuaOitoJussaraRouboTodosAnos                        =  contandoRuaOitoJussaraRoubo2018                    + contandoRuaOitoJussaraRoubo2019;
+        contandoRuaNoveJussaraRouboTodosAnos                        =  contandoRuaNoveJussaraRoubo2018                    + contandoRuaNoveJussaraRoubo2019;
+        contandoRuaDezJussaraRouboTodosAnos                         =  contandoRuaDezJussaraRoubo2018                     + contandoRuaDezJussaraRoubo2019;
+        contandoRuaAJardimEstrelaFurtoTodosAnos                     =  contandoRuaAJardimEstrelaFurto2018                 + contandoRuaAJardimEstrelaFurto2019;
+        contandoRuaBJardimEstrelaFurtoTodosAnos                     =  contandoRuaBJardimEstrelaFurto2018                 + contandoRuaBJardimEstrelaFurto2019;
+        contandoRuaCJardimEstrelaFurtoTodosAnos                     =  contandoRuaCJardimEstrelaFurto2018                 + contandoRuaCJardimEstrelaFurto2019;
+        contandoRuaDJardimEstrelalFurtoTodosAnos                    =  contandoRuaDJardimEstrelalFurto2018                + contandoRuaDJardimEstrelalFurto2019;
+        contandoRuaEJardimEstrelaFurtoTodosAnos                     =  contandoRuaEJardimEstrelaFurto2018                 + contandoRuaEJardimEstrelaFurto2019;
+        contandoRuaGJardimEstrelaFurtoTodosAnos                     =  contandoRuaGJardimEstrelaFurto2018                 + contandoRuaGJardimEstrelaFurto2019;
+        contandoRuaHJardimEstrelaFurtoTodosAnos                     =  contandoRuaHJardimEstrelaFurto2018                 + contandoRuaHJardimEstrelaFurto2019;
+        contandoRuaBaraoSaoRomaoJardimEstrelaFurtoTodosAnos         =  contandoRuaBaraoSaoRomaoJardimEstrelaFurto2018     + contandoRuaBaraoSaoRomaoJardimEstrelaFurto2019;
+        contandoRuaJoaoGasparinoJardimEstrelaFurtoTodosAnos         =  contandoRuaJoaoGasparinoJardimEstrelaFurto2018     + contandoRuaJoaoGasparinoJardimEstrelaFurto2019;
+        contandoRuaVinteDoisJardimEstrelaFurtoTodosAnos             =  contandoRuaVinteDoisJardimEstrelaFurto2018         + contandoRuaVinteDoisJardimEstrelaFurto2019;
+        contandoRuaVinteTresJardimEstrelaFurtoTodosAnos             =  contandoRuaVinteTresJardimEstrelaFurto2018         + contandoRuaVinteTresJardimEstrelaFurto2019;
+        contandoRuaAJardimEstrelaRouboTodosAnos                     =  contandoRuaAJardimEstrelaRoubo2018                 + contandoRuaAJardimEstrelaRoubo2019;
+        contandoRuaBJardimEstrelaRouboTodosAnos                     =  contandoRuaBJardimEstrelaRoubo2018                 + contandoRuaBJardimEstrelaRoubo2019;
+        contandoRuaCJardimEstrelaRouboTodosAnos                     =  contandoRuaCJardimEstrelaRoubo2018                 + contandoRuaCJardimEstrelaRoubo2019;
+        contandoRuaDJardimEstrelalRouboTodosAnos                    =  contandoRuaDJardimEstrelalRoubo2018                + contandoRuaDJardimEstrelalRoubo2019;
+        contandoRuaEJardimEstrelaRouboTodosAnos                     =  contandoRuaEJardimEstrelaRoubo2018                 + contandoRuaEJardimEstrelaRoubo2019;
+        contandoRuaGJardimEstrelaRouboTodosAnos                     =  contandoRuaGJardimEstrelaRoubo2018                 + contandoRuaGJardimEstrelaRoubo2019;
+        contandoRuaHJardimEstrelaRouboTodosAnos                     =  contandoRuaHJardimEstrelaRoubo2018                 + contandoRuaHJardimEstrelaRoubo2019;
+        contandoRuaBaraoSaoRomaoJardimEstrelaRouboTodosAnos         =  contandoRuaBaraoSaoRomaoJardimEstrelaRoubo2018     + contandoRuaBaraoSaoRomaoJardimEstrelaRoubo2019;
+        contandoRuaJoaoGasparinoJardimEstrelaRouboTodosAnos         =  contandoRuaJoaoGasparinoJardimEstrelaRoubo2018     + contandoRuaJoaoGasparinoJardimEstrelaRoubo2019;
+        contandoRuaVinteDoisJardimEstrelaRouboTodosAnos             =  contandoRuaVinteDoisJardimEstrelaRoubo2018         + contandoRuaVinteDoisJardimEstrelaRoubo2019;
+
+
+        contandoRuaVinteTresJardimEstrelaRouboTodosAnos             =  contandoRuaVinteTresJardimEstrelaRoubo2018         + contandoRuaVinteTresJardimEstrelaRoubo2019;
+        contandoRuaUmJardimDanielFurtoTodosAnos                     =  contandoRuaUmJardimDanielFurto2018                 + contandoRuaUmJardimDanielFurto2019;
+        contandoRuaDoisDanielFurtoTodosAnos                         =  contandoRuaDoisDanielFurto2018                     + contandoRuaDoisDanielFurto2019;
+        contandoRuaTresJardimDanielFurtoTodosAnos                   =  contandoRuaTresJardimDanielFurto2018               + contandoRuaTresJardimDanielFurto2019;
+        contandoRuaQuatroJardimDanielFurtoTodosAnos                 =  contandoRuaQuatroJardimDanielFurto2018             + contandoRuaQuatroJardimDanielFurto2019;
+        contandoRuaAlagoasJardimDanielFurtoTodosAnos                =  contandoRuaAlagoasJardimDanielFurto2018            + contandoRuaAlagoasJardimDanielFurto2019;
+        contandoRuaBelaVistaJardimDanielFurtoTodosAnos              =  contandoRuaBelaVistaJardimDanielFurto2018          + contandoRuaBelaVistaJardimDanielFurto2019;
+        contandoRuaConegoRamiroLeiteJardimDanielFurtoTodosAnos      =  contandoRuaConegoRamiroLeiteJardimDanielFurto2018  + contandoRuaConegoRamiroLeiteJardimDanielFurto2019;
+        contandoRuaInezitaAlvesFerreiraJardimDanielFurtoTodosAnos   =  contandoRuaInezitaAlvesFerreiraJardimDanielFurto2018+contandoRuaInezitaAlvesFerreiraJardimDanielFurto2019;
+        contandoRuaMinasGeraisJardimDanielFurtoTodosAnos            =  contandoRuaMinasGeraisJardimDanielFurto2018        + contandoRuaMinasGeraisJardimDanielFurto2019;
+        contandoRuaUmJardimDanielRouboTodosAnos                     =  contandoRuaUmJardimDanielRoubo2018                 + contandoRuaUmJardimDanielRoubo2019;
+        contandoRuaDoisDanielRouboTodosAnos                         =  contandoRuaDoisDanielRoubo2018                     + contandoRuaDoisDanielRoubo2019;
+        contandoRuaTresJardimDanielRouboTodosAnos                   =  contandoRuaTresJardimDanielRoubo2018               + contandoRuaTresJardimDanielRoubo2019;
+        contandoRuaQuatroJardimDanielRouboTodosAnos                 =  contandoRuaQuatroJardimDanielRoubo2018             + contandoRuaQuatroJardimDanielRoubo2019;
+        contandoRuaAlagoasJardimDanielRouboTodosAnos                =  contandoRuaAlagoasJardimDanielRoubo2018            + contandoRuaAlagoasJardimDanielRoubo2019;
+        contandoRuaBelaVistaJardimDanielRouboTodosAnos              =  contandoRuaBelaVistaJardimDanielRoubo2018          + contandoRuaBelaVistaJardimDanielRoubo2019;
+
+
+        contandoRuaConegoRamiroLeiteJardimDanielRouboTodosAnos     =   contandoRuaConegoRamiroLeiteJardimDanielRoubo2018  + contandoRuaConegoRamiroLeiteJardimDanielRoubo2019;
+        contandoRuaInezitaAlvesFerreiraJardimDanielRouboTodosAnos  =   contandoRuaInezitaAlvesFerreiraJardimDanielRoubo2018+contandoRuaInezitaAlvesFerreiraJardimDanielRoubo2019;
+        contandoRuaMinasGeraisJardimDanielRouboTodosAnos           =   contandoRuaMinasGeraisJardimDanielRoubo2018        + contandoRuaMinasGeraisJardimDanielRoubo2019;
+        contandoRuaAntonioValeFilhoFranklimFurtoTodosAnos          =   contandoRuaAntonioValeFilhoFranklimFurto2018       + contandoRuaAntonioValeFilhoFranklimFurto2019;
+        contandoRuaLFranklimFurtoTodosAnos                         =   contandoRuaLFranklimFurto2018                      + contandoRuaLFranklimFurto2019;
+        contandoRuaVinteTresFranklimFurtoTodosAnos                 =   contandoRuaVinteTresFranklimFurto2018              + contandoRuaVinteTresFranklimFurto2019;
+        contandoRuaVinteQuatroFranklimFurtoTodosAnos               =   contandoRuaVinteQuatroFranklimFurto2018            + contandoRuaVinteQuatroFranklimFurto2019;
+        contandoRuaR25FranklimdoFurtoTodosAnos                     =   contandoRuaR25FranklimdoFurto2018                  + contandoRuaR25FranklimdoFurto2019;
+        contandoRuaVinteOitoFranklimFurtoTodosAnos                 =   contandoRuaVinteOitoFranklimFurto2018              + contandoRuaVinteOitoFranklimFurto2019;
+        contandoRuaAntonioValeFilhoFranklimRouboTodosAnos          =   contandoRuaAntonioValeFilhoFranklimRoubo2018       + contandoRuaAntonioValeFilhoFranklimRoubo2019;
+        contandoRuaLFranklimRouboTodosAnos                         =   contandoRuaLFranklimRoubo2018                      + contandoRuaLFranklimRoubo2019;
+        contandoRuaVinteTresFranklimRouboTodosAnos                 =   contandoRuaVinteTresFranklimRoubo2018              + contandoRuaVinteTresFranklimRoubo2019;
+        contandoRuaVinteQuatroFranklimRouboTodosAnos               =   contandoRuaVinteQuatroFranklimRoubo2018            + contandoRuaVinteQuatroFranklimRoubo2019;
+        contandoRuaR25FranklimdoRouboTodosAnos                     =   contandoRuaR25FranklimdoRoubo2018                  + contandoRuaR25FranklimdoRoubo2019;
+        contandoRuaVinteOitoFranklimRouboTodosAnos                 =   contandoRuaVinteOitoFranklimRoubo2018              + contandoRuaVinteOitoFranklimRoubo2019;
+        contandoAvSeisEldoradoFurtoTodosAnos                       =   contandoAvSeisEldoradoFurto2018                    + contandoAvSeisEldoradoFurto2019;
+        contandoRuaAEldoradoFurtoTodosAnos                         =   contandoRuaAEldoradoFurto2018                      + contandoRuaAEldoradoFurto2019;
+        contandoRuaBEldoradoFurtoTodosAnos                         =   contandoRuaBEldoradoFurto2018                      + contandoRuaBEldoradoFurto2019;
+        contandoRuaCEldoradoFurtoTodosAnos                         =   contandoRuaCEldoradoFurto2018                      + contandoRuaCEldoradoFurto2019;
+        contandoRuaDEldoradoFurtoTodosAnos                         =   contandoRuaDEldoradoFurto2018                      + contandoRuaDEldoradoFurto2019;
+        contandoRuaEEldoradoFurtoTodosAnos                         =   contandoRuaEEldoradoFurto2018                      + contandoRuaEEldoradoFurto2019;
+
+
+        contandoRuaGEldoradoFurtoTodosAnos                         =   contandoRuaGEldoradoFurto2018                      + contandoRuaGEldoradoFurto2019;
+        contandoRuaJEldoradoFurtoTodosAnos                         =   contandoRuaJEldoradoFurto2018                      + contandoRuaJEldoradoFurto2019;
+        contandoRuaLEldoradoFurtoTodosAnos                         =   contandoRuaLEldoradoFurto2018                      + contandoRuaLEldoradoFurto2019;
+        contandoRuaMEldoradoFurtoTodosAnos                         =   contandoRuaMEldoradoFurto2018                      + contandoRuaMEldoradoFurto2019;
+        contandoAvSeisEldoradoRouboTodosAnos                       =   contandoAvSeisEldoradoRoubo2018                    + contandoAvSeisEldoradoRoubo2019;
+        contandoRuaAEldoradoRouboTodosAnos                         =   contandoRuaAEldoradoRoubo2018                      + contandoRuaAEldoradoRoubo2019;
+        contandoRuaBEldoradoRouboTodosAnos                         =   contandoRuaBEldoradoRoubo2018                      + contandoRuaBEldoradoRoubo2019;
+        contandoRuaCEldoradoRouboTodosAnos                         =   contandoRuaCEldoradoRoubo2018                      + contandoRuaCEldoradoRoubo2019;
+        contandoRuaDEldoradoRouboTodosAnos                         =   contandoRuaDEldoradoRoubo2018                      + contandoRuaDEldoradoRoubo2019;
+        contandoRuaEEldoradoRouboTodosAnos                         =   contandoRuaEEldoradoRoubo2018                      + contandoRuaEEldoradoRoubo2019;
+        contandoRuaGEldoradoRouboTodosAnos                         =   contandoRuaGEldoradoRoubo2018                      + contandoRuaGEldoradoRoubo2019;
+
+
+        contandoRuaJEldoradoRouboTodosAnos                         =   contandoRuaJEldoradoRoubo2018                      + contandoRuaJEldoradoRoubo2019;
+        contandoRuaLEldoradoRouboTodosAnos                         =   contandoRuaLEldoradoRoubo2018                      + contandoRuaLEldoradoRoubo2019;
+        contandoRuaMEldoradoRouboTodosAnos                         =   contandoRuaMEldoradoRoubo2018                      + contandoRuaMEldoradoRoubo2019;
+        contandoRuaAterroCeramicaFurtoTodosAnos                    =   contandoRuaAterroCeramicaFurto2018                 + contandoRuaAterroCeramicaFurto2019;
+        contandoRuaBrasiliaMinasCeramicaFurtoTodosAnos             =   contandoRuaBrasiliaMinasCeramicaFurto2018          + contandoRuaBrasiliaMinasCeramicaFurto2019;
+        contandoRuaItacarambiCeramicaFurtoTodosAnos                =   contandoRuaItacarambiCeramicaFurto2018             + contandoRuaItacarambiCeramicaFurto2019;
+        contandoRuaItapiracabaCeramicaFurtoTodosAnos               =   contandoRuaItapiracabaCeramicaFurto2018            + contandoRuaItapiracabaCeramicaFurto2019;
+        contandoRuaMangaCeramicaFurtoTodosAnos                     =   contandoRuaMangaCeramicaFurto2018                  + contandoRuaMangaCeramicaFurto2019;
+        contandoRuaMontesClarosCeramicaFurtoTodosAnos              =   contandoRuaMontesClarosCeramicaFurto2018           + contandoRuaMontesClarosCeramicaFurto2019;
+        contandoRuaMontalvaniaCeramicaFurtoTodosAnos               =   contandoRuaMontalvaniaCeramicaFurto2018            + contandoRuaMontalvaniaCeramicaFurto2019;
+        contandoRuaVarzelandiaCeramicaFurtoTodosAnos               =   contandoRuaVarzelandiaCeramicaFurto2018            + contandoRuaVarzelandiaCeramicaFurto2019;
+        contandoRuaMiltonCamposCeramicaFurtoTodosAnos              =   contandoRuaMiltonCamposCeramicaFurto2018           + contandoRuaMiltonCamposCeramicaFurto2019;
+
+
+        contandoRuaMiltonSaCeramicaFurtoTodosAnos                  =   contandoRuaMiltonSaCeramicaFurto2018               + contandoRuaMiltonSaCeramicaFurto2019;
+        contandoRuaAterroCeramicaRouboTodosAnos                    =   contandoRuaAterroCeramicaRoubo2018                 + contandoRuaAterroCeramicaRoubo2019;
+        contandoRuaBrasiliaMinasCeramicaRouboTodosAnos             =   contandoRuaBrasiliaMinasCeramicaRoubo2018          + contandoRuaBrasiliaMinasCeramicaRoubo2019;
+        contandoRuaItacarambiCeramicaRouboTodosAnos                =   contandoRuaItacarambiCeramicaRoubo2018             + contandoRuaItacarambiCeramicaRoubo2019;
+        contandoRuaItapiracabaCeramicaRouboTodosAnos               =   contandoRuaItapiracabaCeramicaRoubo2018            + contandoRuaItapiracabaCeramicaRoubo2019;
+        contandoRuaMangaCeramicaRouboTodosAnos                     =   contandoRuaMangaCeramicaRoubo2018                  + contandoRuaMangaCeramicaRoubo2019;
+        contandoRuaMontesClarosCeramicaRouboTodosAnos              =   contandoRuaMontesClarosCeramicaRoubo2018           + contandoRuaMontesClarosCeramicaRoubo2019;
+        contandoRuaMontalvaniaCeramicaRouboTodosAnos               =   contandoRuaMontalvaniaCeramicaRoubo2018            + contandoRuaMontalvaniaCeramicaRoubo2019;
+        contandoRuaVarzelandiaCeramicaRouboTodosAnos               =   contandoRuaVarzelandiaCeramicaRoubo2018            + contandoRuaVarzelandiaCeramicaRoubo2019;
+        contandoRuaMiltonCamposCeramicaRouboTodosAnos              =   contandoRuaMiltonCamposCeramicaRoubo2018           + contandoRuaMiltonCamposCeramicaRoubo2019;
+        contandoRuaMiltonSaCeramicaRouboTodosAnos                  =   contandoRuaMiltonSaCeramicaRoubo2018               + contandoRuaMiltonSaCeramicaRoubo2019;
+        contandoArturBernardesCentroFurtoTodosAnos                 =   contandoArturBernardesCentroFurto2018              + contandoArturBernardesCentroFurto2019;
+        contandoBaraoSaoRomaoCentroFurtoTodosAnos                  =   contandoBaraoSaoRomaoCentroFurto2018               + contandoBaraoSaoRomaoCentroFurto2019;
+        contandoBaraoRioBrancoCentroFurtoTodosAnos                 =   contandoBaraoRioBrancoCentroFurto2018              + contandoBaraoRioBrancoCentroFurto2019;
+        contandoConegoRamiroLeiteCentroFurtoTodosAnos              =   contandoConegoRamiroLeiteCentroFurto2018           + contandoConegoRamiroLeiteCentroFurto2019;
+        contandoCelCassianoCentroFurtoTodosAnos                    =   contandoCelCassianoCentroFurto2018                 + contandoCelCassianoCentroFurto2019;
+        contandoCelSerraoCentroFurtoTodosAnos                      =   contandoCelSerraoCentroFurto2018                   + contandoCelSerraoCentroFurto2019;
+        contandoDomDanielCentroFurtoTodosAnos                      =   contandoDomDanielCentroFurto2018                   + contandoDomDanielCentroFurto2019;
+
+
+        contandoGetulioVargasCentroFurtoTodosAnos                  =   contandoGetulioVargasCentroFurto2018               + contandoGetulioVargasCentroFurto2019;
+        contandoPadreHenriqueCentroFurtoTodosAnos                  =   contandoPadreHenriqueCentroFurto2018               + contandoPadreHenriqueCentroFurto2019;
+        contandoPracaTiradentesCentroFurtoTodosAnos                =   contandoPracaTiradentesCentroFurto2018             + contandoPracaTiradentesCentroFurto2019;
+        contandoArturBernardesCentroRouboTodosAnos                 =   contandoArturBernardesCentroRoubo2018              + contandoArturBernardesCentroRoubo2019;
+        contandoBaraoSaoRomaoCentroRouboTodosAnos                  =   contandoBaraoSaoRomaoCentroRoubo2018               + contandoBaraoSaoRomaoCentroRoubo2019;
+        contandoBaraoRioBrancoCentroRouboTodosAnos                 =   contandoBaraoRioBrancoCentroRoubo2018              + contandoBaraoRioBrancoCentroRoubo2019;
+        contandoConegoRamiroLeiteCentroRouboTodosAnos              =   contandoConegoRamiroLeiteCentroRoubo2018           + contandoConegoRamiroLeiteCentroRoubo2019;
+        contandoCelCassianoCentroRouboTodosAnos                    =   contandoCelCassianoCentroRoubo2018                 + contandoCelCassianoCentroRoubo2019;
+        contandoCelSerraoCentroRouboTodosAnos                      =   contandoCelSerraoCentroRoubo2018                   + contandoCelSerraoCentroRoubo2019;
+        contandoDomDanielCentroRouboTodosAnos                      =   contandoDomDanielCentroRoubo2018                   + contandoDomDanielCentroRoubo2019;
+        contandoGetulioVargasCentroRouboTodosAnos                  =   contandoGetulioVargasCentroRoubo2018               + contandoGetulioVargasCentroRoubo2019;
+        contandoPadreHenriqueCentroRouboTodosAnos                  =   contandoPadreHenriqueCentroRoubo2018               + contandoPadreHenriqueCentroRoubo2019;
+        contandoPracaTiradentesCentroRouboTodosAnos                =   contandoPracaTiradentesCentroRoubo2018             + contandoPracaTiradentesCentroRoubo2019;
+        contandoAlamedaRiachoBrejoAmparoFurtoTodosAnos             =   contandoAlamedaRiachoBrejoAmparoFurto2018          + contandoAlamedaRiachoBrejoAmparoFurto2019;
+        contandoRuaBelaVistaBrejoAmparoFurtoTodosAnos              =   contandoRuaBelaVistaBrejoAmparoFurto2018           + contandoRuaBelaVistaBrejoAmparoFurto2019;
+        contandoRuaSerraBrejoAmparoFurtoTodosAnos                  =   contandoRuaSerraBrejoAmparoFurto2018               + contandoRuaSerraBrejoAmparoFurto2019;
+        contandoRuaFloresBrejoAmparoFurtoTodosAnos                 =   contandoRuaFloresBrejoAmparoFurto2018              + contandoRuaFloresBrejoAmparoFurto2019;
+        contandoRuaPadreJosinoBrejoAmparoFurtoTodosAnos            =   contandoRuaPadreJosinoBrejoAmparoFurto2018         + contandoRuaPadreJosinoBrejoAmparoFurto2019;
+
+
+
+
+        contandoRuaPadreRamiroAmparoFurtoTodosAnos                 =   contandoRuaPadreRamiroAmparoFurto2018              + contandoRuaPadreRamiroAmparoFurto2019;
+        contandoRuaTabatingaBrejoAmparoFurtoTodosAnos              =   contandoRuaTabatingaBrejoAmparoFurto2018           + contandoRuaTabatingaBrejoAmparoFurto2019;
+        contandoRuaTabocaBrejoAmparoFurtoTodosAnos                 =   contandoRuaTabocaBrejoAmparoFurto2018              + contandoRuaTabocaBrejoAmparoFurto2019;
+        contandoRuaTrintaSeteBrejoAmparoFurtoTodosAnos             =   contandoRuaTrintaSeteBrejoAmparoFurto2018          + contandoRuaTrintaSeteBrejoAmparoFurto2019;
+        contandoRuaTrintaOitoBrejoAmparoFurtoTodosAnos             =   contandoRuaTrintaOitoBrejoAmparoFurto2018          + contandoRuaTrintaOitoBrejoAmparoFurto2019;
+        contandoAlamedaRiachoBrejoAmparoRouboTodosAnos             =   contandoAlamedaRiachoBrejoAmparoRoubo2018          + contandoAlamedaRiachoBrejoAmparoRoubo2019;
+        contandoRuaBelaVistaBrejoAmparoRouboTodosAnos              =   contandoRuaBelaVistaBrejoAmparoRoubo2018           + contandoRuaBelaVistaBrejoAmparoRoubo2019;
+        contandoRuaSerraBrejoAmparoRouboTodosAnos                  =   contandoRuaSerraBrejoAmparoRoubo2018               + contandoRuaSerraBrejoAmparoRoubo2019;
+        contandoRuaFloresBrejoAmparoRouboTodosAnos                 =   contandoRuaFloresBrejoAmparoRoubo2018              + contandoRuaFloresBrejoAmparoRoubo2019;
+        contandoRuaPadreJosinoBrejoAmparoRouboTodosAnos            =   contandoRuaPadreJosinoBrejoAmparoRoubo2018         + contandoRuaPadreJosinoBrejoAmparoRoubo2019;
+        contandoRuaPadreRamiroAmparoRouboTodosAnos                 =   contandoRuaPadreRamiroAmparoRoubo2018              + contandoRuaPadreRamiroAmparoRoubo2019;
+        contandoRuaTabatingaBrejoAmparoRouboTodosAnos              =   contandoRuaTabatingaBrejoAmparoRoubo2018           + contandoRuaTabatingaBrejoAmparoRoubo2019;
+        contandoRuaTabocaBrejoAmparoRouboTodosAnos                 =   contandoRuaTabocaBrejoAmparoRoubo2018              + contandoRuaTabocaBrejoAmparoRoubo2019;
+        contandoRuaTrintaSeteBrejoAmparoRouboTodosAnos             =   contandoRuaTrintaSeteBrejoAmparoRoubo2018          + contandoRuaTrintaSeteBrejoAmparoRoubo2019;
+        contandoRuaTrintaOitoBrejoAmparoRouboTodosAnos             =   contandoRuaTrintaOitoBrejoAmparoRoubo2018          + contandoRuaTrintaOitoBrejoAmparoRoubo2019;
+        contandoRuaUmVilaBrasilandiaFurtoTodosAnos                 =   contandoRuaUmVilaBrasilandiaFurto2018              + contandoRuaUmVilaBrasilandiaFurto2019;
+        contandoRuaDoisVilaBrasilandiaFurtoTodosAnos               =   contandoRuaDoisVilaBrasilandiaFurto2018            + contandoRuaDoisVilaBrasilandiaFurto2019;
+        contandoRuaTresVilaBrasilandiaFurtoTodosAnos               =   contandoRuaTresVilaBrasilandiaFurto2018            + contandoRuaTresVilaBrasilandiaFurto2019;
+        contandoRuaQuatroVilaBrasilandiaFurtoTodosAnos             =   contandoRuaQuatroVilaBrasilandiaFurto2018          + contandoRuaQuatroVilaBrasilandiaFurto2019;
+        contandoRuaCincoVilaBrasilandiaFurtoTodosAnos              =   contandoRuaCincoVilaBrasilandiaFurto2018           + contandoRuaCincoVilaBrasilandiaFurto2019;
+        contandoRuaSeisVilaBrasilandiaFurtoTodosAnos               =   contandoRuaSeisVilaBrasilandiaFurto2018            + contandoRuaSeisVilaBrasilandiaFurto2019;
+        contandoRuaSeteVilaBrasilandiaFurtoTodosAnos               =   contandoRuaSeteVilaBrasilandiaFurto2018            + contandoRuaSeteVilaBrasilandiaFurto2019;
+
+
+
+
+
+        contandoRuaMinasGeraisVilaBrasilandiaFurtoTodosAnos        =   contandoRuaMinasGeraisVilaBrasilandiaFurto2018     + contandoRuaMinasGeraisVilaBrasilandiaFurto2019;
+        contandoRuaPiraporaVilaBrasilandiaFurtoTodosAnos           =   contandoRuaPiraporaVilaBrasilandiaFurto2018        + contandoRuaPiraporaVilaBrasilandiaFurto2019;
+        contandoRuaSaoLuizVilaBrasilandiaFurtoTodosAnos            =   contandoRuaSaoLuizVilaBrasilandiaFurto2018         + contandoRuaSaoLuizVilaBrasilandiaFurto2019;
+        contandoRuaUmVilaBrasilandiaRouboTodosAnos                 =   contandoRuaUmVilaBrasilandiaRoubo2018              + contandoRuaUmVilaBrasilandiaRoubo2019;
+        contandoRuaDoisVilaBrasilandiaRouboTodosAnos               =   contandoRuaDoisVilaBrasilandiaRoubo2018            + contandoRuaDoisVilaBrasilandiaRoubo2019;
+        contandoRuaTresVilaBrasilandiaRouboTodosAnos               =   contandoRuaTresVilaBrasilandiaRoubo2018            + contandoRuaTresVilaBrasilandiaRoubo2019;
+        contandoRuaQuatroVilaBrasilandiaRouboTodosAnos             =   contandoRuaQuatroVilaBrasilandiaRoubo2018          + contandoRuaQuatroVilaBrasilandiaRoubo2019;
+        contandoRuaCincoVilaBrasilandiaRouboTodosAnos              =   contandoRuaCincoVilaBrasilandiaRoubo2018           + contandoRuaCincoVilaBrasilandiaRoubo2019;
+        contandoRuaSeisVilaBrasilandiaRouboTodosAnos               =   contandoRuaSeisVilaBrasilandiaRoubo2018            + contandoRuaSeisVilaBrasilandiaRoubo2019;
+        contandoRuaSeteVilaBrasilandiaRouboTodosAnos               =   contandoRuaSeteVilaBrasilandiaRoubo2018            + contandoRuaSeteVilaBrasilandiaRoubo2019;
+        contandoRuaMinasGeraisVilaBrasilandiaRouboTodosAnos        =   contandoRuaMinasGeraisVilaBrasilandiaRoubo2018     + contandoRuaMinasGeraisVilaBrasilandiaRoubo2019;
+        contandoRuaPiraporaVilaBrasilandiaRouboTodosAnos           =   contandoRuaPiraporaVilaBrasilandiaRoubo2018        + contandoRuaPiraporaVilaBrasilandiaRoubo2019;
+        contandoRuaSaoLuizVilaBrasilandiaRouboTodosAnos            =   contandoRuaSaoLuizVilaBrasilandiaRoubo2018         + contandoRuaSaoLuizVilaBrasilandiaRoubo2019;
+
+
+
+        contandoRuaABoaVistaFurtoTodosAnos                         =   contandoRuaABoaVistaFurto2018                      + contandoRuaABoaVistaFurto2019;
+        contandoRuaBBoaVistaFurtoTodosAnos                         =   contandoRuaBBoaVistaFurto2018                      + contandoRuaBBoaVistaFurto2019;
+        contandoRuaCBoaVistaFurtoTodosAnos                         =   contandoRuaCBoaVistaFurto2018                      + contandoRuaCBoaVistaFurto2019;
+        contandoRuaDBoaVistaFurtoTodosAnos                         =   contandoRuaDBoaVistaFurto2018                      + contandoRuaDBoaVistaFurto2019;
+        contandoRuaEBoaVistaFurtoTodosAnos                         =   contandoRuaEBoaVistaFurto2018                      + contandoRuaEBoaVistaFurto2019;
+        contandoRuaFBoaVistaFurtoTodosAnos                         =   contandoRuaFBoaVistaFurto2018                      + contandoRuaFBoaVistaFurto2019;
+        contandoRuaGBoaVistaFurtoTodosAnos                         =   contandoRuaGBoaVistaFurto2018                      + contandoRuaGBoaVistaFurto2019;
+        contandoRuaHBoaVistaFurtoTodosAnos                         =   contandoRuaHBoaVistaFurto2018                      + contandoRuaHBoaVistaFurto2019;
+        contandoRuaIBoaVistaFurtoTodosAnos                         =   contandoRuaIBoaVistaFurto2018                      + contandoRuaIBoaVistaFurto2019;
+        contandoRuaJBoaVistaFurtoTodosAnos                         =   contandoRuaJBoaVistaFurto2018                      + contandoRuaJBoaVistaFurto2019;
+        contandoRuaLBoaVistaFurtoTodosAnos                         =   contandoRuaLBoaVistaFurto2018                      + contandoRuaLBoaVistaFurto2019;
+        contandoRuaABoaVistaRouboTodosAnos                         =   contandoRuaABoaVistaRoubo2018                      + contandoRuaABoaVistaRoubo2019;
+        contandoRuaBBoaVistaRouboTodosAnos                         =   contandoRuaBBoaVistaRoubo2018                      + contandoRuaBBoaVistaRoubo2019;
+        contandoRuaCBoaVistaRouboTodosAnos                         =   contandoRuaCBoaVistaRoubo2018                      + contandoRuaCBoaVistaRoubo2019;
+        contandoRuaDBoaVistaRouboTodosAnos                         =   contandoRuaDBoaVistaRoubo2018                      + contandoRuaDBoaVistaRoubo2019;
+        contandoRuaEBoaVistaRouboTodosAnos                         =   contandoRuaEBoaVistaRoubo2018                      + contandoRuaEBoaVistaRoubo2019;
+        contandoRuaFBoaVistaRouboTodosAnos                         =   contandoRuaFBoaVistaRoubo2018                      + contandoRuaFBoaVistaRoubo2019;
+        contandoRuaGBoaVistaRouboTodosAnos                         =   contandoRuaGBoaVistaRoubo2018                      + contandoRuaGBoaVistaRoubo2019;
+        contandoRuaHBoaVistaRouboTodosAnos                         =   contandoRuaHBoaVistaRoubo2018                      + contandoRuaHBoaVistaRoubo2019;
+        contandoRuaIBoaVistaRouboTodosAnos                         =   contandoRuaIBoaVistaRoubo2018                      + contandoRuaIBoaVistaRoubo2019;
+        contandoRuaJBoaVistaRouboTodosAnos                         =   contandoRuaJBoaVistaRoubo2018                      + contandoRuaJBoaVistaRoubo2019;
+        contandoRuaLBoaVistaRouboTodosAnos                         =   contandoRuaLBoaVistaRoubo2018                      + contandoRuaLBoaVistaRoubo2019;
+        contandoRuaUmBoaEsperancaFurtoTodosAnos                    =   contandoRuaUmBoaEsperancaFurto2018                 + contandoRuaUmBoaEsperancaFurto2019;
+        contandoRuaDoisBoaEsperancaFurtoTodosAnos                  =   contandoRuaDoisBoaEsperancaFurto2018               + contandoRuaDoisBoaEsperancaFurto2019;
+        contandoRuaTresBoaEsperancaFurtoTodosAnos                  =   contandoRuaTresBoaEsperancaFurto2018               + contandoRuaTresBoaEsperancaFurto2019;
+        contandoRuaQuatroBoaEsperancaFurtoTodosAnos                =   contandoRuaQuatroBoaEsperancaFurto2018             + contandoRuaQuatroBoaEsperancaFurto2019;
+        contandoRuaCincoBoaEsperancaFurtoTodosAnos                 =   contandoRuaCincoBoaEsperancaFurto2018              + contandoRuaCincoBoaEsperancaFurto2019;
+        contandoRuaSeisBoaEsperancaFurtoTodosAnos                  =   contandoRuaSeisBoaEsperancaFurto2018               + contandoRuaSeisBoaEsperancaFurto2019;
+        contandoRuaTrezeMaioBoaEsperancaFurtoTodosAnos             =   contandoRuaTrezeMaioBoaEsperancaFurto2018          + contandoRuaTrezeMaioBoaEsperancaFurto2019;
+        contandoRuaLuisTupinaBoaEsperancaFurtoTodosAnos            =   contandoRuaLuisTupinaBoaEsperancaFurto2018         + contandoRuaLuisTupinaBoaEsperancaFurto2019;
+        contandoRuaHermilioTupinaBoaEsperancaFurtoTodosAnos        =   contandoRuaHermilioTupinaBoaEsperancaFurto2018     + contandoRuaHermilioTupinaBoaEsperancaFurto2019;
+        contandoRuaSaoGeraldoBoaEsperancaFurtoTodosAnos            =   contandoRuaSaoGeraldoBoaEsperancaFurto2018         + contandoRuaSaoGeraldoBoaEsperancaFurto2019;
+        contandoRuaUmBoaEsperancaRouboTodosAnos                    =   contandoRuaUmBoaEsperancaRoubo2018                 + contandoRuaUmBoaEsperancaRoubo2019;
+        contandoRuaDoisBoaEsperancaRouboTodosAnos                  =   contandoRuaDoisBoaEsperancaRoubo2018               + contandoRuaDoisBoaEsperancaRoubo2019;
+
+
+
+        contandoRuaTresBoaEsperancaRouboTodosAnos                  =   contandoRuaTresBoaEsperancaRoubo2018               + contandoRuaTresBoaEsperancaRoubo2019;
+        contandoRuaQuatroBoaEsperancaRouboTodosAnos                =   contandoRuaQuatroBoaEsperancaRoubo2018             + contandoRuaQuatroBoaEsperancaRoubo2019;
+        contandoRuaCincoBoaEsperancaRouboTodosAnos                 =   contandoRuaCincoBoaEsperancaRoubo2018              + contandoRuaCincoBoaEsperancaRoubo2019;
+        contandoRuaSeisBoaEsperancaRouboTodosAnos                  =   contandoRuaSeisBoaEsperancaRoubo2018               + contandoRuaSeisBoaEsperancaRoubo2019;
+        contandoRuaTrezeMaioBoaEsperancaRouboTodosAnos             =   contandoRuaTrezeMaioBoaEsperancaRoubo2018          + contandoRuaTrezeMaioBoaEsperancaRoubo2019;
+        contandoRuaLuisTupinaBoaEsperancaRouboTodosAnos            =   contandoRuaLuisTupinaBoaEsperancaRoubo2018         + contandoRuaLuisTupinaBoaEsperancaRoubo2019;
+        contandoRuaHermilioTupinaBoaEsperancaRouboTodosAnos        =   contandoRuaHermilioTupinaBoaEsperancaRoubo2018     + contandoRuaHermilioTupinaBoaEsperancaRoubo2019;
+        contandoRuaSaoGeraldoBoaEsperancaRouboTodosAnos            =   contandoRuaSaoGeraldoBoaEsperancaRoubo2018         + contandoRuaSaoGeraldoBoaEsperancaRoubo2019;
+        contandoRuaUmBandeirantesFurtoTodosAnos                    =   contandoRuaUmBandeirantesFurto2018                 + contandoRuaUmBandeirantesFurto2019;
+        contandoRuaABandeirantesFurtoTodosAnos                     =   contandoRuaABandeirantesFurto2018                  + contandoRuaABandeirantesFurto2019;
+        contandoRuaEBandeirantesFurtoTodosAnos                     =   contandoRuaEBandeirantesFurto2018                  + contandoRuaEBandeirantesFurto2019;
+        contandoRuaJBandeirantesFurtoTodosAnos                     =   contandoRuaJBandeirantesFurto2018                  + contandoRuaJBandeirantesFurto2019;
+        contandoRuaKBandeirantesFurtoTodosAnos                     =   contandoRuaKBandeirantesFurto2018                  + contandoRuaKBandeirantesFurto2019;
+        contandoRuaMirabelaBandeirantesFurtoTodosAnos              =   contandoRuaMirabelaBandeirantesFurto2018           + contandoRuaMirabelaBandeirantesFurto2019;
+        contandoTvMirabelaBandeirantesFurtoTodosAnos               =   contandoTvMirabelaBandeirantesFurto2018            + contandoTvMirabelaBandeirantesFurto2019;
+        contandoTvJulioBandeirantesFurtoTodosAnos                  =   contandoTvJulioBandeirantesFurto2018               + contandoTvJulioBandeirantesFurto2019;
+        contandoRuaUmBandeirantesRouboTodosAnos                    =   contandoRuaUmBandeirantesRoubo2018                 + contandoRuaUmBandeirantesRoubo2019;
+        contandoRuaABandeirantesRouboTodosAnos                     =   contandoRuaABandeirantesRoubo2018                  + contandoRuaABandeirantesRoubo2019;
+        contandoRuaEBandeirantesRouboTodosAnos                     =   contandoRuaEBandeirantesRoubo2018                  + contandoRuaEBandeirantesRoubo2019;
+
+
+        contandoRuaJBandeirantesRouboTodosAnos                     =   contandoRuaJBandeirantesRoubo2018                  + contandoRuaJBandeirantesRoubo2019;
+        contandoRuaKBandeirantesRouboTodosAnos                     =   contandoRuaKBandeirantesRoubo2018                  + contandoRuaKBandeirantesRoubo2019;
+        contandoRuaMirabelaBandeirantesRouboTodosAnos              =   contandoRuaMirabelaBandeirantesRoubo2018           + contandoRuaMirabelaBandeirantesRoubo2019;
+        contandoTvMirabelaBandeirantesRouboTodosAnos               =   contandoTvMirabelaBandeirantesRoubo2018            + contandoTvMirabelaBandeirantesRoubo2019;
+        contandoTvJulioBandeirantesRouboTodosAnos                  =   contandoTvJulioBandeirantesRoubo2018               + contandoTvJulioBandeirantesRoubo2019;
+        contandoRuaAterroAlvoradaFurtoTodosAnos                    =   contandoRuaAterroAlvoradaFurto2018                 + contandoRuaAterroAlvoradaFurto2019;
+        contandoRuaUmAlvoradaFurtoTodosAnos                        =   contandoRuaUmAlvoradaFurto2018                     + contandoRuaUmAlvoradaFurto2019;
+        contandoRuaAAlvoradaFurtoTodosAnos                         =   contandoRuaAAlvoradaFurto2018                      + contandoRuaAAlvoradaFurto2019;
+        contandoRuaEAlvoradaFurtoTodosAnos                         =   contandoRuaEAlvoradaFurto2018                      + contandoRuaEAlvoradaFurto2019;
+        contandoRuaJAlvoradaFurtoTodosAnos                         =   contandoRuaJAlvoradaFurto2018                      + contandoRuaJAlvoradaFurto2019;
+        contandoRuaKAlvoradaFurtoTodosAnos                         =   contandoRuaKAlvoradaFurto2018                      + contandoRuaKAlvoradaFurto2019;
+        contandoRuaLAlvoradaFurtoTodosAnos                         =   contandoRuaLAlvoradaFurto2018                      + contandoRuaLAlvoradaFurto2019;
+        contandoRuaMAlvoradaFurtoTodosAnos                         =   contandoRuaMAlvoradaFurto2018                      + contandoRuaMAlvoradaFurto2019;
+        contandoRuaNAlvoradaFurtoTodosAnos                         =   contandoRuaNAlvoradaFurto2018                      + contandoRuaNAlvoradaFurto2019;
+        contandoRuaOAlvoradaFurtoTodosAnos                         =   contandoRuaOAlvoradaFurto2018                      + contandoRuaOAlvoradaFurto2019;
+        contandoRuaAterroAlvoradaRouboTodosAnos                    =   contandoRuaAterroAlvoradaRoubo2018                 + contandoRuaAterroAlvoradaRoubo2019;
+        contandoRuaUmAlvoradaRouboTodosAnos                        =   contandoRuaUmAlvoradaRoubo2018                     + contandoRuaUmAlvoradaRoubo2019;
+        contandoRuaAAlvoradaRouboTodosAnos                         =   contandoRuaAAlvoradaRoubo2018                      + contandoRuaAAlvoradaRoubo2019;
+        contandoRuaEAlvoradaRouboTodosAnos                         =   contandoRuaEAlvoradaRoubo2018                      + contandoRuaEAlvoradaRoubo2019;
+        contandoRuaJAlvoradaRouboTodosAnos                         =   contandoRuaJAlvoradaRoubo2018                      + contandoRuaJAlvoradaRoubo2019;
+        contandoRuaKAlvoradaRouboTodosAnos                         =   contandoRuaKAlvoradaRoubo2018                      + contandoRuaKAlvoradaRoubo2019;
+        contandoRuaLAlvoradaRouboTodosAnos                         =   contandoRuaLAlvoradaRoubo2018                      + contandoRuaLAlvoradaRoubo2019;
+        contandoRuaMAlvoradaRouboTodosAnos                         =   contandoRuaMAlvoradaRoubo2018                      + contandoRuaMAlvoradaRoubo2019;
+        contandoRuaNAlvoradaRouboTodosAnos                         =   contandoRuaNAlvoradaRoubo2018                      + contandoRuaNAlvoradaRoubo2019;
+        contandoRuaOAlvoradaRouboTodosAnos                         =   contandoRuaOAlvoradaRoubo2018                      + contandoRuaOAlvoradaRoubo2019;
+        contandoRuaUmAltoPocoesFurtoTodosAnos                      =   contandoRuaUmAltoPocoesFurto2018                   + contandoRuaUmAltoPocoesFurto2019;
+        contandoRuaDoisAltoPocoesFurtoTodosAnos                    =   contandoRuaDoisAltoPocoesFurto2018                 + contandoRuaDoisAltoPocoesFurto2019;
+
+
+
+        contandoRuaTresAltoPocoesFurtoTodosAnos                    =   contandoRuaTresAltoPocoesFurto2018                 + contandoRuaTresAltoPocoesFurto2019;
+        contandoRuaQuatroAltoPocoesFurtoTodosAnos                  =   contandoRuaQuatroAltoPocoesFurto2018               + contandoRuaQuatroAltoPocoesFurto2019;
+        contandoRuaCincoAltoPocoesFurtoTodosAnos                   =   contandoRuaCincoAltoPocoesFurto2018                + contandoRuaCincoAltoPocoesFurto2019;
+        contandoAvUmAltoPocoesFurtoTodosAnos                       =   contandoAvUmAltoPocoesFurto2018                    + contandoAvUmAltoPocoesFurto2019;
+        contandoAvDoisRuaAltoPocoesFurtoTodosAnos                  =   contandoAvDoisRuaAltoPocoesFurto2018               + contandoAvDoisRuaAltoPocoesFurto2019;
+        contandoAvTresAltoPocoesFurtoTodosAnos                     =   contandoAvTresAltoPocoesFurto2018                  + contandoAvTresAltoPocoesFurto2019;
+        contandoAvQuatroAltoPocoesFurtoTodosAnos                   =   contandoAvQuatroAltoPocoesFurto2018                + contandoAvQuatroAltoPocoesFurto2019;
+        contandoAvCincoAltoPocoesFurtoTodosAnos                    =   contandoAvCincoAltoPocoesFurto2018                 + contandoAvCincoAltoPocoesFurto2019;
+        contandoRuaUmAltoPocoesRouboTodosAnos                      =   contandoRuaUmAltoPocoesRoubo2018                   + contandoRuaUmAltoPocoesRoubo2019;
+        contandoRuaDoisAltoPocoesRouboTodosAnos                    =   contandoRuaDoisAltoPocoesRoubo2018                 + contandoRuaDoisAltoPocoesRoubo2019;
+        contandoRuaTresAltoPocoesRouboTodosAnos                    =   contandoRuaTresAltoPocoesRoubo2018                 + contandoRuaTresAltoPocoesRoubo2019;
+        contandoRuaQuatroAltoPocoesRouboTodosAnos                  =   contandoRuaQuatroAltoPocoesRoubo2018               + contandoRuaQuatroAltoPocoesRoubo2019;
+        contandoRuaCincoAltoPocoesRouboTodosAnos                   =   contandoRuaCincoAltoPocoesRoubo2018                + contandoRuaCincoAltoPocoesRoubo2019;
+        contandoAvUmAltoPocoesRouboTodosAnos                       =   contandoAvUmAltoPocoesRoubo2018                    + contandoAvUmAltoPocoesRoubo2019;
+
+
+        contandoAvDoisRuaAltoPocoesRouboTodosAnos                  =   contandoAvDoisRuaAltoPocoesRoubo2018               + contandoAvDoisRuaAltoPocoesRoubo2019;
+        contandoAvTresAltoPocoesRouboTodosAnos                     =   contandoAvTresAltoPocoesRoubo2018                  + contandoAvTresAltoPocoesRoubo2019;
+        contandoAvQuatroAltoPocoesRouboTodosAnos                   =   contandoAvQuatroAltoPocoesRoubo2018                + contandoAvQuatroAltoPocoesRoubo2019;
+        contandoAvCincoAltoPocoesRouboTodosAnos                    =   contandoAvCincoAltoPocoesRoubo2018                 + contandoAvCincoAltoPocoesRoubo2019;
+        contandoRuaRamiroLeiteJadeteRouboTodosAnos                 =   contandoRuaRamiroLeiteJadeteRoubo2018              + contandoRuaRamiroLeiteJadeteRouboAno2019;
+        contandoRuaAlameidaVianaJadeteRouboTodosAnos               =   contandoRuaAlameidaVianaJadeteRoubo2018            + contandoRuaAlameidaVianaJadeteRouboAno2019;
+        contandoRuaInezitaJadeteRouboTodosAnos                     =   contandoRuaInezitaJadeteRoubo2018                  + contandoRuaInezitaJadeteRouboAno2019;
+        contandoRuaIslaHJadeteRouboTodosAnos                       =   contandoRuaIslaHJadeteRoubo2018                    + contandoRuaIslaHJadeteRouboAno2019;
+        contandoRuaSantoAntJadeteRouboTodosAnos                    =   contandoRuaSantoAntJadeteRoubo2018                 + contandoRuaSantoAntJadeteRouboAno2019;
+        contandoRuaVianaJadeteRouboTodosAnos                       =   contandoRuaVianaJadeteRoubo2018                    + contandoRuaVianaJadeteRouboAno2019;
+        contandoRuavinteDoisJadeteRouboTodosAnos                   =   contandoRuavinteDoisJadeteRoubo2018                + contandoRuavinteDoisJadeteRouboAno2019;
+        contandoRuaJoaoAlkimimJadeteRouboTodosAnos                 =   contandoRuaJoaoAlkimimJadeteRoubo2018              + contandoRuaJoaoAlkimimJadeteRouboAno2019;
+        contandoTvVianaJadeteRouboTodosAnos                        =   contandoTvVianaJadeteRoubo2018                     + contandoTvVianaJadeteRouboAno2019;
+        contandoRuaRamiroLeiteJadeteFurtoTodosAnos                 =   contandoRuaRamiroLeiteJadeteFurto2018              + contandoRuaRamiroLeiteJadeteFurtoAno2019;
+        contandoRuaAlameidaVianaJadeteFurtoTodosAnos               =   contandoRuaAlameidaVianaJadeteFurto2018            + contandoRuaAlameidaVianaJadeteFurtoAno2019;
+        contandoRuaInezitaJadeteFurtoTodosAnos                     =   contandoRuaInezitaJadeteFurto2018                  + contandoRuaInezitaJadeteFurtoAno2019;
+        contandoRuaIslaHJadeteFurtoTodosAnos                       =   contandoRuaIslaHJadeteFurto2018                    + contandoRuaIslaHJadeteFurtoAno2019;
+        contandoRuaSantoAntJadeteFurtoTodosAnos                    =   contandoRuaSantoAntJadeteFurto2018                 + contandoRuaSantoAntJadeteFurtoAno2019;
+        contandoRuaVianaJadeteFurtoTodosAnos                       =   contandoRuaVianaJadeteFurto2018                    + contandoRuaVianaJadeteFurtoAno2019;
+        contandoRuavinteDoisJadeteFurtoTodosAnos                   =   contandoRuavinteDoisJadeteFurto2018                + contandoRuavinteDoisJadeteFurtoAno2019;
+        contandoRuaJoaoAlkimimJadeteFurtoTodosAnos                 =   contandoRuaJoaoAlkimimJadeteFurto2018              + contandoRuaJoaoAlkimimJadeteFurtoAno2019;
+        contandoTvVianaJadeteFurtoTodosAnos                        =   contandoTvVianaJadeteFurto2018                     + contandoTvVianaJadeteFurtoAno2019;
+        contandoAvAeroportoAeroportoRouboTodosAnos                 =   contandoAvAeroportoAeroportoRoubo2018              + contandoAvAeroportoAeroportoRoubo2019;
+        contandoAvSeisAeroportoRouboTodosAnos                      =   contandoAvSeisAeroportoRoubo2018                   + contandoAvSeisAeroportoRoubo2019;
+        contandoRuaRUmAeroportoRouboTodosAnos                      =   contandoRuaRUmAeroportoRoubo2018                   + contandoRuaRUmAeroportoRoubo2019;
+        contandoRuaRDoisAeroportoRouboTodosAnos                    =   contandoRuaRDoisAeroportoRoubo2018                 + contandoRuaRDoisAeroportoRoubo2019;
+        contandoRuaRTresAeroportoRouboTodosAnos                    =   contandoRuaRTresAeroportoRoubo2018                 + contandoRuaRTresAeroportoRoubo2019;
+
+
+        contandoRuaRQuatroAeroportoRouboTodosAnos                  =   contandoRuaRQuatroAeroportoRoubo2018               + contandoRuaRQuatroAeroportoRoubo2019;
+        contandoRuavinteTresAeroportoRouboTodosAnos                =   contandoRuavinteTresAeroportoRoubo2018             + contandoRuavinteTresAeroportoRoubo2019;
+        contandoRuaRXIAeroportoRouboTodosAnos                      =   contandoRuaRXIAeroportoRoubo2018                   + contandoRuaRXIAeroportoRoubo2019;
+        contandoAvAeroportoAeroportoFurtoTodosAnos                 =   contandoAvAeroportoAeroportoFurto2018              + contandoAvAeroportoAeroportoFurtada2019;
+        contandoAvSeisAeroportoFurtoTodosAnos                      =   contandoAvSeisAeroportoFurto2018                   + contandoAvSeisAeroportoFurtada2019;
+        contandoRuaRUmAeroportoFurtoTodosAnos                      =   contandoRuaRUmAeroportoFurto2018                   + contandoRuaRUmAeroportoFurtada2019;
+        contandoRuaRDoisAeroportoFurtoTodosAnos                    =   contandoRuaRDoisAeroportoFurto2018                 + contandoRuaRDoisAeroportoFurtada2019;
+        contandoRuaRTresAeroportoFurtoTodosAnos                    =   contandoRuaRTresAeroportoFurto2018                 + contandoRuaRTresAeroportoFurtada2019;
+        contandoRuaRQuatroAeroportoFurtoTodosAnos                  =   contandoRuaRQuatroAeroportoFurto2018               + contandoRuaRQuatroAeroportoFurtada2019;
+        contandoRuavinteTresAeroportoFurtoTodosAnos                =   contandoRuavinteTresAeroportoFurto2018             + contandoRuavinteTresAeroportoFurtada2019;
+        contandoRuaRXIAeroportoFurtoTodosAnos                      =   contandoRuaRXIAeroportoFurto2018                   + contandoRuaRXIAeroportoFurtada2019;
+
+
+
+
+
+
+
+
+
+
+
         return rootView;
 
 
@@ -4579,7 +5893,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaMontalvaniaCeramicaRouboTodosAnos,
                 contandoRuaVarzelandiaCeramicaRouboTodosAnos,
                 contandoRuaMiltonCamposCeramicaRouboTodosAnos,
-                contandoRuaMiltonSaCeramicaRouboTodosAnos,};
+                contandoRuaMiltonSaCeramicaRouboTodosAnos};
 
         int[]    furtosRuas = new int   []{ contandoRuaAterroCeramicaFurtoTodosAnos,
                 contandoRuaBrasiliaMinasCeramicaFurtoTodosAnos,
@@ -4590,7 +5904,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaMontalvaniaCeramicaFurtoTodosAnos,
                 contandoRuaVarzelandiaCeramicaFurtoTodosAnos,
                 contandoRuaMiltonCamposCeramicaFurtoTodosAnos,
-                contandoRuaMiltonSaCeramicaFurtoTodosAnos,};
+                contandoRuaMiltonSaCeramicaFurtoTodosAnos};
 
 
 
@@ -4678,14 +5992,14 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaVinteTresFranklimRouboTodosAnos,
                 contandoRuaVinteQuatroFranklimRouboTodosAnos,
                 contandoRuaR25FranklimdoRouboTodosAnos,
-                contandoRuaVinteOitoFranklimRouboTodosAnos,};
+                contandoRuaVinteOitoFranklimRouboTodosAnos};
 
         int[]    furtosRuas = new int   []{contandoRuaAntonioValeFilhoFranklimFurtoTodosAnos,
                 contandoRuaLFranklimFurtoTodosAnos,
                 contandoRuaVinteTresFranklimFurtoTodosAnos,
                 contandoRuaVinteQuatroFranklimFurtoTodosAnos,
                 contandoRuaR25FranklimdoFurtoTodosAnos,
-                contandoRuaVinteOitoFranklimFurtoTodosAnos,};
+                contandoRuaVinteOitoFranklimFurtoTodosAnos};
 
 
 
@@ -4815,7 +6129,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaBaraoSaoRomaoJardimEstrelaRouboTodosAnos,
                 contandoRuaJoaoGasparinoJardimEstrelaRouboTodosAnos,
                 contandoRuaVinteDoisJardimEstrelaRouboTodosAnos,
-                contandoRuaVinteTresJardimEstrelaRouboTodosAnos,};
+                contandoRuaVinteTresJardimEstrelaRouboTodosAnos};
 
         int[]    furtosRuas = new int   []{contandoRuaAJardimEstrelaFurtoTodosAnos,
                 contandoRuaBJardimEstrelaFurtoTodosAnos,
@@ -4827,7 +6141,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaBaraoSaoRomaoJardimEstrelaFurtoTodosAnos,
                 contandoRuaJoaoGasparinoJardimEstrelaFurtoTodosAnos,
                 contandoRuaVinteDoisJardimEstrelaFurtoTodosAnos,
-                contandoRuaVinteTresJardimEstrelaFurtoTodosAnos,};
+                contandoRuaVinteTresJardimEstrelaFurtoTodosAnos};
 
 
 
@@ -4904,7 +6218,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaSeteJussaraRouboTodosAnos,
                 contandoRuaOitoJussaraRouboTodosAnos,
                 contandoRuaNoveJussaraRouboTodosAnos,
-                contandoRuaDezJussaraRouboTodosAnos,};
+                contandoRuaDezJussaraRouboTodosAnos};
 
         int[]    furtosRuas = new int   []{contandoRuaUmJussaraFurtoTodosAnos,
                 contandoRuaDoisJussaraFurtoTodosAnos,
@@ -4915,7 +6229,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaSeteJussaraFurtoTodosAnos,
                 contandoRuaOitoJussaraFurtoTodosAnos,
                 contandoRuaNoveJussaraFurtoTodosAnos,
-                contandoRuaDezJussaraFurtoTodosAnos,};
+                contandoRuaDezJussaraFurtoTodosAnos};
 
 
 
@@ -5739,14 +7053,29 @@ public class GraficoRuaLinhaFragment extends Fragment {
 /// alimentar manualmente
 
 
+
+
     public void aeroporto2018(){
 
 
         String[] bairros  = new String[]{"Av. Aeroporto","Av. Seis","R. Um ","R. Dois","R. Três","R. Quatro","R. Vinte e Três","R. XI"};
-        int[]    rob = new int   []{12,12,10,12};
+        int[]    rob = new int   []{contandoAvAeroportoAeroportoRoubo2018,
+                contandoAvSeisAeroportoRoubo2018,
+                contandoRuaRUmAeroportoRoubo2018,
+                contandoRuaRDoisAeroportoRoubo2018,
+                contandoRuaRTresAeroportoRoubo2018,
+                contandoRuaRQuatroAeroportoRoubo2018,
+                contandoRuavinteTresAeroportoRoubo2018,
+                contandoRuaRXIAeroportoRoubo2018};
 
-        int[]    furt = new int   []{5,10,6,10};
-
+        int[]    furt = new int   []{contandoAvAeroportoAeroportoFurto2018,
+                contandoAvSeisAeroportoFurto2018,
+                contandoRuaRUmAeroportoFurto2018,
+                contandoRuaRDoisAeroportoFurto2018,
+                contandoRuaRTresAeroportoFurto2018,
+                contandoRuaRQuatroAeroportoFurto2018,
+                contandoRuavinteTresAeroportoFurto2018,
+                contandoRuaRXIAeroportoFurto2018};
 
 
         nomes   = bairros;
@@ -5761,9 +7090,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
     }
 
     public void alameida2018(){
-        //XX
-
-        String[] alameda = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alameda2018", "Rua 12"};
+        //xxx
+        String[] alameda = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alameda2019", "Rua 12"};
         int[] robAlameda = new int[]{10, 10, 10, 10};
 
         int[] furtAlameda = new int[]{5, 10, 6, 10};
@@ -5780,14 +7108,14 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
 
 
-    } //Não consta no google
+    } // não consta no google
 
     public void altoCemiterio2018(){
 
-        //XX
 
-        String[] altoCemitério = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério2018", "Rua 12"};
-        int[] robAltoCemitério = new int[]{10, 10, 10, 10};
+        //xxx
+
+        String[] altoCemitério = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério2019", "Rua 12"};int[] robAltoCemitério = new int[]{10, 10, 10, 10};
 
         int[] furtAltoCemitério = new int[]{5, 10, 6, 10};
 
@@ -5801,14 +7129,34 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         criarGraficos();
 
-    } //Não consta no google
+    }  // não consta no google
 
     public void altoPocoes2018(){
 
         String[] ruas  = new String[]{"R. Um","R. Dois","R. Três","R. Quatro","R. Cinco","Av. Um","Av. Dois", "Av. Três", "Av. Quatro", "Av. Cinco"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{contandoRuaUmAltoPocoesRoubo2018,
+                contandoRuaDoisAltoPocoesRoubo2018,
+                contandoRuaTresAltoPocoesRoubo2018,
+                contandoRuaQuatroAltoPocoesRoubo2018,
+                contandoRuaCincoAltoPocoesRoubo2018,
+                contandoAvUmAltoPocoesRoubo2018,
+                contandoAvDoisRuaAltoPocoesRoubo2018,
+                contandoAvTresAltoPocoesRoubo2018,
+                contandoAvQuatroAltoPocoesRoubo2018,
+                contandoAvCincoAltoPocoesRoubo2018};
+
+
+        int[]    furtosRuas =  new int   []{contandoRuaUmAltoPocoesFurto2018,
+                contandoRuaDoisAltoPocoesFurto2018,
+                contandoRuaTresAltoPocoesFurto2018,
+                contandoRuaQuatroAltoPocoesFurto2018,
+                contandoRuaCincoAltoPocoesFurto2018,
+                contandoAvUmAltoPocoesFurto2018,
+                contandoAvDoisRuaAltoPocoesFurto2018,
+                contandoAvTresAltoPocoesFurto2018,
+                contandoAvQuatroAltoPocoesFurto2018,
+                contandoAvCincoAltoPocoesFurto2018};
 
 
 
@@ -5827,11 +7175,29 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     public void alvorada2018(){
 
+
         String[] ruas  = new String[]{"R. do Aterro","R. Um ","R. A","R. E","R. J","R. K","R. L","R. M","R. N","R. O"};
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{contandoRuaAterroAlvoradaRoubo2018,
+                contandoRuaUmAlvoradaRoubo2018,
+                contandoRuaAAlvoradaRoubo2018,
+                contandoRuaEAlvoradaRoubo2018,
+                contandoRuaJAlvoradaRoubo2018,
+                contandoRuaKAlvoradaRoubo2018,
+                contandoRuaLAlvoradaRoubo2018,
+                contandoRuaMAlvoradaRoubo2018,
+                contandoRuaNAlvoradaRoubo2018,
+                contandoRuaOAlvoradaRoubo2018};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
-
+        int[]    furtosRuas = new int   []{contandoRuaAterroAlvoradaFurto2018,
+                contandoRuaUmAlvoradaFurto2018,
+                contandoRuaAAlvoradaFurto2018,
+                contandoRuaEAlvoradaFurto2018,
+                contandoRuaJAlvoradaFurto2018,
+                contandoRuaKAlvoradaFurto2018,
+                contandoRuaLAlvoradaFurto2018,
+                contandoRuaMAlvoradaFurto2018,
+                contandoRuaNAlvoradaFurto2018,
+                contandoRuaOAlvoradaFurto2018};
 
 
         nomes   = ruas;
@@ -5848,10 +7214,25 @@ public class GraficoRuaLinhaFragment extends Fragment {
     public void bandeirantes2018(){
 
 
-        String[] ruas  = new String[]{"R. Um","R. Dois","R. Dez","R. Brasília de Minas","R. 15 de Novembro","R. Mirabela","Tv. Mirabela","Tv. Júlio Magalhães"};
-        int[]    valores = new int   []{10,10,10,10};
+        String[] ruas  = new String[]{"R. Um","R. Dois","R. Dez","R. Brasília de Minas","R. 15 de Novembro","R. Mirabela","Tv.Mirabela","Tv. Júlio Magalhães"};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{ contandoRuaUmBandeirantesRoubo2018,
+                contandoRuaABandeirantesRoubo2018,
+                contandoRuaEBandeirantesRoubo2018,
+                contandoRuaJBandeirantesRoubo2018,
+                contandoRuaKBandeirantesRoubo2018,
+                contandoRuaMirabelaBandeirantesRoubo2018,
+                contandoTvMirabelaBandeirantesRoubo2018,
+                contandoTvJulioBandeirantesRoubo2018};
+
+        int[]    furtosRuas = new int   []{ contandoRuaUmBandeirantesFurto2018,
+                contandoRuaABandeirantesFurto2018,
+                contandoRuaEBandeirantesFurto2018,
+                contandoRuaJBandeirantesFurto2018,
+                contandoRuaKBandeirantesFurto2018,
+                contandoRuaMirabelaBandeirantesFurto2018,
+                contandoTvMirabelaBandeirantesFurto2018,
+                contandoTvJulioBandeirantesFurto2018};
 
 
 
@@ -5870,7 +7251,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         //XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","belaVista2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","belaVista2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -5887,14 +7268,33 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void boaEsperanca2018() {
 
         String[] ruas  = new String[]{"R. Um","R. Dois","R. Três","R. Quatro","R. Cinco","R. Seis","R. Treze de Maio","R. Luís Tupiná","R. Hermílio Tupiná ","R. São Geraldo"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{contandoRuaUmBoaEsperancaRoubo2018,
+                contandoRuaDoisBoaEsperancaRoubo2018,
+                contandoRuaTresBoaEsperancaRoubo2018,
+                contandoRuaQuatroBoaEsperancaRoubo2018,
+                contandoRuaCincoBoaEsperancaRoubo2018,
+                contandoRuaSeisBoaEsperancaRoubo2018,
+                contandoRuaTrezeMaioBoaEsperancaRoubo2018,
+                contandoRuaLuisTupinaBoaEsperancaRoubo2018,
+                contandoRuaHermilioTupinaBoaEsperancaRoubo2018,
+                contandoRuaSaoGeraldoBoaEsperancaRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoRuaUmBoaEsperancaFurto2018,
+                contandoRuaDoisBoaEsperancaFurto2018,
+                contandoRuaTresBoaEsperancaFurto2018,
+                contandoRuaQuatroBoaEsperancaFurto2018,
+                contandoRuaCincoBoaEsperancaFurto2018,
+                contandoRuaSeisBoaEsperancaFurto2018,
+                contandoRuaTrezeMaioBoaEsperancaFurto2018,
+                contandoRuaLuisTupinaBoaEsperancaFurto2018,
+                contandoRuaHermilioTupinaBoaEsperancaFurto2018,
+                contandoRuaSaoGeraldoBoaEsperancaFurto2018};
 
 
 
@@ -5913,9 +7313,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
     private void boaVista2018() {
 
         String[] ruas  = new String[]{"R. A","R. B","R. C","R. D","R. E","R. F","R. G","R. H","R. I","R. J","R. L"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{ contandoRuaABoaVistaRoubo2018,
+                contandoRuaBBoaVistaRoubo2018,
+                contandoRuaCBoaVistaRoubo2018,
+                contandoRuaDBoaVistaRoubo2018,
+                contandoRuaEBoaVistaRoubo2018,
+                contandoRuaFBoaVistaRoubo2018,
+                contandoRuaGBoaVistaRoubo2018,
+                contandoRuaHBoaVistaRoubo2018,
+                contandoRuaIBoaVistaRoubo2018,
+                contandoRuaJBoaVistaRoubo2018,
+                contandoRuaLBoaVistaRoubo2018};
+
+        int[]    furtosRuas = new int   []{ contandoRuaABoaVistaFurto2018,
+                contandoRuaBBoaVistaFurto2018,
+                contandoRuaCBoaVistaFurto2018,
+                contandoRuaDBoaVistaFurto2018,
+                contandoRuaEBoaVistaFurto2018,
+                contandoRuaFBoaVistaFurto2018,
+                contandoRuaGBoaVistaFurto2018,
+                contandoRuaHBoaVistaFurto2018,
+                contandoRuaIBoaVistaFurto2018,
+                contandoRuaJBoaVistaFurto2018,
+                contandoRuaLBoaVistaFurto2018};
 
 
 
@@ -5933,10 +7354,29 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void brasilandia2018() {
 
-        String[] ruas  = new String[]{"R. Um","R. Dois","R. Três","R. Quatro","R. Cinto",". Seis","R. Sete","R. Minas Gerais","R. Pirapora","R. São Luiz"};
-        int[]    valores = new int   []{10,10,10,10};
+        String[] ruas  = new String[]{"R. Um","R. Dois","R. Três","R. Quatro","R. Cinto","R. Seis","R. Sete","R. Minas Gerais","R. Pirapora","R. São Luiz"};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{contandoRuaUmVilaBrasilandiaRoubo2018,
+                contandoRuaDoisVilaBrasilandiaRoubo2018,
+                contandoRuaTresVilaBrasilandiaRoubo2018,
+                contandoRuaQuatroVilaBrasilandiaRoubo2018,
+                contandoRuaCincoVilaBrasilandiaRoubo2018,
+                contandoRuaSeisVilaBrasilandiaRoubo2018,
+                contandoRuaSeteVilaBrasilandiaRoubo2018,
+                contandoRuaMinasGeraisVilaBrasilandiaRoubo2018,
+                contandoRuaPiraporaVilaBrasilandiaRoubo2018,
+                contandoRuaSaoLuizVilaBrasilandiaRoubo2018};
+
+        int[]    furtosRuas =  new int   []{contandoRuaUmVilaBrasilandiaFurto2018,
+                contandoRuaDoisVilaBrasilandiaFurto2018,
+                contandoRuaTresVilaBrasilandiaFurto2018,
+                contandoRuaQuatroVilaBrasilandiaFurto2018,
+                contandoRuaCincoVilaBrasilandiaFurto2018,
+                contandoRuaSeisVilaBrasilandiaFurto2018,
+                contandoRuaSeteVilaBrasilandiaFurto2018,
+                contandoRuaMinasGeraisVilaBrasilandiaFurto2018,
+                contandoRuaPiraporaVilaBrasilandiaFurto2018,
+                contandoRuaSaoLuizVilaBrasilandiaFurto2018};
 
 
 
@@ -5955,9 +7395,29 @@ public class GraficoRuaLinhaFragment extends Fragment {
     private void brejoDoAmparo2018() {
 
         String[] ruas  = new String[]{"Alameda do Riacho","R. Bela Vista","R. da Serra","R. Flôres","R. Padre Josino","R. Padre Ramiro","R. Tabatinga","R. Taboca","R. Trinta e Sete","R. Trinta e Oito"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{contandoAlamedaRiachoBrejoAmparoRoubo2018,
+                contandoRuaBelaVistaBrejoAmparoRoubo2018,
+                contandoRuaSerraBrejoAmparoRoubo2018,
+                contandoRuaFloresBrejoAmparoRoubo2018,
+                contandoRuaPadreJosinoBrejoAmparoRoubo2018,
+                contandoRuaPadreRamiroAmparoRoubo2018,
+                contandoRuaTabatingaBrejoAmparoRoubo2018,
+                contandoRuaTabocaBrejoAmparoRoubo2018,
+                contandoRuaTrintaSeteBrejoAmparoRoubo2018,
+                contandoRuaTrintaOitoBrejoAmparoRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoAlamedaRiachoBrejoAmparoFurto2018,
+                contandoRuaBelaVistaBrejoAmparoFurto2018,
+                contandoRuaSerraBrejoAmparoFurto2018,
+                contandoRuaFloresBrejoAmparoFurto2018,
+                contandoRuaPadreJosinoBrejoAmparoFurto2018,
+                contandoRuaPadreRamiroAmparoFurto2018,
+                contandoRuaTabatingaBrejoAmparoFurto2018,
+                contandoRuaTabocaBrejoAmparoFurto2018,
+                contandoRuaTrintaSeteBrejoAmparoFurto2018,
+                contandoRuaTrintaOitoBrejoAmparoFurto2018};
+
 
 
 
@@ -5977,7 +7437,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         //XX  caic fica no Dom joão Batista
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Caic2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Caic2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -5994,14 +7454,34 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }   // não consta no google
 
     private void centro2018() {
 
         String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int    []{contandoArturBernardesCentroRoubo2018,
+                contandoBaraoSaoRomaoCentroRoubo2018,
+                contandoBaraoRioBrancoCentroRoubo2018,
+                contandoConegoRamiroLeiteCentroRoubo2018,
+                contandoCelCassianoCentroRoubo2018,
+                contandoCelSerraoCentroRoubo2018,
+                contandoDomDanielCentroRoubo2018,
+                contandoGetulioVargasCentroRoubo2018,
+                contandoPadreHenriqueCentroRoubo2018,
+                contandoPracaTiradentesCentroRoubo2018};
+
+        int[]    furtosRuas = new int    []{contandoArturBernardesCentroFurto2018,
+                contandoBaraoSaoRomaoCentroFurto2018,
+                contandoBaraoRioBrancoCentroFurto2018,
+                contandoConegoRamiroLeiteCentroFurto2018,
+                contandoCelCassianoCentroFurto2018,
+                contandoCelSerraoCentroFurto2018,
+                contandoDomDanielCentroFurto2018,
+                contandoGetulioVargasCentroFurto2018,
+                contandoPadreHenriqueCentroFurto2018,
+                contandoPracaTiradentesCentroFurto2018};
+
 
 
 
@@ -6019,10 +7499,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void ceramica2018() {
 
-        String[] ruas  = new String[]{"R. Aterro","R. Brasília de Minas","R. Itacarambi","R. Itapiraçaba","R. Manga","R. Montes Claros","R. Montalvânia","R. Vazelândia","R. Milton Campos", "R. Milton Sá"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        String[] ruas  = new String[]{"R. Aterro","R. Brasília de Minas","R. Itacarambi","R. Itapiraçaba","R. Manga","R. Montes Claros","R. Montalvânia","R. Vazelândia","R. Milton Campos", "R. Milton Sá"};
+
+        int[]    valores = new int   []{ contandoRuaAterroCeramicaRoubo2018,
+                contandoRuaBrasiliaMinasCeramicaRoubo2018,
+                contandoRuaItacarambiCeramicaRoubo2018,
+                contandoRuaItapiracabaCeramicaRoubo2018,
+                contandoRuaMangaCeramicaRoubo2018,
+                contandoRuaMontesClarosCeramicaRoubo2018,
+                contandoRuaMontalvaniaCeramicaRoubo2018,
+                contandoRuaVarzelandiaCeramicaRoubo2018,
+                contandoRuaMiltonCamposCeramicaRoubo2018,
+                contandoRuaMiltonSaCeramicaRoubo2018};
+
+        int[]    furtosRuas = new int   []{ contandoRuaAterroCeramicaFurto2018,
+                contandoRuaBrasiliaMinasCeramicaFurto2018,
+                contandoRuaItacarambiCeramicaFurto2018,
+                contandoRuaItapiracabaCeramicaFurto2018,
+                contandoRuaMangaCeramicaFurto2018,
+                contandoRuaMontesClarosCeramicaFurto2018,
+                contandoRuaMontalvaniaCeramicaFurto2018,
+                contandoRuaVarzelandiaCeramicaFurto2018,
+                contandoRuaMiltonCamposCeramicaFurto2018,
+                contandoRuaMiltonSaCeramicaFurto2018};
 
 
 
@@ -6040,10 +7540,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void eldorado2018() {
 
-        String[] ruas  = new String[]{"Av. Seis","R. A","R. B","R. C","R. D","R. E","R. G","R. J","R. L","R. M"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        String[] ruas  = new String[]{"Av. Seis","R. A","R. B","R. C","R. D","R. E","R. G","R. J","R. L","R. M"};
+
+        int[]    valores = new int   []{contandoAvSeisEldoradoRoubo2018,
+                contandoRuaAEldoradoRoubo2018,
+                contandoRuaBEldoradoRoubo2018,
+                contandoRuaCEldoradoRoubo2018,
+                contandoRuaDEldoradoRoubo2018,
+                contandoRuaEEldoradoRoubo2018,
+                contandoRuaGEldoradoRoubo2018,
+                contandoRuaJEldoradoRoubo2018,
+                contandoRuaLEldoradoRoubo2018,
+                contandoRuaMEldoradoRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoAvSeisEldoradoFurto2018,
+                contandoRuaAEldoradoFurto2018,
+                contandoRuaBEldoradoFurto2018,
+                contandoRuaCEldoradoFurto2018,
+                contandoRuaDEldoradoFurto2018,
+                contandoRuaEEldoradoFurto2018,
+                contandoRuaGEldoradoFurto2018,
+                contandoRuaJEldoradoFurto2018,
+                contandoRuaLEldoradoFurto2018,
+                contandoRuaMEldoradoFurto2018};
 
 
 
@@ -6064,7 +7584,8 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         //XXX zona ruaral
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Fabião2018","Rua 12"};
+
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Fabião2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6081,14 +7602,26 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void franklim2018() {
 
-        String[] ruas  = new String[]{"R. J. Antônio do Vale Filho","R. L","Rua Vinte e Três","R. Vinte e Quatro","R. Vinte e Cinco","R. Vinte e Oito"};
-        int[]    valores = new int   []{10,10,10,10};
+        String[] ruas  = new String[]{"R. J. Antônio do Vale Filho","R. L","R. Vinte e Três","R. Vinte e Quatro","R. Vinte e Cinco","R. Vinte e Oito"};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{contandoRuaAntonioValeFilhoFranklimRoubo2018,
+                contandoRuaLFranklimRoubo2018,
+                contandoRuaVinteTresFranklimRoubo2018,
+                contandoRuaVinteQuatroFranklimRoubo2018,
+                contandoRuaR25FranklimdoRoubo2018,
+                contandoRuaVinteOitoFranklimRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoRuaAntonioValeFilhoFranklimFurto2018,
+                contandoRuaLFranklimFurto2018,
+                contandoRuaVinteTresFranklimFurto2018,
+                contandoRuaVinteQuatroFranklimFurto2018,
+                contandoRuaR25FranklimdoFurto2018,
+                contandoRuaVinteOitoFranklimFurto2018};
+
 
 
 
@@ -6107,9 +7640,26 @@ public class GraficoRuaLinhaFragment extends Fragment {
     private void jadete2018() {
 
         String[] ruas  = new String[]{"Av. Cônego R. Leite","Alameda V","R. Inezita A. Ferreira","R. Isla H. Azevedo","R. S. Antônio","R. Viana","R. vinte e Dois","R. Ver João Alkimim","Tv. Viana"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores =  new int   []{contandoRuaRamiroLeiteJadeteRoubo2018,
+                contandoRuaAlameidaVianaJadeteRoubo2018,
+                contandoRuaInezitaJadeteRoubo2018,
+                contandoRuaIslaHJadeteRoubo2018,
+                contandoRuaSantoAntJadeteRoubo2018
+                , contandoRuaVianaJadeteRoubo2018,
+                contandoRuavinteDoisJadeteRoubo2018,
+                contandoRuaJoaoAlkimimJadeteRoubo2018,
+                contandoTvVianaJadeteRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoRuaRamiroLeiteJadeteFurto2018,
+                contandoRuaAlameidaVianaJadeteFurto2018,
+                contandoRuaInezitaJadeteFurto2018,
+                contandoRuaIslaHJadeteFurto2018,
+                contandoRuaSantoAntJadeteFurto2018
+                , contandoRuaVianaJadeteFurto2018,
+                contandoRuavinteDoisJadeteFurto2018,
+                contandoRuaJoaoAlkimimJadeteFurto2018,
+                contandoTvVianaJadeteFurto2018};
 
 
 
@@ -6129,7 +7679,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         //XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Januária2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Januária2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6146,14 +7696,32 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void jardimDaniel2018() {
 
-        String[] ruas  = new String[]{"R. Um","R. Dois","R. Três","R. Quatro","R. Alagoas","R. Bela Vista","Av. Cônego Ramiro Leite","R. Inezita A Ferreira","R. Minas Gerais"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        String[] ruas  = new String[]{"R. Um","R. Dois","Rua Três","R. Quatro","R. Alagoas","R. Bela Vista","Av. Cônego R. Leite","Rua Inezita A. Ferreira","R. Minas Gerais"};
+
+        int[]    valores = new int   []{contandoRuaUmJardimDanielRoubo2018,
+                contandoRuaDoisDanielRoubo2018,
+                contandoRuaTresJardimDanielRoubo2018,
+                contandoRuaQuatroJardimDanielRoubo2018,
+                contandoRuaAlagoasJardimDanielRoubo2018,
+                contandoRuaBelaVistaJardimDanielRoubo2018,
+                contandoRuaConegoRamiroLeiteJardimDanielRoubo2018,
+                contandoRuaInezitaAlvesFerreiraJardimDanielRoubo2018,
+                contandoRuaMinasGeraisJardimDanielRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoRuaUmJardimDanielFurto2018,
+                contandoRuaDoisDanielFurto2018,
+                contandoRuaTresJardimDanielFurto2018,
+                contandoRuaQuatroJardimDanielFurto2018,
+                contandoRuaAlagoasJardimDanielFurto2018,
+                contandoRuaBelaVistaJardimDanielFurto2018,
+                contandoRuaConegoRamiroLeiteJardimDanielFurto2018,
+                contandoRuaInezitaAlvesFerreiraJardimDanielFurto2018,
+                contandoRuaMinasGeraisJardimDanielFurto2018};
 
 
 
@@ -6171,15 +7739,31 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void jardimEstela2018() {
 
+        String[] ruas  = new String[]{"R. A","R. B","R. C","R. D","R. E","Rua G","R. H","R. Barão de São Romão","R. João Gasparino","R. Vinte e Dois","R. Vinte e Três"};
 
+        int[]    valores = new int   []{contandoRuaAJardimEstrelaRoubo2018,
+                contandoRuaBJardimEstrelaRoubo2018,
+                contandoRuaCJardimEstrelaRoubo2018,
+                contandoRuaDJardimEstrelalRoubo2018,
+                contandoRuaEJardimEstrelaRoubo2018,
+                contandoRuaGJardimEstrelaRoubo2018,
+                contandoRuaHJardimEstrelaRoubo2018,
+                contandoRuaBaraoSaoRomaoJardimEstrelaRoubo2018,
+                contandoRuaJoaoGasparinoJardimEstrelaRoubo2018,
+                contandoRuaVinteDoisJardimEstrelaRoubo2018,
+                contandoRuaVinteTresJardimEstrelaRoubo2018};
 
-
-
-        String[] ruas  = new String[]{"R. A","R. B","R. C","R. D","R. E","R. G","R. H","R. Barão de São Romão","R. João Gasparino","R. Vinte e Dois","R. Vinte e Três"};
-        int[]    valores = new int   []{10,10,10,10};
-
-        int[]    furtosRuas = new int   []{5,10,6,10};
-
+        int[]    furtosRuas = new int   []{contandoRuaAJardimEstrelaFurto2018,
+                contandoRuaBJardimEstrelaFurto2018,
+                contandoRuaCJardimEstrelaFurto2018,
+                contandoRuaDJardimEstrelalFurto2018,
+                contandoRuaEJardimEstrelaFurto2018,
+                contandoRuaGJardimEstrelaFurto2018,
+                contandoRuaHJardimEstrelaFurto2018,
+                contandoRuaBaraoSaoRomaoJardimEstrelaFurto2018,
+                contandoRuaJoaoGasparinoJardimEstrelaFurto2018,
+                contandoRuaVinteDoisJardimEstrelaFurto2018,
+                contandoRuaVinteTresJardimEstrelaFurto2018};
 
 
         nomes   = ruas;
@@ -6196,10 +7780,9 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void jatoba2018() {
 
-
         //XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jatobá2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Jatobá2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6216,13 +7799,13 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void joventinaMesquita2018() {
 
-        ///XX
+        //XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Joventina Mesquita2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Joventina Mesquita2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
         ;
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6232,21 +7815,42 @@ public class GraficoRuaLinhaFragment extends Fragment {
         nomes   = ruas;
         roubos =  valores;
         cores   =  cor;
-        legenda  = legendaGrafico;
+        legenda  = legendaGrafico;;
         furtos = furtosRuas;
 
 
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void jussara2018() {
 
-        String[] ruas  = new String[]{"R. Um","R. Dois","R. Três","R. Quatro","R. Cinco","R. Seis","R. Sete","R. Oito","R. Nove","R. Dez"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        String[] ruas  = new String[]{"R. Um","R. Dois","R. Três","R. Quatro","R. Cinco","R. Seis","R. Sete","R. Oito","R. Nove","R. Dez"};
+
+        int[]    valores = new int   []{contandoRuaUmJussaraRoubo2018,
+                contandoRuaDoisJussaraRoubo2018,
+                contandoRuaTresJussaraRoubo2018,
+                contandoRuaQuatroJussaralRoubo2018,
+                contandoRuaCincoJussaraRoubo2018,
+                contandoRuaSeisJussaraRoubo2018,
+                contandoRuaSeteJussaraRoubo2018,
+                contandoRuaOitoJussaraRoubo2018,
+                contandoRuaNoveJussaraRoubo2018,
+                contandoRuaDezJussaraRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoRuaUmJussaraFurto2018,
+                contandoRuaDoisJussaraFurto2018,
+                contandoRuaTresJussaraFurto2018,
+                contandoRuaQuatroJussaralFurto2018,
+                contandoRuaCincoJussaraFurto2018,
+                contandoRuaSeisJussaraFurto2018,
+                contandoRuaSeteJussaraFurto2018,
+                contandoRuaOitoJussaraFurto2018,
+                contandoRuaNoveJussaraFurto2018,
+                contandoRuaDezJussaraFurto2018};
+
 
 
 
@@ -6264,12 +7868,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void levianopolis2018() {
 
-        String[] ruas  = new String[]{"R. Seis", "R. Sete", "R. Oito","R. Nove","R. Vinte", "R. Anízio G Moreira ","R. H Caciquinho","P. Emilio de Matos","R. J.A do vale Filho","R. Inezita A. Ferreira"};
+        String[] ruas  = new String[]{"R. Seis", "R. Sete", "R. Oito","R. Nove","R. Vinte", "R. Anízio G. Moreira ","R. H. Caciquinho","P. Emilio de Matos","R. J.A Vale Filho","R. Inezita A. Ferreira"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{contandoRuaSeisVilaLevianopolisRoubo2018,
+                contandoRuaSeteVilaLevianopolisRoubo2018,
+                contandoRuaOitoVilaLevianopolisRoubo2018,
+                contandoRuaNoveVilaLevianopolisRoubo2018,
+                contandoRuaVinteVilaLevianopolisRoubo2018,
+                contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisRoubo2018,
+                contandoRuaHonorCaciquinhoVilaLevianopolisRoubo2018,
+                contandoRuaEmilioMatosVilaLevianopolisRoubo2018,
+                contandoRuaJoseAntonioValeFilhoVilaLevianopolisRoubo2018,
+                contandoRuaInezitaAlvesFerreiraLevianopolisRoubo2018};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
 
+        int[]    furtosRuas = new int   []{contandoRuaSeisVilaLevianopolisFurto2018,
+                contandoRuaSeteVilaLevianopolisFurto2018,
+                contandoRuaOitoVilaLevianopolisFurto2018,
+                contandoRuaNoveVilaLevianopolisFurto2018,
+                contandoRuaVinteVilaLevianopolisFurto2018,
+                contandoRuaAnizioGoncalvezMoreiraVilaLevianopolisFurto2018,
+                contandoRuaHonorCaciquinhoVilaLevianopolisFurto2018,
+                contandoRuaEmilioMatosVilaLevianopolisFurto2018,
+                contandoRuaJoseAntonioValeFilhoVilaLevianopolisFurto2018,
+                contandoRuaInezitaAlvesFerreiraLevianopolisFurto2018};
 
 
         nomes   = ruas;
@@ -6286,9 +7908,9 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void mangueiras2018() {
 
-        //XX
+        //xx
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Mangueiras2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Mangueiras2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6305,13 +7927,13 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void margarete2018() {
 
         //XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Margarete2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Margarete2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6328,13 +7950,12 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void moradeiras2018() {
-
         //XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Moradeiras2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Moradeiras2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6351,13 +7972,12 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }// não consta no google
 
     private void normaConsuelo2018() {
-
         //XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Norma Consuelo2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Norma Consuelo2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6374,13 +7994,13 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    } //Não consta no google
+    }  // não consta no google
 
     private void novoMilenio2018() {
 
-        //XX
+        //xx
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Novo Milênio2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Novo Milênio2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6397,17 +8017,25 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void quintaMangabeiras2018() {
 
-
-
         String[] ruas  = new String[]{"R. A","R. B","R. D","R. E","R. do Bonde","R. T.Bastos"};
 
-        int[]    valores = new int   []{10,10,10,10};
-        ;
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{contandoRuaAQuintasMangueirasRoubo2018,
+                contandoRuaBQuintasMangueirasRoubo2018,
+                contandoRuaDQuintasMangueirasRoubo2018,
+                contandoRuaEQuintasMangueirasRoubo2018,
+                contandoRuaBondeQuintasMangueirasRoubo2018,
+                contandoRuaTutaBastosQuintasMangueirasRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoRuaAQuintasMangueirasFurto2018,
+                contandoRuaBQuintasMangueirasFurto2018,
+                contandoRuaDQuintasMangueirasFurto2018,
+                contandoRuaEQuintasMangueirasFurto2018,
+                contandoRuaBondeQuintasMangueirasFurto2018,
+                contandoRuaTutaBastosQuintasMangueirasFurto2018};
 
 
 
@@ -6426,16 +8054,34 @@ public class GraficoRuaLinhaFragment extends Fragment {
     private void riachoDaCruz2018() {
 
         String[] ruas  = new String[]{"R. Murici","R. Café Mineiro","R. Antônio C.da Silva","R. Manoel J.de Souza","R. Oliveira Pôrto","R. Tertuliano R.Pôrto","Tv. J.F.Melo"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{
 
+
+                contandoRuaMuriciRiachoCruzRoubo2018,
+                contandoRuaCafeMineiroRiachoCruzRoubo2018,
+                contandoRuaAntonioSilvaRiachoCruzRoubo2018,
+                contandoRuaManoelJSouzaRiachoCruzRoubo2018,
+                contandoRuaOliveiraPortoRiachoCruzRoubo2018,
+                contandoRuaTertulianoRPortoRiachoCruzRoubo2018,
+                contandoRuaJFMeloRiachoCruzRoubo2018};
+
+        int[]    furtosRuas =  new int   []{
+
+
+                contandoRuaMuriciRiachoCruzFurto2018,
+                contandoRuaCafeMineiroRiachoCruzFurto2018,
+                contandoRuaAntonioSilvaRiachoCruzFurto2018,
+                contandoRuaManoelJSouzaRiachoCruzFurto2018,
+                contandoRuaOliveiraPortoRiachoCruzFurto2018,
+                contandoRuaTertulianoRPortoRiachoCruzFurto2018,
+                contandoRuaJFMeloRiachoCruzFurto2018};
 
 
         nomes   = ruas;
         roubos =  valores;
         cores   =  cor;
-        legenda  = legendaGrafico;;
+        legenda  = legendaGrafico;
         furtos = furtosRuas;
 
 
@@ -6446,10 +8092,31 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void saoJoao2018() {
 
-        String[] ruas  = new String[]{"Av. Cel.Cassiano","Tv. Leão Treze","R. Um","R. Dois","R. B.J Ferreira","R. do Curtume","R. Trinta de Maio","R. J.Augusto","R. Mal.Floriano Peixoto"};
-        int[]    valores = new int   []{10,10,10,10};
-        ;
-        int[]    furtosRuas = new int   []{5,10,6,10};
+
+        String[] ruas  = new String[]{"Av.Cel.Cassiano","Tv.Leão Treze","R. Um","R. Dois","R. B.J Ferreira","R. do Curtume","R. Trinta de Maio","R. J.Augusto","R. Mal.Floriano Peixoto"};
+        int[]    valores = new int   []{
+                contandoRuaCelCassianoVilaSaoJoaoRoubo2018,
+                contandoRuaLeaoTrezeVilaSaoJoaoRoubo2018,
+                contandoRuaUmVilaSaoJoaoRoubo2018,
+                contandoRuaDoisVilaSaoJoaoRoubo2018,
+                contandoRuaBenicioJoseFerreiraVilaSaoJoaoRoubo2018,
+                contandoRuaCurtumeVilaSaoJoaoRoubo2018,
+                contandoRuaTrintaMarcoVilaSaoJoaoRoubo2018,
+                contandoRuaJoseAugustoVilaSaoJoaoRoubo2018,
+                contandoRuaMalFlorianoPeixotoVilaSaoJoaoRoubo2018,
+                contandoRuaWVilaSaoJoaoRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoRuaCelCassianoVilaSaoJoaoFurto2018,
+                contandoRuaLeaoTrezeVilaSaoJoaoFurto2018,
+                contandoRuaUmVilaSaoJoaoFurto2018,
+                contandoRuaDoisVilaSaoJoaoFurto2018,
+                contandoRuaBenicioJoseFerreiraVilaSaoJoaoFurto2018,
+                contandoRuaCurtumeVilaSaoJoaoFurto2018,
+                contandoRuaTrintaMarcoVilaSaoJoaoFurto2018,
+                contandoRuaJoseAugustoVilaSaoJoaoFurto2018,
+                contandoRuaMalFlorianoPeixotoVilaSaoJoaoFurto2018,
+                contandoRuaWVilaSaoJoaoFurto2018};
+
 
 
 
@@ -6467,12 +8134,30 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void saoJoaquim2018() {
 
-
-
         String[] ruas  = new String[]{"R. Um","R. Dois","R. Três","R. Seis","R. Oito","R. Nove","R. Dez","R. Doze","R. S.Inês","R. S.Maria"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+
+        int[]    valores = new int   []{contandoRuaUmSaoJoaquimRoubo2018,
+                contandoRuaDoisSaoJoaquimRoubo2018,
+                contandoRuaTresSaoJoaquimRoubo2018,
+                contandoRuaSeisSaoJoaquimRoubo2018,
+                contandoRuaOitoSaoJoaquimRoubo2018,
+                contandoRuaNoveSaoJoaquimRoubo2018,
+                contandoRuaDezSaoJoaquimRoubo2018,
+                contandoRuaDozeSaoJoaquimRoubo2018,
+                contandoRuaSantaInesSaoJoaquimRoubo2018,
+                contandoRuaSantaMariaSaoJoaquimRoubo2018};
+
+        int[]    furtosRuas = new int   []{contandoRuaUmSaoJoaquimFurto2018,
+                contandoRuaDoisSaoJoaquimFurto2018,
+                contandoRuaTresSaoJoaquimFurto2018,
+                contandoRuaSeisSaoJoaquimFurto2018,
+                contandoRuaOitoSaoJoaquimFurto2018,
+                contandoRuaNoveSaoJoaquimFurto2018,
+                contandoRuaDezSaoJoaquimFurto2018,
+                contandoRuaDozeSaoJoaquimFurto2018,
+                contandoRuaSantaInesSaoJoaquimFurto2018,
+                contandoRuaSantaMariaSaoJoaquimFurto2018};
 
 
 
@@ -6490,11 +8175,28 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void saoMiguel2018() {
 
-        String[] ruas  = new String[]{"Av. São Francisco","R. Um", "R. Dois","R. Três", "R. A", "R. B","R. D","R. Piraporã","R. Montavânia","Tv. Galiléia"};
-        int[]    valores = new int   []{10,10,10,10};
+        String[] ruas  = new String[]{"Av.São Francisco","R. Um", "R. Dois","Rua Três", "R. A", "R. B","R. D","R. Piraporã","R. Montavânia","Tv.Galiléia"};
+        int[]    valores = new int   []{contandoRuaSaoFranciscoSaoMiguelRoubo2018,
+                contandoRuaUmSaoMiguelRoubo2018,
+                contandoRuaDoisSaoMiguelRoubo2018,
+                contandoRuaTresSaoMiguelRoubo2018,
+                contandoRuaASaoMiguelRoubo2018,
+                contandoRuaBSaoMiguelRoubo2018,
+                contandoRuaDSaoMiguelRoubo2018,
+                contandoRuaPiraporaSaoMiguelRoubo2018,
+                contandoRuaMontalvaniaSaoMiguelRoubo2018,
+                contandoTvGalileiaSaoMiguelRoubo2018};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
-
+        int[]    furtosRuas = new int   []{contandoRuaSaoFranciscoSaoMiguelFurto2018,
+                contandoRuaUmSaoMiguelFurto2018,
+                contandoRuaDoisSaoMiguelFurto2018,
+                contandoRuaTresSaoMiguelFurto2018,
+                contandoRuaASaoMiguelFurto2018,
+                contandoRuaBSaoMiguelFurto2018,
+                contandoRuaDSaoMiguelFurto2018,
+                contandoRuaPiraporaSaoMiguelFurto2018,
+                contandoRuaMontalvaniaSaoMiguelFurto2018,
+                contandoTvGalileiaSaoMiguelFurto2018};
 
 
         nomes   = ruas;
@@ -6511,11 +8213,31 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void saoVicente2018() {
 
-
         String[] ruas  = new String[]{"R. A","R. B","R. D","R. E","R. E.T.Bastos","R. L.N.Neto","R. Maria C.Carvalho","R. Olibrio Lima","R. T.Torres","R. Sebastião F.Lima"};
-        int[]    valores = new int   []{10,10,10,10};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{
+                contandoRuaASaoVicenteRoubo2018,
+                contandoRuaBSaoVicenteRoubo2018,
+                contandoRuaDSaoVicenteRoubo2018,
+                contandoRuaESaoVicenteRoubo2018,
+                contandoRuaTutaBastosSaoVicenteRoubo2018,
+                contandoRuaLeonelNogueiraNetoSaoVicenteRoubo2018,
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteRoubo2018,
+                contandoRuaOlibrioLimaSaoVicenteRoubo2018,
+                contandoRuaTerencioTorresSaoVicenteRoubo2018,
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteRoubo2018};
+
+        int[]    furtosRuas = new int   []{
+                contandoRuaASaoVicenteFurto2018,
+                contandoRuaBSaoVicenteFurto2018,
+                contandoRuaDSaoVicenteFurto2018,
+                contandoRuaESaoVicenteFurto2018,
+                contandoRuaTutaBastosSaoVicenteFurto2018,
+                contandoRuaLeonelNogueiraNetoSaoVicenteFurto2018,
+                contandoRuaMariaCarneiroCarvalhoSaoVicenteFurto2018,
+                contandoRuaOlibrioLimaSaoVicenteFurto2018,
+                contandoRuaTerencioTorresSaoVicenteFurto2018,
+                contandoRuaSebastiaoFerreiraLimaSaoVicenteFurto2018};
 
 
 
@@ -6533,9 +8255,9 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void sagradaFamilia2018() {
 
-        //XX
+        //xx
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sagrada Família2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sagrada Família2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6545,20 +8267,19 @@ public class GraficoRuaLinhaFragment extends Fragment {
         nomes   = ruas;
         roubos =  valores;
         cores   =  cor;
-        legenda  = legendaGrafico;
+        legenda  = legendaGrafico;;
         furtos = furtosRuas;
 
 
         criarGraficos();
 
 
-    } //Não consta no google
+    }  // não consta no google
 
     private void santaCruz2018() {
+        //xx
 
-        //XX
-
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Cruz2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Cruz2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6575,12 +8296,12 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void santaIsabel2018() {
-        //XX
+        //xx   O google não mostra ruas nesse bairro
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Isabel2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Santa Isabel2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6597,12 +8318,12 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void sede2018() {
-        //XX
+        ///XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sede2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Sede2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6619,22 +8340,41 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }   //Não consta no google
+    }   // não consta no google
 
     private void tejuco2018() {
 
         String[] ruas  = new String[]{"R. Castelo Branco","R. J.kubitschek","R. Tancredo Neves","R. Tejuco","R. Tropical","R. São João","R. São José","R. M.A.Carvalho"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
 
+                contandoRuaCasteloBrancoTejucoRoubo2018,
+                contandoRuaJucelinoKubitscheckTejucoRoubo2018,
+                contandoRuaTancredoNevesTejucoRoubo2018,
+                contandoRuaTejucoTejucoRoubo2018,
+                contandoRuaTropicalTejucoVicenteRoubo2018,
+                contandoRuaSaoJoaoTejucoRoubo2018,
+                contandoRuaSaoJoseTejucoRoubo2018 ,
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoRoubo2018};
+
+        int[]    furtosRuas = new int   []{
+
+
+                contandoRuaCasteloBrancoTejucoFurto2018,
+                contandoRuaJucelinoKubitscheckTejucoFurto2018,
+                contandoRuaTancredoNevesTejucoFurto2018,
+                contandoRuaTejucoTejucoFurto2018,
+                contandoRuaTropicalTejucoVicenteFurto2018,
+                contandoRuaSaoJoaoTejucoFurto2018,
+                contandoRuaSaoJoseTejucoFurto2018 ,
+                contandoRuaManoelAlexandrinodeCarvalhoTejucoFurto2018};
 
 
         nomes   = ruas;
         roubos =  valores;
         cores   =  cor;
-        legenda  = legendaGrafico;
+        legenda  = legendaGrafico;;
         furtos = furtosRuas;
 
 
@@ -6645,9 +8385,9 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void terceiroMilenio2018() {
 
-        //XX
+        //xx
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Terceiro Milênio2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Terceiro Milênio2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6664,13 +8404,13 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  //Não consta no google
+    }  // não consta no google
 
     private void tropical2018() {
 
         //XX
 
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Tropical2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Tropical2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6687,13 +8427,12 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    } //Não consta no google
+    }  // não consta no google
 
     private void varzeaDosPocoes2018() {
+        //XX
 
-        ///xx
-
-        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Várzea dos Pocões2018","Rua 12"};
+        String[] ruas  = new String[]{"spinnerCorrente 7","spinnerCorrente 10","Várzea dos Pocões2019","Rua 12"};
         int[]    valores = new int   []{10,10,10,10};
 
         int[]    furtosRuas = new int   []{5,10,6,10};
@@ -6710,15 +8449,33 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    } //Não consta no google
+    }  // não consta no google
 
     private void vilaFatima2018() {
 
         String[] ruas  = new String[]{"R. A","R. B","R. C","R. D","R. E","R. F","R. G.P.Rocha","R. J.P.Carvalho","R. Joaquim Fernandes","R. J.Augusto"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{ contandoRuaAVilaFatimaRoubo2018,
+                contandoRuaBFatimaRoubo2018,
+                contandoRuaCVilaFatimaRoubo2018,
+                contandoRuaDVilaFatimaRoubo2018,
+                contandoRuaEVilaFatimaVicenteRoubo2018,
+                contandoRuaFVilaFatimaRoubo2018,
+                contandoRuaGilmarPereiraRochaVilaFatimaRoubo2018,
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaRoubo2018,
+                contandoRuaJoaquimFernandesoVilaFatimaRoubo2018,
+                contandoRuaJoseAugustoVilaFatimaRoubo2018};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas =new int   []{ contandoRuaAVilaFatimaFurto2018,
+                contandoRuaBFatimaFurto2018,
+                contandoRuaCVilaFatimaFurto2018,
+                contandoRuaDVilaFatimaFurto2018,
+                contandoRuaEVilaFatimaVicenteFurto2018,
+                contandoRuaFVilaFatimaFurto2018,
+                contandoRuaGilmarPereiraRochaVilaFatimaFurto2018,
+                contandoRuaJoaoPimentaCarvalhoVilaFatimaFurto2018,
+                contandoRuaJoaquimFernandesoVilaFatimaFurto2018,
+                contandoRuaJoseAugustoVilaFatimaFurto2018};
 
 
 
@@ -6738,9 +8495,13 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         String[] ruas  = new String[]{"R. J.B.Gobira","R. M.Moreira"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{
+                contandoRuaJoaquimBarbosaGobiraPandeirosRoubo2018,
+                contandoRuaMariaMoreiraPandeirosRoubo2018};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{
+                contandoRuaJoaquimBarbosaGobiraPandeirosFurto2018,
+                contandoRuaMariaMoreiraPandeirosFurto2018};
 
 
 
@@ -6758,11 +8519,27 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void vilaPaula2018() {
 
-        String[] ruas  = new String[]{"Av. São Fransisco","Tv. J.Nunes","Tv. J.Moura","R. L.N.Neto","R. A.J.Rocha","R .J.Moura","R. J.Nunes","R. S.F.Lima","R. Srg.Monzart"};
-        int[]    valores = new int   []{10,10,10,10};
+        String[] ruas  = new String[]{"Av.São Fransisco","Tv.J.Nunes","Tv.J.Moura","R. L.N.Neto","R. A.J.Rocha","R. J.Moura","R. J.Nunes","R. S.F.Lima","R. Srg.Monzart"};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    valores = new int   []{contandoRuaSaoFranciscoVilaPaulaRoubo2018,
+                contandoTvJoseNunesVilaPaulaRoubo2018 ,
+                contandoTvJulioMouraVilaPaulaRoubo2018 ,
+                contandoRuaLeonelNogueiraNetoVilaPaulaRoubo2018,
+                contandoRuaAnizioJoseRochaVilaPaulaRoubo2018,
+                contandoRuaJulioMouraVilaPaulaRoubo2018,
+                contandoRuaJoseNunesVilaPaulaRoubo2018,
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaRoubo2018,
+                contandoRuaSrgMozarVilaPaulaRoubo2018};
 
+        int[]    furtosRuas = new int   []{contandoRuaSaoFranciscoVilaPaulaFurto2018,
+                contandoTvJoseNunesVilaPaulaFurto2018 ,
+                contandoTvJulioMouraVilaPaulaFurto2018,
+                contandoRuaLeonelNogueiraNetoVilaPaulaFurto2018,
+                contandoRuaAnizioJoseRochaVilaPaulaFurto2018,
+                contandoRuaJulioMouraVilaPaulaFurto2018,
+                contandoRuaJoseNunesVilaPaulaFurto2018,
+                contandoRuaSebastiaoFerreiraLimaVilaPaulaFurto2018,
+                contandoRuaSrgMozarVilaPaulaFurto2018};
 
 
         nomes   = ruas;
@@ -6779,12 +8556,29 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void vilaVerde2018() {
 
-        String[] ruas  = new String[]{"Av. Mal.Deodoro da Fonseca","R. A","R. Aterro","R. B","R. D","R. O","R. R","R. T","R. U","R. V"};
+        String[] ruas  = new String[]{"Av.Mal.Deodoro da Fonseca","R. A","R. Aterro","R. B","R. D","R. O","R. R","R. T","R. U","R. V"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{contandoAvMalDeodoroFonsecaVilaVerdeRoubo2018,
+                contandoRAVilaVerdeRoubo2018,
+                contandoRuaAterroVilaVerdeRoubo2018,
+                contandoRuaBVilaVerdeRoubo2018,
+                contandoRuaDVilaVerdeRoubo2018,
+                contandoRuaOVilaVerdeRoubo2018,
+                contandoRuaRVilaVerdeRoubo2018,
+                contandoRuaTVilaVerdeRoubo2018,
+                contandoRuaUVilaVerdeRoubo2018,
+                contandoRuaVVilaVerdeRoubo2018};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
-
+        int[]    furtosRuas = new int   []{contandoAvMalDeodoroFonsecaVilaVerdeFurto2018,
+                contandoRAVilaVerdeFurto2018,
+                contandoRuaAterroVilaVerdeFurto2018,
+                contandoRuaBVilaVerdeFurto2018,
+                contandoRuaDVilaVerdeFurto2018,
+                contandoRuaOVilaVerdeFurto2018,
+                contandoRuaRVilaVerdeFurto2018,
+                contandoRuaTVilaVerdeFurto2018,
+                contandoRuaUVilaVerdeFurto2018,
+                contandoRuaVVilaVerdeFurto2018};
 
 
         nomes   = ruas;
@@ -6801,11 +8595,27 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
     private void vilaViana2018() {
 
-        String[] ruas  = new String[]{"R. A","R. Arthur L.Pimenta","R. B","R. D","R. E","R. F","R. G","R. R","R. X"};
+        String[] ruas  = new String[]{"R. A","Rua Arthur L.Pimenta","R. B","R. D","R. E","R. F","R. G","R. R","R. X"};
 
-        int[]    valores = new int   []{10,10,10,10};
+        int[]    valores = new int   []{ contandoRuaAVilaVianaRoubo2018,
+                contandoRuaArthurLopesPimentaVilaVianaRoubo2018,
+                contandoRuaBVilaVianaRoubo2018,
+                contandoRuaDVilaVianaRoubo2018,
+                contandoRuaEVilaVianaRoubo2018,
+                contandoRuaFVilaVianaRoubo2018,
+                contandoRuaGVilaVianaRoubo2018,
+                contandoRuaRVilaVianaRoubo2018,
+                contandoRuaXVilaVianaRoubo2018};
 
-        int[]    furtosRuas = new int   []{5,10,6,10};
+        int[]    furtosRuas = new int   []{ contandoRuaAVilaVianaFurto2018,
+                contandoRuaArthurLopesPimentaVilaVianaFurto2018,
+                contandoRuaBVilaVianaFurto2018,
+                contandoRuaDVilaVianaFurto2018,
+                contandoRuaEVilaVianaFurto2018,
+                contandoRuaFVilaVianaFurto2018,
+                contandoRuaGVilaVianaFurto2018,
+                contandoRuaRVilaVianaFurto2018,
+                contandoRuaXVilaVianaFurto2018};
 
 
 
@@ -6822,6 +8632,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
     }
 
     private void zonaRural2018() {
+
 
         String[] ruas  = new String[]{"Zona Rural"};
 
@@ -6841,8 +8652,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
         criarGraficos();
 
 
-    }  /// não fazer
-
+    } /// não fazer
 
 
     ///
@@ -6915,16 +8725,16 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         //xxx
 
-        String[] altoCemitério = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério2019", "Rua 12"};int[] robAltoCemitério = new int[]{10, 10, 10, 10};
+        String[] altoCemiterio = new String[]{"spinnerCorrente 7", "spinnerCorrente 10", "Alto Cemitério2019", "Rua 12"};int[] robAltoCemitério = new int[]{10, 10, 10, 10};
 
-        int[] furtAltoCemitério = new int[]{5, 10, 6, 10};
+        int[] furtAltoCemiterio = new int[]{5, 10, 6, 10};
 
 
-        nomes = altoCemitério;
-        roubos = robAltoCemitério;
+        nomes = altoCemiterio;
+
         cores   =  cor;
         legenda  = legendaGrafico;
-        furtos = furtAltoCemitério;
+        furtos = furtAltoCemiterio;
 
 
         criarGraficos();
@@ -7260,27 +9070,27 @@ public class GraficoRuaLinhaFragment extends Fragment {
 
         String[] ruas  = new String[]{"Artur Bernades","Barão São Romão","Barão Rio Branco","Conego Ramiro Leite","Coronel Cassiano","Coronel Serrão","Dom Daniel","Getulio Vagas","Padre Henrique","Tiradentes"};
 
-        int[]    valores = new int    []{contandoArturBernardesCentroRouboTodosAnos,
-                contandoBaraoSaoRomaoCentroRouboTodosAnos,
-                contandoBaraoRioBrancoCentroRouboTodosAnos,
-                contandoConegoRamiroLeiteCentroRouboTodosAnos,
-                contandoCelCassianoCentroRouboTodosAnos,
-                contandoCelSerraoCentroRouboTodosAnos,
-                contandoDomDanielCentroRouboTodosAnos,
-                contandoGetulioVargasCentroRouboTodosAnos,
-                contandoPadreHenriqueCentroRouboTodosAnos,
-                contandoPracaTiradentesCentroRouboTodosAnos};
+        int[]    valores = new int    []{contandoArturBernardesCentroRoubo2019,
+                contandoBaraoSaoRomaoCentroRoubo2019,
+                contandoBaraoRioBrancoCentroRoubo2019,
+                contandoConegoRamiroLeiteCentroRoubo2019,
+                contandoCelCassianoCentroRoubo2019,
+                contandoCelSerraoCentroRoubo2019,
+                contandoDomDanielCentroRoubo2019,
+                contandoGetulioVargasCentroRoubo2019,
+                contandoPadreHenriqueCentroRoubo2019,
+                contandoPracaTiradentesCentroRoubo2019};
 
-        int[]    furtosRuas = new int    []{contandoArturBernardesCentroFurtoTodosAnos,
-                contandoBaraoSaoRomaoCentroFurtoTodosAnos,
-                contandoBaraoRioBrancoCentroFurtoTodosAnos,
-                contandoConegoRamiroLeiteCentroFurtoTodosAnos,
-                contandoCelCassianoCentroFurtoTodosAnos,
-                contandoCelSerraoCentroFurtoTodosAnos,
-                contandoDomDanielCentroFurtoTodosAnos,
-                contandoGetulioVargasCentroFurtoTodosAnos,
-                contandoPadreHenriqueCentroFurtoTodosAnos,
-                contandoPracaTiradentesCentroFurtoTodosAnos};
+        int[]    furtosRuas = new int    []{contandoArturBernardesCentroFurto2019,
+                contandoBaraoSaoRomaoCentroFurto2019,
+                contandoBaraoRioBrancoCentroFurto2019,
+                contandoConegoRamiroLeiteCentroFurto2019,
+                contandoCelCassianoCentroFurto2019,
+                contandoCelSerraoCentroFurto2019,
+                contandoDomDanielCentroFurto2019,
+                contandoGetulioVargasCentroFurto2019,
+                contandoPadreHenriqueCentroFurto2019,
+                contandoPracaTiradentesCentroFurto2019};
 
 
 
@@ -7311,7 +9121,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaMontalvaniaCeramicaRoubo2019,
                 contandoRuaVarzelandiaCeramicaRoubo2019,
                 contandoRuaMiltonCamposCeramicaRoubo2019,
-                contandoRuaMiltonSaCeramicaRoubo2019,};
+                contandoRuaMiltonSaCeramicaRoubo2019};
 
         int[]    furtosRuas = new int   []{ contandoRuaAterroCeramicaFurto2019,
                 contandoRuaBrasiliaMinasCeramicaFurto2019,
@@ -7322,7 +9132,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaMontalvaniaCeramicaFurto2019,
                 contandoRuaVarzelandiaCeramicaFurto2019,
                 contandoRuaMiltonCamposCeramicaFurto2019,
-                contandoRuaMiltonSaCeramicaFurto2019,};
+                contandoRuaMiltonSaCeramicaFurto2019};
 
 
 
@@ -7413,14 +9223,14 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaVinteTresFranklimRoubo2019,
                 contandoRuaVinteQuatroFranklimRoubo2019,
                 contandoRuaR25FranklimdoRoubo2019,
-                contandoRuaVinteOitoFranklimRoubo2019,};
+                contandoRuaVinteOitoFranklimRoubo2019};
 
         int[]    furtosRuas = new int   []{contandoRuaAntonioValeFilhoFranklimFurto2019,
                 contandoRuaLFranklimFurto2019,
                 contandoRuaVinteTresFranklimFurto2019,
                 contandoRuaVinteQuatroFranklimFurto2019,
                 contandoRuaR25FranklimdoFurto2019,
-                contandoRuaVinteOitoFranklimFurto2019,};
+                contandoRuaVinteOitoFranklimFurto2019};
 
 
 
@@ -7551,7 +9361,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaBaraoSaoRomaoJardimEstrelaRoubo2019,
                 contandoRuaJoaoGasparinoJardimEstrelaRoubo2019,
                 contandoRuaVinteDoisJardimEstrelaRoubo2019,
-                contandoRuaVinteTresJardimEstrelaRoubo2019,};
+                contandoRuaVinteTresJardimEstrelaRoubo2019};
 
         int[]    furtosRuas = new int   []{contandoRuaAJardimEstrelaFurto2019,
                 contandoRuaBJardimEstrelaFurto2019,
@@ -7563,7 +9373,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaBaraoSaoRomaoJardimEstrelaFurto2019,
                 contandoRuaJoaoGasparinoJardimEstrelaFurto2019,
                 contandoRuaVinteDoisJardimEstrelaFurto2019,
-                contandoRuaVinteTresJardimEstrelaFurto2019,};
+                contandoRuaVinteTresJardimEstrelaFurto2019};
 
 
         nomes   = ruas;
@@ -7638,7 +9448,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaSeteJussaraRoubo2019,
                 contandoRuaOitoJussaraRoubo2019,
                 contandoRuaNoveJussaraRoubo2019,
-                contandoRuaDezJussaraRoubo2019,};
+                contandoRuaDezJussaraRoubo2019};
 
         int[]    furtosRuas = new int   []{contandoRuaUmJussaraFurto2019,
                 contandoRuaDoisJussaraFurto2019,
@@ -7649,7 +9459,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
                 contandoRuaSeteJussaraFurto2019,
                 contandoRuaOitoJussaraFurto2019,
                 contandoRuaNoveJussaraFurto2019,
-                contandoRuaDezJussaraFurto2019,};
+                contandoRuaDezJussaraFurto2019};
 
 
 
@@ -8067,7 +9877,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
         nomes   = ruas;
         roubos =  valores;
         cores   =  cor;
-        legenda  = legendaGrafico;;
+        legenda  = legendaGrafico;
         furtos = furtosRuas;
 
 
@@ -8174,7 +9984,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
         nomes   = ruas;
         roubos =  valores;
         cores   =  cor;
-        legenda  = legendaGrafico;;
+        legenda  = legendaGrafico;
         furtos = furtosRuas;
 
 
@@ -14952,7 +16762,7 @@ public class GraficoRuaLinhaFragment extends Fragment {
             if (b.getAlertaRua().equals("R. Doze")){
 
                 contandoRuaDozeSaoJoaquimFurtoTodosAnos++;
-                ;
+
 
 
             }
@@ -17357,7 +19167,6 @@ public class GraficoRuaLinhaFragment extends Fragment {
             }
         }
     }
-
 
     public void ruasBairroVilaVianaTodosAnos(){
 

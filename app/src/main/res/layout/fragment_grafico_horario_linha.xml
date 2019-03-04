@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/autocompletegraficoruabarrageral" />
 
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/autocompletegraficoruabarrageral"
         android:layout_width="295dp"
         android:layout_height="55dp"
