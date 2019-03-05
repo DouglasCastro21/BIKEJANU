@@ -382,12 +382,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-
+        //sem restriçÕ Ja foi roubada um dia
 
 
        }
 
-       if(statusBike.equals("Sem Restrições")||statusBike.equals("Recuperada")){
+       if(statusBike.equals("Recuperada") || statusBike.equals("Sem Impedimento")){
 
            radioButtonNadaConsta.toggle();
            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
@@ -421,12 +421,19 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
+
+
+
+
+
+
         radioButtonNadaConsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            caixaDialogoNadaConsta();
+                 caixaDialogoNadaConsta();
                 status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
+
 
 
                 abrirMapa.setVisibility(View.GONE);
@@ -452,6 +459,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
             }
         });
+
+
+
 
 
         radioButtonFurtada.setOnClickListener(new View.OnClickListener() {
@@ -621,13 +631,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         bike.setBoletim(Boletim.getText().toString());
         bike.setAlertaDescricao(alertaDescricao.getText().toString());
 
-        if(statusBike.equals("Sem Restrições")) {
-            bike.setStatus("Recuperada");
-        }else{
 
-            bike.setStatus(status.getText().toString());
+        bike.setStatus(status.getText().toString());
 
-        }
 
 
 
@@ -740,7 +746,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         alertaDialog.setTitle("Definição");
 
 
-        alertaDialog.setMessage("Que possui ausência de regras, limitações ou imposições. Liberdade Total.");
+        alertaDialog.setMessage("Algo que se recuperou, que se adquiriu de novo.");
         // alertaDialog.setCancelable(false);
 
 

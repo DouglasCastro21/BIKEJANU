@@ -325,8 +325,6 @@ public class CadastroBike extends AppCompatActivity  {
                    txtmensagem2.setVisibility(View.GONE);
 
 
-                   alertaDate.setText("");
-                   alertaHora.setText("");
 
 
 
@@ -564,8 +562,33 @@ public class CadastroBike extends AppCompatActivity  {
          bike.setAlertaCidade(cadastroCidade.getText().toString());
          bike.setAlertaRua(cadastroRua.getText().toString());
          bike.setAlertaBairro(cadastroBairro.getText().toString());
-         bike.setAlertaDate(alertaDate.getText().toString());
-         bike.setAlertaHora(alertaHora.getText().toString());
+
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        // OU
+        SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+
+        Date data = new Date();
+
+        Calendar  cal = Calendar.getInstance();
+        cal.setTime(data);
+
+        Date data_atual = cal.getTime();
+
+        String data_completa = dateFormat.format(data_atual);
+
+        String hora_atual = dateFormat_hora.format(data_atual);
+
+       // alertaDate.setText(data_completa);
+       // alertaHora.setText(hora_atual);
+
+
+
+         bike.setAlertaDate(data_completa);
+         bike.setAlertaHora(hora_atual);
+
+
+
          bike.setBoletim(Boletim.getText().toString());
          bike.setAlertaDescricao(alertaDescricao.getText().toString());
          bike.setStatus(status.getText().toString());

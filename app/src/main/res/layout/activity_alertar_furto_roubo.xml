@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sem Restrições"
+                    android:text="Recuperada"
                     tools:layout_editor_absoluteX="32dp"
                     tools:layout_editor_absoluteY="150dp" />
 

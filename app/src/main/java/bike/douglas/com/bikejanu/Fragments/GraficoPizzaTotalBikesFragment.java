@@ -68,18 +68,22 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
     int contandoBikesRouboTodosAno=0;
     int contandoBikesFurtoTodosAno=0;
 
-    int contandoBikesRouboAno2018=2;
-    int contandoBikesFurtoAno2018=129;
-
-
-    int contandoBikesRouboAno2019=0;
+    int contandoBikesRouboAno2018=2;// alimentar
     int contandoBikesFurtoAno2019=0;
+
+    int contandoBikesFurtoAno2018=129; // alimentar
+    int contandoBikesRouboAno2019=0;
+
 
 
     int TodasBikesDoBD=0;
-    int contandoBikesDoBD2018=0;
+    int contandoBikesDoBD2018=0;// alimentar
     int contandoBikesDoBD2019=0;
 
+
+    int bikesRecuperadasTodosAnos=0;
+    int bikesRecuperadas2018=0;   // alimentar
+    int bikesRecuperadas2019=0;
 
 
 
@@ -185,15 +189,16 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 //CONTANDO TODAS AS BIKES DO SISTEMA
 
-                    if (b.getStatus().equals("Roubada")||b.getStatus().equals("Furtada")||b.getStatus().equals("Sem Restrições")){
+                    if (b.getStatus().equals("Roubada")||b.getStatus().equals("Furtada")||b.getStatus().equals("Sem Impedimento")||b.getStatus().equals("Recuperada")){
 
                         TodasBikesDoBD++;
 
 
                     }
 
-                    if (anoDeBusca.contains("2019")&& (b.getStatus().equals("Roubada")||b.getStatus().equals("Furtada")||b.getStatus().equals("Sem Restrições"))){
+                    if (anoDeBusca.contains("2019")&& (b.getStatus().equals("Roubada")||b.getStatus().equals("Furtada")||b.getStatus().equals("Sem impedimento")||b.getStatus().equals("Recuperada"))){
 
+                        //sem restrição que um dia foi recuperada
                         contandoBikesDoBD2019++;
 
 
@@ -201,7 +206,26 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
 
-                    //    graficoANOS();
+
+
+                    //CONTANDO TODAS AS BIKES Recuperadas do SISTEMA
+
+                    if (b.getStatus().equals("Recuperada")){
+
+                        bikesRecuperadasTodosAnos++;
+
+
+                    }
+
+                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Recuperada")){
+
+                        //sem restrição que um dia foi recuperada
+                        bikesRecuperadas2019++;
+
+
+                    }
+
+
 
 
                 }
@@ -234,8 +258,11 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
         contandoBikesFurtoTodosAno = contandoBikesFurtoAno2019    +  contandoBikesFurtoAno2018;
         contandoBikesRouboTodosAno = contandoBikesRouboAno2019    +  contandoBikesRouboAno2018;
 
+        TodasBikesDoBD             =  contandoBikesDoBD2019       +  contandoBikesDoBD2018;
+        bikesRecuperadasTodosAnos  =  bikesRecuperadas2019        +  bikesRecuperadas2018;
 
-        TodasBikesDoBD             =  contandoBikesDoBD2018       +  contandoBikesDoBD2019;
+
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -245,7 +272,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
                      String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-                     int[]    valor = new int   []{TodasBikesDoBD,contandoBikesRouboTodosAno,contandoBikesFurtoTodosAno,50};
+                     int[]    valor = new int   []{TodasBikesDoBD,contandoBikesRouboTodosAno,contandoBikesFurtoTodosAno,bikesRecuperadasTodosAnos};
                      int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
@@ -262,7 +289,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
                     String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-                    int[]    valor = new int   []{contandoBikesDoBD2018,contandoBikesRouboAno2018,contandoBikesFurtoAno2018,30};
+                    int[]    valor = new int   []{contandoBikesDoBD2018,contandoBikesRouboAno2018,contandoBikesFurtoAno2018,bikesRecuperadas2018};
                     int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
@@ -280,7 +307,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
                 }else if (position==2){
 
                     String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-                    int[]    valor = new int   []{contandoBikesDoBD2019,contandoBikesRouboAno2019,contandoBikesFurtoAno2019,20};
+                    int[]    valor = new int   []{contandoBikesDoBD2019,contandoBikesRouboAno2019,contandoBikesFurtoAno2019,bikesRecuperadas2019};
                     int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
