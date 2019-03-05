@@ -27,15 +27,29 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 
 public class GraficoPizzaTotalBikesFragment extends Fragment {
 
+    private FirebaseDatabase firebaseDatabase;
+    private static DatabaseReference databaseReference;
 
+
+    public static List<Bike> listBikes = new ArrayList<Bike>();
+    public static ArrayAdapter<Bike> arrayAdapterBike;
 
     protected ImageView spinnerImagem;
      private String camposSpinner[] = new String[] {"Todos","2018","2019"};
@@ -49,6 +63,29 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
     private int []   cores   = new int   []{Color.BLUE,Color.RED,Color.DKGRAY,Color.GREEN};
 
 
+
+
+    int contandoBikesRouboTodosAno=0;
+    int contandoBikesFurtoTodosAno=0;
+
+    int contandoBikesRouboAno2018=2;
+    int contandoBikesFurtoAno2018=129;
+
+
+    int contandoBikesRouboAno2019=0;
+    int contandoBikesFurtoAno2019=0;
+
+
+    int TodasBikesDoBD=0;
+    int contandoBikesDoBD2018=0;
+    int contandoBikesDoBD2019=0;
+
+
+
+
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,6 +93,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_grafico_pizza_total_bikes, container, false);
 
 
+        inicializarFirebase();
         pieChart =  (PieChart) rootView.findViewById(R.id.graficoPizza);
 
 
@@ -74,6 +112,131 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
         final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 
+
+        Query query;
+
+
+        //Instânciar objetos
+        listBikes = new ArrayList<>();
+
+
+
+
+        query = databaseReference.child("TodasBikes");
+
+
+        //  query = databaseReference.child("TodasBikes")
+        //     .orderByChild("numero_serie").startAt(palavra).endAt(palavra+"\uf8ff");
+
+
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                listBikes.clear();  //limpa lista
+
+
+                // verifica itens da lista
+
+                for (DataSnapshot objSnapshot:dataSnapshot.getChildren()){
+                    Bike b = objSnapshot.getValue(Bike.class);
+                    listBikes.add(b);
+
+
+
+                    String anoDeBusca = b.getAlertaDate();
+
+                    if (b.getStatus().equals("Roubada")){
+
+                       contandoBikesRouboTodosAno++;
+
+
+                    }
+
+                    if (b.getStatus().equals("Furtada")){
+
+
+                        contandoBikesFurtoTodosAno++;
+
+
+                    }
+
+
+
+
+                    if (anoDeBusca.contains("2019")  && b.getStatus().equals("Roubada")){
+
+                        contandoBikesRouboAno2019++;
+
+
+                    }
+
+                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Furtada")){
+
+
+                        contandoBikesFurtoAno2019++;
+
+
+                    }
+
+
+
+//CONTANDO TODAS AS BIKES DO SISTEMA
+
+                    if (b.getStatus().equals("Roubada")||b.getStatus().equals("Furtada")||b.getStatus().equals("Sem Restrições")){
+
+                        TodasBikesDoBD++;
+
+
+                    }
+
+                    if (anoDeBusca.contains("2019")&& (b.getStatus().equals("Roubada")||b.getStatus().equals("Furtada")||b.getStatus().equals("Sem Restrições"))){
+
+                        contandoBikesDoBD2019++;
+
+
+                    }
+
+
+
+                    //    graficoANOS();
+
+
+                }
+
+
+
+
+
+
+
+                // arrayAdapterBike = new BikeAdapter(GraficoAnoBarraFragment.super.getContext(), (ArrayList<Bike>) listBikes);
+                //   listPesquisa.setAdapter(arrayAdapterBike);
+
+
+            }
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+
+            }
+        });
+
+
+
+
+        contandoBikesFurtoTodosAno = contandoBikesFurtoAno2019    +  contandoBikesFurtoAno2018;
+        contandoBikesRouboTodosAno = contandoBikesRouboAno2019    +  contandoBikesRouboAno2018;
+
+
+        TodasBikesDoBD             =  contandoBikesDoBD2018       +  contandoBikesDoBD2019;
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -82,7 +245,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
                      String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-                     int[]    valor = new int   []{1000,700,300,500};
+                     int[]    valor = new int   []{TodasBikesDoBD,contandoBikesRouboTodosAno,contandoBikesFurtoTodosAno,50};
                      int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
@@ -99,7 +262,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
                     String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-                    int[]    valor = new int   []{600,200,400,300};
+                    int[]    valor = new int   []{contandoBikesDoBD2018,contandoBikesRouboAno2018,contandoBikesFurtoAno2018,30};
                     int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
 
 
@@ -117,9 +280,8 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
                 }else if (position==2){
 
                     String[] titulos   = new String[]{"Bikes Cadastradas","Roubadas","Furtadas","Recuperadas"};
-                    int[]    valor = new int   []{400,150,250,200};
+                    int[]    valor = new int   []{contandoBikesDoBD2019,contandoBikesRouboAno2019,contandoBikesFurtoAno2019,20};
                     int []   cor   = new int   []{Color.BLUE,Color.RED,Color.YELLOW,Color.GREEN};
-
 
 
 
@@ -152,7 +314,14 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
 
+    private void inicializarFirebase() {
 
+        FirebaseApp.initializeApp(GraficoPizzaTotalBikesFragment.super.getContext());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+
+
+    }
 
 
     private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
@@ -188,8 +357,6 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
     }
 
-
-
     private ArrayList<BarEntry> getBarEntries(){
 
 
@@ -203,7 +370,6 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
     }
 
-
     private ArrayList<PieEntry> getPieEntries(){
 
         ArrayList<PieEntry> entries = new ArrayList<>();
@@ -215,12 +381,6 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
     }
-
-
-
-
-
-
 
     public void criarGraficos(){
 
@@ -245,8 +405,6 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
         return dataSet;
     }
-
-
 
     private BarData getBarDate(){
         BarDataSet barDataSet = (BarDataSet)getDate(new BarDataSet(getBarEntries(),""));

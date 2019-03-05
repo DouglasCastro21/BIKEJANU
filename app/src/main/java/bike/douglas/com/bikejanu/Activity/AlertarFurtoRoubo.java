@@ -116,7 +116,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupID);
-       RadioButton radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
+        RadioButton radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
        RadioButton radioButtonNadaConsta  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
        Button  finalizar                  = (Button)  findViewById(R.id.finalizarID);
 
@@ -387,15 +387,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
        }
 
-       if(statusBike.equals("Sem Restrições")){
+       if(statusBike.equals("Sem Restrições")||statusBike.equals("Recuperada")){
 
            radioButtonNadaConsta.toggle();
            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
 
 
            abrirMapa.setVisibility(View.GONE);
-            alertaEstado.setVisibility(View.GONE);
-            alertaCidade.setVisibility(View.GONE);
+           alertaEstado.setVisibility(View.GONE);
+           alertaCidade.setVisibility(View.GONE);
            alertaRua.setVisibility(View.GONE);
            alertaBairro.setVisibility(View.GONE);
            alertaDescricao.setVisibility(View.GONE);
@@ -430,7 +430,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
                 abrirMapa.setVisibility(View.GONE);
-
                 alertaEstado.setVisibility(View.GONE);
                 alertaCidade.setVisibility(View.GONE);
                 alertaRua.setVisibility(View.GONE);
@@ -621,7 +620,17 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         bike.setAlertaHora(alertaHora.getText().toString());
         bike.setBoletim(Boletim.getText().toString());
         bike.setAlertaDescricao(alertaDescricao.getText().toString());
-        bike.setStatus(status.getText().toString());
+
+        if(statusBike.equals("Sem Restrições")) {
+            bike.setStatus("Recuperada");
+        }else{
+
+            bike.setStatus(status.getText().toString());
+
+        }
+
+
+
 
 
 ////

@@ -2236,7 +2236,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
                     //carrega os spinner
-                    final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(GraficoHorarioGeralPizzaFragment.super.getContext(), android.R.layout.simple_spinner_dropdown_item, countries);
+                    final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(GraficoHorarioGeralPizzaFragment.super.getContext(), android.R.layout.simple_spinner_dropdown_item, camposSpinner);
                     arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
@@ -3697,7 +3697,6 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
 
-
     }
 
     private DataSet getDate(DataSet dataSet){
@@ -3723,7 +3722,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
 
-        return barData;
+        return new BarData(barDataSet);
     }
 
 
