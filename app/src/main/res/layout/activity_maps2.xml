@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
@@ -9,7 +9,7 @@
     tools:context=".Activity.MapsActivity2">
 
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -18,135 +18,82 @@
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="569dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="401dp"
-            android:layout_height="172dp"
-            android:layout_marginBottom="1dp"
-            android:src="@drawable/common_google_signin_btn_text_light_disabled"
-            app:layout_constraintBottom_toTopOf="@+id/map"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.434"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
 
         <TextView
             android:id="@+id/campoCidadeID"
             android:layout_width="350dp"
             android:layout_height="46dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
             android:background="@android:drawable/editbox_background_normal"
             android:hint="Cidade"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-            app:layout_constraintEnd_toEndOf="@+id/imageView9"
-            app:layout_constraintStart_toStartOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/campoRuaID"
             android:layout_width="171dp"
             android:layout_height="46dp"
 
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_alignEnd="@+id/campoCidadeID"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"
             android:background="@android:drawable/editbox_background_normal"
             android:hint="Rua"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-            app:layout_constraintEnd_toEndOf="@+id/imageView9"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/campoBairroID"
-            app:layout_constraintTop_toBottomOf="@+id/campoCidadeID"
-            app:layout_constraintVertical_bias="0.0" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/campoBairroID"
             android:layout_width="170dp"
             android:layout_height="46dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="25dp"
 
-            android:layout_marginStart="25dp"
-
-            android:layout_marginTop="20dp"
+            android:layout_alignStart="@+id/campoCidadeID"
+            android:layout_alignTop="@+id/campoRuaID"
             android:background="@android:drawable/editbox_background_normal"
             android:hint="Bairro"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-            app:layout_constraintStart_toStartOf="@+id/imageView9"
-            app:layout_constraintTop_toBottomOf="@+id/campoCidadeID"
-            app:layout_constraintVertical_bias="0.0" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnLocalizacaoID"
             android:layout_width="224dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="348dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:background="#cf03ff0b"
-            android:text="Confirmar Localização"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+            android:text="Confirmar Localização" />
 
         <ProgressBar
             android:id="@+id/progressBuscandoID"
-            style="?android:attr/progressBarStyle"
             android:layout_width="80dp"
             android:layout_height="86dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView9"
-            app:layout_constraintVertical_bias="0.29" />
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="203dp" />
 
         <TextView
             android:id="@+id/buscandoID"
-            android:layout_width="wrap_content"
+            android:layout_width="212dp"
             android:layout_height="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="84dp"
+            android:layout_below="@+id/progressBuscandoID"
+            android:layout_centerHorizontal="true"
             android:text="Buscando Localização ..."
             android:textColor="#25f51a"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/progressBuscandoID" />
+            android:textSize="18sp" />
 
-    </android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="196dp"
+            android:layout_height="98dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="73dp"
+            android:src="@mipmap/ic_launcher_foreground_andando" />
+
+    </RelativeLayout>
 
 
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

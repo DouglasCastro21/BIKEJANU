@@ -28,6 +28,15 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Configurações" />
 
+
+
+        <item
+            android:id="@+id/nav_editar_perfil"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Editar Perfil" />
+
+
+
         <item
         android:id="@+id/nav_sair"
         android:icon="@drawable/ic_action_exit_black"
