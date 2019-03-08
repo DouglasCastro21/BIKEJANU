@@ -34,7 +34,9 @@ public class Tab1Codigo extends Fragment {
 
 
     private EditText editPalavra;
+
     private TextView naoNumeroSerie;
+
     private  ListView listPesquisa;
 
 
