@@ -430,14 +430,14 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
     int madrugadaCentroFurto2018=0;
-    int manhaCentroFurto2018=0;
-    int tardeCentroFurto2018=0;
-    int noiteCentroFurto2018=0;
+    int manhaCentroFurto2018=20;
+    int tardeCentroFurto2018=21;
+    int noiteCentroFurto2018=16;
 
     int madrugadaCentroRoubo2018=0;
     int manhaCentroRoubo2018=0;
     int tardeCentroRoubo2018=0;
-    int noiteCentroRoubo2018=0;
+    int noiteCentroRoubo2018=2;
 
     int madrugadaCentroFurto2019=0;
     int manhaCentroFurto2019=0;

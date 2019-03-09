@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
+import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.Activity.Estatisticas;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
@@ -44,6 +46,7 @@ import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
+import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -89,6 +92,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
+
        //Recuperar bikes do firebase
 
         final  Preferencias preferencias = new Preferencias(AreaUsuario.this);
@@ -125,9 +130,13 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
+
         // lista todas as bikes do usuario
 
         listaBikes();
+
+
 
 
 
@@ -220,10 +229,19 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
                 excluirUsuario();
 
 
-        } else if (id == R.id.nav_sair) {
+        } else if (id == R.id.nav_editar_perfil) {
+
+
+           startActivity(new Intent(AreaUsuario.this, CadastroUsuario.class));
+
+         //   enviaDadosParaCadastroUsuario();
+
+
+        }else if (id == R.id.nav_sair) {
             caixaDialogoSair();
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -452,6 +470,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         startActivityForResult(intent,PICK_IMAGE_REQUEST);
 
     }
+
+
+
 
 }
 

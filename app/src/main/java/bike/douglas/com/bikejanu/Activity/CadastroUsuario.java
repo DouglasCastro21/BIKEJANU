@@ -75,7 +75,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private StorageReference storageReference;
-    private DatabaseReference databaseReference;
+    private DatabaseReference firebase;
 
 
 
@@ -83,6 +83,39 @@ public class CadastroUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
+
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+
+
+            Toast.makeText(CadastroUsuario.this,"Sou um usuario" ,Toast.LENGTH_LONG ).show();
+
+
+            // rebece o dados do Bike Adapter por parametro
+            Intent intent = getIntent();
+
+            if(intent !=null) {
+
+                Bundle params = intent.getExtras();
+
+                if (params != null) {
+
+                    //dados do modelo
+                    String nomee= params.getString("nome");
+                    TextView nomeeText = (TextView) findViewById(R.id.NumeroID);
+                    nomeeText.setText(nomee);
+
+
+                }
+
+            }
+
+
+        }
+
 
 
 
@@ -242,6 +275,9 @@ public class CadastroUsuario extends AppCompatActivity {
         });
 
     }
+
+
+
 
     private void mascaras() {
 
@@ -426,6 +462,43 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 
 
+
+
+
+
+    private void recuperarDadosUsuarioConectadoECadastra(){
+
+        // recupera autenticão do usuario local
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+
+            // converte o email pra base 64
+            String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+            // EDITA a bike no nó todas as bikes
+            firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+            firebase.child(usuarios.getEmail()).setValue(usuarios);
+
+
+
+            Toast.makeText(CadastroUsuario.this, "Dados Alterados com Sucesso!", Toast.LENGTH_LONG).show();
+
+            // retorna a tela usuario
+
+            abrirAreaUsuario();
+
+        };
+
+
+
+    }
 
 
 

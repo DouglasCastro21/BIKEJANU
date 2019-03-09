@@ -342,9 +342,9 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
     int madrugadaCentroRoubo2018=0;
-    int manhaCentroRoubo2018=0;
-    int tardeCentroRoubo2018=0;
-    int noiteCentroRoubo2018=0;
+    int manhaCentroRoubo2018=20;
+    int tardeCentroRoubo2018=21;
+    int noiteCentroRoubo2018=18;
 
 
     int madrugadaCentroRoubo2019=0;

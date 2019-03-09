@@ -274,13 +274,10 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 //---
 
 
-
     int madrugadaVilaBrasilandiaRoubo=0;
     int manhaVilaBrasilandiaRoubo=0;
     int tardeVilaBrasilandiaRoubo=0;
     int noiteVilaBrasilandiaRoubo=0;
-
-
 
 
 
@@ -301,14 +298,10 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 //---
 
 
-
-
     int madrugadaBrejoAmparoRoubo=0;
     int manhaBrejoAmparoRoubo=0;
     int tardeBrejoAmparoRoubo=0;
     int noiteBrejoAmparoRoubo=0;
-
-
 
 
 
@@ -327,8 +320,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 //--
 
 
-
-
     int madrugadaCentroRoubo=0;
     int manhaCentroRoubo=0;
     int tardeCentroRoubo=0;
@@ -336,12 +327,11 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
 
-
-
     int madrugadaCentroRoubo2018=0;
-    int manhaCentroRoubo2018=0;
-    int tardeCentroRoubo2018=0;
-    int noiteCentroRoubo2018=0;
+    int manhaCentroRoubo2018=20;
+    int tardeCentroRoubo2018=21;
+    int noiteCentroRoubo2018=18;
+
 
 
     int madrugadaCentroRoubo2019=0;
@@ -352,16 +342,10 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 //---
 
 
-
-
     int madrugadaCeramicaRoubo=0;
     int manhaCeramicaRoubo=0;
     int tardeCeramicaRoubo=0;
     int noiteCeramicaRoubo=0;
-
-
-
-
 
 
     int madrugadaCeramicaRoubo2018=0;

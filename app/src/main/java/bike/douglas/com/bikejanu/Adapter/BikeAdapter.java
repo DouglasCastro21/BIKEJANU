@@ -34,7 +34,9 @@ import bike.douglas.com.bikejanu.Activity.DadosBike;
 
 import bike.douglas.com.bikejanu.Activity.EditarBike;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
+import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
 import java.util.ArrayList;
@@ -52,6 +54,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
     public Context context;
     public List<Bike> listabikes = new ArrayList<Bike>();
+
     int cont=0;
     private ProgressBar progressBar;
 
@@ -74,6 +77,9 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
         this.listabikes = objects;
 
     }
+
+
+
 
 
 
@@ -145,7 +151,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-
+final TextView txtViewNome  = (TextView) view.findViewById(R.id.NumeroID);
 
             final TextView txtViewNumeroSerie        = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             final TextView txtViewMarca              = (TextView) view.findViewById(R.id.txtViewMarca);
@@ -166,7 +172,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final TextView txtViewAlertaHora         = (TextView) view.findViewById(R.id.alertaHoraID);
             final TextView txtViewAlertaBoletim      = (TextView) view.findViewById(R.id.BoletimID);
             final TextView txtViewAlertaDescricao    = (TextView) view.findViewById(R.id.alertaDescricaoID);
-
             final Bike bikeRoubadaFurtada;
 
              bikeRoubadaFurtada = listabikes.get(position);
@@ -200,7 +205,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                 databaseReference = firebaseDatabase.getReference();
 
 
-            final Bike bike1 = listabikes.get(position);
+                 final Bike bike1 = listabikes.get(position);
+
+
+
+
 
 
             txtViewNumeroSerie.setText(bike1.getNumero_serie());
@@ -209,6 +218,10 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             txtViewModelo.setText(bike1.getModelo());
             txtViewCor.setText(bike1.getCor());
             txtViewStatus.setText(bike1.getStatus());
+
+
+
+
 
             imagem.setOnClickListener(new OnClickListener() {
                 @Override
@@ -220,6 +233,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
                     Bike bikeselecao = new Bike();
+
                     bikeselecao = listabikes.get(position);
 
                     // passa dados  para a tela dados BIKE
@@ -253,6 +267,14 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                 }
             });
+
+
+
+
+
+
+
+
 
 
             // recupera usuario
@@ -448,10 +470,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
     }
-
-
-
-
 
 
 

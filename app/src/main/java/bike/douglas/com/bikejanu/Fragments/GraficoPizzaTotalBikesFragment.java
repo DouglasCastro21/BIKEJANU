@@ -82,7 +82,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
     int bikesRecuperadasTodosAnos=0;
-    int bikesRecuperadas2018=0;   // alimentar
+    int bikesRecuperadas2018=26;   // alimentar
     int bikesRecuperadas2019=0;
 
 

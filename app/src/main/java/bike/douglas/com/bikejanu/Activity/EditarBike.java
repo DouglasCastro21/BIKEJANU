@@ -144,7 +144,7 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-        // rebece o dados do Bike Adapter por parametro passada pela tela cadastro
+        // rebece o dados do Bike Adapter por parametro
         Intent intent = getIntent();
 
         if(intent !=null){
@@ -340,7 +340,7 @@ public class EditarBike extends AppCompatActivity {
 
             abrirAreaUsuario();
 
-        };
+        }
 
 
 

@@ -83,7 +83,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
     int contandoAvAeroportoAeroportoRoubo2018=0;
     int  contandoAvSeisAeroportoRoubo2018=0;
-    int contandoRuaRUmAeroportoRoubo2018=0;
+    int contandoRuaRUmAeroportoRoubo2018=1;
     int contandoRuaRDoisAeroportoRoubo2018=0;
     int  contandoRuaRTresAeroportoRoubo2018=0;
     int contandoRuaRQuatroAeroportoRoubo2018=0;
@@ -165,7 +165,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
     int contandoRuaUmAltoPocoesRoubo2018=0;
     int contandoRuaDoisAltoPocoesRoubo2018=0;
-    int  contandoRuaTresAltoPocoesRoubo2018=0;
+    int  contandoRuaTresAltoPocoesRoubo2018=1;
     int contandoRuaQuatroAltoPocoesRoubo2018=0;
     int contandoRuaCincoAltoPocoesRoubo2018=0;
     int  contandoAvUmAltoPocoesRoubo2018=0;
@@ -211,7 +211,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaAAlvoradaRoubo2018=0;
     int contandoRuaEAlvoradaRoubo2018=0;
     int contandoRuaJAlvoradaRoubo2018=0;
-    int contandoRuaKAlvoradaRoubo2018=0;
+    int contandoRuaKAlvoradaRoubo2018=1;
     int contandoRuaLAlvoradaRoubo2018=0;
     int contandoRuaMAlvoradaRoubo2018=0;
     int contandoRuaNAlvoradaRoubo2018=0;
@@ -286,7 +286,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaQuatroBoaEsperancaRoubo2018=0;
     int contandoRuaCincoBoaEsperancaRoubo2018=0;
     int contandoRuaSeisBoaEsperancaRoubo2018=0;
-    int contandoRuaTrezeMaioBoaEsperancaRoubo2018=0;
+    int contandoRuaTrezeMaioBoaEsperancaRoubo2018=1;
     int contandoRuaLuisTupinaBoaEsperancaRoubo2018=0;
     int contandoRuaHermilioTupinaBoaEsperancaRoubo2018=0;
     int contandoRuaSaoGeraldoBoaEsperancaRoubo2018=0;
@@ -333,7 +333,7 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaCBoaVistaRoubo2018=0;
     int contandoRuaDBoaVistaRoubo2018=0;
     int contandoRuaEBoaVistaRoubo2018=0;
-    int contandoRuaFBoaVistaRoubo2018=0;
+    int contandoRuaFBoaVistaRoubo2018=1;
     int contandoRuaGBoaVistaRoubo2018=0;
     int contandoRuaHBoaVistaRoubo2018=0;
     int contandoRuaIBoaVistaRoubo2018=0;
@@ -451,17 +451,16 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
 
-    int contandoArturBernardesCentroRoubo2018=0;
-    int contandoBaraoSaoRomaoCentroRoubo2018=0;
-    int contandoBaraoRioBrancoCentroRoubo2018=0;
-    int contandoConegoRamiroLeiteCentroRoubo2018=0;
-    int contandoCelCassianoCentroRoubo2018=0;
-    int contandoCelSerraoCentroRoubo2018=0;
-    int contandoDomDanielCentroRoubo2018=0;
-    int contandoGetulioVargasCentroRoubo2018=0;
-    int contandoPadreHenriqueCentroRoubo2018=0;
-    int contandoPracaTiradentesCentroRoubo2018=0;
-
+    int contandoArturBernardesCentroRoubo2018=2;
+    int contandoBaraoSaoRomaoCentroRoubo2018=2;
+    int contandoBaraoRioBrancoCentroRoubo2018=2;
+    int contandoConegoRamiroLeiteCentroRoubo2018=5;
+    int contandoCelCassianoCentroRoubo2018=3;
+    int contandoCelSerraoCentroRoubo2018=5;
+    int contandoDomDanielCentroRoubo2018=4;
+    int contandoGetulioVargasCentroRoubo2018=5;
+    int contandoPadreHenriqueCentroRoubo2018=5;
+    int contandoPracaTiradentesCentroRoubo2018=5;
 
 
     int contandoArturBernardesCentroRoubo2019=0;
@@ -494,13 +493,14 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
     int contandoRuaAterroCeramicaRoubo2018=0;
     int contandoRuaBrasiliaMinasCeramicaRoubo2018=0;
     int contandoRuaItacarambiCeramicaRoubo2018=0;
-    int contandoRuaItapiracabaCeramicaRoubo2018=0;
-    int contandoRuaMangaCeramicaRoubo2018=0;
+    int contandoRuaItapiracabaCeramicaRoubo2018=3;
+    int contandoRuaMangaCeramicaRoubo2018=1;
     int contandoRuaMontesClarosCeramicaRoubo2018=0;
     int contandoRuaMontalvaniaCeramicaRoubo2018=0;
-    int contandoRuaVarzelandiaCeramicaRoubo2018=0;
+    int contandoRuaVarzelandiaCeramicaRoubo2018=1;
     int contandoRuaMiltonCamposCeramicaRoubo2018=0;
     int contandoRuaMiltonSaCeramicaRoubo2018=0;
+
 
 
 
@@ -571,9 +571,9 @@ public class GraficoRuaBarraGeralFragment extends Fragment {
 
 
     int contandoRuaAntonioValeFilhoFranklimRoubo2018=0;
-    int contandoRuaLFranklimRoubo2018=0;
+    int contandoRuaLFranklimRoubo2018=1;
     int contandoRuaVinteTresFranklimRoubo2018=0;
-    int contandoRuaVinteQuatroFranklimRoubo2018=0;
+    int contandoRuaVinteQuatroFranklimRoubo2018=1;
     int contandoRuaR25FranklimdoRoubo2018=0;
     int contandoRuaVinteOitoFranklimRoubo2018=0;
 

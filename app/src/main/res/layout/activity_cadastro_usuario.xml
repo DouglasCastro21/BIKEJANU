@@ -7,23 +7,6 @@
     android:minHeight="0dp"
     tools:context=".Activity.CadastroUsuario">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="326dp"
-        android:layout_height="298dp"
-        android:layout_marginBottom="50dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginStart="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/scrollView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@mipmap/ic_launcher_background_andando" />
-
 
     <ScrollView
         android:id="@+id/scrollView5"
@@ -33,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,6 +37,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/usuario" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="223dp"
+                android:layout_height="170dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="192dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/scrollView3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@mipmap/ic_launcher_background_andando" />
 
             <EditText
                 android:id="@+id/NumeroID"
