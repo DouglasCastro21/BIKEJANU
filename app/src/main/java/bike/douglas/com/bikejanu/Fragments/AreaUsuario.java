@@ -216,6 +216,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         } else if (id == R.id.nav_bike) {
 
 
+
+
+
             startActivity(new Intent(AreaUsuario.this, Consultar_Bike.class));
 
 
