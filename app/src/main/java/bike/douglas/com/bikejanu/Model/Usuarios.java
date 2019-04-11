@@ -25,11 +25,22 @@ public class Usuarios {
 
     }
 
+
+    public Usuarios(String userName, String userEmail,String userSenha, String userTelefone) {
+        this.nome = userName;
+        this.email = userEmail;
+        this.senha = userSenha;
+        this.telefone = userTelefone;
+    }
+
 // salvar usuarios
     public void Salvar(){
 
+
+        Usuarios user = new Usuarios(nome, email,senha,telefone);
+
         DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
-        referenciaFirebase.child("Usuarios").child(String.valueOf(getIdUsuario())).setValue(this);
+        referenciaFirebase.child("Usuarios").child(String.valueOf(getIdUsuario())).setValue(user);
 
     }
 

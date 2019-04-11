@@ -67,10 +67,6 @@ public class DadosBike extends AppCompatActivity  {
 
 
 
-
-
-
-
         // rebece o dados do Bike Adapter por parametro passada pela tela cadastro
         Intent intent = getIntent();
 

@@ -6,18 +6,22 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.style.UpdateAppearance;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,13 +32,21 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
+import bike.douglas.com.bikejanu.Adapter.UsuarioAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
@@ -63,6 +75,8 @@ public class CadastroUsuario extends AppCompatActivity {
     private EditText  telefone;
     private String    imagem;
     private TextView txtNumeroPm;
+
+
     private  EditText numeroPm;
 
   //  private EditText  nascimento;
@@ -72,10 +86,21 @@ public class CadastroUsuario extends AppCompatActivity {
     private Usuarios usuarios;
 
 
+    private List<Usuarios> listaUsuario = new ArrayList<Usuarios>();
+    private ArrayAdapter<Usuarios> arrayAdapterUsuario;
+    private ListView listViewDados;
+
+
 
     private FirebaseAuth autenticacao;
     private StorageReference storageReference;
     private DatabaseReference firebase;
+
+
+
+
+
+
 
 
 
@@ -86,35 +111,24 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null) {
 
 
-            Toast.makeText(CadastroUsuario.this,"Sou um usuario" ,Toast.LENGTH_LONG ).show();
+        autenticacao = FirebaseAuth.getInstance();
 
 
-            // rebece o dados do Bike Adapter por parametro
-            Intent intent = getIntent();
-
-            if(intent !=null) {
-
-                Bundle params = intent.getExtras();
-
-                if (params != null) {
-
-                    //dados do modelo
-                    String nomee= params.getString("nome");
-                    TextView nomeeText = (TextView) findViewById(R.id.NumeroID);
-                    nomeeText.setText(nomee);
 
 
-                }
-
-            }
 
 
-        }
+        //Instânciar objetos
+        listaUsuario = new ArrayList<>();
+
+        arrayAdapterUsuario = new UsuarioAdapter(CadastroUsuario.this, (ArrayList<Usuarios>) listaUsuario);
+     //   listViewDados.setAdapter(arrayAdapterUsuario);
+
+        //registerForContextMenu(listViewDados);
+
+
 
 
 
@@ -128,9 +142,14 @@ public class CadastroUsuario extends AppCompatActivity {
 
             if (params !=null){
 
-                String telefone = params.getString("telefone");
-                EditText telefoneText = (EditText) findViewById(R.id.telefoneeID);
-                telefoneText.setText(telefone);
+                String emails = params.getString("emailUsuario");
+                TextView emailsText = (TextView) findViewById(R.id.EmailtextID);
+                emailsText.setText(emails);
+
+
+                String no= params.getString("nomeUsuario");
+                TextView noText  = (TextView) findViewById(R.id.NumeroID);
+                noText.setText(no);
 
             }
         }
@@ -172,6 +191,9 @@ public class CadastroUsuario extends AppCompatActivity {
 
         mascaras();
 
+        vamosLa();
+
+
 
 
 
@@ -209,6 +231,9 @@ public class CadastroUsuario extends AppCompatActivity {
                 fundo.setVisibility(View.VISIBLE);
                 criando.setVisibility(View.VISIBLE);
 
+
+
+
                 if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
                         !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
                         !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")){
@@ -230,9 +255,9 @@ public class CadastroUsuario extends AppCompatActivity {
 
                             Toast.makeText(CadastroUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
                             email.requestFocus();
-                       progressBar.setVisibility(View.GONE);
-                         fundo.setVisibility(View.GONE);
-                         criando.setVisibility(View.GONE);
+                              progressBar.setVisibility(View.GONE);
+                                fundo.setVisibility(View.GONE);
+                                 criando.setVisibility(View.GONE);
 
 
                         }
@@ -290,6 +315,9 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
+
+
+
    private void inicializarElementos(){
 
         usuarios = new Usuarios();
@@ -305,10 +333,15 @@ public class CadastroUsuario extends AppCompatActivity {
 
     private void cadastrarUsuario(){
 
+
         autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
+
         autenticacao.createUserWithEmailAndPassword(
+
                 usuarios.getEmail(),
                 usuarios.getSenha()
+
+
 
 
         ).addOnCompleteListener(CadastroUsuario.this, new OnCompleteListener<AuthResult>() {
@@ -324,33 +357,38 @@ public class CadastroUsuario extends AppCompatActivity {
                         fundo.setVisibility(View.GONE);
                         criando.setVisibility(View.GONE);
 
+
+                         String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
+                         FirebaseUser usuarioFirebase = task.getResult().getUser();
+                         usuarios.setIdUsuario(identificadorUsuario);
+
+
+
+                         usuarios.Salvar();
+
+                         Preferencias preferencias = new Preferencias(CadastroUsuario.this);
+                         preferencias.salvarUsuarioPreferencias(identificadorUsuario,usuarios.getNome());
+
+                         FirebaseUser user = autenticacao.getCurrentUser();
+
+
                         Toast.makeText(CadastroUsuario.this,"Usuário cadastrado com sucesso!",Toast.LENGTH_LONG).show();
 
-                    String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
-                    FirebaseUser usuarioFirebase = task.getResult().getUser();
-                    usuarios.setIdUsuario(identificadorUsuario);
-                    usuarios.Salvar();
-
-                    Preferencias preferencias = new Preferencias(CadastroUsuario.this);
-                    preferencias.salvarUsuarioPreferencias(identificadorUsuario,usuarios.getNome());
-
-
-
-                    abrirAreaUsuario();
+                        abrirAreaUsuario();
 
                 }else{
-                        progressBar.setVisibility(View.GONE);
-                    String erroExcecao = "";
+                         progressBar.setVisibility(View.GONE);
+                         String erroExcecao = "";
 
                     try {
                         throw  task.getException();
                     } catch (FirebaseAuthWeakPasswordException e){
 
-                        erroExcecao = "Digite uma senha contendo no mínimo 8 caracteres entre letras e numeros";
-                        senha.requestFocus();
+                         erroExcecao = "Digite uma senha contendo no mínimo 8 caracteres entre letras e numeros";
+                         senha.requestFocus();
                     }catch (FirebaseAuthUserCollisionException e){
-                        erroExcecao = "Email já cadastrado   ";
-                        email.requestFocus();
+                         erroExcecao = "Email já cadastrado   ";
+                         email.requestFocus();
                     }catch (FirebaseAuthInvalidCredentialsException e){
                         erroExcecao = "O campo de email está mal formado  ";
                         email.requestFocus();
@@ -475,32 +513,75 @@ public class CadastroUsuario extends AppCompatActivity {
         if (user != null) {
 
             String name = user.getDisplayName();
-            String email = user.getEmail();
+            String email = user.getProviderId();
 
             // converte o email pra base 64
             String identificadorUsuario= Base64Custom.codificarBase64(email);
 
 
 
-            // EDITA a bike no nó todas as bikes
+
+
+            // Edita no nó usuario logado
+            //
             firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-            firebase.child(usuarios.getEmail()).setValue(usuarios);
+            firebase.child(identificadorUsuario).child("Usuarios");
 
 
 
-            Toast.makeText(CadastroUsuario.this, "Dados Alterados com Sucesso!", Toast.LENGTH_LONG).show();
+          //  Toast.makeText(CadastroUsuario.this, "Dados Alterados com Sucesso!", Toast.LENGTH_LONG).show();
 
             // retorna a tela usuario
 
-            abrirAreaUsuario();
+          //  abrirAreaUsuario();
 
-        };
+        }
 
 
 
     }
 
 
+
+
+    public void vamosLa(){
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+
+
+            Toast.makeText(CadastroUsuario.this,"Sou um usuario"+nome ,Toast.LENGTH_LONG ).show();
+
+            // rebece o dados do Bike Adapter por parametro
+              Intent intent = getIntent();
+
+            if(intent !=null) {
+
+                Bundle params = intent.getExtras();
+
+                if (params != null) {
+
+
+
+                    String no= params.getString("nomeUsuario");
+                    TextView noText = (TextView) findViewById(R.id.NumeroID);
+                    noText.setText(no);
+
+
+                }
+
+            }
+
+
+            recuperarDadosUsuarioConectadoECadastra();
+
+
+        }
+
+
+    }
 
 
 }

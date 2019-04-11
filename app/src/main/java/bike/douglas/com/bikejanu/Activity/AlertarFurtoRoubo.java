@@ -387,7 +387,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
        }
 
-       if(statusBike.equals("Recuperada") || statusBike.equals("Sem Impedimento")){
+       // tirar Sem Restrições depois  ..
+
+       if(statusBike.equals("Recuperada")){
 
            radioButtonNadaConsta.toggle();
            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
@@ -417,6 +419,40 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
        }
+
+
+
+
+        if(statusBike.equals("Sem Impedimento") || statusBike.equals("Sem Restrições")){
+
+            // radioButtonNadaConsta.toggle();
+            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
+
+
+            abrirMapa.setVisibility(View.GONE);
+            alertaEstado.setVisibility(View.GONE);
+            alertaCidade.setVisibility(View.GONE);
+            alertaRua.setVisibility(View.GONE);
+            alertaBairro.setVisibility(View.GONE);
+            alertaDescricao.setVisibility(View.GONE);
+            alertaDate.setVisibility(View.GONE);
+            alertaHora.setVisibility(View.GONE);
+            Boletim.setVisibility(View.GONE);
+
+
+            txtRua.setVisibility(View.GONE);
+            txtBairro.setVisibility(View.GONE);
+
+            txtDataHora.setVisibility(View.GONE);
+            txtBoletim.setVisibility(View.GONE);
+            txtObservacao.setVisibility(View.GONE);
+            txtmensagem1.setVisibility(View.GONE);
+            txtEstado.setVisibility(View.GONE);
+            txtCidade.setVisibility(View.GONE);
+
+
+
+        }
 
 
 

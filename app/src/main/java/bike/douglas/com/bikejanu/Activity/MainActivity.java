@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     DatabaseReference databaseReference;
 
 
@@ -46,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+
+// add depois  testar ...
+     autenticacao = FirebaseAuth.getInstance();
 
  //banco
 
@@ -107,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 
     private void verificarUsuarioLogado() {

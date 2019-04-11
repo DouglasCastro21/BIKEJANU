@@ -151,7 +151,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-final TextView txtViewNome  = (TextView) view.findViewById(R.id.NumeroID);
+            final TextView txtViewNome  = (TextView) view.findViewById(R.id.NumeroID);
 
             final TextView txtViewNumeroSerie        = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             final TextView txtViewMarca              = (TextView) view.findViewById(R.id.txtViewMarca);
@@ -166,7 +166,6 @@ final TextView txtViewNome  = (TextView) view.findViewById(R.id.NumeroID);
             final TextView txtViewAlertaEstado       = (TextView) view.findViewById(R.id.cadastroCidadeID);
             final TextView txtViewAlertaCidade       = (TextView) view.findViewById(R.id.alertacidadeID);
             final TextView txtViewAlertaRua          = (TextView) view.findViewById(R.id.cadastroBairroID);
-
             final TextView txtViewAlertaBairro       = (TextView) view.findViewById(R.id.cadastroBairroID);
             final TextView txtViewAlertaData         = (TextView) view.findViewById(R.id.alertaDataID);
             final TextView txtViewAlertaHora         = (TextView) view.findViewById(R.id.alertaHoraID);
@@ -175,6 +174,14 @@ final TextView txtViewNome  = (TextView) view.findViewById(R.id.NumeroID);
             final Bike bikeRoubadaFurtada;
 
              bikeRoubadaFurtada = listabikes.get(position);
+
+
+
+
+
+
+
+
 
 
 

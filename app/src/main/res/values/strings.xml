@@ -40,136 +40,81 @@
     <string name="title_activity_estatisticas">Estatísticas</string>
 
 
+    <string-array name="countries">
 
-<string-array name="countries">
 
+        <item>Aeroporto</item>
+        <item>Alameda</item>
+        <item>Alto Cemitério</item>
+        <item>Alto dos Pocões</item>
+        <item>Alvorada</item>
 
-    <item>Aeroporto</item>
-    <item>Alameda</item>
-    <item>Alto Cemitério</item>
-    <item>Alto dos Pocões</item>
-    <item>Alvorada</item>
 
+        <item>Bandeirantes</item>
+        <item>Bela Vista</item>
+        <item>Boa Esperança</item>
+        <item>Boa Vista</item>
 
-    <item>Bandeirantes</item>
-    <item>Bela Vista</item>
-    <item>Boa Esperança</item>
-    <item>Boa Vista</item>
+        <item>Brejo do Amparo</item>
 
-    <item>Brejo do Amparo</item>
+        <item>Caic</item>
+        <item>Centro</item>
+        <item>Cerâmica</item>
 
-    <item>Caic</item>
-    <item>Centro</item>
-    <item>Cerâmica</item>
+        <item>Eldorado</item>
 
-    <item>Eldorado</item>
+        <item>Fabião</item>
+        <item>Franklin</item>
 
-    <item>Fabião</item>
-    <item>Franklin</item>
 
+        <item>Januária</item>
+        <item>Jardim Daniel</item>
+        <item>Jardim Estela</item>
+        <item>Jatobá</item>
+        <item>Joventina Mesquita</item>
+        <item>Jussara</item>
 
-    <item>Januária</item>
-    <item>Jardim Daniel</item>
-    <item>Jardim Estela</item>
-    <item>Jatobá</item>
-    <item>Joventina Mesquita</item>
-    <item>Jussara</item>
+        <item>Levianopolis</item>
 
-    <item>Levianopolis</item>
+        <item>Mangueiras</item>
+        <item>Margarete</item>
+        <item>Moradeiras</item>
 
-    <item>Mangueiras</item>
-    <item>Margarete</item>
-    <item>Moradeiras</item>
+        <item>Norma Consuelo</item>
+        <item>Novo Milênio</item>
 
-    <item>Norma Consuelo</item>
-    <item>Novo Milênio</item>
+        <item>Quinta Mangabeiras</item>
 
-    <item>Quinta Mangabeiras</item>
+        <item>Riacho da Cruz</item>
 
-    <item>Riacho da Cruz</item>
+        <item>São João</item>
+        <item>São Joaquim</item>
+        <item>São Miguel</item>
+        <item>São Vicente</item>
+        <item>Sagrada Família</item>
+        <item>Santa Cruz</item>
+        <item>Santa Isabel</item>
+        <item>Sede</item>
 
-    <item>São João</item>
-    <item>São Joaquim</item>
-    <item>São Miguel</item>
-    <item>São Vicente</item>
-    <item>Sagrada Família</item>
-    <item>Santa Cruz</item>
-    <item>Santa Isabel</item>
-    <item>Sede</item>
+        <item>Tejuco</item>
+        <item>Terceiro Milênio</item>
+        <item>Tropical</item>
 
-    <item>Tejuco</item>
-    <item>Terceiro Milênio</item>
-    <item>Tropical</item>
+        <item>Várzea dos Pocões</item>
 
-    <item>Várzea dos Pocões</item>
 
+        <item>Vila Brasilandia</item>
+        <item>Vila Fátima</item>
+        <item>Vila Jadete</item>
 
-    <item>Vila Brasilandia</item>
-    <item>Vila Fátima</item>
-    <item>Vila Jadete</item>
 
+        <item>Pandeiros</item>
+        <item>Vila Paula</item>
+        <item>Vila Verde</item>
+        <item>Vila Viana</item>
 
-    <item>Pandeiros</item>
-    <item>Vila Paula</item>
-    <item>Vila Verde</item>
-    <item>Vila Viana</item>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</string-array>
-
-    
+    </string-array>
 
 
 </resources>

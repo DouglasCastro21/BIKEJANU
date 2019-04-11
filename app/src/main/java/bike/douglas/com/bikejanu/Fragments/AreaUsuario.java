@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -35,13 +36,17 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
+import bike.douglas.com.bikejanu.Activity.DadosBike;
+import bike.douglas.com.bikejanu.Activity.EditarUsuario;
 import bike.douglas.com.bikejanu.Activity.Estatisticas;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
+import bike.douglas.com.bikejanu.Adapter.UsuarioAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
@@ -60,19 +65,27 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     private ImageView imagemPerfil;
     private Uri uriImagem;
-    private StorageReference storageReference;
+
+    private TextView nomeUsuario;
 
 
-
-
-
+    DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
+
+
+
     private ListView listViewDados;
 
 
+
+    public List<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
     private List<Bike> listabikes = new ArrayList<Bike>();
+
+
     private ArrayAdapter <Bike> arrayAdapterBike;
+
+    private ArrayAdapter <Usuarios> arrayAdapterUsuarios;
 
    // private Usuarios usuarios;
 
@@ -80,6 +93,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
+private DatabaseReference firebase;
+private Usuarios usuarios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +105,12 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         firebaseDatabase = FirebaseDatabase.getInstance();
     //  firebaseDatabase.setPersistenceEnabled(true);
        databaseReference = firebaseDatabase.getReference();
+
+        databaseReferenceUsuario = firebaseDatabase.getReference();
+
+
+
+
 
 
 
@@ -103,9 +125,15 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
 
 
+
+
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
-        final TextView receceNome = (TextView) findViewById(R.id.nomeUsuarioID);
         ImagemUsuario = (ImageView) findViewById(R.id.ImagemUsuarioID);
+
+
+
+
+
 
 
 
@@ -128,19 +156,21 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         listViewDados = (ListView) findViewById(R.id.listaBikesID);
 
 
-
-
-
-
         // lista todas as bikes do usuario
 
         listaBikes();
 
+       // BuscaUsuriosParaPerfil();
 
 
 
 
-        btnmais.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+                btnmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -177,6 +207,9 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.area_usuario, menu);
+
+        BuscaUsuriosParaPerfil();
+
         return true;
     }
 
@@ -231,13 +264,16 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
                 excluirUsuario();
 
+          //  startActivity(new Intent(AreaUsuario.this, CadastroUsuario.class));
+
 
         } else if (id == R.id.nav_editar_perfil) {
 
 
-           startActivity(new Intent(AreaUsuario.this, CadastroUsuario.class));
 
-         //   enviaDadosParaCadastroUsuario();
+                recuperaUsuarios();
+
+
 
 
         }else if (id == R.id.nav_sair) {
@@ -250,6 +286,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 
 
@@ -475,6 +512,119 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     }
 
 
+
+
+    public void recuperaUsuarios(){
+
+
+        // recupera usuario
+
+        final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+
+
+            String email = user1.getEmail();
+
+            // converte o email pra base 64
+            String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+         DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+
+
+    UsuarioReference.addValueEventListener(new ValueEventListener() {
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+       Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+
+
+
+
+        Bundle params = new Bundle();
+
+        // passa dados  para a tela editar usuario
+
+
+        params.putString("nomeUsuario",                        dados.getNome());
+        params.putString("telefoneUsuario",                    dados.getTelefone());
+        params.putString("emailUsuario",                       dados.getEmail());
+        params.putString("confirmaremailUsuario",              dados.getEmail());
+        params.putString("senhaUsuario",                       dados.getSenha());
+        params.putString("confirmarsenhaUsuario",              dados.getSenha());
+
+
+        Intent intent = new Intent(AreaUsuario.this, EditarUsuario.class);
+        intent.putExtras(params);
+        startActivity(intent);
+
+
+
+    }
+
+    @Override
+    public void onCancelled(DatabaseError databaseError) {
+
+    }
+});
+
+
+
+
+    }
+
+
+
+
+
+    public void BuscaUsuriosParaPerfil(){
+
+
+        // recupera usuario
+
+        final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        String email = user1.getEmail();
+
+        // converte o email pra base 64
+        String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+        DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+
+
+        UsuarioReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+
+
+
+
+
+
+                TextView nomeUsuarioLogadoText = (TextView)findViewById(R.id.nomeUsuarioI01D);
+                nomeUsuarioLogadoText.setText(dados.getNome());
+
+                TextView emailUsuarioLogadoText = (TextView)findViewById(R.id.emailUsuarioID);
+                emailUsuarioLogadoText.setText(dados.getEmail());
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+    }
 
 
 }

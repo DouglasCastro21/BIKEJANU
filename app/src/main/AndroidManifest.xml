@@ -30,7 +30,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.gms.version"
@@ -120,7 +119,8 @@
             android:name=".Activity.Estatisticas"
             android:label="@string/title_activity_estatisticas"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Activity.ValidacaoToken"></activity>
+        <activity android:name=".Activity.ValidacaoToken" />
+        <activity android:name=".Activity.EditarUsuario"></activity>
     </application>
 
 </manifest>

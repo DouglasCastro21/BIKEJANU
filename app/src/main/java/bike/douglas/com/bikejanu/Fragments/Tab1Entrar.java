@@ -17,8 +17,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import bike.douglas.com.bikejanu.Activity.EditarUsuario;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
@@ -66,7 +74,9 @@ public class Tab1Entrar extends Fragment  {
 
                     progressBar.setVisibility(View.VISIBLE);
                     carregando.setVisibility(View.VISIBLE);
+
                     validarLogin();
+
 
                 } else {
 
@@ -124,6 +134,7 @@ public class Tab1Entrar extends Fragment  {
 
 
 
+
       //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,CadastroUsuario.class);
 //startActivity(intentabrirTElaPrincipal);
 
@@ -134,6 +145,7 @@ public class Tab1Entrar extends Fragment  {
     private  void verificarUsuarioLogado() {
         autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
         if (autenticacao.getCurrentUser() != null) {
+
 
             abrirTElaPrincipal();
 
