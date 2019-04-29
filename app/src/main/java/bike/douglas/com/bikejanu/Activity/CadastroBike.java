@@ -3,12 +3,17 @@ package bike.douglas.com.bikejanu.Activity;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,10 +28,18 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -85,6 +98,7 @@ public class CadastroBike extends AppCompatActivity  {
    protected Button     botaoBuscarMapa;
    protected Button     botaocadastrar;
    protected ImageView  spinnerImagem;
+    private StorageReference storageReference;
 
 
 
@@ -93,6 +107,11 @@ public class CadastroBike extends AppCompatActivity  {
     private DatabaseReference firebase;
     private int dia,mes,ano,hora,minuto;
 
+
+    private  static final int PICK_IMAGE_REQUEST = 1;
+    ImageView buttonBuscarImagem;
+    ImageView imagemBike;
+    private Uri uriImagem;
 
 
 
@@ -104,6 +123,12 @@ public class CadastroBike extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_bike);
+
+
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+
 
 
         numero_serie    = (EditText)    findViewById(R.id.NumeroID);
@@ -141,9 +166,11 @@ public class CadastroBike extends AppCompatActivity  {
         radioButtonRoubada      = (RadioButton) findViewById(R.id.alertaRoubadaID);
         radioGroup              = (RadioGroup)  findViewById(R.id.radioGroupID);
 
+        imagemBike              = (ImageView)   findViewById(R.id.imageBikeID);
 
 
-        botaoBuscarMapa         = (Button)       findViewById(R.id.btnBuscarMapsID) ;
+         buttonBuscarImagem     = (ImageView)     findViewById(R.id.buscarFotoBikeID);
+         botaoBuscarMapa         = (Button)       findViewById(R.id.btnBuscarMapsID) ;
         botaocadastrar          = (Button)       findViewById(R.id.finalizarID);
         final CheckBox checkBox = (CheckBox)     findViewById(R.id.checkBoxID);
 
@@ -153,6 +180,7 @@ public class CadastroBike extends AppCompatActivity  {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerImagem = (ImageView) findViewById(R.id.spinerImagID);
+
 
 
 
@@ -339,6 +367,16 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
+        buttonBuscarImagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              abrirFotos();
+
+
+            }
+        });
+
 
 
 
@@ -450,6 +488,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                         inicializarElementos();
                         recuperarDadosUsuarioConectadoECadastra();
+
 
 
                     } else {
@@ -602,6 +641,9 @@ public class CadastroBike extends AppCompatActivity  {
 
     }
 
+
+
+
 // volta pra tela usuario
     private void abrirAreaUsuario(){
 
@@ -637,6 +679,7 @@ public class CadastroBike extends AppCompatActivity  {
             String identificadorUsuario= Base64Custom.codificarBase64(email);
 
 
+            addImagem();
 
             // cadastra a bike no nó todas as bikes
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
@@ -665,7 +708,7 @@ public class CadastroBike extends AppCompatActivity  {
 
            abrirAreaUsuario();
 
-        };
+        }
 
 
 
@@ -789,4 +832,101 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
+    private void abrirFotos(){
+
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,PICK_IMAGE_REQUEST);
+
     }
+
+
+
+    // codigo da imagem
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!=null){
+
+
+
+
+            uriImagem   = data.getData();
+
+
+
+            StorageReference filePath = storageReference.child("fotosPerfil").child(uriImagem.getLastPathSegment());
+
+            Picasso.with(this).load(uriImagem).into(imagemBike);
+            imagemBike.setImageURI(uriImagem);
+
+        }
+    }
+
+
+    private String getExtension(Uri uri){
+
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+
+
+        return mime.getExtensionFromMimeType(cr.getType(uri));
+
+
+    }
+
+
+
+
+    public void addImagem(){
+
+        if(uriImagem != null){
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+            String email = user.getEmail();
+
+            // converte o email pra base 64
+            String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+            StorageReference fileRederencia  = storageReference.child("Bikes").child(identificadorUsuario).child( System.currentTimeMillis()+ "." + getExtension(uriImagem));
+
+
+            fileRederencia.putFile(uriImagem).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+
+
+                    Upload upload = new Upload();
+
+
+
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            });
+
+
+        }else {
+
+            Toast.makeText(CadastroBike.this, "Arquivo de foto não selecionado", Toast.LENGTH_LONG).show();
+
+
+        }
+
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        uriImagem.buildUpon().build();
+
+    }
+
+
+}

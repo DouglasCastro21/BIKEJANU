@@ -191,7 +191,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
         mascaras();
 
-        vamosLa();
 
 
 
@@ -442,7 +441,11 @@ public class CadastroUsuario extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!=null){
 
 
+
+
             uriImagem   = data.getData();
+
+
 
             StorageReference filePath = storageReference.child("fotosPerfil").child(uriImagem.getLastPathSegment());
 
@@ -464,20 +467,29 @@ public class CadastroUsuario extends AppCompatActivity {
 
     }
 
+
+
+
     public void addImagem(){
 
         if(uriImagem != null){
 
-            StorageReference fileRederencia  = storageReference.child( System.currentTimeMillis()+ "." + getExtension(uriImagem));
+            StorageReference fileRederencia  = storageReference.child("FotosPerfil").child( System.currentTimeMillis()+ "." + getExtension(uriImagem));
 
 
         fileRederencia.putFile(uriImagem).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                Toast.makeText(CadastroUsuario.this, "sucesso imagem", Toast.LENGTH_LONG).show();
+
+
+                Toast.makeText(CadastroUsuario.this, "Sucesso imagem", Toast.LENGTH_LONG).show();
 
                 Upload upload = new Upload();
+
+
+
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -493,7 +505,6 @@ public class CadastroUsuario extends AppCompatActivity {
             Toast.makeText(CadastroUsuario.this, "Arquivo de foto não selecionado", Toast.LENGTH_LONG).show();
 
 
-
         }
 
 
@@ -501,87 +512,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-
-
-
-    private void recuperarDadosUsuarioConectadoECadastra(){
-
-        // recupera autenticão do usuario local
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null) {
-
-            String name = user.getDisplayName();
-            String email = user.getProviderId();
-
-            // converte o email pra base 64
-            String identificadorUsuario= Base64Custom.codificarBase64(email);
-
-
-
-
-
-            // Edita no nó usuario logado
-            //
-            firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-            firebase.child(identificadorUsuario).child("Usuarios");
-
-
-
-          //  Toast.makeText(CadastroUsuario.this, "Dados Alterados com Sucesso!", Toast.LENGTH_LONG).show();
-
-            // retorna a tela usuario
-
-          //  abrirAreaUsuario();
-
-        }
-
-
-
-    }
-
-
-
-
-    public void vamosLa(){
-
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null) {
-
-
-            Toast.makeText(CadastroUsuario.this,"Sou um usuario"+nome ,Toast.LENGTH_LONG ).show();
-
-            // rebece o dados do Bike Adapter por parametro
-              Intent intent = getIntent();
-
-            if(intent !=null) {
-
-                Bundle params = intent.getExtras();
-
-                if (params != null) {
-
-
-
-                    String no= params.getString("nomeUsuario");
-                    TextView noText = (TextView) findViewById(R.id.NumeroID);
-                    noText.setText(no);
-
-
-                }
-
-            }
-
-
-            recuperarDadosUsuarioConectadoECadastra();
-
-
-        }
-
-
-    }
 
 
 }

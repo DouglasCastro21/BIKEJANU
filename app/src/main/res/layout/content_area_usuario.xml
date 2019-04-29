@@ -8,6 +8,9 @@
     tools:context=".Fragments.AreaUsuario"
     tools:showIn="@layout/app_bar_area_usuario">
 
+
+
+
     <ListView
         android:id="@+id/listaBikesID"
         android:layout_width="wrap_content"
@@ -19,23 +22,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></ListView>
-
-    <ImageButton
-        android:id="@+id/btnmaisID"
-        android:layout_width="60dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginStart="304dp"
-        android:layout_marginTop="488dp"
-        android:background="@android:drawable/menuitem_background"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add2" />
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/setaListaID"
@@ -82,4 +69,21 @@
         app:layout_constraintTop_toBottomOf="@+id/bikeListaID" />
 
 
+    <ImageButton
+        android:id="@+id/btnmaisID"
+        android:layout_width="56dp"
+        android:layout_height="53dp"
+
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="500dp"
+
+        android:background="@drawable/add2"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/listaBikesID"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.979" />
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,7 @@
 package bike.douglas.com.bikejanu.Model;
 
+import android.net.Uri;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
@@ -26,18 +28,20 @@ public class Usuarios {
     }
 
 
-    public Usuarios(String userName, String userEmail,String userSenha, String userTelefone) {
+    public Usuarios(String userName, String userEmail,String userSenha, String userTelefone,String userImagem) {
         this.nome = userName;
         this.email = userEmail;
         this.senha = userSenha;
         this.telefone = userTelefone;
+        this.imagem = userImagem;
+
     }
 
 // salvar usuarios
     public void Salvar(){
 
 
-        Usuarios user = new Usuarios(nome, email,senha,telefone);
+        Usuarios user = new Usuarios(nome, email,senha,telefone,imagem);
 
         DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
         referenciaFirebase.child("Usuarios").child(String.valueOf(getIdUsuario())).setValue(user);

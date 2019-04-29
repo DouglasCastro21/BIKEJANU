@@ -120,7 +120,9 @@
             android:label="@string/title_activity_estatisticas"
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.ValidacaoToken" />
-        <activity android:name=".Activity.EditarUsuario"></activity>
+        <activity android:name=".Activity.EditarUsuario" />
+        <activity android:name=".Activity.Galeria" />
+        <activity android:name=".Activity.ConfirmarSenha"></activity>
     </application>
 
 </manifest>

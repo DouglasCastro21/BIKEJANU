@@ -27,6 +27,7 @@ public class Bike extends Usuarios{
     private String Boletim;
     private String alertaDescricao;
     private String status;
+    private String fotoBike;
 
 
 
@@ -50,6 +51,7 @@ public class Bike extends Usuarios{
         hashMapBike.put("modelo",getModelo());
         hashMapBike.put("cor",getCor());
         hashMapBike.put("descricao",getDescricao());
+        hashMapBike.put("fotoBike",getLatitude());
 
 
 
@@ -210,6 +212,11 @@ public class Bike extends Usuarios{
         this.longitude = longitude;
     }
 
+    public String getFotoBike() {
+        return fotoBike;
+    }
 
-
+    public void setFotoBike(String fotoBike) {
+        this.fotoBike = fotoBike;
+    }
 }

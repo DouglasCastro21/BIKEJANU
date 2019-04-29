@@ -1,5 +1,6 @@
 package bike.douglas.com.bikejanu.Fragments;
 
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -25,6 +27,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,7 +37,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,10 +48,12 @@ import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
+import bike.douglas.com.bikejanu.Activity.ConfirmarSenha;
 import bike.douglas.com.bikejanu.Activity.DadosBike;
 import bike.douglas.com.bikejanu.Activity.EditarUsuario;
 import bike.douglas.com.bikejanu.Activity.Estatisticas;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
+import bike.douglas.com.bikejanu.Activity.Upload;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.Adapter.UsuarioAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
@@ -59,7 +68,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
 
     private FirebaseAuth usuarioFirebase;
     private FirebaseUser usuario;
-    private ImageButton btnmais;
+    private ImageView btnmais;
     private ImageView ImagemUsuario;
     private  static final int PICK_IMAGE_REQUEST = 1;
 
@@ -74,6 +83,8 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     FirebaseDatabase firebaseDatabase;
 
 
+
+    private StorageReference storageReference;
 
     private ListView listViewDados;
 
@@ -108,6 +119,8 @@ private Usuarios usuarios;
 
         databaseReferenceUsuario = firebaseDatabase.getReference();
 
+
+        storageReference = FirebaseStorage.getInstance().getReference();
 
 
 
@@ -152,7 +165,7 @@ private Usuarios usuarios;
         navigationView.setNavigationItemSelectedListener(this);
 
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
-        btnmais =  (ImageButton)findViewById(R.id.btnmaisID);
+        btnmais =  (ImageView) findViewById(R.id.btnmaisID);
         listViewDados = (ListView) findViewById(R.id.listaBikesID);
 
 
@@ -160,7 +173,6 @@ private Usuarios usuarios;
 
         listaBikes();
 
-       // BuscaUsuriosParaPerfil();
 
 
 
@@ -170,7 +182,7 @@ private Usuarios usuarios;
 
 
 
-                btnmais.setOnClickListener(new View.OnClickListener() {
+        btnmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -208,7 +220,57 @@ private Usuarios usuarios;
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.area_usuario, menu);
 
-        BuscaUsuriosParaPerfil();
+
+
+
+      FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        String email = user1.getEmail();
+
+        // converte o email pra base 64
+        String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+        DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+
+
+        UsuarioReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+    if(dataSnapshot.exists()) {
+
+                 Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+
+
+                 TextView nomeUsuarioLogadoText = (TextView) findViewById(R.id.nomeUsuarioI01D);
+                 nomeUsuarioLogadoText.setText(dados.getNome());
+
+                 TextView emailUsuarioLogadoText = (TextView) findViewById(R.id.emailUsuarioID);
+                 emailUsuarioLogadoText.setText(dados.getEmail());
+
+
+            //final  ImageView fotoUsuarioLogado = (ImageView)findViewById(R.id.ImagemUsuarioID);
+           //   fotoUsuarioLogado.setImageURI(Uri.parse("1555035815608.jpg"));
+
+
+
+
+}
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
 
         return true;
     }
@@ -262,16 +324,18 @@ private Usuarios usuarios;
 
         } else if (id == R.id.nav_configuracao) {
 
-                excluirUsuario();
+               // excluirUsuario();
 
-          //  startActivity(new Intent(AreaUsuario.this, CadastroUsuario.class));
+            startActivity(new Intent(AreaUsuario.this, CadastroUsuario.class));
 
 
         } else if (id == R.id.nav_editar_perfil) {
 
 
 
-                recuperaUsuarios();
+            startActivity(new Intent(AreaUsuario.this, ConfirmarSenha.class));
+
+             //   recuperaUsuarios();
 
 
 
@@ -574,57 +638,38 @@ private Usuarios usuarios;
 
 
 
-
-
     public void BuscaUsuriosParaPerfil(){
 
 
         // recupera usuario
 
-        final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-
-
-        String email = user1.getEmail();
-
-        // converte o email pra base 64
-        String identificadorUsuario= Base64Custom.codificarBase64(email);
-
-
-
-        DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
-
-
-        UsuarioReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                Usuarios dados = dataSnapshot.getValue(Usuarios.class);
-
-
-
-
-
-
-                TextView nomeUsuarioLogadoText = (TextView)findViewById(R.id.nomeUsuarioI01D);
-                nomeUsuarioLogadoText.setText(dados.getNome());
-
-                TextView emailUsuarioLogadoText = (TextView)findViewById(R.id.emailUsuarioID);
-                emailUsuarioLogadoText.setText(dados.getEmail());
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
 
 
     }
+
+
+
+
+
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!=null){
+
+
+                uriImagem   = data.getData();
+
+                StorageReference filePath = storageReference.child("FotosPerfil").child(uriImagem.getLastPathSegment());
+
+                Picasso.with(this)
+                        .load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/FotosPerfil%2F1555450560048.jpg?alt=media&token=99f2467a-2ab5-4abf-b03c-ad52747eb709")
+                        .into(imagemPerfil);
+                        imagemPerfil.setImageURI(uriImagem);
+
+            }
+        }
+
 
 
 }
