@@ -122,7 +122,9 @@
         <activity android:name=".Activity.ValidacaoToken" />
         <activity android:name=".Activity.EditarUsuario" />
         <activity android:name=".Activity.Galeria" />
-        <activity android:name=".Activity.ConfirmarSenha"></activity>
+        <activity android:name=".Activity.ConfirmarSenha" />
+        <activity android:name=".Activity.SouMilitar" />
+        <activity android:name=".Activity.ChecarUsuario"></activity>
     </application>
 
 </manifest>

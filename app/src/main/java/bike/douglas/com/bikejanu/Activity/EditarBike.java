@@ -317,7 +317,7 @@ public class EditarBike extends AppCompatActivity {
 
         if (user != null) {
 
-            String name = user.getDisplayName();
+
             String email = user.getEmail();
 
             // converte o email pra base 64

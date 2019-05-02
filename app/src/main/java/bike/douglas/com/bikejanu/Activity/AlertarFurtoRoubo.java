@@ -117,8 +117,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupID);
         RadioButton radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
-       RadioButton radioButtonNadaConsta  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
-       Button  finalizar                  = (Button)  findViewById(R.id.finalizarID);
+        RadioButton radioButtonNadaConsta  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
+        Button  finalizar                  = (Button)  findViewById(R.id.finalizarID);
 
 
 

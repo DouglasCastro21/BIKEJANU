@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import bike.douglas.com.bikejanu.Activity.ConfirmarSenha;
 import bike.douglas.com.bikejanu.Activity.EditarUsuario;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
@@ -41,6 +42,9 @@ public class Tab1Entrar extends Fragment  {
     private Entrar.SectionsPagerAdapter entrar;
     private ProgressBar progressBar;
     private TextView carregando;
+
+    DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -106,7 +110,8 @@ public class Tab1Entrar extends Fragment  {
             if (task.isSuccessful()){
                 Tab1Entrar.super.getActivity().finish();
 
-                abrirTElaPrincipal();
+               abrirTElaPrincipal();
+
 
 
                 Toast.makeText(Tab1Entrar.super.getActivity(),"Login Efetuado com Sucesso", Toast.LENGTH_SHORT).show();
@@ -127,18 +132,23 @@ public class Tab1Entrar extends Fragment  {
     }
 
 
+
+
+
+
     public void abrirTElaPrincipal(){
+
+
 
         Intent intent = new Intent(getActivity(), AreaUsuario.class);
         startActivity(intent);
 
 
-
-
-      //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,CadastroUsuario.class);
+        //  Intent intentabrirTElaPrincipal = new Intent(Tab1Entrar.this,CadastroUsuario.class);
 //startActivity(intentabrirTElaPrincipal);
 
     }
+
 
 
 
@@ -147,7 +157,8 @@ public class Tab1Entrar extends Fragment  {
         if (autenticacao.getCurrentUser() != null) {
 
 
-            abrirTElaPrincipal();
+
+          abrirTElaPrincipal();
 
 
 

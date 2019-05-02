@@ -27,7 +27,7 @@
     <string name="title_activity_consultar__bike">Consultar_Bike</string>
     <string name="tab_text_3">Tab 3</string>
     <string name="title_activity_login">Sign in</string>
-    <string name="title_activity_area_usuario">Minhas Bikes</string>
+    <string name="title_activity_area_usuario">Bikes Cadastradas</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>

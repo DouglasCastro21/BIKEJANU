@@ -75,15 +75,18 @@ public class EditarUsuario extends AppCompatActivity {
     private EditText  telefone;
     private String    imagem;
     private TextView txtNumeroPm;
+    private TextView numeroValidador;
 
 
-    private  EditText numeroPm;
+    private TextView numeroPm;
 
     //  private EditText  nascimento;
     private Button botaocadastrar;
 
 
     private Usuarios usuarios;
+
+    int militarValidado=0;
 
 
     private List<Usuarios> listaUsuario = new ArrayList<Usuarios>();
@@ -95,6 +98,7 @@ public class EditarUsuario extends AppCompatActivity {
     private FirebaseAuth autenticacao;
     private StorageReference storageReference;
     private DatabaseReference firebase;
+    private DatabaseReference firebaseMilitar;
 
 
 
@@ -110,8 +114,6 @@ public class EditarUsuario extends AppCompatActivity {
 
 
         autenticacao = FirebaseAuth.getInstance();
-
-
 
 
 
@@ -150,18 +152,19 @@ public class EditarUsuario extends AppCompatActivity {
         //  nascimento = (EditText)findViewById(R.id.dataID);
         imagemPerfil = (ImageView) findViewById(R.id.imagemPerfilID01);
 
-        numeroPm = (EditText)findViewById(R.id.numeroPmID01);
+        numeroPm = (TextView)findViewById(R.id.numeroPmID01);
         txtNumeroPm =   (TextView) findViewById(R.id.txtNumeroPmID01);
 
 
         botaocadastrar = (Button) findViewById(R.id.btnEditarID01);
         botaoBuscarImagem = (Button) findViewById(R.id.btnBuscarImagemID01);
-        checkBox = (CheckBox) findViewById(R.id.checkBoxMilitarID01);
 
         progressBar = (ProgressBar)findViewById(R.id.progressBarCdastroID01);
         fundo       = (ImageView)findViewById(R.id.fundoID01);
         criando     = (TextView) findViewById(R.id.criandoID01);
 
+
+        numeroValidador = (TextView) findViewById(R.id.digitoValidadorEditarID) ;
 
         mascaras();
 
@@ -212,6 +215,37 @@ public class EditarUsuario extends AppCompatActivity {
                 confirmarsenhaUsuarioText.setText(confirmarsenhaUsuario);
 
 
+
+                // dados  numeroPm
+                String numeroPmUsuario = params.getString("numeroPm");
+                TextView numeroPmUsuarioText = (TextView) findViewById(R.id.numeroPmID01);
+                numeroPmUsuarioText.setText(numeroPmUsuario);
+
+
+                // dados  numeroPm
+                String validarUsuario = params.getString("validarUsuario");
+                TextView validarUsuarioText = (TextView) findViewById(R.id.digitoValidadorEditarID);
+                validarUsuarioText.setText(validarUsuario);
+
+
+
+
+                if (validarUsuarioText.getText().toString().equals("01")) {
+
+                    militarValidado = 1;
+
+                    txtNumeroPm.setVisibility(View.VISIBLE);
+                    numeroPm.setVisibility(View.VISIBLE);
+
+                }else {
+
+                    militarValidado =2;
+
+                    txtNumeroPm.setVisibility(View.INVISIBLE);
+                    numeroPm.setVisibility(View.INVISIBLE);
+
+                }
+
             }
 
 
@@ -220,91 +254,155 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
-                // faz aparecer e desaparecer os campos numero pm
-        checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(checkBox.isChecked()){
-
-                    txtNumeroPm.setVisibility(View.VISIBLE);
-                    numeroPm.setVisibility(View.VISIBLE);
 
 
-                }else{
-
-
-                    txtNumeroPm.setVisibility(View.GONE);
-                    numeroPm.setVisibility(View.GONE);
-
-
-
-                }
-
-
-            }
-        });
+        Toast.makeText(EditarUsuario.this, "validador"+militarValidado, Toast.LENGTH_LONG).show();
 
 
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                progressBar.setVisibility(View.VISIBLE);
-                fundo.setVisibility(View.VISIBLE);
-                criando.setVisibility(View.VISIBLE);
 
 
 
 
-                if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
-                        !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
-                        !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")){
-
-
-                    if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
-                        if (email.getText().toString().equals(confirmaremail.getText().toString())) {
-
-
-                            inicializarElementos();
-                            addImagem();
-                            cadastrarUsuario();
+                if(militarValidado == 1){
 
 
 
-                        }else{
+                    if (!numeroPm.getText().toString().equals("") && !nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
+                            !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
+                            !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")){
 
-                            Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
-                            email.requestFocus();
+
+                        if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
+                            if (email.getText().toString().equals(confirmaremail.getText().toString())) {
+
+
+                                progressBar.setVisibility(View.VISIBLE);
+                                fundo.setVisibility(View.VISIBLE);
+                                criando.setVisibility(View.VISIBLE);
+
+                                inicializarElementos();
+                                addImagem();
+                                cadastrarUsuario();
+
+
+
+
+                            }else{
+
+                                Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
+                                email.requestFocus();
+                                progressBar.setVisibility(View.GONE);
+                                fundo.setVisibility(View.GONE);
+                                criando.setVisibility(View.GONE);
+
+
+                            }
+
+                        } else {
+
+
+                            Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
+                            senha.requestFocus();
                             progressBar.setVisibility(View.GONE);
                             fundo.setVisibility(View.GONE);
                             criando.setVisibility(View.GONE);
 
-
                         }
 
-                    } else {
+                    }else {
 
 
-                        Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
-                        senha.requestFocus();
+                        Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
+
                         progressBar.setVisibility(View.GONE);
                         fundo.setVisibility(View.GONE);
                         criando.setVisibility(View.GONE);
 
+
                     }
 
-                }else {
 
 
-                    Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
-                    progressBar.setVisibility(View.GONE);
-                    fundo.setVisibility(View.GONE);
-                    criando.setVisibility(View.GONE);
+
+
+                }else{
+
+
+
+
+
+                    if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
+                            !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
+                            !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")){
+
+
+                        if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
+                            if (email.getText().toString().equals(confirmaremail.getText().toString())) {
+
+
+
+                                progressBar.setVisibility(View.VISIBLE);
+                                fundo.setVisibility(View.VISIBLE);
+                                criando.setVisibility(View.VISIBLE);
+
+
+
+                                inicializarElementos();
+                                addImagem();
+                                cadastrarUsuario();
+
+
+
+
+                            }else{
+
+                                Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
+                                email.requestFocus();
+                                progressBar.setVisibility(View.GONE);
+                                fundo.setVisibility(View.GONE);
+                                criando.setVisibility(View.GONE);
+
+
+                            }
+
+                        } else {
+
+
+                            Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
+                            senha.requestFocus();
+                            progressBar.setVisibility(View.GONE);
+                            fundo.setVisibility(View.GONE);
+                            criando.setVisibility(View.GONE);
+
+                        }
+
+                    }else {
+
+
+                        Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
+
+                        progressBar.setVisibility(View.GONE);
+                        fundo.setVisibility(View.GONE);
+                        criando.setVisibility(View.GONE);
+
+
+                    }
+
+
 
 
                 }
+
+
+
+
+
+
             }
 
         });
@@ -337,6 +435,21 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
+    private void abrirAreaUsuario() {
+
+
+
+
+        Intent intent = new Intent(EditarUsuario.this ,AreaUsuario.class);
+        startActivity(intent);
+
+
+
+
+
+
+    }
+
 
 
     private void inicializarElementos(){
@@ -347,9 +460,22 @@ public class EditarUsuario extends AppCompatActivity {
         usuarios.setEmail(email.getText().toString());
         usuarios.setSenha(senha.getText().toString());
         usuarios.setTelefone(telefone.getText().toString());
-        //   usuarios.setNascimento(nascimento.getText().toString());
+
         usuarios.setImagem(imagemPerfil.getScaleType().toString());
 
+        if(militarValidado ==1){
+
+            usuarios.setNumeroPm(numeroPm.getText().toString());
+            usuarios.setDigitoValidador("01");
+
+
+        }else{
+
+
+            usuarios.setDigitoValidador("02");
+
+
+        }
     }
 
 
@@ -357,21 +483,53 @@ public class EditarUsuario extends AppCompatActivity {
 
         // recupera autenticão do usuario local
 
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
 
         if (user != null) {
 
-            String name = user.getDisplayName();
+
+
             String email = user.getEmail();
 
             // converte o email pra base 64
-            String identificadorUsuario= Base64Custom.codificarBase64(email);
+            String identificadorUsuario = Base64Custom.codificarBase64(email);
 
 
 
-            // EDITA a bike no nó todas as bikes
-            firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-            firebase.child(identificadorUsuario).setValue(usuarios);
+
+            if(militarValidado==1){
+
+
+                // o erro esta aq ... quando ele tenta gravar em duas tabelas
+
+                // tirar o if e deixar gravar apenas na tabela usuario
+
+
+                // EDITA usuario na tabela Usuarios
+                firebaseMilitar = Configuracao_Firebase.getFirebase().child("Usuarios");
+                firebaseMilitar.child(identificadorUsuario).setValue(usuarios);
+
+
+                // EDITA usuario militar
+                 firebase = Configuracao_Firebase.getFirebase().child("Militares");
+                 firebase.child(identificadorUsuario).setValue(usuarios);
+
+
+
+
+         }else{
+
+
+                // EDITA usuario na tabela Usuarios
+               firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+               firebase.child(identificadorUsuario).setValue(usuarios);
+
+
+            }
+
 
 
 
@@ -379,27 +537,22 @@ public class EditarUsuario extends AppCompatActivity {
 
             // retorna a tela usuario
 
+
             abrirAreaUsuario();
 
+
+        }
         }
 
 
 
-    }
 
 
 
 
 
-    private void abrirAreaUsuario() {
 
 
-        Intent intent = new Intent(EditarUsuario.this ,AreaUsuario.class);
-        startActivity(intent);
-        finish();
-
-
-    }
 
 
     // buscar as fotos no celular

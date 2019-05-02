@@ -27,7 +27,6 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
 
-    String senhaDigitada;
 
     private Usuarios usuarios;
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
@@ -54,7 +53,12 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
 
-buttonconfirmarSenha.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+        buttonconfirmarSenha.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
@@ -74,52 +78,55 @@ buttonconfirmarSenha.setOnClickListener(new View.OnClickListener() {
     public void confirmarSenhaUsuarios(){
 
 
-        // recupera usuario
+           // recupera usuario
 
-        final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-
-
-        String email = user1.getEmail();
-
-        // converte o email pra base 64
-        String identificadorUsuario= Base64Custom.codificarBase64(email);
+           final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
 
-        DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+           String email = user1.getEmail();
 
-        UsuarioReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+           // converte o email pra base 64
+           String identificadorUsuario= Base64Custom.codificarBase64(email);
 
 
+           DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
 
-
-                Bundle params = new Bundle();
-
-                // passa dados  para a tela editar usuario
-
-        if (editTextConfirmarSenha.getText().toString().equals(dados.getSenha())){
-
-
-            recuperaUsuarios();
-
-
-        }else
-        {
-            Toast.makeText(ConfirmarSenha.this,"A Senha é invalida ",Toast.LENGTH_LONG ).show();
-
-        }
+           UsuarioReference.addValueEventListener(new ValueEventListener() {
+               @Override
+               public void onDataChange(DataSnapshot dataSnapshot) {
+                   Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
 
 
-            }
+                   // passa dados  para a tela editar usuario
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                   if (editTextConfirmarSenha.getText().toString().equals(dados.getSenha())){
 
-            }
-        });
+
+
+                       recuperaUsuarios();
+                       finish();
+
+
+
+                   }else
+                   {
+                       Toast.makeText(ConfirmarSenha.this,"A Senha é invalida ",Toast.LENGTH_LONG ).show();
+
+                   }
+
+
+
+               }
+
+               @Override
+               public void onCancelled(DatabaseError databaseError) {
+
+               }
+           });
+
+
+
 
 
 
@@ -128,58 +135,83 @@ buttonconfirmarSenha.setOnClickListener(new View.OnClickListener() {
 
 
 
+
+
+
+
     public void recuperaUsuarios(){
 
 
-        // recupera usuario
-
-        final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-
-
-        String email = user1.getEmail();
-
-        // converte o email pra base 64
-        String identificadorUsuario= Base64Custom.codificarBase64(email);
 
 
 
-        DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+            // recupera usuario
+
+            final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
 
-        UsuarioReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+            String email = user1.getEmail();
+
+            // converte o email pra base 64
+            String identificadorUsuario= Base64Custom.codificarBase64(email);
 
 
 
 
-                Bundle params = new Bundle();
-
-                // passa dados  para a tela editar usuario
+            DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
 
 
-                params.putString("nomeUsuario",                        dados.getNome());
-                params.putString("telefoneUsuario",                    dados.getTelefone());
-                params.putString("emailUsuario",                       dados.getEmail());
-                params.putString("confirmaremailUsuario",              dados.getEmail());
-                params.putString("senhaUsuario",                       dados.getSenha());
-                params.putString("confirmarsenhaUsuario",              dados.getSenha());
-
-
-                Intent intent = new Intent(ConfirmarSenha.this, EditarUsuario.class);
-                intent.putExtras(params);
-                startActivity(intent);
+            UsuarioReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
 
 
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    Bundle params = new Bundle();
 
-            }
-        });
+                    // passa dados  para a tela editar usuario
+
+
+                    params.putString("nomeUsuario",                        dados.getNome());
+                    params.putString("telefoneUsuario",                    dados.getTelefone());
+                    params.putString("emailUsuario",                       dados.getEmail());
+                    params.putString("confirmaremailUsuario",              dados.getEmail());
+                    params.putString("senhaUsuario",                       dados.getSenha());
+                    params.putString("confirmarsenhaUsuario",              dados.getSenha());
+                    params.putString("numeroPm",                           dados.getNumeroPm());
+                    params.putString("validarUsuario",                     dados.getDigitoValidador());
+
+
+                    Intent intent = new Intent(ConfirmarSenha.this, EditarUsuario.class);
+                    intent.putExtras(params);
+                    startActivity(intent);
+
+
+
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

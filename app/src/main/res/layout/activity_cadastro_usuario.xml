@@ -77,9 +77,8 @@
                 android:layout_width="306dp"
                 android:layout_height="46dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="62dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:drawableLeft="@drawable/ic_action_user"
                 android:ems="10"
@@ -88,7 +87,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtNumeroPmID" />
+                app:layout_constraintTop_toBottomOf="@+id/imagemPerfilID" />
 
             <Button
                 android:id="@+id/btnCadastrarID"
@@ -132,14 +131,10 @@
                 android:id="@+id/btnBuscarImagemID"
                 android:layout_width="52dp"
                 android:layout_height="46dp"
-                android:layout_marginBottom="41dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="96dp"
                 android:background="@drawable/camera"
-                app:layout_constraintBottom_toTopOf="@+id/checkBoxMilitarID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.621"
                 app:layout_constraintStart_toStartOf="parent"
@@ -219,23 +214,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
-            <CheckBox
-                android:id="@+id/checkBoxMilitarID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="142dp"
-                android:layout_marginLeft="143dp"
-                android:layout_marginRight="142dp"
-                android:layout_marginStart="143dp"
-                android:layout_marginTop="16dp"
-                android:text="Sou Militar"
-                android:textSize="@dimen/activity_vertical_margin"
-                app:layout_constraintBottom_toTopOf="@+id/txtNumeroPmID"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnBuscarImagemID" />
-
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
@@ -259,10 +237,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
                 android:text="Número de PM *"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
@@ -270,8 +245,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/numeroPmID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.073"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBoxMilitarID" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/textView23"
@@ -404,6 +378,43 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBarCdastroID" />
+
+            <TextView
+                android:id="@+id/recebeValidadorMilitarID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="17dp"
+                android:layout_marginStart="309dp"
+                android:layout_marginTop="18dp"
+                android:text="TextView"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagemPerfilID" />
+
+            <TextView
+                android:id="@+id/textViewCodicovalidadorID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="9dp"
+                android:text="TextView"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imagemPerfilID"
+                app:layout_constraintTop_toBottomOf="@+id/imagemPerfilID" />
+
+            <TextView
+                android:id="@+id/digitoValidadorID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:text="TextView"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imagemPerfilID"
+                app:layout_constraintTop_toBottomOf="@+id/imagemPerfilID" />
 
         </android.support.constraint.ConstraintLayout>
 

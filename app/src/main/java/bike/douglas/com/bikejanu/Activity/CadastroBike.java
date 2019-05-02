@@ -679,7 +679,7 @@ public class CadastroBike extends AppCompatActivity  {
             String identificadorUsuario= Base64Custom.codificarBase64(email);
 
 
-            addImagem();
+        //    addImagem();
 
             // cadastra a bike no nó todas as bikes
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
@@ -924,7 +924,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        uriImagem.buildUpon().build();
+     //   uriImagem.buildUpon().build();
 
     }
 

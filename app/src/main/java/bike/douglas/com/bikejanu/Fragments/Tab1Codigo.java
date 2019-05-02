@@ -167,8 +167,6 @@ public class Tab1Codigo extends Fragment {
                      Bike b = objSnapshot.getValue(Bike.class);
                      listBikes.add(b);
 
-
-
             }
 
 
