@@ -422,6 +422,9 @@ private Usuarios usuarios;
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
+
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
 
         listViewDados = (ListView) findViewById(R.id.listaBikesID);
@@ -589,7 +592,7 @@ private Usuarios usuarios;
 
         } else if (id == R.id.nav_configuracao) {
 
-               // excluirUsuario();
+
 
           //  startActivity(new Intent(AreaUsuario.this, CadastroUsuario.class));
 
@@ -602,6 +605,7 @@ private Usuarios usuarios;
 
             startActivity(new Intent(AreaUsuario.this, ConfirmarSenha.class));
 
+
              //   recuperaUsuarios();
 
 
@@ -609,6 +613,11 @@ private Usuarios usuarios;
 
         }else if (id == R.id.nav_sair) {
             caixaDialogoSair();
+
+        }else if(id == R.id.nav_excluir_usuario){
+
+            enviarDadosParaTelaConfirmarSenha();
+
 
         }
 
@@ -899,66 +908,6 @@ if(validarUsuario  ==1){
 
 
 
-    public void excluirUsuario() {
-
-
-            AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AreaUsuario.this);
-
-            // configurando dialogo
-
-            alertaDialog.setTitle("Confirmar Exclusão");
-            alertaDialog.setIcon(R.drawable.ic_action_exit);
-
-
-            alertaDialog.setMessage("Deseja realmente excluir sua conta ? ");
-            alertaDialog.setCancelable(false);
-
-
-            // conf botões
-
-            alertaDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                    user.delete()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-
-                                       deslogarUsuario();
-
-                                    }
-                                }
-                            });
-
-
-                    Toast.makeText(AreaUsuario.this, "Sua Conta Foi Excluida", Toast.LENGTH_LONG).show();
-
-
-                }
-            });
-
-            alertaDialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                    Toast.makeText(AreaUsuario.this, "Operação Cancelada", Toast.LENGTH_LONG).show();
-
-
-                }
-            });
-
-            alertaDialog.create();
-            alertaDialog.show();
-
-
-
-    }
-
 
 
     private void abrirFotos(){
@@ -1000,63 +949,31 @@ if(validarUsuario  ==1){
 
 
 
-    public void recuperaUsuariosMilitar(){
-
-
-        // recupera usuario
-
-        final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
-
-
-        String email = user1.getEmail();
-
-        // converte o email pra base 64
-        String identificadorUsuario= Base64Custom.codificarBase64(email);
-
-
-
-        DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
-
-
-        UsuarioReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+    public void enviarDadosParaTelaConfirmarSenha(){
 
 
 
 
                 Bundle params = new Bundle();
 
-                // passa dados  para a tela editar usuario
+                // passa dados  para a tela confirmar senha usuario
 
 
-                params.putString("nomeUsuario",                        dados.getNome());
-                params.putString("telefoneUsuario",                    dados.getTelefone());
-                params.putString("emailUsuario",                       dados.getEmail());
-                params.putString("confirmaremailUsuario",              dados.getEmail());
-                params.putString("senhaUsuario",                       dados.getSenha());
-                params.putString("confirmarsenhaUsuario",              dados.getSenha());
+                params.putString("confirmarExclusao",                        "confirmado");
 
 
-                Intent intent = new Intent(AreaUsuario.this, EditarUsuario.class);
+                Intent intent = new Intent(AreaUsuario.this, ConfirmarSenha.class);
                 intent.putExtras(params);
                 startActivity(intent);
 
 
 
+
+
+
+
             }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-    }
 
 
 

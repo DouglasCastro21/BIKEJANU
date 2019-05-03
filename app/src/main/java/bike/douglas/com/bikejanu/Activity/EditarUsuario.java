@@ -256,9 +256,6 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
-        Toast.makeText(EditarUsuario.this, "validador"+militarValidado, Toast.LENGTH_LONG).show();
-
-
         botaocadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

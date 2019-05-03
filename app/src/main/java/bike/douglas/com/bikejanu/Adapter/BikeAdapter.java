@@ -496,9 +496,10 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-                       Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+                       final Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
                        if(dados.getDigitoValidador().equals("01")) {
+
 
 
 
@@ -564,6 +565,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                                params.putString("latitude",        bikeselecao.getLatitude() );
                                                params.putString("longitude",       bikeselecao.getLongitude());
+                                               params.putString("digitoValidador",       dados.getDigitoValidador());
 
 
                                                Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);

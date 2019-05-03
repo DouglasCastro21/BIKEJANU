@@ -92,7 +92,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
      static  TextView localLongitude;
 
 
-
+      int digitoMilitar=0;
 
 
 
@@ -280,6 +280,22 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 longitudeText.setText(longitude);
 
 
+
+                String digitoValidador = params.getString("digitoValidador");
+                TextView digitoValidadorText = (TextView) findViewById(R.id.digitoValidadorMudarStatusID);
+                digitoValidadorText.setText(digitoValidador);
+
+
+                if(digitoValidadorText.getText().toString().equals("01")){
+
+                    digitoMilitar =1;
+
+
+                }
+
+
+
+
                 statusBike = statuss;
 
 
@@ -287,6 +303,13 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         }
 
 
+
+
+        if(digitoMilitar ==1){
+
+
+
+        }
 
 
         //abrir mapa
