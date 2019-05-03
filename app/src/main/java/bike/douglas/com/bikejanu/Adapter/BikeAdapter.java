@@ -25,8 +25,10 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import bike.douglas.com.bikejanu.Activity.AlertarFurtoRoubo;
 import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
@@ -61,7 +63,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
   //  public  int recebeQtd=0;
   //  public static int quantidadeBikesRoubadas=0;
 
-
+    DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
     DatabaseReference databaseReference;
     FirebaseDatabase  firebaseDatabase;
@@ -467,6 +469,183 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                 });
 
         }
+
+
+
+
+
+
+               FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+
+
+               String email = user1.getEmail();
+
+               // converte o email pra base 64
+               String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+               DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+
+
+
+
+               UsuarioReference.addValueEventListener(new ValueEventListener() {
+                   @Override
+                   public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+
+                       Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+
+                       if(dados.getDigitoValidador().equals("01")) {
+
+
+
+
+                           /// aparece apenas a opção editar para o usuario que possui digito validador igual a 01
+
+
+                           txtViewCaixaDescricao.setOnClickListener(new View.OnClickListener() {
+                               @Override
+                               public void onClick(View v) {
+
+
+                                   final CharSequence[] opcoes = {"Mudar status da bike"};
+
+                                   AlertDialog.Builder builder = new AlertDialog.Builder(BikeAdapter.super.getContext());
+                                   builder.setTitle("");
+                                   builder.setItems(opcoes, new DialogInterface.OnClickListener() {
+                                       @Override
+                                       public void onClick(DialogInterface dialog, int i) {
+
+                                           Bike b = new Bike();
+
+                                           // recupera posição da bike
+
+                                           Bike bikeselecao = new Bike();
+                                           bikeselecao = listabikes.get(position);
+
+
+                                           // recupera usuario pelo email
+                                           FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                           String email = user.getEmail();
+
+
+                                           // converte o email pra base 64
+                                           String identificadorUsuario = Base64Custom.codificarBase64(email);
+
+
+                                           if (opcoes[i].equals("Mudar status da bike")) {
+
+
+                                               // passa dados  a tela alerta Furto/roubo
+
+                                               Bundle params = new Bundle();
+
+                                               params.putString("alertaEstado",   bikeselecao.getAlertaEstado());
+                                               params.putString("alertaCidade",   bikeselecao.getAlertaCidade());
+                                               params.putString("alertaBairro",   bikeselecao.getAlertaBairro());
+                                               params.putString("alertaRua",      bikeselecao.getAlertaRua());
+                                               params.putString("alertaHora",     bikeselecao.getAlertaHora());
+                                               params.putString("alertaData",     bikeselecao.getAlertaDate());
+                                               params.putString("alertaBoletim",  bikeselecao.getBoletim());
+                                               params.putString("alertadescricao",bikeselecao.getAlertaDescricao());
+
+
+                                               /// DADOS QUE NÃO vão ficar visiveis na tela Alerta furto e roubo
+
+                                               params.putString("modelo",          bikeselecao.getModelo());
+                                               params.putString("marca",           bikeselecao.getMarca());
+                                               params.putString("numero_serie",    bikeselecao.getNumero_serie());
+                                               params.putString("descricao",       bikeselecao.getDescricao());
+                                               params.putString("cor",             bikeselecao.getCor());
+                                               params.putString("status",          bikeselecao.getStatus());
+
+                                               params.putString("latitude",        bikeselecao.getLatitude() );
+                                               params.putString("longitude",       bikeselecao.getLongitude());
+
+
+                                               Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
+                                               intent.putExtras(params);
+
+                                               context.startActivity(intent);
+
+
+                                           }
+
+                                       }
+                                   });
+                                   builder.show();
+
+                               }
+                           });
+
+
+
+
+
+
+
+
+
+
+                       }
+                   }
+
+                   @Override
+                   public void onCancelled(DatabaseError databaseError) {
+
+                   }
+               });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
