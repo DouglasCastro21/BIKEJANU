@@ -609,11 +609,11 @@ public class EditarUsuario extends AppCompatActivity {
                     Upload upload = new Upload();
 
 
-                    Uri descarregarFoto = taskSnapshot.getDownloadUrl();
-                    Picasso.with(EditarUsuario.this)
-                            .load(descarregarFoto)
-                            .centerCrop()
-                            .into(imagemPerfil);
+                   // Uri descarregarFoto = taskSnapshot.getDownloadUrl;
+                   // Picasso.with(EditarUsuario.this)
+                           // .load(descarregarFoto)
+                           // .centerCrop()
+                           // .into(imagemPerfil);
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

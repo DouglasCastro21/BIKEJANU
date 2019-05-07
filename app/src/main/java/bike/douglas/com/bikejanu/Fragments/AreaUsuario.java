@@ -1,5 +1,6 @@
 package bike.douglas.com.bikejanu.Fragments;
 
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -112,6 +113,15 @@ private Usuarios usuarios;
 
 
         storageReference = FirebaseStorage.getInstance().getReference();
+
+
+
+       cancelaNotificacao();
+
+
+
+
+
 
 
 
@@ -976,6 +986,15 @@ if(validarUsuario  ==1){
 
 
 
+
+
+            public void cancelaNotificacao(){
+
+                NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.cancel(R.drawable.logo3);
+
+
+            }
 
 }
 

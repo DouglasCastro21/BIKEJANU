@@ -129,6 +129,13 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:layout_editor_absoluteY="150dp" />
 
+                <RadioButton
+                    android:id="@+id/alertaSemImpedimentoID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sem Impedimento" />
+
             </RadioGroup>
 
             <TextView
@@ -167,6 +174,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroupID" />
 
+            <TextView
+                android:id="@+id/txtDataHoraID2"
+                android:layout_width="249dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:text="Data e Hora da Recuperação"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/alertaDataID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupID" />
+
             <EditText
                 android:id="@+id/alertaDataID"
                 android:layout_width="122dp"
@@ -187,34 +211,46 @@
                 android:layout_width="71dp"
                 android:layout_height="46dp"
 
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="00:00"
                 android:inputType="time"
-                app:layout_constraintBottom_toTopOf="@+id/abrirMapaID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/alertaDataID"
-                app:layout_constraintTop_toBottomOf="@+id/txtDataHoraID"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/txtDataHoraID" />
 
             <TextView
                 android:id="@+id/txtBoletimID"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Boletim de Ocorrência(Opcional)"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/casoID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alertaRuaID" />
+
+            <TextView
+                android:id="@+id/txtBoletimID2"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginBottom="220dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Boletim de Ocorrência"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/alertaRuaID" />
@@ -224,16 +260,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="46dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="8dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
                 android:hint="xxxxxxxxxxxxx"
                 android:inputType="number"
                 app:layout_constraintBottom_toTopOf="@+id/txtObservacaoID"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/casoID"
                 app:layout_constraintVertical_bias="0.0" />
@@ -556,6 +589,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/alertaHoraID"
                 app:layout_constraintTop_toBottomOf="@+id/txtDataHoraID" />
+
+            <TextView
+                android:id="@+id/procurePoliciaID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="26dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="18dp"
+                android:text="Procure uma unidade policial para mais informações"
+                android:textColor="@android:color/holo_red_dark"
+                app:layout_constraintBottom_toTopOf="@+id/finalizarID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alertaDescricaoID" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

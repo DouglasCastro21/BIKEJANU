@@ -190,7 +190,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-    if( bikeRoubadaFurtada.getStatus().equals("Furtada") || bikeRoubadaFurtada.getStatus().equals("Roubada")) {
+    if(bikeRoubadaFurtada.getStatus().equals("Roubada")) {
 
 
 
@@ -200,6 +200,15 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
       //  recebeQtd ++;
 
 
+
+    }
+
+
+    if( bikeRoubadaFurtada.getStatus().equals("Furtada")){
+
+
+
+        view.setBackgroundColor(Color.YELLOW);
 
     }
 

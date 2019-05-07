@@ -1,10 +1,28 @@
 package bike.douglas.com.bikejanu.Activity;
 
+
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.nfc.Tag;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,13 +37,23 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.net.URI;
+import java.nio.channels.MulticastChannel;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Model.Bike;
@@ -54,10 +82,13 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private     EditText Boletim;
     private     EditText alertaDescricao;
     private     RadioButton radioButtonFurtada;
+    private     RadioButton radioButtonRoubada;
+    private     RadioButton radioButtonSemImpedimento;
+    private     RadioButton radioButtonRecuperada;
     private     RadioButton   status;
     private     Button abrirMapa;
 
-
+    private static final String TAG = "AlertaFurtoRoubo";
 
 
 // se não repetir os dados da tela cadastro os dados são excluidos
@@ -74,9 +105,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     // campos texto
 
     private TextView txtmensagem1;
-    private TextView txtmensagem2;
+    private TextView procurePolicia;
+
     private TextView txtRua;
     private TextView txtDataHora;
+    private TextView txtDataHora2;
+    private TextView txtBoletim2;
     private TextView txtBairro;
     private TextView txtCidade;
     private TextView txtEstado;
@@ -113,11 +147,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         abrirMapa = (Button) findViewById(R.id.abrirMapaID);
         radioButtonFurtada    =(RadioButton)findViewById(R.id.alertaFurtadaID);
 
+        radioButtonSemImpedimento   =(RadioButton)findViewById(R.id.alertaSemImpedimentoID);
 
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupID);
-        RadioButton radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
-        RadioButton radioButtonNadaConsta  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
+        radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
+         radioButtonRecuperada  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
         Button  finalizar                  = (Button)  findViewById(R.id.finalizarID);
 
 
@@ -161,11 +196,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
+      txtBoletim2       = (TextView) findViewById(R.id.txtBoletimID2);
+      txtDataHora2      = (TextView) findViewById(R.id.txtDataHoraID2);
 
 
+        procurePolicia = (TextView) findViewById(R.id.procurePoliciaID);
 
         alertaDate.setOnClickListener(AlertarFurtoRoubo.this);
         alertaHora.setOnClickListener(AlertarFurtoRoubo.this);
+
 
 
 
@@ -307,6 +346,32 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         if(digitoMilitar ==1){
 
+            abrirMapa.setVisibility(View.GONE);
+            alertaEstado.setVisibility(View.GONE);
+            alertaCidade.setVisibility(View.GONE);
+            alertaRua.setVisibility(View.GONE);
+            alertaBairro.setVisibility(View.GONE);
+            alertaDescricao.setVisibility(View.GONE);
+            alertaDate.setVisibility(View.GONE);
+            alertaHora.setVisibility(View.GONE);
+            Boletim.setVisibility(View.GONE);
+
+
+            txtRua.setVisibility(View.GONE);
+            txtBairro.setVisibility(View.GONE);
+
+            txtDataHora.setVisibility(View.GONE);
+            txtBoletim.setVisibility(View.GONE);
+            txtObservacao.setVisibility(View.GONE);
+            txtmensagem1.setVisibility(View.GONE);
+            txtEstado.setVisibility(View.GONE);
+            txtCidade.setVisibility(View.GONE);
+
+
+        //    Toast.makeText(AlertarFurtoRoubo.this, "DIGITO :" +digitoMilitar, Toast.LENGTH_LONG).show();
+
+
+
 
 
         }
@@ -337,8 +402,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
        if(statusBike.equals("Furtada")){
 
            radioButtonFurtada.toggle();
+
+           radioButtonRoubada.setVisibility(View.GONE);
+           radioButtonSemImpedimento.setVisibility(View.GONE);
            status = (RadioButton)findViewById(R.id.alertaFurtadaID);
 
+          procurePolicia.setVisibility(View.GONE);
 
           abrirMapa.setVisibility(View.VISIBLE);
 
@@ -373,6 +442,11 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
        if(statusBike.equals("Roubada")){
 
            radioButtonRoubada.toggle();
+           radioButtonFurtada.setVisibility(View.GONE);
+           radioButtonSemImpedimento.setVisibility(View.GONE);
+
+           procurePolicia.setVisibility(View.GONE);
+
 
            status = (RadioButton)findViewById(R.id.alertaRoubadaID);
 
@@ -414,8 +488,14 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
        if(statusBike.equals("Recuperada")){
 
-           radioButtonNadaConsta.toggle();
+           radioButtonRecuperada.toggle();
            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
+
+
+           radioButtonSemImpedimento.setVisibility(View.VISIBLE);
+           radioButtonRoubada.setVisibility(View.GONE);
+           radioButtonFurtada.setVisibility(View.GONE);
+
 
 
            abrirMapa.setVisibility(View.GONE);
@@ -446,13 +526,17 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-        if(statusBike.equals("Sem Impedimento") || statusBike.equals("Sem Restrições")){
+        if(statusBike.equals("Sem Impedimento")){
 
-            // radioButtonNadaConsta.toggle();
-            status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
+            radioButtonSemImpedimento.toggle();
+            status = (RadioButton)findViewById(R.id.alertaSemImpedimentoID);
+            radioButtonRecuperada.setVisibility(View.GONE);
 
+
+            procurePolicia.setVisibility(View.GONE);
 
             abrirMapa.setVisibility(View.GONE);
+            // alertaNumero.setVisibility(View.VISIBLE);
             alertaEstado.setVisibility(View.GONE);
             alertaCidade.setVisibility(View.GONE);
             alertaRua.setVisibility(View.GONE);
@@ -463,15 +547,18 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             Boletim.setVisibility(View.GONE);
 
 
+
+            // campos txt
             txtRua.setVisibility(View.GONE);
             txtBairro.setVisibility(View.GONE);
-
+            //    txtNumero.setVisibility(View.VISIBLE);
             txtDataHora.setVisibility(View.GONE);
             txtBoletim.setVisibility(View.GONE);
             txtObservacao.setVisibility(View.GONE);
             txtmensagem1.setVisibility(View.GONE);
             txtEstado.setVisibility(View.GONE);
             txtCidade.setVisibility(View.GONE);
+
 
 
 
@@ -486,14 +573,98 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-        radioButtonNadaConsta.setOnClickListener(new View.OnClickListener() {
+        radioButtonRecuperada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                  caixaDialogoNadaConsta();
                 status = (RadioButton)findViewById(R.id.alertaNadaConstaID);
 
+                procurePolicia.setVisibility(View.GONE);
 
+                abrirMapa.setVisibility(View.GONE);
+                alertaEstado.setVisibility(View.GONE);
+                alertaCidade.setVisibility(View.GONE);
+                alertaRua.setVisibility(View.GONE);
+                alertaBairro.setVisibility(View.GONE);
+                alertaDescricao.setVisibility(View.GONE);
+                alertaDate.setVisibility(View.VISIBLE);
+                alertaHora.setVisibility(View.VISIBLE);
+                Boletim.setVisibility(View.VISIBLE);
+
+                txtRua.setVisibility(View.GONE);
+                txtBairro.setVisibility(View.GONE);
+             //   txtNumero.setVisibility(View.GONE);
+                txtDataHora.setVisibility(View.GONE);
+
+                txtBoletim.setVisibility(View.GONE);
+                txtObservacao.setVisibility(View.GONE);
+                txtmensagem1.setVisibility(View.GONE);
+                txtEstado.setVisibility(View.GONE);
+                txtCidade.setVisibility(View.GONE);
+
+
+
+
+
+                txtDataHora2.setVisibility(View.VISIBLE);
+                txtBoletim2.setVisibility(View.VISIBLE);
+
+
+
+                alertaDate.requestFocus();
+
+
+
+
+
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                // OU
+                SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+
+                Date data = new Date();
+
+                Calendar  cal = Calendar.getInstance();
+                cal.setTime(data);
+
+                Date data_atual = cal.getTime();
+
+                String  data_completa = dateFormat.format(data_atual);
+
+                String hora_atual = dateFormat_hora.format(data_atual);
+
+                Log.i("data_completa", data_completa);
+                Log.i("data_atual", data_atual.toString());
+                Log.i("hora_atual", hora_atual);
+
+                alertaDate.setText(data_completa);
+                alertaHora.setText(hora_atual);
+
+
+
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
+        radioButtonSemImpedimento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                caixaDialogoSemImpedimento();
+                status = (RadioButton)findViewById(R.id.alertaSemImpedimentoID);
+
+                procurePolicia.setVisibility(View.GONE);
 
                 abrirMapa.setVisibility(View.GONE);
                 alertaEstado.setVisibility(View.GONE);
@@ -507,7 +678,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                 txtRua.setVisibility(View.GONE);
                 txtBairro.setVisibility(View.GONE);
-             //   txtNumero.setVisibility(View.GONE);
+                //   txtNumero.setVisibility(View.GONE);
                 txtDataHora.setVisibility(View.GONE);
                 txtBoletim.setVisibility(View.GONE);
                 txtObservacao.setVisibility(View.GONE);
@@ -515,6 +686,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 txtEstado.setVisibility(View.GONE);
                 txtCidade.setVisibility(View.GONE);
 
+
+
+
+
+                txtDataHora2.setVisibility(View.GONE);
+                txtBoletim2.setVisibility(View.GONE);
 
             }
         });
@@ -531,7 +708,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 caixaDialogoFurtada();
                 status = (RadioButton)findViewById(R.id.alertaFurtadaID);
 
-
+                procurePolicia.setVisibility(View.GONE);
                 abrirMapa.setVisibility(View.VISIBLE);
              //   alertaNumero.setVisibility(View.VISIBLE);
                 alertaEstado.setVisibility(View.VISIBLE);
@@ -556,6 +733,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 txtObservacao.setVisibility(View.VISIBLE);
                 txtmensagem1.setVisibility(View.VISIBLE);
 
+
+                txtDataHora2.setVisibility(View.GONE);
+                txtBoletim2.setVisibility(View.GONE);
 
                 alertaDate.requestFocus();
 
@@ -593,7 +773,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         radioButtonRoubada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+        procurePolicia.setVisibility(View.GONE);
 
                 caixaDialogoRoubada();
                 status = (RadioButton)findViewById(R.id.alertaRoubadaID);
@@ -623,7 +803,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 txtObservacao.setVisibility(View.VISIBLE);
                 txtmensagem1.setVisibility(View.VISIBLE);
 
+
+                txtDataHora2.setVisibility(View.GONE);
+                txtBoletim2.setVisibility(View.GONE);
+
                 alertaDate.requestFocus();
+
+
+
+
 
 
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -660,8 +848,11 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             public void onClick(View v) {
 
 
+
+
                 inicializarElementos();
                 caixaDialogoConfirmarFurtoRoubo();
+
 
 
             }
@@ -760,6 +951,44 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
+
+
+
+    private void caixaDialogoSemImpedimento(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("Definição");
+
+
+        alertaDialog.setMessage("Condição ou qualidade de algo que se encontra disponível, ou seja, livre e Desempedido");
+        // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
+
+
     private void caixaDialogoFurtada(){
 
         AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
@@ -851,7 +1080,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-
+                     notificacao();
+                     notificacaoRecuperada();
 
 
                     // recupera autenticão do usuario local
@@ -885,7 +1115,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                         // retorna a tela usuario
 
-                        abrirAreaUsuario();
+                       // abrirAreaUsuario();
 
                     };
 
@@ -960,6 +1190,210 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
+
+
+    public void gerarNotificacao(){
+
+
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NFC_SERVICE)
+                .setSmallIcon(R.drawable.logo3)
+                .setContentTitle("bike")
+                .setContentText("click para mais informações")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+
+
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.campoDigiteSeuNome);
+            String description = getString(R.string.campoDigiteSeuNome);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(NOTIFICATION_SERVICE, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+
+
+        Intent intent = new Intent(this, AreaUsuario.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(this, NOTIFICATION_SERVICE)
+                .setSmallIcon(R.drawable.logo3)
+                .setContentTitle("Alerta Bike Roubada/furtada")
+                .setContentText("Click para mais detalhes")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+
+
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+// notificationId is a unique int for each notification that you must define
+
+        notificationManager.notify(R.drawable.logo3, builder1.build());
+
+    }
+
+
+
+
+
+
+    public void notificacao(){
+
+       if(radioButtonFurtada.isChecked() || radioButtonRoubada.isChecked()){
+
+
+           gerarNotificacao();
+
+
+       }
+
+
+
+    }
+
+
+
+    public void gerarNotificacaoRecuperada(){
+
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NFC_SERVICE)
+                .setSmallIcon(R.drawable.logo3)
+                .setContentTitle("bike")
+                .setContentText("click para mais informações")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+
+
+
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.campoDigiteSeuNome);
+            String description = getString(R.string.campoDigiteSeuNome);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(NOTIFICATION_SERVICE, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+
+
+        Intent intent = new Intent(this, AreaUsuario.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(this, NOTIFICATION_SERVICE)
+                .setSmallIcon(R.drawable.logo3)
+                .setContentTitle("Alerta Bike Recuperada")
+                .setContentText("Click para mais detalhes")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        // notificationId is a unique int for each notification that you must define
+
+        notificationManager.notify(R.drawable.add5, builder1.build());
+
+    }
+
+
+
+    public void notificacaoRecuperada(){
+
+        if(radioButtonRecuperada.isChecked()){
+
+            gerarNotificacaoRecuperada();
+
+
+        }
+
+
+
+    }
+
+
+
+    public void onNewToken(String token) {
+        Log.d(TAG, "Refreshed token: " + token);
+
+        // If you want to send messages to this application instance or
+        // manage this apps subscriptions on the server side, send the
+        // Instance ID token to your app server.
+        sendRegistrationToServer(token);
+    }
+
+
+    private void sendRegistrationToServer(String token) {
+        // TODO: Implement this method to send token to your app server.
+    }
+
+
+    public void runtimeEnableAutoInit() {
+        // [START fcm_runtime_enable_auto_init]
+        FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+        // [END fcm_runtime_enable_auto_init]
+    }
+
+
+
+
+
+
+
+    public  void TesteLoucodeNotificação() {
+
+
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "getInstanceId failed", task.getException());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                        String token = task.getResult().getToken();
+
+                        // Log and toast
+                        String msg = getString(R.string.msg_token_fmt, token);
+                        Log.d(TAG, msg);
+                        Toast.makeText(AlertarFurtoRoubo.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+        runtimeEnableAutoInit();
+
+
+
+
+
+
+
+    }
+
 
 
 
