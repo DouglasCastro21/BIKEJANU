@@ -45,6 +45,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.DAO.UsuarioDAO;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Model.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
@@ -127,6 +128,8 @@ public class CadastroBike extends AppCompatActivity  {
 
 
         storageReference = FirebaseStorage.getInstance().getReference();
+        //arrumar um jeito de nao rodar muito essa linha
+        UsuarioDAO.getInstancia().añadirFotoDePerfilALosUsuariosQueNoTienenFoto();
 
 
 

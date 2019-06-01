@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +29,7 @@ import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ConfirmarSenha extends AppCompatActivity {
 
@@ -45,6 +47,8 @@ private int validar=0;
 
     private EditText editTextConfirmarSenha;
 
+    private CircleImageView imagemUsuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +63,10 @@ private int validar=0;
 
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
 
+        imagemUsuario = (CircleImageView) findViewById(R.id.imageView5);
 
 
+        imagemUsuario();
 
 
         Intent intent = getIntent();
@@ -175,7 +181,7 @@ private int validar=0;
 
 
 
-                       recuperaUsuarios();
+                       chamarTelaEditarUsuario();
                        finish();
 
 
@@ -202,7 +208,7 @@ private int validar=0;
     }
 
 
-    public void recuperaUsuarios(){
+    public void chamarTelaEditarUsuario(){
 
 
 
@@ -250,6 +256,7 @@ private int validar=0;
                     Intent intent = new Intent(ConfirmarSenha.this, EditarUsuario.class);
                     intent.putExtras(params);
                     startActivity(intent);
+                   // finish();
 
 
 
@@ -396,7 +403,55 @@ private int validar=0;
             }
 
 
+public void imagemUsuario(){
 
+
+    FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+
+
+    String email = user1.getEmail();
+
+    // converte o email pra base 64
+    String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+    DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+
+
+
+
+    UsuarioReference.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+
+            if(dataSnapshot.exists()) {
+
+                Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+
+
+
+                Glide.with(ConfirmarSenha.this).load(dados.getFotoPerfilURL()).into(imagemUsuario);
+
+
+
+
+
+
+            }
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    });
+
+
+
+
+
+}
 
 
 

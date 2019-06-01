@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+
+
+
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -32,24 +36,15 @@ dependencies {
 
 
 
-    implementation 'com.google.firebase:firebase-database:16.1.0' //
+    implementation 'com.google.firebase:firebase-database:17.0.0' //16.1.0
 
 
-
-
-
-
-    implementation 'com.google.firebase:firebase-auth:16.2.1' //
-
-
-
-
-
+    implementation 'com.google.firebase:firebase-auth:17.0.0' //16.2.1
 
 
     implementation 'com.google.android.gms:play-services-auth:16.0.1' //
     implementation 'com.github.rtoshiro.mflibrary:mflibrary:1.0.0'
-    implementation 'com.google.firebase:firebase-storage:16.1.0' //
+    implementation 'com.google.firebase:firebase-storage:17.0.0' //
     implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.squareup.picasso:picasso:2.5.2'
@@ -61,31 +56,52 @@ dependencies {
 
 
 
-//9.6.1
-
-//11.8.0    implementation 'com.google.firebase:firebase-messaging:17.6.0'
 
 
+    implementation 'com.firebaseui:firebase-ui-storage:3.3.1'
 
-
-
+//grafiocos
     implementation "com.github.PhilJay:MPAndroidChart:v3.0.2"
-    implementation 'com.google.firebase:firebase-messaging:17.6.0'
-    testImplementation 'junit:junit:4.12'
     implementation 'com.jjoe64:graphview:4.2.2'
+
+    //firebase
+
+
+    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //mapas
     implementation 'com.google.maps.android:android-maps-utils:0.4+'
-
-
-
 
 
     // bibliotecas tuto
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 
+
+
+
+//Notificaçaõ
+    implementation 'com.google.firebase:firebase-messaging:17.6.0'
+    implementation 'com.android.volley:volley:1.1.1'
+
+
+
+
+    //imagem perfil
+
+    //Agregados
+    implementation 'de.hdodenhof:circleimageview:2.2.0' //Imagen Circular
+    implementation 'com.github.bumptech.glide:glide:4.8.0' //Recortar Imagen Descargar Imagen
+    implementation 'com.kbeanie:multipicker:1.5'
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
+
+
+
+
+    apply plugin: 'com.google.gms.google-services'
+
+
+
+
 }
-
-
-apply plugin: 'com.google.gms.google-services'

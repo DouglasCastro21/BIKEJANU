@@ -3,25 +3,10 @@ package bike.douglas.com.bikejanu.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.nfc.Tag;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -37,23 +22,26 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.net.URI;
-import java.nio.channels.MulticastChannel;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Model.Bike;
@@ -63,9 +51,34 @@ import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
 
 
-
-
 public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClickListener {
+
+
+
+
+    // notificaçaõ
+
+    EditText   edtTitle;
+    EditText  edtMessage;
+
+    final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
+    final private String serverKey = "key=" + "AAAA5x5KmMM:APA91bG6g8zqOau-iYNcZZeJiSxZYMsg-jIJoxoOccopha8-WSG2fQm52wWtHIoZYTHdDDI7kgOxlqDRAgtoHM8bIHetD0BMgnmtqHEk6cgG9zwdAPfBvh1pLWgWtRq9KS4jt-gK5d5r";
+    final private String contentType = "application/json";
+    final String TAG = "NOTIFICATION TAG";
+
+    String NOTIFICATION_TITLE;
+    String NOTIFICATION_MESSAGE;
+    String TOPIC;
+
+
+    // ate aq
+
+
+
+
+
+
+
 
 
     private EditText alertaNumero;
@@ -75,6 +88,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
      static     EditText alertaCidade;
      static     EditText alertaBairro;
      static     EditText alertaRua;
+
 
 
     private     EditText alertaDate;
@@ -88,7 +102,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private     RadioButton   status;
     private     Button abrirMapa;
 
-    private static final String TAG = "AlertaFurtoRoubo";
+   // private static final String TAG = "AlertaFurtoRoubo";
 
 
 // se não repetir os dados da tela cadastro os dados são excluidos
@@ -134,6 +148,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private int dia,mes,ano,hora,minuto;
 
 
+
+
+
     public int checarDeOndeVenho=0;
 
     @SuppressLint("CutPasteId")
@@ -143,6 +160,17 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_alertar_furto_roubo);
 
 // botoes
+
+
+
+
+
+
+
+
+
+
+
 
         abrirMapa = (Button) findViewById(R.id.abrirMapaID);
         radioButtonFurtada    =(RadioButton)findViewById(R.id.alertaFurtadaID);
@@ -204,9 +232,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         alertaDate.setOnClickListener(AlertarFurtoRoubo.this);
         alertaHora.setOnClickListener(AlertarFurtoRoubo.this);
-
-
-
 
 
 
@@ -1080,7 +1105,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                     notificacao();
+                     notificacaoRoubadaFurtada();
                      notificacaoRecuperada();
 
 
@@ -1115,9 +1140,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                         // retorna a tela usuario
 
-                       // abrirAreaUsuario();
+                          abrirAreaUsuario();
 
-                    };
+                    }
 
 
             }
@@ -1193,55 +1218,102 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-    public void gerarNotificacao(){
+
+
+    public void notificaoApp() {
+
+        //edtTitle = findViewById(R.id.edtTitle);
+        //edtMessage = findViewById(R.id.edtMessage);
 
 
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NFC_SERVICE)
-                .setSmallIcon(R.drawable.logo3)
-                .setContentTitle("bike")
-                .setContentText("click para mais informações")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+                TOPIC = "/topics/userABC"; //topic must match with what the receiver subscribed to
+                NOTIFICATION_TITLE = "Bike Furtada/Roubada";
+                NOTIFICATION_MESSAGE = "Click para mais detalhes";
+
+                JSONObject notification = new JSONObject();
+                JSONObject notifcationBody = new JSONObject();
+                try {
+                    notifcationBody.put("title",   NOTIFICATION_TITLE);
+                    notifcationBody.put("message", NOTIFICATION_MESSAGE);
+
+                    notification.put("to", TOPIC);
+                    notification.put("data", notifcationBody);
+                } catch (JSONException e) {
+                    Log.e(TAG, "onCreate: " + e.getMessage());
+                }
+                sendNotification(notification);
 
 
 
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = getString(R.string.campoDigiteSeuNome);
-            String description = getString(R.string.campoDigiteSeuNome);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(NOTIFICATION_SERVICE, name, importance);
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
+
+
+    }
+
+
+    private void sendNotification(JSONObject notification) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
+                new com.android.volley.Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i(TAG, "onResponse: " + response.toString());
+                    //    edtTitle .setText ( " " );
+                    //    edtMessage.setText ( " " );
+                    }
+                },
+                new com.android.volley.Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(AlertarFurtoRoubo.this, "Request error", Toast.LENGTH_LONG).show();
+                        Log.i(TAG, "onErrorResponse: Didn't work");
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("Authorization", serverKey);
+                params.put("Content-Type", contentType);
+                return params;
+            }
+        };
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+
+    public static class MySingleton {
+        private static MySingleton instance;
+        private RequestQueue requestQueue;
+        private Context ctx;
+
+        private MySingleton(Context context) {
+            ctx = context;
+            requestQueue = getRequestQueue();
+        }
+
+        public static synchronized MySingleton getInstance(Context context) {
+            if (instance == null) {
+                instance = new MySingleton(context);
+            }
+            return instance;
+        }
+
+        public RequestQueue getRequestQueue() {
+            if (requestQueue == null) {
+                // getApplicationContext() is key, it keeps you from leaking the
+                // Activity or BroadcastReceiver if someone passes one in.
+                requestQueue = Volley.newRequestQueue(ctx.getApplicationContext());
+            }
+            return requestQueue;
         }
 
 
 
-        Intent intent = new Intent(this, AreaUsuario.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
-        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(this, NOTIFICATION_SERVICE)
-                .setSmallIcon(R.drawable.logo3)
-                .setContentTitle("Alerta Bike Roubada/furtada")
-                .setContentText("Click para mais detalhes")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                // Set the intent that will fire when the user taps the notification
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
+        public <T> void addToRequestQueue(Request<T> req) {
+            getRequestQueue().add(req);
+        }
 
-
-
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-// notificationId is a unique int for each notification that you must define
-
-        notificationManager.notify(R.drawable.logo3, builder1.build());
 
     }
 
@@ -1250,12 +1322,46 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-    public void notificacao(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void notificacaoRoubadaFurtada(){
 
        if(radioButtonFurtada.isChecked() || radioButtonRoubada.isChecked()){
 
 
-           gerarNotificacao();
+           notificaoApp();
 
 
        }
@@ -1266,64 +1372,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-    public void gerarNotificacaoRecuperada(){
 
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NFC_SERVICE)
-                .setSmallIcon(R.drawable.logo3)
-                .setContentTitle("bike")
-                .setContentText("click para mais informações")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-
-
-
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = getString(R.string.campoDigiteSeuNome);
-            String description = getString(R.string.campoDigiteSeuNome);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(NOTIFICATION_SERVICE, name, importance);
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-
-
-
-        Intent intent = new Intent(this, AreaUsuario.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-        NotificationCompat.Builder builder1 = new NotificationCompat.Builder(this, NOTIFICATION_SERVICE)
-                .setSmallIcon(R.drawable.logo3)
-                .setContentTitle("Alerta Bike Recuperada")
-                .setContentText("Click para mais detalhes")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                // Set the intent that will fire when the user taps the notification
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
-
-
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        // notificationId is a unique int for each notification that you must define
-
-        notificationManager.notify(R.drawable.add5, builder1.build());
-
-    }
-
-
-
-    public void notificacaoRecuperada(){
+   public void notificacaoRecuperada(){
 
         if(radioButtonRecuperada.isChecked()){
 
-            gerarNotificacaoRecuperada();
+
+
+      notificaoApp();
 
 
         }
@@ -1334,14 +1391,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-    public void onNewToken(String token) {
-        Log.d(TAG, "Refreshed token: " + token);
-
-        // If you want to send messages to this application instance or
-        // manage this apps subscriptions on the server side, send the
-        // Instance ID token to your app server.
-        sendRegistrationToServer(token);
-    }
 
 
     private void sendRegistrationToServer(String token) {
@@ -1361,38 +1410,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-    public  void TesteLoucodeNotificação() {
-
-
-        FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "getInstanceId failed", task.getException());
-                            return;
-                        }
-
-                        // Get new Instance ID token
-                        String token = task.getResult().getToken();
-
-                        // Log and toast
-                        String msg = getString(R.string.msg_token_fmt, token);
-                        Log.d(TAG, msg);
-                        Toast.makeText(AlertarFurtoRoubo.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-        runtimeEnableAutoInit();
-
-
-
-
-
-
-
-    }
 
 
 

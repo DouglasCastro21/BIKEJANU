@@ -23,18 +23,15 @@
             android:layout_height="wrap_content">
 
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imagemPerfilID01"
-                android:layout_width="match_parent"
-                android:layout_height="106dp"
+                android:layout_width="142dp"
+                android:layout_height="150dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="36dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/usuario" />
 
             <ImageView
@@ -118,20 +115,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2301" />
-
-            <Button
-                android:id="@+id/btnBuscarImagemID01"
-                android:layout_width="52dp"
-                android:layout_height="46dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="96dp"
-                android:background="@drawable/camera"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.621"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/camera" />
 
             <EditText
                 android:id="@+id/confirmarSenhaID01"

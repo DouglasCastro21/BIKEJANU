@@ -1,7 +1,5 @@
 package bike.douglas.com.bikejanu.Model;
 
-import android.net.Uri;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
@@ -19,9 +17,10 @@ public class Usuarios {
     private String senha;
     private String telefone;
     private String nascimento;
-    private String imagem;
+    private String fotoPerfilURL;
     private String numeroPm;
     private String digitoValidador;
+
 
 
 
@@ -36,7 +35,7 @@ public class Usuarios {
         this.email = userEmail;
         this.senha = userSenha;
         this.telefone = userTelefone;
-        this.imagem = userImagem;
+        this.fotoPerfilURL = userImagem;
         this.digitoValidador = userDigitoValidador;
 
 
@@ -48,7 +47,7 @@ public class Usuarios {
         this.email = userEmail;
         this.senha = userSenha;
         this.telefone = userTelefone;
-        this.imagem = userImagem;
+        this.fotoPerfilURL = userImagem;
         this.numeroPm = userPm;
         this.digitoValidador = userDigitoValidador;
 
@@ -60,7 +59,7 @@ public class Usuarios {
     public void Salvar(){
 
 
-        Usuarios user = new Usuarios(nome, email,senha,telefone,imagem,numeroPm,digitoValidador);
+        Usuarios user = new Usuarios(nome, email,senha,telefone, fotoPerfilURL,numeroPm,digitoValidador);
 
         DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
         referenciaFirebase.child("Usuarios").child(String.valueOf(getIdUsuario())).setValue(user);
@@ -73,7 +72,7 @@ public class Usuarios {
     public void SalvarUsuariosMilitares(){
 
 
-        Usuarios user = new Usuarios(nome, email,senha,telefone,imagem,numeroPm,digitoValidador);
+        Usuarios user = new Usuarios(nome, email,senha,telefone, fotoPerfilURL,numeroPm,digitoValidador);
 
         DatabaseReference referenciaFirebase = Configuracao_Firebase.getFirebase();
         referenciaFirebase.child("Militares").child(String.valueOf(getIdUsuario())).setValue(user);
@@ -90,7 +89,7 @@ public class Usuarios {
         hashMapUsuario.put("senha",getSenha());
         hashMapUsuario.put("telefone",getSenha());
         hashMapUsuario.put("nascimento",getNascimento());
-        hashMapUsuario.put("fotoUsuario",getImagem());
+        hashMapUsuario.put("fotoPerfilURL",getFotoPerfilURL());
         hashMapUsuario.put("numeroPm",getNumeroPm());
         hashMapUsuario.put("digitoValidador",getDigitoValidador());
 
@@ -149,12 +148,12 @@ public class Usuarios {
         this.nascimento = nascimento;
     }
 
-    public String getImagem() {
-        return imagem;
+    public String getFotoPerfilURL() {
+        return fotoPerfilURL;
     }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
+    public void setFotoPerfilURL(String imagem) {
+        this.fotoPerfilURL = imagem;
     }
 
     public String getNumeroPm() {

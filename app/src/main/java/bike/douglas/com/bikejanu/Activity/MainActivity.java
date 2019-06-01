@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -14,11 +15,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.DAO.UsuarioDAO;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
 import bike.douglas.com.bikejanu.Fragments.Consultar_Indice;
 import bike.douglas.com.bikejanu.Fragments.Entrar;
 import bike.douglas.com.bikejanu.R;
+import bike.douglas.com.bikejanu.Utilidades.Constantes;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -50,12 +53,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+        //arrumar um jeito de nao rodar muito essa linha
+       // UsuarioDAO.getInstancia().añadirFotoDePerfilALosUsuariosQueNoTienenFoto();
+
+
+
 // add depois  testar ...
      autenticacao = FirebaseAuth.getInstance();
 
  //banco
 
-     FirebaseDatabase firebaseDatabase = Configuracao_Firebase.getFireb();
+    FirebaseDatabase firebaseDatabase = Configuracao_Firebase.getFireb();
 
         verificarUsuarioLogado();
 

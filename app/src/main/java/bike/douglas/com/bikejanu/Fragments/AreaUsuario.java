@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,6 +55,8 @@ import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
+import bike.douglas.com.bikejanu.Utilidades.Constantes;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -63,11 +66,10 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     private ImageView btnmais;
     private TextView textoCadastrar;
     private ImageView imagemSeta;
-    private ImageView ImagemUsuario;
+
     private  static final int PICK_IMAGE_REQUEST = 1;
 
-    private ImageView imagemPerfil;
-    private Uri uriImagem;
+
 
     private TextView nomeUsuario;
     static   int d=0;
@@ -77,7 +79,7 @@ public class AreaUsuario extends AppCompatActivity implements NavigationView.OnN
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
 
-   private int validarUsuario=0;
+     private int validarUsuario=0;
     static private int validarTeste;
     private StorageReference storageReference;
 
@@ -114,9 +116,15 @@ private Usuarios usuarios;
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
 
 
-       cancelaNotificacao();
+
+
+
+
+     //   Glide.with(AreaUsuario.this).load(Constantes.URL_FOTO_POR_DEFECTO_USUARIOS).into(fotoPerfil);
+        cancelaNotificacao();
 
 
 
@@ -408,8 +416,6 @@ private Usuarios usuarios;
 
 
 
-        usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
-        ImagemUsuario = (ImageView) findViewById(R.id.ImagemUsuarioID);
 
 
 
@@ -524,6 +530,8 @@ private Usuarios usuarios;
                         Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
 
+
+
                         TextView nomeUsuarioLogadoText = (TextView) findViewById(R.id.nomeUsuarioI01D);
                         nomeUsuarioLogadoText.setText(dados.getNome());
 
@@ -531,8 +539,13 @@ private Usuarios usuarios;
                         emailUsuarioLogadoText.setText(dados.getEmail());
 
 
-                        //final  ImageView fotoUsuarioLogado = (ImageView)findViewById(R.id.ImagemUsuarioID);
-                        //   fotoUsuarioLogado.setImageURI(Uri.parse("1555035815608.jpg"));
+
+
+                          CircleImageView  fotoPerfil    = (CircleImageView) findViewById(R.id.imagemPerfilIID);
+
+                         Glide.with(AreaUsuario.this).load(dados.getFotoPerfilURL()).into(fotoPerfil);
+
+
 
 
 
@@ -938,25 +951,6 @@ if(validarUsuario  ==1){
 
 
 
-        @Override
-        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
-
-            if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!=null){
-
-
-                uriImagem   = data.getData();
-
-                StorageReference filePath = storageReference.child("FotosPerfil").child(uriImagem.getLastPathSegment());
-
-                Picasso.with(this)
-                        .load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/FotosPerfil%2F1555450560048.jpg?alt=media&token=99f2467a-2ab5-4abf-b03c-ad52747eb709")
-                        .into(imagemPerfil);
-                        imagemPerfil.setImageURI(uriImagem);
-
-            }
-        }
-
 
 
     public void enviarDadosParaTelaConfirmarSenha(){
@@ -983,9 +977,6 @@ if(validarUsuario  ==1){
 
 
             }
-
-
-
 
 
             public void cancelaNotificacao(){

@@ -1,9 +1,11 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.style.UpdateAppearance;
@@ -19,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.gms.auth.UserRecoverableAuthException;
@@ -35,31 +38,63 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.kbeanie.multipicker.api.CacheLocation;
+import com.kbeanie.multipicker.api.CameraImagePicker;
+import com.kbeanie.multipicker.api.ImagePicker;
+import com.kbeanie.multipicker.api.Picker;
+import com.kbeanie.multipicker.api.callbacks.ImagePickerCallback;
+import com.kbeanie.multipicker.api.entity.ChosenImage;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.Adapter.UsuarioAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
+import bike.douglas.com.bikejanu.DAO.UsuarioDAO;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.R;
+import bike.douglas.com.bikejanu.Utilidades.Constantes;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CadastroUsuario extends AppCompatActivity {
 
 
+
+
+
+//foto perfil
+
+    private CircleImageView fotoPerfil;
+
+    private ImagePicker imagePicker;
+    private CameraImagePicker cameraPicker;
+
+    private String pickerPath;
+    private Uri fotoPerfilUri;
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+
+
+
+
+
+
+
+
+
     private static final int PICK_IMAGE_REQUEST = 1;
-    private Button botaoBuscarImagem;
-    private ImageView imagemPerfil;
-    private Uri uriImagem;
+
 
     private ProgressBar progressBar;
     private ImageView fundo;
@@ -130,19 +165,122 @@ public class CadastroUsuario extends AppCompatActivity {
         confirmarsenha = (EditText) findViewById(R.id.confirmarSenhaID);
         telefone = (EditText) findViewById(R.id.telefoneeID);
         //  nascimento = (EditText)findViewById(R.id.dataID);
-        imagemPerfil = (ImageView) findViewById(R.id.imagemPerfilID);
+
 
         numeroPm = (EditText) findViewById(R.id.numeroPmID);
         txtNumeroPm = (TextView) findViewById(R.id.txtNumeroPmID);
 
 
         botaocadastrar = (Button) findViewById(R.id.btnCadastrarID);
-        botaoBuscarImagem = (Button) findViewById(R.id.btnBuscarImagemID);
+
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressBarCdastroID);
         fundo = (ImageView) findViewById(R.id.fundoID);
         criando = (TextView) findViewById(R.id.criandoID);
+
+
+
+
+
+
+
+        //fotoPerfil
+
+        fotoPerfil   = (CircleImageView)findViewById(R.id.imagemPerfilID);
+
+
+        imagePicker = new ImagePicker(this);
+        cameraPicker = new CameraImagePicker(this);
+
+
+
+
+
+
+
+        cameraPicker.setCacheLocation(CacheLocation.EXTERNAL_STORAGE_APP_DIR);
+
+        imagePicker.setImagePickerCallback(new ImagePickerCallback() {
+            @Override
+            public void onImagesChosen(List<ChosenImage> list) {
+                if(!list.isEmpty()){
+
+
+
+                    String path = list.get(0).getOriginalPath();
+                    fotoPerfilUri = Uri.parse(path);
+                    fotoPerfil.setImageURI(fotoPerfilUri);
+
+
+
+                }
+            }
+
+            @Override
+            public void onError(String s) {
+                Toast.makeText(CadastroUsuario.this, "Error: "+s, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cameraPicker.setImagePickerCallback(new ImagePickerCallback() {
+            @Override
+            public void onImagesChosen(List<ChosenImage> list) {
+                String path = list.get(0).getOriginalPath();
+                fotoPerfilUri = Uri.fromFile(new File(path));
+                fotoPerfil.setImageURI(fotoPerfilUri);
+            }
+
+            @Override
+            public void onError(String s) {
+                Toast.makeText(CadastroUsuario.this, "Error: "+s, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
+        fotoPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroUsuario.this);
+                dialog.setTitle("Foto de perfil");
+
+                String[] items = {"Galeria","Camara"};
+
+                dialog.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i){
+                            case 0:
+                                imagePicker.pickImage();
+                                break;
+                            case 1:
+                                pickerPath = cameraPicker.pickImage();
+                                break;
+                        }
+                    }
+                });
+
+                AlertDialog dialogConstruido = dialog.create();
+                dialogConstruido.show();
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -219,16 +357,9 @@ public class CadastroUsuario extends AppCompatActivity {
 
         });
 
-
-        botaoBuscarImagem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+       Glide.with(this).load(Constantes.URL_FOTO_POR_DEFECTO_USUARIOS).into(fotoPerfil);
 
 
-                abrirFotos();
-
-            }
-        });
 
     }
 
@@ -243,6 +374,9 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 
 
+
+
+
     private void inicializarElementos() {
 
         usuarios = new Usuarios();
@@ -250,8 +384,8 @@ public class CadastroUsuario extends AppCompatActivity {
         usuarios.setEmail(email.getText().toString());
         usuarios.setSenha(senha.getText().toString());
         usuarios.setTelefone(telefone.getText().toString());
-        //   usuarios.setNascimento(nascimento.getText().toString());
-        usuarios.setImagem(imagemPerfil.getScaleType().toString());
+
+
 
 
         if(militarValidado ==1){
@@ -274,92 +408,243 @@ public class CadastroUsuario extends AppCompatActivity {
     private void cadastrarUsuario() {
 
 
-        autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
-
-        autenticacao.createUserWithEmailAndPassword(
-
-                usuarios.getEmail(),
-                usuarios.getSenha()
-
-
-        ).addOnCompleteListener(CadastroUsuario.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-
-                if (task.isSuccessful()) {
-
-                    progressBar.setVisibility(View.GONE);
-                    fundo.setVisibility(View.GONE);
-                    criando.setVisibility(View.GONE);
-
-
-                    String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
-                    FirebaseUser usuarioFirebase = task.getResult().getUser();
-                    usuarios.setIdUsuario(identificadorUsuario);
-
-
-
-                    if(militarValidado  == 1){
-
-
-                        usuarios.SalvarUsuariosMilitares();
-                        usuarios.Salvar();
-
-
-
-                    }else{
-
-
-                        usuarios.Salvar();
-
-
-                    }
+        if(fotoPerfilUri!=null) {
 
 
 
 
+            UsuarioDAO.getInstancia().subirFotoUri(fotoPerfilUri, new UsuarioDAO.IDevolverUrlFoto() {
+                @Override
+                public void devolerUrlString(String url) {
+
+                    usuarios.setFotoPerfilURL(url);
 
 
-                    Preferencias preferencias = new Preferencias(CadastroUsuario.this);
-                    preferencias.salvarUsuarioPreferencias(identificadorUsuario, usuarios.getNome());
 
-                    FirebaseUser user = autenticacao.getCurrentUser();
+                    autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
 
+                    autenticacao.createUserWithEmailAndPassword(
 
-                    Toast.makeText(CadastroUsuario.this, "Usuário cadastrado com sucesso!", Toast.LENGTH_LONG).show();
-
-                    abrirAreaUsuario();
-
-                } else {
-                    progressBar.setVisibility(View.GONE);
-                    String erroExcecao = "";
-
-                    try {
-                        throw task.getException();
-                    } catch (FirebaseAuthWeakPasswordException e) {
-
-                        erroExcecao = "Digite uma senha contendo no mínimo 8 caracteres entre letras e numeros";
-                        senha.requestFocus();
-                    } catch (FirebaseAuthUserCollisionException e) {
-                        erroExcecao = "Email já cadastrado   ";
-                        email.requestFocus();
-                    } catch (FirebaseAuthInvalidCredentialsException e) {
-                        erroExcecao = "O campo de email está mal formado  ";
-                        email.requestFocus();
-
-                    } catch (Exception e) {
-                        erroExcecao = "Erro ao efetuar cadastro,verifique a Conexão com a internet";
-                        e.printStackTrace();
-
-                    }
+                            usuarios.getEmail(),
+                            usuarios.getSenha()
 
 
-                    Toast.makeText(CadastroUsuario.this, "Erro : " + erroExcecao, Toast.LENGTH_LONG).show();
+                    ).addOnCompleteListener(CadastroUsuario.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+
+                            if (task.isSuccessful()) {
+
+                                progressBar.setVisibility(View.GONE);
+                                fundo.setVisibility(View.GONE);
+                                criando.setVisibility(View.GONE);
+
+
+                                String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
+                                FirebaseUser usuarioFirebase = task.getResult().getUser();
+                                usuarios.setIdUsuario(identificadorUsuario);
+
+
+
+                                if(militarValidado  == 1){
+
+
+                                    usuarios.SalvarUsuariosMilitares();
+                                    usuarios.Salvar();
+
+
+
+                                }else{
+
+
+                                    usuarios.Salvar();
+
+
+                                }
+
+
+
+
+
+
+                                Preferencias preferencias = new Preferencias(CadastroUsuario.this);
+                                preferencias.salvarUsuarioPreferencias(identificadorUsuario, usuarios.getNome());
+
+                                FirebaseUser user = autenticacao.getCurrentUser();
+
+
+                                Toast.makeText(CadastroUsuario.this, "Usuário cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+
+                                abrirAreaUsuario();
+
+                            } else {
+                                progressBar.setVisibility(View.GONE);
+                                String erroExcecao = "";
+
+                                try {
+                                    throw task.getException();
+                                } catch (FirebaseAuthWeakPasswordException e) {
+
+                                    erroExcecao = "Digite uma senha contendo no mínimo 8 caracteres entre letras e numeros";
+                                    senha.requestFocus();
+                                } catch (FirebaseAuthUserCollisionException e) {
+                                    erroExcecao = "Email já cadastrado   ";
+                                    email.requestFocus();
+                                } catch (FirebaseAuthInvalidCredentialsException e) {
+                                    erroExcecao = "O campo de email está mal formado  ";
+                                    email.requestFocus();
+
+                                } catch (Exception e) {
+                                    erroExcecao = "Erro ao efetuar cadastro,verifique a Conexão com a internet";
+                                    e.printStackTrace();
+
+                                }
+
+
+                                Toast.makeText(CadastroUsuario.this, "Erro : " + erroExcecao, Toast.LENGTH_LONG).show();
+
+                            }
+                        }
+                    });
+
 
                 }
-            }
-        });
+            });
+
+
+
+
+        }else{
+
+
+
+            UsuarioDAO.getInstancia().subirFotoUri(fotoPerfilUri, new UsuarioDAO.IDevolverUrlFoto() {
+                @Override
+                public void devolerUrlString(String url) {
+
+                    usuarios.setFotoPerfilURL(Constantes.URL_FOTO_POR_DEFECTO_USUARIOS);
+
+
+
+                    autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
+
+                    autenticacao.createUserWithEmailAndPassword(
+
+                            usuarios.getEmail(),
+                            usuarios.getSenha()
+
+
+                    ).addOnCompleteListener(CadastroUsuario.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+
+                            if (task.isSuccessful()) {
+
+                                progressBar.setVisibility(View.GONE);
+                                fundo.setVisibility(View.GONE);
+                                criando.setVisibility(View.GONE);
+
+
+                                String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getEmail());
+                                FirebaseUser usuarioFirebase = task.getResult().getUser();
+                                usuarios.setIdUsuario(identificadorUsuario);
+
+
+
+                                if(militarValidado  == 1){
+
+
+                                    usuarios.SalvarUsuariosMilitares();
+                                    usuarios.Salvar();
+
+
+
+                                }else{
+
+
+                                    usuarios.Salvar();
+
+
+                                }
+
+
+
+
+
+
+                                Preferencias preferencias = new Preferencias(CadastroUsuario.this);
+                                preferencias.salvarUsuarioPreferencias(identificadorUsuario, usuarios.getNome());
+
+                                FirebaseUser user = autenticacao.getCurrentUser();
+
+
+                                Toast.makeText(CadastroUsuario.this, "Usuário cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+
+                                abrirAreaUsuario();
+
+                            } else {
+                                progressBar.setVisibility(View.GONE);
+                                String erroExcecao = "";
+
+                                try {
+                                    throw task.getException();
+                                } catch (FirebaseAuthWeakPasswordException e) {
+
+                                    erroExcecao = "Digite uma senha contendo no mínimo 8 caracteres entre letras e numeros";
+                                    senha.requestFocus();
+                                } catch (FirebaseAuthUserCollisionException e) {
+                                    erroExcecao = "Email já cadastrado   ";
+                                    email.requestFocus();
+                                } catch (FirebaseAuthInvalidCredentialsException e) {
+                                    erroExcecao = "O campo de email está mal formado  ";
+                                    email.requestFocus();
+
+                                } catch (Exception e) {
+                                    erroExcecao = "Erro ao efetuar cadastro,verifique a Conexão com a internet";
+                                    e.printStackTrace();
+
+                                }
+
+
+                                Toast.makeText(CadastroUsuario.this, "Erro : " + erroExcecao, Toast.LENGTH_LONG).show();
+
+                            }
+                        }
+                    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+                }
+            });
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -376,35 +661,8 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 
 
-    // buscar as fotos no celular
-    private void abrirFotos() {
-
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-
-    }
-
-// codigo da imagem
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
 
-            uriImagem = data.getData();
-
-
-            StorageReference filePath = storageReference.child("fotosPerfil").child(uriImagem.getLastPathSegment());
-
-            Picasso.with(this).load(uriImagem).into(imagemPerfil);
-            imagemPerfil.setImageURI(uriImagem);
-
-        }
-    }
 
 
     private String getExtension(Uri uri) {
@@ -419,41 +677,10 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 
 
-    public void addImagem() {
-
-        if (uriImagem != null) {
-
-            StorageReference fileRederencia = storageReference.child("FotosPerfil").child(System.currentTimeMillis() + "." + getExtension(uriImagem));
 
 
-            fileRederencia.putFile(uriImagem).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
 
-                    Toast.makeText(CadastroUsuario.this, "Sucesso imagem", Toast.LENGTH_LONG).show();
-
-                    Upload upload = new Upload();
-
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                }
-            });
-
-
-        } else {
-
-            Toast.makeText(CadastroUsuario.this, "Arquivo de foto não selecionado", Toast.LENGTH_LONG).show();
-
-
-        }
-
-
-    }
 
 
     private void opcaoMilitar() {
@@ -469,7 +696,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
                     inicializarElementos();
-                    addImagem();
+
                     cadastrarUsuario();
 
 
@@ -523,7 +750,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
                     inicializarElementos();
-                    addImagem();
+
                     cadastrarUsuario();
 
 
@@ -562,6 +789,22 @@ public class CadastroUsuario extends AppCompatActivity {
         }
 
     }
+
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == Picker.PICK_IMAGE_DEVICE && resultCode == RESULT_OK){
+            imagePicker.submit(data);
+        }else if(requestCode == Picker.PICK_IMAGE_CAMERA && resultCode == RESULT_OK){
+            cameraPicker.reinitialize(pickerPath);
+            cameraPicker.submit(data);
+        }
+
+    }
+
 
 
 

@@ -36,6 +36,10 @@ public class ChecarUsuario extends AppCompatActivity {
 
 
 
+
+
+
+
         buttonConfirmarMilitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,4 +74,9 @@ public class ChecarUsuario extends AppCompatActivity {
         });
 
     }
+
+
+
+
+
 }
