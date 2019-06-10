@@ -42,6 +42,7 @@ public class Tab1Entrar extends Fragment  {
     private Entrar.SectionsPagerAdapter entrar;
     private ProgressBar progressBar;
     private TextView carregando;
+    private TextView usarioInvado;
 
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
@@ -57,6 +58,7 @@ public class Tab1Entrar extends Fragment  {
         final TextView edtSenha = (TextView) rootView.findViewById(R.id.SenhaID);
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBarEntrarID);
         carregando  = (TextView)rootView.findViewById(R.id.carregandoID);
+        usarioInvado = (TextView)rootView.findViewById(R.id.texUsuarioInvalidoID) ;
 
 
 
@@ -120,7 +122,8 @@ public class Tab1Entrar extends Fragment  {
 
             }else {
 
-                Toast.makeText(Tab1Entrar.super.getActivity(), "Usuário ou senha invalidos", Toast.LENGTH_SHORT).show();
+                //mensagem atençaõ ...
+                usarioInvado.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 carregando.setVisibility(View.GONE);
             }

@@ -26,8 +26,7 @@ import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -93,7 +92,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-    private static final int PICK_IMAGE_REQUEST = 1;
 
 
     private ProgressBar progressBar;
@@ -192,14 +190,14 @@ public class CadastroUsuario extends AppCompatActivity {
 
         imagePicker = new ImagePicker(this);
         cameraPicker = new CameraImagePicker(this);
-
-
-
-
-
-
-
         cameraPicker.setCacheLocation(CacheLocation.EXTERNAL_STORAGE_APP_DIR);
+
+
+
+
+
+
+
 
         imagePicker.setImagePickerCallback(new ImagePickerCallback() {
             @Override
@@ -222,6 +220,11 @@ public class CadastroUsuario extends AppCompatActivity {
                 Toast.makeText(CadastroUsuario.this, "Error: "+s, Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
+
 
         cameraPicker.setImagePickerCallback(new ImagePickerCallback() {
             @Override

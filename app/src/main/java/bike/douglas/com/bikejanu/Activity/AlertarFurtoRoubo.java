@@ -133,6 +133,13 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private TextView txtBoletim;
     static String ativa = "negativa";
 
+
+    private TextView imagem1;
+    private TextView imagem2;
+    private TextView imagem3;
+    private TextView imagem4;
+    private TextView imagem5;
+
     public  Bike bike;
     public LocalBikesMaps localBikesMaps;
 
@@ -209,6 +216,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         localLatitude    =  (TextView) findViewById(R.id.alertaLatitudeID);
         localLongitude    =  (TextView) findViewById(R.id.alertaLongitudeID);
 
+
+        imagem1    =  (TextView) findViewById(R.id.alertaImagem1ID);
+        imagem2    =  (TextView) findViewById(R.id.alertaImagem2ID);
+        imagem3    =  (TextView) findViewById(R.id.alertaImagem3ID);
+        imagem4    =  (TextView) findViewById(R.id.alertaImagem4ID);
+        imagem5   =  (TextView) findViewById(R.id.alertaImagem5ID);
 
         // campos txt
 
@@ -332,6 +345,34 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 String statuss = params.getString("status");
                 TextView statussText = (TextView) findViewById(R.id.statusSituacaoID);
                 statussText.setText(statuss);
+
+
+                String Imagem1 = params.getString("Imagem1");
+                TextView Imagem1Text = (TextView) findViewById(R.id.alertaImagem1ID);
+                Imagem1Text.setText(Imagem1);
+
+                String Imagem2 = params.getString("Imagem2");
+                TextView Imagem2Text = (TextView) findViewById(R.id.alertaImagem2ID);
+                Imagem2Text.setText(Imagem2);
+
+                String Imagem3 = params.getString("Imagem3");
+                TextView Imagem3Text = (TextView) findViewById(R.id.alertaImagem3ID);
+                Imagem3Text.setText(Imagem3);
+
+                String Imagem4 = params.getString("Imagem4");
+                TextView Imagem4Text = (TextView) findViewById(R.id.alertaImagem4ID);
+                Imagem4Text.setText(Imagem4);
+
+                String Imagem5 = params.getString("Imagem5");
+                TextView Imagem5Text = (TextView) findViewById(R.id.alertaImagem5ID);
+                Imagem5Text.setText(Imagem5);
+
+
+
+
+
+
+
 
 
                 String latitude = params.getString("latitude");
@@ -926,6 +967,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         localBikesMaps.setLatitude(localLatitude.getText().toString().trim());
         localBikesMaps.setLongitude(localLongitude.getText().toString().trim());
+
+        bike.setFotoBikeUrl1(imagem1.getText().toString());
+        bike.setFotoBikeUrl2(imagem2.getText().toString());
+        bike.setFotoBikeUrl3(imagem3.getText().toString());
+        bike.setFotoBikeUrl4(imagem4.getText().toString());
+        bike.setFotoBikeUrl5(imagem5.getText().toString());
 
     }
 

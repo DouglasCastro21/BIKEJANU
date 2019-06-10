@@ -26,14 +26,14 @@
         android:layout_width="307dp"
         android:layout_height="253dp"
         android:layout_marginEnd="144dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginRight="144dp"
+
         android:layout_marginStart="112dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView5"
+        app:layout_constraintTop_toTopOf="@+id/scrollView5"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/novabike" />
 
@@ -55,43 +55,24 @@
             android:visibility="visible">
 
 
-
-
             <ImageView
-                android:id="@+id/imageBikeID"
-                android:layout_width="175dp"
-                android:layout_height="141dp"
-                android:layout_marginEnd="125dp"
-                android:layout_marginStart="84dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/imageBikeID1"
+                android:layout_width="170dp"
+                android:layout_height="147dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_report_image" />
+                app:srcCompat="@android:drawable/ic_menu_camera" />
 
-
-
-            <ImageView
-            android:id="@+id/buscarFotoBikeID"
-            android:layout_width="68dp"
-            android:layout_height="49dp"
-            android:layout_marginBottom="32dp"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="90dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageBikeID"
-            app:srcCompat="@drawable/camera" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="16dp"
                 android:text="Número do Quadro*"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="18sp"
@@ -100,7 +81,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buscarFotoBikeID" />
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -469,8 +450,6 @@
                 android:layout_height="46dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="24dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:ems="10"
@@ -479,6 +458,7 @@
                 android:visibility="visible"
                 app:layout_constraintBottom_toTopOf="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.326"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -622,17 +602,14 @@
             <ImageView
                 android:id="@+id/spinerButtonID"
                 android:layout_width="35dp"
-                android:layout_height="47dp"
-                android:layout_marginBottom="24dp"
+                android:layout_height="33dp"
                 android:layout_marginEnd="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="32dp"
-                app:layout_constraintBottom_toTopOf="@+id/corID"
+                app:layout_constraintBottom_toBottomOf="@+id/spinnerMarcaID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/spinnerMarcaID"
-                app:layout_constraintTop_toBottomOf="@+id/NumeroID"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toTopOf="@+id/spinnerMarcaID"
+                app:layout_constraintVertical_bias="0.545"
                 app:srcCompat="@drawable/ic_expand_more" />
 
             <Button
@@ -695,6 +672,95 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imageBikeID2"
+                android:layout_width="170dp"
+                android:layout_height="147dp"
+                android:layout_marginStart="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageBikeID1"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <ImageView
+                android:id="@+id/imageBikeID5"
+                android:layout_width="72dp"
+                android:layout_height="73dp"
+                android:layout_marginEnd="103dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageBikeID2"
+                app:layout_constraintTop_toBottomOf="@+id/imageBikeID4"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <ImageView
+                android:id="@+id/imageBikeID3"
+                android:layout_width="72dp"
+                android:layout_height="74dp"
+                android:layout_marginEnd="91dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageBikeID1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <ImageView
+                android:id="@+id/imageBikeID4"
+                android:layout_width="72dp"
+                android:layout_height="73dp"
+                android:layout_marginEnd="91dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageBikeID1"
+                app:layout_constraintTop_toBottomOf="@+id/imageBikeID3"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="361dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="96dp"
+                android:text="Atenção: A nota fiscal é o único documento que comprova que a bicicleta é realmente sua. Por isso é viavel que tenha a foto da mesma."
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_dark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageBikeID5" />
+
+            <ProgressBar
+                android:id="@+id/progressBarCadastroBikeID"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="220dp"
+                android:layout_height="85dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="624dp"
+                android:max="100"
+                android:progress="10"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/carregandoBikeId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="8dp"
+                android:text="Carregando ..."
+                android:textColor="#25f51a"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBarCadastroBikeID" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

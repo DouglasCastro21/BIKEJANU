@@ -27,7 +27,11 @@ public class Bike extends Usuarios{
     private String Boletim;
     private String alertaDescricao;
     private String status;
-    private String fotoBike;
+    private String fotoBikeUrl1;
+    private String fotoBikeUrl2;
+    private String fotoBikeUrl3;
+    private String fotoBikeUrl4;
+    private String fotoBikeUrl5;
 
 
 
@@ -51,7 +55,15 @@ public class Bike extends Usuarios{
         hashMapBike.put("modelo",getModelo());
         hashMapBike.put("cor",getCor());
         hashMapBike.put("descricao",getDescricao());
-        hashMapBike.put("fotoBike",getLatitude());
+        hashMapBike.put("fotoBikeUrl1",getFotoBikeUrl1());
+        hashMapBike.put("fotoBikeUrl2",getFotoBikeUrl2());
+        hashMapBike.put("fotoBikeUrl3",getFotoBikeUrl3());
+        hashMapBike.put("fotoBikeUrl4",getFotoBikeUrl4());
+        hashMapBike.put("fotoBikeUrl5",getFotoBikeUrl5());
+
+
+
+
 
 
 
@@ -212,11 +224,44 @@ public class Bike extends Usuarios{
         this.longitude = longitude;
     }
 
-    public String getFotoBike() {
-        return fotoBike;
+
+    public String getFotoBikeUrl1() {
+        return fotoBikeUrl1;
     }
 
-    public void setFotoBike(String fotoBike) {
-        this.fotoBike = fotoBike;
+    public void setFotoBikeUrl1(String fotoBikeUrl1) {
+        this.fotoBikeUrl1 = fotoBikeUrl1;
+    }
+
+    public String getFotoBikeUrl2() {
+        return fotoBikeUrl2;
+    }
+
+    public void setFotoBikeUrl2(String fotoBikeUrl2) {
+        this.fotoBikeUrl2 = fotoBikeUrl2;
+    }
+
+    public String getFotoBikeUrl3() {
+        return fotoBikeUrl3;
+    }
+
+    public void setFotoBikeUrl3(String fotoBikeUrl3) {
+        this.fotoBikeUrl3 = fotoBikeUrl3;
+    }
+
+    public String getFotoBikeUrl4() {
+        return fotoBikeUrl4;
+    }
+
+    public void setFotoBikeUrl4(String fotoBikeUrl4) {
+        this.fotoBikeUrl4 = fotoBikeUrl4;
+    }
+
+    public String getFotoBikeUrl5() {
+        return fotoBikeUrl5;
+    }
+
+    public void setFotoBikeUrl5(String fotoBikeUrl5) {
+        this.fotoBikeUrl5 = fotoBikeUrl5;
     }
 }

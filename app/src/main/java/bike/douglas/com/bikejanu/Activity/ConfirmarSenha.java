@@ -40,7 +40,7 @@ public class ConfirmarSenha extends AppCompatActivity {
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
 
-private int validar=0;
+    private int validar=0;
     private FirebaseAuth usuarioFirebase;
 
     private Button   buttonconfirmarSenha;
@@ -48,6 +48,8 @@ private int validar=0;
     private EditText editTextConfirmarSenha;
 
     private CircleImageView imagemUsuario;
+
+    private TextView txtAtencao;
 
 
     @Override
@@ -64,6 +66,8 @@ private int validar=0;
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
 
         imagemUsuario = (CircleImageView) findViewById(R.id.imageView5);
+
+        txtAtencao = (TextView)findViewById(R.id.txtAtencaoSenhaID) ;
 
 
         imagemUsuario();
@@ -188,7 +192,11 @@ private int validar=0;
 
                    }else
                    {
-                       Toast.makeText(ConfirmarSenha.this,"A Senha é invalida ",Toast.LENGTH_LONG ).show();
+
+
+                       txtAtencao.setVisibility(View.VISIBLE);
+
+
 
                    }
 
@@ -376,8 +384,9 @@ private int validar=0;
 
                             }else
                             {
-                                Toast.makeText(ConfirmarSenha.this,"A Senha é invalida ",Toast.LENGTH_LONG ).show();
 
+
+                                txtAtencao.setVisibility(View.VISIBLE);
                             }
 
 

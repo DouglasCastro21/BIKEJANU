@@ -5,16 +5,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
+import bike.douglas.com.bikejanu.Helper.Base64Custom;
+import bike.douglas.com.bikejanu.Model.Bike;
+import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DadosBike extends AppCompatActivity  {
+
+
+    DatabaseReference databaseReferenceBike = FirebaseDatabase.getInstance().getReference();
+   private CircleImageView imageViewAbrirImagens;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dados_bike);
+
+
+       imageViewAbrirImagens = (CircleImageView) findViewById(R.id.imagemAbrirMaisImagensID);
 
 
         TextView dadosNumero_serie = (TextView) findViewById(R.id.dadosNumeroSerieID);
@@ -61,7 +83,7 @@ public class DadosBike extends AppCompatActivity  {
 
 
 
-
+        imagemBikePerfil();
 
 
 
@@ -160,6 +182,17 @@ public class DadosBike extends AppCompatActivity  {
                 alertadescricaoText.setText(alertadescricao);
 
 
+// dadosda IMAGEM 1
+
+                String dadosImagem1 = params.getString("dadosImagem1");
+                //TextView dadosImagem1Text = (TextView) findViewById(R.id.dadosBoletimID);
+               // dadosImagem1Text.setText(dadosImagem1);
+
+
+                Bike bike = new Bike();
+                Glide.with(DadosBike.this).load(dadosImagem1).into(imageViewAbrirImagens);
+
+
 
 
 
@@ -242,6 +275,75 @@ public class DadosBike extends AppCompatActivity  {
 
 
         }
+
+
+
+        imageViewAbrirImagens.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(),Galeria.class));
+
+            }
+        });
     }
 
+
+
+
+
+
+
+
+    public void imagemBikePerfil(){
+
+
+        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        String email = user1.getEmail();
+
+        // converte o email pra base 64
+        String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+        Bike bike = new Bike();
+
+        DatabaseReference BikeReference = databaseReferenceBike.child("Bike").child(identificadorUsuario);
+
+
+
+
+
+        BikeReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.exists()) {
+
+                   Bike dados = dataSnapshot.getValue(Bike.class);
+
+
+
+                    Glide.with(DadosBike.this).load(dados.getFotoBikeUrl1()).into(imageViewAbrirImagens);
+
+
+
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+    }
     }

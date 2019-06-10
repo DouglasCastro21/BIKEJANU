@@ -445,11 +445,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="168dp"
-                android:layout_marginRight="168dp"
+                android:layout_marginTop="562dp"
                 android:text="TextView"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="562dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textEstadoID"
@@ -583,10 +583,13 @@
                 android:id="@+id/digitoValidadorMudarStatusID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="765dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="29dp"
                 android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/alertaHoraID"
                 app:layout_constraintTop_toBottomOf="@+id/txtDataHoraID" />
@@ -605,6 +608,64 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/alertaDescricaoID" />
+
+            <TextView
+                android:id="@+id/alertaImagem1ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="10dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/alertaImagem3ID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alertaImagem2ID" />
+
+            <TextView
+                android:id="@+id/alertaImagem2ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="1dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alertaImagem4ID" />
+
+            <TextView
+                android:id="@+id/alertaImagem3ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="1dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alertaImagem1ID" />
+
+            <TextView
+                android:id="@+id/alertaImagem4ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/digitoValidadorMudarStatusID" />
+
+            <TextView
+                android:id="@+id/alertaImagem5ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="292dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/textEstadoID"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

@@ -6,12 +6,18 @@ import android.app.TimePickerDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+
 import android.graphics.Bitmap;
 import android.net.Uri;
+
+import android.os.Handler;
+import android.provider.MediaStore;
+
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
@@ -21,6 +27,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -28,32 +35,81 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
 import com.squareup.picasso.Picasso;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.DAO.UsuarioDAO;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Model.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.R;
 
+
+
 public class CadastroBike extends AppCompatActivity  {
 
+
+
+
+
+
+// imagens
+
+
+
+    private  static final int PICK_IMAGE_REQUEST = 1;
+
+    private ImageView imagemBike1;
+    private ImageView imagemBike2;
+    private ImageView imagemBike3;
+    private ImageView imagemBike4;
+    private ImageView imagemBike5;
+    private Uri uriImagem1;
+
+    private Uri uriImagem2;
+
+    private Uri uriImagem3;
+
+    private Uri uriImagem4;
+
+    private Uri uriImagem5;
+
+    String url;
+
+
+
+
+    TextView carregandoBike;
+
+    //
 
     public  EditText numero_serie;
     private EditText marca;
@@ -99,20 +155,20 @@ public class CadastroBike extends AppCompatActivity  {
    protected Button     botaoBuscarMapa;
    protected Button     botaocadastrar;
    protected ImageView  spinnerImagem;
-    private StorageReference storageReference;
 
+    private StorageReference  storageReference;
+    private DatabaseReference firebase;
 
+    private DatabaseReference firebaseDataBaseImagem;
 
     public  Bike bike;
     public LocalBikesMaps localBikesMaps;
-    private DatabaseReference firebase;
+
     private int dia,mes,ano,hora,minuto;
+    private ProgressBar progressBar;
 
 
-    private  static final int PICK_IMAGE_REQUEST = 1;
-    ImageView buttonBuscarImagem;
-    ImageView imagemBike;
-    private Uri uriImagem;
+
 
 
 
@@ -127,17 +183,28 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-        storageReference = FirebaseStorage.getInstance().getReference();
+
+        storageReference = FirebaseStorage.getInstance().getReference("ImagensBikes");
+
+
+
+
+        /// da imagem
+
+
+
+
         //arrumar um jeito de nao rodar muito essa linha
-        UsuarioDAO.getInstancia().añadirFotoDePerfilALosUsuariosQueNoTienenFoto();
+      //  UsuarioDAO.getInstancia().añadirFotoDePerfilALosUsuariosQueNoTienenFoto();
 
 
-
-
+        carregandoBike  = (TextView)    findViewById(R.id.carregandoBikeId);
+        progressBar     = (ProgressBar) findViewById(R.id.progressBarCadastroBikeID);
         numero_serie    = (EditText)    findViewById(R.id.NumeroID);
         modelo          = (EditText)    findViewById(R.id.modeloID);
         cor             = (EditText)    findViewById(R.id.corID);
         descricao       = (EditText)    findViewById(R.id.descricaoID);
+
 
         cadastroEstado  = (EditText)    findViewById(R.id.cadastroEstadoID);
         cadastroCidade  = (EditText)    findViewById(R.id.cadastroCidadeID);
@@ -169,13 +236,22 @@ public class CadastroBike extends AppCompatActivity  {
         radioButtonRoubada      = (RadioButton) findViewById(R.id.alertaRoubadaID);
         radioGroup              = (RadioGroup)  findViewById(R.id.radioGroupID);
 
-        imagemBike              = (ImageView)   findViewById(R.id.imageBikeID);
 
 
-         buttonBuscarImagem     = (ImageView)     findViewById(R.id.buscarFotoBikeID);
+
+        imagemBike1   = (ImageView)     findViewById(R.id.imageBikeID1);
+        imagemBike2   = (ImageView)     findViewById(R.id.imageBikeID2);
+        imagemBike3   = (ImageView)     findViewById(R.id.imageBikeID3);
+        imagemBike4   = (ImageView)     findViewById(R.id.imageBikeID4);
+        imagemBike5   = (ImageView)     findViewById(R.id.imageBikeID5);
+
+
+
          botaoBuscarMapa         = (Button)       findViewById(R.id.btnBuscarMapsID) ;
         botaocadastrar          = (Button)       findViewById(R.id.finalizarID);
         final CheckBox checkBox = (CheckBox)     findViewById(R.id.checkBoxID);
+
+
 
 
         //carrega os spinner
@@ -184,12 +260,13 @@ public class CadastroBike extends AppCompatActivity  {
 
         spinnerImagem = (ImageView) findViewById(R.id.spinerImagID);
 
-
-
-
-
         spinner = (Spinner) findViewById(R.id.spinnerMarcaID);
         spinner.setAdapter(arrayAdapter);
+
+
+        openGaleria();
+
+
 
         numero_serie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -370,16 +447,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-        buttonBuscarImagem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-              abrirFotos();
-
-
-            }
-        });
-
 
 
 
@@ -480,6 +547,7 @@ public class CadastroBike extends AppCompatActivity  {
             public void onClick(View v) {
 
 
+
                 if(checkBox.isChecked()) {
 
 
@@ -489,6 +557,9 @@ public class CadastroBike extends AppCompatActivity  {
                             && !cadastroRua.getText().toString().equals("")
                             && !alertaDate.getText().toString().equals("")&& !alertaHora.getText().toString().equals("")) {
 
+
+                        progressBar.setVisibility(View.VISIBLE);
+
                         inicializarElementos();
                         recuperarDadosUsuarioConectadoECadastra();
 
@@ -497,6 +568,8 @@ public class CadastroBike extends AppCompatActivity  {
                     } else {
 
 
+
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(CadastroBike.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
 
                         if (numero_serie.getText().toString().equals("")) {
@@ -590,59 +663,6 @@ public class CadastroBike extends AppCompatActivity  {
     }
 
 
-    private void inicializarElementos(){
-
-         bike = new Bike();
-         localBikesMaps = new LocalBikesMaps();
-         bike.setNumero_serie(numero_serie.getText().toString());
-         bike.setMarca(spinner.getSelectedItem().toString());
-         bike.setModelo(modelo.getText().toString());
-         bike.setCor(cor.getText().toString());
-         bike.setDescricao(descricao.getText().toString());
-
-         bike.setAlertaEstado(cadastroEstado.getText().toString());
-         bike.setAlertaCidade(cadastroCidade.getText().toString());
-         bike.setAlertaRua(cadastroRua.getText().toString());
-         bike.setAlertaBairro(cadastroBairro.getText().toString());
-
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        // OU
-        SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
-
-        Date data = new Date();
-
-        Calendar  cal = Calendar.getInstance();
-        cal.setTime(data);
-
-        Date data_atual = cal.getTime();
-
-        String data_completa = dateFormat.format(data_atual);
-
-        String hora_atual = dateFormat_hora.format(data_atual);
-
-       // alertaDate.setText(data_completa);
-       // alertaHora.setText(hora_atual);
-
-
-
-         bike.setAlertaDate(data_completa);
-         bike.setAlertaHora(hora_atual);
-
-
-
-         bike.setBoletim(Boletim.getText().toString());
-         bike.setAlertaDescricao(alertaDescricao.getText().toString());
-         bike.setStatus(status.getText().toString());
-
-         bike.setLatitude(txtLatitude.getText().toString());
-         bike.setLongitude(txtLongitude.getText().toString());
-         localBikesMaps.setLatitude(txtLatitude.getText().toString());
-         localBikesMaps.setLongitude(txtLongitude.getText().toString());
-
-
-
-    }
 
 
 
@@ -650,6 +670,8 @@ public class CadastroBike extends AppCompatActivity  {
 // volta pra tela usuario
     private void abrirAreaUsuario(){
 
+
+        Toast.makeText(CadastroBike.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(CadastroBike.this ,AreaUsuario.class);
         startActivity(intent);
         finish();
@@ -676,40 +698,44 @@ public class CadastroBike extends AppCompatActivity  {
 
         if (user != null) {
 
-            String email = user.getEmail();
+         //   String email = user.getEmail();
 
             // converte o email pra base 64
-            String identificadorUsuario= Base64Custom.codificarBase64(email);
-
+           // String identificadorUsuario= Base64Custom.codificarBase64(email);
+            Upload();
 
         //    addImagem();
 
+
+
             // cadastra a bike no nó todas as bikes
-            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+            //firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+         //   firebase.child(bike.getNumero_serie()).setValue(bike);
 
 
 
-                if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+              //  if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
 
                     // cadastra a bikeROubada no Maps de roubos
 
-                    firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
-                    firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
-                }
+                  //  firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                  //  firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+              //  }
 
 
 
             // cadastra no nó usuario logado
-            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+        //    firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+          //  firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 
 
-            Toast.makeText(CadastroBike.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
+          //  Toast.makeText(CadastroBike.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
 
            // retorna a tela usuario
 
-           abrirAreaUsuario();
+          // abrirAreaUsuario();
 
         }
 
@@ -835,101 +861,781 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-    private void abrirFotos(){
 
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent,PICK_IMAGE_REQUEST);
+
+    private void inicializarElementos(){
+
+        bike = new Bike();
+        localBikesMaps = new LocalBikesMaps();
+        bike.setNumero_serie(numero_serie.getText().toString());
+        bike.setMarca(spinner.getSelectedItem().toString());
+        bike.setModelo(modelo.getText().toString());
+        bike.setCor(cor.getText().toString());
+        bike.setDescricao(descricao.getText().toString());
+
+        bike.setFotoBikeUrl1(url);
+
+        bike.setAlertaEstado(cadastroEstado.getText().toString());
+        bike.setAlertaCidade(cadastroCidade.getText().toString());
+        bike.setAlertaRua(cadastroRua.getText().toString());
+        bike.setAlertaBairro(cadastroBairro.getText().toString());
+
+
+
+
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        // OU
+        SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+
+        Date data = new Date();
+
+        Calendar  cal = Calendar.getInstance();
+        cal.setTime(data);
+
+        Date data_atual = cal.getTime();
+
+        String data_completa = dateFormat.format(data_atual);
+
+        String hora_atual = dateFormat_hora.format(data_atual);
+
+        // alertaDate.setText(data_completa);
+        // alertaHora.setText(hora_atual);
+
+
+
+        bike.setAlertaDate(data_completa);
+        bike.setAlertaHora(hora_atual);
+
+
+
+        bike.setBoletim(Boletim.getText().toString());
+        bike.setAlertaDescricao(alertaDescricao.getText().toString());
+        bike.setStatus(status.getText().toString());
+
+
+        bike.setLatitude(txtLatitude.getText().toString());
+        bike.setLongitude(txtLongitude.getText().toString());
+        localBikesMaps.setLatitude(txtLatitude.getText().toString());
+        localBikesMaps.setLongitude(txtLongitude.getText().toString());
+
+
 
     }
 
 
 
-    // codigo da imagem
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!=null){
 
 
 
 
-            uriImagem   = data.getData();
-
-
-
-            StorageReference filePath = storageReference.child("fotosPerfil").child(uriImagem.getLastPathSegment());
-
-            Picasso.with(this).load(uriImagem).into(imagemBike);
-            imagemBike.setImageURI(uriImagem);
-
-        }
-    }
-
-
-    private String getExtension(Uri uri){
-
-        ContentResolver cr = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-
-
-        return mime.getExtensionFromMimeType(cr.getType(uri));
-
-
-    }
 
 
 
 
-    public void addImagem(){
-
-        if(uriImagem != null){
-
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-            String email = user.getEmail();
-
-            // converte o email pra base 64
-            String identificadorUsuario= Base64Custom.codificarBase64(email);
-
-            StorageReference fileRederencia  = storageReference.child("Bikes").child(identificadorUsuario).child( System.currentTimeMillis()+ "." + getExtension(uriImagem));
 
 
-            fileRederencia.putFile(uriImagem).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+    private void openGaleria() {
+
+        imagemBike1.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                public void onClick(View view) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
+                    dialog.setTitle("Foto de perfil");
+
+
+                    String[] items = {"Galeria","Camara"};
+
+                    dialog.setItems(items, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            switch (i){
+                                case 0:
+
+                                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                    startActivityForResult(intent,1);
 
 
 
-                    Upload upload = new Upload();
+
+                                    break;
+                                case 1:
+
+                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
+                                    startActivityForResult(intent2,6);
 
 
 
+                                    break;
+                            }
+                        }
+                    });
+
+                    AlertDialog dialogConstruido = dialog.create();
+                    dialogConstruido.show();
+
+                }
+            });
+
+
+
+
+
+
+              /////
+
+
+
+
+                imagemBike2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
+                    dialog.setTitle("Foto de perfil");
+
+                    String[] items = {"Galeria","Camara"};
+
+                    dialog.setItems(items, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            switch (i){
+                                case 0:
+
+                                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                    startActivityForResult(intent,2);
+
+
+
+                                    break;
+                                case 1:
+
+
+                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
+                                    startActivityForResult(intent2,7);
+
+
+                                    break;
+                            }
+                        }
+                    });
+
+                    AlertDialog dialogConstruido = dialog.create();
+                    dialogConstruido.show();
+
+                }
+            });
+
+
+////
+
+
+
+                imagemBike3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
+                    dialog.setTitle("Foto de perfil");
+
+                    String[] items = {"Galeria","Camara"};
+
+                    dialog.setItems(items, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            switch (i){
+                                case 0:
+
+                                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                    startActivityForResult(intent,3);
+
+
+
+
+                                    break;
+                                case 1:
+                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
+                                    startActivityForResult(intent2,8);
+
+                                    break;
+                            }
+                        }
+                    });
+
+                    AlertDialog dialogConstruido = dialog.create();
+                    dialogConstruido.show();
+
+                }
+            });
+
+
+                ///
+
+
+
+
+                imagemBike4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
+                    dialog.setTitle("Foto de perfil");
+
+                    String[] items = {"Galeria","Camara"};
+
+                    dialog.setItems(items, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            switch (i){
+                                case 0:
+                                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                    startActivityForResult(intent,4);
+
+
+                                    break;
+                                case 1:
+                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
+                                    startActivityForResult(intent2,9);
+
+                                    break;
+                            }
+                        }
+                    });
+
+                    AlertDialog dialogConstruido = dialog.create();
+                    dialogConstruido.show();
+
+                }
+            });
+
+
+
+
+
+
+
+                imagemBike5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
+                    dialog.setTitle("Foto de perfil");
+
+                    String[] items = {"Galeria","Camara"};
+
+                    dialog.setItems(items, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            switch (i){
+                                case 0:
+
+                                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                    startActivityForResult(intent,5);
+
+
+
+                                    break;
+                                case 1:
+
+                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
+                                    startActivityForResult(intent2,10);
+
+                                    break;
+                            }
+                        }
+                    });
+
+                    AlertDialog dialogConstruido = dialog.create();
+                    dialogConstruido.show();
+
+                }
+            });
+
+    }
+
+
+
+
+
+    public void Upload(){
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        String email = user.getEmail();
+
+        // converte o email pra base 64
+        final String identificadorUsuario = Base64Custom.codificarBase64(email);
+
+        if (uriImagem1!=null) {
+
+            progressBar.setVisibility(View.VISIBLE);
+            carregandoBike.setVisibility(View.VISIBLE);
+
+            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem1");
+            UploadTask uploadTask = ref.putFile(uriImagem1);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    return ref.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+
+
+                        Uri downloadUri = task.getResult();
+
+                        bike.setFotoBikeUrl1(downloadUri.toString());
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                        firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+                        if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                            // cadastra a bikeROubada no Maps de roubos
+
+                            firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                            firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+                        }
+
+
+                        abrirAreaUsuario();
+                        progressBar.setVisibility(View.GONE);
+                        carregandoBike.setVisibility(View.GONE);
+
+                    }
+                }
+            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
 
+
+
+                    progressBar.setVisibility(View.GONE);
+                    carregandoBike.setVisibility(View.GONE);
+
                 }
             });
-
-
-        }else {
-
-            Toast.makeText(CadastroBike.this, "Arquivo de foto não selecionado", Toast.LENGTH_LONG).show();
 
 
         }
 
 
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-     //   uriImagem.buildUpon().build();
+
+
+
+        if (uriImagem2!=null) {
+
+            progressBar.setVisibility(View.VISIBLE);
+            carregandoBike.setVisibility(View.VISIBLE);
+
+            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem2");
+            UploadTask uploadTask = ref.putFile(uriImagem2);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    return ref.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+
+
+                        Uri downloadUri = task.getResult();
+
+
+                        bike.setFotoBikeUrl2(downloadUri.toString());
+
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                        firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+                        if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                            // cadastra a bikeROubada no Maps de roubos
+
+                            firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                            firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+                        }
+
+
+
+                        progressBar.setVisibility(View.GONE);
+                        carregandoBike.setVisibility(View.GONE);
+
+
+
+                    }
+                }
+            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    progressBar.setVisibility(View.GONE);
+                    carregandoBike.setVisibility(View.GONE);
+
+                }
+            });
+        }
+
+
+
+
+
+
+
+        if (uriImagem3!=null) {
+
+            progressBar.setVisibility(View.VISIBLE);
+            carregandoBike.setVisibility(View.VISIBLE);
+
+            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem3");
+            UploadTask uploadTask = ref.putFile(uriImagem3);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    return ref.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+
+
+                        Uri downloadUri = task.getResult();
+
+
+                        bike.setFotoBikeUrl3(downloadUri.toString());
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                        firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+                        if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                            // cadastra a bikeROubada no Maps de roubos
+
+                            firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                            firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+                        }
+
+
+
+
+                        progressBar.setVisibility(View.GONE);
+                        carregandoBike.setVisibility(View.GONE);
+
+
+                    }
+                }
+            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    progressBar.setVisibility(View.GONE);
+                    carregandoBike.setVisibility(View.GONE);
+
+                }
+            });
+        }
+
+
+
+
+
+
+
+        if (uriImagem4!=null) {
+
+            progressBar.setVisibility(View.VISIBLE);
+            carregandoBike.setVisibility(View.VISIBLE);
+
+            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem4");
+            UploadTask uploadTask = ref.putFile(uriImagem4);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    return ref.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+
+
+                        Uri downloadUri = task.getResult();
+
+
+                        bike.setFotoBikeUrl4(downloadUri.toString());
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                        firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+                        if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                            // cadastra a bikeROubada no Maps de roubos
+
+                            firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                            firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+                        }
+
+
+                        progressBar.setVisibility(View.GONE);
+                        carregandoBike.setVisibility(View.GONE);
+
+
+
+
+
+                    }
+                }
+            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    progressBar.setVisibility(View.GONE);
+                    carregandoBike.setVisibility(View.GONE);
+
+                }
+            });
+        }
+
+
+
+
+
+        if (uriImagem5!=null) {
+
+            progressBar.setVisibility(View.VISIBLE);
+            carregandoBike.setVisibility(View.VISIBLE);
+
+            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem5");
+            UploadTask uploadTask = ref.putFile(uriImagem5);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    return ref.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+
+
+                        Uri downloadUri = task.getResult();
+
+                        bike.setFotoBikeUrl5(downloadUri.toString());
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                        firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+
+                        if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                            // cadastra a bikeROubada no Maps de roubos
+
+                            firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                            firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+                        }
+
+
+
+
+                        progressBar.setVisibility(View.GONE);
+                        carregandoBike.setVisibility(View.GONE);
+
+
+
+
+                    }
+                }
+            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    progressBar.setVisibility(View.GONE);
+                    carregandoBike.setVisibility(View.GONE);
+
+                }
+            });
+        }
+
+
+
 
     }
+
+
+
+
+    private String getExtension(Uri uri){
+
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if(requestCode == 1 && resultCode == RESULT_OK && data!=null && data.getData()!=null){
+
+            uriImagem1=data.getData();
+            imagemBike1.setImageURI(uriImagem1);
+
+
+
+        }
+
+
+        if(requestCode == 2 && resultCode == RESULT_OK && data!=null && data.getData()!=null){
+
+            uriImagem2=data.getData();
+            imagemBike2.setImageURI(uriImagem2);
+
+
+
+        }
+
+
+        if(requestCode == 3 && resultCode == RESULT_OK && data!=null && data.getData()!=null){
+
+            uriImagem3=data.getData();
+            imagemBike3.setImageURI(uriImagem3);
+
+
+
+        }
+
+
+        if(requestCode == 4 && resultCode == RESULT_OK && data!=null && data.getData()!=null){
+
+            uriImagem4=data.getData();
+            imagemBike4.setImageURI(uriImagem4);
+
+
+
+        }
+
+
+
+        if(requestCode == 5 && resultCode == RESULT_OK && data!=null && data.getData()!=null){
+
+            uriImagem5=data.getData();
+            imagemBike5.setImageURI(uriImagem5);
+
+
+
+        }
+
+
+
+
+            if(requestCode == 6 && data !=null){
+
+
+            Bundle bundle = data.getExtras ();
+
+            if(bundle != null){
+
+                uriImagem1=data.getData();
+                Bitmap img = (Bitmap)  bundle.get("data");
+                imagemBike1.setImageBitmap(img);
+
+            }
+
+
+
+
+        }
+
+    }
+
+
 
 
 }

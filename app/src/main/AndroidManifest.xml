@@ -63,7 +63,7 @@
         <activity android:name=".Activity.CadastroBike" />
         <activity android:name=".Activity.DadosBike" />
         <activity android:name=".Activity.ImagemBike" />
-        <activity android:name=".Activity.Dialogo_Personalizado" />
+
         <activity android:name=".Activity.AlertarFurtoRoubo" />
         <activity android:name=".Activity.EditarBike" />
         <!--
@@ -135,11 +135,7 @@
         <activity android:name=".Activity.Galeria" />
         <activity android:name=".Activity.ConfirmarSenha" />
         <activity android:name=".Activity.SouMilitar" />
-        <activity android:name=".Activity.ChecarUsuario"></activity>
-
-
-
-
+        <activity android:name=".Activity.ChecarUsuario" />
 
         <service android:name=".Notificacao.MyFirebaseInstanceIDService">
             <intent-filter>
@@ -154,13 +150,6 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
-
-
-
-
-
-
-
 
         <!--
      Set custom default icon. This is used when no icon is set for incoming notification messages.
@@ -177,7 +166,8 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-        <activity android:name=".Activity.TelaNotificacao"></activity>
+        <activity android:name=".Activity.TelaNotificacao" />
+
     </application>
 
 </manifest>

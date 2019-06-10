@@ -35,6 +35,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.kbeanie.multipicker.api.CameraImagePicker;
+import com.kbeanie.multipicker.api.ImagePicker;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -55,10 +57,16 @@ import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
+
 import bike.douglas.com.bikejanu.Utilidades.Constantes;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+
+
+
+
 
 
     private FirebaseAuth usuarioFirebase;
@@ -417,15 +425,6 @@ private Usuarios usuarios;
 
 
 
-
-
-
-
-
-
-
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -541,7 +540,7 @@ private Usuarios usuarios;
 
 
 
-                          CircleImageView  fotoPerfil    = (CircleImageView) findViewById(R.id.imagemPerfilIID);
+                         CircleImageView  fotoPerfil    = (CircleImageView) findViewById(R.id.imagemPerfilIID);
 
                          Glide.with(AreaUsuario.this).load(dados.getFotoPerfilURL()).into(fotoPerfil);
 
@@ -595,11 +594,11 @@ private Usuarios usuarios;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+         if (id == R.id.nav_galeria) {
 
-        } else if (id == R.id.nav_galeria) {
 
-            abrirFotos();
+
+              abrirFotos();
 
         } else if (id == R.id.nav_bike) {
 

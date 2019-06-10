@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +46,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Model.Bike;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.view.View.*;
 
@@ -60,7 +62,10 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     int cont=0;
     private ProgressBar progressBar;
 
-  //  public  int recebeQtd=0;
+
+
+
+    //  public  int recebeQtd=0;
   //  public static int quantidadeBikesRoubadas=0;
 
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
@@ -158,7 +163,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final TextView txtViewNumeroSerie        = (TextView) view.findViewById(R.id.txtViewNumeroSerie);
             final TextView txtViewMarca              = (TextView) view.findViewById(R.id.txtViewMarca);
             final TextView txtViewCaixaDescricao     = (TextView) view.findViewById(R.id.CaixaDescricaoID);
-            final ImageView imagem                   = (ImageView) view.findViewById(R.id.listaImagemID);
+            final CircleImageView imagem             = (CircleImageView) view.findViewById(R.id.listaImagemID);
             final TextView txtViewModelo             = (TextView) view.findViewById(R.id.textViewModeloID);
             final TextView txtViewCor                = (TextView) view.findViewById(R.id.textViewCorID);
             final TextView txtViewStatus             = (TextView) view.findViewById(R.id.textStatusID);
@@ -238,10 +243,15 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             txtViewStatus.setText(bike1.getStatus());
 
 
+            Glide.with(BikeAdapter.super.getContext()).load(bike1.getFotoBikeUrl1()).into(imagem);
 
 
 
-            imagem.setOnClickListener(new OnClickListener() {
+
+
+
+
+               imagem.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -262,6 +272,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     params.putString("dadosnumero_serie", bikeselecao.getNumero_serie());
                     params.putString("dadosdescricao",    bikeselecao.getDescricao());
                     params.putString("dadoscor",          bikeselecao.getCor());
+                    params.putString("dadosImagem1",      bikeselecao.getFotoBikeUrl1());
 
 
 
@@ -358,7 +369,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("descricao",       bikeselecao.getDescricao());
                                     params.putString("cor",             bikeselecao.getCor());
                                     params.putString("status",          bikeselecao.getStatus());
-
+                                    params.putString("Imagem1",         bikeselecao.getFotoBikeUrl1());
+                                    params.putString("Imagem2",         bikeselecao.getFotoBikeUrl2());
+                                    params.putString("Imagem3",         bikeselecao.getFotoBikeUrl3());
+                                    params.putString("Imagem4",         bikeselecao.getFotoBikeUrl4());
+                                    params.putString("Imagem5",         bikeselecao.getFotoBikeUrl5());
                                     params.putString("latitude",        bikeselecao.getLatitude() );
                                     params.putString("longitude",       bikeselecao.getLongitude());
 
@@ -396,6 +411,12 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("alertaBoletim",   bikeselecao.getBoletim());
                                     params.putString("alertadescricao", bikeselecao.getAlertaDescricao());
                                     params.putString("status",          bikeselecao.getStatus());
+
+                                    params.putString("Imagem1",         bikeselecao.getFotoBikeUrl1());
+                                    params.putString("Imagem2",         bikeselecao.getFotoBikeUrl2());
+                                    params.putString("Imagem3",         bikeselecao.getFotoBikeUrl3());
+                                    params.putString("Imagem4",         bikeselecao.getFotoBikeUrl4());
+                                    params.putString("Imagem5",         bikeselecao.getFotoBikeUrl5());
 
                                     params.putString("latitude",        bikeselecao.getLatitude() );
                                     params.putString("longitude",       bikeselecao.getLongitude());
