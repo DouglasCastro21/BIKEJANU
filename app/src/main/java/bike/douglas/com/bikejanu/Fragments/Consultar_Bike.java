@@ -73,8 +73,8 @@ public class Consultar_Bike extends AppCompatActivity {
                 switch (position){
 
                     case 0:
-                        Tab1Codigo tab1 = new Tab1Codigo();
-                        return tab1;
+                        Tab1Codigo tab1C = new Tab1Codigo();
+                        return tab1C;
                     case 1:
                         Tab2Data tab2 = new Tab2Data();
                         return tab2;

@@ -362,21 +362,7 @@ private Usuarios usuarios;
                         });
 
 
-
-
-
-
-
-
-
-
-
                     }
-
-
-
-
-
 
                 }
 
@@ -404,7 +390,7 @@ private Usuarios usuarios;
         //Recuperar bikes do firebase
 
         final  Preferencias preferencias = new Preferencias(AreaUsuario.this);
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final  FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
 
@@ -585,17 +571,16 @@ private Usuarios usuarios;
          if (id == R.id.nav_galeria) {
 
 
-
               abrirFotos();
+
 
         } else if (id == R.id.nav_bike) {
 
 
+             startActivity(new Intent(AreaUsuario.this, Consultar_Bike.class));
 
-            startActivity(new Intent(AreaUsuario.this, Galeria_Bike.class));
 
-
-        } else if (id == R.id.nav_estatisticas) {
+         } else if (id == R.id.nav_estatisticas) {
 
             startActivity(new Intent(AreaUsuario.this, Estatisticas.class));
 

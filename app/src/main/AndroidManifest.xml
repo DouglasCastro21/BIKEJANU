@@ -47,6 +47,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Fragments.Consultar_Indice" />
+        <activity android:name=".Fragments.Consultar_Bike" />
         <activity
             android:name=".Fragments.Entrar"
             android:label="@string/title_activity_entrar"
@@ -62,7 +63,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.CadastroBike" />
         <activity android:name=".Activity.DadosBike" />
-        <activity android:name=".Activity.ImagemBike" />
+
         <activity android:name=".Activity.AlertarFurtoRoubo" />
         <activity android:name=".Activity.EditarBike" />
         <!--
@@ -114,24 +115,18 @@
             android:name="firebase_analytics_collection_enabled"
             android:value="false" />
 
-        <activity
-            android:name=".Activity.MapsActivity"
-            android:label="@string/title_activity_maps" />
+
         <activity
             android:name=".Activity.MapsActivity2"
             android:label="@string/title_activity_maps2" />
-        <activity android:name=".Activity.Grafico" />
-        <activity
-            android:name=".Activity.MapsRoubosActivity"
-            android:label="@string/title_activity_maps_roubos" />
-        <activity android:name=".Activity.ChamarMaps" />
+
+
         <activity
             android:name=".Activity.Estatisticas"
             android:label="@string/title_activity_estatisticas"
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.ValidacaoToken" />
         <activity android:name=".Activity.EditarUsuario" />
-        <activity android:name=".Activity.Galeria" />
         <activity android:name=".Activity.ConfirmarSenha" />
         <activity android:name=".Activity.SouMilitar" />
         <activity android:name=".Activity.ChecarUsuario" />
@@ -166,10 +161,10 @@
             android:resource="@color/colorAccent" />
 
         <activity android:name=".Activity.TelaNotificacao" />
-        <activity
-            android:name=".Fragments.Galeria"
-            android:label="@string/title_activity_galeria"
-            android:theme="@style/AppTheme"></activity>
+
+
+
+
     </application>
 
 </manifest>

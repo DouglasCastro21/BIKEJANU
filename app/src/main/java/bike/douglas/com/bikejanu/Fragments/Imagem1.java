@@ -49,7 +49,7 @@ public class Imagem1 extends Fragment {
 
 
 
-   //  String numero_serie;
+     String numero_serie_serie;
 
 
 
@@ -76,18 +76,16 @@ public class Imagem1 extends Fragment {
         imagemBike = (ImageView) rootView.findViewById(R.id.imagem1GaleriaID) ;
 
 
+        Galeria_Bike galeria_bike_numero_serie = new Galeria_Bike();
+
+        numero_serie_serie = galeria_bike_numero_serie.Numero_serie_serie;
 
 
-           Bundle bundle =getArguments();
-
-        if(bundle!=null) {
-
-            String numero_serie = bundle.getString("Numero_serie", "0");
-            Toast.makeText(Imagem1.super.getContext(), "numero de serie : " + numero_serie, Toast.LENGTH_LONG).show();
+        DatabaseReference reference = databaseReference.child("TodasBikes").child(numero_serie_serie);
 
 
-            DatabaseReference reference = databaseReference.child("TodasBikes").child(numero_serie);
 
+        //    String numero_serie = bundle.getString("Numero_serie", "0");
 
 
             reference.addValueEventListener(new ValueEventListener() {
@@ -106,7 +104,7 @@ public class Imagem1 extends Fragment {
 
                         if (dados.getFotoBikeUrl1().equals("")){
 
-                            Glide.with(Imagem1.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagemBike);
+                            Glide.with(Imagem1.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagemBike);
 
 
                         }
@@ -126,7 +124,7 @@ public class Imagem1 extends Fragment {
 
 
 
-        }
+
 
 
 

@@ -371,10 +371,10 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-                if(dadosImagem1==null){
+                if(dadosImagem1.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem1);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem2);
 
 
 
@@ -396,10 +396,10 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-                if(dadosImagem2==null){
+                if(dadosImagem2.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem2);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem2);
 
 
 
@@ -422,10 +422,10 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-                if(dadosImagem3==null){
+                if(dadosImagem3.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem3);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem2);
 
 
 
@@ -445,10 +445,10 @@ public class EditarBike extends AppCompatActivity {
                 // dadosImagem1Text.setText(dadosImagem1);
 
 
-                if(dadosImagem4==null){
+                if(dadosImagem4.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem4);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem2);
 
 
 
@@ -473,10 +473,10 @@ public class EditarBike extends AppCompatActivity {
                // Picasso.get (). load ( fotosBikes.get(position).getFotoBikeUrl1()).into(imagem5);
 
 
-                if(dadosImagem5==null){
+                if(dadosImagem5.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem5);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem2);
 
 
 

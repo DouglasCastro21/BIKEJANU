@@ -1283,6 +1283,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                         Uri downloadUri = task.getResult();
 
+
                         bike.setFotoBikeUrl1(downloadUri.toString());
 
 
@@ -1327,6 +1328,32 @@ public class CadastroBike extends AppCompatActivity  {
 
                 }
             });
+
+
+        }else{
+
+
+            bike.setFotoBikeUrl1("");
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                // cadastra a bikeROubada no Maps de roubos
+
+                firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+            }
+
 
 
         }
@@ -1404,6 +1431,32 @@ public class CadastroBike extends AppCompatActivity  {
 
                 }
             });
+        }else{
+
+
+            bike.setFotoBikeUrl2("");
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                // cadastra a bikeROubada no Maps de roubos
+
+                firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+            }
+
+
+
         }
 
 
@@ -1480,6 +1533,32 @@ public class CadastroBike extends AppCompatActivity  {
 
                 }
             });
+        }else{
+
+
+            bike.setFotoBikeUrl3("");
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                // cadastra a bikeROubada no Maps de roubos
+
+                firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+            }
+
+
+
         }
 
 
@@ -1557,6 +1636,32 @@ public class CadastroBike extends AppCompatActivity  {
 
                 }
             });
+        }else{
+
+
+            bike.setFotoBikeUrl4("");
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                // cadastra a bikeROubada no Maps de roubos
+
+                firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+            }
+
+
+
         }
 
 
@@ -1634,6 +1739,32 @@ public class CadastroBike extends AppCompatActivity  {
 
                 }
             });
+        }else{
+
+
+            bike.setFotoBikeUrl5("");
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
+
+                // cadastra a bikeROubada no Maps de roubos
+
+                firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
+                firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
+            }
+
+
+
         }
 
 

@@ -19,8 +19,9 @@ import bike.douglas.com.bikejanu.R;
 
 public class Galeria_Bike extends AppCompatActivity{
 
-    TextView Numero_serieText;
-    String Numero_serie;
+
+     String  Numero_serie ;
+    static String  Numero_serie_serie = null;
 
 
     /**
@@ -75,8 +76,6 @@ public class Galeria_Bike extends AppCompatActivity{
 
                     //dados do modelo
                     Numero_serie = params.getString("Numero_serie");
-                    Numero_serieText = (TextView)findViewById(R.id.ImagemGaleriaID);
-                    Numero_serieText.setText(Numero_serie);
 
 
                 }
@@ -84,23 +83,7 @@ public class Galeria_Bike extends AppCompatActivity{
             }
 
 
-
-            Imagem1 fragmento1 = new Imagem1();
-
-
-
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
-
-            Bundle bundle = new Bundle();
-            bundle.putString("Numero_serie",Numero_serie);
-            fragmento1.setArguments(bundle);
-
-
-            fragmentTransaction.add(R.id.main_content,fragmento1);
-            fragmentTransaction.commit();
-
-
+            Numero_serie_serie = Numero_serie;
 
 
 
