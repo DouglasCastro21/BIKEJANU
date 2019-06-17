@@ -285,6 +285,15 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     params.putString("alertaBoletim",     bikeselecao.getBoletim());
                     params.putString("alertadescricao",   bikeselecao.getAlertaDescricao());
                     params.putString("status",            bikeselecao.getStatus());
+                    params.putString("proprietario",      bikeselecao.getProprietario());
+
+
+                    params.putString("Numero_serie",       bikeselecao.getNumero_serie());
+
+
+
+
+
 
 
 
@@ -376,7 +385,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("Imagem5",         bikeselecao.getFotoBikeUrl5());
                                     params.putString("latitude",        bikeselecao.getLatitude() );
                                     params.putString("longitude",       bikeselecao.getLongitude());
-
+                                    params.putString("proprietario",      bikeselecao.getProprietario());
 
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
                                    intent.putExtras(params);
@@ -420,7 +429,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                     params.putString("latitude",        bikeselecao.getLatitude() );
                                     params.putString("longitude",       bikeselecao.getLongitude());
-
+                                    params.putString("proprietario",      bikeselecao.getProprietario());
 
                                   Intent intent = new Intent(BikeAdapter.super.getContext(), EditarBike.class);
                                   intent.putExtras(params);
@@ -596,7 +605,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                                params.putString("latitude",        bikeselecao.getLatitude() );
                                                params.putString("longitude",       bikeselecao.getLongitude());
                                                params.putString("digitoValidador",       dados.getDigitoValidador());
-
+                                               params.putString("proprietario",      bikeselecao.getProprietario());
 
                                                Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
                                                intent.putExtras(params);

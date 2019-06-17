@@ -1,7 +1,9 @@
 package bike.douglas.com.bikejanu.Fragments;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
@@ -9,12 +11,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import bike.douglas.com.bikejanu.R;
 
-public class Consultar_Bike extends AppCompatActivity {
 
-        /**
+public class Galeria_Bike extends AppCompatActivity{
+
+    TextView Numero_serieText;
+    String Numero_serie;
+
+
+    /**
          * The {@link android.support.v4.view.PagerAdapter} that will provide
          * fragments for each of the sections. We use a
          * {@link FragmentPagerAdapter} derivative, which will keep every
@@ -24,15 +33,17 @@ public class Consultar_Bike extends AppCompatActivity {
          */
         private SectionsPagerAdapter mSectionsPagerAdapter;
 
+
         /**
          * The {@link ViewPager} that will host the section contents.
          */
         private ViewPager mViewPager;
+        ImageView imageView1;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_consultar__bike);
+            setContentView(R.layout.activity_galeria__bike);
 
             //  Toolbar toolbar = (Toolbar) findViewById(R.id.tabsID);
             //   setSupportActionBar(toolbar);
@@ -51,13 +62,61 @@ public class Consultar_Bike extends AppCompatActivity {
 
 
 
+
+
+            Intent intent = getIntent();
+
+
+            if(intent !=null) {
+
+                Bundle params = intent.getExtras();
+
+                if (params != null) {
+
+                    //dados do modelo
+                    Numero_serie = params.getString("Numero_serie");
+                    Numero_serieText = (TextView)findViewById(R.id.ImagemGaleriaID);
+                    Numero_serieText.setText(Numero_serie);
+
+
+                }
+
+            }
+
+
+
+            Imagem1 fragmento1 = new Imagem1();
+
+
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("Numero_serie",Numero_serie);
+            fragmento1.setArguments(bundle);
+
+
+            fragmentTransaction.add(R.id.main_content,fragmento1);
+            fragmentTransaction.commit();
+
+
+
+
+
         }
 
 
 
 
 
-        /**
+
+
+
+
+
+
+    /**
          * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
          * one of the sections/tabs/pages.
          */
@@ -73,14 +132,23 @@ public class Consultar_Bike extends AppCompatActivity {
                 switch (position){
 
                     case 0:
-                        Tab1Codigo tab1 = new Tab1Codigo();
-                        return tab1;
+
+                        Imagem1 tab1C = new Imagem1();
+                        return tab1C;
                     case 1:
-                        Tab2Data tab2 = new Tab2Data();
+                        Imagem2 tab2 = new Imagem2();
                         return tab2;
                     case 2:
-                        Tab3Cor tab3 = new Tab3Cor();
+                        Imagem3 tab3 = new Imagem3();
                         return tab3;
+
+                    case 3:
+                        Imagem4 tab4 = new Imagem4();
+                        return tab4;
+
+                    case 4:
+                        Imagem5 tab5 = new Imagem5();
+                        return tab5;
                     default:
                         return null;
                 }
@@ -89,7 +157,7 @@ public class Consultar_Bike extends AppCompatActivity {
             @Override
             public int getCount() {
                 // Show 3 total pages.
-                return 3;
+                return 5;
             }
 
             @Nullable
@@ -99,13 +167,17 @@ public class Consultar_Bike extends AppCompatActivity {
                 switch (position){
 
                     case 0:
-                        return "Consultar pelo Codígo";
+                        return "Imagem - 1";
                     case 1:
-                        return "Data";
+                        return "Imagem - 2";
                     case 2:
-                        return "Cor";
+                        return "Imagem - 3";
 
+                    case 3:
+                        return "Imagem - 4";
 
+                    case 4:
+                        return "Imagem - 5";
                 }
                 return null;
             }

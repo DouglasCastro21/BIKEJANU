@@ -11,6 +11,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 
 import android.os.Handler;
+
+import com.bumptech.glide.Glide;
 import android.provider.MediaStore;
 
 import android.support.annotation.NonNull;
@@ -70,6 +72,7 @@ import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Model.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
+import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
 
@@ -166,6 +169,7 @@ public class CadastroBike extends AppCompatActivity  {
 
     private int dia,mes,ano,hora,minuto;
     private ProgressBar progressBar;
+    DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
 
 
@@ -185,6 +189,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
         storageReference = FirebaseStorage.getInstance().getReference("ImagensBikes");
+
 
 
 
@@ -277,6 +282,50 @@ public class CadastroBike extends AppCompatActivity  {
 
             }
         });
+
+
+
+
+        if(uriImagem1==null) {
+
+
+            Glide.with(CadastroBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagemBike1);
+
+        }
+        if(uriImagem2==null) {
+
+
+            Glide.with(CadastroBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagemBike2);
+
+        }
+
+        if(uriImagem3==null) {
+
+
+            Glide.with(CadastroBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagemBike3);
+
+        }
+
+        if(uriImagem4==null) {
+
+
+            Glide.with(CadastroBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagemBike4);
+
+        }
+
+        if(uriImagem5==null) {
+
+
+            Glide.with(CadastroBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagemBike5);
+
+        }
+
+
+
+
+
+
+
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -879,6 +928,51 @@ public class CadastroBike extends AppCompatActivity  {
         bike.setAlertaCidade(cadastroCidade.getText().toString());
         bike.setAlertaRua(cadastroRua.getText().toString());
         bike.setAlertaBairro(cadastroBairro.getText().toString());
+
+
+
+
+        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        String email = user1.getEmail();
+
+        // converte o email pra base 64
+        String identificadorUsuario= Base64Custom.codificarBase64(email);
+
+
+
+        DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+
+
+
+
+        UsuarioReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.exists()) {
+
+                    Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+
+
+                    bike.setProprietario(dados.getNome());
+
+
+
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
 
 

@@ -140,6 +140,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private TextView imagem4;
     private TextView imagem5;
 
+
+    private TextView proprietario;
+
     public  Bike bike;
     public LocalBikesMaps localBikesMaps;
 
@@ -247,7 +250,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         alertaHora.setOnClickListener(AlertarFurtoRoubo.this);
 
 
-
+        proprietario      = (TextView) findViewById(R.id.alertaProprietarioID);
 
 
 
@@ -368,6 +371,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 Imagem5Text.setText(Imagem5);
 
 
+
+                String proprietario = params.getString("proprietario");
+                TextView proprietarioText = (TextView) findViewById(R.id.alertaProprietarioID);
+                proprietarioText.setText(proprietario);
 
 
 
@@ -950,7 +957,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         bike.setStatus(status.getText().toString());
 
-
+        bike.setProprietario(proprietario.getText().toString());
 
 
 

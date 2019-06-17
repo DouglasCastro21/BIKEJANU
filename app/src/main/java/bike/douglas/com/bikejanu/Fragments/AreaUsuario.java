@@ -3,9 +3,7 @@ package bike.douglas.com.bikejanu.Fragments;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -20,11 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -35,19 +30,13 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.kbeanie.multipicker.api.CameraImagePicker;
-import com.kbeanie.multipicker.api.ImagePicker;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.EventListener;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
-import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
 import bike.douglas.com.bikejanu.Activity.ChecarUsuario;
 import bike.douglas.com.bikejanu.Activity.ConfirmarSenha;
-import bike.douglas.com.bikejanu.Activity.EditarUsuario;
 import bike.douglas.com.bikejanu.Activity.Estatisticas;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
@@ -58,7 +47,6 @@ import bike.douglas.com.bikejanu.Helper.Preferencias;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
-import bike.douglas.com.bikejanu.Utilidades.Constantes;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -604,7 +592,7 @@ private Usuarios usuarios;
 
 
 
-            startActivity(new Intent(AreaUsuario.this, Consultar_Bike.class));
+            startActivity(new Intent(AreaUsuario.this, Galeria_Bike.class));
 
 
         } else if (id == R.id.nav_estatisticas) {

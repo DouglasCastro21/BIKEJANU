@@ -55,10 +55,10 @@
             android:visibility="visible">
 
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageBikeID1"
-                android:layout_width="170dp"
-                android:layout_height="147dp"
+                android:layout_width="101dp"
+                android:layout_height="107dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -673,47 +673,39 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageBikeID2"
-                android:layout_width="170dp"
-                android:layout_height="147dp"
-                android:layout_marginStart="40dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageBikeID1"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
-
-            <ImageView
-                android:id="@+id/imageBikeID5"
-                android:layout_width="72dp"
-                android:layout_height="73dp"
-                android:layout_marginEnd="103dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageBikeID2"
-                app:layout_constraintTop_toBottomOf="@+id/imageBikeID4"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
-
-            <ImageView
-                android:id="@+id/imageBikeID3"
-                android:layout_width="72dp"
-                android:layout_height="74dp"
-                android:layout_marginEnd="91dp"
-                android:layout_marginTop="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_width="101dp"
+                android:layout_height="107dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toEndOf="@+id/imageBikeID1"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_menu_camera" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageBikeID5"
+                android:layout_width="101dp"
+                android:layout_height="107dp"
+                app:layout_constraintStart_toEndOf="@+id/imageBikeID4"
+                app:layout_constraintTop_toBottomOf="@+id/imageBikeID2"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageBikeID3"
+                android:layout_width="101dp"
+                android:layout_height="107dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imageBikeID2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageBikeID4"
-                android:layout_width="72dp"
-                android:layout_height="73dp"
-                android:layout_marginEnd="91dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageBikeID1"
-                app:layout_constraintTop_toBottomOf="@+id/imageBikeID3"
+                android:layout_width="101dp"
+                android:layout_height="107dp"
+                android:layout_marginStart="88dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageBikeID1"
                 app:srcCompat="@android:drawable/ic_menu_camera" />
 
             <TextView
@@ -722,7 +714,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="96dp"
+                android:layout_marginTop="32dp"
                 android:text="Atenção: A nota fiscal é o único documento que comprova que a bicicleta é realmente sua. Por isso é viavel que tenha a foto da mesma."
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_red_dark"
@@ -736,15 +728,17 @@
                 style="@style/Widget.AppCompat.ProgressBar"
                 android:layout_width="220dp"
                 android:layout_height="85dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="624dp"
+                android:layout_marginTop="16dp"
                 android:max="100"
                 android:progress="10"
                 android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/descricaoID"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <TextView
                 android:id="@+id/carregandoBikeId"

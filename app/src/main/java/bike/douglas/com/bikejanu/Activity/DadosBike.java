@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,15 +17,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
+import bike.douglas.com.bikejanu.Fragments.Galeria_Bike;
+import bike.douglas.com.bikejanu.Fragments.Imagem1;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Model.Bike;
-import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DadosBike extends AppCompatActivity  {
-
+    String Numero_serie;
 
     DatabaseReference databaseReferenceBike = FirebaseDatabase.getInstance().getReference();
    private CircleImageView imageViewAbrirImagens;
@@ -182,6 +182,11 @@ public class DadosBike extends AppCompatActivity  {
                 alertadescricaoText.setText(alertadescricao);
 
 
+
+                String proprietario = params.getString("proprietario");
+                TextView proprietarioText = (TextView) findViewById(R.id.proprietarioID);
+                proprietarioText.setText(proprietario);
+
 // dadosda IMAGEM 1
 
                 String dadosImagem1 = params.getString("dadosImagem1");
@@ -193,6 +198,9 @@ public class DadosBike extends AppCompatActivity  {
                 Glide.with(DadosBike.this).load(dadosImagem1).into(imageViewAbrirImagens);
 
 
+                Numero_serie = params.getString("Numero_serie");
+                TextView Imagem1Text = (TextView) findViewById(R.id.Imagem1DadosBikesID);
+                Imagem1Text.setText(Numero_serie);
 
 
 
@@ -278,11 +286,20 @@ public class DadosBike extends AppCompatActivity  {
 
 
 
+
         imageViewAbrirImagens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle params = new Bundle();
 
-                startActivity(new Intent(getApplicationContext(),Galeria.class));
+
+
+                params.putString("Numero_serie",Numero_serie);
+                Intent intent = new Intent(DadosBike.this, Galeria_Bike.class);
+                intent.putExtras(params);
+                 startActivity(intent);
+
+
 
             }
         });

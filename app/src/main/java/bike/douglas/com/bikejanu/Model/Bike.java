@@ -32,6 +32,7 @@ public class Bike extends Usuarios{
     private String fotoBikeUrl3;
     private String fotoBikeUrl4;
     private String fotoBikeUrl5;
+    private String proprietario ;
 
 
 
@@ -80,7 +81,7 @@ public class Bike extends Usuarios{
 
         hashMapBike.put("latitude",getLatitude());
         hashMapBike.put("longitude",getLongitude());
-
+        hashMapBike.put("proprietario",getProprietario());
 
 
 
@@ -263,5 +264,13 @@ public class Bike extends Usuarios{
 
     public void setFotoBikeUrl5(String fotoBikeUrl5) {
         this.fotoBikeUrl5 = fotoBikeUrl5;
+    }
+
+    public String getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(String proprietario) {
+        this.proprietario = proprietario;
     }
 }
