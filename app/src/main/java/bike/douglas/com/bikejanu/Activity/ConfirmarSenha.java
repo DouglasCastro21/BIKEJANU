@@ -3,12 +3,14 @@ package bike.douglas.com.bikejanu.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,16 +42,20 @@ public class ConfirmarSenha extends AppCompatActivity {
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
 
+
+
+
     private int validar=0;
     private FirebaseAuth usuarioFirebase;
 
     private Button   buttonconfirmarSenha;
 
-    private EditText editTextConfirmarSenha;
+    private TextInputEditText editTextConfirmarSenha;
 
     private CircleImageView imagemUsuario;
 
     private TextView txtAtencao;
+
 
 
     @Override
@@ -61,13 +67,27 @@ public class ConfirmarSenha extends AppCompatActivity {
 
         buttonconfirmarSenha =    (Button) findViewById(R.id.buttonConfirmarSenhaID);
 
-        editTextConfirmarSenha = (EditText) findViewById(R.id.editTextConfirmarSenhaID);
+         editTextConfirmarSenha = (TextInputEditText) findViewById(R.id.editTextConfirmarSenhaID);
 
         usuarioFirebase = Configuracao_Firebase.getFirebaseAutenticacao();
 
         imagemUsuario = (CircleImageView) findViewById(R.id.imageView5);
 
         txtAtencao = (TextView)findViewById(R.id.txtAtencaoSenhaID) ;
+
+      //  btnVisibleCOnfirmarSenha = (ImageView)findViewById(R.id.btnVisibleConfirmarSenhaID);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         imagemUsuario();
@@ -99,6 +119,15 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
         }
+
+
+
+
+
+
+
+
+
 
 
 

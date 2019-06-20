@@ -7,20 +7,20 @@
 
         <item
             android:id="@+id/nav_grafico_ano"
-            android:icon="@drawable/ic_action_bargraph"
+            android:icon="@drawable/ic_action_calendar_month"
             android:title="Gráfico por Ano" />
         <item
             android:id="@+id/nav_grafico_bairro"
-            android:icon="@drawable/ic_action_bargraph"
+            android:icon="@drawable/ic_location_city"
             android:title="Gráfico por Bairro" />
         <item
             android:id="@+id/nav_grafico_ruas"
-            android:icon="@drawable/ic_action_bargraph"
+            android:icon="@drawable/ic_show_chart"
             android:title="Gráfico por Rua" />
 
         <item
             android:id="@+id/nav_grafico_Horario"
-            android:icon="@drawable/ic_action_bargraph"
+            android:icon="@drawable/ic_alarm"
             android:title="Gráfico por Horário" />
 
         <item

@@ -45,36 +45,17 @@
         android:layout_width="@dimen/tamnahobutton"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="300dp"
-        android:text="@string/btnlogar"
         android:background="@drawable/background_interno"
         android:drawableLeft="@drawable/ic_action_verde_right"
+        android:text="@string/btnlogar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <EditText
-        android:id="@+id/SenhaID"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="136dp"
 
-        android:drawableLeft="@drawable/ic_cinza_key"
-        android:ems="10"
-        android:hint="Digite sua Senha"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
@@ -127,14 +108,37 @@
         android:id="@+id/texUsuarioInvalidoID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="316dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Atenção: Usuário ou senha invalidos"
         android:textColor="@android:color/holo_red_dark"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SenhaID" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="53dp"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailID">
+
+        <android.support.design.widget.TextInputEditText
+
+            android:id="@+id/SenhaID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Digite sua senha"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_cinza_key"
+
+            />
+    </android.support.design.widget.TextInputLayout>
 
 </android.support.constraint.ConstraintLayout>

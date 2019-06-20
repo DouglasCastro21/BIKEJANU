@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,8 +60,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     public Context context;
     public List<Bike> listabikes = new ArrayList<Bike>();
 
-    int cont=0;
-    private ProgressBar progressBar;
+
+
 
 
 
@@ -136,18 +137,26 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-        View view = null;
+
+
+        // rebece o dados do Bike Adapter por parametro passada pela tela cadastro
 
 
 
 
 
+
+
+
+
+
+
+
+                View view = null;
 
 
             //verifica se a lista está vazia
            if(listabikes!=null) {
-
-
 
 
             // inicializa objetos para a montagem da view
@@ -307,18 +316,21 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             });
 
 
+               AreaUsuario deOndeVenho = new AreaUsuario();
+               String resposta="0";
 
 
+              resposta = AreaUsuario.paraOndeVou;
 
 
+             //  Toast.makeText(BikeAdapter.super.getContext(), "A bike foi marcada como :" +resposta, Toast.LENGTH_LONG).show();
 
 
-
-
-            // recupera usuario
+               // recupera usuario
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-            if (user !=null){ /// se o usuario não estiver logado .. não aparece isso nas opçoes da listagem das bikes
+
+            if ((user !=null ) &&( resposta.equals("0"))){ /// se o usuario não estiver logado .. não aparece isso nas opçoes da listagem das bikes
                 // no inicio do app
                 // o usuario logado não podera voltar sem está desconetado
 
@@ -507,6 +519,9 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     }
                 });
 
+
+                AreaUsuario.paraOndeVou="0";
+
         }
 
 
@@ -543,7 +558,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-                           /// aparece apenas a opção editar para o usuario que possui digito validador igual a 01
+                           ///aparece apenas a opção editar para o usuario que possui digito validador igual a 01
 
 
                            txtViewCaixaDescricao.setOnClickListener(new View.OnClickListener() {
@@ -639,49 +654,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                    }
                });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

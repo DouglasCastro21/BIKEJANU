@@ -3,6 +3,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -55,10 +56,11 @@ public class Tab1Entrar extends Fragment  {
         verificarUsuarioLogado();
 
         final TextView edtEmail = (TextView) rootView.findViewById(R.id.EmailID);
-        final TextView edtSenha = (TextView) rootView.findViewById(R.id.SenhaID);
+        final TextInputEditText edtSenha = (TextInputEditText) rootView.findViewById(R.id.SenhaID);
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBarEntrarID);
         carregando  = (TextView)rootView.findViewById(R.id.carregandoID);
         usarioInvado = (TextView)rootView.findViewById(R.id.texUsuarioInvalidoID) ;
+
 
 
 

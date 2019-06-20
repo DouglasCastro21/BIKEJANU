@@ -14,17 +14,17 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="222dp"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="72dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/imagemgrafico3" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="57dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="ESTATÍSTICA: Ramo da matemática que trata da coleta, da análise, da interpretação de dados numéricos."
+        android:text="ESTATÍSTICA: Ramo da matemática que trata da coleta,análise e interpretação de dados numéricos."
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>

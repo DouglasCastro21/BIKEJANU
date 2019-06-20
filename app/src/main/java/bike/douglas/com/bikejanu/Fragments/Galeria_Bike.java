@@ -21,7 +21,7 @@ public class Galeria_Bike extends AppCompatActivity{
 
 
      String  Numero_serie ;
-    static String  Numero_serie_serie = null;
+     static String  Numero_serie_serie = null;
 
 
     /**

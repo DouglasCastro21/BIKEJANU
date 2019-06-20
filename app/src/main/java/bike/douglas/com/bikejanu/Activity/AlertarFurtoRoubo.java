@@ -62,7 +62,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     EditText  edtMessage;
 
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
-    final private String serverKey = "key=" + "AAAA5x5KmMM:APA91bG6g8zqOau-iYNcZZeJiSxZYMsg-jIJoxoOccopha8-WSG2fQm52wWtHIoZYTHdDDI7kgOxlqDRAgtoHM8bIHetD0BMgnmtqHEk6cgG9zwdAPfBvh1pLWgWtRq9KS4jt-gK5d5r";
+    final private String serverKey = "key=" + "AAAAwk_VIUs:APA91bHiUb_rIjPC5V7mL3lRXEtY8lToNhP8kTTwAruQIYbQ8V9PwogTRu7pxRedG8bBAcU9VVBqckTV-KkUSnnHiJCRo0AWiIu0EJmuiw8W00HdfOWee0Tl4hVie8WvPX5Vno4sOrBY";
     final private String contentType = "application/json";
     final String TAG = "NOTIFICATION TAG";
 
@@ -172,16 +172,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 // botoes
 
 
-
-
-
-
-
-
-
-
-
-
         abrirMapa = (Button) findViewById(R.id.abrirMapaID);
         radioButtonFurtada    =(RadioButton)findViewById(R.id.alertaFurtadaID);
 
@@ -190,7 +180,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupID);
         radioButtonRoubada     =(RadioButton)findViewById(R.id.alertaRoubadaID);
-         radioButtonRecuperada  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
+        radioButtonRecuperada  =(RadioButton)findViewById(R.id.alertaNadaConstaID);
         Button  finalizar                  = (Button)  findViewById(R.id.finalizarID);
 
 
@@ -378,10 +368,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-
-
-
-
                 String latitude = params.getString("latitude");
                 TextView latitudeText = (TextView) findViewById(R.id.alertaLatitudeID);
                 latitudeText.setText(latitude);
@@ -408,7 +394,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-                statusBike = statuss;
+                    statusBike = statuss;
 
 
             }
@@ -682,9 +668,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                 txtDataHora2.setVisibility(View.VISIBLE);
                 txtBoletim2.setVisibility(View.VISIBLE);
-
-
-
                 alertaDate.requestFocus();
 
 
@@ -925,7 +908,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                 inicializarElementos();
                 caixaDialogoConfirmarFurtoRoubo();
-
+                notificaoApp();
 
 
             }
@@ -1169,6 +1152,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                     if (user != null) {
 
+
+
                         String name = user.getDisplayName();
                         String email = user.getEmail();
 
@@ -1276,14 +1261,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
     public void notificaoApp() {
 
-        //edtTitle = findViewById(R.id.edtTitle);
-        //edtMessage = findViewById(R.id.edtMessage);
-
-
-
-
                 TOPIC = "/topics/userABC"; //topic must match with what the receiver subscribed to
-                NOTIFICATION_TITLE = "Bike Furtada/Roubada";
+                NOTIFICATION_TITLE   = "Bike Furtada/Roubada";
                 NOTIFICATION_MESSAGE = "Click para mais detalhes";
 
                 JSONObject notification = new JSONObject();
@@ -1297,29 +1276,34 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 } catch (JSONException e) {
                     Log.e(TAG, "onCreate: " + e.getMessage());
                 }
+
                 sendNotification(notification);
-
-
-
 
 
     }
 
 
     private void sendNotification(JSONObject notification) {
+
+        edtTitle = (EditText) findViewById(R.id.edtTitle);
+        edtMessage = (EditText) findViewById(R.id.edtMessage);
+
+
+
+
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
                 new com.android.volley.Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.i(TAG, "onResponse: " + response.toString());
-                    //    edtTitle .setText ( " " );
-                    //    edtMessage.setText ( " " );
+                       edtTitle .setText ("");
+                        edtMessage.setText ("");
                     }
                 },
                 new com.android.volley.Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(AlertarFurtoRoubo.this, "Request error", Toast.LENGTH_LONG).show();
+                    public void onErrorResponse(VolleyError error) { Toast.makeText(AlertarFurtoRoubo.this, "Request error", Toast.LENGTH_LONG).show();
                         Log.i(TAG, "onErrorResponse: Didn't work");
                     }
                 }) {
@@ -1369,40 +1353,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         }
 
 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
 
 
 
@@ -1414,18 +1365,11 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
        if(radioButtonFurtada.isChecked() || radioButtonRoubada.isChecked()){
 
-
            notificaoApp();
-
 
        }
 
-
-
     }
-
-
-
 
 
    public void notificacaoRecuperada(){
@@ -1433,40 +1377,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         if(radioButtonRecuperada.isChecked()){
 
 
-
       notificaoApp();
 
 
         }
-
-
-
     }
-
-
-
-
-
-    private void sendRegistrationToServer(String token) {
-        // TODO: Implement this method to send token to your app server.
-    }
-
-
-    public void runtimeEnableAutoInit() {
-        // [START fcm_runtime_enable_auto_init]
-        FirebaseMessaging.getInstance().setAutoInitEnabled(true);
-        // [END fcm_runtime_enable_auto_init]
-    }
-
-
-
-
-
-
-
-
-
-
-
 
 }

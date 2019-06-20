@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -96,7 +97,7 @@ public class EditarUsuario extends AppCompatActivity {
 
     private CheckBox checkBox;
     private ProgressBar progressBar;
-    private ImageView fundo;
+  //  private ImageView fundo;
     private TextView criando;
 
 
@@ -104,8 +105,8 @@ public class EditarUsuario extends AppCompatActivity {
     private EditText nome;
     private TextView  email;
     private TextView confirmaremail;
-    private EditText  senha;
-    private EditText  confirmarsenha;
+    private TextInputEditText  senha;
+    private TextInputEditText confirmarsenha;
     private EditText  telefone;
     private String    imagem;
     private TextView txtNumeroPm;
@@ -332,8 +333,8 @@ public class EditarUsuario extends AppCompatActivity {
         nome = (EditText)findViewById(R.id.NomeID01);
         email = (TextView)findViewById(R.id.EmailtextID01);
         confirmaremail = (TextView)findViewById(R.id.confirmarEmailID01);
-        senha = (EditText)findViewById(R.id.senhaID01);
-        confirmarsenha = (EditText)findViewById(R.id.confirmarSenhaID01);
+        senha = (TextInputEditText)findViewById(R.id.senhaID01);
+        confirmarsenha = (TextInputEditText)findViewById(R.id.confirmarSenhaID01);
         telefone = (EditText)findViewById(R.id.telefoneeID01);
         //  nascimento = (EditText)findViewById(R.id.dataID);
 
@@ -346,7 +347,7 @@ public class EditarUsuario extends AppCompatActivity {
 
 
         progressBar = (ProgressBar)findViewById(R.id.progressBarCdastroID01);
-        fundo       = (ImageView)findViewById(R.id.fundoID01);
+       // fundo       = (ImageView)findViewById(R.id.fundoID01);
         criando     = (TextView) findViewById(R.id.criandoID01);
 
 
@@ -464,7 +465,7 @@ public class EditarUsuario extends AppCompatActivity {
 
 
                                 progressBar.setVisibility(View.VISIBLE);
-                                fundo.setVisibility(View.VISIBLE);
+                            //    fundo.setVisibility(View.VISIBLE);
                                 criando.setVisibility(View.VISIBLE);
 
                                 inicializarElementos();
@@ -479,7 +480,7 @@ public class EditarUsuario extends AppCompatActivity {
                                 Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
                                 email.requestFocus();
                                 progressBar.setVisibility(View.GONE);
-                                fundo.setVisibility(View.GONE);
+                               // fundo.setVisibility(View.GONE);
                                 criando.setVisibility(View.GONE);
 
 
@@ -491,7 +492,7 @@ public class EditarUsuario extends AppCompatActivity {
                             Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
                             senha.requestFocus();
                             progressBar.setVisibility(View.GONE);
-                            fundo.setVisibility(View.GONE);
+                          //  fundo.setVisibility(View.GONE);
                             criando.setVisibility(View.GONE);
 
                         }
@@ -502,7 +503,7 @@ public class EditarUsuario extends AppCompatActivity {
                         Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
                         progressBar.setVisibility(View.GONE);
-                        fundo.setVisibility(View.GONE);
+                      //  fundo.setVisibility(View.GONE);
                         criando.setVisibility(View.GONE);
 
 
@@ -530,7 +531,7 @@ public class EditarUsuario extends AppCompatActivity {
 
 
                                 progressBar.setVisibility(View.VISIBLE);
-                                fundo.setVisibility(View.VISIBLE);
+                             //   fundo.setVisibility(View.VISIBLE);
                                 criando.setVisibility(View.VISIBLE);
 
 
@@ -547,7 +548,7 @@ public class EditarUsuario extends AppCompatActivity {
                                 Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
                                 email.requestFocus();
                                 progressBar.setVisibility(View.GONE);
-                                fundo.setVisibility(View.GONE);
+                              //  fundo.setVisibility(View.GONE);
                                 criando.setVisibility(View.GONE);
 
 
@@ -559,7 +560,7 @@ public class EditarUsuario extends AppCompatActivity {
                             Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
                             senha.requestFocus();
                             progressBar.setVisibility(View.GONE);
-                            fundo.setVisibility(View.GONE);
+                         //   fundo.setVisibility(View.GONE);
                             criando.setVisibility(View.GONE);
 
                         }
@@ -570,7 +571,7 @@ public class EditarUsuario extends AppCompatActivity {
                         Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
                         progressBar.setVisibility(View.GONE);
-                        fundo.setVisibility(View.GONE);
+                      //  fundo.setVisibility(View.GONE);
                         criando.setVisibility(View.GONE);
 
 

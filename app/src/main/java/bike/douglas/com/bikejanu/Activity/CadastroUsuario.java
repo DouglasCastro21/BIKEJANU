@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -95,15 +96,15 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
     private ProgressBar progressBar;
-    private ImageView fundo;
+    //private ImageView fundo;
     private TextView criando;
 
 
     private EditText nome;
     private EditText email;
     private EditText confirmaremail;
-    private EditText senha;
-    private EditText confirmarsenha;
+    private TextInputEditText senha;
+    private TextInputEditText confirmarsenha;
     private EditText telefone;
     private String imagem;
     private TextView txtNumeroPm;
@@ -156,13 +157,13 @@ public class CadastroUsuario extends AppCompatActivity {
         //  databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
 
 
-        nome = (EditText) findViewById(R.id.NumeroID);
-        email = (EditText) findViewById(R.id.EmailtextID);
-        confirmaremail = (EditText) findViewById(R.id.confirmarEmailID);
-        senha = (EditText) findViewById(R.id.senhaID);
-        confirmarsenha = (EditText) findViewById(R.id.confirmarSenhaID);
-        telefone = (EditText) findViewById(R.id.telefoneeID);
-        //  nascimento = (EditText)findViewById(R.id.dataID);
+        nome = (EditText)                    findViewById(R.id.NumeroID);
+        email = (EditText)                   findViewById(R.id.EmailtextID);
+        confirmaremail = (EditText)          findViewById(R.id.confirmarEmailID);
+        senha = (TextInputEditText)          findViewById(R.id.senhaID);
+        confirmarsenha = (TextInputEditText) findViewById(R.id.confirmarSenhaID);
+        telefone = (EditText)                findViewById(R.id.telefoneeID);
+        // nascimento = (EditText)          findViewById(R.id.dataID);
 
 
         numeroPm = (EditText) findViewById(R.id.numeroPmID);
@@ -174,7 +175,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressBarCdastroID);
-        fundo = (ImageView) findViewById(R.id.fundoID);
+        //fundo = (ImageView) findViewById(R.id.fundoID);
         criando = (TextView) findViewById(R.id.criandoID);
 
 
@@ -339,7 +340,7 @@ public class CadastroUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 progressBar.setVisibility(View.VISIBLE);
-                fundo.setVisibility(View.VISIBLE);
+              //  fundo.setVisibility(View.VISIBLE);
                 criando.setVisibility(View.VISIBLE);
 
 
@@ -440,7 +441,7 @@ public class CadastroUsuario extends AppCompatActivity {
                             if (task.isSuccessful()) {
 
                                 progressBar.setVisibility(View.GONE);
-                                fundo.setVisibility(View.GONE);
+                              //  fundo.setVisibility(View.GONE);
                                 criando.setVisibility(View.GONE);
 
 
@@ -546,7 +547,7 @@ public class CadastroUsuario extends AppCompatActivity {
                             if (task.isSuccessful()) {
 
                                 progressBar.setVisibility(View.GONE);
-                                fundo.setVisibility(View.GONE);
+                               // fundo.setVisibility(View.GONE);
                                 criando.setVisibility(View.GONE);
 
 
@@ -708,7 +709,7 @@ public class CadastroUsuario extends AppCompatActivity {
                     Toast.makeText(CadastroUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
                     email.requestFocus();
                     progressBar.setVisibility(View.GONE);
-                    fundo.setVisibility(View.GONE);
+                  //  fundo.setVisibility(View.GONE);
                     criando.setVisibility(View.GONE);
 
 
@@ -720,7 +721,7 @@ public class CadastroUsuario extends AppCompatActivity {
                 Toast.makeText(CadastroUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
                 senha.requestFocus();
                 progressBar.setVisibility(View.GONE);
-                fundo.setVisibility(View.GONE);
+             //   fundo.setVisibility(View.GONE);
                 criando.setVisibility(View.GONE);
 
             }
@@ -731,7 +732,7 @@ public class CadastroUsuario extends AppCompatActivity {
             Toast.makeText(CadastroUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
             progressBar.setVisibility(View.GONE);
-            fundo.setVisibility(View.GONE);
+           // fundo.setVisibility(View.GONE);
             criando.setVisibility(View.GONE);
 
 
@@ -762,7 +763,7 @@ public class CadastroUsuario extends AppCompatActivity {
                     Toast.makeText(CadastroUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
                     email.requestFocus();
                     progressBar.setVisibility(View.GONE);
-                    fundo.setVisibility(View.GONE);
+                  //  fundo.setVisibility(View.GONE);
                     criando.setVisibility(View.GONE);
 
 
@@ -774,7 +775,7 @@ public class CadastroUsuario extends AppCompatActivity {
                 Toast.makeText(CadastroUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
                 senha.requestFocus();
                 progressBar.setVisibility(View.GONE);
-                fundo.setVisibility(View.GONE);
+             //   fundo.setVisibility(View.GONE);
                 criando.setVisibility(View.GONE);
 
             }
@@ -785,7 +786,7 @@ public class CadastroUsuario extends AppCompatActivity {
             Toast.makeText(CadastroUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
             progressBar.setVisibility(View.GONE);
-            fundo.setVisibility(View.GONE);
+         //   fundo.setVisibility(View.GONE);
             criando.setVisibility(View.GONE);
 
 

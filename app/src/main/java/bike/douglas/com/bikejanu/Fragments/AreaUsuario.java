@@ -52,8 +52,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-
-
+public static String paraOndeVou="0";
 
 
 
@@ -568,14 +567,10 @@ private Usuarios usuarios;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-         if (id == R.id.nav_galeria) {
+        if (id == R.id.nav_bike) {
 
 
-              abrirFotos();
-
-
-        } else if (id == R.id.nav_bike) {
-
+          paraOndeVou ="1";
 
              startActivity(new Intent(AreaUsuario.this, Consultar_Bike.class));
 
@@ -916,15 +911,6 @@ if(validarUsuario  ==1){
 
 
 
-
-
-
-
-
-
-
-
-
     public void enviarDadosParaTelaConfirmarSenha(){
 
 
@@ -958,6 +944,10 @@ if(validarUsuario  ==1){
 
 
             }
+
+
+
+
 
 }
 
