@@ -96,9 +96,5 @@ dependencies {
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
 
 
-
-
-    apply plugin: 'com.google.gms.google-services'
-
-
 }
+apply plugin: 'com.google.gms.google-services'

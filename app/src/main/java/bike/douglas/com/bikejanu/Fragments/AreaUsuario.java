@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -118,8 +119,14 @@ private Usuarios usuarios;
 
 
 
+
+
+
+
      //   Glide.with(AreaUsuario.this).load(Constantes.URL_FOTO_POR_DEFECTO_USUARIOS).into(fotoPerfil);
-        cancelaNotificacao();
+
+        FirebaseMessaging.getInstance().subscribeToTopic("userABC");
+
 
 
 
@@ -937,13 +944,7 @@ if(validarUsuario  ==1){
             }
 
 
-            public void cancelaNotificacao(){
 
-                NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-                notificationManager.cancel(R.drawable.logo3);
-
-
-            }
 
 
 

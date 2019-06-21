@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -54,13 +55,13 @@ import bike.douglas.com.bikejanu.R;
 public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClickListener {
 
 
-
-
     // notificaçaõ
 
-    EditText   edtTitle;
-    EditText  edtMessage;
 
+
+
+    EditText edtTitle;
+    EditText edtMessage;
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=" + "AAAAwk_VIUs:APA91bHiUb_rIjPC5V7mL3lRXEtY8lToNhP8kTTwAruQIYbQ8V9PwogTRu7pxRedG8bBAcU9VVBqckTV-KkUSnnHiJCRo0AWiIu0EJmuiw8W00HdfOWee0Tl4hVie8WvPX5Vno4sOrBY";
     final private String contentType = "application/json";
@@ -69,6 +70,11 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     String NOTIFICATION_TITLE;
     String NOTIFICATION_MESSAGE;
     String TOPIC;
+
+
+
+
+
 
 
     // ate aq
@@ -170,6 +176,29 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_alertar_furto_roubo);
 
 // botoes
+
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("userABC");
+
+
+
+
+
+
+
+
+        //    edtTitle = findViewById(R.id.editTituloID);
+    //    edtMessage = findViewById(R.id.editMensagemID);
+        Button btnSend = findViewById(R.id.finalizarID);
+
+
+
+
+
+
+
+
 
 
         abrirMapa = (Button) findViewById(R.id.abrirMapaID);
@@ -436,6 +465,46 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //abrir mapa
 
 
@@ -622,14 +691,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
         }
-
-
-
-
-
-
-
-
 
 
         radioButtonRecuperada.setOnClickListener(new View.OnClickListener() {
@@ -866,10 +927,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 alertaDate.requestFocus();
 
 
-
-
-
-
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 // OU
                 SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
@@ -904,17 +961,147 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             public void onClick(View v) {
 
 
-
-
                 inicializarElementos();
                 caixaDialogoConfirmarFurtoRoubo();
-                notificaoApp();
+
 
 
             }
         });
 
     }
+
+
+
+
+
+    public void enviarNotificacao(){
+
+
+
+        TOPIC = "/topics/userABC"; //topic must match with what the receiver subscribed to
+        NOTIFICATION_TITLE = "Bike Furtada/Roubada";
+        NOTIFICATION_MESSAGE = "Click para mais detalhes";
+
+        JSONObject notification = new JSONObject();
+        JSONObject notifcationBody = new JSONObject();
+        try {
+            notifcationBody.put("title", NOTIFICATION_TITLE);
+            notifcationBody.put("message", NOTIFICATION_MESSAGE);
+
+
+
+
+                notification.put("to", TOPIC);
+
+
+
+
+
+
+
+            notification.put("data", notifcationBody);
+        } catch (JSONException e) {
+            Log.e(TAG, "onCreate: " + e.getMessage() );
+        }
+        sendNotification(notification);
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+    private void sendNotification(JSONObject notification) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i(TAG, "onResponse: " + response.toString());
+                       // edtTitle.setText("");
+                       // edtMessage.setText("");
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(AlertarFurtoRoubo.this, "Request error", Toast.LENGTH_LONG).show();
+                        Log.i(TAG, "onErrorResponse: Didn't work");
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("Authorization", serverKey);
+                params.put("Content-Type", contentType);
+                return params;
+            }
+        };
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+
+
+    public static class MySingleton {
+        private static MySingleton instance;
+        private RequestQueue requestQueue;
+        private Context ctx;
+
+        private MySingleton(Context context) {
+            ctx = context;
+            requestQueue = getRequestQueue();
+        }
+
+        public static synchronized MySingleton getInstance(Context context) {
+            if (instance == null) {
+                instance = new MySingleton(context);
+            }
+            return instance;
+        }
+
+        public RequestQueue getRequestQueue() {
+            if (requestQueue == null) {
+                // getApplicationContext() is key, it keeps you from leaking the
+                // Activity or BroadcastReceiver if someone passes one in.
+                requestQueue = Volley.newRequestQueue(ctx.getApplicationContext());
+            }
+            return requestQueue;
+        }
+
+        public <T> void addToRequestQueue(Request<T> req) {
+            getRequestQueue().add(req);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -964,6 +1151,11 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         bike.setFotoBikeUrl4(imagem4.getText().toString());
         bike.setFotoBikeUrl5(imagem5.getText().toString());
 
+
+
+
+
+
     }
 
     private void abrirAreaUsuario(){
@@ -971,6 +1163,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         Intent intent = new Intent(AlertarFurtoRoubo.this ,AreaUsuario.class);
         startActivity(intent);
         finish();
+
     }
 
 
@@ -1126,6 +1319,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
     private void caixaDialogoConfirmarFurtoRoubo(){
 
+
+
         AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
 
         // configurando dialogo
@@ -1141,6 +1336,24 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         alertaDialog.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
+
+
+
+
+
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
+
+
+
+
+
+
+
+
+
+
 
                      notificacaoRoubadaFurtada();
                      notificacaoRecuperada();
@@ -1250,6 +1463,30 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
@@ -1259,113 +1496,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-    public void notificaoApp() {
-
-                TOPIC = "/topics/userABC"; //topic must match with what the receiver subscribed to
-                NOTIFICATION_TITLE   = "Bike Furtada/Roubada";
-                NOTIFICATION_MESSAGE = "Click para mais detalhes";
-
-                JSONObject notification = new JSONObject();
-                JSONObject notifcationBody = new JSONObject();
-                try {
-                    notifcationBody.put("title",   NOTIFICATION_TITLE);
-                    notifcationBody.put("message", NOTIFICATION_MESSAGE);
-
-                    notification.put("to", TOPIC);
-                    notification.put("data", notifcationBody);
-                } catch (JSONException e) {
-                    Log.e(TAG, "onCreate: " + e.getMessage());
-                }
-
-                sendNotification(notification);
-
-
-    }
-
-
-    private void sendNotification(JSONObject notification) {
-
-        edtTitle = (EditText) findViewById(R.id.edtTitle);
-        edtMessage = (EditText) findViewById(R.id.edtMessage);
-
-
-
-
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
-                new com.android.volley.Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.i(TAG, "onResponse: " + response.toString());
-                       edtTitle .setText ("");
-                        edtMessage.setText ("");
-                    }
-                },
-                new com.android.volley.Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) { Toast.makeText(AlertarFurtoRoubo.this, "Request error", Toast.LENGTH_LONG).show();
-                        Log.i(TAG, "onErrorResponse: Didn't work");
-                    }
-                }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("Authorization", serverKey);
-                params.put("Content-Type", contentType);
-                return params;
-            }
-        };
-        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
-    }
-
-
-    public static class MySingleton {
-        private static MySingleton instance;
-        private RequestQueue requestQueue;
-        private Context ctx;
-
-        private MySingleton(Context context) {
-            ctx = context;
-            requestQueue = getRequestQueue();
-        }
-
-        public static synchronized MySingleton getInstance(Context context) {
-            if (instance == null) {
-                instance = new MySingleton(context);
-            }
-            return instance;
-        }
-
-        public RequestQueue getRequestQueue() {
-            if (requestQueue == null) {
-                // getApplicationContext() is key, it keeps you from leaking the
-                // Activity or BroadcastReceiver if someone passes one in.
-                requestQueue = Volley.newRequestQueue(ctx.getApplicationContext());
-            }
-            return requestQueue;
-        }
-
-
-
-
-        public <T> void addToRequestQueue(Request<T> req) {
-            getRequestQueue().add(req);
-        }
-
-
-        }
-
-
-
-
-
-
-
     public void notificacaoRoubadaFurtada(){
 
        if(radioButtonFurtada.isChecked() || radioButtonRoubada.isChecked()){
 
-           notificaoApp();
+
+           enviarNotificacao();
 
        }
 
@@ -1377,7 +1513,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         if(radioButtonRecuperada.isChecked()){
 
 
-      notificaoApp();
+            enviarNotificacao();
 
 
         }

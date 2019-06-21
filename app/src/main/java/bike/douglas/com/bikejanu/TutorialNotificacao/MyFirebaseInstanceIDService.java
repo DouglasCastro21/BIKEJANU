@@ -1,8 +1,6 @@
-package bike.douglas.com.bikejanu.Notificacao;
+package bike.douglas.com.bikejanu.TutorialNotificacao;
 
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
+
 import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -16,12 +14,12 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService{
     private static final String SUBSCRIBE_TO = "userABC";
 
 
+
+
+
+
     @Override
     public void onTokenRefresh() {
-        super.onTokenRefresh();
-
-
-
         /*
           This method is invoked whenever the token refreshes
           OPTIONAL: If you want to send messages to this application instance
@@ -33,12 +31,5 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService{
         // Once the token is generated, subscribe to topic with the userId
         FirebaseMessaging.getInstance().subscribeToTopic(SUBSCRIBE_TO);
         Log.i(TAG, "onTokenRefresh completed with token: " + token);
-
-
-
-
     }
-
-
-
 }
