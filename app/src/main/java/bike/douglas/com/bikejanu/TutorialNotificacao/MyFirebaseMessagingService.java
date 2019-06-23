@@ -13,14 +13,19 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.Map;
 import java.util.Random;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
+import bike.douglas.com.bikejanu.Activity.TelaNotificacao;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
 import bike.douglas.com.bikejanu.R;
@@ -28,13 +33,41 @@ import bike.douglas.com.bikejanu.R;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
-    private final String ADMIN_CHANNEL_ID ="admin_channel";
+    private final String ADMIN_CHANNEL_ID = "admin_channel";
+
+
+    private static final String TAG = "MyFirebaseMsgService";
+
+     Intent intent;
+    NotificationManager notificationManager;
+    int notificationID;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        final Intent intent = new Intent(this, Consultar_Bike.class);
-        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        int notificationID = new Random().nextInt(3000);
+
+
+        if (remoteMessage.getData().size() == 2) {
+
+            intent = new Intent(this, Consultar_Bike.class);
+            notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+             notificationID = new Random().nextInt(3000);
+
+
+            Log.d(TAG, "Message data payload: " + remoteMessage.getData().size());
+        }else{
+
+
+            intent = new Intent(this, TelaNotificacao.class);
+            notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationID = new Random().nextInt(3000);
+
+            Log.d(TAG, "Message data payload: " + remoteMessage.getData().size());
+
+        }
+
+
+
+
 
       /*
         Apps targeting SDK 26 or above (Android O) must implement notification channels and add its notifications
@@ -45,7 +78,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this , 0, intent,
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
         Bitmap largeIcon = BitmapFactory.decodeResource(getResources(),
@@ -58,11 +91,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setContentTitle(remoteMessage.getData().get("title"))
                 .setContentText(remoteMessage.getData().get("message"))
                 .setAutoCancel(true)
+                .setVibrate(new long[]{100, 200, 300, 400, 500})
                 .setSound(notificationSoundUri)
                 .setContentIntent(pendingIntent);
 
         //Set notification color to match your app color template
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             notificationBuilder.setSmallIcon(R.drawable.logo_transparente);
         }
         notificationManager.notify(notificationID, notificationBuilder.build());

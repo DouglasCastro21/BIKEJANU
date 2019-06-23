@@ -61,13 +61,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     public List<Bike> listabikes = new ArrayList<Bike>();
 
 
-
-
-
-
-
     //  public  int recebeQtd=0;
-  //  public static int quantidadeBikesRoubadas=0;
+   //  public static int quantidadeBikesRoubadas=0;
 
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
@@ -556,9 +551,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-
-
-                           ///aparece apenas a opção editar para o usuario que possui digito validador igual a 01
+                           ///aparece apenas a opção remover editar para o usuario que possui digito validador igual a 01
 
 
                            txtViewCaixaDescricao.setOnClickListener(new View.OnClickListener() {
@@ -619,7 +612,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                                params.putString("latitude",        bikeselecao.getLatitude() );
                                                params.putString("longitude",       bikeselecao.getLongitude());
-                                               params.putString("digitoValidador",       dados.getDigitoValidador());
+                                               params.putString("digitoValidador",   dados.getDigitoValidador());
                                                params.putString("proprietario",      bikeselecao.getProprietario());
 
                                                Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
@@ -665,12 +658,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
         return view;
 
 
-
-
-
     }
-
-
-
 
 }
