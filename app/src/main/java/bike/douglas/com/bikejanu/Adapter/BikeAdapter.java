@@ -8,7 +8,9 @@ import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.ColorSpace;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -16,6 +18,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -43,7 +47,10 @@ import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Model.Bike;
@@ -55,6 +62,8 @@ import static android.view.View.*;
 
 
 public class BikeAdapter extends ArrayAdapter<Bike>  {
+
+
 
 
     public Context context;
@@ -132,22 +141,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-
-
-        // rebece o dados do Bike Adapter por parametro passada pela tela cadastro
-
-
-
-
-
-
-
-
-
-
-
-
-                View view = null;
+        View view = null;
 
 
             //verifica se a lista está vazia
@@ -184,45 +178,100 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             final TextView txtViewAlertaDescricao    = (TextView) view.findViewById(R.id.alertaDescricaoID);
             final Bike bikeRoubadaFurtada;
 
-             bikeRoubadaFurtada = listabikes.get(position);
+
+            ImageView novaNotificacao                =  (ImageView)view.findViewById(R.id.novaNotificacaoID);
+        //    final String clicada                        =  (TextView) view.findViewById(R.id.clicadaID);
+
+
+
+
+               bikeRoubadaFurtada = listabikes.get(position);
 
 
 
 
 
 
+               SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+               // OU
+               SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+
+               Date data = new Date();
+
+               Calendar cal = Calendar.getInstance();
+               cal.setTime(data);
+
+               Date data_atual = cal.getTime();
+
+               String  data_completa = dateFormat.format(data_atual);
+
+               String hora_atual = dateFormat_hora.format(data_atual);
+
+               Log.i("data_completa", data_completa);
+               Log.i("data_atual", data_atual.toString());
+               Log.i("hora_atual", hora_atual);
 
 
 
 
+               if(bikeRoubadaFurtada.getStatus().equals("Roubada")) {
+
+
+       view.setBackgroundColor(Color.RED);
+
+            if(bikeRoubadaFurtada.getAlertaDate().equals(data_completa)){
+
+                novaNotificacao.setVisibility(VISIBLE);
+
+            }else
+            {
+
+               novaNotificacao.setVisibility(GONE);
+
+
+            }
 
 
 
-
-    if(bikeRoubadaFurtada.getStatus().equals("Roubada")) {
-
-
-
-        view.setBackgroundColor(Color.RED);
-
-
-      //  recebeQtd ++;
 
 
 
     }
+
+
+
+
+
+
+
+
+
 
 
     if( bikeRoubadaFurtada.getStatus().equals("Furtada")){
 
 
-
         view.setBackgroundColor(Color.YELLOW);
+
+        if(bikeRoubadaFurtada.getAlertaDate().equals(data_completa)){
+
+            novaNotificacao.setVisibility(VISIBLE);
+
+        }else
+        {
+
+            novaNotificacao.setVisibility(GONE);
+
+
+        }
+
+
+
+
 
     }
 
    //  quantidadeBikesRoubadas = recebeQtd;
-
 
 
 
@@ -232,7 +281,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                 databaseReference = firebaseDatabase.getReference();
 
 
-                 final Bike bike1 = listabikes.get(position);
+
+                final Bike bike1 = listabikes.get(position);
 
 
 
@@ -264,11 +314,20 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                     // recupera posição da bike
 
 
+
+
                     Bike bikeselecao = new Bike();
 
                     bikeselecao = listabikes.get(position);
 
                     // passa dados  para a tela dados BIKE
+
+
+
+
+
+
+
 
                     Bundle params = new Bundle();
                     params.putString("dadosmodelo",       bikeselecao.getModelo());
@@ -293,8 +352,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
                     params.putString("Numero_serie",       bikeselecao.getNumero_serie());
-
-
 
 
 
@@ -609,6 +666,15 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                                params.putString("descricao",       bikeselecao.getDescricao());
                                                params.putString("cor",             bikeselecao.getCor());
                                                params.putString("status",          bikeselecao.getStatus());
+
+
+                                               params.putString("Imagem1",         bikeselecao.getFotoBikeUrl1());
+                                               params.putString("Imagem2",         bikeselecao.getFotoBikeUrl2());
+                                               params.putString("Imagem3",         bikeselecao.getFotoBikeUrl3());
+                                               params.putString("Imagem4",         bikeselecao.getFotoBikeUrl4());
+                                               params.putString("Imagem5",         bikeselecao.getFotoBikeUrl5());
+
+
 
                                                params.putString("latitude",        bikeselecao.getLatitude() );
                                                params.putString("longitude",       bikeselecao.getLongitude());

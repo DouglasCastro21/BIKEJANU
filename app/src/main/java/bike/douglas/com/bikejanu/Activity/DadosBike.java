@@ -17,6 +17,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
+import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Fragments.Galeria_Bike;
 import bike.douglas.com.bikejanu.Fragments.Imagem1;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
@@ -34,6 +36,9 @@ public class DadosBike extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dados_bike);
+
+
+
 
 
        imageViewAbrirImagens = (CircleImageView) findViewById(R.id.imagemAbrirMaisImagensID);

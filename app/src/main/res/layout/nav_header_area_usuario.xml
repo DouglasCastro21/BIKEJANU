@@ -16,10 +16,10 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imagemPerfilIID"
-        android:layout_width="117dp"
-        android:layout_height="102dp"
+        android:layout_width="96dp"
+        android:layout_height="118dp"
         android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="24dp"
         android:src="@drawable/ic_action_user"
         app:srcCompat="@mipmap/ic_launcher_round" />
 
@@ -34,6 +34,6 @@
     <TextView
         android:id="@+id/emailUsuarioID"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:text="@string/nav_header_subtitle" />
 </LinearLayout>

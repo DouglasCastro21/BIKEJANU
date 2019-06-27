@@ -55,6 +55,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
 import bike.douglas.com.bikejanu.Model.Bike;
@@ -189,10 +190,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_alertar_furto_roubo);
 
 // botoes
-
-
-
-
 
 
 
@@ -435,6 +432,19 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
             }
         }
+
+
+
+
+        // sai do topic userABC  E numero de serie
+
+        FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
+
+
+
+
+
+
 
 
 
@@ -1068,7 +1078,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-
 ////
         bike.setNumero_serie(numero_serie.getText().toString());
         bike.setMarca(marca.getText().toString());
@@ -1275,6 +1284,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
+
+
                 FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
 
                   //  incluirUsuarioEmTopico();
@@ -1300,6 +1311,28 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
+
+                        if(digitoMilitar ==1){
+
+
+                            // cadastra no nó usuario dono da bike
+                            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                            firebase.child("dEB5LmNvbQ==").child(bike.getNumero_serie()).setValue(bike);
+
+
+                        }else
+
+                        {
+
+                            // cadastra no nó usuario logado
+                            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+
+                        }
+
                         // cadastra a bike no nó todas as bikes
                         firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
                         firebase.child(bike.getNumero_serie()).setValue(bike);
@@ -1309,9 +1342,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                         firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
                         firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
 
-                        // cadastra no nó usuario logado
-                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 
                         Toast.makeText(AlertarFurtoRoubo.this, "A bike foi marcada como :" +bike.getStatus(), Toast.LENGTH_LONG).show();
 

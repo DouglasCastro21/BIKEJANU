@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import bike.douglas.com.bikejanu.R;
@@ -16,6 +17,7 @@ public class SouMilitar extends AppCompatActivity {
 
     private EditText senhaAdm;
     private Button  buttonConfirmarSenha;
+    private TextView senhaInvalida;
 
 
 
@@ -29,6 +31,7 @@ public class SouMilitar extends AppCompatActivity {
 
         senhaAdm             = (EditText) findViewById(R.id.editTextSenhaAdmID);
         buttonConfirmarSenha = (Button)findViewById(R.id.button2ConfirmarSenhaAdmID);
+        senhaInvalida        = (TextView) findViewById(R.id.senhaInvalidaAdmID);
 
 
 
@@ -58,8 +61,7 @@ public class SouMilitar extends AppCompatActivity {
                 }else
                 {
 
-                    Toast.makeText(SouMilitar.this,"Senha Invalida, Consulte o Adminstrador" ,Toast.LENGTH_LONG ).show();
-
+                    senhaInvalida.setVisibility(View.VISIBLE);
 
                 }
 
