@@ -81,6 +81,7 @@ public class Imagem1 extends Fragment {
         numero_serie_serie = galeria_bike_numero_serie.Numero_serie_serie;
 
 
+
         DatabaseReference reference = databaseReference.child("TodasBikes").child(numero_serie_serie);
 
 
@@ -98,7 +99,6 @@ public class Imagem1 extends Fragment {
 
 
 
-                        Glide.with(Imagem1.this).load(dados.getFotoBikeUrl1()).into(imagemBike);
 
 
 
@@ -106,6 +106,9 @@ public class Imagem1 extends Fragment {
 
                             Glide.with(Imagem1.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagemBike);
 
+
+                        }else{
+                            Glide.with(Imagem1.this).load(dados.getFotoBikeUrl1()).into(imagemBike);
 
                         }
 

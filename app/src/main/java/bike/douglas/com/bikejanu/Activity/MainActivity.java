@@ -13,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
+import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
 import bike.douglas.com.bikejanu.Fragments.Galeria_Bike;
 import bike.douglas.com.bikejanu.Fragments.Entrar;
 import bike.douglas.com.bikejanu.R;
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(MainActivity.this, Galeria_Bike.class));
+                startActivity(new Intent(MainActivity.this, Consultar_Bike.class));
             }
         });
 

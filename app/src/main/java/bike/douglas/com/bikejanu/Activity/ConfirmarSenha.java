@@ -215,7 +215,7 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
                        chamarTelaEditarUsuario();
-                       finish();
+
 
 
 
@@ -288,14 +288,12 @@ public class ConfirmarSenha extends AppCompatActivity {
                     params.putString("confirmarsenhaUsuario",              dados.getSenha());
                     params.putString("numeroPm",                           dados.getNumeroPm());
                     params.putString("validarUsuario",                     dados.getDigitoValidador());
+                    params.putString("fotoUsuario",                        dados.getFotoPerfilURL());
 
 
                     Intent intent = new Intent(ConfirmarSenha.this, EditarUsuario.class);
                     intent.putExtras(params);
                     startActivity(intent);
-                   // finish();
-
-
 
 
 
@@ -305,6 +303,9 @@ public class ConfirmarSenha extends AppCompatActivity {
                 public void onCancelled(DatabaseError databaseError) {
 
                 }
+
+
+
             });
 
 
@@ -468,8 +469,18 @@ public void imagemUsuario(){
                 Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
 
+if(dados.getFotoPerfilURL().equals("")){
 
-                Glide.with(ConfirmarSenha.this).load(dados.getFotoPerfilURL()).into(imagemUsuario);
+    Glide.with(ConfirmarSenha.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemUsuario);
+
+
+}else {
+
+
+    Glide.with(ConfirmarSenha.this).load(dados.getFotoPerfilURL()).into(imagemUsuario);
+
+}
+
 
 
 
@@ -486,12 +497,6 @@ public void imagemUsuario(){
     });
 
 
-
-
-
 }
-
-
-
 
 }

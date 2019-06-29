@@ -158,10 +158,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private TextView imagem3;
     private TextView imagem4;
     private TextView imagem5;
+    private TextView idUsuario;
     String numero_serie_Topic;
-
+    String chaveUsuario;
 
     private TextView proprietario;
+    private  TextView proprietarioID;
 
     public  Bike bike;
     public LocalBikesMaps localBikesMaps;
@@ -274,6 +276,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
         proprietario      = (TextView) findViewById(R.id.alertaProprietarioID);
+        proprietarioID      = (TextView) findViewById(R.id.alertaChaveProprietarioID);
+
 
 
 
@@ -399,6 +403,11 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 TextView proprietarioText = (TextView) findViewById(R.id.alertaProprietarioID);
                 proprietarioText.setText(proprietario);
 
+
+                String proprietarioID = params.getString("proprietarioID");
+                TextView proprietarioIDText = (TextView) findViewById(R.id.alertaChaveProprietarioID);
+                proprietarioIDText.setText(proprietarioID);
+                chaveUsuario = proprietarioID;
 
 
                 String latitude = params.getString("latitude");
@@ -1075,6 +1084,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
         bike.setStatus(status.getText().toString());
 
         bike.setProprietario(proprietario.getText().toString());
+        bike.setProprietarioID(proprietarioID.getText().toString());
 
 
 
@@ -1317,7 +1327,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                             // cadastra no nó usuario dono da bike
                             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-                            firebase.child("dEB5LmNvbQ==").child(bike.getNumero_serie()).setValue(bike);
+                            firebase.child(chaveUsuario).child(bike.getNumero_serie()).setValue(bike);
 
 
                         }else
@@ -1327,8 +1337,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                             // cadastra no nó usuario logado
                             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
                             firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
-
 
 
                         }

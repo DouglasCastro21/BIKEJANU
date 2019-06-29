@@ -27,11 +27,11 @@
         android:id="@+id/txtViewNumeroSerie"
         android:layout_width="116dp"
         android:layout_height="22dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
         android:text="Número  de série"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        app:layout_constraintStart_toEndOf="@+id/txtViewMarca"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/novaNotificacaoID" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_width="143dp"
         android:layout_height="0dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="24dp"
         android:text="Marca "
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="18sp"
@@ -48,16 +48,18 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/listaImagemID"
-        android:layout_width="81dp"
-        android:layout_height="77dp"
+        android:layout_width="76dp"
+        android:layout_height="87dp"
         android:layout_marginBottom="12dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
         android:src="@drawable/bike1"
         app:layout_constraintBottom_toBottomOf="@+id/CaixaDescricaoID"
         app:layout_constraintEnd_toStartOf="@+id/txtViewMarca"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/novaNotificacaoID"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/bike1" />
 
 
@@ -79,12 +81,12 @@
     <TextView
         android:id="@+id/textViewCorID"
         android:layout_width="116dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="32dp"
+        android:text="Cor"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        app:layout_constraintStart_toEndOf="@+id/textViewModeloID"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewNumeroSerie" />
 
     <TextView
@@ -107,7 +109,51 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/alarm" />
+        app:srcCompat="@drawable/notification" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Marca"
+        app:layout_constraintBottom_toTopOf="@+id/txtViewMarca"
+        app:layout_constraintStart_toEndOf="@+id/listaImagemID"
+        app:layout_constraintTop_toBottomOf="@+id/novaNotificacaoID" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Número de série"
+        app:layout_constraintBottom_toTopOf="@+id/txtViewNumeroSerie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/novaNotificacaoID"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Modelo"
+        app:layout_constraintBottom_toTopOf="@+id/textViewModeloID"
+        app:layout_constraintStart_toEndOf="@+id/listaImagemID"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewMarca" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="120dp"
+        android:layout_marginTop="6dp"
+        android:text="Cor"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCorID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewNumeroSerie"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </android.support.constraint.ConstraintLayout>

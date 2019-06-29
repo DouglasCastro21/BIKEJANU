@@ -209,10 +209,7 @@ public class DadosBike extends AppCompatActivity  {
 
 
 
-
                 if( status.equals("Furtada")||status.equals("Roubada")){
-
-
 
 
 
@@ -298,14 +295,10 @@ public class DadosBike extends AppCompatActivity  {
                 Bundle params = new Bundle();
 
 
-
                 params.putString("Numero_serie",Numero_serie);
                 Intent intent = new Intent(DadosBike.this, Galeria_Bike.class);
                 intent.putExtras(params);
-                 startActivity(intent);
-
-
-
+                startActivity(intent);
 
 
 
@@ -326,18 +319,29 @@ public class DadosBike extends AppCompatActivity  {
         FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
 
-        String email = user1.getEmail();
+     //   String email = user1.getEmail();
 
         // converte o email pra base 64
-        String identificadorUsuario= Base64Custom.codificarBase64(email);
-
-
-        Bike bike = new Bike();
-
-        DatabaseReference BikeReference = databaseReferenceBike.child("Bike").child(identificadorUsuario);
+     //   String identificadorUsuario= Base64Custom.codificarBase64(email);
 
 
 
+
+        Intent intent = getIntent();
+        if (intent != null) {
+
+            Bundle params = intent.getExtras();
+
+            if (params != null) {
+
+                Numero_serie = params.getString("Numero_serie");
+
+            }
+
+        }
+
+
+        DatabaseReference BikeReference = databaseReferenceBike.child("TodasBikes").child(Numero_serie);
 
 
         BikeReference.addValueEventListener(new ValueEventListener() {
@@ -349,12 +353,7 @@ public class DadosBike extends AppCompatActivity  {
                    Bike dados = dataSnapshot.getValue(Bike.class);
 
 
-
                     Glide.with(DadosBike.this).load(dados.getFotoBikeUrl1()).into(imageViewAbrirImagens);
-
-
-
-
 
 
                 }

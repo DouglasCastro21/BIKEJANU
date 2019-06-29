@@ -173,12 +173,21 @@ public class EditarUsuario extends AppCompatActivity {
 
                 Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
-                CircleImageView imagemPerfil   = (CircleImageView) findViewById(R.id.imagemPerfilID01);
+                if(dados.getFotoPerfilURL().equals("")){
 
-                Glide.with(EditarUsuario.this).load(dados.getFotoPerfilURL()).into(imagemPerfil);
+                    CircleImageView imagemPerfil   = (CircleImageView) findViewById(R.id.imagemPerfilID01);
+
+                    Glide.with(EditarUsuario.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemPerfil);
 
 
+                }else{
 
+                    CircleImageView imagemPerfil   = (CircleImageView) findViewById(R.id.imagemPerfilID01);
+
+                    Glide.with(EditarUsuario.this).load(dados.getFotoPerfilURL()).into(imagemPerfil);
+
+
+                }
             }
 
             @Override
@@ -195,8 +204,6 @@ public class EditarUsuario extends AppCompatActivity {
         //fotoPerfil
 
         fotoPerfil   = (CircleImageView)findViewById(R.id.imagemPerfilID01);
-
-
         imagePicker= new ImagePicker(this);
         cameraPicker = new CameraImagePicker(this);
 
@@ -207,19 +214,15 @@ public class EditarUsuario extends AppCompatActivity {
 
 
         cameraPicker.setCacheLocation(CacheLocation.EXTERNAL_STORAGE_APP_DIR);
-
         imagePicker.setImagePickerCallback(new ImagePickerCallback() {
             @Override
             public void onImagesChosen(List<ChosenImage> list) {
                 if(!list.isEmpty()){
 
 
-
                     String path = list.get(0).getOriginalPath();
                     fotoPerfilUri = Uri.parse(path);
                     fotoPerfil.setImageURI(fotoPerfilUri);
-
-
 
                 }
             }
@@ -276,31 +279,6 @@ public class EditarUsuario extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -465,7 +443,7 @@ public class EditarUsuario extends AppCompatActivity {
 
 
                                 progressBar.setVisibility(View.VISIBLE);
-                            //    fundo.setVisibility(View.VISIBLE);
+                            //   fundo.setVisibility(View.VISIBLE);
                                 criando.setVisibility(View.VISIBLE);
 
                                 inicializarElementos();
@@ -537,7 +515,6 @@ public class EditarUsuario extends AppCompatActivity {
 
 
                                 inicializarElementos();
-
                                 cadastrarUsuario();
 
 
@@ -613,6 +590,7 @@ public class EditarUsuario extends AppCompatActivity {
 
         Intent intent = new Intent(EditarUsuario.this ,AreaUsuario.class);
         startActivity(intent);
+        finish();
 
 
     }
@@ -693,6 +671,8 @@ public class EditarUsuario extends AppCompatActivity {
                             firebase = Configuracao_Firebase.getFirebase().child("Militares");
                             firebase.child(identificadorUsuario).setValue(usuarios);
 
+
+
                             abrirAreaUsuario();
 
 
@@ -711,29 +691,15 @@ public class EditarUsuario extends AppCompatActivity {
 
                         // retorna a tela usuario
 
-                        abrirAreaUsuario();
 
 
                     }
 
 
 
-
-
-
-
-
                 }
 
             });
-
-
-
-
-
-
-
-
 
 
 
@@ -804,16 +770,7 @@ public class EditarUsuario extends AppCompatActivity {
                         // retorna a tela usuario
 
                         abrirAreaUsuario();
-
-
                     }
-
-
-
-
-
-
-
 
                 }
 
@@ -822,22 +779,10 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
         }
 
 
         }
-
-
-
 
 
 
@@ -845,8 +790,6 @@ public class EditarUsuario extends AppCompatActivity {
 
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
-
-
         return mime.getExtensionFromMimeType(cr.getType(uri));
 
 

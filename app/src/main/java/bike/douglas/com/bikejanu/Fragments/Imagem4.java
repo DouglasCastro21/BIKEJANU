@@ -49,7 +49,6 @@ public class Imagem4 extends Fragment {
         DatabaseReference reference = databaseReference.child("TodasBikes").child(numero_serie_serie);
 
 
-
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -1,5 +1,6 @@
 package bike.douglas.com.bikejanu.DAO;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
@@ -22,6 +23,9 @@ import java.util.List;
 import java.util.Locale;
 import com.google.android.gms.tasks.Continuation;
 
+import bike.douglas.com.bikejanu.Activity.EditarBike;
+import bike.douglas.com.bikejanu.Activity.EditarUsuario;
+import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.Utilidades.Constantes;
 import bike.douglas.com.bikejanu.Utilidades.LUsuario;
@@ -112,6 +116,10 @@ public class UsuarioDAO {
             @Override
             public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                 if(!task.isSuccessful()){
+
+
+
+
                     throw task.getException();
                 }
                 return fotoReferencia.getDownloadUrl();

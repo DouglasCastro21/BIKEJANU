@@ -66,6 +66,7 @@ public class EditarBike extends AppCompatActivity {
     private TextView alertaHora;
 
     private  TextView proprietario;
+    private  TextView proprietarioID;
 
     private TextView latitude;
     private TextView longitude;
@@ -76,6 +77,8 @@ public class EditarBike extends AppCompatActivity {
     private TextView txtStatus;
 
 
+
+
     private ImageView imagem1;
     private ImageView imagem2;
     private ImageView imagem3;
@@ -83,16 +86,13 @@ public class EditarBike extends AppCompatActivity {
     private ImageView imagem5;
 
 
+
+
     private Uri uriImagem1;
-
     private Uri uriImagem2;
-
     private Uri uriImagem3;
-
     private Uri uriImagem4;
-
     private Uri uriImagem5;
-
 
 
     String dadosImagem1;
@@ -100,15 +100,13 @@ public class EditarBike extends AppCompatActivity {
     String dadosImagem3;
     String dadosImagem4;
     String dadosImagem5;
-
-
-
     String statusBike;
+
+
     private ProgressBar progressBar;
     private TextView carregando;
 
     private StorageReference  storageReference;
-
     private String marcasBike[] = new String[] {"CALOY","MONARK","MALAGRA","GALO","EXTREME","HOUSTON","OUTRA"};
     private Spinner spinner;
 
@@ -129,16 +127,15 @@ public class EditarBike extends AppCompatActivity {
     btnEditar = (Button) findViewById(R.id.finalizarID);
 
     numero_serie     =  (TextView) findViewById(R.id.NumeroID);
-   // marca          =  (EditText) findViewById(R.id.spinnerMarcaID);
+               // marca          =  (EditText) findViewById(R.id.spinnerMarcaID);
     modelo           =  (EditText) findViewById(R.id.modeloID);
     cor              =  (EditText) findViewById(R.id.corID);
     descricao        =  (EditText) findViewById(R.id.descricaoID);
 
 
-        // se não repetir os dados da tela cadastro os dados são exluidos
-
-       // alertaEstado     =  (TextView) findViewById(R.id.);
-     //   alertaCidade       =  (TextView) findViewById(R.id.teste2ID);
+         // se não repetir os dados da tela cadastro os dados são exluidos
+        // alertaEstado     =  (TextView) findViewById(R.id.);
+       //   alertaCidade       =  (TextView) findViewById(R.id.teste2ID);
     alertaNumero     =  (TextView) findViewById(R.id.teste1ID);
     alertaRua        =  (TextView) findViewById(R.id.teste2ID);
     alertaBairro     =  (TextView) findViewById(R.id.teste3ID);
@@ -153,6 +150,8 @@ public class EditarBike extends AppCompatActivity {
     longitude        =  (TextView) findViewById(R.id.txtEditarLongitudeID);
 
     proprietario     =  (TextView) findViewById(R.id.EditeProprietarioID);
+
+    proprietarioID     =  (TextView) findViewById(R.id.chaveProprietarioID);
 
         imagem1    =  (ImageView) findViewById(R.id.editarImagem1ID);
         imagem2    =  (ImageView) findViewById(R.id.editarImagem2ID);
@@ -362,6 +361,16 @@ public class EditarBike extends AppCompatActivity {
                 proprietarioText.setText(proprietario);
 
 
+
+                String proprietarioID = params.getString("proprietarioID");
+                TextView proprietarioIDText = (TextView) findViewById(R.id.chaveProprietarioID);
+                proprietarioIDText.setText(proprietarioID);
+
+
+
+
+
+
                 // dadosda IMAGEM 1
 
                  dadosImagem1 = params.getString("Imagem1");
@@ -374,7 +383,7 @@ public class EditarBike extends AppCompatActivity {
                 if(dadosImagem1.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem2);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem1);
 
 
 
@@ -399,7 +408,7 @@ public class EditarBike extends AppCompatActivity {
                 if(dadosImagem2.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem2);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem2);
 
 
 
@@ -425,7 +434,7 @@ public class EditarBike extends AppCompatActivity {
                 if(dadosImagem3.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem3);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem3);
 
 
 
@@ -448,7 +457,7 @@ public class EditarBike extends AppCompatActivity {
                 if(dadosImagem4.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem4);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem4);
 
 
 
@@ -476,7 +485,7 @@ public class EditarBike extends AppCompatActivity {
                 if(dadosImagem5.equals("")){
 
 
-                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagem5);
+                    Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem5);
 
 
 
@@ -739,6 +748,7 @@ public class EditarBike extends AppCompatActivity {
 
 
         bike.setProprietario(proprietario.getText().toString());
+        bike.setProprietarioID(proprietarioID.getText().toString());
 
     }
 

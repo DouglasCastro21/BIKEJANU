@@ -496,6 +496,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editarImagem3ID" />
 
+            <TextView
+                android:id="@+id/chaveProprietarioID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="219dp"
+                android:layout_marginStart="11dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/spinnerMarcaID"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView8" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

@@ -932,6 +932,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
+
         FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
 
@@ -1010,8 +1011,10 @@ public class CadastroBike extends AppCompatActivity  {
 
         bike.setLatitude(txtLatitude.getText().toString());
         bike.setLongitude(txtLongitude.getText().toString());
+        bike.setProprietarioID(identificadorUsuario);
         localBikesMaps.setLatitude(txtLatitude.getText().toString());
         localBikesMaps.setLongitude(txtLongitude.getText().toString());
+
 
 
 

@@ -316,8 +316,6 @@ private Usuarios usuarios;
 
 
 
-
-
                         //Listener para recuperar bikes
                         databaseReference.addValueEventListener(new ValueEventListener() {
                             @Override
