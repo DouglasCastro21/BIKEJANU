@@ -53,9 +53,6 @@
         app:title="Cadastro Usuário"
         app:titleTextColor="@color/common_google_signin_btn_text_dark_default"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

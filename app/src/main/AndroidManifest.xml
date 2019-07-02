@@ -40,7 +40,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Activity.MainActivity"
+        <activity
+            android:name=".Activity.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,36 +49,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Fragments.Consultar_Indice"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Fragments.Consultar_Bike"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Fragments.Consultar_Indice"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Fragments.Consultar_Bike"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Fragments.Entrar"
             android:label="@string/title_activity_entrar"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Fragments.Galeria_Bike"
             android:label="@string/title_activity_consultar__bike"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.CadastroUsuario"
-
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.CadastroUsuario"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Fragments.AreaUsuario"
             android:label="@string/title_activity_area_usuario"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.CadastroBike"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.DadosBike"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.AlertarFurtoRoubo"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.EditarBike"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activity.CadastroBike"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.DadosBike"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.AlertarFurtoRoubo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.EditarBike"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -130,24 +137,24 @@
         <activity
             android:name=".Activity.MapsActivity2"
             android:label="@string/title_activity_maps2"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.Estatisticas"
             android:label="@string/title_activity_estatisticas"
-            android:theme="@style/AppTheme"
-             />
-        <activity android:name=".Activity.ValidacaoToken"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.EditarUsuario"
-                  android:screenOrientation="portrait"/>
+            android:theme="@style/AppTheme" />
 
-        <activity android:name=".Activity.ConfirmarSenha"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".Activity.SouMilitar"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.ChecarUsuario"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activity.EditarUsuario"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ConfirmarSenha"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.SouMilitar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ChecarUsuario"
+            android:screenOrientation="portrait" />
 
         <service android:name=".TutorialNotificacao.MyFirebaseInstanceIDService">
             <intent-filter>
@@ -178,9 +185,13 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-        <activity android:name=".Activity.TelaNotificacao"
-                   android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.NotificacaoTest"></activity>
+        <activity
+            android:name=".Activity.TelaNotificacao"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Fragments.VerifyPhoneActivity"
+            android:screenOrientation="portrait"
+                   />
     </application>
 
 </manifest>

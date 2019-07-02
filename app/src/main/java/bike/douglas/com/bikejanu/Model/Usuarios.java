@@ -1,5 +1,7 @@
 package bike.douglas.com.bikejanu.Model;
 
+import android.support.v7.app.AppCompatActivity;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
@@ -8,7 +10,7 @@ import java.util.Map;
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 
-public class Usuarios {
+public class Usuarios  {
 
     private String idUsuario;
     private String nome;

@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.nfc.Tag;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -69,7 +71,7 @@ import bike.douglas.com.bikejanu.R;
 import bike.douglas.com.bikejanu.Utilidades.Constantes;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class EditarUsuario extends AppCompatActivity {
+ public  class  EditarUsuario extends AppCompatActivity {
 
 
 
@@ -80,24 +82,19 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
-
     //foto perfil
 
     private CircleImageView fotoPerfil;
 
-    private ImagePicker imagePicker;
-    private CameraImagePicker cameraPicker;
 
-    private String pickerPath;
+
     private Uri fotoPerfilUri;
 
+int d = 0;
 
 
 
-
-    private CheckBox checkBox;
     private ProgressBar progressBar;
-  //  private ImageView fundo;
     private TextView criando;
 
 
@@ -108,7 +105,6 @@ public class EditarUsuario extends AppCompatActivity {
     private TextInputEditText  senha;
     private TextInputEditText confirmarsenha;
     private EditText  telefone;
-    private String    imagem;
     private TextView txtNumeroPm;
     private TextView numeroValidador;
 
@@ -130,8 +126,8 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
-    private FirebaseAuth autenticacao;
-    private StorageReference storageReference;
+    private FirebaseAuth      autenticacao;
+    private StorageReference  storageReference;
     private DatabaseReference firebase;
     private DatabaseReference firebaseMilitar;
 
@@ -146,12 +142,11 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
+        storageReference = FirebaseStorage.getInstance().getReference("ImagensUsuarios");
+
 
 
         autenticacao = FirebaseAuth.getInstance();
-
-
-
 
         FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -198,56 +193,8 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
-
-
-
         //fotoPerfil
-
         fotoPerfil   = (CircleImageView)findViewById(R.id.imagemPerfilID01);
-        imagePicker= new ImagePicker(this);
-        cameraPicker = new CameraImagePicker(this);
-
-
-
-
-
-
-
-        cameraPicker.setCacheLocation(CacheLocation.EXTERNAL_STORAGE_APP_DIR);
-        imagePicker.setImagePickerCallback(new ImagePickerCallback() {
-            @Override
-            public void onImagesChosen(List<ChosenImage> list) {
-                if(!list.isEmpty()){
-
-
-                    String path = list.get(0).getOriginalPath();
-                    fotoPerfilUri = Uri.parse(path);
-                    fotoPerfil.setImageURI(fotoPerfilUri);
-
-                }
-            }
-
-            @Override
-            public void onError(String s) {
-                Toast.makeText(EditarUsuario.this, "Error: "+s, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        cameraPicker.setImagePickerCallback(new ImagePickerCallback() {
-            @Override
-            public void onImagesChosen(List<ChosenImage> list) {
-                String path = list.get(0).getOriginalPath();
-                fotoPerfilUri = Uri.fromFile(new File(path));
-                fotoPerfil.setImageURI(fotoPerfilUri);
-            }
-
-            @Override
-            public void onError(String s) {
-                Toast.makeText(EditarUsuario.this, "Error: "+s, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
 
 
 
@@ -256,7 +203,7 @@ public class EditarUsuario extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(EditarUsuario.this);
-                dialog.setTitle("Foto de perfil");
+                dialog.setTitle("Foto da Bike");
 
                 String[] items = {"Galeria","Camara"};
 
@@ -265,10 +212,16 @@ public class EditarUsuario extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (i){
                             case 0:
-                                imagePicker.pickImage();
+
+                                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                startActivityForResult(intent,1);
+
                                 break;
                             case 1:
-                                pickerPath = cameraPicker.pickImage();
+
+                                Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
+                                startActivityForResult(intent2,2);
+
                                 break;
                         }
                     }
@@ -446,11 +399,10 @@ public class EditarUsuario extends AppCompatActivity {
                             //   fundo.setVisibility(View.VISIBLE);
                                 criando.setVisibility(View.VISIBLE);
 
-                                inicializarElementos();
+                               // inicializarElementos();
+                              //  cadastrarUsuario();
 
-                                cadastrarUsuario();
-
-
+                                    abrirAreaUsuario();
 
 
                             }else{
@@ -514,8 +466,11 @@ public class EditarUsuario extends AppCompatActivity {
 
 
 
-                                inicializarElementos();
-                                cadastrarUsuario();
+                                  inicializarElementos();
+                                  editarUsuario();
+                                  abrirAreaUsuario();
+
+
 
 
 
@@ -525,7 +480,7 @@ public class EditarUsuario extends AppCompatActivity {
                                 Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
                                 email.requestFocus();
                                 progressBar.setVisibility(View.GONE);
-                              //  fundo.setVisibility(View.GONE);
+                              //fundo.setVisibility(View.GONE);
                                 criando.setVisibility(View.GONE);
 
 
@@ -554,19 +509,12 @@ public class EditarUsuario extends AppCompatActivity {
 
                     }
 
-
-
-
                 }
-
-
-
-
-
 
             }
 
         });
+
 
 
     }
@@ -592,13 +540,10 @@ public class EditarUsuario extends AppCompatActivity {
         startActivity(intent);
         finish();
 
-
     }
 
 
-
     private void inicializarElementos(){
-
 
         usuarios = new Usuarios();
         usuarios.setNome(nome.getText().toString());
@@ -624,190 +569,175 @@ public class EditarUsuario extends AppCompatActivity {
     }
 
 
-    private void cadastrarUsuario(){
+    private void editarUsuario() {
 
 
-
-        if(fotoPerfilUri!=null) {
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
-            UsuarioDAO.getInstancia().subirFotoUri(fotoPerfilUri, new UsuarioDAO.IDevolverUrlFoto() {
-                @Override
-                public void devolerUrlString(String url) {
-
-                    usuarios.setFotoPerfilURL(url);
+        if (user != null) {
 
 
-                    // recupera autenticão do usuario local
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String email = user.getEmail();
 
-                    if (user != null) {
-
-
-
-                        String email = user.getEmail();
-
-                        // converte o email pra base 64
-                        String identificadorUsuario = Base64Custom.codificarBase64(email);
+            // converte o email pra base 64
+            final String identificadorUsuario = Base64Custom.codificarBase64(email);
 
 
+            if (fotoPerfilUri != null) {
+
+                progressBar.setVisibility(View.VISIBLE);
+                criando.setVisibility(View.VISIBLE);
 
 
-                        if(militarValidado==1){
+                final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagemPerfil");
+                UploadTask uploadTask = ref.putFile(fotoPerfilUri);
 
 
-                            // o erro esta aq ... quando ele tenta gravar em duas tabelas
-
-                            // tirar o if e deixar gravar apenas na tabela usuario
-
-
-                            // EDITA usuario na tabela Usuarios
-                            firebaseMilitar = Configuracao_Firebase.getFirebase().child("Usuarios");
-                            firebaseMilitar.child(identificadorUsuario).setValue(usuarios);
-
-
-                            // EDITA usuario militar
-                            firebase = Configuracao_Firebase.getFirebase().child("Militares");
-                            firebase.child(identificadorUsuario).setValue(usuarios);
-
-
-
-                            abrirAreaUsuario();
-
-
-                        }else{
-
-
-                            // EDITA usuario na tabela Usuarios
-                            firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-                            firebase.child(identificadorUsuario).setValue(usuarios);
-
-                            abrirAreaUsuario();
-
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
                         }
 
-                        Toast.makeText(EditarUsuario.this, "Seu Perfil foi Alterado!", Toast.LENGTH_LONG).show();
-
-                        // retorna a tela usuario
-
-
-
+                        return ref.getDownloadUrl();
                     }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
 
 
+                            Uri downloadUri = task.getResult();
 
-                }
-
-            });
-
+                            if (militarValidado == 1) {
 
 
-
-        }else{
-
+                                usuarios.setFotoPerfilURL(downloadUri.toString());
 
 
+                                usuarios.setFotoPerfilURL(downloadUri.toString());
+
+                                // EDITA a bike usuario
+                                firebase = Configuracao_Firebase.getFirebase().child("Militares");
+                                firebase.child(identificadorUsuario).setValue(usuarios);
 
 
-            UsuarioDAO.getInstancia().subirFotoUri(fotoPerfilUri, new UsuarioDAO.IDevolverUrlFoto() {
-                @Override
-                public void devolerUrlString(String url) {
-
-                    usuarios.setFotoPerfilURL(Constantes.URL_FOTO_POR_DEFECTO_USUARIOS);
+                                // EDITA a bike usuario
+                                firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                                firebase.child(identificadorUsuario).setValue(usuarios);
 
 
-
-                    // recupera autenticão do usuario local
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                    if (user != null) {
+                            } else {
 
 
+                                usuarios.setFotoPerfilURL(downloadUri.toString());
 
-                        String email = user.getEmail();
-
-                        // converte o email pra base 64
-                        String identificadorUsuario = Base64Custom.codificarBase64(email);
-
-
+                                // EDITA a bike usuario
+                                firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                                firebase.child(identificadorUsuario).setValue(usuarios);
 
 
-                        if(militarValidado==1){
-
-
-                            // o erro esta aq ... quando ele tenta gravar em duas tabelas
-
-                            // tirar o if e deixar gravar apenas na tabela usuario
-
-
-                            // EDITA usuario na tabela Usuarios
-                            firebaseMilitar = Configuracao_Firebase.getFirebase().child("Usuarios");
-                            firebaseMilitar.child(identificadorUsuario).setValue(usuarios);
-
-
-                            // EDITA usuario militar
-                            firebase = Configuracao_Firebase.getFirebase().child("Militares");
-                            firebase.child(identificadorUsuario).setValue(usuarios);
-
-
-                            abrirAreaUsuario();
-
-                        }else{
-
-
-                            // EDITA usuario na tabela Usuarios
-                            firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-                            firebase.child(identificadorUsuario).setValue(usuarios);
-
-
+                            }
 
                             abrirAreaUsuario();
                         }
-
-                        Toast.makeText(EditarUsuario.this, "Seu Perfil foi Alterado!", Toast.LENGTH_LONG).show();
-
-                        // retorna a tela usuario
 
                         abrirAreaUsuario();
                     }
+                }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+
+                        Toast.makeText(EditarUsuario.this, "Seu perfil foi alterado!", Toast.LENGTH_LONG).show();
+
+                         EditarUsuario.super.finish();
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(EditarUsuario.this, "Falha na conexão!", Toast.LENGTH_LONG).show();
+                        progressBar.setVisibility(View.GONE);
+                        criando.setVisibility(View.GONE);
+
+                    }
+                });
+
+            }else{
+
+
+                usuarios.setFotoPerfilURL("");
+
+
+                if (militarValidado == 1) {
+
+                    // EDITA a bike usuario
+                    firebase = Configuracao_Firebase.getFirebase().child("Militares");
+                    firebase.child(identificadorUsuario).setValue(usuarios);
+
+
+                    // EDITA a bike usuario
+                    firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                    firebase.child(identificadorUsuario).setValue(usuarios);
+
+                    EditarUsuario.super.finish();
+
+
+                }else{
+
+                    // EDITA a bike usuario
+                    firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                    firebase.child(identificadorUsuario).setValue(usuarios);
+                    EditarUsuario.super.finish();
+
+
 
                 }
 
-            });
+
+                EditarUsuario.super.finish();
+            }
 
 
 
 
         }
-
-
         }
 
 
 
-    private String getExtension(Uri uri){
-
-        ContentResolver cr = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cr.getType(uri));
-
-
-    }
 
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == Picker.PICK_IMAGE_DEVICE && resultCode == RESULT_OK){
-            imagePicker.submit(data);
-        }else if(requestCode == Picker.PICK_IMAGE_CAMERA && resultCode == RESULT_OK){
-            cameraPicker.reinitialize(pickerPath);
-            cameraPicker.submit(data);
-        }
 
-    }
+
+
+     private String getExtension(Uri uri){
+
+         ContentResolver contentResolver = getContentResolver();
+         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+     }
+
+     @Override
+     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+         super.onActivityResult(requestCode, resultCode, data);
+
+
+         if(requestCode == 1 && resultCode == RESULT_OK && data!=null && data.getData()!=null) {
+
+             fotoPerfilUri = data.getData();
+             fotoPerfil.setImageURI(fotoPerfilUri);
+
+
+         }
+         }
+
 
 
 

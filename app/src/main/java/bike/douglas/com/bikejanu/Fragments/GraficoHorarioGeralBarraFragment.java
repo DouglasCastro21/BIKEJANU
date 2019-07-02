@@ -922,7 +922,7 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
                     listBikes.add(b);
 
 
-                    procuraAno = b.getAlertaDate();
+                    procuraAno    =    b.getAlertaDate();
                     procuraBairro = b.getAlertaBairro();
 
 
@@ -2222,7 +2222,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-
                             if (position == 0) {
 
                                 /////todos os anos e bairros
@@ -2230,7 +2229,6 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
 
                                 spinnerCorrente = 0;
-
                                 centroTodosAnos();
 
 
@@ -3316,10 +3314,9 @@ public class GraficoHorarioGeralBarraFragment extends Fragment {
 
                                 if (autoCompletegraficoRuaBarra.getText().toString().equals("Zona Rural")) {
 
-
                                     zonaRural2019();
-                                }
 
+                                }
 
                             }
 

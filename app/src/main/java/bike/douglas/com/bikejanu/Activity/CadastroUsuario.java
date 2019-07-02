@@ -311,6 +311,14 @@ public class CadastroUsuario extends AppCompatActivity {
                 TextView validarMilitarText = (TextView) findViewById(R.id.recebeValidadorMilitarID);
                 validarMilitarText.setText(validarMilitar);
 
+
+
+                String telefone = params.getString("mobile");
+                TextView telefoneText = (TextView) findViewById(R.id.telefoneeID);
+                telefoneText.setText(telefone);
+
+
+
                 if (validarMilitarText.getText().toString().equals("true")) {
 
                     militarValidado = 1;
@@ -370,7 +378,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
     private void mascaras() {
 
-        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)NNNNNNNNN");
+        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)N-NNNNNNNN");
         MaskTextWatcher maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
         telefone.addTextChangedListener(maskTelefone);
 

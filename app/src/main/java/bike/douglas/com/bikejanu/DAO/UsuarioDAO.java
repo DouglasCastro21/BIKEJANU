@@ -30,6 +30,8 @@ import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.Utilidades.Constantes;
 import bike.douglas.com.bikejanu.Utilidades.LUsuario;
 
+import static bike.douglas.com.bikejanu.Activity.EditarUsuario.*;
+
 
 public class UsuarioDAO {
 
@@ -119,7 +121,6 @@ public class UsuarioDAO {
 
 
 
-
                     throw task.getException();
                 }
                 return fotoReferencia.getDownloadUrl();
@@ -131,6 +132,8 @@ public class UsuarioDAO {
                 if(task.isSuccessful()){
                     Uri uri = task.getResult();
                     iDevolverUrlFoto.devolerUrlString(uri.toString());
+
+
                 }
             }
         });

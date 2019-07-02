@@ -215,29 +215,6 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // rebece o dados do Bike Adapter por parametro
         Intent intent = getIntent();
 
@@ -700,8 +677,6 @@ public class EditarBike extends AppCompatActivity {
                                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                 startActivityForResult(intent,5);
 
-
-
                                 break;
                             case 1:
 
@@ -764,48 +739,6 @@ public class EditarBike extends AppCompatActivity {
 
     }
 
-
-
-
-
-
-    private void recuperarDadosUsuarioConectadoECadastra(){
-
-        // recupera autenticão do usuario local
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null) {
-
-
-            String email = user.getEmail();
-
-            // converte o email pra base 64
-            String identificadorUsuario= Base64Custom.codificarBase64(email);
-
-
-
-            // EDITA a bike no nó todas as bikes
-            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-            firebase.child(bike.getNumero_serie()).setValue(bike);
-
-
-            // Edita no nó usuario logado
-             firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-             firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
-            Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
-
-            // retorna a tela usuario
-
-
-            abrirAreaUsuario();
-
-        }
-
-
-
-    }
 
 
 
@@ -882,6 +815,7 @@ public class EditarBike extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
 
+                    Toast.makeText(EditarBike.this, "Falha na conexão!", Toast.LENGTH_LONG).show();
 
                     progressBar.setVisibility(View.GONE);
                     carregando.setVisibility(View.GONE);

@@ -15,6 +15,8 @@ import bike.douglas.com.bikejanu.Fragments.GraficoAnoBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoHorarioAnoFragment;
+import bike.douglas.com.bikejanu.Fragments.GraficoHorarioAnoGeralFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioGeralPizzaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioLinhaFragment;
@@ -108,8 +110,11 @@ public class Estatisticas extends AppCompatActivity
 
 
 
+
+
              myHorientacion = 10;
              resposta=1;
+
 
 
 }
@@ -154,6 +159,10 @@ public class Estatisticas extends AppCompatActivity
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         int idMenu = item.getItemId();
+
+
+
+
 
 
         if (idMenu == R.id.action_barras && resposta == 1) {
@@ -219,6 +228,8 @@ public class Estatisticas extends AppCompatActivity
 
 
 
+
+
        if (idMenu == R.id.action_barras && resposta == 4) {
 
            transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioBarraFragment()).commit();
@@ -242,7 +253,7 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-        if( resposta == 5  ){
+        if( resposta == 5 ){
 
 
 
@@ -265,11 +276,19 @@ public class Estatisticas extends AppCompatActivity
 
 
 
+        }
 
-         ///   item.setVisible(false);
 
+
+
+
+        if( resposta == 6  ){
+
+
+            transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioAnoFragment()).commit();
 
         }
+
 
 
 
@@ -290,11 +309,11 @@ public class Estatisticas extends AppCompatActivity
 
 
 
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         int  id = item.getItemId();
-
 
 
 
@@ -406,6 +425,7 @@ public class Estatisticas extends AppCompatActivity
 
 
 
+
              menu1 = menu2;
              MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
              visivelMapaCalor.setVisible(false);
@@ -432,9 +452,37 @@ public class Estatisticas extends AppCompatActivity
 
 
              myItemMap = 0;
+
              transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioBarraFragment()).commit();
              resposta=4;
 
+
+         } else if (id == R.id.nav_grafico_Horario_ano) {
+
+
+             menu1 = menu2;
+             MenuItem visivelMapaCalor = menu1.findItem(R.id.action_mapaCalor);
+             visivelMapaCalor.setVisible(false);
+
+
+             MenuItem visivel = menu1.findItem(R.id.action_mapaPontos);
+             visivel.setVisible(false);
+
+
+             MenuItem visivelGraficoBarras = menu1.findItem(R.id.action_barras);
+             visivelGraficoBarras.setVisible(false);
+
+
+             MenuItem visivelGraficoLinhas = menu1.findItem(R.id.action_linhas);
+             visivelGraficoLinhas.setVisible(false);
+
+             MenuItem visivelGraficoPizza = menu1.findItem(R.id.action_pizza);
+             visivelGraficoPizza.setVisible(false);
+
+
+             myItemMap = 0;
+             transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioAnoFragment()).commit();
+             resposta = 6;
 
          } else if(id == R.id.nav_dados_bikes){
 
@@ -523,7 +571,7 @@ public class Estatisticas extends AppCompatActivity
 
     @Override
     public void finish() {
-        myHorientacion =0;
+        myHorientacion = 0;
         super.finish();
     }
 

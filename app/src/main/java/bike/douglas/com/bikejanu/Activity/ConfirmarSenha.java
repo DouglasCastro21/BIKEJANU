@@ -81,15 +81,6 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
         imagemUsuario();
 
 
@@ -219,6 +210,7 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
 
+
                    }else
                    {
 
@@ -265,14 +257,10 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
             DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
-
-
             UsuarioReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     Usuarios dados = dataSnapshot.getValue(Usuarios.class);
-
-
 
 
                     Bundle params = new Bundle();
@@ -295,8 +283,6 @@ public class ConfirmarSenha extends AppCompatActivity {
                     intent.putExtras(params);
                     startActivity(intent);
 
-
-
                 }
 
                 @Override
@@ -304,12 +290,7 @@ public class ConfirmarSenha extends AppCompatActivity {
 
                 }
 
-
-
             });
-
-
-
 
     }
 

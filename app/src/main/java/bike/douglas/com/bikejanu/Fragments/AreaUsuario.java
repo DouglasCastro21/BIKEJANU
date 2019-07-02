@@ -481,8 +481,6 @@ private Usuarios usuarios;
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.area_usuario, menu);
 
-
-
       FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
 
@@ -934,17 +932,7 @@ if(validarUsuario  ==1){
                 startActivity(intent);
 
 
-
-
-
-
-
             }
-
-
-
-
-
 
 
 

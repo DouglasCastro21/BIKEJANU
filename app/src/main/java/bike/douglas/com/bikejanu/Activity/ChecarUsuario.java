@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import bike.douglas.com.bikejanu.R;
@@ -18,7 +19,7 @@ public class ChecarUsuario extends AppCompatActivity {
     private RadioButton radioButtonMilitar;
     private RadioButton radioButtonNaoMilitar;
     private Button  buttonConfirmarMilitar;
-
+    String telefone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,29 +27,43 @@ public class ChecarUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_checar_usuario);
 
 
+        radioGroupMilitar = (RadioGroup) findViewById(R.id.radioGroupConfirmarMilitarID);
+        radioButtonMilitar = (RadioButton) findViewById(R.id.radioButtonMilitarID);
+        radioButtonNaoMilitar = (RadioButton) findViewById(R.id.radioButtoNaoMilitarID);
 
-        radioGroupMilitar = (RadioGroup)findViewById(R.id.radioGroupConfirmarMilitarID);
-        radioButtonMilitar = (RadioButton)findViewById(R.id.radioButtonMilitarID);
-        radioButtonNaoMilitar = (RadioButton)findViewById(R.id.radioButtoNaoMilitarID);
-
-        buttonConfirmarMilitar = (Button)findViewById(R.id.buttonConfirmarMilitarID);
-
+        buttonConfirmarMilitar = (Button) findViewById(R.id.buttonConfirmarMilitarID);
 
 
+        Intent intent = getIntent();
+
+        if (intent != null) {
+            Bundle params = intent.getExtras();
+
+            if (params != null) {
 
 
 
+                 telefone = params.getString("mobile");
+
+
+
+            }
+        }
 
 
         buttonConfirmarMilitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (radioButtonMilitar.isChecked()){
+                if (radioButtonMilitar.isChecked()) {
 
                     radioButtonMilitar.toggle();
+                    Bundle params = new Bundle();
+                    Intent intent = new Intent(ChecarUsuario.this, SouMilitar.class);
 
-                    startActivity(new Intent(ChecarUsuario.this,SouMilitar.class));
+                    params.putString("mobile",  telefone);
+                    intent.putExtras(params);
+                    startActivity(intent);
 
 
 
@@ -56,27 +71,37 @@ public class ChecarUsuario extends AppCompatActivity {
                 }
 
 
-
-                if (radioButtonNaoMilitar.isChecked()){
+                if (radioButtonNaoMilitar.isChecked()) {
 
                     radioButtonNaoMilitar.toggle();
 
+                    Bundle params = new Bundle();
+                    Intent intent = new Intent(ChecarUsuario.this, CadastroUsuario.class);
 
-                    startActivity(new Intent(ChecarUsuario.this,CadastroUsuario.class));
-
+                    params.putString("mobile",  telefone);
+                    intent.putExtras(params);
+                    startActivity(intent);
 
 
                 }
-
 
 
             }
         });
-
     }
 
 
 
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
