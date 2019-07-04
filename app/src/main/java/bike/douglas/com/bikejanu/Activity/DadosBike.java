@@ -1,6 +1,8 @@
 package bike.douglas.com.bikejanu.Activity;
 
+import android.app.Fragment;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DadosBike extends AppCompatActivity  {
     String Numero_serie;
+    String dadosImagem1;
 
     DatabaseReference databaseReferenceBike = FirebaseDatabase.getInstance().getReference();
    private CircleImageView imageViewAbrirImagens;
@@ -194,12 +197,12 @@ public class DadosBike extends AppCompatActivity  {
 
 // dadosda IMAGEM 1
 
-                String dadosImagem1 = params.getString("dadosImagem1");
+                dadosImagem1 = params.getString("dadosImagem1");
                 //TextView dadosImagem1Text = (TextView) findViewById(R.id.dadosBoletimID);
                // dadosImagem1Text.setText(dadosImagem1);
 
 
-                Bike bike = new Bike();
+
                 Glide.with(DadosBike.this).load(dadosImagem1).into(imageViewAbrirImagens);
 
 
@@ -336,6 +339,7 @@ public class DadosBike extends AppCompatActivity  {
 
                 Numero_serie = params.getString("Numero_serie");
 
+
             }
 
         }
@@ -348,16 +352,36 @@ public class DadosBike extends AppCompatActivity  {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if(dataSnapshot.exists()) {
+                if (getCallingActivity() == null) {
+                    return;
+                }
 
-                   Bike dados = dataSnapshot.getValue(Bike.class);
 
 
-                    Glide.with(DadosBike.this).load(dados.getFotoBikeUrl1()).into(imageViewAbrirImagens);
+                    if (dataSnapshot.exists()) {
 
+                        Bike dados = dataSnapshot.getValue(Bike.class);
+
+
+
+                        if (dados.getFotoBikeUrl1().equals("")) {
+
+                              Glide.with(DadosBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imageViewAbrirImagens);
+
+
+                        } else {
+
+
+                              Glide.with(DadosBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imageViewAbrirImagens);
+
+
+                        }
+
+                    }
 
                 }
-            }
+
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -370,4 +394,6 @@ public class DadosBike extends AppCompatActivity  {
 
 
     }
-    }
+
+
+}

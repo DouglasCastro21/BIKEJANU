@@ -107,7 +107,7 @@ public class EditarBike extends AppCompatActivity {
     private TextView carregando;
 
     private StorageReference  storageReference;
-    private String marcasBike[] = new String[] {"CALOY","MONARK","MALAGRA","GALO","EXTREME","HOUSTON","OUTRA"};
+    private String marcasBike[] = new  String[] {"BIANCHI","COLNAGO","CALOY","DROPP ","GARELLI","GALO","HOUSTON","KSW","GÖRICKE","MONARK","MALAGA","ORBEA","ÓRBITA","SIRLA","SOUTH","SUTTON","OUTRA"};
     private Spinner spinner;
 
 
@@ -357,7 +357,7 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-                if(dadosImagem1.equals("")){
+                if(dadosImagem1.equals("") || dadosImagem1 == null ){
 
 
                     Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem1);
@@ -382,7 +382,7 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-                if(dadosImagem2.equals("")){
+                if(dadosImagem2.equals("") ||dadosImagem2 == null ){
 
 
                     Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem2);
@@ -408,7 +408,7 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-                if(dadosImagem3.equals("")){
+                if(dadosImagem3 .equals("")  ||dadosImagem3 == null ){
 
 
                     Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem3);
@@ -431,11 +431,10 @@ public class EditarBike extends AppCompatActivity {
                 // dadosImagem1Text.setText(dadosImagem1);
 
 
-                if(dadosImagem4.equals("")){
+                if(dadosImagem4.equals("")  ||dadosImagem4 == null ){
 
 
                     Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem4);
-
 
 
 
@@ -459,7 +458,7 @@ public class EditarBike extends AppCompatActivity {
                // Picasso.get (). load ( fotosBikes.get(position).getFotoBikeUrl1()).into(imagem5);
 
 
-                if(dadosImagem5.equals("")){
+                if(dadosImagem5.equals("")  ||dadosImagem5 == null ){
 
 
                     Glide.with(EditarBike.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181").into(imagem5);
@@ -489,39 +488,11 @@ public class EditarBike extends AppCompatActivity {
         imagem1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(EditarBike.this);
-                dialog.setTitle("Foto da Bike");
 
 
-                String[] items = {"Galeria","Câmera"};
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent, 1);
 
-                dialog.setItems(items, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i){
-                            case 0:
-
-                                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                                startActivityForResult(intent,1);
-
-
-
-
-                                break;
-                            case 1:
-
-                                Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                startActivityForResult(intent2,6);
-
-
-
-                                break;
-                        }
-                    }
-                });
-
-                AlertDialog dialogConstruido = dialog.create();
-                dialogConstruido.show();
 
             }
         });
@@ -530,46 +501,14 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-
-        /////
-
-
-
-
         imagem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(EditarBike.this);
-                dialog.setTitle("Foto da Bike");
 
-                String[] items = {"Galeria","Camara"};
-
-                dialog.setItems(items, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i){
-                            case 0:
 
                                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                 startActivityForResult(intent,2);
 
-
-
-                                break;
-                            case 1:
-
-
-                                Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                startActivityForResult(intent2,7);
-
-
-                                break;
-                        }
-                    }
-                });
-
-                AlertDialog dialogConstruido = dialog.create();
-                dialogConstruido.show();
 
             }
         });
@@ -582,35 +521,10 @@ public class EditarBike extends AppCompatActivity {
         imagem3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(EditarBike.this);
-                dialog.setTitle("Foto da Bike");
-
-                String[] items = {"Galeria","Camara"};
-
-                dialog.setItems(items, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i){
-                            case 0:
 
                                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                 startActivityForResult(intent,3);
 
-
-
-
-                                break;
-                            case 1:
-                                Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                startActivityForResult(intent2,8);
-
-                                break;
-                        }
-                    }
-                });
-
-                AlertDialog dialogConstruido = dialog.create();
-                dialogConstruido.show();
 
             }
         });
@@ -624,32 +538,11 @@ public class EditarBike extends AppCompatActivity {
         imagem4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(EditarBike.this);
-                dialog.setTitle("Foto da Bike");
 
-                String[] items = {"Galeria","Camara"};
 
-                dialog.setItems(items, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i){
-                            case 0:
                                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                 startActivityForResult(intent,4);
 
-
-                                break;
-                            case 1:
-                                Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                startActivityForResult(intent2,9);
-
-                                break;
-                        }
-                    }
-                });
-
-                AlertDialog dialogConstruido = dialog.create();
-                dialogConstruido.show();
 
             }
         });
@@ -658,38 +551,14 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-
-
         imagem5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(EditarBike.this);
-                dialog.setTitle("Foto da Bike");
-
-                String[] items = {"Galeria","Camara"};
-
-                dialog.setItems(items, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i){
-                            case 0:
 
                                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                 startActivityForResult(intent,5);
 
-                                break;
-                            case 1:
 
-                                Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                startActivityForResult(intent2,10);
-
-                                break;
-                        }
-                    }
-                });
-
-                AlertDialog dialogConstruido = dialog.create();
-                dialogConstruido.show();
 
             }
         });
@@ -748,391 +617,515 @@ public class EditarBike extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-         if (user != null) {
+        if (user != null) {
 
 
-        String email = user.getEmail();
+            String email = user.getEmail();
 
-        // converte o email pra base 64
-        final String identificadorUsuario = Base64Custom.codificarBase64(email);
+            // converte o email pra base 64
+            final String identificadorUsuario = Base64Custom.codificarBase64(email);
 
-        if (uriImagem1 != null) {
-
-
+            if (uriImagem1 != null) {
 
 
-            progressBar.setVisibility(View.VISIBLE);
-            carregando.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+                carregando.setVisibility(View.VISIBLE);
 
-            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem1");
-            UploadTask uploadTask = ref.putFile(uriImagem1);
+                final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem1");
+                UploadTask uploadTask = ref.putFile(uriImagem1);
 
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+
+                        return ref.getDownloadUrl();
                     }
-
-                    return ref.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
 
 
-                        Uri downloadUri = task.getResult();
+                            Uri downloadUri = task.getResult();
 
-                        bike.setFotoBikeUrl1(downloadUri.toString());
+                            bike.setFotoBikeUrl1(downloadUri.toString());
 
-                        // EDITA a bike no nó todas as bikes
-                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-                        firebase.child(bike.getNumero_serie()).setValue(bike);
+                            // EDITA a bike no nó todas as bikes
+                            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                            firebase.child(bike.getNumero_serie()).setValue(bike);
 
-                        //edita no nó bikes
+                            //edita no nó bikes
 
-                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+                            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 
 
+                            progressBar.setVisibility(View.GONE);
+                            carregando.setVisibility(View.GONE);
+
+                        }
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
+                        abrirAreaUsuario();
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(EditarBike.this, "Falha na conexão!", Toast.LENGTH_LONG).show();
 
                         progressBar.setVisibility(View.GONE);
                         carregando.setVisibility(View.GONE);
 
                     }
-                }
-            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-
-                    Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
-                    abrirAreaUsuario();
+                });
 
 
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                    Toast.makeText(EditarBike.this, "Falha na conexão!", Toast.LENGTH_LONG).show();
-
-                    progressBar.setVisibility(View.GONE);
-                    carregando.setVisibility(View.GONE);
-
-                }
-            });
+            }
 
 
-        }else{
+
+            if (uriImagem2 != null) {
+
+
+                progressBar.setVisibility(View.VISIBLE);
+                carregando.setVisibility(View.VISIBLE);
+
+                final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem2");
+                UploadTask uploadTask = ref.putFile(uriImagem2);
+
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+
+                        return ref.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+
+
+                            Uri downloadUri = task.getResult();
+
+
+                            bike.setFotoBikeUrl2(downloadUri.toString());
+
+
+                            // EDITA a bike no nó todas as bikes
+                            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+                            //edita no nó bikes
+
+                            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+                            progressBar.setVisibility(View.GONE);
+                            carregando.setVisibility(View.GONE);
+
+
+                        }
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
+
+                        abrirAreaUsuario();
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        progressBar.setVisibility(View.GONE);
+                        carregando.setVisibility(View.GONE);
+
+                    }
+                });
+
+
+            }
+
+
+            if (uriImagem3 != null) {
+
+                progressBar.setVisibility(View.VISIBLE);
+                carregando.setVisibility(View.VISIBLE);
+
+                final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem3");
+                UploadTask uploadTask = ref.putFile(uriImagem3);
+
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+
+                        return ref.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+
+
+                            Uri downloadUri = task.getResult();
+
+
+                            bike.setFotoBikeUrl3(downloadUri.toString());
+
+
+                            // EDITA a bike no nó todas as bikes
+                            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+                            //edita no nó bikes
+
+                            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+                            progressBar.setVisibility(View.GONE);
+                            carregando.setVisibility(View.GONE);
+
+
+                        }
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+
+                        abrirAreaUsuario();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        progressBar.setVisibility(View.GONE);
+                        carregando.setVisibility(View.GONE);
+
+                    }
+                });
+
+            }
+
+
+            if (uriImagem4 != null) {
+
+                progressBar.setVisibility(View.VISIBLE);
+                carregando.setVisibility(View.VISIBLE);
+
+                final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem4");
+                UploadTask uploadTask = ref.putFile(uriImagem4);
+
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+
+                        return ref.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+
+
+                            Uri downloadUri = task.getResult();
+
+
+                            bike.setFotoBikeUrl4(downloadUri.toString());
+
+                            // EDITA a bike no nó todas as bikes
+                            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+                            //edita no nó bikes
+
+                            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+                            progressBar.setVisibility(View.GONE);
+                            carregando.setVisibility(View.GONE);
+
+
+                            abrirAreaUsuario();
+
+                        }
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        progressBar.setVisibility(View.GONE);
+                        carregando.setVisibility(View.GONE);
+
+                    }
+                });
+
+            }
+
+            if (uriImagem5 != null) {
+
+                progressBar.setVisibility(View.VISIBLE);
+                carregando.setVisibility(View.VISIBLE);
+
+                final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem5");
+                UploadTask uploadTask = ref.putFile(uriImagem5);
+
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+
+                        return ref.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+
+
+                            Uri downloadUri = task.getResult();
+
+                            bike.setFotoBikeUrl5(downloadUri.toString());
+
+                            // EDITA a bike no nó todas as bikes
+                            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+                            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+                            //edita no nó bikes
+
+                            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+                            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+                            progressBar.setVisibility(View.GONE);
+                            carregando.setVisibility(View.GONE);
+
+
+                        }
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+
+                        abrirAreaUsuario();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        progressBar.setVisibility(View.GONE);
+                        carregando.setVisibility(View.GONE);
+
+                    }
+                });
+
+
+            }
+
+
+
+        if(uriImagem1 == null){
 
 
 
             bike.setFotoBikeUrl1(dadosImagem1);
 
+          // EDITA a bike no nó todas as bikes
+             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+             firebase.child(bike.getNumero_serie()).setValue(bike);
 
-        }
+            //edita no nó bikes
 
-
-        if (uriImagem2 != null) {
-
-
-
-
-            progressBar.setVisibility(View.VISIBLE);
-            carregando.setVisibility(View.VISIBLE);
-
-            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem2");
-            UploadTask uploadTask = ref.putFile(uriImagem2);
-
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
-                    }
-
-                    return ref.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
+               firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+               firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
 
 
-                        Uri downloadUri = task.getResult();
+
+            abrirAreaUsuario();
+            Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
 
 
-                        bike.setFotoBikeUrl2(downloadUri.toString());
+
+         }
 
 
-                        // EDITA a bike no nó todas as bikes
-                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-                        firebase.child(bike.getNumero_serie()).setValue(bike);
-
-                        //edita no nó bikes
-
-                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
-
-                        progressBar.setVisibility(View.GONE);
-                        carregando.setVisibility(View.GONE);
-
-
-                    }
-                }
-            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-
-                    Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
-
-                    abrirAreaUsuario();
-
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                    progressBar.setVisibility(View.GONE);
-                    carregando.setVisibility(View.GONE);
-
-                }
-            });
-        }else{
-
+         if(uriImagem2 ==null){
 
 
             bike.setFotoBikeUrl2(dadosImagem2);
 
+            // EDITA a bike no nó todas as bikes
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+            //edita no nó bikes
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            abrirAreaUsuario();
+            Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
+
+
 
         }
 
 
-        if (uriImagem3 != null) {
-
-            progressBar.setVisibility(View.VISIBLE);
-            carregando.setVisibility(View.VISIBLE);
-
-            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem3");
-            UploadTask uploadTask = ref.putFile(uriImagem3);
-
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
-                    }
-
-                    return ref.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
-
-
-                        Uri downloadUri = task.getResult();
-
-
-                        bike.setFotoBikeUrl3(downloadUri.toString());
-
-
-                        // EDITA a bike no nó todas as bikes
-                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-                        firebase.child(bike.getNumero_serie()).setValue(bike);
-
-                        //edita no nó bikes
-
-                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
-
-                        progressBar.setVisibility(View.GONE);
-                        carregando.setVisibility(View.GONE);
-
-
-                    }
-                }
-            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-
-
-                    abrirAreaUsuario();
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                    progressBar.setVisibility(View.GONE);
-                    carregando.setVisibility(View.GONE);
-
-                }
-            });
-        }else{
-
-
+        if(uriImagem3 ==null){
 
             bike.setFotoBikeUrl3(dadosImagem3);
 
+            // EDITA a bike no nó todas as bikes
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+            //edita no nó bikes
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            abrirAreaUsuario();
+            Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
+
+
 
         }
 
 
-        if (uriImagem4 != null) {
 
-            progressBar.setVisibility(View.VISIBLE);
-            carregando.setVisibility(View.VISIBLE);
+        if(uriImagem4 ==null){
 
-            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem4");
-            UploadTask uploadTask = ref.putFile(uriImagem4);
-
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
-                    }
-
-                    return ref.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
-
-
-                        Uri downloadUri = task.getResult();
-
-
-                        bike.setFotoBikeUrl4(downloadUri.toString());
-
-                        // EDITA a bike no nó todas as bikes
-                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-                        firebase.child(bike.getNumero_serie()).setValue(bike);
-
-                        //edita no nó bikes
-
-                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
-
-                        progressBar.setVisibility(View.GONE);
-                        carregando.setVisibility(View.GONE);
-
-
-                    }
-                }
-            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-
-
-
-                    abrirAreaUsuario();
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                    progressBar.setVisibility(View.GONE);
-                    carregando.setVisibility(View.GONE);
-
-                }
-            });
-        }else{
 
 
 
             bike.setFotoBikeUrl4(dadosImagem4);
 
+            // EDITA a bike no nó todas as bikes
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+            //edita no nó bikes
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            abrirAreaUsuario();
+            Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
+
+
 
         }
 
 
-        if (uriImagem5 != null) {
 
-            progressBar.setVisibility(View.VISIBLE);
-            carregando.setVisibility(View.VISIBLE);
-
-            final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagem5");
-            UploadTask uploadTask = ref.putFile(uriImagem5);
-
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
-                    }
-
-                    return ref.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
-
-
-                        Uri downloadUri = task.getResult();
-
-                        bike.setFotoBikeUrl5(downloadUri.toString());
-
-                        // EDITA a bike no nó todas as bikes
-                        firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-                        firebase.child(bike.getNumero_serie()).setValue(bike);
-
-                        //edita no nó bikes
-
-                        firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-                        firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
-
-                        progressBar.setVisibility(View.GONE);
-                        carregando.setVisibility(View.GONE);
-
-
-                    }
-                }
-            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-
-
-                    abrirAreaUsuario();
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                    progressBar.setVisibility(View.GONE);
-                    carregando.setVisibility(View.GONE);
-
-                }
-            });
-        }else{
-
+        if(uriImagem5 == null){
 
 
             bike.setFotoBikeUrl5(dadosImagem5);
 
+            // EDITA a bike no nó todas as bikes
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+            //edita no nó bikes
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            abrirAreaUsuario();
+            Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
+
 
         }
 
 
 
-    }
+        if(uriImagem1 ==null  && uriImagem2 ==null  &&  uriImagem3 ==null &&  uriImagem4 ==null  && uriImagem5 ==null){
+
+
+
+
+            bike.setFotoBikeUrl1(dadosImagem1);
+            bike.setFotoBikeUrl2(dadosImagem2);
+            bike.setFotoBikeUrl3(dadosImagem3);
+            bike.setFotoBikeUrl4(dadosImagem4);
+            bike.setFotoBikeUrl5(dadosImagem5);
+
+            // EDITA a bike no nó todas as bikes
+            firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
+            firebase.child(bike.getNumero_serie()).setValue(bike);
+
+            //edita no nó bikes
+
+            firebase = Configuracao_Firebase.getFirebase().child("Bikes");
+            firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
+
+
+
+            abrirAreaUsuario();
+            Toast.makeText(EditarBike.this, "Sua bike foi Alterada!", Toast.LENGTH_LONG).show();
+
+
+
+        }
+
+
+
+
+
+
+
+
+        }
 
 
     }
-
-
-
 
 
 
@@ -1145,7 +1138,6 @@ public class EditarBike extends AppCompatActivity {
         int posicao = spinner.getSelectedItemPosition();
 
     }
-
 
 
     private String getExtension(Uri uri){
@@ -1210,26 +1202,6 @@ public class EditarBike extends AppCompatActivity {
 
         }
 
-
-
-
-        if(requestCode == 6 && data !=null){
-
-
-            Bundle bundle = data.getExtras ();
-
-            if(bundle != null){
-
-                uriImagem1=data.getData();
-                Bitmap img = (Bitmap)  bundle.get("data");
-                imagem1.setImageBitmap(img);
-
-            }
-
-
-
-
-        }
 
     }
 

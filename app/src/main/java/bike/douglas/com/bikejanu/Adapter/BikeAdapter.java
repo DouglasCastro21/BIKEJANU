@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -66,6 +67,11 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
+
+
+
+
+
     public Context context;
     public List<Bike> listabikes = new ArrayList<Bike>();
 
@@ -89,10 +95,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
         this.listabikes = objects;
 
     }
-
-
-
-
 
 
 
@@ -138,6 +140,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
+        FirebaseApp.initializeApp(super.getContext());
 
 
 

@@ -58,6 +58,14 @@ public class Tab1Codigo extends Fragment {
         View rootView = inflater.inflate(R.layout.tab1codigo, container, false);
 
 
+
+        
+        FirebaseApp.initializeApp(super.getContext());
+
+
+
+
+
          editPalavra = (EditText)  rootView.findViewById(R.id.pesquisaCodigoID);
          listPesquisa = (ListView) rootView.findViewById(R.id.listabikeCodigoID);
          naoNumeroSerie = (TextView) rootView.findViewById(R.id.naoNumeroSerieID);
@@ -77,6 +85,7 @@ public class Tab1Codigo extends Fragment {
 
 
     private void inicializarFirebase() {
+
 
         FirebaseApp.initializeApp(Tab1Codigo.super.getContext());
         firebaseDatabase = FirebaseDatabase.getInstance();

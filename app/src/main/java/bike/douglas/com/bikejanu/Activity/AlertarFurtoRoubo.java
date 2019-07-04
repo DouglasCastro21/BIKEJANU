@@ -88,16 +88,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-
-
     // ate aq
-
-
-
-
-
-
-
 
 
     private EditText alertaNumero;
@@ -837,6 +828,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 txtDataHora2.setVisibility(View.GONE);
                 txtBoletim2.setVisibility(View.GONE);
 
+
+
             }
         });
 
@@ -909,6 +902,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
+                // sai do topic userABC  E numero de serie
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
+
+
+
             }
         });
 
@@ -975,6 +974,12 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                 alertaDate.setText(data_completa);
                 alertaHora.setText(hora_atual);
+
+
+
+                // sai do topic userABC  E numero de serie
+
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
 
 
 
@@ -1274,6 +1279,13 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
+        // sai do topic userABC  E numero de serie
+
+        FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
+
+
+
+
         AlertDialog.Builder alertaDialog = new AlertDialog.Builder(AlertarFurtoRoubo.this);
 
         // configurando dialogo
@@ -1293,10 +1305,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-
-
-
-                FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
 
                   //  incluirUsuarioEmTopico();
 
@@ -1506,7 +1514,6 @@ public void incluirUsuarioEmTopico(){
 
            sendNotificationRecuperada(notification);
 
-
        }
 
    }
@@ -1572,6 +1579,7 @@ public void incluirUsuarioEmTopico(){
         public <T> void addToRequestQueue(Request<T> req) {
             getRequestQueue().add(req);
         }
+
     }
 
 

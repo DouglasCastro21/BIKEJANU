@@ -131,7 +131,7 @@ int d = 0;
     private DatabaseReference firebase;
     private DatabaseReference firebaseMilitar;
 
-
+     String fotoUsuario;
 
 
 
@@ -168,16 +168,18 @@ int d = 0;
 
                 Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
-                if(dados.getFotoPerfilURL().equals("")){
+                CircleImageView imagemPerfil   = (CircleImageView) findViewById(R.id.imagemPerfilID01);
 
-                    CircleImageView imagemPerfil   = (CircleImageView) findViewById(R.id.imagemPerfilID01);
+                if(dados.getFotoPerfilURL() ==null){
+
+
 
                     Glide.with(EditarUsuario.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemPerfil);
 
 
                 }else{
 
-                    CircleImageView imagemPerfil   = (CircleImageView) findViewById(R.id.imagemPerfilID01);
+
 
                     Glide.with(EditarUsuario.this).load(dados.getFotoPerfilURL()).into(imagemPerfil);
 
@@ -346,6 +348,11 @@ int d = 0;
                 validarUsuarioText.setText(validarUsuario);
 
 
+                fotoUsuario = params.getString("fotoUsuario");
+
+
+
+
 
 
                 if (validarUsuarioText.getText().toString().equals("01")) {
@@ -378,13 +385,7 @@ int d = 0;
             @Override
             public void onClick(View v) {
 
-
-
-
-
                 if(militarValidado == 1){
-
-
 
                     if (!numeroPm.getText().toString().equals("") && !nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
                             !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
@@ -399,10 +400,10 @@ int d = 0;
                             //   fundo.setVisibility(View.VISIBLE);
                                 criando.setVisibility(View.VISIBLE);
 
-                               // inicializarElementos();
-                              //  cadastrarUsuario();
+                                inicializarElementos();
+                                editarUsuario();
 
-                                    abrirAreaUsuario();
+
 
 
                             }else{
@@ -468,7 +469,7 @@ int d = 0;
 
                                   inicializarElementos();
                                   editarUsuario();
-                                  abrirAreaUsuario();
+
 
 
 
@@ -538,7 +539,7 @@ int d = 0;
 
         Intent intent = new Intent(EditarUsuario.this ,AreaUsuario.class);
         startActivity(intent);
-        finish();
+
 
     }
 
@@ -576,7 +577,6 @@ int d = 0;
 
 
         if (user != null) {
-
 
             String email = user.getEmail();
 
@@ -617,8 +617,6 @@ int d = 0;
                                 usuarios.setFotoPerfilURL(downloadUri.toString());
 
 
-                                usuarios.setFotoPerfilURL(downloadUri.toString());
-
                                 // EDITA a bike usuario
                                 firebase = Configuracao_Firebase.getFirebase().child("Militares");
                                 firebase.child(identificadorUsuario).setValue(usuarios);
@@ -641,10 +639,10 @@ int d = 0;
 
                             }
 
-                            abrirAreaUsuario();
+
                         }
 
-                        abrirAreaUsuario();
+
                     }
                 }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
@@ -653,7 +651,7 @@ int d = 0;
 
                         Toast.makeText(EditarUsuario.this, "Seu perfil foi alterado!", Toast.LENGTH_LONG).show();
 
-                         EditarUsuario.super.finish();
+                        abrirAreaUsuario();
 
 
                     }
@@ -668,52 +666,60 @@ int d = 0;
                     }
                 });
 
-            }else{
-
-
-                usuarios.setFotoPerfilURL("");
-
-
-                if (militarValidado == 1) {
-
-                    // EDITA a bike usuario
-                    firebase = Configuracao_Firebase.getFirebase().child("Militares");
-                    firebase.child(identificadorUsuario).setValue(usuarios);
-
-
-                    // EDITA a bike usuario
-                    firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-                    firebase.child(identificadorUsuario).setValue(usuarios);
-
-                    EditarUsuario.super.finish();
-
-
-                }else{
-
-                    // EDITA a bike usuario
-                    firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-                    firebase.child(identificadorUsuario).setValue(usuarios);
-                    EditarUsuario.super.finish();
-
-
-
-                }
-
-
-                EditarUsuario.super.finish();
             }
 
 
 
 
+            if (fotoPerfilUri == null) {
+
+                progressBar.setVisibility(View.VISIBLE);
+                criando.setVisibility(View.VISIBLE);
+
+
+                            usuarios.setFotoPerfilURL(fotoUsuario);
+
+
+                                if (militarValidado == 1) {
+
+                                    // EDITA a bike usuario
+                                    firebase = Configuracao_Firebase.getFirebase().child("Militares");
+                                    firebase.child(identificadorUsuario).setValue(usuarios);
+
+
+                                    // EDITA a bike usuario
+                                    firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                                    firebase.child(identificadorUsuario).setValue(usuarios);
+
+
+                                }else{
+
+
+
+
+                                    // EDITA a bike usuario
+                                    firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                                    firebase.child(identificadorUsuario).setValue(usuarios);
+
+
+                                }
+
+
+                                   Toast.makeText(EditarUsuario.this, "Seu perfil foi alterado!", Toast.LENGTH_LONG).show();
+
+
+
+
+
+                                  progressBar.setVisibility(View.GONE);
+                                  criando.setVisibility(View.GONE);
+                                  abrirAreaUsuario();
+
+            }
+
+            }
+
         }
-        }
-
-
-
-
-
-
 
 
 

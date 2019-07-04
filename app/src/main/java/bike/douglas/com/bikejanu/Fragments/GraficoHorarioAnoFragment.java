@@ -2,6 +2,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -56,7 +57,6 @@ import bike.douglas.com.bikejanu.Activity.EditarBike;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
-
 
 public class GraficoHorarioAnoFragment extends Fragment {
 
@@ -187,6 +187,8 @@ public class GraficoHorarioAnoFragment extends Fragment {
 
 
 
+        //IMPEDIR DE GIRAR
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         inicializarFirebase();
         barChart =  (BarChart) rootView.findViewById(R.id.graficoBairroBarra);
@@ -213,7 +215,10 @@ public class GraficoHorarioAnoFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+
+
                 if(position==0) {
+
 
                     positionTodosAnos();
 

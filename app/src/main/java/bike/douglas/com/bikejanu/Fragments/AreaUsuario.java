@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -80,6 +81,7 @@ public static String paraOndeVou="0";
     private StorageReference storageReference;
 
     private ListView listViewDados;
+    private String urlDaImagemPerfil;
 
 
 
@@ -102,6 +104,12 @@ private Usuarios usuarios;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_usuario);
+
+
+
+//inicializar firebase
+
+        FirebaseApp.initializeApp(this);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
     //  firebaseDatabase.setPersistenceEnabled(true);
@@ -174,6 +182,10 @@ private Usuarios usuarios;
 
 
                   //  Toast.makeText(AreaUsuario.this, "Digito validador = "+dados.getDigitoValidador(), Toast.LENGTH_LONG).show();
+
+
+                    urlDaImagemPerfil = dados.getFotoPerfilURL();
+
 
 
                     if(dados.getDigitoValidador().equals("01")){
@@ -251,8 +263,6 @@ private Usuarios usuarios;
 
                                     Bike b = dados.getValue( Bike.class );
                                     listabikes.add( b );
-
-
 
                                 }
 
@@ -514,16 +524,19 @@ private Usuarios usuarios;
                         emailUsuarioLogadoText.setText(dados.getEmail());
 
 
+                        CircleImageView  fotoPerfil    = (CircleImageView) findViewById(R.id.imagemPerfilIID);
 
 
-                         CircleImageView  fotoPerfil    = (CircleImageView) findViewById(R.id.imagemPerfilIID);
+                        if(urlDaImagemPerfil == null){
 
-                         Glide.with(AreaUsuario.this).load(dados.getFotoPerfilURL()).into(fotoPerfil);
-
-
+                            Glide.with(AreaUsuario.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(fotoPerfil);
 
 
+                        }else{
 
+                            Glide.with(AreaUsuario.this).load(urlDaImagemPerfil).into(fotoPerfil);
+
+                        }
 
                     }
                 }

@@ -168,6 +168,11 @@ public class CadastroBike extends AppCompatActivity  {
     public LocalBikesMaps localBikesMaps;
 
     private int dia,mes,ano,hora,minuto;
+
+
+
+    private static  final int TIMER_RUNTINME = 100000;
+    private boolean mbActive;
     private ProgressBar progressBar;
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
@@ -176,7 +181,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-    private String marcasBike[] = new String[] {"CALOY","MONARK","MALAGRA","GALO","EXTREME","HOUSTON","OUTRA"};
+    private String marcasBike[] = new String[] {"BIANCHI","COLNAGO","CALOY","DROPP ","GARELLI","GALO","HOUSTON","KSW","GÖRICKE","MONARK","MALAGA","ORBEA","ÓRBITA","SIRLA","SOUTH","SUTTON","OUTRA"};
     private Spinner spinner;
 
     @SuppressLint("WrongViewCast")
@@ -600,17 +605,40 @@ public class CadastroBike extends AppCompatActivity  {
                 if(checkBox.isChecked()) {
 
 
-
                     if (!numero_serie.getText().toString().equals("")  &&
                             !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")&& !cadastroBairro.getText().toString().equals("")
                             && !cadastroRua.getText().toString().equals("")
                             && !alertaDate.getText().toString().equals("")&& !alertaHora.getText().toString().equals("")) {
 
 
-                        progressBar.setVisibility(View.VISIBLE);
+                        if(uriImagem1 != null ){
 
-                        inicializarElementos();
-                        recuperarDadosUsuarioConectadoECadastra();
+                          progressBar();
+
+                            progressBar.setVisibility(View.VISIBLE);
+
+                            inicializarElementos();
+
+
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                            if (user != null) {
+
+                                Upload();
+
+                            }
+
+
+
+
+                        }else{
+
+                            Toast.makeText(CadastroBike.this, "Adicione a primeira imagem da bicicleta", Toast.LENGTH_LONG).show();
+
+                        }
+
+
+
 
 
 
@@ -655,8 +683,35 @@ public class CadastroBike extends AppCompatActivity  {
                     if (!numero_serie.getText().toString().equals("")  &&
                             !modelo.getText().toString().equals("") && !cor.getText().toString().equals("")) {
 
-                        inicializarElementos();
-                        recuperarDadosUsuarioConectadoECadastra();
+
+
+
+                        if(uriImagem1 != null ){
+
+                          progressBar();
+
+                            progressBar.setVisibility(View.VISIBLE);
+
+                            inicializarElementos();
+
+
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                            if (user != null) {
+
+                                Upload();
+
+                            }
+
+
+
+
+                        }else{
+
+                            Toast.makeText(CadastroBike.this, "Adicione a primeira imagem da bicicleta", Toast.LENGTH_LONG).show();
+
+                        }
+
 
 
                     } else {
@@ -743,50 +798,7 @@ public class CadastroBike extends AppCompatActivity  {
 
         // recupera autenticão do usuario local
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user != null) {
-
-         //   String email = user.getEmail();
-
-            // converte o email pra base 64
-           // String identificadorUsuario= Base64Custom.codificarBase64(email);
-            Upload();
-
-        //    addImagem();
-
-
-
-            // cadastra a bike no nó todas as bikes
-
-
-            //firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
-         //   firebase.child(bike.getNumero_serie()).setValue(bike);
-
-
-
-              //  if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
-
-                    // cadastra a bikeROubada no Maps de roubos
-
-                  //  firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
-                  //  firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
-              //  }
-
-
-
-            // cadastra no nó usuario logado
-        //    firebase = Configuracao_Firebase.getFirebase().child("Bikes");
-          //  firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
-
-          //  Toast.makeText(CadastroBike.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
-
-           // retorna a tela usuario
-
-          // abrirAreaUsuario();
-
-        }
 
 
 
@@ -1038,39 +1050,11 @@ public class CadastroBike extends AppCompatActivity  {
         imagemBike1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
-                    dialog.setTitle("Foto de perfil");
 
 
-                    String[] items = {"Galeria","Camara"};
+                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent,1);
 
-                    dialog.setItems(items, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            switch (i){
-                                case 0:
-
-                                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                                    startActivityForResult(intent,1);
-
-
-
-
-                                    break;
-                                case 1:
-
-                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                    startActivityForResult(intent2,6);
-
-
-
-                                    break;
-                            }
-                        }
-                    });
-
-                    AlertDialog dialogConstruido = dialog.create();
-                    dialogConstruido.show();
 
                 }
             });
@@ -1088,37 +1072,12 @@ public class CadastroBike extends AppCompatActivity  {
                 imagemBike2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
-                    dialog.setTitle("Foto de perfil");
-
-                    String[] items = {"Galeria","Camara"};
-
-                    dialog.setItems(items, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            switch (i){
-                                case 0:
-
-                                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                                    startActivityForResult(intent,2);
 
 
-
-                                    break;
-                                case 1:
-
-
-                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                    startActivityForResult(intent2,7);
+                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent, 2);
 
 
-                                    break;
-                            }
-                        }
-                    });
-
-                    AlertDialog dialogConstruido = dialog.create();
-                    dialogConstruido.show();
 
                 }
             });
@@ -1131,74 +1090,23 @@ public class CadastroBike extends AppCompatActivity  {
                 imagemBike3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
-                    dialog.setTitle("Foto de perfil");
-
-                    String[] items = {"Galeria","Camara"};
-
-                    dialog.setItems(items, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            switch (i){
-                                case 0:
 
                                     Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                     startActivityForResult(intent,3);
 
 
-
-
-                                    break;
-                                case 1:
-                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                    startActivityForResult(intent2,8);
-
-                                    break;
-                            }
-                        }
-                    });
-
-                    AlertDialog dialogConstruido = dialog.create();
-                    dialogConstruido.show();
-
                 }
-            });
-
-
-                ///
-
+                  });
 
 
 
                 imagemBike4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
-                    dialog.setTitle("Foto de perfil");
-
-                    String[] items = {"Galeria","Camara"};
-
-                    dialog.setItems(items, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            switch (i){
-                                case 0:
-                                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                                    startActivityForResult(intent,4);
+                                     Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                     startActivityForResult(intent,4);
 
 
-                                    break;
-                                case 1:
-                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                    startActivityForResult(intent2,9);
-
-                                    break;
-                            }
-                        }
-                    });
-
-                    AlertDialog dialogConstruido = dialog.create();
-                    dialogConstruido.show();
 
                 }
             });
@@ -1212,35 +1120,10 @@ public class CadastroBike extends AppCompatActivity  {
                 imagemBike5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(CadastroBike.this);
-                    dialog.setTitle("Foto de perfil");
-
-                    String[] items = {"Galeria","Camara"};
-
-                    dialog.setItems(items, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            switch (i){
-                                case 0:
 
                                     Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                     startActivityForResult(intent,5);
 
-
-
-                                    break;
-                                case 1:
-
-                                    Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                    startActivityForResult(intent2,10);
-
-                                    break;
-                            }
-                        }
-                    });
-
-                    AlertDialog dialogConstruido = dialog.create();
-                    dialogConstruido.show();
 
                 }
             });
@@ -1285,8 +1168,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
                         Uri downloadUri = task.getResult();
-
-
                         bike.setFotoBikeUrl1(downloadUri.toString());
 
 
@@ -1297,7 +1178,6 @@ public class CadastroBike extends AppCompatActivity  {
 
                         firebase = Configuracao_Firebase.getFirebase().child("Bikes");
                         firebase.child(identificadorUsuario).child(bike.getNumero_serie()).setValue(bike);
-
 
 
                         if (radioButtonRoubada.isChecked() || radioButtonFurtada.isChecked()) {
@@ -1336,7 +1216,8 @@ public class CadastroBike extends AppCompatActivity  {
         }else{
 
 
-            bike.setFotoBikeUrl1("");
+
+            bike.setFotoBikeUrl1("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181");
 
 
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
@@ -1360,7 +1241,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
         }
-
 
 
 
@@ -1412,7 +1292,7 @@ public class CadastroBike extends AppCompatActivity  {
                         }
 
 
-
+                        abrirAreaUsuario();
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
 
@@ -1437,7 +1317,7 @@ public class CadastroBike extends AppCompatActivity  {
         }else{
 
 
-            bike.setFotoBikeUrl2("");
+            bike.setFotoBikeUrl2("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181");
 
 
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
@@ -1461,10 +1341,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
         }
-
-
-
-
 
 
 
@@ -1515,7 +1391,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-
+                        abrirAreaUsuario();
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
 
@@ -1539,7 +1415,7 @@ public class CadastroBike extends AppCompatActivity  {
         }else{
 
 
-            bike.setFotoBikeUrl3("");
+            bike.setFotoBikeUrl3("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181");
 
 
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
@@ -1571,6 +1447,8 @@ public class CadastroBike extends AppCompatActivity  {
 
 
         if (uriImagem4!=null) {
+
+
 
             progressBar.setVisibility(View.VISIBLE);
             carregandoBike.setVisibility(View.VISIBLE);
@@ -1615,11 +1493,9 @@ public class CadastroBike extends AppCompatActivity  {
                             firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
                         }
 
-
+                        abrirAreaUsuario();
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
-
-
 
 
 
@@ -1642,7 +1518,7 @@ public class CadastroBike extends AppCompatActivity  {
         }else{
 
 
-            bike.setFotoBikeUrl4("");
+            bike.setFotoBikeUrl4("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181");
 
 
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
@@ -1662,8 +1538,6 @@ public class CadastroBike extends AppCompatActivity  {
                 firebase = Configuracao_Firebase.getFirebase().child("LocalMaps");
                 firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
             }
-
-
 
         }
 
@@ -1719,7 +1593,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-
+                        abrirAreaUsuario();
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
 
@@ -1745,7 +1619,7 @@ public class CadastroBike extends AppCompatActivity  {
         }else{
 
 
-            bike.setFotoBikeUrl5("");
+            bike.setFotoBikeUrl5("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/camera.png?alt=media&token=9c8f88d1-6264-4c90-baf4-cacc6b06a181");
 
 
             firebase = Configuracao_Firebase.getFirebase().child("TodasBikes");
@@ -1774,6 +1648,76 @@ public class CadastroBike extends AppCompatActivity  {
 
 
     }
+
+
+
+    public void progressBar(){
+
+
+
+        final  Thread timerTheread = new Thread(){
+
+
+            @Override
+            public void  run(){
+
+                mbActive = true;
+                try {
+
+                    int waited = 0;
+
+                    while (mbActive && (waited < TIMER_RUNTINME)) {
+
+                        sleep(200);
+
+                        if (mbActive) {
+
+                            waited += 200;
+                            updateProgress(waited);
+
+                        }
+
+
+                    }
+
+                }catch (InterruptedException e){
+
+
+                }finally {
+
+
+                   // Toast.makeText(CadastroBike.this, "Tudo pronto", Toast.LENGTH_SHORT).show();
+
+
+
+                }
+
+            }
+
+
+        };
+        timerTheread.start();
+
+
+    }
+
+
+
+
+    public void updateProgress(final int timePassed){
+
+        if (null !=progressBar){
+
+            final int progress = progressBar.getMax() * timePassed /TIMER_RUNTINME;
+            progressBar.setProgress(progress);
+
+        }
+
+    }
+
+
+
+
 
 
 
@@ -1835,27 +1779,6 @@ public class CadastroBike extends AppCompatActivity  {
 
             uriImagem5=data.getData();
             imagemBike5.setImageURI(uriImagem5);
-
-
-
-        }
-
-
-
-
-            if(requestCode == 6 && data !=null){
-
-
-            Bundle bundle = data.getExtras ();
-
-            if(bundle != null){
-
-                uriImagem1=data.getData();
-                Bitmap img = (Bitmap)  bundle.get("data");
-                imagemBike1.setImageBitmap(img);
-
-            }
-
 
 
 

@@ -142,7 +142,6 @@
             android:name=".Activity.Estatisticas"
             android:label="@string/title_activity_estatisticas"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".Activity.EditarUsuario"
             android:screenOrientation="portrait" />
@@ -190,8 +189,11 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Fragments.VerifyPhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activity.EsqueciSenha"
             android:screenOrientation="portrait"
-                   />
+
+            ></activity>
     </application>
 
 </manifest>

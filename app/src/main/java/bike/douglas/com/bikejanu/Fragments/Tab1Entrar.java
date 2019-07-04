@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import bike.douglas.com.bikejanu.Activity.ConfirmarSenha;
 import bike.douglas.com.bikejanu.Activity.EditarUsuario;
+import bike.douglas.com.bikejanu.Activity.EsqueciSenha;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Model.Usuarios;
@@ -44,6 +45,8 @@ public class Tab1Entrar extends Fragment  {
     private ProgressBar progressBar;
     private TextView carregando;
     private TextView usarioInvado;
+    private TextView enviarEmailParaEsqueciSenha;
+
 
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
@@ -60,8 +63,7 @@ public class Tab1Entrar extends Fragment  {
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBarEntrarID);
         carregando  = (TextView)rootView.findViewById(R.id.carregandoID);
         usarioInvado = (TextView)rootView.findViewById(R.id.texUsuarioInvalidoID) ;
-
-
+        enviarEmailParaEsqueciSenha = (TextView)rootView.findViewById(R.id.enviarParaEsqueciSenhaID) ;
 
 
         Button btnLogar = (Button) rootView.findViewById(R.id.LogarID);
@@ -98,9 +100,44 @@ public class Tab1Entrar extends Fragment  {
 
         });
 
+
+
+
+
+
+        enviarEmailParaEsqueciSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle params = new Bundle();
+                params.putString("emailRedefinirSenha",edtEmail.getText().toString());
+
+                Intent intent = new Intent(Tab1Entrar.super.getContext(), EsqueciSenha.class);
+                intent.putExtras(params);
+                startActivity(intent);
+
+
+            }
+        });
+
+
+
+
+
+
+
         return rootView;
 
     }
+
+
+
+
+
+
+
+
+
 
 
     private void validarLogin(){
@@ -126,6 +163,7 @@ public class Tab1Entrar extends Fragment  {
 
                 //mensagem atençaõ ...
                 usarioInvado.setVisibility(View.VISIBLE);
+                enviarEmailParaEsqueciSenha.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 carregando.setVisibility(View.GONE);
             }

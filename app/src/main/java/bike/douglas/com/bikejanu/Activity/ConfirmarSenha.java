@@ -445,26 +445,29 @@ public void imagemUsuario(){
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
 
+
+            if (getCallingActivity() == null) {
+                return;
+            }
+
+
             if(dataSnapshot.exists()) {
 
                 Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
 
-if(dados.getFotoPerfilURL().equals("")){
-
-    Glide.with(ConfirmarSenha.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemUsuario);
+        if(dados.getFotoPerfilURL() == null){
 
 
-}else {
+            Glide.with(ConfirmarSenha.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemUsuario);
 
 
-    Glide.with(ConfirmarSenha.this).load(dados.getFotoPerfilURL()).into(imagemUsuario);
+        }else {
+
+
+             Glide.with(ConfirmarSenha.this).load(dados.getFotoPerfilURL()).into(imagemUsuario);
 
 }
-
-
-
-
 
 
 

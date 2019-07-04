@@ -196,9 +196,13 @@ public  class Tab2Data extends Fragment {
 
                 final Calendar calendar = Calendar.getInstance();
 
-                dia = calendar.get(Calendar.DAY_OF_MONTH);
+                dia = calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH);
                 mes = calendar.get(Calendar.MONTH);
                 ano = calendar.get(Calendar.YEAR);
+
+
+
+
 
 
                 final DatePickerDialog datePickerDialog = new  DatePickerDialog(Tab2Data.super.getContext(), new DatePickerDialog.OnDateSetListener() {
@@ -214,8 +218,12 @@ public  class Tab2Data extends Fragment {
                     }
                 }
 
-                        ,ano,mes,dia);
-                datePickerDialog.show();
+                        , ano,mes,dia);
+                    datePickerDialog.show();
+
+
+
+
 
             }
         });

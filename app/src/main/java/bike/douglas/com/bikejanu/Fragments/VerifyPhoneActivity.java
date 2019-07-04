@@ -147,6 +147,7 @@ public class VerifyPhoneActivity extends AppCompatActivity {
 
         if(!credential.equals("")){
 
+
             Bundle params = new Bundle();
             Intent intent = new Intent(VerifyPhoneActivity.this, ChecarUsuario.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

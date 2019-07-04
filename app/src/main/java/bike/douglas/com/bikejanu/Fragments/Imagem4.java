@@ -53,18 +53,25 @@ public class Imagem4 extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+
+                if (getActivity() == null) {
+                    return;
+                }
+
                 if(dataSnapshot !=null) {
 
                     Bike dados = dataSnapshot.getValue(Bike.class);
 
 
-
-                    Glide.with(Imagem4.this).load(dados.getFotoBikeUrl4()).into(imagemBike);
-
-
-                    if (dados.getFotoBikeUrl4().equals("")){
+                    if (dados.getFotoBikeUrl4().equals("")  || dados.getFotoBikeUrl4() == null){
 
                         Glide.with(Imagem4.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/nao_cadastrada.jpeg?alt=media&token=79bf19e5-7251-4343-bc8a-b172c2529fbe").into(imagemBike);
+
+
+                    }else{
+
+
+                        Glide.with(Imagem4.this).load(dados.getFotoBikeUrl4()).into(imagemBike);
 
 
                     }

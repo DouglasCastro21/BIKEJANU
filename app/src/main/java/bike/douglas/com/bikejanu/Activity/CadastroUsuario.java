@@ -94,7 +94,8 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-
+    private static  final int TIMER_RUNTINME = 100000;
+    private boolean mbActive;
     private ProgressBar progressBar;
     //private ImageView fundo;
     private TextView criando;
@@ -135,6 +136,12 @@ public class CadastroUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
+
+
+
+
+
+
 
 
         autenticacao = FirebaseAuth.getInstance();
@@ -192,6 +199,24 @@ public class CadastroUsuario extends AppCompatActivity {
         imagePicker = new ImagePicker(this);
         cameraPicker = new CameraImagePicker(this);
         cameraPicker.setCacheLocation(CacheLocation.EXTERNAL_STORAGE_APP_DIR);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -280,15 +305,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
         // rebece os dados  passada pela tela cadastro
         Intent intent = getIntent();
 
@@ -348,13 +364,14 @@ public class CadastroUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 progressBar.setVisibility(View.VISIBLE);
-              //  fundo.setVisibility(View.VISIBLE);
+              //fundo.setVisibility(View.VISIBLE);
                 criando.setVisibility(View.VISIBLE);
 
 
                 if (militarValidado == 1) {
 
                     opcaoMilitar();
+                    progressBar();
 
                 }else
 
@@ -362,6 +379,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
                     opcaoCidadao();
+                    progressBar();
                 }
 
 
@@ -423,20 +441,14 @@ public class CadastroUsuario extends AppCompatActivity {
         if(fotoPerfilUri!=null) {
 
 
-
-
             UsuarioDAO.getInstancia().subirFotoUri(fotoPerfilUri, new UsuarioDAO.IDevolverUrlFoto() {
                 @Override
                 public void devolerUrlString(String url) {
 
                     usuarios.setFotoPerfilURL(url);
-
-
-
                     autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
 
                     autenticacao.createUserWithEmailAndPassword(
-
                             usuarios.getEmail(),
                             usuarios.getSenha()
 
@@ -530,13 +542,7 @@ public class CadastroUsuario extends AppCompatActivity {
         }else{
 
 
-
-            UsuarioDAO.getInstancia().subirFotoUri(fotoPerfilUri, new UsuarioDAO.IDevolverUrlFoto() {
-                @Override
-                public void devolerUrlString(String url) {
-
                     usuarios.setFotoPerfilURL(Constantes.URL_FOTO_POR_DEFECTO_USUARIOS);
-
 
 
                     autenticacao = Configuracao_Firebase.getFirebaseAutenticacao();
@@ -582,10 +588,6 @@ public class CadastroUsuario extends AppCompatActivity {
                                 }
 
 
-
-
-
-
                                 Preferencias preferencias = new Preferencias(CadastroUsuario.this);
                                 preferencias.salvarUsuarioPreferencias(identificadorUsuario, usuarios.getNome());
 
@@ -598,6 +600,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
                             } else {
                                 progressBar.setVisibility(View.GONE);
+                                criando.setVisibility(View.GONE);
                                 String erroExcecao = "";
 
                                 try {
@@ -625,25 +628,6 @@ public class CadastroUsuario extends AppCompatActivity {
                             }
                         }
                     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-                }
-            });
-
-
-
-
 
         }
 
@@ -708,7 +692,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
                     inicializarElementos();
-
                     cadastrarUsuario();
 
 
@@ -749,6 +732,73 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 
 
+
+
+    public void progressBar(){
+
+
+
+        final  Thread timerTheread = new Thread(){
+
+
+            @Override
+            public void  run(){
+
+                mbActive = true;
+                try {
+
+                    int waited = 0;
+
+                    while (mbActive && (waited < TIMER_RUNTINME)) {
+
+                        sleep(200);
+
+                        if (mbActive) {
+
+                            waited += 200;
+                            updateProgress(waited);
+
+                        }
+
+
+                    }
+
+                }catch (InterruptedException e){
+
+
+                }finally {
+
+
+                    Toast.makeText(CadastroUsuario.this, "Tudo pronto", Toast.LENGTH_SHORT).show();
+
+
+
+                }
+
+            }
+
+
+        };
+        timerTheread.start();
+
+
+    }
+
+
+
+
+    public void updateProgress(final int timePassed){
+
+        if (null !=progressBar){
+
+            final int progress = progressBar.getMax() * timePassed /TIMER_RUNTINME;
+            progressBar.setProgress(progress);
+
+            }
+
+    }
+
+
     private void opcaoCidadao() {
 
 
@@ -762,7 +812,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
                     inicializarElementos();
-
                     cadastrarUsuario();
 
 

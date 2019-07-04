@@ -285,7 +285,11 @@ public class Estatisticas extends AppCompatActivity
         if( resposta == 6  ){
 
 
-            transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioAnoFragment()).commit();
+
+            transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioAnoFragment()).commit();
+
+
+
 
         }
 

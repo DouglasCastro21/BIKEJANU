@@ -51,7 +51,7 @@ public class Tab2Cadastrar extends Fragment {
 
 
 
-        mAuth = FirebaseAuth.getInstance();
+
 
 
 
