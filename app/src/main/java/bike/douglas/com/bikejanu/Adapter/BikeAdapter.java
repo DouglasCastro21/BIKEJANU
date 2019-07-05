@@ -498,8 +498,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
                                     params.putString("latitude",        bikeselecao.getLatitude() );
                                     params.putString("longitude",       bikeselecao.getLongitude());
-                                    params.putString("proprietario",      bikeselecao.getProprietario());
-                                    params.putString("proprietarioID",      bikeselecao.getProprietarioID());
+                                    params.putString("proprietario",    bikeselecao.getProprietario());
+                                    params.putString("proprietarioID",  bikeselecao.getProprietarioID());
 
 
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), EditarBike.class);

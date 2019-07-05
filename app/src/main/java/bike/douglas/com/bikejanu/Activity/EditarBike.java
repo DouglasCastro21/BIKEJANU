@@ -29,9 +29,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -41,6 +46,7 @@ import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
+import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
 public class EditarBike extends AppCompatActivity {
@@ -103,6 +109,9 @@ public class EditarBike extends AppCompatActivity {
     String statusBike;
 
 
+
+    private static  final int TIMER_RUNTINME = 300000;
+    private boolean mbActive;
     private ProgressBar progressBar;
     private TextView carregando;
 
@@ -112,6 +121,11 @@ public class EditarBike extends AppCompatActivity {
 
 
 
+    private FirebaseDatabase firebaseDatabase;
+    private static DatabaseReference databaseReference;
+
+    String nomeUsuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +133,16 @@ public class EditarBike extends AppCompatActivity {
 
 
         storageReference = FirebaseStorage.getInstance().getReference("ImagensBikes");
+
+        FirebaseApp.initializeApp(this);
+
+
+
+
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressBarEditarID) ;
@@ -163,8 +187,46 @@ public class EditarBike extends AppCompatActivity {
 
 
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
 
 
+            String email = user.getEmail();
+
+            // converte o email pra base 64
+            final String identificadorUsuario1 = Base64Custom.codificarBase64(email);
+
+
+            DatabaseReference reference = databaseReference.child("Usuarios").child(identificadorUsuario1);
+
+
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                    if (dataSnapshot.exists()) {
+
+                        Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+
+
+                        nomeUsuario = dados.getNome().toString();
+
+
+                    }
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+        }
 
 
 
@@ -549,8 +611,6 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-
-
         imagem5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -564,6 +624,13 @@ public class EditarBike extends AppCompatActivity {
         });
 
     }
+
+
+
+
+
+
+
 
     private void inicializarElementos(){
 
@@ -590,8 +657,13 @@ public class EditarBike extends AppCompatActivity {
         bike.setStatus(statusBike);
 
 
+        bike.setProprietario(nomeUsuario.toString());
 
-        bike.setProprietario(proprietario.getText().toString());
+
+
+
+
+
         bike.setProprietarioID(proprietarioID.getText().toString());
 
     }
@@ -603,7 +675,7 @@ public class EditarBike extends AppCompatActivity {
 
         Intent intent = new Intent(EditarBike.this ,AreaUsuario.class);
         startActivity(intent);
-        finish();
+       // finish();
 
 
     }
@@ -627,6 +699,7 @@ public class EditarBike extends AppCompatActivity {
 
             if (uriImagem1 != null) {
 
+                progressBar();
 
                 progressBar.setVisibility(View.VISIBLE);
                 carregando.setVisibility(View.VISIBLE);
@@ -697,6 +770,8 @@ public class EditarBike extends AppCompatActivity {
             if (uriImagem2 != null) {
 
 
+                progressBar();
+
                 progressBar.setVisibility(View.VISIBLE);
                 carregando.setVisibility(View.VISIBLE);
 
@@ -766,6 +841,9 @@ public class EditarBike extends AppCompatActivity {
 
             if (uriImagem3 != null) {
 
+                progressBar();
+
+
                 progressBar.setVisibility(View.VISIBLE);
                 carregando.setVisibility(View.VISIBLE);
 
@@ -832,6 +910,9 @@ public class EditarBike extends AppCompatActivity {
 
             if (uriImagem4 != null) {
 
+                progressBar();
+
+
                 progressBar.setVisibility(View.VISIBLE);
                 carregando.setVisibility(View.VISIBLE);
 
@@ -872,7 +953,7 @@ public class EditarBike extends AppCompatActivity {
                             carregando.setVisibility(View.GONE);
 
 
-                            abrirAreaUsuario();
+
 
                         }
                     }
@@ -881,7 +962,7 @@ public class EditarBike extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
 
 
-
+                        abrirAreaUsuario();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -897,6 +978,9 @@ public class EditarBike extends AppCompatActivity {
             }
 
             if (uriImagem5 != null) {
+
+                progressBar();
+
 
                 progressBar.setVisibility(View.VISIBLE);
                 carregando.setVisibility(View.VISIBLE);
@@ -1130,8 +1214,90 @@ public class EditarBike extends AppCompatActivity {
 
 
 
-    public void ShowElemento(View view){
 
+
+
+
+    public void progressBar(){
+
+
+
+        final  Thread timerTheread = new Thread(){
+
+
+            @Override
+            public void  run(){
+
+                mbActive = true;
+                try {
+
+                    int waited = 0;
+
+                    while (mbActive && (waited < TIMER_RUNTINME)) {
+
+                        sleep(200);
+
+                        if (mbActive) {
+
+                            waited += 200;
+                            updateProgress(waited);
+
+                        }
+
+
+                    }
+
+                }catch (InterruptedException e){
+
+
+                }finally {
+
+
+                    // Toast.makeText(CadastroBike.this, "Tudo pronto", Toast.LENGTH_SHORT).show();
+
+
+
+                }
+
+            }
+
+
+        };
+        timerTheread.start();
+
+
+    }
+
+
+
+
+    public void updateProgress(final int timePassed){
+
+        if (null !=progressBar){
+
+            final int progress = progressBar.getMax() * timePassed /TIMER_RUNTINME;
+            progressBar.setProgress(progress);
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void ShowElemento(View view){
 
         String nome = (String)spinner.getSelectedItem();
         long id = spinner.getSelectedItemId();

@@ -609,8 +609,8 @@ private Usuarios usuarios;
 
 
 
-            startActivity(new Intent(AreaUsuario.this, ConfirmarSenha.class));
 
+            startActivity(new Intent(AreaUsuario.this, ConfirmarSenha.class));
 
              //   recuperaUsuarios();
 

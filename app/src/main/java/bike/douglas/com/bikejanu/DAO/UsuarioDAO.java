@@ -23,14 +23,11 @@ import java.util.List;
 import java.util.Locale;
 import com.google.android.gms.tasks.Continuation;
 
-import bike.douglas.com.bikejanu.Activity.EditarBike;
-import bike.douglas.com.bikejanu.Activity.EditarUsuario;
-import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
+
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.Utilidades.Constantes;
 import bike.douglas.com.bikejanu.Utilidades.LUsuario;
 
-import static bike.douglas.com.bikejanu.Activity.EditarUsuario.*;
 
 
 public class UsuarioDAO {
@@ -74,7 +71,7 @@ public class UsuarioDAO {
     }
 
     public long fechaDeUltimaVezQueSeLogeoLong(){
-        return FirebaseAuth.getInstance().getCurrentUser().getMetadata().getLastSignInTimestamp();
+       return FirebaseAuth.getInstance().getCurrentUser().getMetadata().getLastSignInTimestamp();
     }
 
 
@@ -120,7 +117,6 @@ public class UsuarioDAO {
                 if(!task.isSuccessful()){
 
 
-
                     throw task.getException();
                 }
                 return fotoReferencia.getDownloadUrl();
@@ -132,7 +128,6 @@ public class UsuarioDAO {
                 if(task.isSuccessful()){
                     Uri uri = task.getResult();
                     iDevolverUrlFoto.devolerUrlString(uri.toString());
-
 
                 }
             }

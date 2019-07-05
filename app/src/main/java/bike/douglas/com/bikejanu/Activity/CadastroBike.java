@@ -171,7 +171,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-    private static  final int TIMER_RUNTINME = 100000;
+    private static  final int TIMER_RUNTINME = 300000;
     private boolean mbActive;
     private ProgressBar progressBar;
     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
@@ -626,6 +626,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                                 Upload();
 
+
                             }
 
 
@@ -633,7 +634,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                         }else{
 
-                            Toast.makeText(CadastroBike.this, "Adicione a primeira imagem da bicicleta", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastroBike.this, "Adicione a primeira imagem da bicicleta,ela será o imagem de perfil", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -688,9 +689,9 @@ public class CadastroBike extends AppCompatActivity  {
 
                         if(uriImagem1 != null ){
 
-                          progressBar();
+                             progressBar();
 
-                            progressBar.setVisibility(View.VISIBLE);
+                             progressBar.setVisibility(View.VISIBLE);
 
                             inicializarElementos();
 
@@ -701,6 +702,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                                 Upload();
 
+
                             }
 
 
@@ -708,7 +710,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                         }else{
 
-                            Toast.makeText(CadastroBike.this, "Adicione a primeira imagem da bicicleta", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastroBike.this, "Adicione a primeira imagem da bicicleta,ela será o imagem de perfil", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -772,14 +774,14 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 // volta pra tela usuario
-    private void abrirAreaUsuario(){
+private void abrirAreaUsuario(){
 
 
-        Toast.makeText(CadastroBike.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(CadastroBike.this ,AreaUsuario.class);
-        startActivity(intent);
-        finish();
-    }
+    Toast.makeText(CadastroBike.this, "Operação realizada com sucesso!", Toast.LENGTH_LONG).show();
+    Intent intent = new Intent(CadastroBike.this ,AreaUsuario.class);
+    startActivity(intent);
+    finish();
+}
 
 
 
@@ -1039,12 +1041,6 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-
-
-
-
-
-
     private void openGaleria() {
 
         imagemBike1.setOnClickListener(new View.OnClickListener() {
@@ -1189,7 +1185,7 @@ public class CadastroBike extends AppCompatActivity  {
                         }
 
 
-                        abrirAreaUsuario();
+
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
 
@@ -1198,6 +1194,9 @@ public class CadastroBike extends AppCompatActivity  {
             }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
+
+                    abrirAreaUsuario();
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -1257,6 +1256,9 @@ public class CadastroBike extends AppCompatActivity  {
                 @Override
                 public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                     if (!task.isSuccessful()) {
+
+
+
                         throw task.getException();
                     }
 
@@ -1292,7 +1294,7 @@ public class CadastroBike extends AppCompatActivity  {
                         }
 
 
-                        abrirAreaUsuario();
+
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
 
@@ -1303,6 +1305,9 @@ public class CadastroBike extends AppCompatActivity  {
             }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
+
+
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -1391,7 +1396,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-                        abrirAreaUsuario();
+
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
 
@@ -1401,6 +1406,8 @@ public class CadastroBike extends AppCompatActivity  {
             }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
+
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -1473,7 +1480,6 @@ public class CadastroBike extends AppCompatActivity  {
 
                         Uri downloadUri = task.getResult();
 
-
                         bike.setFotoBikeUrl4(downloadUri.toString());
 
 
@@ -1493,7 +1499,7 @@ public class CadastroBike extends AppCompatActivity  {
                             firebase.child(bike.getNumero_serie()).setValue(localBikesMaps);
                         }
 
-                        abrirAreaUsuario();
+
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
 
@@ -1504,6 +1510,8 @@ public class CadastroBike extends AppCompatActivity  {
             }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
+
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -1593,7 +1601,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-                        abrirAreaUsuario();
+
                         progressBar.setVisibility(View.GONE);
                         carregandoBike.setVisibility(View.GONE);
 
@@ -1605,6 +1613,9 @@ public class CadastroBike extends AppCompatActivity  {
             }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
+
+
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

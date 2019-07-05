@@ -137,20 +137,12 @@ public class UsuarioAdapter extends ArrayAdapter<Usuarios>  {
 
 
 
-
-
-
-
-
             final Usuarios usuario123;
 
              usuario123 = listaUsuarios.get(position);
 
 
           //  quantidadeBikesRoubadas = recebeQtd;
-
-
-
 
 
                firebaseDatabase = FirebaseDatabase.getInstance();

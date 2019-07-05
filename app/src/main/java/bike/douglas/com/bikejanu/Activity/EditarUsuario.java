@@ -33,6 +33,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -66,6 +67,7 @@ import bike.douglas.com.bikejanu.DAO.UsuarioDAO;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Helper.Preferencias;
+import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 import bike.douglas.com.bikejanu.Utilidades.Constantes;
@@ -74,652 +76,691 @@ import de.hdodenhof.circleimageview.CircleImageView;
  public  class  EditarUsuario extends AppCompatActivity {
 
 
-
-    DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
-
+     DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
 
 
+     //foto perfil
+
+     private CircleImageView fotoPerfil;
 
 
+     private Uri fotoPerfilUri;
 
-    //foto perfil
-
-    private CircleImageView fotoPerfil;
-
+     int d = 0;
 
 
-    private Uri fotoPerfilUri;
-
-int d = 0;
-
-
-
-    private ProgressBar progressBar;
-    private TextView criando;
+     private static final int TIMER_RUNTINME = 100000;
+     private boolean mbActive;
+     private ProgressBar progressBar;
+     private TextView criando;
 
 
-
-    private EditText nome;
-    private TextView  email;
-    private TextView confirmaremail;
-    private TextInputEditText  senha;
-    private TextInputEditText confirmarsenha;
-    private EditText  telefone;
-    private TextView txtNumeroPm;
-    private TextView numeroValidador;
-
-
-    private TextView numeroPm;
-
-    //  private EditText  nascimento;
-    private Button botaocadastrar;
+     private EditText nome;
+     private TextView email;
+     private TextView confirmaremail;
+     private TextInputEditText senha;
+     private TextInputEditText confirmarsenha;
+     private EditText telefone;
+     private TextView txtNumeroPm;
+     private TextView numeroValidador;
 
 
-    private Usuarios usuarios;
+     private TextView numeroPm;
 
-    int militarValidado=0;
-
-
-    private List<Usuarios> listaUsuario = new ArrayList<Usuarios>();
-    private ArrayAdapter<Usuarios> arrayAdapterUsuario;
-    private ListView listViewDados;
+     //  private EditText  nascimento;
+     private Button botaocadastrar;
 
 
+     private Usuarios usuarios;
 
-    private FirebaseAuth      autenticacao;
-    private StorageReference  storageReference;
-    private DatabaseReference firebase;
-    private DatabaseReference firebaseMilitar;
+     int militarValidado = 0;
+
+
+     private List<Usuarios> listaUsuario = new ArrayList<Usuarios>();
+     private ArrayAdapter<Usuarios> arrayAdapterUsuario;
+     private ListView listViewDados;
+
+
+     private FirebaseAuth autenticacao;
+     private StorageReference storageReference;
+     private DatabaseReference firebase;
+     private DatabaseReference firebaseMilitar;
 
      String fotoUsuario;
 
 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_editar_usuario);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_usuario);
 
+         FirebaseApp.initializeApp(this);
 
 
-        storageReference = FirebaseStorage.getInstance().getReference("ImagensUsuarios");
+         storageReference = FirebaseStorage.getInstance().getReference("ImagensUsuarios");
 
 
+         autenticacao = FirebaseAuth.getInstance();
 
-        autenticacao = FirebaseAuth.getInstance();
+         FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
-        FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
+         String emaill = user1.getEmail();
 
-        String emaill = user1.getEmail();
+         // converte o email pra base 64
+         String identificadorUsuario = Base64Custom.codificarBase64(emaill);
 
-        // converte o email pra base 64
-        String identificadorUsuario= Base64Custom.codificarBase64(emaill);
 
+         DatabaseReference usuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
 
 
-        DatabaseReference usuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
+         usuarioReference.addValueEventListener(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-        usuarioReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                 Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
+                 CircleImageView imagemPerfil = (CircleImageView) findViewById(R.id.imagemPerfilID01);
 
-                Usuarios dados = dataSnapshot.getValue(Usuarios.class);
+                 if (dados.getFotoPerfilURL() == null) {
 
-                CircleImageView imagemPerfil   = (CircleImageView) findViewById(R.id.imagemPerfilID01);
 
-                if(dados.getFotoPerfilURL() ==null){
+                     Glide.with(getApplicationContext()).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemPerfil);
 
 
+                 } else {
 
-                    Glide.with(EditarUsuario.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemPerfil);
 
+                     Glide.with(getApplicationContext()).load(dados.getFotoPerfilURL()).into(imagemPerfil);
 
-                }else{
+                 }
+             }
 
+             @Override
+             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+             }
+         });
 
-                    Glide.with(EditarUsuario.this).load(dados.getFotoPerfilURL()).into(imagemPerfil);
 
+         //fotoPerfil
+         fotoPerfil = (CircleImageView) findViewById(R.id.imagemPerfilID01);
 
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+         fotoPerfil.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
 
-            }
-        });
 
+                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                 startActivityForResult(intent, 1);
 
 
-        //fotoPerfil
-        fotoPerfil   = (CircleImageView)findViewById(R.id.imagemPerfilID01);
+             }
+         });
 
 
+         //Instânciar objetos
+         listaUsuario = new ArrayList<>();
 
+         arrayAdapterUsuario = new UsuarioAdapter(EditarUsuario.this, (ArrayList<Usuarios>) listaUsuario);
+         //   listViewDados.setAdapter(arrayAdapterUsuario);
 
-        fotoPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(EditarUsuario.this);
-                dialog.setTitle("Foto da Bike");
+         //registerForContextMenu(listViewDados);
 
-                String[] items = {"Galeria","Camara"};
 
-                dialog.setItems(items, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i){
-                            case 0:
+         /// da imagem
 
-                                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                                startActivityForResult(intent,1);
+         storageReference = FirebaseStorage.getInstance().getReference();
 
-                                break;
-                            case 1:
 
-                                Intent intent2 = new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
-                                startActivityForResult(intent2,2);
+         //  databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
 
-                                break;
-                        }
-                    }
-                });
 
-                AlertDialog dialogConstruido = dialog.create();
-                dialogConstruido.show();
+         nome = (EditText) findViewById(R.id.NomeID01);
+         email = (TextView) findViewById(R.id.EmailtextID01);
+         confirmaremail = (TextView) findViewById(R.id.confirmarEmailID01);
+         senha = (TextInputEditText) findViewById(R.id.senhaID01);
+         confirmarsenha = (TextInputEditText) findViewById(R.id.confirmarSenhaID01);
+         telefone = (EditText) findViewById(R.id.telefoneeID01);
+         //  nascimento = (EditText)findViewById(R.id.dataID);
 
-            }
-        });
 
+         numeroPm = (TextView) findViewById(R.id.numeroPmID01);
+         txtNumeroPm = (TextView) findViewById(R.id.txtNumeroPmID01);
 
 
+         botaocadastrar = (Button) findViewById(R.id.btnEditarID01);
 
-        //Instânciar objetos
-        listaUsuario = new ArrayList<>();
 
-        arrayAdapterUsuario = new UsuarioAdapter(EditarUsuario.this, (ArrayList<Usuarios>) listaUsuario);
-        //   listViewDados.setAdapter(arrayAdapterUsuario);
+         progressBar = (ProgressBar) findViewById(R.id.progressBarCdastroID01);
+         // fundo       = (ImageView)findViewById(R.id.fundoID01);
+         criando = (TextView) findViewById(R.id.criandoID01);
 
-        //registerForContextMenu(listViewDados);
 
+         numeroValidador = (TextView) findViewById(R.id.digitoValidadorEditarID);
 
+         mascaras();
 
 
+         // rebece o dados do Bike Adapter por parametro
+         Intent intent = getIntent();
 
+         if (intent != null) {
 
+             Bundle params = intent.getExtras();
 
+             if (params != null) {
 
+                 //dados do nome
+                 String nomeUsuario = params.getString("nomeUsuario");
+                 TextView nomeUsuarioText = (TextView) findViewById(R.id.NomeID01);
+                 nomeUsuarioText.setText(nomeUsuario);
 
+                 //dados do telefone
+                 String telefoneUsuario = params.getString("telefoneUsuario");
+                 TextView telefoneUsuarioText = (TextView) findViewById(R.id.telefoneeID01);
+                 telefoneUsuarioText.setText(telefoneUsuario);
 
-        /// da imagem
 
-        storageReference = FirebaseStorage.getInstance().getReference();
+                 // dados do email
+                 String emailUsuario = params.getString("emailUsuario");
+                 TextView emailUsuarioText = (TextView) findViewById(R.id.EmailtextID01);
+                 emailUsuarioText.setText(emailUsuario);
 
 
-        //  databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
+                 // dados do email
+                 String confirmaremailUsuario = params.getString("confirmaremailUsuario");
+                 TextView confirmaremailUsuarioText = (TextView) findViewById(R.id.confirmarEmailID01);
+                 confirmaremailUsuarioText.setText(confirmaremailUsuario);
 
 
-        nome = (EditText)findViewById(R.id.NomeID01);
-        email = (TextView)findViewById(R.id.EmailtextID01);
-        confirmaremail = (TextView)findViewById(R.id.confirmarEmailID01);
-        senha = (TextInputEditText)findViewById(R.id.senhaID01);
-        confirmarsenha = (TextInputEditText)findViewById(R.id.confirmarSenhaID01);
-        telefone = (EditText)findViewById(R.id.telefoneeID01);
-        //  nascimento = (EditText)findViewById(R.id.dataID);
+                 // dados da senha
+                 String cor = params.getString("senhaUsuario");
+                 TextView corText = (TextView) findViewById(R.id.senhaID01);
+                 corText.setText(cor);
 
+                 // dados  confirmarsenha
+                 String confirmarsenhaUsuario = params.getString("confirmarsenhaUsuario");
+                 TextView confirmarsenhaUsuarioText = (TextView) findViewById(R.id.confirmarSenhaID01);
+                 confirmarsenhaUsuarioText.setText(confirmarsenhaUsuario);
 
-        numeroPm = (TextView)findViewById(R.id.numeroPmID01);
-        txtNumeroPm =   (TextView) findViewById(R.id.txtNumeroPmID01);
 
+                 // dados  numeroPm
+                 String numeroPmUsuario = params.getString("numeroPm");
+                 TextView numeroPmUsuarioText = (TextView) findViewById(R.id.numeroPmID01);
+                 numeroPmUsuarioText.setText(numeroPmUsuario);
 
-        botaocadastrar = (Button) findViewById(R.id.btnEditarID01);
 
+                 // dados  numeroPm
+                 String validarUsuario = params.getString("validarUsuario");
+                 TextView validarUsuarioText = (TextView) findViewById(R.id.digitoValidadorEditarID);
+                 validarUsuarioText.setText(validarUsuario);
 
-        progressBar = (ProgressBar)findViewById(R.id.progressBarCdastroID01);
-       // fundo       = (ImageView)findViewById(R.id.fundoID01);
-        criando     = (TextView) findViewById(R.id.criandoID01);
 
+                 fotoUsuario = params.getString("fotoUsuario");
 
-        numeroValidador = (TextView) findViewById(R.id.digitoValidadorEditarID) ;
 
-        mascaras();
+                 if (validarUsuarioText.getText().toString().equals("01")) {
 
+                     militarValidado = 1;
 
+                     txtNumeroPm.setVisibility(View.VISIBLE);
+                     numeroPm.setVisibility(View.VISIBLE);
 
-        // rebece o dados do Bike Adapter por parametro
-        Intent intent = getIntent();
+                 } else {
 
-        if(intent !=null) {
+                     militarValidado = 2;
 
-            Bundle params = intent.getExtras();
+                     txtNumeroPm.setVisibility(View.INVISIBLE);
+                     numeroPm.setVisibility(View.INVISIBLE);
 
-            if (params != null) {
+                 }
 
-                //dados do nome
-                String nomeUsuario = params.getString("nomeUsuario");
-                TextView nomeUsuarioText = (TextView) findViewById(R.id.NomeID01);
-                nomeUsuarioText.setText(nomeUsuario);
+             }
 
-                //dados do telefone
-                String telefoneUsuario = params.getString("telefoneUsuario");
-                TextView telefoneUsuarioText = (TextView) findViewById(R.id.telefoneeID01);
-                telefoneUsuarioText.setText(telefoneUsuario);
 
+         }
 
 
-                // dados do email
-                String emailUsuario = params.getString("emailUsuario");
-                TextView emailUsuarioText = (TextView) findViewById(R.id.EmailtextID01);
-                emailUsuarioText.setText(emailUsuario);
 
 
-                // dados do email
-                String confirmaremailUsuario = params.getString("confirmaremailUsuario");
-                TextView confirmaremailUsuarioText = (TextView) findViewById(R.id.confirmarEmailID01);
-                confirmaremailUsuarioText.setText(confirmaremailUsuario);
 
 
 
-                // dados da senha
-                String cor = params.getString("senhaUsuario");
-                TextView corText = (TextView) findViewById(R.id.senhaID01);
-                corText.setText(cor);
 
-                // dados  confirmarsenha
-                String confirmarsenhaUsuario = params.getString("confirmarsenhaUsuario");
-                TextView confirmarsenhaUsuarioText = (TextView) findViewById(R.id.confirmarSenhaID01);
-                confirmarsenhaUsuarioText.setText(confirmarsenhaUsuario);
 
+         botaocadastrar.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
 
+                 if (militarValidado == 1) {
 
-                // dados  numeroPm
-                String numeroPmUsuario = params.getString("numeroPm");
-                TextView numeroPmUsuarioText = (TextView) findViewById(R.id.numeroPmID01);
-                numeroPmUsuarioText.setText(numeroPmUsuario);
+                     if (!numeroPm.getText().toString().equals("") && !nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
+                             !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
+                             !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")) {
 
 
-                // dados  numeroPm
-                String validarUsuario = params.getString("validarUsuario");
-                TextView validarUsuarioText = (TextView) findViewById(R.id.digitoValidadorEditarID);
-                validarUsuarioText.setText(validarUsuario);
+                         if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
+                             if (email.getText().toString().equals(confirmaremail.getText().toString())) {
 
 
-                fotoUsuario = params.getString("fotoUsuario");
+                                 progressBar.setVisibility(View.VISIBLE);
+                                 //   fundo.setVisibility(View.VISIBLE);
+                                 criando.setVisibility(View.VISIBLE);
 
+                                 progressBar();
+                                 inicializarElementos();
+                                 editarUsuario();
 
 
 
+                             } else {
 
+                                 Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
+                                 email.requestFocus();
+                                 progressBar.setVisibility(View.GONE);
+                                 // fundo.setVisibility(View.GONE);
+                                 criando.setVisibility(View.GONE);
 
-                if (validarUsuarioText.getText().toString().equals("01")) {
+                             }
 
-                    militarValidado = 1;
+                         } else {
 
-                    txtNumeroPm.setVisibility(View.VISIBLE);
-                    numeroPm.setVisibility(View.VISIBLE);
 
-                }else {
+                             Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
+                             senha.requestFocus();
+                             progressBar.setVisibility(View.GONE);
+                             //  fundo.setVisibility(View.GONE);
+                             criando.setVisibility(View.GONE);
 
-                    militarValidado =2;
+                         }
 
-                    txtNumeroPm.setVisibility(View.INVISIBLE);
-                    numeroPm.setVisibility(View.INVISIBLE);
+                     } else {
 
-                }
 
-            }
+                         Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
+                         progressBar.setVisibility(View.GONE);
+                         //  fundo.setVisibility(View.GONE);
+                         criando.setVisibility(View.GONE);
 
-        }
 
+                     }
 
 
 
 
 
-        botaocadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                 } else {
 
-                if(militarValidado == 1){
 
-                    if (!numeroPm.getText().toString().equals("") && !nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
-                            !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
-                            !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")){
+                     if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
+                             !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
+                             !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")) {
 
 
-                        if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
-                            if (email.getText().toString().equals(confirmaremail.getText().toString())) {
+                         if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
+                             if (email.getText().toString().equals(confirmaremail.getText().toString())) {
 
 
-                                progressBar.setVisibility(View.VISIBLE);
-                            //   fundo.setVisibility(View.VISIBLE);
-                                criando.setVisibility(View.VISIBLE);
+                                 progressBar.setVisibility(View.VISIBLE);
+                                 //   fundo.setVisibility(View.VISIBLE);
+                                 criando.setVisibility(View.VISIBLE);
 
-                                inicializarElementos();
-                                editarUsuario();
 
+                                 progressBar();
+                                 inicializarElementos();
+                                 editarUsuario();
 
 
 
-                            }else{
+                             } else {
 
-                                Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
-                                email.requestFocus();
-                                progressBar.setVisibility(View.GONE);
-                               // fundo.setVisibility(View.GONE);
-                                criando.setVisibility(View.GONE);
+                                 Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
+                                 email.requestFocus();
+                                 progressBar.setVisibility(View.GONE);
+                                 //fundo.setVisibility(View.GONE);
+                                 criando.setVisibility(View.GONE);
 
 
-                            }
+                             }
 
-                        } else {
+                         } else {
 
 
-                            Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
-                            senha.requestFocus();
-                            progressBar.setVisibility(View.GONE);
-                          //  fundo.setVisibility(View.GONE);
-                            criando.setVisibility(View.GONE);
+                             Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
+                             senha.requestFocus();
+                             progressBar.setVisibility(View.GONE);
+                             //   fundo.setVisibility(View.GONE);
+                             criando.setVisibility(View.GONE);
 
-                        }
+                         }
 
-                    }else {
+                     } else {
 
 
-                        Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
+                         Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
-                        progressBar.setVisibility(View.GONE);
-                      //  fundo.setVisibility(View.GONE);
-                        criando.setVisibility(View.GONE);
+                         progressBar.setVisibility(View.GONE);
+                         //  fundo.setVisibility(View.GONE);
+                         criando.setVisibility(View.GONE);
 
 
-                    }
+                     }
 
+                 }
 
+             }
 
+         });
 
 
+     }
 
-                }else{
 
 
+     private void abrirAreaUsuario() {
 
+         Intent intent = new Intent(EditarUsuario.this, AreaUsuario.class);
+         startActivity(intent);
+         finish();
 
+     }
 
-                    if (!nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
-                            !confirmaremail.getText().toString().equals("") && !senha.getText().toString().equals("") &&
-                            !confirmarsenha.getText().toString().equals("") && !telefone.getText().toString().equals("")){
+     private void mascaras() {
 
+         SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)NNNNNNNNN");
+         MaskTextWatcher maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
+         telefone.addTextChangedListener(maskTelefone);
 
-                        if (senha.getText().toString().equals(confirmarsenha.getText().toString())) {
-                            if (email.getText().toString().equals(confirmaremail.getText().toString())) {
 
+     }
 
 
-                                progressBar.setVisibility(View.VISIBLE);
-                             //   fundo.setVisibility(View.VISIBLE);
-                                criando.setVisibility(View.VISIBLE);
 
 
 
-                                  inicializarElementos();
-                                  editarUsuario();
 
 
+     public void progressBar() {
 
 
+         final Thread timerTheread = new Thread() {
 
 
+             @Override
+             public void run() {
 
-                            }else{
+                 mbActive = true;
+                 try {
 
-                                Toast.makeText(EditarUsuario.this, "Os E-mail não são correspondentes", Toast.LENGTH_LONG).show();
-                                email.requestFocus();
-                                progressBar.setVisibility(View.GONE);
-                              //fundo.setVisibility(View.GONE);
-                                criando.setVisibility(View.GONE);
+                     int waited = 0;
 
+                     while (mbActive && (waited < TIMER_RUNTINME)) {
 
-                            }
+                         sleep(200);
 
-                        } else {
+                         if (mbActive) {
 
+                             waited += 200;
+                             updateProgress(waited);
 
-                            Toast.makeText(EditarUsuario.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
-                            senha.requestFocus();
-                            progressBar.setVisibility(View.GONE);
-                         //   fundo.setVisibility(View.GONE);
-                            criando.setVisibility(View.GONE);
+                         }
 
-                        }
 
-                    }else {
+                     }
 
+                 } catch (InterruptedException e) {
 
-                        Toast.makeText(EditarUsuario.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
 
-                        progressBar.setVisibility(View.GONE);
-                      //  fundo.setVisibility(View.GONE);
-                        criando.setVisibility(View.GONE);
+                 } finally {
 
 
-                    }
+                     // Toast.makeText(CadastroBike.this, "Tudo pronto", Toast.LENGTH_SHORT).show();
 
-                }
 
-            }
+                 }
 
-        });
+             }
 
 
+         };
+         timerTheread.start();
 
-    }
 
+     }
 
 
+     public void updateProgress(final int timePassed) {
 
-    private void mascaras() {
+         if (null != progressBar) {
 
-        SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)NNNNNNNNN");
-        MaskTextWatcher maskTelefone = new MaskTextWatcher(telefone, simpleMaskTelefone);
-        telefone.addTextChangedListener(maskTelefone);
+             final int progress = progressBar.getMax() * timePassed / TIMER_RUNTINME;
+             progressBar.setProgress(progress);
 
+         }
 
-    }
+     }
 
 
+     private void inicializarElementos() {
 
+         usuarios = new Usuarios();
+         usuarios.setNome(nome.getText().toString());
+         usuarios.setEmail(email.getText().toString());
+         usuarios.setSenha(senha.getText().toString());
+         usuarios.setTelefone(telefone.getText().toString());
 
-    private void abrirAreaUsuario() {
+         // usuarios.setImagem(imagemPerfil.getScaleType().toString());
 
-        Intent intent = new Intent(EditarUsuario.this ,AreaUsuario.class);
-        startActivity(intent);
+         if (militarValidado == 1) {
 
+             usuarios.setNumeroPm(numeroPm.getText().toString());
+             usuarios.setDigitoValidador("01");
 
-    }
 
+         } else {
 
-    private void inicializarElementos(){
 
-        usuarios = new Usuarios();
-        usuarios.setNome(nome.getText().toString());
-        usuarios.setEmail(email.getText().toString());
-        usuarios.setSenha(senha.getText().toString());
-        usuarios.setTelefone(telefone.getText().toString());
+             usuarios.setDigitoValidador("02");
 
-       // usuarios.setImagem(imagemPerfil.getScaleType().toString());
 
-        if(militarValidado ==1){
+         }
+     }
 
-            usuarios.setNumeroPm(numeroPm.getText().toString());
-            usuarios.setDigitoValidador("01");
 
+     private void editarUsuario() {
 
-        }else{
 
+         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-            usuarios.setDigitoValidador("02");
 
+         if (user != null) {
 
-        }
-    }
+             String email = user.getEmail();
 
+             // converte o email pra base 64
+             final String identificadorUsuario = Base64Custom.codificarBase64(email);
 
-    private void editarUsuario() {
 
+             if (fotoPerfilUri != null) {
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                 progressBar.setVisibility(View.VISIBLE);
+                 criando.setVisibility(View.VISIBLE);
 
 
-        if (user != null) {
+                 final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagemPerfil");
+                 UploadTask uploadTask = ref.putFile(fotoPerfilUri);
 
-            String email = user.getEmail();
 
-            // converte o email pra base 64
-            final String identificadorUsuario = Base64Custom.codificarBase64(email);
+                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                     @Override
+                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                         if (!task.isSuccessful()) {
+                             throw task.getException();
+                         }
 
+                         return ref.getDownloadUrl();
+                     }
+                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                     @Override
+                     public void onComplete(@NonNull Task<Uri> task) {
+                         if (task.isSuccessful()) {
 
-            if (fotoPerfilUri != null) {
 
-                progressBar.setVisibility(View.VISIBLE);
-                criando.setVisibility(View.VISIBLE);
+                             Uri downloadUri = task.getResult();
 
+                             if (militarValidado == 1) {
 
-                final StorageReference ref = storageReference.child(new StringBuilder(identificadorUsuario).toString()).child("imagemPerfil");
-                UploadTask uploadTask = ref.putFile(fotoPerfilUri);
 
+                                 usuarios.setFotoPerfilURL(downloadUri.toString());
 
-                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                        if (!task.isSuccessful()) {
-                            throw task.getException();
-                        }
 
-                        return ref.getDownloadUrl();
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-                        if (task.isSuccessful()) {
+                                 // EDITA a bike usuario
+                                 firebase = Configuracao_Firebase.getFirebase().child("Militares");
+                                 firebase.child(identificadorUsuario).setValue(usuarios);
 
 
-                            Uri downloadUri = task.getResult();
+                                 // EDITA a bike usuario
+                                 firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                                 firebase.child(identificadorUsuario).setValue(usuarios);
 
-                            if (militarValidado == 1) {
 
+                             } else {
 
-                                usuarios.setFotoPerfilURL(downloadUri.toString());
 
+                                 usuarios.setFotoPerfilURL(downloadUri.toString());
 
-                                // EDITA a bike usuario
-                                firebase = Configuracao_Firebase.getFirebase().child("Militares");
-                                firebase.child(identificadorUsuario).setValue(usuarios);
+                                 // EDITA a bike usuario
+                                 firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                                 firebase.child(identificadorUsuario).setValue(usuarios);
 
 
-                                // EDITA a bike usuario
-                                firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-                                firebase.child(identificadorUsuario).setValue(usuarios);
+                             }
 
 
-                            } else {
+                         }
 
 
-                                usuarios.setFotoPerfilURL(downloadUri.toString());
+                     }
+                 }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                     @Override
+                     public void onSuccess(Uri uri) {
 
-                                // EDITA a bike usuario
-                                firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-                                firebase.child(identificadorUsuario).setValue(usuarios);
 
+                  dialog();
 
-                            }
 
+                     }
+                 }).addOnFailureListener(new OnFailureListener() {
+                     @Override
+                     public void onFailure(@NonNull Exception e) {
 
-                        }
+                         Toast.makeText(EditarUsuario.this, "Falha na conexão!", Toast.LENGTH_LONG).show();
+                         progressBar.setVisibility(View.GONE);
+                         criando.setVisibility(View.GONE);
 
+                     }
+                 });
 
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
+             }
 
 
-                        Toast.makeText(EditarUsuario.this, "Seu perfil foi alterado!", Toast.LENGTH_LONG).show();
+             if (fotoPerfilUri == null) {
 
-                        abrirAreaUsuario();
+                 progressBar.setVisibility(View.VISIBLE);
+                 criando.setVisibility(View.VISIBLE);
 
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+                 usuarios.setFotoPerfilURL(fotoUsuario);
 
-                        Toast.makeText(EditarUsuario.this, "Falha na conexão!", Toast.LENGTH_LONG).show();
-                        progressBar.setVisibility(View.GONE);
-                        criando.setVisibility(View.GONE);
 
-                    }
-                });
+                 if (militarValidado == 1) {
 
-            }
+                     // EDITA a bike usuario
+                     firebase = Configuracao_Firebase.getFirebase().child("Militares");
+                     firebase.child(identificadorUsuario).setValue(usuarios);
 
 
+                     // EDITA a bike usuario
+                     firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                     firebase.child(identificadorUsuario).setValue(usuarios);
 
 
-            if (fotoPerfilUri == null) {
+                 } else {
 
-                progressBar.setVisibility(View.VISIBLE);
-                criando.setVisibility(View.VISIBLE);
 
+                     // EDITA a bike usuario
+                     firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
+                     firebase.child(identificadorUsuario).setValue(usuarios);
 
-                            usuarios.setFotoPerfilURL(fotoUsuario);
 
+                 }
 
-                                if (militarValidado == 1) {
 
-                                    // EDITA a bike usuario
-                                    firebase = Configuracao_Firebase.getFirebase().child("Militares");
-                                    firebase.child(identificadorUsuario).setValue(usuarios);
 
+                 progressBar.setVisibility(View.GONE);
+                 criando.setVisibility(View.GONE);
 
-                                    // EDITA a bike usuario
-                                    firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-                                    firebase.child(identificadorUsuario).setValue(usuarios);
+                 dialog();
 
 
-                                }else{
+             }
 
+         }
 
+     }
 
 
-                                    // EDITA a bike usuario
-                                    firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
-                                    firebase.child(identificadorUsuario).setValue(usuarios);
+     public void dialog() {
 
 
-                                }
 
 
-                                   Toast.makeText(EditarUsuario.this, "Seu perfil foi alterado!", Toast.LENGTH_LONG).show();
+         AlertDialog.Builder alertaDialog = new AlertDialog.Builder(EditarUsuario.this);
 
+         // configurando dialogo
 
+         alertaDialog.setTitle("Confirmar Edição");
 
 
+         alertaDialog.setMessage("Deseja Realmente editar o seu Perfil ?");
+         // alertaDialog.setCancelable(false);
 
-                                  progressBar.setVisibility(View.GONE);
-                                  criando.setVisibility(View.GONE);
-                                  abrirAreaUsuario();
 
-            }
+         //conf botões
+         alertaDialog.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+             @Override
+             public void onClick(DialogInterface dialog, int which) {
 
-            }
 
-        }
+
+                 Toast.makeText(EditarUsuario.this, " Perfil alterado com sucesso", Toast.LENGTH_LONG).show();
+                 abrirAreaUsuario();
+
+
+             }
+         });
+
+         alertaDialog.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
+             @Override
+             public void onClick(DialogInterface dialog, int which) {
+
+                 Toast.makeText(EditarUsuario.this, " Edite Novamente", Toast.LENGTH_LONG).show();
+
+             }
+         });
+
+         alertaDialog.create();
+         alertaDialog.show();
+
+
+
+     }
+
 
 
 
@@ -746,7 +787,5 @@ int d = 0;
 
 
 
-
-
-}
+ }
 

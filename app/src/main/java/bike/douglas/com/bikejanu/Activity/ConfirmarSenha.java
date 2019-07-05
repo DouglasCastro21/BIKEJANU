@@ -204,16 +204,11 @@ public class ConfirmarSenha extends AppCompatActivity {
                    if (editTextConfirmarSenha.getText().toString().equals(dados.getSenha())){
 
 
-
                        chamarTelaEditarUsuario();
-
-
-
 
 
                    }else
                    {
-
 
                        txtAtencao.setVisibility(View.VISIBLE);
 
@@ -238,10 +233,6 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
     public void chamarTelaEditarUsuario(){
-
-
-
-
 
             // recupera usuario
 
@@ -331,7 +322,6 @@ public class ConfirmarSenha extends AppCompatActivity {
                             }
                         });
 
-
                 Toast.makeText(ConfirmarSenha.this, "Sua Conta Foi Excluida", Toast.LENGTH_LONG).show();
 
 
@@ -361,9 +351,6 @@ public class ConfirmarSenha extends AppCompatActivity {
 
 
     public void chamaTelaExluirConta() {
-
-
-
 
                     final FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -400,8 +387,6 @@ public class ConfirmarSenha extends AppCompatActivity {
                                 txtAtencao.setVisibility(View.VISIBLE);
                             }
 
-
-
                         }
 
                         @Override
@@ -409,14 +394,6 @@ public class ConfirmarSenha extends AppCompatActivity {
 
                         }
                     });
-
-
-
-
-
-
-
-
 
 
 
@@ -435,20 +412,13 @@ public void imagemUsuario(){
     String identificadorUsuario= Base64Custom.codificarBase64(email);
 
 
-
     DatabaseReference UsuarioReference = databaseReferenceUsuario.child("Usuarios").child(identificadorUsuario);
-
-
-
 
     UsuarioReference.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-            if (getCallingActivity() == null) {
-                return;
-            }
 
 
             if(dataSnapshot.exists()) {
@@ -456,18 +426,18 @@ public void imagemUsuario(){
                 Usuarios dados = dataSnapshot.getValue(Usuarios.class);
 
 
-        if(dados.getFotoPerfilURL() == null){
+              if(dados.getFotoPerfilURL().equals("") || dados.getFotoPerfilURL() == null){
 
 
-            Glide.with(ConfirmarSenha.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemUsuario);
+                     Glide.with(ConfirmarSenha.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemUsuario);
 
 
-        }else {
+              }else {
 
 
-             Glide.with(ConfirmarSenha.this).load(dados.getFotoPerfilURL()).into(imagemUsuario);
+                     Glide.with(ConfirmarSenha.this).load(dados.getFotoPerfilURL()).into(imagemUsuario);
 
-}
+        }
 
 
 

@@ -94,7 +94,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-    private static  final int TIMER_RUNTINME = 100000;
+    private static  final int TIMER_RUNTINME = 200000;
     private boolean mbActive;
     private ProgressBar progressBar;
     //private ImageView fundo;
@@ -199,20 +199,6 @@ public class CadastroUsuario extends AppCompatActivity {
         imagePicker = new ImagePicker(this);
         cameraPicker = new CameraImagePicker(this);
         cameraPicker.setCacheLocation(CacheLocation.EXTERNAL_STORAGE_APP_DIR);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
