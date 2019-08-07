@@ -45,7 +45,6 @@ import bike.douglas.com.bikejanu.R;
 public class GraficoAnoBarraFragment extends Fragment {
 
 
-
     int  ano ;
     int contandoBikesRouboAno2018=0;
     int contandoBikesRouboAno2019=0;
@@ -303,12 +302,7 @@ public class GraficoAnoBarraFragment extends Fragment {
 
         return rootView;
 
-
-
     }
-
-
-
 
     private void inicializarFirebase() {
 
