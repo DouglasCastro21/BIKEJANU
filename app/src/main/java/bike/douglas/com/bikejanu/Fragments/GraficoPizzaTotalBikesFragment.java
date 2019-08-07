@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -69,7 +72,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
     int contandoBikesFurtoTodosAno=0;
 
     int contandoBikesRouboAno2018=2;// alimentar
-    int contandoBikesFurtoAno2019=0;
+    int contandoBikesFurtoAno2019=56;
 
     int contandoBikesFurtoAno2018=129; // alimentar
     int contandoBikesRouboAno2019=0;
@@ -83,7 +86,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
     int bikesRecuperadasTodosAnos=0;
     int bikesRecuperadas2018=36;   // alimentar
-    int bikesRecuperadas2019=0;
+    int bikesRecuperadas2019=29;
 
 
 
@@ -113,7 +116,7 @@ public class GraficoPizzaTotalBikesFragment extends Fragment {
 
 
 
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 
 

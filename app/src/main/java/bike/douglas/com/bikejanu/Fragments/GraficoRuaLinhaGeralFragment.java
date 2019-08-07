@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -58,9 +61,6 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
 
 
     // variaveis do bairro Aeroporto ,ruas   todos os anos   /// alimentar aq os anos de 2018
-
-
-
 
 
 
@@ -143,12 +143,6 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
 
 
 
-
-
-
-
-
-
     int contandoRuaUmAltoPocoesRouboTodosAnos=0;
     int contandoRuaDoisAltoPocoesRouboTodosAnos=0;
     int  contandoRuaTresAltoPocoesRouboTodosAnos=0;
@@ -182,7 +176,7 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
     int contandoRuaDoisAltoPocoesRoubo2019=0;
     int  contandoRuaTresAltoPocoesRoubo2019=0;
     int contandoRuaQuatroAltoPocoesRoubo2019=0;
-    int contandoRuaCincoAltoPocoesRoubo2019=0;
+    int contandoRuaCincoAltoPocoesRoubo2019=1;
     int  contandoAvUmAltoPocoesRoubo2019=0;
     int contandoAvDoisRuaAltoPocoesRoubo2019=0;
     int contandoAvTresAltoPocoesRoubo2019=0;
@@ -450,6 +444,7 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
     int contandoPracaTiradentesCentroRouboTodosAnos=0;
 
 
+
     int contandoArturBernardesCentroRoubo2018=2;
     int contandoBaraoSaoRomaoCentroRoubo2018=2;
     int contandoBaraoRioBrancoCentroRoubo2018=2;
@@ -462,16 +457,15 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
     int contandoPracaTiradentesCentroRoubo2018=5;
 
 
-
     int contandoArturBernardesCentroRoubo2019=0;
     int contandoBaraoSaoRomaoCentroRoubo2019=0;
     int contandoBaraoRioBrancoCentroRoubo2019=0;
-    int contandoConegoRamiroLeiteCentroRoubo2019=0;
-    int contandoCelCassianoCentroRoubo2019=0;
-    int contandoCelSerraoCentroRoubo2019=0;
-    int contandoDomDanielCentroRoubo2019=0;
+    int contandoConegoRamiroLeiteCentroRoubo2019=3;
+    int contandoCelCassianoCentroRoubo2019=7;
+    int contandoCelSerraoCentroRoubo2019=5;
+    int contandoDomDanielCentroRoubo2019=1;
     int contandoGetulioVargasCentroRoubo2019=0;
-    int contandoPadreHenriqueCentroRoubo2019=0;
+    int contandoPadreHenriqueCentroRoubo2019=1;
     int contandoPracaTiradentesCentroRoubo2019=0;
 
 
@@ -500,6 +494,7 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
     int contandoRuaVarzelandiaCeramicaRoubo2018=1;
     int contandoRuaMiltonCamposCeramicaRoubo2018=0;
     int contandoRuaMiltonSaCeramicaRoubo2018=0;
+
 
 
 
@@ -704,12 +699,12 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
 
 
     int contandoRuaUmJussaraRoubo2019=0;
-    int contandoRuaDoisJussaraRoubo2019=0;
+    int contandoRuaDoisJussaraRoubo2019=1;
     int contandoRuaTresJussaraRoubo2019=0;
     int contandoRuaQuatroJussaralRoubo2019=0;
     int contandoRuaCincoJussaraRoubo2019=0;
     int contandoRuaSeisJussaraRoubo2019=0;
-    int contandoRuaSeteJussaraRoubo2019=0;
+    int contandoRuaSeteJussaraRoubo2019=1;
     int contandoRuaOitoJussaraRoubo2019=0;
     int contandoRuaNoveJussaraRoubo2019=0;
     int contandoRuaDezJussaraRoubo2019=0;
@@ -1199,7 +1194,6 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
     int contandoRuaGVilaVianaRoubo2019=0;
     int contandoRuaRVilaVianaRoubo2019=0;
     int contandoRuaXVilaVianaRoubo2019=0;
-
 
 
 
@@ -3783,7 +3777,7 @@ public class GraficoRuaLinhaGeralFragment extends Fragment {
                     lineChart.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View v) {
-                            final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            final FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.replace(R.id.conteinerFragmentos,new GraficoRuaLinhaFragment()).commit();
                             return false;
                         }

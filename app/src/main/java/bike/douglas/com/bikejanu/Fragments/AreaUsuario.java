@@ -4,22 +4,26 @@ import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.bumptech.glide.Glide;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,8 +43,10 @@ import java.util.List;
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
 import bike.douglas.com.bikejanu.Activity.ChecarUsuario;
 import bike.douglas.com.bikejanu.Activity.ConfirmarSenha;
+import bike.douglas.com.bikejanu.Activity.EditarUsuario;
 import bike.douglas.com.bikejanu.Activity.Estatisticas;
 import bike.douglas.com.bikejanu.Activity.MainActivity;
+import bike.douglas.com.bikejanu.Activity.PoliticaPrivacidade;
 import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Model.Bike;
@@ -54,7 +60,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AreaUsuario extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-public static String paraOndeVou="0";
+public static int paraOndeVou=0;
 
 
 
@@ -107,9 +113,11 @@ private Usuarios usuarios;
 
 
 
-//inicializar firebase
 
-        FirebaseApp.initializeApp(this);
+
+
+        //inicializar firebase
+
 
         firebaseDatabase = FirebaseDatabase.getInstance();
     //  firebaseDatabase.setPersistenceEnabled(true);
@@ -436,23 +444,6 @@ private Usuarios usuarios;
 
 
 
-        // lista todas as bikes do usuario
-
-
-
-
-
-
-
-
-     //   listaBikes();
-
-
-
-
-
-
-
         btnmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -461,10 +452,6 @@ private Usuarios usuarios;
 
             }
         });
-
-
-
-
 
 
 
@@ -534,7 +521,7 @@ private Usuarios usuarios;
 
                         }else{
 
-                            Glide.with(AreaUsuario.this).load(urlDaImagemPerfil).into(fotoPerfil);
+                          Glide.with(AreaUsuario.this).load(urlDaImagemPerfil).into(fotoPerfil);
 
                         }
 
@@ -586,7 +573,7 @@ private Usuarios usuarios;
         if (id == R.id.nav_bike) {
 
 
-          paraOndeVou ="1";
+          paraOndeVou = 1;
 
              startActivity(new Intent(AreaUsuario.this, Consultar_Bike.class));
 
@@ -595,14 +582,6 @@ private Usuarios usuarios;
 
             startActivity(new Intent(AreaUsuario.this, Estatisticas.class));
 
-
-        } else if (id == R.id.nav_configuracao) {
-
-
-
-          //  startActivity(new Intent(AreaUsuario.this, CadastroUsuario.class));
-
-            startActivity(new Intent(AreaUsuario.this, ChecarUsuario.class));
 
 
         } else if (id == R.id.nav_editar_perfil) {
@@ -620,12 +599,17 @@ private Usuarios usuarios;
         }else if (id == R.id.nav_sair) {
             caixaDialogoSair();
 
-        }else if(id == R.id.nav_excluir_usuario){
+
+
+         }else if(id == R.id.nav_excluir_usuario){
 
             enviarDadosParaTelaConfirmarSenha();
 
+        }else if(id == R.id.nav_politica_privacidade){
 
+            startActivity(new Intent(AreaUsuario.this, PoliticaPrivacidade.class));
         }
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -934,8 +918,7 @@ if(validarUsuario  ==1){
 
                 Bundle params = new Bundle();
 
-                // passa dados  para a tela confirmar senha usuario
-
+                //passa dados  para a tela confirmar senha usuario
 
                 params.putString("confirmarExclusao",                        "confirmado");
 
@@ -948,7 +931,11 @@ if(validarUsuario  ==1){
             }
 
 
-
+    @Override
+    protected void onResume() {
+        paraOndeVou=0;
+        super.onResume();
+    }
 }
 
 

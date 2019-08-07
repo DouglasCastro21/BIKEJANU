@@ -1,29 +1,31 @@
 package bike.douglas.com.bikejanu.Activity;
 
+
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.nfc.Tag;
+
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
+
 import android.widget.EditText;
-import android.widget.ImageView;
+
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
+
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
@@ -33,14 +35,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthResult;
+
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,28 +49,21 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.kbeanie.multipicker.api.CacheLocation;
-import com.kbeanie.multipicker.api.CameraImagePicker;
-import com.kbeanie.multipicker.api.ImagePicker;
-import com.kbeanie.multipicker.api.Picker;
-import com.kbeanie.multipicker.api.callbacks.ImagePickerCallback;
-import com.kbeanie.multipicker.api.entity.ChosenImage;
-import com.squareup.picasso.Picasso;
 
-import java.io.File;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Adapter.UsuarioAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.DAO.UsuarioDAO;
+
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
-import bike.douglas.com.bikejanu.Helper.Preferencias;
-import bike.douglas.com.bikejanu.Model.Bike;
+
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
-import bike.douglas.com.bikejanu.Utilidades.Constantes;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
  public  class  EditarUsuario extends AppCompatActivity {
@@ -127,6 +120,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
      private DatabaseReference firebaseMilitar;
 
      String fotoUsuario;
+     int cont = 0;
+
 
 
      @Override
@@ -135,7 +130,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
          setContentView(R.layout.activity_editar_usuario);
 
 
-         FirebaseApp.initializeApp(this);
+
 
 
          storageReference = FirebaseStorage.getInstance().getReference("ImagensUsuarios");
@@ -336,6 +331,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
              @Override
              public void onClick(View v) {
 
+
+
+
                  if (militarValidado == 1) {
 
                      if (!numeroPm.getText().toString().equals("") && !nome.getText().toString().equals("") && !email.getText().toString().equals("") &&
@@ -351,9 +349,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
                                  //   fundo.setVisibility(View.VISIBLE);
                                  criando.setVisibility(View.VISIBLE);
 
+
+
                                  progressBar();
                                  inicializarElementos();
                                  editarUsuario();
+                                 cont =1;
 
 
 
@@ -414,6 +415,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
                                  progressBar();
                                  inicializarElementos();
                                  editarUsuario();
+                                 cont=1;
 
 
 
@@ -453,9 +455,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
                  }
 
+
+
+
              }
 
          });
+
 
 
 
@@ -468,7 +474,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
          Intent intent = new Intent(EditarUsuario.this, AreaUsuario.class);
          startActivity(intent);
-         finish();
+
 
      }
 
@@ -641,6 +647,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
                                  firebase.child(identificadorUsuario).setValue(usuarios);
 
 
+
+
                              }
 
 
@@ -653,7 +661,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
                      public void onSuccess(Uri uri) {
 
 
-                  dialog();
+                         if(cont == 1){
+
+                             dialog();
+
+                         }
 
 
                      }
@@ -687,7 +699,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
                      firebase.child(identificadorUsuario).setValue(usuarios);
 
 
-                     // EDITA a bike usuario
+                     // EDITA  usuario
                      firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
                      firebase.child(identificadorUsuario).setValue(usuarios);
 
@@ -695,9 +707,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
                  } else {
 
 
-                     // EDITA a bike usuario
+                     // EDITA usuario
                      firebase = Configuracao_Firebase.getFirebase().child("Usuarios");
                      firebase.child(identificadorUsuario).setValue(usuarios);
+
 
 
                  }
@@ -707,7 +720,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
                  progressBar.setVisibility(View.GONE);
                  criando.setVisibility(View.GONE);
 
-                 dialog();
+
+                 if(cont ==1){
+
+                     dialog();
+
+                 }
+
+
 
 
              }
@@ -741,8 +761,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
                  Toast.makeText(EditarUsuario.this, " Perfil alterado com sucesso", Toast.LENGTH_LONG).show();
-                 abrirAreaUsuario();
 
+                 abrirAreaUsuario();
+                 finish();
 
              }
          });
@@ -762,6 +783,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
      }
+
+
 
 
 
@@ -787,6 +810,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
          }
          }
 
+
+     @Override
+     public void finish() {
+         super.finish();
+     }
 
 
  }

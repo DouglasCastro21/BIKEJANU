@@ -5,8 +5,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -120,16 +122,16 @@ public class GraficoBairroBarraFragment extends Fragment {
 
 
 
-    int qtdAlvoradaFurto2019  = 0;
-    int qtdBoaEsperancaFurto2019= 0;
+    int qtdAlvoradaFurto2019  = 1;
+    int qtdBoaEsperancaFurto2019= 1;
     int qtdBomJardimFurto2019 =0;
-    int qtdCentroFurto2019=0;
-    int qtdCeramicaFurto2019=0;
-    int qtdJadeteFurto2019=0;
-    int qtdJatobaFurto2019=0;
-    int qtdMangueirasFurto2019=0;
+    int qtdCentroFurto2019=32;
+    int qtdCeramicaFurto2019=3;
+    int qtdJadeteFurto2019=1;
+    int qtdJatobaFurto2019=1;
+    int qtdMangueirasFurto2019=2;
     int qtdBandeirantesFurto2019=0;
-    int qtdJussaraFurto2019=0;
+    int qtdJussaraFurto2019=2;
     int qtdLevianopolisFurto2019=0;
 
 
@@ -156,6 +158,8 @@ public class GraficoBairroBarraFragment extends Fragment {
 
 
     protected ImageView spinnerImagem;
+
+
     private String camposSpinner[] = new String[] {"Todos","2018","2019"};
     private Spinner spinner;
 
@@ -205,7 +209,7 @@ public class GraficoBairroBarraFragment extends Fragment {
 
 
 
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 
 
@@ -255,7 +259,7 @@ public class GraficoBairroBarraFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
 
-                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.conteinerFragmentos,new GraficoBairroBarraGeralFragment()).commit();
 

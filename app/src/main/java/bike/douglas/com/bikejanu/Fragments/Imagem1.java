@@ -3,9 +3,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -17,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.LayoutInflaterCompat;
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.FirebaseApp;
@@ -59,21 +62,31 @@ public class Imagem1 extends Fragment {
     private static DatabaseReference databaseReference;
 
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-                             View rootView = inflater.inflate(R.layout.imagem1, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+
+        View view = inflater.inflate(R.layout.imagem1, container, false);
 
 
 
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
+
+
+
+
+
+
+
+    firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
 
 
 
-        imagemBike = (ImageView) rootView.findViewById(R.id.imagem1GaleriaID) ;
+        imagemBike = (ImageView) view.findViewById(R.id.imagem1GaleriaID) ;
 
 
         Galeria_Bike galeria_bike_numero_serie = new Galeria_Bike();
@@ -137,7 +150,7 @@ public class Imagem1 extends Fragment {
 
 
 
-        return rootView;
+        return view;
     }
 
 

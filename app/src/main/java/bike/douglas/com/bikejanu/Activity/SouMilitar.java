@@ -1,13 +1,15 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import bike.douglas.com.bikejanu.R;
 
@@ -40,7 +42,7 @@ public class SouMilitar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(senhaAdm.getText().toString().equals("12")){
+                if(senhaAdm.getText().toString().equals("SargentoBrandrao")){
 
 
                        // senhaAdm    LBrandao

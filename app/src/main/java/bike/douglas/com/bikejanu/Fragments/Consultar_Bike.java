@@ -1,32 +1,26 @@
 package bike.douglas.com.bikejanu.Fragments;
 
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import bike.douglas.com.bikejanu.R;
 
 public class Consultar_Bike extends AppCompatActivity {
 
-        /**
-         * The {@link android.support.v4.view.PagerAdapter} that will provide
-         * fragments for each of the sections. We use a
-         * {@link FragmentPagerAdapter} derivative, which will keep every
-         * loaded fragment in memory. If this becomes too memory intensive, it
-         * may be best to switch to a
-         * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-         */
+
+
         private SectionsPagerAdapter mSectionsPagerAdapter;
 
-        /**
-         * The {@link ViewPager} that will host the section contents.
-         */
+
         private ViewPager mViewPager;
 
         @Override
@@ -57,10 +51,8 @@ public class Consultar_Bike extends AppCompatActivity {
 
 
 
-        /**
-         * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-         * one of the sections/tabs/pages.
-         */
+
+
         public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
             public SectionsPagerAdapter(FragmentManager fm) {
@@ -76,7 +68,7 @@ public class Consultar_Bike extends AppCompatActivity {
                         Tab1Codigo tab1C = new Tab1Codigo();
                         return tab1C;
                     case 1:
-                        Tab2Data tab2 = new Tab2Data();
+                        Tab2Marca tab2 = new Tab2Marca();
                         return tab2;
                     case 2:
                         Tab3Cor tab3 = new Tab3Cor();

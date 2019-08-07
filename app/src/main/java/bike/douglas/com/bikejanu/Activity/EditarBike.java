@@ -1,14 +1,12 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.content.ContentResolver;
-import android.content.DialogInterface;
+
 import android.content.Intent;
-import android.graphics.Bitmap;
+
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -22,6 +20,9 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
@@ -40,7 +41,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
+
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Model.Bike;
@@ -116,7 +117,108 @@ public class EditarBike extends AppCompatActivity {
     private TextView carregando;
 
     private StorageReference  storageReference;
-    private String marcasBike[] = new  String[] {"BIANCHI","COLNAGO","CALOY","DROPP ","GARELLI","GALO","HOUSTON","KSW","GÖRICKE","MONARK","MALAGA","ORBEA","ÓRBITA","SIRLA","SOUTH","SUTTON","OUTRA"};
+    private String marcasBike[] = new  String[] {"ABBA",
+            "ALFAMEQ",
+            "APPLE",
+            "ATHOR",
+            "AVALANCH",
+            "AZONIC",
+            "BANDEIRANTE",
+            "BIANCHI",
+            "BIOBIKE",
+            "BLITZ",
+            "BMC",
+            "CAIRU",
+            "CALESITA",
+            "CALOI",
+            "COLLI BIKES",
+            "COLNAGO",
+            "CONFORT",
+            "DALANNIO BIKE",
+            "DROPBOARDS",
+            "DUOS BIKES",
+            "DURBAN",
+            "ESSENCIAL",
+            "FERRARI",
+            "FIRMSTRONG",
+            "FIRST",
+            "FIRST BIKE",
+            "FISCHER",
+            "FISHER PRICE",
+            "FOFFA",
+            "FRAIDA",
+            "FREE ACTION",
+            "GALO",
+            "GAMA BIKES",
+            "GARELLI",
+            "GIANT",
+            "GIOS",
+            "GONEW",
+            "GÖRICKE",
+            "GROOVE",
+            "GT",
+            "GTA BIKE",
+            "GTSM1",
+            "HOUSTON",
+            "IGITOP",
+            "JEEP",
+            "KAMI BIKES",
+            "KLS",
+            "KODE",
+            "KSW",
+            "LIKE",
+            "LINUS",
+            "MA.GI.AS ITALIANE",
+            "MALAGA",
+            "MASTER BIKE",
+            "MAZZA BIKES",
+            "MERIDA",
+            "MONARK",
+            "MONGOOSE",
+            "MORMAII",
+            "MULTILASER ÁTRIO",
+            "MUVIN",
+            "MYMAX",
+            "NATHOR",
+            "NIRVE",
+            "OGGI",
+            "ORBEA",
+            "ÓRBITA",
+            "OXER",
+            "POLIMET",
+            "PRO X BIKE",
+            "REEBOK",
+            "RINO",
+            "SCHWINN",
+            "SCOOTER BRASIL",
+            "SENSE",
+            "SIRLA",
+            "SOUL",
+            "SOUTH BIKE",
+            "STATUS BIKE",
+            "STONE BIKE",
+            "STRIDER",
+            "STYLLBABY",
+            "SUTTON",
+            "TECBIKE",
+            "TITO",
+            "TOTEM",
+            "TRACK & BIKES",
+            "TRAKS",
+            "TREME TERRA",
+            "TRINX",
+            "TSW",
+            "TWODOGS",
+            "ULTRA BIKES",
+            "VALDO BIKE",
+            "VENZO",
+            "VERDEN BIKES",
+            "VIKINGX",
+            "WENDY BIKE",
+            "XS BIKE",
+            "OUTRA"};
+
+
     private Spinner spinner;
 
 
@@ -636,11 +738,11 @@ public class EditarBike extends AppCompatActivity {
 
 
         bike = new Bike();
-        bike.setNumero_serie(numero_serie.getText().toString());
-        bike.setMarca(spinner.getSelectedItem().toString());
+        bike.setNumero_serie(numero_serie.getText().toString().toUpperCase());
+        bike.setMarca(spinner.getSelectedItem().toString().toUpperCase());
 
-        bike.setModelo(modelo.getText().toString());
-        bike.setCor(cor.getText().toString());
+        bike.setModelo(modelo.getText().toString().toUpperCase());
+        bike.setCor(cor.getText().toString().toUpperCase());
         bike.setDescricao(descricao.getText().toString());
         bike.setAlertaEstado(alertaEstado.getText().toString());
         bike.setAlertaCidade(alertaCidade.getText().toString());
@@ -648,7 +750,7 @@ public class EditarBike extends AppCompatActivity {
         bike.setAlertaBairro(alertaBairro.getText().toString());
         bike.setAlertaDate(alertaDate.getText().toString());
         bike.setAlertaHora(alertaHora.getText().toString());
-        bike.setBoletim(alertaBoletim.getText().toString());
+        bike.setBoletim(alertaBoletim.getText().toString().toUpperCase());
         bike.setAlertaDescricao(alertaDescricao.getText().toString());
 
         bike.setLatitude(latitude.getText().toString());

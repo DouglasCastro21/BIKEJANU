@@ -2,21 +2,22 @@ package bike.douglas.com.bikejanu.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
+
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,10 +25,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
+
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
+
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
@@ -273,6 +274,7 @@ public class ConfirmarSenha extends AppCompatActivity {
                     Intent intent = new Intent(ConfirmarSenha.this, EditarUsuario.class);
                     intent.putExtras(params);
                     startActivity(intent);
+                    finish();
 
                 }
 
@@ -421,6 +423,7 @@ public void imagemUsuario(){
 
 
 
+
             if(dataSnapshot.exists()) {
 
                 Usuarios dados = dataSnapshot.getValue(Usuarios.class);
@@ -429,13 +432,13 @@ public void imagemUsuario(){
               if(dados.getFotoPerfilURL().equals("") || dados.getFotoPerfilURL() == null){
 
 
-                     Glide.with(ConfirmarSenha.this).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemUsuario);
+                     Glide.with(getApplicationContext()).load("https://firebasestorage.googleapis.com/v0/b/bikejanu-62aa9.appspot.com/o/imagem_perfil.jpg?alt=media&token=85252837-3ac9-4931-ac58-df3e78e30875").into(imagemUsuario);
 
 
               }else {
 
 
-                     Glide.with(ConfirmarSenha.this).load(dados.getFotoPerfilURL()).into(imagemUsuario);
+                     Glide.with(getApplicationContext()).load(dados.getFotoPerfilURL()).into(imagemUsuario);
 
         }
 

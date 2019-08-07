@@ -3,10 +3,12 @@ package bike.douglas.com.bikejanu.Fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -32,7 +34,7 @@ import bike.douglas.com.bikejanu.R;
 
 
 
-public class MapaCalorFragment extends  Fragment  implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
+public class MapaCalorFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
 
     private GoogleMap mMap;
     private ChildEventListener childEventListener;
@@ -51,8 +53,8 @@ public class MapaCalorFragment extends  Fragment  implements OnMapReadyCallback,
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
-                .findFragmentById(R.id.mapRouboFragmento);
-        mapFragment.getMapAsync(this);
+               .findFragmentById(R.id.mapRouboFragmento);
+       mapFragment.getMapAsync(this);
 
 
         ChildEventListener childEventListener;

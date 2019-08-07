@@ -4,13 +4,16 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -46,6 +49,7 @@ import java.security.cert.CRLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Activity.CadastroBike;
@@ -57,43 +61,38 @@ import bike.douglas.com.bikejanu.R;
 public class GraficoAnoLinhaFragment extends Fragment {
 
 
-    int  ano ;
-    int contandoBikesRouboAno2018=0;
-    int contandoBikesRouboAno2019=0;
-
-
+    int ano;
+    int contandoBikesRouboAno2018 = 0;
+    int contandoBikesRouboAno2019 = 0;
+    int contandoBikesRouboAno2020 = 0;
 
 
     // Alimentar com REDS
-    int contandoBikesFurtoAno2018=0;
-    int contandoBikesFurtoAno2019=0;
+    int contandoBikesFurtoAno2018 = 0;
+    int contandoBikesFurtoAno2019 = 56;
+    int contandoBikesFurtoAno2020 = 0;
 
 
+    private LineChart lineChart;
 
-    private LineChart  lineChart;
-
-
-
-
-    private String[] nomes   = new String[]{};
-    private int[]     roubos = new int   []{};
-    private int []   cores   = new int   []{};
+    String data_ano;
 
 
+    private String[] nomes = new String[]{};
+    private int[] roubos = new int[]{};
+    private int[] cores = new int[]{};
 
-    private String[] legenda  = new String[]{};
-    private int[]    furtos = new int   []{};
+
+    private String[] legenda = new String[]{};
+    private int[] furtos = new int[]{};
 
 
-
-    private        FirebaseDatabase firebaseDatabase;
+    private FirebaseDatabase firebaseDatabase;
     private static DatabaseReference databaseReference;
 
 
     public static List<Bike> listBikes = new ArrayList<Bike>();
     public static ArrayAdapter<Bike> arrayAdapterBike;
-
-
 
 
     @Override
@@ -102,26 +101,33 @@ public class GraficoAnoLinhaFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_grafico_ano_linha, container, false);
 
 
-
-
         inicializarFirebase();
         lineChart = (LineChart) rootView.findViewById(R.id.graficoAnoLinhas);
 
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
 
 
+        Date data = new Date();
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(data);
+
+        Date data_atual = cal.getTime();
+
+        data_ano = dateFormat.format(data_atual);
+
+
+        graficoANOS();
 
 
         lineChart.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
 
-                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.conteinerFragmentos,new GraficoAnoLinhaGeralFragm()).commit();
-
-
-
+                transaction.replace(R.id.conteinerFragmentos, new GraficoAnoLinhaGeralFragm()).commit();
 
 
                 return false;
@@ -135,14 +141,11 @@ public class GraficoAnoLinhaFragment extends Fragment {
         listBikes = new ArrayList<>();
 
 
-
-
         query = databaseReference.child("TodasBikes");
 
 
         //  query = databaseReference.child("TodasBikes")
         //     .orderByChild("numero_serie").startAt(palavra).endAt(palavra+"\uf8ff");
-
 
 
         query.addValueEventListener(new ValueEventListener() {
@@ -155,14 +158,14 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
                 // verifica itens da lista
 
-                for (DataSnapshot objSnapshot:dataSnapshot.getChildren()){
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
                     Bike b = objSnapshot.getValue(Bike.class);
                     listBikes.add(b);
 
 
                     String anoDeBusca = b.getAlertaDate();
                     //	String procurarPor = "2018";
-                    if (anoDeBusca.contains("2018") && b.getStatus().equals("Roubada")){
+                    if (anoDeBusca.contains("2018") && b.getStatus().equals("Roubada")) {
 
                         contandoBikesRouboAno2018++;
                         //   Toast.makeText(GraficoAnoBarraFragment.super.getContext(), "" + texto.toLowerCase().contains(procurarPor.toLowerCase()), Toast.LENGTH_LONG).show();
@@ -171,14 +174,14 @@ public class GraficoAnoLinhaFragment extends Fragment {
                     }
 
 
-                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Roubada")){
+                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Roubada")) {
 
                         contandoBikesRouboAno2019++;
 
 
                     }
 
-                    if (anoDeBusca.contains("2018") && b.getStatus().equals("Furtada")){
+                    if (anoDeBusca.contains("2018") && b.getStatus().equals("Furtada")) {
 
                         contandoBikesFurtoAno2018++;
 
@@ -186,9 +189,32 @@ public class GraficoAnoLinhaFragment extends Fragment {
                     }
 
 
-                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Furtada")){
+                    if (anoDeBusca.contains("2019") && b.getStatus().equals("Furtada")) {
 
                         contandoBikesFurtoAno2019++;
+
+
+                    }
+
+
+                    if (data_ano.equals("2020")) {
+
+
+                        if (anoDeBusca.contains("2020") && b.getStatus().equals("Roubada")) {
+
+
+                            contandoBikesRouboAno2020++;
+
+
+                        }
+
+
+                        if (anoDeBusca.contains("2020") && b.getStatus().equals("Furtada")) {
+
+                            contandoBikesFurtoAno2020++;
+
+
+                        }
 
 
                     }
@@ -200,11 +226,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
                 }
 
 
-
-
-
 /////fim do grafico
-
 
 
 // simula a lista
@@ -220,14 +242,12 @@ public class GraficoAnoLinhaFragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
 
 
-
             }
         });
 
 
         return rootView;
     }
-
 
 
     private void inicializarFirebase() {
@@ -239,10 +259,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
     }
 
 
-
-
-
-    private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY){
+    private Chart getSameChart(Chart chart, String descricao, int textColor, int background, int animacaoY) {
 
         chart.getDescription().setText(descricao);
         chart.getDescription().setTextSize(24);
@@ -252,17 +269,11 @@ public class GraficoAnoLinhaFragment extends Fragment {
 
         legend(chart);
 
-        return  chart;
+        return chart;
     }
 
 
-
-
-
-
-
-
-    public void legend(Chart chart){
+    public void legend(Chart chart) {
 
         Legend legend = chart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
@@ -270,10 +281,9 @@ public class GraficoAnoLinhaFragment extends Fragment {
         legend.setTextSize(15);
 
 
-
         ArrayList<LegendEntry> entries = new ArrayList<>();
 
-        for(int i=0;i<legenda.length;i++){
+        for (int i = 0; i < legenda.length; i++) {
 
             LegendEntry entry = new LegendEntry();
             entry.formColor = cores[i];
@@ -288,8 +298,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
     }
 
 
-
-    private void axisX(XAxis axis){
+    private void axisX(XAxis axis) {
 
         axis.setGranularityEnabled(true);
         axis.setPosition(XAxis.XAxisPosition.BOTH_SIDED);
@@ -299,43 +308,34 @@ public class GraficoAnoLinhaFragment extends Fragment {
     }
 
 
+    private void criarGraficos() {
 
 
-    private void criarGraficos(){
-
-
-
-        lineChart = (LineChart) getSameChart(lineChart,"",Color.RED,Color.TRANSPARENT,3000);
+        lineChart = (LineChart) getSameChart(lineChart, "", Color.RED, Color.TRANSPARENT, 3000);
         lineChart.setDrawGridBackground(true);
 
         lineChart.setActivated(true);
 
 
-
-
-
-
         ArrayList<Entry> yVals1 = new ArrayList<>();
-        for (int i=0;i<roubos.length;i++){
-            yVals1.add(new Entry(i,roubos[i]));
+        for (int i = 0; i < roubos.length; i++) {
+            yVals1.add(new Entry(i, roubos[i]));
 
         }
-
 
 
         ArrayList<Entry> yVals2 = new ArrayList<>();
 
-            for(int i=0;i <furtos.length;i++){
-                yVals2.add(new Entry(i,furtos[i]));
+        for (int i = 0; i < furtos.length; i++) {
+            yVals2.add(new Entry(i, furtos[i]));
 
         }
 
 
+        LineDataSet set1, set2;
 
-        LineDataSet set1,set2;
 
-
-        set1 = new LineDataSet(yVals1,"Roubo");
+        set1 = new LineDataSet(yVals1, "Roubo");
         set1.setColor(Color.RED);
         set1.setCircleColor(Color.RED);
         set1.setDrawCircles(true);
@@ -344,8 +344,7 @@ public class GraficoAnoLinhaFragment extends Fragment {
         set1.setValueTextColor(Color.BLUE);
 
 
-
-        set2= new LineDataSet(yVals2, "Furto");
+        set2 = new LineDataSet(yVals2, "Furto");
         set2.setColor(Color.YELLOW);
         set2.setCircleColor(Color.RED);
         set2.setLineWidth(4f);
@@ -353,11 +352,9 @@ public class GraficoAnoLinhaFragment extends Fragment {
         set2.setValueTextSize(15);
         set2.setValueTextColor(Color.BLUE);
 
-        LineData data = new LineData(set1,set2);
+        LineData data = new LineData(set1, set2);
 
         lineChart.setData(data);
-
-
 
 
         axisX(lineChart.getXAxis());
@@ -365,38 +362,54 @@ public class GraficoAnoLinhaFragment extends Fragment {
         lineChart.getLegend().setEnabled(true);
 
 
-
     }
 
 
-
-    public void     graficoANOS(){
-
-        String[] bairros   = new String[]{"2018","2019"};
-        int[]    rob = new int   [] {2,contandoBikesRouboAno2019};
-        int []   cor   = new int   []{Color.YELLOW,Color.RED};
-        String[] leg = new String[]{"Furto","Roubo"};
-        int[]    furt = new int   [] {129,contandoBikesFurtoAno2019};
+    public void graficoANOS() {
+        if (data_ano.equals("2019")) {
 
 
+            String[] bairros = new String[]{"2018", "2019"};
+            int[] rob = new int[]{2, contandoBikesRouboAno2019};
+            int[] cor = new int[]{Color.YELLOW, Color.RED};
+            String[] leg = new String[]{"Furto", "Roubo"};
+            int[] furt = new int[]{129, contandoBikesFurtoAno2019};
 
 
-
-        nomes    = bairros;
-        roubos   = rob;
-        cores = cor;
-        legenda  = leg;
-        furtos   = furt;
-
+            nomes = bairros;
+            roubos = rob;
+            cores = cor;
+            legenda = leg;
+            furtos = furt;
 
 
+            criarGraficos();
 
 
-        criarGraficos();
+        }
+
+        if (data_ano.equals("2020")) {
+
+
+            String[] bairros = new String[]{"2018", "2019", "2020"};
+            int[] rob = new int[]{2, contandoBikesRouboAno2019, contandoBikesRouboAno2020};
+            int[] cor = new int[]{Color.YELLOW, Color.RED};
+            String[] leg = new String[]{"Furto", "Roubo"};
+            int[] furt = new int[]{129, contandoBikesFurtoAno2019, contandoBikesFurtoAno2020};
+
+
+            nomes = bairros;
+            roubos = rob;
+            cores = cor;
+            legenda = leg;
+            furtos = furt;
+
+
+            criarGraficos();
+
+
+        }
 
 
     }
-
-
-
 }

@@ -3,18 +3,14 @@ package bike.douglas.com.bikejanu.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
 
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +23,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,15 +33,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.RemoteMessage;
+
 
 
 import org.json.JSONException;
@@ -53,11 +50,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
-import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
-import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
+
 import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.Model.LocalBikesMaps;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
@@ -112,10 +107,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private     RadioButton   status;
     private     Button abrirMapa;
 
-   // private static final String TAG = "AlertaFurtoRoubo";
+    // private static final String TAG = "AlertaFurtoRoubo";
 
-
-// se não repetir os dados da tela cadastro os dados são excluidos
+   //se não repetir os dados da tela cadastro os dados são excluidos
 
     public  TextView numero_serie;
     private TextView marca;
@@ -185,6 +179,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 // botoes
 
 
+// sair do topic userABC
+        FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
 
 
 
@@ -314,10 +310,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 TextView alertaDescricaoText = (TextView) findViewById(R.id.alertaDescricaoID);
                 alertaDescricaoText.setText(alertaDescricao);
 
-                // dados do alertaDate
-               String alertaDate = params.getString("alertaData");
-               TextView alertaDateText = (TextView) findViewById(R.id.alertaDataID);
-              alertaDateText.setText(alertaDate);
+                 // dados do alertaDate
+                // String alertaDate = params.getString("alertaData");
+               //  TextView alertaDateText = (TextView) findViewById(R.id.alertaDataID);
+              // alertaDateText.setText(alertaDate);
 
 
                 // dados do alertaHora
@@ -436,15 +432,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-        // sai do topic userABC  E numero de serie
-
+        // sair do topic userABC
         FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
-
-
-
-
-
-
 
 
 
@@ -453,16 +442,9 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
         if(digitoMilitar !=1){
 
-
              FirebaseMessaging.getInstance().subscribeToTopic(numero_serie_Topic);
 
-
         }
-
-
-
-
-
 
 
 
@@ -493,6 +475,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
         //    Toast.makeText(AlertarFurtoRoubo.this, "DIGITO :" +digitoMilitar, Toast.LENGTH_LONG).show();
+
+
 
 
 
@@ -661,7 +645,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
                FirebaseMessaging.getInstance().unsubscribeFromTopic(numero_serie_Topic);
 
-
            }
 
 
@@ -775,6 +758,18 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 alertaDate.setText(data_completa);
                 alertaHora.setText(hora_atual);
 
+
+
+
+
+
+
+
+                if(digitoMilitar !=1){
+
+                    FirebaseMessaging.getInstance().unsubscribeFromTopic(numero_serie_Topic);
+
+                }
 
 
 
@@ -902,7 +897,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
 
-                // sai do topic userABC  E numero de serie
+                // sai do topic userABC
 
                 FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
 
@@ -954,7 +949,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                // OU
+               // OU
                 SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
 
                 Date data = new Date();
@@ -969,15 +964,15 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
                 String hora_atual = dateFormat_hora.format(data_atual);
 
                 Log.i("data_completa", data_completa);
-                Log.i("data_atual", data_atual.toString());
+            //    Log.i("data_atual", data_atual.toString());
                 Log.i("hora_atual", hora_atual);
 
-                alertaDate.setText(data_completa);
-                alertaHora.setText(hora_atual);
+                   alertaDate.setText(data_completa);
+                   alertaHora.setText(hora_atual);
 
 
 
-                // sai do topic userABC  E numero de serie
+                // sai do topic userABC
 
                 FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
 
@@ -992,7 +987,7 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View v) {
 
-                FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
+             //   FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
 
                 inicializarElementos();
                 caixaDialogoConfirmarFurtoRoubo();
@@ -1009,6 +1004,8 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
 
 
     public void enviarNotificacao(){
+
+
 
         TOPIC = "/topics/userABC"; //topic must match with what the receiver subscribed to
         NOTIFICATION_TITLE =   "Bike Furtada/Roubada";
@@ -1278,7 +1275,6 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
     private void caixaDialogoConfirmarFurtoRoubo(){
 
 
-
         // sai do topic userABC  E numero de serie
 
         FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
@@ -1302,11 +1298,10 @@ public class AlertarFurtoRoubo extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
+                FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
 
 
-
-
-                  //  incluirUsuarioEmTopico();
+                //  incluirUsuarioEmTopico();
 
 
                      notificacaoRoubadaFurtada();
@@ -1452,16 +1447,10 @@ public void incluirUsuarioEmTopico(){
 
 
 
-
-
-
-
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-
-
 
 
 
@@ -1489,9 +1478,19 @@ public void incluirUsuarioEmTopico(){
                FirebaseMessaging.getInstance().unsubscribeFromTopic(numero_serie_Topic);
 
 
+
+               TOPIC = "/topics/"+0000; //topic must match with what the receiver subscribed to
+
+           }else{
+
+               TOPIC = "/topics/"+numero_serie_Topic; //topic must match with what the receiver subscribed to
+
+
+
            }
 
-           TOPIC = "/topics/"+numero_serie_Topic; //topic must match with what the receiver subscribed to
+
+
            NOTIFICATION_TITLE = "Bike Recuperada";
            NOTIFICATION_MESSAGE = "Click para mais detalhes";
 

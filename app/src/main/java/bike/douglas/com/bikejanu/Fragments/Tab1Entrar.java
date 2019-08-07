@@ -2,9 +2,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v4.app.Fragment;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +12,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,7 +36,7 @@ import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.R;
 
 
-public class Tab1Entrar extends Fragment  {
+public class Tab1Entrar extends Fragment {
 
 
 

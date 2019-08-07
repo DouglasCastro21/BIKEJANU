@@ -6,9 +6,9 @@ package bike.douglas.com.bikejanu.Fragments;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.v4.app.Fragment;
+
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+
 import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import androidx.fragment.app.Fragment;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
@@ -48,10 +50,6 @@ public class Tab2Cadastrar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab2cadastrar, container, false);
-
-
-
-
 
 
 
@@ -104,8 +102,6 @@ public class Tab2Cadastrar extends Fragment {
 
 
 
-
-
     private void mascaras() {
 
         SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("(NN)N-NNNNNNNN");
@@ -114,13 +110,6 @@ public class Tab2Cadastrar extends Fragment {
 
 
     }
-
-
-
-
-
-
-
 
 
 }

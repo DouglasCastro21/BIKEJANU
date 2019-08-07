@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -118,6 +120,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
 
+
     int madrugadaAeroportoRoubo=0;
     int manhaAeroportoRoubo=0;
     int tardeAeroportoRoubo=0;
@@ -164,7 +167,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
 
-    int madrugadaAltoPocoesRoubo2019=0;
+    int madrugadaAltoPocoesRoubo2019=1;
     int manhaAltoPocoesRoubo2019=0;
     int tardeAltoPocoesRoubo2019=0;
     int noiteAltoPocoesRoubo2019=0;
@@ -193,8 +196,8 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
     int madrugadaAlvoradaRoubo2019=0;
     int manhaAlvoradaRoubo2019=0;
-    int tardeAlvoradaRoubo2019=0;
-    int noiteAlvoradaRoubo2019=0;
+    int tardeAlvoradaRoubo2019=1;
+    int noiteAlvoradaRoubo2019=1;
 
 
 ///---
@@ -243,7 +246,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
     int madrugadaBoaEsperancaRoubo2019=0;
-    int manhaBoaEsperancaRoubo2019=0;
+    int manhaBoaEsperancaRoubo2019=1;
     int tardeBoaEsperancaRoubo2019=0;
     int noiteBoaEsperancaRoubo2019=0;
 
@@ -277,13 +280,10 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 //---
 
 
-
     int madrugadaVilaBrasilandiaRoubo=0;
     int manhaVilaBrasilandiaRoubo=0;
     int tardeVilaBrasilandiaRoubo=0;
     int noiteVilaBrasilandiaRoubo=0;
-
-
 
 
 
@@ -297,21 +297,17 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
     int madrugadaVilaBrasilandiaRoubo2019=0;
     int manhaVilaBrasilandiaRoubo2019=0;
     int tardeVilaBrasilandiaRoubo2019=0;
-    int noiteVilaBrasilandiaRoubo2019=0;
+    int noiteVilaBrasilandiaRoubo2019=1;
 
 
 
 //---
 
 
-
-
     int madrugadaBrejoAmparoRoubo=0;
     int manhaBrejoAmparoRoubo=0;
     int tardeBrejoAmparoRoubo=0;
     int noiteBrejoAmparoRoubo=0;
-
-
 
 
 
@@ -330,14 +326,10 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 //--
 
 
-
-
     int madrugadaCentroRoubo=0;
     int manhaCentroRoubo=0;
     int tardeCentroRoubo=0;
     int noiteCentroRoubo=0;
-
-
 
 
 
@@ -347,24 +339,19 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
     int noiteCentroRoubo2018=18;
 
 
-    int madrugadaCentroRoubo2019=0;
-    int manhaCentroRoubo2019=0;
-    int tardeCentroRoubo2019=0;
-    int noiteCentroRoubo2019=0;
+
+    int madrugadaCentroRoubo2019=2;
+    int manhaCentroRoubo2019=14;
+    int tardeCentroRoubo2019=10;
+    int noiteCentroRoubo2019=6;
 
 //---
-
-
 
 
     int madrugadaCeramicaRoubo=0;
     int manhaCeramicaRoubo=0;
     int tardeCeramicaRoubo=0;
     int noiteCeramicaRoubo=0;
-
-
-
-
 
 
     int madrugadaCeramicaRoubo2018=0;
@@ -374,8 +361,8 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
     int madrugadaCeramicaRoubo2019=0;
-    int manhaCeramicaRoubo2019=0;
-    int tardeCeramicaRoubo2019=0;
+    int manhaCeramicaRoubo2019=1;
+    int tardeCeramicaRoubo2019=2;
     int noiteCeramicaRoubo2019=0;
 
 //--
@@ -401,7 +388,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
     int madrugadaEldoradoRoubo2019=0;
     int manhaEldoradoRoubo2019=0;
-    int tardeEldoradoRoubo2019=0;
+    int tardeEldoradoRoubo2019=1;
     int noiteEldoradoRoubo2019=0;
 
 //---
@@ -506,9 +493,9 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
 
-    int madrugadaJussaraRoubo2019=0;
+    int madrugadaJussaraRoubo2019=1;
     int manhaJussaraRoubo2019=0;
-    int tardeJussaraRoubo2019=0;
+    int tardeJussaraRoubo2019=1;
     int noiteJussaraRoubo2019=0;
 
 //---
@@ -560,8 +547,8 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
     int madrugadaQuintasMangueirasRoubo2019=0;
-    int manhaQuintasMangueirasRoubo2019=0;
-    int tardeQuintasMangueirasRoubo2019=0;
+    int manhaQuintasMangueirasRoubo2019=1;
+    int tardeQuintasMangueirasRoubo2019=1;
     int noiteQuintasMangueirasRoubo2019=0;
 
 //----
@@ -858,11 +845,9 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
     int madrugadaVilaVianaRoubo2019=0;
     int manhaVilaVianaRoubo2019=0;
     int tardeVilaVianaRoubo2019=0;
-    int noiteVilaVianaRoubo2019=0;
+    int noiteVilaVianaRoubo2019=1;
 
 //---
-
-
 
 
     int madrugadaVilaJadeteRoubo=0;
@@ -880,9 +865,10 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
     int madrugadaVilaJadeteRoubo2019=0;
-    int manhaVilaJadeteRoubo2019=0;
+    int manhaVilaJadeteRoubo2019=1;
     int tardeVilaJadeteRoubo2019=0;
     int noiteVilaJadeteRoubo2019=0;
+
 
 
     private PieChart pieChart;
@@ -925,7 +911,7 @@ public class GraficoHorarioGeralPizzaFragment extends Fragment {
 
 
 
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 
 

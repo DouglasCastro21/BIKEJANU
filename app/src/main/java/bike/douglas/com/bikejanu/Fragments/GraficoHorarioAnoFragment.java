@@ -6,8 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -59,7 +61,7 @@ import bike.douglas.com.bikejanu.Model.Bike;
 import bike.douglas.com.bikejanu.R;
 
 public class GraficoHorarioAnoFragment extends Fragment {
-
+///
 
 
     int  ano ;
@@ -138,10 +140,10 @@ public class GraficoHorarioAnoFragment extends Fragment {
     private  int tardeRoubo2019=0;
     private  int noiteRoubo2019=0;
 
-    private  int madrugadaFurto2019=0;
-    private  int manhaFurto2019=0;
-    private  int tardeFurto2019=0;
-    private  int noiteFurto2019=0;
+    private  int madrugadaFurto2019=4;
+    private  int manhaFurto2019=21;
+    private  int tardeFurto2019=19;
+    private  int noiteFurto2019=12;
 
 
 
@@ -205,10 +207,11 @@ public class GraficoHorarioAnoFragment extends Fragment {
 
 
 
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 
 
+        positionTodosAnos();
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -251,7 +254,7 @@ public class GraficoHorarioAnoFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
 
-                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioAnoGeralFragment()).commit();
 

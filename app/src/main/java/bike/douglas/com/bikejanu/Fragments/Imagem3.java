@@ -2,7 +2,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.FirebaseApp;

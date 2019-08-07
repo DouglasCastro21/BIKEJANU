@@ -1,31 +1,27 @@
 package bike.douglas.com.bikejanu.Adapter;
 
-import android.content.ClipData;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.ColorSpace;
-import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
+
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
+
 import android.widget.ImageView;
-import android.widget.ProgressBar;
+
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.view.LayoutInflaterCompat;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.FirebaseApp;
@@ -36,9 +32,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import bike.douglas.com.bikejanu.Activity.AlertarFurtoRoubo;
-import bike.douglas.com.bikejanu.Activity.CadastroUsuario;
+
 import bike.douglas.com.bikejanu.Activity.DadosBike;
 
 import bike.douglas.com.bikejanu.Activity.EditarBike;
@@ -70,9 +67,8 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-
-
     public Context context;
+
     public List<Bike> listabikes = new ArrayList<Bike>();
 
 
@@ -91,8 +87,15 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
     public BikeAdapter( Context c, ArrayList<Bike> objects) {
         super(c, 0,objects);
 
-        this.context = c;
-        this.listabikes = objects;
+        FirebaseApp.initializeApp(c);
+
+
+
+            this.context = c;
+            this.listabikes = objects;
+
+
+
 
     }
 
@@ -100,9 +103,6 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
     @Override
     public int getCount() {
-
-
-
         return super.getCount();
 
     }
@@ -140,7 +140,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
 
-        FirebaseApp.initializeApp(super.getContext());
+    //    FirebaseApp.initializeApp(super.getContext());
 
 
 
@@ -215,19 +215,17 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                Log.i("hora_atual", hora_atual);
 
 
-
-
                if(bikeRoubadaFurtada.getStatus().equals("Roubada")) {
 
 
-       view.setBackgroundColor(Color.RED);
+                  view.setBackgroundColor(Color.RED);
 
-            if(bikeRoubadaFurtada.getAlertaDate().equals(data_completa)){
+                  if(bikeRoubadaFurtada.getAlertaDate().equals(data_completa)){
 
                 novaNotificacao.setVisibility(VISIBLE);
 
-            }else
-            {
+                   }else
+               {
 
                novaNotificacao.setVisibility(GONE);
 
@@ -235,16 +233,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             }
 
 
-
-
-
-
     }
-
-
-
-
-
 
 
 
@@ -372,7 +361,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
 
 
                AreaUsuario deOndeVenho = new AreaUsuario();
-               String resposta="0";
+               int resposta=0;
 
 
               resposta = AreaUsuario.paraOndeVou;
@@ -385,12 +374,17 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
-            if ((user !=null ) &&( resposta.equals("0"))){ /// se o usuario não estiver logado .. não aparece isso nas opçoes da listagem das bikes
-                // no inicio do app
+                /// se o usuario não estiver logado .. não aparece isso nas opçoes da listagem das bikes
+                //  no inicio do app
                 // o usuario logado não podera voltar sem está desconetado
 
+               Usuarios usuarios = new Usuarios();
 
-                txtViewCaixaDescricao.setOnClickListener(new View.OnClickListener() {
+
+
+               if ((user !=null ) && ( resposta == 0)){
+
+                   txtViewCaixaDescricao.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -456,8 +450,14 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                                     params.putString("proprietarioID",      bikeselecao.getProprietarioID());
 
 
+
+
+                                    // sair do topic userABC
+                                    FirebaseMessaging.getInstance().unsubscribeFromTopic("userABC");
+
+
                                     Intent intent = new Intent(BikeAdapter.super.getContext(), AlertarFurtoRoubo.class);
-                                   intent.putExtras(params);
+                                    intent.putExtras(params);
 
                                    context.startActivity(intent);
 
@@ -579,7 +579,7 @@ public class BikeAdapter extends ArrayAdapter<Bike>  {
                 });
 
 
-                AreaUsuario.paraOndeVou="0";
+                AreaUsuario.paraOndeVou=0;
 
         }
 

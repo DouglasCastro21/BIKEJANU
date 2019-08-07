@@ -4,44 +4,46 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.text.style.UpdateAppearance;
+
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
+
 import android.widget.EditText;
-import android.widget.ImageView;
+
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
-import com.google.android.gms.auth.UserRecoverableAuthException;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
-import com.google.firebase.auth.UserProfileChangeRequest;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+
 import com.kbeanie.multipicker.api.CacheLocation;
 import com.kbeanie.multipicker.api.CameraImagePicker;
 import com.kbeanie.multipicker.api.ImagePicker;
@@ -54,11 +56,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import bike.douglas.com.bikejanu.Adapter.BikeAdapter;
+
 import bike.douglas.com.bikejanu.Adapter.UsuarioAdapter;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.DAO.UsuarioDAO;
-import bike.douglas.com.bikejanu.Model.Bike;
+
 import bike.douglas.com.bikejanu.Model.Usuarios;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Helper.Base64Custom;
@@ -89,12 +91,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-
-
-
-
-
-    private static  final int TIMER_RUNTINME = 200000;
+    private static  final int TIMER_RUNTINME = 30000;
     private boolean mbActive;
     private ProgressBar progressBar;
     //private ImageView fundo;
@@ -139,10 +136,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-
-
-
-
+        FirebaseApp.initializeApp(this);
 
         autenticacao = FirebaseAuth.getInstance();
 
@@ -196,13 +190,11 @@ public class CadastroUsuario extends AppCompatActivity {
         fotoPerfil   = (CircleImageView)findViewById(R.id.imagemPerfilID);
 
 
+
+
         imagePicker = new ImagePicker(this);
         cameraPicker = new CameraImagePicker(this);
         cameraPicker.setCacheLocation(CacheLocation.EXTERNAL_STORAGE_APP_DIR);
-
-
-
-
 
 
 
@@ -357,7 +349,7 @@ public class CadastroUsuario extends AppCompatActivity {
                 if (militarValidado == 1) {
 
                     opcaoMilitar();
-                    progressBar();
+
 
                 }else
 
@@ -365,7 +357,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
                     opcaoCidadao();
-                    progressBar();
+
                 }
 
 
@@ -446,8 +438,10 @@ public class CadastroUsuario extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
 
+
+                                progressBar();
                                 progressBar.setVisibility(View.GONE);
-                              //  fundo.setVisibility(View.GONE);
+                              //fundo.setVisibility(View.GONE);
                                 criando.setVisibility(View.GONE);
 
 
@@ -475,9 +469,6 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
-
-
-
                                 Preferencias preferencias = new Preferencias(CadastroUsuario.this);
                                 preferencias.salvarUsuarioPreferencias(identificadorUsuario, usuarios.getNome());
 
@@ -489,7 +480,11 @@ public class CadastroUsuario extends AppCompatActivity {
                                 abrirAreaUsuario();
 
                             } else {
+
+
                                 progressBar.setVisibility(View.GONE);
+
+                                criando.setVisibility(View.GONE);
                                 String erroExcecao = "";
 
                                 try {
@@ -546,6 +541,8 @@ public class CadastroUsuario extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
 
+
+                                progressBar();
                                 progressBar.setVisibility(View.GONE);
                                // fundo.setVisibility(View.GONE);
                                 criando.setVisibility(View.GONE);
@@ -616,13 +613,6 @@ public class CadastroUsuario extends AppCompatActivity {
                     });
 
         }
-
-
-
-
-
-
-
 
 
 
@@ -720,6 +710,14 @@ public class CadastroUsuario extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
+
+
     public void progressBar(){
 
 
@@ -755,7 +753,7 @@ public class CadastroUsuario extends AppCompatActivity {
                 }finally {
 
 
-                    Toast.makeText(CadastroUsuario.this, "Tudo pronto", Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(CadastroUsuario.this, "Tudo pronto", Toast.LENGTH_SHORT).show();
 
 
 
@@ -771,8 +769,6 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 
 
-
-
     public void updateProgress(final int timePassed){
 
         if (null !=progressBar){
@@ -780,9 +776,20 @@ public class CadastroUsuario extends AppCompatActivity {
             final int progress = progressBar.getMax() * timePassed /TIMER_RUNTINME;
             progressBar.setProgress(progress);
 
-            }
+        }
 
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
     private void opcaoCidadao() {
@@ -851,9 +858,6 @@ public class CadastroUsuario extends AppCompatActivity {
         }
 
     }
-
-
-
 
 
 }

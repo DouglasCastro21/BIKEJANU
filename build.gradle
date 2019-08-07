@@ -19,7 +19,7 @@ buildscript {
 
 
 
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.4.2'
         // classpath 'com.android.tools.build:gradle:3.4.1'
         // classpath 'com.android.tools.build:gradle:3.1.0'
         classpath 'com.google.gms:google-services:4.0.0'
@@ -46,3 +46,4 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+

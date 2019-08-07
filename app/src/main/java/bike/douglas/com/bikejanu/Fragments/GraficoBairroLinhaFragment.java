@@ -2,7 +2,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -96,16 +99,16 @@ public class GraficoBairroLinhaFragment extends Fragment {
 
 
 
-    int qtdAlvoradaFurto2019=0;
-    int qtdBoaEsperancaFurto2019=0;
-    int qtdBomJardimFurto2019=0;
-    int qtdCentroFurto2019=0;
-    int qtdCeramicaFurto2019=0;
-    int qtdJadeteFurto2019=0;
-    int qtdJatobaFurto2019=0;
-    int qtdMangueirasFurto2019=0;
+      int qtdAlvoradaFurto2019  = 1;
+    int qtdBoaEsperancaFurto2019= 1;
+    int qtdBomJardimFurto2019 =0;
+    int qtdCentroFurto2019=32;
+    int qtdCeramicaFurto2019=3;
+    int qtdJadeteFurto2019=1;
+    int qtdJatobaFurto2019=1;
+    int qtdMangueirasFurto2019=2;
     int qtdBandeirantesFurto2019=0;
-    int qtdJussaraFurto2019=0;
+    int qtdJussaraFurto2019=2;
     int qtdLevianopolisFurto2019=0;
 
 
@@ -233,7 +236,7 @@ public class GraficoBairroLinhaFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
 
-                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.conteinerFragmentos,new GraficoBairroLinhaGeralFragment()).commit();
 

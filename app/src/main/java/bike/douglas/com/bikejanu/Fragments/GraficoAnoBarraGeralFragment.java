@@ -2,11 +2,14 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -32,8 +35,10 @@ import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import bike.douglas.com.bikejanu.Model.Bike;
@@ -48,11 +53,12 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
     int  ano ;
     int contandoBikesAnoFurtosRoubos2018=0;
-    int contandoBikesFurtosRoubosAno2019=0;
+    int contandoBikesFurtosRoubosAno2019=56;
+    int contandoBikesFurtosRoubosAno2020=0;
 
 
 
-
+    String data_ano;
 
     private BarChart barChart;
 
@@ -89,6 +95,28 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");
+
+
+        Date data = new Date();
+
+        Calendar  cal = Calendar.getInstance();
+        cal.setTime(data);
+
+        final Date data_atual = cal.getTime();
+
+        data_ano = dateFormat.format(data_atual);
+
+
+
+
+
+
+
+
+        graficoANOS();
+
+
 
 
 
@@ -97,7 +125,7 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
 
-                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.conteinerFragmentos,new GraficoAnoBarraFragment()).commit();
 
@@ -164,6 +192,24 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
                     }
+
+
+
+                    if(data_ano.equals("2020")){
+
+                        if (anoDeBusca.contains("2020") && (b.getStatus().equals("Furtada")||b.getStatus().equals("Roubada"))){
+
+                            contandoBikesFurtosRoubosAno2020++;
+
+
+                        }
+
+
+
+
+                    }
+
+
 
 
                     graficoANOS();
@@ -348,25 +394,58 @@ public class GraficoAnoBarraGeralFragment extends Fragment {
 
 
 
-    public void     graficoANOS(){
+    public void     graficoANOS() {
 
-        String[] bairros   = new String[]{"2018","2019"};
-        int[]    rob = new int   []{131,contandoBikesFurtosRoubosAno2019};
-        int []   cor   = new int   []{Color.RED};
+
+
+        if(data_ano.equals("2019")){
+
+        String[] bairros = new String[]{"2018", "2019"};
+        int[] rob = new int[]{131, contandoBikesFurtosRoubosAno2019};
+        int[] cor = new int[]{Color.RED};
         String[] leg = new String[]{"Furto/Roubo"};
 
 
-
-
-        nomes    = bairros;
-        roubos   = rob;
-        cores    = cor;
-        legenda  = leg;
-
-
+        nomes = bairros;
+        roubos = rob;
+        cores = cor;
+        legenda = leg;
 
 
         criarGraficos();
+
+    }
+
+
+
+        if(data_ano.equals("2020")){
+
+
+
+            String[] bairros   = new String[]{"2018","2019","2020"};
+            int[]    rob = new int   []{131,contandoBikesFurtosRoubosAno2019,contandoBikesFurtosRoubosAno2020};
+            int []   cor   = new int   []{Color.RED};
+            String[] leg = new String[]{"Furto/Roubo"};
+
+
+
+
+            nomes    = bairros;
+            roubos   = rob;
+            cores    = cor;
+            legenda  = leg;
+
+
+
+
+            criarGraficos();
+
+
+        }
+
+
+
+
 
 
     }

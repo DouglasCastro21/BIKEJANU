@@ -2,7 +2,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -79,16 +82,16 @@ public class GraficoBairroBarraGeralFragment extends Fragment {
 
 
 
-    int qtdAlvoradaFurtoRoubo2019 =0;
-    int qtdBoaEsperancaFurtoRoubo2019 =0;
+    int qtdAlvoradaFurtoRoubo2019 =1;
+    int qtdBoaEsperancaFurtoRoubo2019 =1;
     int qtdBomJardimFurtoRoubo2019 =0;
-    int qtdCentroFurtoRoubo2019 =0;
-    int qtdCeramicaFurtoRoubo2019 =0;
-    int qtdJadeteFurtoRoubo2019 =0;
-    int qtdJatobaFurtoRoubo2019 =0;
-    int qtdMangueirasFurtoRoubo2019 =0;
+    int qtdCentroFurtoRoubo2019 =32;
+    int qtdCeramicaFurtoRoubo2019 =3;
+    int qtdJadeteFurtoRoubo2019 =1;
+    int qtdJatobaFurtoRoubo2019 =1;
+    int qtdMangueirasFurtoRoubo2019 =2;
     int qtdBandeirantesFurtosRoubo2019 =0;
-    int qtdJussaraFurtoRoubo2019 =0;
+    int qtdJussaraFurtoRoubo2019 =2;
     int qtdLevianopolisFurtoRoubo2019 =0;
 
 
@@ -193,7 +196,7 @@ public class GraficoBairroBarraGeralFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
 
-                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.conteinerFragmentos,new GraficoBairroBarraFragment()).commit();
 

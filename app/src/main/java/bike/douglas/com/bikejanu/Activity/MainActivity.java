@@ -1,11 +1,13 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,8 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
 import bike.douglas.com.bikejanu.Fragments.AreaUsuario;
 import bike.douglas.com.bikejanu.Fragments.Consultar_Bike;
-import bike.douglas.com.bikejanu.Fragments.Galeria_Bike;
+
 import bike.douglas.com.bikejanu.Fragments.Entrar;
+
 import bike.douglas.com.bikejanu.R;
 
 
@@ -85,9 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                   startActivity(new Intent(MainActivity.this, Estatisticas.class));
-
 
 
             }

@@ -2,7 +2,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -179,6 +182,9 @@ public class GraficoRuaBarraFragment extends Fragment {
     int contandoRuaJoaoAlkimimJadeteFurto2018 =0;
     int contandoTvVianaJadeteFurto2018=0;
 
+
+
+
     // variaveis do bairro jussara ,ruas   ano 2019
     int contandoRuaRamiroLeiteJadeteRouboAno2019 =0;
     int contandoRuaAlameidaVianaJadeteRouboAno2019 =0;
@@ -252,11 +258,13 @@ public class GraficoRuaBarraFragment extends Fragment {
     int contandoAvQuatroAltoPocoesRoubo2018=0;
     int contandoAvCincoAltoPocoesRoubo2018=0;
 
+
+
     int contandoRuaUmAltoPocoesFurto2019=0;
     int contandoRuaDoisAltoPocoesFurto2019=0;
     int  contandoRuaTresAltoPocoesFurto2019=0;
     int contandoRuaQuatroAltoPocoesFurto2019=0;
-    int contandoRuaCincoAltoPocoesFurto2019=0;
+    int contandoRuaCincoAltoPocoesFurto2019=1;
     int  contandoAvUmAltoPocoesFurto2019=0;
     int contandoAvDoisRuaAltoPocoesFurto2019=0;
     int contandoAvTresAltoPocoesFurto2019=0;
@@ -619,6 +627,10 @@ public class GraficoRuaBarraFragment extends Fragment {
     int contandoRuaPiraporaVilaBrasilandiaRoubo2018=0;
     int contandoRuaSaoLuizVilaBrasilandiaRoubo2018=0;
 
+
+
+
+
     int contandoRuaUmVilaBrasilandiaFurto2019=0;
     int contandoRuaDoisVilaBrasilandiaFurto2019=0;
     int contandoRuaTresVilaBrasilandiaFurto2019=0;
@@ -767,16 +779,21 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
+
     int contandoArturBernardesCentroFurto2019=0;
     int contandoBaraoSaoRomaoCentroFurto2019=0;
     int contandoBaraoRioBrancoCentroFurto2019=0;
-    int contandoConegoRamiroLeiteCentroFurto2019=0;
-    int contandoCelCassianoCentroFurto2019=0;
-    int contandoCelSerraoCentroFurto2019=0;
-    int contandoDomDanielCentroFurto2019=0;
+    int contandoConegoRamiroLeiteCentroFurto2019=3;
+    int contandoCelCassianoCentroFurto2019=7;
+    int contandoCelSerraoCentroFurto2019=5;
+    int contandoDomDanielCentroFurto2019=1;
     int contandoGetulioVargasCentroFurto2019=0;
-    int contandoPadreHenriqueCentroFurto2019=0;
+    int contandoPadreHenriqueCentroFurto2019=1;
     int contandoPracaTiradentesCentroFurto2019=0;
+
+
+
+
 
     int contandoArturBernardesCentroRoubo2019=0;
     int contandoBaraoSaoRomaoCentroRoubo2019=0;
@@ -846,7 +863,7 @@ public class GraficoRuaBarraFragment extends Fragment {
     int contandoRuaAterroCeramicaFurto2019=0;
     int contandoRuaBrasiliaMinasCeramicaFurto2019=0;
     int contandoRuaItacarambiCeramicaFurto2019=0;
-    int contandoRuaItapiracabaCeramicaFurto2019=0;
+    int contandoRuaItapiracabaCeramicaFurto2019=2;
     int contandoRuaMangaCeramicaFurto2019=0;
     int contandoRuaMontesClarosCeramicaFurto2019=0;
     int contandoRuaMontalvaniaCeramicaFurto2019=0;
@@ -1195,12 +1212,12 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
     int contandoRuaUmJussaraFurto2019=0;
-    int contandoRuaDoisJussaraFurto2019=0;
+    int contandoRuaDoisJussaraFurto2019=1;
     int contandoRuaTresJussaraFurto2019=0;
     int contandoRuaQuatroJussaralFurto2019=0;
     int contandoRuaCincoJussaraFurto2019=0;
     int contandoRuaSeisJussaraFurto2019=0;
-    int contandoRuaSeteJussaraFurto2019=0;
+    int contandoRuaSeteJussaraFurto2019=1;
     int contandoRuaOitoJussaraFurto2019=0;
     int contandoRuaNoveJussaraFurto2019=0;
     int contandoRuaDezJussaraFurto2019=0;
@@ -2133,9 +2150,6 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-
-
-
         barChart =  (BarChart) rootView.findViewById(R.id.graficoRuaBarra);
         String[] countries =  getResources().getStringArray(R.array.countries);
 
@@ -2144,6 +2158,10 @@ public class GraficoRuaBarraFragment extends Fragment {
 
         autoCompletegraficoRuaBarra.setAdapter(adapter);
         autoComplete = autoCompletegraficoRuaBarra.getAdapter().toString();
+
+
+
+
 
 
 
@@ -2176,10 +2194,6 @@ public class GraficoRuaBarraFragment extends Fragment {
                     //procura as ruas ...
 
                     // todos os anos
-
-
-
-
 
 
 
@@ -3505,8 +3519,6 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
-
-
                          ///  opção spinner  todos
 ////                    /////////
                            if (autoCompletegraficoRuaBarra.getText().toString().equals("Aeroporto")){
@@ -4649,10 +4661,9 @@ public class GraficoRuaBarraFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
 
-                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.conteinerFragmentos,new GraficoRuaBarraGeralFragment()).commit();
-
 
 
                 return false;
@@ -5303,6 +5314,7 @@ public class GraficoRuaBarraFragment extends Fragment {
 
 
 
+        centroTodosAnos();
 
         return rootView;
 

@@ -2,7 +2,7 @@ package bike.douglas.com.bikejanu.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -78,10 +81,10 @@ public class GraficoHorarioAnoGeralFragment extends Fragment {
     private  int tarde2018=44;
     private  int noite2018=35;
 
-    private  int madrugada2019=0;
-    private  int manha2019=0;
-    private  int tarde2019=0;
-    private  int noite2019=0;
+    private  int madrugada2019=4;
+    private  int manha2019=21;
+    private  int tarde2019=19;
+    private  int noite2019=12;
 
 
 
@@ -188,13 +191,14 @@ public class GraficoHorarioAnoGeralFragment extends Fragment {
             @Override
             public boolean onLongClick(View v) {
 
-                final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioAnoFragment()).commit();
+                transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioAnoGeralFragment()).commit();
 
 
 
                 return false;
+
             }
         });
 

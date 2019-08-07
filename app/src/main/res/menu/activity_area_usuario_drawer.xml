@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
 
+    <group android:checkableBehavior="single">
 
 
         <item
@@ -18,39 +18,34 @@
 
 
         <item
-            android:id="@+id/nav_configuracao"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Configurações" />
-
-
-
-        <item
             android:id="@+id/nav_editar_perfil"
             android:icon="@drawable/ic_action_user"
             android:title="Editar Perfil" />
 
 
-
         <item
-        android:id="@+id/nav_sair"
-        android:icon="@drawable/ic_action_exit_black"
-        android:title="Sair" />
-
-
-
+            android:id="@+id/nav_sair"
+            android:icon="@drawable/ic_action_exit_black"
+            android:title="Sair" />
 
 
     </group>
 
     <group android:checkableBehavior="single">
 
-    <item
-        android:id="@+id/nav_excluir_usuario"
-        android:icon="@drawable/ic_delete_forever"
-        android:title="Excluir Conta" />
+        <item
+            android:id="@+id/nav_excluir_usuario"
+            android:icon="@drawable/ic_delete_forever"
+            android:title="Excluir Conta" />
 
-      </group>
 
+
+        <item
+            android:id="@+id/nav_politica_privacidade"
+            android:icon="@drawable/ic_action_document"
+            android:title="Política de privacidade" />
+
+    </group>
 
 
 </menu>

@@ -4,10 +4,10 @@ package bike.douglas.com.bikejanu.TutorialNotificacao;
 import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.FirebaseInstanceIdService;
+
 import com.google.firebase.messaging.FirebaseMessaging;
 
-public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService{
+public class MyFirebaseInstanceIDService {
 
 
     private static final String TAG = "mFirebaseIIDService";
@@ -18,7 +18,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService{
 
 
 
-    @Override
+
     public void onTokenRefresh() {
         /*
           This method is invoked whenever the token refreshes

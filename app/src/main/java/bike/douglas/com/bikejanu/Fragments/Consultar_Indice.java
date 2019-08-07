@@ -1,10 +1,12 @@
 package bike.douglas.com.bikejanu.Fragments;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.ImageView;
 
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import bike.douglas.com.bikejanu.R;
 
@@ -12,7 +14,7 @@ import bike.douglas.com.bikejanu.R;
 
 
 
-public class Consultar_Indice extends AppCompatActivity  {
+public class Consultar_Indice extends AppCompatActivity {
 
 
 private ImageView botaoGrafico;

@@ -2,11 +2,13 @@ package bike.douglas.com.bikejanu.Fragments;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
@@ -81,7 +83,7 @@ public class Imagem5 extends Fragment {
 
 
 
-                        Glide.with(Imagem5.this).load(dados.getFotoBikeUrl5()).into(imagemBike);
+                       Glide.with(Imagem5.this).load(dados.getFotoBikeUrl5()).into(imagemBike);
 
 
 

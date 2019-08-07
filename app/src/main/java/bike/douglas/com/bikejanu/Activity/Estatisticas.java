@@ -1,22 +1,26 @@
 package bike.douglas.com.bikejanu.Activity;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.navigation.NavigationView;
 
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoAnoLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoBairroLinhaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioAnoFragment;
-import bike.douglas.com.bikejanu.Fragments.GraficoHorarioAnoGeralFragment;
+
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioBarraFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioGeralPizzaFragment;
 import bike.douglas.com.bikejanu.Fragments.GraficoHorarioLinhaFragment;
@@ -79,7 +83,7 @@ public class Estatisticas extends AppCompatActivity
 
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -156,7 +160,7 @@ public class Estatisticas extends AppCompatActivity
 
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+       FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         int idMenu = item.getItemId();
 
@@ -282,18 +286,6 @@ public class Estatisticas extends AppCompatActivity
 
 
 
-        if( resposta == 6  ){
-
-
-
-            transaction.replace(R.id.conteinerFragmentos, new GraficoHorarioAnoFragment()).commit();
-
-
-
-
-        }
-
-
 
 
 
@@ -315,7 +307,7 @@ public class Estatisticas extends AppCompatActivity
 
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         int  id = item.getItemId();
 

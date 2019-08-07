@@ -1,6 +1,6 @@
 package bike.douglas.com.bikejanu.Activity;
 
-import android.app.Activity;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,20 +12,23 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
+
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -37,7 +40,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import bike.douglas.com.bikejanu.Fragments.Tab2Cadastrar;
+
 import bike.douglas.com.bikejanu.R;
 
 public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallback,android.location.LocationListener,GoogleMap.OnMapClickListener,
@@ -71,10 +74,13 @@ public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps2);
+
+
+
    //    Obtain the SupportMapFragment and gee notified when the map is ready to be used.
-       SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-              .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+      // MapFragment mapFragment = (MapFragment) getFragmentManager()
+          //    .findFragmentById(R.id.map);
+        //mapFragment.getMapAsync(this);
         startGettingLocations();
 
 

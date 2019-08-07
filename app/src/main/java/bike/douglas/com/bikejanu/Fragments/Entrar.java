@@ -1,16 +1,17 @@
 package bike.douglas.com.bikejanu.Fragments;
 
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -21,23 +22,18 @@ import bike.douglas.com.bikejanu.R;
 
 public class Entrar extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+
+
+
+
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private FirebaseAuth autenticacao;
 
 
 
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
+
     private ViewPager mViewPager;
 
     @Override
@@ -88,6 +84,7 @@ public class Entrar extends AppCompatActivity {
                 case 1:
                     Tab2Cadastrar tab2 = new Tab2Cadastrar();
                     return tab2;
+
                 default:
                     return null;
             }

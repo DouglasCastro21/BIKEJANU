@@ -6,20 +6,14 @@ import android.app.TimePickerDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
-
-import android.graphics.Bitmap;
 import android.net.Uri;
 
-import android.os.Handler;
 
 import com.bumptech.glide.Glide;
 import android.provider.MediaStore;
 
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
@@ -37,11 +31,16 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -55,16 +54,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import com.squareup.picasso.Picasso;
 
-
-import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+
 
 
 import bike.douglas.com.bikejanu.DAO.Configuracao_Firebase;
@@ -77,7 +71,7 @@ import bike.douglas.com.bikejanu.R;
 
 
 
-public class CadastroBike extends AppCompatActivity  {
+public class CadastroBike extends AppCompatActivity {
 
 
 
@@ -171,17 +165,115 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-    private static  final int TIMER_RUNTINME = 300000;
+    private static  final int TIMER_RUNTINME = 200000;
     private boolean mbActive;
     private ProgressBar progressBar;
-    DatabaseReference databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
+
+    DatabaseReference databaseReferenceUsuario;
 
 
+    private String marcasBike[] = new String[] {"ABBA",
+            "ALFAMEQ",
+            "APPLE",
+            "ATHOR",
+            "AVALANCH",
+            "AZONIC",
+            "BANDEIRANTE",
+            "BIANCHI",
+            "BIOBIKE",
+            "BLITZ",
+            "BMC",
+            "CAIRU",
+            "CALESITA",
+            "CALOI",
+            "COLLI BIKES",
+            "COLNAGO",
+            "CONFORT",
+            "DALANNIO BIKE",
+            "DROPBOARDS",
+            "DUOS BIKES",
+            "DURBAN",
+            "ESSENCIAL",
+            "FERRARI",
+            "FIRMSTRONG",
+            "FIRST",
+            "FIRST BIKE",
+            "FISCHER",
+            "FISHER PRICE",
+            "FOFFA",
+            "FRAIDA",
+            "FREE ACTION",
+            "GALO",
+            "GAMA BIKES",
+            "GARELLI",
+            "GIANT",
+            "GIOS",
+            "GONEW",
+            "GÖRICKE",
+            "GROOVE",
+            "GT",
+            "GTA BIKE",
+            "GTSM1",
+            "HOUSTON",
+            "IGITOP",
+            "JEEP",
+            "KAMI BIKES",
+            "KLS",
+            "KODE",
+            "KSW",
+            "LIKE",
+            "LINUS",
+            "MA.GI.AS ITALIANE",
+            "MALAGA",
+            "MASTER BIKE",
+            "MAZZA BIKES",
+            "MERIDA",
+            "MONARK",
+            "MONGOOSE",
+            "MORMAII",
+            "MULTILASER ÁTRIO",
+            "MUVIN",
+            "MYMAX",
+            "NATHOR",
+            "NIRVE",
+            "OGGI",
+            "ORBEA",
+            "ÓRBITA",
+            "OXER",
+            "POLIMET",
+            "PRO X BIKE",
+            "REEBOK",
+            "RINO",
+            "SCHWINN",
+            "SCOOTER BRASIL",
+            "SENSE",
+            "SIRLA",
+            "SOUL",
+            "SOUTH BIKE",
+            "STATUS BIKE",
+            "STONE BIKE",
+            "STRIDER",
+            "STYLLBABY",
+            "SUTTON",
+            "TECBIKE",
+            "TITO",
+            "TOTEM",
+            "TRACK & BIKES",
+            "TRAKS",
+            "TREME TERRA",
+            "TRINX",
+            "TSW",
+            "TWODOGS",
+            "ULTRA BIKES",
+            "VALDO BIKE",
+            "VENZO",
+            "VERDEN BIKES",
+            "VIKINGX",
+            "WENDY BIKE",
+            "XS BIKE",
+            "OUTRA"};
 
 
-
-
-    private String marcasBike[] = new String[] {"BIANCHI","COLNAGO","CALOY","DROPP ","GARELLI","GALO","HOUSTON","KSW","GÖRICKE","MONARK","MALAGA","ORBEA","ÓRBITA","SIRLA","SOUTH","SUTTON","OUTRA"};
     private Spinner spinner;
 
     @SuppressLint("WrongViewCast")
@@ -193,14 +285,16 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
+        FirebaseApp.initializeApp(this);
+
+
+        databaseReferenceUsuario = FirebaseDatabase.getInstance().getReference();
         storageReference = FirebaseStorage.getInstance().getReference("ImagensBikes");
 
 
 
 
-
         /// da imagem
-
 
 
 
@@ -284,6 +378,16 @@ public class CadastroBike extends AppCompatActivity  {
 
                 caixaDialogoNumeroQUadro();
 
+
+            }
+        });
+
+
+        modelo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                caixaDialogoModelo();
 
             }
         });
@@ -611,7 +715,7 @@ public class CadastroBike extends AppCompatActivity  {
                             && !alertaDate.getText().toString().equals("")&& !alertaHora.getText().toString().equals("")) {
 
 
-                        if(uriImagem1 != null ){
+                        if(uriImagem1 != null  ||  uriImagem2 != null || uriImagem3 != null   ){
 
                           progressBar();
 
@@ -634,7 +738,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                         }else{
 
-                            Toast.makeText(CadastroBike.this, "Adicione a primeira imagem da bicicleta,ela será o imagem de perfil", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastroBike.this, "Adicione  imagens da sua bicicleta", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -687,7 +791,7 @@ public class CadastroBike extends AppCompatActivity  {
 
 
 
-                        if(uriImagem1 != null ){
+                        if(uriImagem1 != null || uriImagem2 != null || uriImagem3 != null  ){
 
                              progressBar();
 
@@ -710,7 +814,7 @@ public class CadastroBike extends AppCompatActivity  {
 
                         }else{
 
-                            Toast.makeText(CadastroBike.this, "Adicione a primeira imagem da bicicleta,ela será o imagem de perfil", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastroBike.this, "Adicione  imagens da  sua bicicleta.", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -888,6 +992,44 @@ private void abrirAreaUsuario(){
     }
 
 
+    private void caixaDialogoModelo(){
+
+        AlertDialog.Builder alertaDialog = new AlertDialog.Builder(CadastroBike.this);
+
+        // configurando dialogo
+
+        alertaDialog.setTitle("Atenção");
+
+
+        alertaDialog.setMessage("Verifique o modelo de sua bicicleta na nota fiscal da mesma.");
+        // alertaDialog.setCancelable(false);
+
+
+        //conf botões
+        alertaDialog.setPositiveButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+            }
+        });
+
+        alertaDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertaDialog.create();
+        alertaDialog.show();
+    }
+
+
+
+
+
     private void caixaDialogoNumeroQUadro(){
 
         AlertDialog.Builder alertaDialog = new AlertDialog.Builder(CadastroBike.this);
@@ -926,14 +1068,18 @@ private void abrirAreaUsuario(){
 
 
 
+
+
+
+
     private void inicializarElementos(){
 
         bike = new Bike();
         localBikesMaps = new LocalBikesMaps();
-        bike.setNumero_serie(numero_serie.getText().toString());
+        bike.setNumero_serie(numero_serie.getText().toString().toUpperCase());
         bike.setMarca(spinner.getSelectedItem().toString());
-        bike.setModelo(modelo.getText().toString());
-        bike.setCor(cor.getText().toString());
+        bike.setModelo(modelo.getText().toString().toUpperCase());
+        bike.setCor(cor.getText().toString().toUpperCase());
         bike.setDescricao(descricao.getText().toString());
 
         bike.setFotoBikeUrl1(url);
@@ -1018,7 +1164,7 @@ private void abrirAreaUsuario(){
 
 
 
-        bike.setBoletim(Boletim.getText().toString());
+        bike.setBoletim(Boletim.getText().toString().toUpperCase());
         bike.setAlertaDescricao(alertaDescricao.getText().toString());
         bike.setStatus(status.getText().toString());
 

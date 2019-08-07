@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
@@ -54,6 +57,7 @@ import bike.douglas.com.bikejanu.R;
 public class GraficoHorarioBarraFragment extends Fragment {
 
     String anoProcura2019 = "2019";
+
 
 
 
@@ -182,7 +186,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteAltoPocoesRoubo2018=0;
 
 
-    int madrugadaAltoPocoesFurto2019=0;
+    int madrugadaAltoPocoesFurto2019=1;
     int manhaAltoPocoesFurto2019=0;
     int tardeAltoPocoesFurto2019=0;
     int noiteAltoPocoesFurto2019=0;
@@ -220,8 +224,8 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     int madrugadaAlvoradaFurto2019=0;
     int manhaAlvoradaFurto2019=0;
-    int tardeAlvoradaFurto2019=0;
-    int noiteAlvoradaFurto2019=0;
+    int tardeAlvoradaFurto2019=1;
+    int noiteAlvoradaFurto2019=1;
 
     int madrugadaAlvoradaRoubo2019=0;
     int manhaAlvoradaRoubo2019=0;
@@ -292,7 +296,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
     int madrugadaBoaEsperancaFurto2019=0;
-    int manhaBoaEsperancaFurto2019=0;
+    int manhaBoaEsperancaFurto2019=1;
     int tardeBoaEsperancaFurto2019=0;
     int noiteBoaEsperancaFurto2019=0;
 
@@ -368,7 +372,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int madrugadaVilaBrasilandiaFurto2019=0;
     int manhaVilaBrasilandiaFurto2019=0;
     int tardeVilaBrasilandiaFurto2019=0;
-    int noiteVilaBrasilandiaFurto2019=0;
+    int noiteVilaBrasilandiaFurto2019=1;
 
     int madrugadaVilaBrasilandiaRoubo2019=0;
     int manhaVilaBrasilandiaRoubo2019=0;
@@ -420,7 +424,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int madrugadaCentroFurto=0;
     int manhaCentroFurto=0;
     int tardeCentroFurto=0;
-    int noiteCentroFurto=0;
+    int noiteCentroFurto=6;
 
     int madrugadaCentroRoubo=0;
     int manhaCentroRoubo=0;
@@ -437,12 +441,12 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int madrugadaCentroRoubo2018=0;
     int manhaCentroRoubo2018=0;
     int tardeCentroRoubo2018=0;
-    int noiteCentroRoubo2018=2;
+    int noiteCentroRoubo2018=0;
 
-    int madrugadaCentroFurto2019=0;
-    int manhaCentroFurto2019=0;
-    int tardeCentroFurto2019=0;
-    int noiteCentroFurto2019=0;
+    int madrugadaCentroFurto2019=2;
+    int manhaCentroFurto2019=14;
+    int tardeCentroFurto2019=10;
+    int noiteCentroFurto2019=6;
 
     int madrugadaCentroRoubo2019=0;
     int manhaCentroRoubo2019=0;
@@ -476,8 +480,8 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteCeramicaRoubo2018=0;
 
     int madrugadaCeramicaFurto2019=0;
-    int manhaCeramicaFurto2019=0;
-    int tardeCeramicaFurto2019=0;
+    int manhaCeramicaFurto2019=1;
+    int tardeCeramicaFurto2019=2;
     int noiteCeramicaFurto2019=0;
 
     int madrugadaCeramicaRoubo2019=0;
@@ -519,7 +523,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
     int madrugadaEldoradoRoubo2019=0;
     int manhaEldoradoRoubo2019=0;
-    int tardeEldoradoRoubo2019=0;
+    int tardeEldoradoRoubo2019=1;
     int noiteEldoradoRoubo2019=0;
 
 //---
@@ -657,9 +661,9 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int tardeJussaraRoubo2018=0;
     int noiteJussaraRoubo2018=0;
 
-    int madrugadaJussaraFurto2019=0;
+    int madrugadaJussaraFurto2019=1;
     int manhaJussaraFurto2019=0;
-    int tardeJussaraFurto2019=0;
+    int tardeJussaraFurto2019=1;
     int noiteJussaraFurto2019=0;
 
     int madrugadaJussaraRoubo2019=0;
@@ -730,8 +734,8 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
     int madrugadaQuintasMangueirasFurto2019=0;
-    int manhaQuintasMangueirasFurto2019=0;
-    int tardeQuintasMangueirasFurto2019=0;
+    int manhaQuintasMangueirasFurto2019=1;
+    int tardeQuintasMangueirasFurto2019=1;
     int noiteQuintasMangueirasFurto2019=0;
 
     int madrugadaQuintasMangueirasRoubo2019=0;
@@ -1132,7 +1136,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int madrugadaVilaVianaFurto2019=0;
     int manhaVilaVianaFurto2019=0;
     int tardeVilaVianaFurto2019=0;
-    int noiteVilaVianaFurto2019=0;
+    int noiteVilaVianaFurto2019=1;
 
     int madrugadaVilaVianaRoubo2019=0;
     int manhaVilaVianaRoubo2019=0;
@@ -1163,7 +1167,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
     int noiteVilaJadeteRoubo2018=0;
 
     int madrugadaVilaJadeteFurto2019=0;
-    int manhaVilaJadeteFurto2019=0;
+    int manhaVilaJadeteFurto2019=1;
     int tardeVilaJadeteFurto2019=0;
     int noiteVilaJadeteFurto2019=0;
 
@@ -1185,22 +1189,35 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
         inicializarFirebase();
 
-        String[] countries = getResources().getStringArray(R.array.countries);
+       String[] countries = getResources().getStringArray(R.array.countries);
 
 
-        //carrega os spinner
+        //carrega os auto complete
         final AutoCompleteTextView autoCompletegraficoRuaBarra = rootView.findViewById(R.id.autocompletegraficoruabarrageral);
+
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(GraficoHorarioBarraFragment.super.getContext(), android.R.layout.simple_spinner_dropdown_item, countries);
 
         autoCompletegraficoRuaBarra.setAdapter(adapter);
         autoComplete = autoCompletegraficoRuaBarra.getAdapter().toString();
 
-        spinnerImagem = (ImageView) rootView.findViewById(R.id.imageViewSpinnerID);
-        spinner = (Spinner) rootView.findViewById(R.id.spinnerID);
-        spinner.setAdapter(adapter);
+
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 
-        final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         Query query;
@@ -2507,6 +2524,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
                     });
 
 
+
                     //carrega os spinner
                     final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(GraficoHorarioBarraFragment.super.getContext(), android.R.layout.simple_spinner_dropdown_item, camposSpinner);
                     arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -2515,6 +2533,8 @@ public class GraficoHorarioBarraFragment extends Fragment {
                     spinnerImagem = (ImageView) rootView.findViewById(R.id.imageViewSpinnerID);
                     spinner = (Spinner) rootView.findViewById(R.id.spinnerID);
                     spinner.setAdapter(arrayAdapter);
+
+
 
 
                     spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -2526,7 +2546,6 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
                                 /////todos os anos e bairros
                                 // posicion 0  todos os anos
-
 
                                 spinnerCorrente = 0;
 
@@ -3634,7 +3653,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
                     barChart.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View v) {
-                            final android.support.v4.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            final FragmentTransaction transaction = getFragmentManager().beginTransaction();
                             transaction.replace(R.id.conteinerFragmentos,new GraficoHorarioGeralBarraFragment()).commit();
                             return false;
                         }
@@ -4003,7 +4022,7 @@ public class GraficoHorarioBarraFragment extends Fragment {
 
 
 
-
+       // centroTodosAnos();
 
 
 
